@@ -11,7 +11,9 @@ class Place
   field :status, type: String
   field :coordinates, type: Point
   slug :name
+  # Relations
   belongs_to :user
+  has_many :items
 
   aasm column: :status do
     state :pending, initial: true

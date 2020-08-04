@@ -1,7 +1,7 @@
 class PlacesController < ApplicationController
   before_action :authenticate_user!, except: [:show]
   before_action :set_place, only: [:show, :edit, :update, :destroy]
-  before_action :validate_my_identity, except: [:show]
+  before_action :validate_my_identity, except: [:show,:new,:index]
   # GET /places
   # GET /places.json
   def index
