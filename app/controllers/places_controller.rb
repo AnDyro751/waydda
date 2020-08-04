@@ -1,11 +1,15 @@
 class PlacesController < ApplicationController
   before_action :authenticate_user!, except: [:show]
   before_action :set_place, only: [:show, :edit, :update, :destroy]
-  before_action :validate_my_identity, except: [:show,:new,:index]
+  before_action :validate_my_identity, except: [:show,:new,:index,:my_business]
+  before_action :set_my_place, only: [:my_place]
   # GET /places
   # GET /places.json
   def index
     @places = Place.all
+  end
+
+  def my_place
   end
 
   # GET /places/1
@@ -62,11 +66,19 @@ class PlacesController < ApplicationController
     end
   end
 
+
   private
+
+    def set_my_place
+      @place = current_user.places.first
+    end
 
     # Use callbacks to share common setup or constraints between actions.
     def set_place
       @place = Place.find(params[:id])
+      # TODO: Add 404 page
+      #render :file => "#{RAILS_ROOT}/public/404.html",  :status => 404
+      raise ActiveRecord::RecordNotFound if @place.nil?
     end
 
     def validate_my_identity
