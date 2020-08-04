@@ -1,7 +1,7 @@
 class PlacesController < ApplicationController
   before_action :authenticate_user!, except: [:show]
   before_action :set_place, only: [:show, :edit, :update, :destroy]
-
+  before_action :validate_my_identity, except: [:show]
   # GET /places
   # GET /places.json
   def index
@@ -63,12 +63,21 @@ class PlacesController < ApplicationController
   end
 
   private
+
     # Use callbacks to share common setup or constraints between actions.
     def set_place
       @place = Place.find(params[:id])
     end
 
-    # Only allow a list of trusted parameters through.
+    def validate_my_identity
+      unless @place.user === current_user
+        flash[:alert] = "No puedes acceder a este recurso"
+        redirect_to root_path #,status: :unprocessable_entity
+      end
+    end
+
+
+  # Only allow a list of trusted parameters through.
     def place_params
       params.require(:place).permit(:name, :address, :slug, :user_id, :status)
     end
