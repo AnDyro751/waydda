@@ -1,9 +1,13 @@
 class Dashboard::ItemsController < ApplicationController
+  layout "dashboard"
+  before_action :authenticate_user!
   before_action :set_item, only: [:show, :edit, :update, :destroy]
+  before_action :set_my_place
+
   # GET /items
   # GET /items.json
   def index
-    @items = Item.all
+    @items = @place.items
   end
 
   # GET /items/1
@@ -13,7 +17,7 @@ class Dashboard::ItemsController < ApplicationController
 
   # GET /items/new
   def new
-    @item = Item.new
+    @item = @place.items.new
   end
 
   # GET /items/1/edit
@@ -23,11 +27,11 @@ class Dashboard::ItemsController < ApplicationController
   # POST /items
   # POST /items.json
   def create
-    @item = Item.new(item_params)
+    @item = @place.items.new(item_params)
 
     respond_to do |format|
       if @item.save
-        format.html { redirect_to items_path(@place,@item), notice: 'Item was successfully created.' }
+        format.html { redirect_to dashboard_items_path, notice: 'Se ha creado el item' }
         format.json { render :show, status: :created, location: @item }
       else
         format.html { render :new }
@@ -65,6 +69,11 @@ class Dashboard::ItemsController < ApplicationController
     def set_item
       @item = Item.find(params[:id])
     end
+
+    def set_my_place
+      @place = current_user.places.first
+    end
+
     # Only allow a list of trusted parameters through.
     def item_params
       params.require(:item).permit(:name, :place_id)

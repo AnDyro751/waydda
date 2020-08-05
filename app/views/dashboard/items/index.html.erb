@@ -1,0 +1,15 @@
+<h1>Items</h1>
+
+<% if @items.length <= 0 %>
+  <h3>Aún no has agregado ningún item</h3>
+<% end %>
+<% if @items.length > 0 %>
+  <% @items.each do |item| %>
+    <% cache item do %>
+      <p>
+        <%= item.name %>
+      </p>
+    <% end %>
+  <% end %>
+<% end %>
+<%= link_to "Crear item", new_dashboard_item_path %>

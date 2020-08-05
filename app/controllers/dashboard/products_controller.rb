@@ -3,7 +3,7 @@ class Dashboard::ProductsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_my_place
   before_action :set_item, only: [:create]
-  before_action :set_product, only: [:show]
+  before_action :set_product, only: [:show,:edit,:update,:destroy]
   # GET /places
   # GET /places.json
   def index
@@ -46,8 +46,8 @@ class Dashboard::ProductsController < ApplicationController
   # PATCH/PUT /places/1.json
   def update
     respond_to do |format|
-      if @place.update(place_params)
-        format.html { redirect_to @place, notice: 'Place was successfully updated.' }
+      if @product.update(product_params)
+        format.html { redirect_to dashboard_product_path(@product), notice: 'Place was successfully updated.' }
         format.json { render :show, status: :ok, location: @place }
       else
         format.html { render :edit }
@@ -59,9 +59,9 @@ class Dashboard::ProductsController < ApplicationController
   # DELETE /places/1
   # DELETE /places/1.json
   def destroy
-    @place.destroy
+    @product.destroy
     respond_to do |format|
-      format.html { redirect_to places_url, notice: 'Place was successfully destroyed.' }
+      format.html { redirect_to dashboard_products_path, notice: 'Producto eliminado correctamente' }
       format.json { head :no_content }
     end
   end
