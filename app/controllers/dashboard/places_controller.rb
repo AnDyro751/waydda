@@ -1,4 +1,4 @@
-class Dashboard::PlacesController < ApplicationController
+class Dashboard::PlacesController < DashboardController
   before_action :authenticate_user!, except: [:show]
   before_action :set_my_place, only: [:my_place]
   # GET /places
@@ -40,6 +40,10 @@ class Dashboard::PlacesController < ApplicationController
 
     def set_my_place
       @place = current_user.places.first
+      if @place.nil?
+        flash[:notice] = "Crea un negocio"
+        redirect_to new_dashboard_place_path
+      end
     end
 
 

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+  <html>
+    <head>
+      <title>WayddaDev</title>
+      <%= csrf_meta_tags %>
+      <%= csp_meta_tag %>
+      <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+      <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    </head>
+
+  <body>
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
+    <ul>
+      <li>
+        <%= link_to "Dashboard", dashboard_path %>
+      </li>
+      <li>
+        <%= link_to "Mi negocio", dashboard_my_place_path %>
+      </li>
+      <li>
+        <%= link_to "Productos", dashboard_products_path %>
+      </li>
+      <li>
+        <%= link_to "Items", dashboard_items_path %>
+      </li>
+    </ul>
+
+    <%= yield %>
+  </body>
+</html>
