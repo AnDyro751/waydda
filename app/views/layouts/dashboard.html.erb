@@ -11,21 +11,27 @@
   <body>
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
-    <ul>
-      <li>
-        <%= link_to "Dashboard", dashboard_path %>
-      </li>
-      <li>
-        <%= link_to "Mi negocio", dashboard_my_place_path %>
-      </li>
-      <li>
-        <%= link_to "Productos", dashboard_products_path %>
-      </li>
-      <li>
-        <%= link_to "Items", dashboard_items_path %>
-      </li>
-    </ul>
-
-    <%= yield %>
+    <div class="grid grid-cols-12" >
+      <div class="col-span-2">
+        <ul>
+          <li>
+            <%= link_to "Dashboard", dashboard_path %>
+          </li>
+          <li>
+            <%= link_to "Mi negocio", dashboard_my_place_path %>
+          </li>
+          <li>
+            <%= link_to "Productos", dashboard_products_path %>
+          </li>
+          <li>
+            <%= link_to "Items", dashboard_items_path %>
+          </li>
+        </ul>
+      </div>
+      <div class="col-span-10">
+        <%= yield %>
+        <% console %>
+      </div>
+    </div>
   </body>
 </html>

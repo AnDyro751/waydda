@@ -1,0 +1,14 @@
+<h1>Mis productos</h1>
+<% if @products.length <= 0 %>
+  <h2>Aún no has agregado productos</h2>
+<% end %>
+<% if @products.length > 0 %>
+  <% @products.each do |product| %>
+    <% cache product do %>
+      <p>
+        <%= link_to product.name, dashboard_product_path(product) %>
+      </p>
+    <% end %>
+  <% end %>
+<% end %>
+<%= link_to "Agregar producto", new_dashboard_product_path %>

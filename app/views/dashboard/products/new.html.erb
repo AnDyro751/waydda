@@ -1,0 +1,9 @@
+<h1>Crear nuevo producto</h1>
+
+<%= simple_form_for(@product, url: dashboard_products_path) do |f| %>
+  <%= f.input :name %>
+  <%= f.input :description %>
+  <%= f.input :price %>
+  <%= f.input :item_id, collection: @place.items.map { |r| [r.name,r.id] },prompt: "Selecciona el item" %>
+  <%= f.button  :submit %>
+<% end %>

@@ -1,16 +1,15 @@
 class Dashboard::ProductsController < ApplicationController
-  before_action :authenticate_user!, except: [:show]
-  before_action :set_place, only: [:show, :edit, :update, :destroy]
-  before_action :validate_my_identity, except: [:show,:new,:index,:my_business]
-  before_action :set_my_place, only: [:my_place]
+  layout "dashboard"
+  before_action :authenticate_user!
+  before_action :set_my_place
+  before_action :set_item, only: [:create]
+  before_action :set_product, only: [:show]
   # GET /places
   # GET /places.json
   def index
-    @places = Place.all
+    @products = @place.products
   end
 
-  def my_place
-  end
 
   # GET /places/1
   # GET /places/1.json
@@ -19,7 +18,7 @@ class Dashboard::ProductsController < ApplicationController
 
   # GET /places/new
   def new
-    @place = Place.new
+    @product = @place.products.new
   end
 
   # GET /places/1/edit
@@ -29,15 +28,16 @@ class Dashboard::ProductsController < ApplicationController
   # POST /places
   # POST /places.json
   def create
-    @place = Place.new(place_params)
-    @place.user = current_user
+    @product = Product.new(product_params)
+    @product.item = @item
+    @product.place = @place
     respond_to do |format|
-      if @place.save
-        format.html { redirect_to @place, notice: 'Place was successfully created.' }
-        format.json { render :show, status: :created, location: @place }
+      if @product.save
+        format.html { redirect_to dashboard_product_path(@product), notice: 'Place was successfully created.' }
+        format.json { render :show, status: :created, location: @product }
       else
         format.html { render :new }
-        format.json { render json: @place.errors, status: :unprocessable_entity }
+        format.json { render json: @product.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -73,24 +73,17 @@ class Dashboard::ProductsController < ApplicationController
     @place = current_user.places.first
   end
 
-  # Use callbacks to share common setup or constraints between actions.
-  def set_place
-    @place = Place.find(params[:id])
-    # TODO: Add 404 page
-    #render :file => "#{RAILS_ROOT}/public/404.html",  :status => 404
-    raise ActiveRecord::RecordNotFound if @place.nil?
+  def set_item
+    @item = Item.find_by(place: @place,id: params["product"]["item_id"])
+    raise ActiveRecord::RecordNotFound if @item.nil?
   end
 
-  def validate_my_identity
-    unless @place.user === current_user
-      flash[:alert] = "No puedes acceder a este recurso"
-      redirect_to root_path #,status: :unprocessable_entity
-    end
+  def set_product
+    @product = Product.find(params["id"])
+    raise ActiveRecord::RecordNotFound if @product.nil? || @product.place_id != @place.id
   end
-
-
   # Only allow a list of trusted parameters through.
-  def place_params
-    params.require(:place).permit(:name, :address, :slug, :user_id, :status)
+  def product_params
+    params.require(:product).permit(:name, :description, :price, :aggregates_required, :max_aggregates, :photo,:item_id)
   end
 end

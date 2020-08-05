@@ -1,4 +1,5 @@
-class Dashboard::PlacesController < DashboardController
+class Dashboard::PlacesController < ApplicationController
+  layout "dashboard"
   before_action :authenticate_user!, except: [:show]
   before_action :set_my_place, only: [:my_place]
   # GET /places
