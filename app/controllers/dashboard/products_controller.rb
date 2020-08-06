@@ -4,7 +4,6 @@ class Dashboard::ProductsController < ApplicationController
   before_action :set_my_place
   before_action :set_item, only: [:create]
   before_action :set_product, only: [:show,:edit,:update,:destroy]
-  before_action :set_s3_direct_post, only: [:new, :edit, :create, :update]
 
   # GET /places
   # GET /places.json
@@ -85,13 +84,8 @@ class Dashboard::ProductsController < ApplicationController
     @product = Product.find(params["id"])
     raise ActiveRecord::RecordNotFound if @product.nil? || @product.place_id != @place.id
   end
-  def set_s3_direct_post
-    @presign_data = Shrine.storages[:cache].presign(
-        SecureRandom.hex,
-        success_action_redirect: new_dashboard_product_path
-    )
-    # @s3_direct_post = S3_BUCKET.presigned_post(key: "uploads/#{SecureRandom.uuid}/${filename}", success_action_status: '201')
-  end
+
+
   # Only allow a list of trusted parameters through.
   def product_params
     params.require(:product).permit(:name, :description, :price, :aggregates_required, :max_aggregates,:item_id)

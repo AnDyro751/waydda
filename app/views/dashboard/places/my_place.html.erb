@@ -1,3 +1,5 @@
+<%= react_component('dashboard/DashboardPlacePresentation', {image: get_image_url(50, 50, @place.photo)}, {prerender: true}) %>
+<%= image_tag(get_image_url(50, 50, @place.photo)) %>
 <p>
   <strong>Name:</strong>
   <%= @place.name %>

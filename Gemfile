@@ -22,7 +22,6 @@ gem 'jbuilder', '~> 2.7'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
-
 gem 'bcrypt', '~> 3.1.7'
 gem 'mongoid'
 gem 'rolify'
@@ -36,10 +35,8 @@ gem 'rack-cors'
 gem 'rqrcode'
 gem 'devise'
 gem 'simple_form'
-gem "shrine", "~> 3.0"
 gem "aws-sdk-s3", "~> 1.14"
-gem "image_processing"
-gem "fastimage"
+gem 'react-rails'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]

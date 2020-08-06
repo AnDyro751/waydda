@@ -12,6 +12,8 @@ class Place
   field :slug, type: String
   field :status, type: String
   field :coordinates, type: Point
+  field :photo, type: String, default: "places/default.png"
+  field :cover, type: String, default: "waydda.png"
   field :total_items, type: Integer, default: 0
   field :total_products, type: Integer, default: 0
   # Relations

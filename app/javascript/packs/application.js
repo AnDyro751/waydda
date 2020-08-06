@@ -52,4 +52,7 @@ document.addEventListener("turbolinks:load", () => {
                 console.log('Upload result:', result)
             })
     }
-})
+})// Support component names relative to this directory:
+var componentRequireContext = require.context("components", true);
+var ReactRailsUJS = require("react_ujs");
+ReactRailsUJS.useContext(componentRequireContext);
