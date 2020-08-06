@@ -1,3 +1,9 @@
 <h1>Item: <%= @item.name %> </h1>
 
 <h3>Products: <%= @item.total_products %></h3>
+<%= link_to "Editar item", edit_dashboard_item_path(@item) %>
+<%= link_to dashboard_item_path(@item), method: :delete, data:{confirm: "¿Deseas eliminar el recurso?"} do %>
+  <p class="text-red-700 mt-2">
+    Eliminar
+  </p>
+<% end %>
