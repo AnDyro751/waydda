@@ -13,7 +13,9 @@ Rails.application.routes.draw do
     # Products
     resources :products
     # Places
-    resources :places, only: [:edit, :update, :new, :create]
+    resources :places, only: [:edit, :update, :new, :create] do
+      patch "/update_slug", to: "places#update_slug", as: "update_slug"
+    end
     # get "my-place", to: "places#my_place", as: "my_place"
   end
   # resources :places, only: [:show, :index]

@@ -9,7 +9,7 @@
 </p>
 
 <p>
-  <%= simple_form_for(@place, url: dashboard_place_path(@place)) do |f| %>
+  <%= simple_form_for(@place, url: dashboard_place_update_slug_path(@place), remote: true) do |f| %>
     <%= f.input :slug, value: @place.slug %>
     <%= f.submit %>
   <% end %>

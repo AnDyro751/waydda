@@ -3,7 +3,7 @@ class Dashboard::PlacesController < ApplicationController
   before_action :authenticate_user!
   before_action :set_my_place #, except: [:new, :create]
   before_action :valid_uniqueness_place, only: [:new, :create]
-  before_action :redirect_if_empty_place, only: [:my_place,:edit,:update,:destroy]
+  before_action :redirect_if_empty_place, only: [:my_place, :edit, :update, :destroy]
 
   def new
     @place = Place.new
@@ -31,6 +31,8 @@ class Dashboard::PlacesController < ApplicationController
       end
     end
   end
+
+
   def update
     if params["to_action"]
       update_status params["to_action"], @place
@@ -43,6 +45,21 @@ class Dashboard::PlacesController < ApplicationController
           format.html { render :edit }
           format.json { render json: @place.errors, status: :unprocessable_entity }
         end
+      end
+    end
+  end
+
+  # post /update_slug
+  def update_slug
+
+    respond_to do |format|
+      format.html { redirect_to my_place_path, notice: 'Place was successfully updated.' } if params["place"]["slug"] == @place.slug
+      other_place = Place.find_by(slug: params["place"]["slug"].parameterize)
+      format.html { redirect_to my_place_path, alert: 'Este nombre de usuario no está disponible' } unless other_place.nil?
+      if @place.update(slug: params["place"]["slug"].parameterize)
+        format.html { redirect_to my_place_path, notice: 'Nombre de usuario actualizado correctamente' }
+      else
+        format.html { redirect_to my_place_path, alert: 'Ha ocurrido un error al actualizar el lugar' }
       end
     end
   end
@@ -75,7 +92,6 @@ class Dashboard::PlacesController < ApplicationController
   private
 
   def valid_uniqueness_place
-    puts "------------------#{@place.class}"
     unless @place.nil?
       flash[:alert] = "Por el momento sólo puedes crear una empresa"
       redirect_to dashboard_path
