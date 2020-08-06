@@ -1,37 +1,39 @@
 <!DOCTYPE html>
-  <html>
-    <head>
-      <title>WayddaDev</title>
-      <%= csrf_meta_tags %>
-      <%= csp_meta_tag %>
-      <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-      <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-    </head>
+<html>
+<head>
+  <title>WayddaDev</title>
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+</head>
 
-  <body>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
-    <div class="grid grid-cols-12" >
-      <div class="col-span-2">
-        <ul>
-          <li>
-            <%= link_to "Dashboard", my_place_path %>
-          </li>
-          <li>
-            <%= link_to "Productos", dashboard_products_path %>
-          </li>
-          <li>
-            <%= link_to "Items", dashboard_items_path %>
-          </li>
-          <li class="text-red-700" >
-            <%= link_to "Cerrar sesión", destroy_user_session_path, method: :delete %>
-          </li>
-        </ul>
-      </div>
-      <div class="col-span-10">
-        <%= yield %>
-        <% console %>
-      </div>
-    </div>
-  </body>
+<body>
+<p class="notice"><%= notice %></p>
+<p class="alert"><%= alert %></p>
+<div class="grid grid-cols-12">
+  <div class="col-span-2">
+    <ul>
+      <li>
+        <%= link_to "Dashboard", my_place_path %>
+      </li>
+      <li>
+        <%= link_to "Productos", dashboard_products_path %>
+      </li>
+      <li>
+        <%= link_to "Items", dashboard_items_path %>
+      </li>
+      <li class="text-red-700">
+        <%= link_to "Cerrar sesión", destroy_user_session_path, method: :delete %>
+      </li>
+    </ul>
+  </div>
+  <div class="col-span-10">
+    <%= yield %>
+    <% if Rails.env === "development" %>
+      <% console %>
+    <% end %>
+  </div>
+</div>
+</body>
 </html>

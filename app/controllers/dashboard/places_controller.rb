@@ -1,7 +1,7 @@
 class Dashboard::PlacesController < ApplicationController
   layout "dashboard"
   before_action :authenticate_user!, except: [:show]
-  before_action :set_my_place, except: [:new, :create]
+  before_action :set_my_place
   before_action :valid_uniqueness_place, only: [:new, :create]
 
   def new
