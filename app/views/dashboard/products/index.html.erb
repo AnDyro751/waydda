@@ -5,7 +5,7 @@
 <% if @products.length > 0 %>
   <div class="grid grid-cols-12">
     <% @products.each do |product| %>
-      <% cache product do %>
+      <% product do %>
         <div class="col-span-12 bg-gray-300 p-3 mb-2">
           <p>
             <%= link_to product.name, dashboard_product_path(product) %>
