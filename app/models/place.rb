@@ -18,18 +18,21 @@ class Place
   has_many :items
   has_many :products
 
+  # Validations
+  validates :name, presence: true, length: {in: 4..30}
+  validates :address, presence: true, length: {in: 4..60}
+
   aasm column: :status do
     state :pending, initial: true
     state :active
     state :inactive
     event :activate do
       transitions from: [:pending, :inactive], to: :active
-      end
+    end
     event :deactivate do
       transitions from: [:pending, :active], to: :inactive
     end
   end
-
 
 
   # @param [Integer] quantity

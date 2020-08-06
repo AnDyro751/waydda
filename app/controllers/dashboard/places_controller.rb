@@ -1,9 +1,12 @@
 class Dashboard::PlacesController < ApplicationController
   layout "dashboard"
   before_action :authenticate_user!, except: [:show]
-  before_action :set_my_place, only: [:my_place,:update]
-  # GET /places
-  # GET /places.json
+  before_action :set_my_place, except: [:new, :create]
+  before_action :valid_uniqueness_place, only: [:new, :create]
+
+  def new
+    @place = Place.new
+  end
 
   def my_place
   end
@@ -14,6 +17,19 @@ class Dashboard::PlacesController < ApplicationController
 
   # PATCH/PUT /places/1
   # PATCH/PUT /places/1.json
+
+
+  def create
+    @place = Place.new(place_params)
+    @place.user = current_user
+    respond_to do |format|
+      if @place.save
+        format.html { redirect_to my_place_path, notice: 'Place was successfully created.' }
+      else
+        format.html { render :new }
+      end
+    end
+  end
   def update
     if params["to_action"]
       update_status params["to_action"], @place
@@ -54,6 +70,15 @@ class Dashboard::PlacesController < ApplicationController
     end
   end
 
+
+  private
+
+  def valid_uniqueness_place
+    unless @place.nil?
+      flash[:alert] = "Por el momento sólo puedes crear una empresa"
+      redirect_to my_place_path
+    end
+  end
 
   private
 

@@ -23,6 +23,9 @@
           <li>
             <%= link_to "Items", dashboard_items_path %>
           </li>
+          <li class="text-red-700" >
+            <%= link_to "Cerrar sesión", destroy_user_session_path, method: :delete %>
+          </li>
         </ul>
       </div>
       <div class="col-span-10">

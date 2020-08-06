@@ -17,9 +17,10 @@ Rails.application.routes.draw do
     # get "my-place", to: "places#my_place", as: "my_place"
   end
   # resources :places, only: [:show, :index]
-  devise_for :users
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   root 'home#index'
+  devise_for :users
+
 
   # dashboard/my-place
   # dashboard/products/
