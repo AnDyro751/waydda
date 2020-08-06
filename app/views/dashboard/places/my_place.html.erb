@@ -8,16 +8,17 @@
   <%= @place.address %>
 </p>
 
-<p>
-  <%= simple_form_for(@place, url: dashboard_place_update_slug_path(@place), remote: true) do |f| %>
-    <%= f.input :slug, value: @place.slug %>
-    <%= f.submit %>
-  <% end %>
-</p>
 
 <% if @place.pending? %>
   <h3>Esperando la confirmación del administrador</h3>
 <% else %>
+
+  <p>
+    <%= simple_form_for(@place, url: dashboard_place_update_slug_path(@place), remote: true) do |f| %>
+      <%= f.input :slug, value: @place.slug %>
+      <%= f.submit %>
+    <% end %>
+  </p>
   <div class="mt-4">
     <strong>Status:</strong>
     <% if @place.status === "inactive" %>
