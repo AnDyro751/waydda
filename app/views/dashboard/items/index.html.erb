@@ -6,9 +6,9 @@
 <% if @items.length > 0 %>
   <% @items.each do |item| %>
     <% cache item do %>
-      <p>
-        <%= item.name %>
-      </p>
+      <%= link_to dashboard_item_path(item) do %>
+        <p><%= item.name %></p>
+      <% end %>
     <% end %>
   <% end %>
 <% end %>

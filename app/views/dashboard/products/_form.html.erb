@@ -1,7 +1,16 @@
-<%= simple_form_for(@product, url: dashboard_product_path(@product),method: :patch) do |f| %>
-  <%= f.input :name %>
-  <%= f.input :description %>
-  <%= f.input :price %>
-  <%= f.input :item_id, collection: @place.items.map { |r| [r.name,r.id] },prompt: "Selecciona el item" %>
+<%= form_for(@product, url: dashboard_product_path(@product), method: :patch, enctype: "multipart/form-data", id: "product_edit_form") do |f| %>
+  <% @presign_data[:fields].each do |name, value| %>
+    <%= f.hidden_field name, value: value %>
+  <% end %>
+  <%= f.text_field :name %>
+  <%= f.text_field :description %>
+  <%= f.text_field :price %>
+  <%= f.text_field :item_id, collection: @place.items.map { |r| [r.name, r.id] }, prompt: "Selecciona el item" %>
   <%= f.button :submit %>
 <% end %>
+
+<%#= form_for(@product, url: dashboard_upload_image_path, html: {id: "upload_photo"}) do |f| %>
+  <%#= f.file_field :photo %>
+  <%#= f.button :submit, id: "select-files" %>
+<%# end %>
+<button id="select-files" data-model="product" data-slug="<%= @product.id.to_s %>" data-attribute="photo" >Seleccionar archivos</button>
