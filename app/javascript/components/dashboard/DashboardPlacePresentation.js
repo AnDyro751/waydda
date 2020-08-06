@@ -4,7 +4,7 @@ import PropTypes from "prop-types"
 export default function DashboardPlacePresentation({image}) {
     return (
         <>
-            Image: {image}
+            <img src={image} alt="Profile picture"/>
         </>
     )
 }
