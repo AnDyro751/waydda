@@ -78,7 +78,7 @@ class PlacesController < ApplicationController
       @place = Place.find(params[:id])
       # TODO: Add 404 page
       #render :file => "#{RAILS_ROOT}/public/404.html",  :status => 404
-      raise ActiveRecord::RecordNotFound if @place.nil?
+      raise ActiveRecord::RecordNotFound if @place.nil? || @place.pending?
     end
 
     def validate_my_identity
