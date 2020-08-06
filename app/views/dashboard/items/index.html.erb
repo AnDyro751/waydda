@@ -5,10 +5,8 @@
 <% end %>
 <% if @items.length > 0 %>
   <% @items.each do |item| %>
-    <% item do %>
-      <%= link_to dashboard_item_path(item) do %>
-        <p><%= item.name %></p>
-      <% end %>
+    <%= link_to dashboard_item_path(item) do %>
+      <p><%= item.name %></p>
     <% end %>
   <% end %>
 <% end %>

@@ -47,11 +47,25 @@ class Place
 
   private
 
+  def self.update_attribute(attribute, id, new_value, current_user)
+    place = Place.find_by(id: id)
+    return {success: false, error: 'No se ha encontrado el recurso'} if place.nil?
+    # PARENT -> User
+    # Valid place owner
+    return {success: false, error: 'No se ha encontrado el recurso'} unless current_user.id == place.user_id
+    begin
+      place.update("#{attribute}": new_value)
+    rescue
+      return {success: false, error: 'No se ha encontrado el recurso'}
+    end
+    return {success: true, error: nil}
+  end
+
   def assign_slug
     loop do
       self.slug = "#{self.name.parameterize}-#{SecureRandom.hex(4)}"
       other_place = Place.find_by(slug: self.slug)
-    break if other_place.nil?
+      break if other_place.nil?
     end
   end
 
