@@ -49,7 +49,7 @@ class Place
 
   def self.update_attribute(attribute, id, new_value, current_user)
     place = Place.find_by(id: id)
-    return {success: false, error: 'No se ha encontrado el recurso'} if place.nil?
+    return {success: false, error: 'No se ha encontrado el recurso'} if place.nil? || place.pending?
     # PARENT -> User
     # Valid place owner
     return {success: false, error: 'No se ha encontrado el recurso'} unless current_user.id == place.user_id
