@@ -1,8 +1,9 @@
 class Dashboard::PlacesController < ApplicationController
   layout "dashboard"
-  before_action :authenticate_user!, except: [:show]
-  before_action :set_my_place
+  before_action :authenticate_user!
+  before_action :set_my_place #, except: [:new, :create]
   before_action :valid_uniqueness_place, only: [:new, :create]
+  before_action :redirect_if_empty_place, only: [:my_place,:edit,:update,:destroy]
 
   def new
     @place = Place.new
@@ -74,16 +75,18 @@ class Dashboard::PlacesController < ApplicationController
   private
 
   def valid_uniqueness_place
+    puts "------------------#{@place.class}"
     unless @place.nil?
       flash[:alert] = "Por el momento sólo puedes crear una empresa"
-      redirect_to my_place_path
+      redirect_to dashboard_path
     end
   end
 
-  private
-
   def set_my_place
     @place = current_user.places.first
+  end
+
+  def redirect_if_empty_place
     if @place.nil?
       flash[:notice] = "Crea un negocio"
       redirect_to new_dashboard_place_path

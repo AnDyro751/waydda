@@ -2,8 +2,10 @@ class Place
   include Mongoid::Document
   include Mongoid::Timestamps
   include Mongoid::Geospatial
-  include Mongoid::Slug
   include AASM
+
+  # Callbacks
+  before_create :assign_slug
 
   field :name, type: String
   field :address, type: String
@@ -12,7 +14,6 @@ class Place
   field :coordinates, type: Point
   field :total_items, type: Integer, default: 0
   field :total_products, type: Integer, default: 0
-  slug :name
   # Relations
   belongs_to :user
   has_many :items
@@ -40,6 +41,16 @@ class Place
   def update_products_counter(quantity, plus)
     oper = plus ? self.total_products + quantity : self.total_products - quantity
     self.update(total_products: oper)
+  end
+
+  private
+
+  def assign_slug
+    loop do
+      self.slug = "#{self.name.parameterize}-#{SecureRandom.hex(4)}"
+      other_place = Place.find_by(slug: self.slug)
+    break if other_place.nil?
+    end
   end
 
 end

@@ -13,7 +13,7 @@ Rails.application.routes.draw do
     # Products
     resources :products
     # Places
-    resources :places#, only: [:edit, :update]
+    resources :places, only: [:edit, :update, :new, :create]
     # get "my-place", to: "places#my_place", as: "my_place"
   end
   # resources :places, only: [:show, :index]
