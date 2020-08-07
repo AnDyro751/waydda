@@ -1,1 +1,5 @@
 <h1>Mostrando aggregate</h1>
+
+<h2><strong>Nombre: </strong><%= @aggregate.name %></h2>
+<%= link_to "Editar", edit_dashboard_product_aggregate_path(@product.slug, @aggregate) %>
+<%= link_to "Eliminar", dashboard_product_aggregate_path(@product.slug, @aggregate), data: {confirm: "¿Esás seguro?"}, class: "text-red-600", remote: true, method: :delete %>

@@ -1,7 +1,10 @@
 <h1>MOstrando agregados</h1>
 
 <% @aggregates.each do |agg| %>
-  <p>Nombre: <%= agg.name %></p>
+  <p>
+    Nombre: <%= link_to agg.name, dashboard_product_aggregate_path(@product.slug, agg) %>
+  </p>
   <p>Precio: <%= agg.price %></p>
-  <%= button_to "Eliminar", dashboard_product_aggregate_path(@product.slug,agg), method: :delete, data: {confirm: "¿Estás seguro de eliminar este aggregate?"},class: "bg-black px-6 py-3 text-white rounded cursor-pointer" %>
+  <%= button_to "Eliminar", dashboard_product_aggregate_path(@product.slug, agg), method: :delete, data: {confirm: "¿Estás seguro de eliminar este aggregate?"}, class: "bg-black px-6 py-3 text-white rounded cursor-pointer" %>
 <% end %>
+<%= link_to "Agregar aggregate", new_dashboard_product_aggregate_path(@product.slug) %>

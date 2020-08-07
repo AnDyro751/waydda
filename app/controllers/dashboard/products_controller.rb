@@ -3,7 +3,7 @@ class Dashboard::ProductsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_my_place
   before_action :set_item, only: [:create]
-  before_action :set_product, only: [:show,:edit,:update,:destroy]
+  before_action :set_product, only: [:show, :edit, :update, :destroy]
 
   # GET /places
   # GET /places.json
@@ -71,8 +71,8 @@ class Dashboard::ProductsController < ApplicationController
   private
 
   def set_item
-    @item = Item.find_by(place: @place,id: params["product"]["item_id"])
-    raise ActiveRecord::RecordNotFound if @item.nil?
+    @item = Item.find_by(place: @place, id: params["product"]["item_id"])
+    not_found if @item.nil?
   end
 
   def set_product
@@ -83,6 +83,6 @@ class Dashboard::ProductsController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def product_params
-    params.require(:product).permit(:name, :description, :price, :aggregates_required, :max_aggregates,:item_id)
+    params.require(:product).permit(:name, :description, :price, :aggregates_required, :max_aggregates, :item_id)
   end
 end

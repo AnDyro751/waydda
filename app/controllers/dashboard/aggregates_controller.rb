@@ -13,6 +13,10 @@ class Dashboard::AggregatesController < ApplicationController
 
   end
 
+  def edit
+
+  end
+
   def index
     @aggregates = @product.aggregates
   end
@@ -27,6 +31,18 @@ class Dashboard::AggregatesController < ApplicationController
       else
         format.html { render :new }
         format.json { render json: @aggregate.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
+  def update
+    respond_to do |format|
+      if @aggregate.update(aggregate_params)
+        format.html { redirect_to dashboard_product_aggregate_path(@product.slug, @aggregate), notice: 'Aggregate was successfully updated.' }
+        format.json { render :show, status: :ok, location: @place }
+      else
+        format.html { render :edit }
+        format.json { render json: @place.errors, status: :unprocessable_entity }
       end
     end
   end

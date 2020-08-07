@@ -1,6 +1,6 @@
 <h1><%= @product.name %></h1>
-<%#= image_tag @product.photo %>
 
+<%= link_to "Agregar aggregate", new_dashboard_product_aggregate_path(@product.slug) %>
+<%= link_to "Ver aggregates", dashboard_product_aggregates_path(@product.slug) %>
 <%= link_to "Eliminar producto", dashboard_product_path(@product.slug), method: :delete, data: {confirm: "¿Estás seguro?"}, class: "text-red-600 mt-3" %>
-
 <%= link_to "Actualizar producto", edit_dashboard_product_path(@product.slug) %>
