@@ -10,4 +10,6 @@ class Aggregate
 
   # relations
   embedded_in :product
+  # validation
+  # TODO: Add validations
 end

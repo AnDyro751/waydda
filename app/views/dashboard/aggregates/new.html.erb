@@ -1,1 +1,8 @@
 <h1>Crear agregado</h1>
+<%= simple_form_for(@aggregate, url: dashboard_product_aggregates_path) do |f| %>
+  <%= f.input :name %>
+  <%= f.input :price, as: :float %>
+  <%= f.input :description %>
+  <%= f.input :default, as: :boolean %>
+  <%= f.submit %>
+<% end %>

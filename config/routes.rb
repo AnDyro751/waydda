@@ -1,8 +1,5 @@
 Rails.application.routes.draw do
 
-  get 'image/upload'
-  # mount Shrine.presign_endpoint(:cache) => "/s3/params"
-
   get "/dashboard", to: "dashboard/places#my_place", as: "my_place" # Index dashboard
   put "/dashboard", to: "dashboard/places#update"
   namespace :dashboard do
@@ -13,7 +10,7 @@ Rails.application.routes.draw do
     # Products
     resources :products do
       # TODO: Crud operations
-      resource :aggregates, only: [:new, :create]
+      resources :aggregates
     end
     # Places
     resources :places, only: [:edit, :update, :new, :create] do

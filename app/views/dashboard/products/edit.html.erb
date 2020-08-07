@@ -1,3 +1,5 @@
 <h1>Actualizar product: <strong><%= @product.name %></strong> </h1>
 
+<h1>Agregados</h1>
+<%= render "dashboard/aggregates/list", aggregates: @product.aggregates %>
 <%= render 'form', product: @product %>

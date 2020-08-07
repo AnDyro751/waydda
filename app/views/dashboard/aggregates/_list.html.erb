@@ -1,0 +1,11 @@
+<% aggregates.each do |agg| %>
+  <div class="grid grid-cols-12">
+    <div class="col-span-12 p-3 bg-gray-100 my-2 shadow">
+      <p><strong>Nombre: </strong><%= agg.name %></p>
+      <p><strong>Precio: </strong><%= agg.price %></p>
+      <p><strong>Descripción: </strong><%= agg.description %></p>
+      <%#= button_to "ELiminar", dashboard_aggregate_path  %>
+      <p class="text-red-600" >Eliminar</p>
+    </div>
+  </div>
+<% end %>
