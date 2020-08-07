@@ -1,6 +1,7 @@
-import React from "react"
+import React, {Suspense} from "react"
 import PropTypes from "prop-types"
 import GetImageUrl from "../../lib/getImageUrl";
+
 export default function DashboardPlacePresentation({place, id}) {
     return (
         <>
@@ -14,6 +15,6 @@ export default function DashboardPlacePresentation({place, id}) {
     )
 }
 DashboardPlacePresentation.propTypes = {
-    place: PropTypes.object.isRequired,
-    id: PropTypes.string.isRequired,
-};
+  id: PropTypes.string.isRequired,
+  place: PropTypes.object.isRequired
+}

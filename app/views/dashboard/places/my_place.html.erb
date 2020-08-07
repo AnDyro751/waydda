@@ -1,4 +1,5 @@
 <%= react_component('dashboard/DashboardPlacePresentation', {place: @place, id: @place.id.to_s}, {prerender: true}) %>
+<%= react_component('Place/Map', {center: [-99.134080, 19.426128], address: @place.address, marker: [-99.134080, 19.426128]}, {prerender: false}) %>
 <p>
   <strong>Name:</strong>
   <%= @place.name %>
