@@ -2,7 +2,8 @@ class Product
   include Mongoid::Document
   include Mongoid::Timestamps
   include Mongoid::Geospatial
-  include Mongoid::Slug
+  before_create :assign_slug
+  # include Mongoid::Slug
   # include ImageUploader::Attachment(:photo)
 
   after_create :update_counters
@@ -12,8 +13,8 @@ class Product
   field :price, type: Float
   field :aggregates_required, type: Integer, default: 0
   field :max_aggregates, type: Integer, default: 1
+  field :slug, type: String
   field :photo, type: String, default: "places/default.png"
-  slug :name
 
   # relations
   belongs_to :item
@@ -27,6 +28,10 @@ class Product
     # Add Job queue
     self.place.update_products_counter(1, true)
     self.item.update_products_counter(1, true)
+  end
+
+  def assign_slug
+    self.slug = "#{self.name.parameterize}-#{SecureRandom.hex(10)}"
   end
 
   # @param [String] attribute

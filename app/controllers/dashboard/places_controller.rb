@@ -98,9 +98,6 @@ class Dashboard::PlacesController < ApplicationController
     end
   end
 
-  def set_my_place
-    @place = current_user.places.first
-  end
 
   def redirect_if_empty_place
     if @place.nil?

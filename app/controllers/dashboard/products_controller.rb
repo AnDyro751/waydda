@@ -70,19 +70,14 @@ class Dashboard::ProductsController < ApplicationController
 
   private
 
-  def set_my_place
-    @place = current_user.places.first
-    raise ActiveRecord::RecordNotFound if @place.nil?
-  end
-
   def set_item
     @item = Item.find_by(place: @place,id: params["product"]["item_id"])
     raise ActiveRecord::RecordNotFound if @item.nil?
   end
 
   def set_product
-    @product = Product.find(params["id"])
-    raise ActiveRecord::RecordNotFound if @product.nil? || @product.place_id != @place.id
+    @product = Product.find_by(slug: params["id"])
+    not_found if @product.nil?
   end
 
 

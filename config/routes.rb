@@ -11,14 +11,17 @@ Rails.application.routes.draw do
     # Items
     resources :items
     # Products
-    resources :products
+    resources :products do
+      # TODO: Crud operations
+      resource :aggregates, only: [:new, :create]
+    end
     # Places
     resources :places, only: [:edit, :update, :new, :create] do
       patch "/update_slug", to: "places#update_slug", as: "update_slug"
     end
     # get "my-place", to: "places#my_place", as: "my_place"
   end
-  # resources :places, only: [:show, :index]
+  resources :places, only: [:show, :index]
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   root 'home#index'
   devise_for :users

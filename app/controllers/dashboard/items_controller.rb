@@ -70,10 +70,6 @@ class Dashboard::ItemsController < ApplicationController
       @item = Item.find_by(slug: params[:id])
     end
 
-    def set_my_place
-      @place = current_user.places.first
-    end
-
     # Only allow a list of trusted parameters through.
     def item_params
       params.require(:item).permit(:name, :place_id)

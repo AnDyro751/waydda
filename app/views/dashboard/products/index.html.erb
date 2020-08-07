@@ -7,7 +7,7 @@
     <% @products.each do |product| %>
       <div class="col-span-12 bg-gray-300 p-3 mb-2">
         <p>
-          <%= link_to product.name, dashboard_product_path(product) %>
+          <%= link_to product.name, dashboard_product_path(product.slug) %>
         </p>
       </div>
     <% end %>
