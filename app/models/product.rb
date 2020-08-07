@@ -14,9 +14,11 @@ class Product
   field :max_aggregates, type: Integer, default: 1
   field :photo, type: String, default: "places/default.png"
   slug :name
-  #relations
+
+  # relations
   belongs_to :item
   belongs_to :place
+  embeds_many :aggregates
 
 
   private
