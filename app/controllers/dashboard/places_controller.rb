@@ -40,7 +40,7 @@ class Dashboard::PlacesController < ApplicationController
       respond_to do |format|
         if @place.update(place_params)
           format.html { redirect_to my_place_path, notice: 'Place was successfully updated.' }
-          format.json { render :show, status: :ok, location: @place }
+          format.json { render 'dashboard/places/show', status: :ok, location: my_place_path(@place) }
         else
           format.html { render :edit }
           format.json { render json: @place.errors, status: :unprocessable_entity }
@@ -94,7 +94,7 @@ class Dashboard::PlacesController < ApplicationController
   def valid_uniqueness_place
     unless @place.nil?
       flash[:alert] = "Por el momento sólo puedes crear una empresa"
-      redirect_to dashboard_path
+      redirect_to my_place_path
     end
   end
 
@@ -112,6 +112,6 @@ class Dashboard::PlacesController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def place_params
-    params.require(:place).permit(:name, :address, :slug, :user_id, :status)
+    params.require(:place).permit(:name, :address, :slug, :user_id, :status, location: [:lat,:lng])
   end
 end

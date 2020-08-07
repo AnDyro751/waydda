@@ -11,7 +11,7 @@ class Place
   field :address, type: String
   field :slug, type: String
   field :status, type: String
-  field :coordinates, type: Point
+  field :location, type: Point
   field :photo, type: String, default: "places/default.png"
   field :cover, type: String, default: "waydda.png"
   field :total_items, type: Integer, default: 0
@@ -23,7 +23,7 @@ class Place
 
   # Validations
   validates :name, presence: true, length: {in: 4..30}
-  validates :address, presence: true, length: {in: 4..60}
+  validates :address, presence: true, length: {in: 4..100}
 
   aasm column: :status do
     state :pending, initial: true
