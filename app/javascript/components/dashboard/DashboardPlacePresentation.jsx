@@ -18,7 +18,6 @@ export default function DashboardPlacePresentation({place, id}) {
         } catch (e) {
             return []
         }
-
     }
 
     const handleDrag = async (e) => {

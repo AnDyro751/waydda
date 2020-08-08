@@ -6,6 +6,7 @@ class Place
 
   # Callbacks
   before_create :assign_slug
+  after_create :add_owner_role
 
   field :name, type: String
   field :address, type: String
@@ -67,6 +68,10 @@ class Place
       other_place = Place.find_by(slug: self.slug)
       break if other_place.nil?
     end
+  end
+
+  def add_owner_role
+    self.user.add_role(:owner, self)
   end
 
 end

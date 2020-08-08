@@ -1,5 +1,16 @@
 Rails.application.routes.draw do
 
+  root 'home#index'
+
+
+  # users
+  devise_for :users, :controllers => {:omniauth_callbacks => "users/omniauth_callbacks"}
+  get "/my-profile", to: "users#my_profile", as: "my_profile"
+  resources :addresses
+  resources :users, only: [:show, :update]
+  resources :places, only: [:show, :index]
+
+  # Dashboard
   get "/dashboard", to: "dashboard/places#my_place", as: "my_place" # Index dashboard
   put "/dashboard", to: "dashboard/places#update"
   namespace :dashboard do
@@ -16,18 +27,6 @@ Rails.application.routes.draw do
     resources :places, only: [:edit, :update, :new, :create] do
       patch "/update_slug", to: "places#update_slug", as: "update_slug"
     end
-    # get "my-place", to: "places#my_place", as: "my_place"
   end
-  resources :places, only: [:show, :index]
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
-  root 'home#index'
-  devise_for :users
 
-
-  # dashboard/my-place
-  # dashboard/products/
-  # dashboard/products/:id
-  # dashboard/items
-  # dashboard/items/:id
-  # dashboard/products/new?item_id=item_id <- item_id para el id que se va a seleccionar
 end

@@ -7,15 +7,8 @@ export default function MapComponent({center, marker, draggable = false, onDrag}
 
     const mapRef = useRef();
     const [error, setError] = useState(false);
-    const [viewport, setViewport] = useState({
-        width: 400,
-        height: 400,
-        latitude: 37.7577,
-        longitude: -122.4376,
-        zoom: 8
-    })
+
     useEffect(() => {
-        console.log("HOLA")
         try {
             let map = new mapboxgl.Map({
                 container: mapRef.current,
@@ -35,7 +28,7 @@ export default function MapComponent({center, marker, draggable = false, onDrag}
             console.log("ERROR MAP", e)
             setError(true);
         }
-    }, [])
+    }, [center])
 
     if (error) {
         return (

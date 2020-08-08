@@ -4,7 +4,7 @@ class User
   include ActiveModel::SecurePassword
   include AASM
 
-  devise :database_authenticatable, :registerable
+  devise :database_authenticatable, :registerable, :omniauthable, omniauth_providers: [:facebook]
   # Callbacks
   after_create :assign_default_role
   after_create :set_required_actions
@@ -18,16 +18,22 @@ class User
   field :phone, type: String
   field :encrypted_password, type: String
   field :status, type: String
+  field :photo, type: String
+  # OMNIAUTH
+  field :provider, type: String
+  field :uid, type: String
+
   # Relations
   has_many :places
+  embeds_many :addresses
   #has_many :qr
 
   # Validations
-  validates :name, presence: true, format: { with: /\A[a-zA-ZáéíóúñÁÉÍÓÚÑ\s]+\z/ }, length: { in: 3..20 }
-  validates :lastName, presence: false, format: { with: /\A[a-zA-ZáéíóúñÁÉÍÓÚÑ\s]+\z/ }, length: { in: 3..20 }, allow_nil: true
-  validates :email, presence: true, uniqueness: { case_sensitive: false  }
+  validates :name, presence: true, format: {with: /\A[a-zA-ZáéíóúñÁÉÍÓÚÑ\s]+\z/}, length: {in: 3..20}
+  validates :lastName, presence: false, format: {with: /\A[a-zA-ZáéíóúñÁÉÍÓÚÑ\s]+\z/}, length: {in: 3..20}, allow_nil: true
+  validates :email, presence: true, uniqueness: {case_sensitive: false}
   validates_with EmailAddress::ActiveRecordValidator, field: :email
-  validates :phone, uniqueness: { case_sensitive: false }, allow_nil: true, phone: { possible: true, types: :mobile, countries: :mx }
+  validates :phone, uniqueness: {case_sensitive: false}, allow_nil: true, phone: {possible: true, types: :mobile, countries: :mx}
 
   # Plugins
   rolify
@@ -57,6 +63,24 @@ class User
   # Assign User default Role
   def assign_default_role
     add_role(:customer) if roles.blank?
+  end
+
+
+  def self.new_with_session(params, session)
+    super.tap do |user|
+      if data = session["devise.facebook_data"] && session["devise.facebook_data"]["extra"]["raw_info"]
+        user.email = data["email"] if user.email.blank?
+      end
+    end
+  end
+
+  def self.from_omniauth(auth)
+    where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
+      user.email = auth.info.email
+      user.password = Devise.friendly_token[0, 20]
+      user.name = auth.info.name # assuming the user model has a name
+      user.photo = auth.info.image # assuming the user model has an image
+    end
   end
 
   # Set required actions for user, like verify email
