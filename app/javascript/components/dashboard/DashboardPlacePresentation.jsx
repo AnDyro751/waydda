@@ -44,7 +44,6 @@ export default function DashboardPlacePresentation({place, id}) {
                 method: "put",
                 body: JSON.stringify({
                     place: {
-                        address: defaultPlace.address,
                         location: {
                             lat: defaultPlace.location[1],
                             lng: defaultPlace.location[0]

@@ -109,6 +109,6 @@ class Dashboard::PlacesController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def place_params
-    params.require(:place).permit(:name, :address, :slug, :user_id, :status, location: [:lat,:lng])
+    params.require(:place).permit(:name, :address, :slug, :user_id, :status, location: [:lat, :lng])
   end
 end

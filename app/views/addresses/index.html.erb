@@ -1,30 +1,28 @@
-<p id="notice"><%= notice %></p>
-
 <h1>Addresses</h1>
 
 <table>
   <thead>
-    <tr>
-      <th>Street</th>
-      <th>City</th>
-      <th>Country</th>
-      <th>Location</th>
-      <th colspan="3"></th>
-    </tr>
+  <tr>
+    <th>Street</th>
+    <th>City</th>
+    <th>Default</th>
+    <th>Location</th>
+    <th colspan="3"></th>
+  </tr>
   </thead>
 
   <tbody>
-    <% @addresses.each do |address| %>
-      <tr>
-        <td><%= address.street %></td>
-        <td><%= address.city %></td>
-        <td><%= address.country %></td>
-        <td><%= address.location %></td>
-        <td><%= link_to 'Show', address %></td>
-        <td><%= link_to 'Edit', edit_address_path(address) %></td>
-        <td><%= link_to 'Destroy', address, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
+  <% @addresses.each do |address| %>
+    <tr>
+      <td><%= address.street %></td>
+      <td><%= address.city %></td>
+      <td><%= address.default %></td>
+      <td><%= address.location %></td>
+      <td><%= link_to 'Show', address %></td>
+      <td><%= link_to 'Edit', edit_address_path(address) %></td>
+      <td><%= link_to 'Destroy', address, method: :delete, data: {confirm: 'Are you sure?'}, remote: true %></td>
+    </tr>
+  <% end %>
   </tbody>
 </table>
 

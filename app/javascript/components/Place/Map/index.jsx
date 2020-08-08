@@ -3,26 +3,44 @@ import mapboxgl from 'mapbox-gl'
 
 mapboxgl.accessToken = 'pk.eyJ1IjoiYW5keXJvaG0iLCJhIjoiY2p6NmRldzJjMGsyMzNpbjJ0YjZjZjV5NSJ9.SeHsvxUe4-pszVk0B4gRAQ';
 
-export default function MapComponent({center, marker, draggable = false, onDrag}) {
+export default function MapComponent({center, newCenter, marker, draggable = false, onDrag}) {
 
     const mapRef = useRef();
+    const mapCurrentRef = useRef();
+    const currentMarker = useRef();
     const [error, setError] = useState(false);
 
     useEffect(() => {
+        console.log(mapRef.current, mapCurrentRef.current)
         try {
-            let map = new mapboxgl.Map({
-                container: mapRef.current,
-                style: 'mapbox://styles/mapbox/streets-v11',
-                center: center,
-                zoom: 14,
-            });
-            const dragMarker = new mapboxgl.Marker()
-                .setLngLat(marker)
-                .addTo(map).setDraggable(draggable);
-            dragMarker.on("dragend", (e) => {
-                let lngLat = dragMarker.getLngLat();
-                onDrag(lngLat)
-            })
+            if (!mapCurrentRef.current) {
+                mapCurrentRef.current = new mapboxgl.Map({
+                    container: mapRef.current,
+                    style: 'mapbox://styles/mapbox/streets-v11',
+                    center: center,
+                    zoom: 14,
+                });
+            }
+
+            if (mapCurrentRef.current) {
+                mapCurrentRef.current.setCenter(center);
+                if (currentMarker.current) {
+                    let lngLat = mapCurrentRef.current.getCenter();
+                    currentMarker.current.setLngLat(lngLat);
+                } else {
+                    currentMarker.current = new mapboxgl.Marker()
+                        .setLngLat(marker)
+                        .addTo(mapCurrentRef.current).setDraggable(draggable);
+                    currentMarker.current.on("dragend", (e) => {
+                        let lngLat = currentMarker.current.getLngLat();
+                        mapCurrentRef.current.setCenter(lngLat);
+                        onDrag(lngLat)
+                    })
+                    mapCurrentRef.current.setCenter(center);
+                }
+            }
+            // console.log("NO HAY")
+
             setError(false);
         } catch (e) {
             console.log("ERROR MAP", e)

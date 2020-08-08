@@ -1,10 +1,12 @@
 class AddressesController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_address, only: [:show, :edit, :update, :destroy]
+
 
   # GET /addresses
   # GET /addresses.json
   def index
-    @addresses = Address.all
+    @addresses = current_user.addresses
   end
 
   # GET /addresses/1
@@ -26,8 +28,14 @@ class AddressesController < ApplicationController
   # POST /addresses.json
   def create
     @address = Address.new(address_params)
-
+    if params["address"]["model"] === "User"
+      @address.model = current_user
+    else
+      model = params["address"]["model"].constantize
+      @address.model = model.find_by(id: params["address"]["model_id"])
+    end
     respond_to do |format|
+      # format.json { render json: @address.errors, status: :unprocessable_entity } if poly_model.nil?
       if @address.save
         format.html { redirect_to @address, notice: 'Address was successfully created.' }
         format.json { render :show, status: :created, location: @address }
@@ -63,13 +71,15 @@ class AddressesController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_address
-      @address = Address.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def address_params
-      params.require(:address).permit(:street, :city, :country, :location)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_address
+    @address = current_user.addresses.find(params[:id])
+    not_found if @address.nil?
+  end
+
+  # Only allow a list of trusted parameters through.
+  def address_params
+    params.require(:address).permit(:street, :city, :country, :default, :internal_number, :external_number, location: [:lat, :lng])
+  end
 end

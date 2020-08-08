@@ -25,7 +25,7 @@ class User
 
   # Relations
   has_many :places
-  embeds_many :addresses
+  embeds_many :addresses, as: :model
   #has_many :qr
 
   # Validations
