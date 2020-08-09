@@ -1,12 +1,17 @@
 <h1>Mostrando carrito</h1>
 
-<% @items.each do |item| %>
-  <p>
-    <%= item.quantity %>
-  </p>
-  <p>
-    <%= item.model.name %>
-  </p>
-<% end %>
+<div class="grid grid-cols-12">
+  <div class="col-span-12 bg-red-100 my-3 p-3">
+    <% @items.each do |item| %>
+      <p>
+        <%= item.model.name %>
+        : <%= item.quantity %>
+      </p>
+      <p>
+        Subtotal: <%= item.quantity * item.model.price %>
+      </p>
+    <% end %>
+  </div>
+</div>
 <h4>Items: <%= @current_cart.quantity %></h4>
 <h4>Total: <%= @total %></h4>
