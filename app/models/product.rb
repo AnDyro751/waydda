@@ -22,6 +22,7 @@ class Product
   # relations
   belongs_to :item
   belongs_to :place
+  belongs_to :cart_item #, as: :model
   embeds_many :aggregates
 
 

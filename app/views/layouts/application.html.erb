@@ -21,6 +21,7 @@
 <p class="alert"><%= alert %></p>
 <%= yield %>
 <%= console %>
+<h4>Carrito <%= @current_cart.quantity %></h4>
 <%= link_to "Cerrar sesión", destroy_user_session_path, method: :delete %>
 </body>
 </html>

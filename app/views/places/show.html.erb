@@ -18,7 +18,7 @@
     <p>Descripción: <%= product.description %></p>
     <p>Aggregates <%= product.aggregates.length %></p>
     <p>Precio: <%= number_to_currency(product.price, raise: true, format: "%u %n") %></p>
-    <%= button_to "Agregar al carrito", add_product_to_cart_path(product) %>
+    <%= button_to "Agregar al carrito", add_product_to_cart_path(product), method: :post, class: "cursor-pointer", remote: true, data: {"disable-with": "Agregando..."} %>
   </div>
 <% end %>
 <%= will_paginate @products %>
