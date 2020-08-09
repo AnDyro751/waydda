@@ -1,4 +1,3 @@
-
 <p>
   <strong>Name:</strong>
   <%= @place.name %>
@@ -10,17 +9,14 @@
 </p>
 
 <p>
-  <strong>Slug:</strong>
-  <%= @place.slug %>
+  <strong>Productos: <%= @place.total_products %></strong>
 </p>
 
-<p>
-  <strong>User:</strong>
-  <%= @place.user_id %>
-</p>
-
-<p>
-  <strong>Status:</strong>
-  <%= @place.status %>
-</p>
-
+<% @products.each do |product| %>
+  <div class="bg-gray-100 p-3 my-3">
+    <p>Nombre: <%= product.name %></p>
+    <p>Descripción: <%= product.description %></p>
+    <p>Precio: <%= number_to_currency(product.price, raise: true, format: "%u %n") %></p>
+  </div>
+<% end %>
+<%= will_paginate @products %>

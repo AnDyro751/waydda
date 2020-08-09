@@ -34,7 +34,7 @@ class Dashboard::ProductsController < ApplicationController
     @product.place = @place
     respond_to do |format|
       if @product.save
-        format.html { redirect_to dashboard_product_path(@product), notice: 'Place was successfully created.' }
+        format.html { redirect_to dashboard_product_path(@product.slug), notice: 'Place was successfully created.' }
         format.json { render :show, status: :created, location: @product }
       else
         format.html { render :new }

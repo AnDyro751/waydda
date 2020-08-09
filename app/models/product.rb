@@ -2,6 +2,7 @@ class Product
   include Mongoid::Document
   include Mongoid::Timestamps
   include Mongoid::Geospatial
+  require 'will_paginate/array'
   before_create :assign_slug
   # include Mongoid::Slug
   # include ImageUploader::Attachment(:photo)
@@ -15,6 +16,8 @@ class Product
   field :max_aggregates, type: Integer, default: 1
   field :slug, type: String
   field :photo, type: String, default: "places/default.png"
+
+  # TODO: Agregar la cantidad publica y la privada
 
   # relations
   belongs_to :item
