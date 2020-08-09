@@ -4,8 +4,8 @@ class Address
   include Mongoid::Geospatial
   Mapbox.access_token = "pk.eyJ1IjoiYW5keXJvaG0iLCJhIjoiY2p6NmRldzJjMGsyMzNpbjJ0YjZjZjV5NSJ9.SeHsvxUe4-pszVk0B4gRAQ"
 
-  before_validation :assign_data, on: :create
-  before_validation :update_old_records #, on: :create
+  # before_validation :assign_data
+  before_validation :update_old_records
   after_destroy :verify_last_default
 
   field :street, type: String
@@ -29,9 +29,11 @@ class Address
 
   private
 
-  def assign_data
-    self.street = Address.get_data(self.location.to_a)
-  end
+  # def assign_data
+  #   if self.location_changed?
+  #     self.street = Address.get_data(self.location.to_a)
+  #   end
+  # end
 
   def verify_last_default
     addresses = self.model.addresses

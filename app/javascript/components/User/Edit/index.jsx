@@ -3,20 +3,19 @@ import MapComponent from "../../Place/Map";
 
 let timeout;
 
-export default function UserEdit({states, current_user, current_user_id}) {
-    const [address, setAddress] = useState({
-        address: "",
-        location: [-99.134080, 19.426128],
-        default: true,
-        external_number: "",
-        internal_number: ""
-    });
+export default function UserEdit({states, current_user, current_user_id, defaultValues}) {
+    const [addressValue, setAddressValue] = useState(defaultValues ? defaultValues.addressValue : "");
+    const [location, setLocation] = useState(defaultValues ? defaultValues.location : [-99.134080, 19.426128])
+    const [defaultValue, setDefault] = useState(defaultValues ? defaultValues.defaultValue : true);
+    const [externalNumber, setExternal] = useState(defaultValues ? defaultValues.externalNumber : "")
+    const [internalNumber, setInternal] = useState(defaultValues ? defaultValues.internalNumber : "")
     const [records, setRecords] = useState([]);
+
     const [error, setError] = useState(false);
 
-    const searchAddress = async (address, limit = 5) => {
+    const searchAddress = async (address_text, limit = 5) => {
         // console.log("BUSCANDP jeje", address)
-        const link = `https://api.mapbox.com/geocoding/v5/mapbox.places/${address}.json?access_token=pk.eyJ1Ijoic2VhcmNoLW1hY2hpbmUtdXNlci0xIiwiYSI6ImNrN2Y1Nmp4YjB3aG4zZ253YnJoY21kbzkifQ.JM5ZeqwEEm-Tonrk5wOOMw&cachebuster=1596775236930&autocomplete=true&types=country%2Cregion%2Cdistrict%2Cpostcode%2Clocality%2Cplace%2Cpoi%2Caddress&country=mx&limit=${limit}`
+        const link = `https://api.mapbox.com/geocoding/v5/mapbox.places/${address_text}.json?access_token=pk.eyJ1Ijoic2VhcmNoLW1hY2hpbmUtdXNlci0xIiwiYSI6ImNrN2Y1Nmp4YjB3aG4zZ253YnJoY21kbzkifQ.JM5ZeqwEEm-Tonrk5wOOMw&cachebuster=1596775236930&autocomplete=true&types=country%2Cregion%2Cdistrict%2Cpostcode%2Clocality%2Cplace%2Cpoi%2Caddress&country=mx&limit=${limit}`
         try {
             const results = await (await fetch(link)).json()
             return results.features;
@@ -29,7 +28,9 @@ export default function UserEdit({states, current_user, current_user_id}) {
         try {
             let results = await searchAddress(`${e.lng},${e.lat}`, 1);
             if (results.length > 0) {
-                setAddress({...address, location: [e.lng, e.lat], address: results[0].place_name})
+                // console.log("Add", address)
+                setAddressValue(results[0].place_name);
+                setLocation([e.lng, e.lat]);
             }
         } catch (e) {
             // setUpdateAddress(false);
@@ -57,20 +58,21 @@ export default function UserEdit({states, current_user, current_user_id}) {
             document.querySelector('[name=csrf-token]').content
 
         try {
-            let response = await (await fetch(`/addresses`, {
-                method: "post",
+            let response = await (await fetch(`${defaultValues ? `/addresses/${defaultValues.id}` : '/addresses'}`, {
+                method: defaultValues ? "put" : "post",
                 body: JSON.stringify({
                     address: {
+                        street: addressValue,
                         // TODO: Al actualizar el address este se debe traer de la lat y lng, no del texto
                         location: {
-                            lat: address.location[1],
-                            lng: address.location[0]
+                            lat: location[1],
+                            lng: location[0]
                         },
                         model: "User",
                         model_id: current_user_id,
-                        default: address.default,
-                        external_number: address.external_number,
-                        internal_number: address.internal_number
+                        default: defaultValue,
+                        external_number: externalNumber,
+                        internal_number: internalNumber
                     }
                 }),
                 headers: {
@@ -91,10 +93,10 @@ export default function UserEdit({states, current_user, current_user_id}) {
                 <div className="grid grid cols-12 ">
                     <div className="col-span-12 relative">
                         <input
-                            value={address.address}
+                            value={addressValue}
                             type="text" placeholder="Dirección"
                             onChange={(e) => {
-                                setAddress({...address, address: e.target.value});
+                                setAddressValue(e.target.value)
                                 handleSearch(e);
                             }}
                         />
@@ -108,9 +110,9 @@ export default function UserEdit({states, current_user, current_user_id}) {
                                     <div className="col-span-9">
                                         {/*EXTERNAL NUMBER*/}
                                         <input
-                                            value={address.external_number}
+                                            value={externalNumber}
                                             onChange={(e) => {
-                                                setAddress({...address, external_number: e.target.value});
+                                                setExternal(e.target.value);
                                             }}
                                             placeholder={"#12"}
                                             type="text" className="border"/>
@@ -123,9 +125,9 @@ export default function UserEdit({states, current_user, current_user_id}) {
                                     <div className="col-span-9">
                                         {/*INTERNAL NUMBER*/}
                                         <input
-                                            value={address.internal_number}
+                                            value={internalNumber}
                                             onChange={(e) => {
-                                                setAddress({...address, internal_number: e.target.value});
+                                                setInternal(e.target.value);
                                             }}
                                             placeholder={"#41 B"}
                                             type="text" className="border"/>
@@ -135,18 +137,19 @@ export default function UserEdit({states, current_user, current_user_id}) {
                             <div className="col-span-3">
                                 <input
                                     onChange={(e) => {
-                                        setAddress({...address, default: e.target.checked})
+                                        setDefault(e.target.checked);
+                                        // setAddress({...address, default: e.target.checked})
                                     }}
-                                    type="radio" value={address.default}/>
+                                    type="checkbox" checked={defaultValue}/>
                             </div>
                             <div className="col-span-9">Agregar cómo dirección principal</div>
                         </div>
                         <button
                             type={"submit"}
                             // onClick={handleUpdateAddress}
-                            disabled={!address.address}
+                            disabled={!addressValue}
                             className="text-white bg-black px-6 py-3 rounded shadow-2xl">
-                            Actualizar ubicación
+                            {defaultValues ? "Actualizar ubicación" : "Agregar ubicación"}
                         </button>
                         {
                             records.length > 0 &&
@@ -155,7 +158,8 @@ export default function UserEdit({states, current_user, current_user_id}) {
                                 {records.map((record, i) => (
                                     <div key={i}
                                          onClick={() => {
-                                             setAddress({address: record.place_name, location: record.center})
+                                             setAddressValue(record.place_name);
+                                             setLocation(record.center);
                                              setRecords([]);
                                          }}
                                          className="cursor-pointer">{record.place_name}</div>
@@ -164,12 +168,12 @@ export default function UserEdit({states, current_user, current_user_id}) {
                         }
                     </div>
                 </div>
-                <p><strong>Dirección</strong>: {address.address}</p>
+                <p><strong>Dirección</strong>: {addressValue} - {externalNumber}</p>
                 <div className="h-64 w-full">
                     <MapComponent
                         draggable={true}
-                        center={address.location}
-                        marker={address.location}
+                        center={location}
+                        marker={location}
                         // newCenter={address.address}
                         onDrag={handleDrag}
                     />

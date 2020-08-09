@@ -22,6 +22,7 @@ class AddressesController < ApplicationController
 
   # GET /addresses/1/edit
   def edit
+    @map = true
   end
 
   # POST /addresses
