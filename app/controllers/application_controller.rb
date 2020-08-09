@@ -18,24 +18,32 @@ class ApplicationController < ActionController::Base
 
   def current_cart
     if user_signed_in?
-      session[:cart_id] = current_user.cart.id
       if session[:cart_id].nil?
         cart = current_user.create_cart
         session[:cart_id] = cart.id
-        @current_cart = Cart.find(cart.id)
+        @current_cart = cart
       else
         @current_cart = Cart.find(session[:cart_id])
+        create_cart if @current_cart.nil?
       end
     else
       if session[:cart_id]
         @current_cart = Cart.find(session[:cart_id])
+        create_cart if @current_cart.nil?
       else
-        cart = Cart.new(quantity: 0)
-        if cart.save
-          session[:cart_id] = cart.id
-          @current_cart = Cart.find(session[:cart_id])
-        end
+        create_cart
       end
+    end
+  end
+
+
+  def create_cart
+    cart = Cart.new(quantity: 0)
+    if cart.save
+      session[:cart_id] = cart.id
+      @current_cart = Cart.find(cart.id)
+    else
+      puts "--------#{cart.errors.full_messages}"
     end
   end
 

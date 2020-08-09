@@ -2,6 +2,11 @@ class CartsController < ApplicationController
 
   # before_action :authenticate_user!
 
+  def show
+    @items = @current_cart.cart_items.includes(:model).to_a
+    @total = Cart.get_total(@items)
+  end
+
   def add_product
     response = @current_cart.add_item(params["product_id"])
     respond_to do |format|

@@ -2,13 +2,12 @@ class Cart
   include Mongoid::Document
   include Mongoid::Timestamps
   field :quantity, type: Integer, default: 0
-  has_many :cart_items
+  embeds_many :cart_items
   belongs_to :user, optional: true
 
-  def get_total
+  def self.get_total(old_items=nil)
     total = 0
-    items = self.cart_items.includes(:model)
-    items.each do |i|
+    old_items.each do |i|
       total = total + (i.model.price * i.quantity)
     end
     total

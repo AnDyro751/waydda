@@ -7,7 +7,9 @@ Rails.application.routes.draw do
   get "/my-profile/edit", to: "users#edit", as: "edit_my_profile"
 
   resources :addresses
+  #cart
   post "/add_to_cart/:product_id", to: "carts#add_product", as: "add_product_to_cart"
+  get "/cart", to: "carts#show", as: "my_cart"
   resources :users, only: [:show, :update] do
     collection do
       patch 'update_password'

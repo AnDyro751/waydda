@@ -1,0 +1,12 @@
+<h1>Mostrando carrito</h1>
+
+<% @items.each do |item| %>
+  <p>
+    <%= item.quantity %>
+  </p>
+  <p>
+    <%= item.model.name %>
+  </p>
+<% end %>
+<h4>Items: <%= @current_cart.quantity %></h4>
+<h4>Total: <%= @total %></h4>

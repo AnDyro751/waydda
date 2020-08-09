@@ -20,8 +20,7 @@
 <p class="notice"><%= notice %></p>
 <p class="alert"><%= alert %></p>
 <%= yield %>
-<%#= console %>
-<h4>Total: <%= @current_cart.get_total %>. Items: <%= @current_cart.quantity %></h4>
+<%= console %>
 <% if user_signed_in? %>
   <%= link_to "Cerrar sesión", destroy_user_session_path, method: :delete %>
 <% end %>

@@ -3,6 +3,6 @@ class CartItem
   include Mongoid::Timestamps
   field :quantity, type: Integer, default: 0
   belongs_to :model, polymorphic: true
-  belongs_to :cart
+  embedded_in :cart
   # belongs_to :place
 end
