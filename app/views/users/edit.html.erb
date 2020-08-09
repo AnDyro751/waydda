@@ -5,3 +5,10 @@
   <%= f.input :email, as: :email %>
   <%= f.submit %>
 <% end %>
+<h2>Editar contraseña</h2>
+
+<%= simple_form_for(current_user, :url => {:action => "update_password"}) do |f| %>
+  <%= f.input :password, as: :password, validate: {presence: true, length: true, confirmation: false} %>
+  <%= f.input :password_confirmation, as: :password %>
+  <%= f.submit %>
+<% end %>

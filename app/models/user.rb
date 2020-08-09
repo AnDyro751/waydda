@@ -19,9 +19,12 @@ class User
   field :encrypted_password, type: String
   field :status, type: String
   field :photo, type: String
+  validates :password, confirmation: true
+  validates :password_confirmation, presence: true, on: :create
   # OMNIAUTH
   field :provider, type: String
   field :uid, type: String
+  field :password_changed, type: Boolean, default: false
 
   # Relations
   has_many :places

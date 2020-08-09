@@ -23,7 +23,7 @@ class PlacesController < ApplicationController
 
   # Use callbacks to share common setup or constraints between actions.
   def set_place
-    @place = Place.find(params[:id])
+    @place = Place.find_by(slug: params[:id])
     not_found if @place.nil?
   end
 

@@ -7,8 +7,13 @@ Rails.application.routes.draw do
   devise_for :users, :controllers => {:omniauth_callbacks => "users/omniauth_callbacks"}
   get "/my-profile", to: "users#my_profile", as: "my_profile"
   get "/my-profile/edit", to: "users#edit", as: "edit_my_profile"
+
   resources :addresses
-  resources :users, only: [:show, :update]
+  resources :users, only: [:show, :update] do
+    collection do
+      patch 'update_password'
+    end
+  end
   resources :places, only: [:show, :index]
 
   # Dashboard

@@ -21,5 +21,6 @@
 <p class="alert"><%= alert %></p>
 <%= yield %>
 <%= console %>
+<%= link_to "Cerrar sesión", destroy_user_session_path, method: :delete %>
 </body>
 </html>
