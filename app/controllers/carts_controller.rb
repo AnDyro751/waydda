@@ -10,6 +10,7 @@ class CartsController < ApplicationController
       else
         # TODO: Show message in js
         # TODO: Se puede agregar al carrito sin iniciar sesión
+        format.js
         format.html { redirect_to root_path, alert: "Ha ocurrido un error a agregar el producto" }
       end
     end

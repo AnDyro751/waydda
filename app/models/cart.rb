@@ -10,7 +10,9 @@ class Cart
   def add_item(product_id)
     product = Product.find_by(id: product_id)
     return [false, nil] if product.nil?
+    return [false, nil] if product.public_stock <= 0
     current_item = self.cart_items.find_by(model_id: product_id)
+    return [false, nil] if current_item.quantity > product.public_stock
     new_cart_quantity = self.quantity + 1
     if current_item.nil?
       begin

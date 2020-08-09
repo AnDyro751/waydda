@@ -4,8 +4,6 @@ class Product
   include Mongoid::Geospatial
   require 'will_paginate/array'
   before_create :assign_slug
-  # include Mongoid::Slug
-  # include ImageUploader::Attachment(:photo)
 
   after_create :update_counters
   #fields
@@ -16,13 +14,14 @@ class Product
   field :max_aggregates, type: Integer, default: 1
   field :slug, type: String
   field :photo, type: String, default: "places/default.png"
-
+  field :public_stock, type: Integer, default: 0
+  field :original_stock, type: Integer, default: 0
   # TODO: Agregar la cantidad publica y la privada
 
   # relations
   belongs_to :item
   belongs_to :place
-  belongs_to :cart_item #, as: :model
+  belongs_to :cart_item, optional: true #, as: :model
   embeds_many :aggregates
 
 

@@ -7,8 +7,8 @@ class User
   devise :database_authenticatable, :registerable, :omniauthable, omniauth_providers: [:facebook]
   # Callbacks
   after_create :assign_default_role
-  after_create :set_required_actions
-  after_update :set_required_actions
+  # TODO: Al registrarse y si ya cuenta con un carrito se debe hacer merge
+  # after_create :merge_cart
 
   # Fields
   field :name, type: String

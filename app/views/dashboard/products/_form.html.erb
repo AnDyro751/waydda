@@ -1,7 +1,8 @@
-<%= simple_form_for(@product, url: dashboard_product_path(@product), method: :patch, enctype: "multipart/form-data", id: "product_edit_form") do |f| %>
+<%= simple_form_for(@product, url: dashboard_product_path(@product.slug), method: :patch, enctype: "multipart/form-data", id: "product_edit_form", remote: true) do |f| %>
   <%= f.input :name %>
   <%= f.input :description %>
   <%= f.input :price %>
+  <%= f.input :public_stock, as: :integer %>
   <%= f.input :item_id, collection: @place.items.map { |r| [r.name, r.id] }, prompt: "selecciona el item" %>
   <%= f.submit %>
 <% end %>
