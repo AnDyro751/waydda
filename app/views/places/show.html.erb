@@ -16,6 +16,7 @@
   <div class="bg-gray-100 p-3 my-3">
     <p>Nombre: <%= product.name %></p>
     <p>Descripción: <%= product.description %></p>
+    <p>Aggregates <%= product.aggregates.length %></p>
     <p>Precio: <%= number_to_currency(product.price, raise: true, format: "%u %n") %></p>
   </div>
 <% end %>
