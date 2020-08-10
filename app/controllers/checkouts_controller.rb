@@ -5,7 +5,6 @@ class CheckoutsController < ApplicationController
   def show
   end
 
-
   private
 
   def set_checkout

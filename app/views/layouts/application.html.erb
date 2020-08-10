@@ -8,6 +8,13 @@
   <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   <link rel="preconnect" href="https://d1nrrr6y3ujrjz.cloudfront.net" crossOrigin/>
   <link rel="dns-prefetch" href="https://d1nrrr6y3ujrjz.cloudfront.net"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com" crossOrigin/>
+  <link rel="dns-prefetch" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com/" crossOrigin/>
+  <link rel="dns-prefetch" href="https://fonts.gstatic.com/"/>
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&display=swap" as="style">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&display=swap">
+
   <% if @map %>
     <link rel="preconnect" href="https://api.mapbox.com" crossOrigin/>
     <link rel="dns-prefetch" href="https://api.mapbox.com"/>
@@ -16,13 +23,22 @@
 </head>
 
 <body>
-<p class="notice"><%= notice %></p>
-<p class="alert"><%= alert %></p>
-<%= link_to "Carrito(#{@current_cart.quantity})", my_cart_path %>
-<%= yield %>
-<%= console %>
-<% if user_signed_in? %>
-  <%= link_to "Cerrar sesión", destroy_user_session_path, method: :delete %>
-<% end %>
+
+<%= react_component('Headers/Simple', {current_user: current_user, current_user_id: current_user.id.to_s}, {prerender: true, class: "fixed w-full top-0 main-header"}) %>
+
+<%#= link_to "Carrito(#{@current_cart.quantity})", my_cart_path %>
+<div class="grid grid-cols-12 mt-20">
+  <div class="col-span-12">
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
+    <%= yield %>
+    <%#= console %>
+    <% if user_signed_in? %>
+      <%= link_to "Cerrar sesión", destroy_user_session_path, method: :delete %>
+    <% end %>
+  </div>
+
+</div>
+
 </body>
 </html>
