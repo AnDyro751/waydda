@@ -13,9 +13,9 @@
  *= require_tree .
  *= require_self
  */
-@import "tailwindcss/base";
-@import "tailwindcss/components";
-@import "tailwindcss/utilities";
+@import "tailwindcss/base.css";
+@import "tailwindcss/components.css";
+@import "tailwindcss/utilities.css";
 body, html {
     margin: 0;
     padding: 0;
