@@ -5,16 +5,21 @@ Rails.application.routes.draw do
   devise_for :users, :controllers => {:omniauth_callbacks => "users/omniauth_callbacks"}
   get "/my-profile", to: "users#my_profile", as: "my_profile"
   get "/my-profile/edit", to: "users#edit", as: "edit_my_profile"
-
-  resources :addresses
-  #cart
-  post "/add_to_cart/:product_id", to: "carts#add_product", as: "add_product_to_cart"
-  get "/cart", to: "carts#show", as: "my_cart"
   resources :users, only: [:show, :update] do
     collection do
       patch 'update_password'
     end
   end
+  #Address
+  resources :addresses
+
+  #cart
+  delete "/delete_product/:product_id", to: "carts#delete_product", as: "delete_product_to_cart"
+  put "/update_item/:item_id", to: "carts#update_item", as: "update_item_to_cart"
+  post "/add_to_cart/:product_id", to: "carts#add_product", as: "add_product_to_cart"
+  get "/cart", to: "carts#show", as: "my_cart"
+
+  #Public places
   resources :places, only: [:show, :index]
 
   # Dashboard

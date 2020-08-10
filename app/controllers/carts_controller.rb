@@ -4,6 +4,10 @@ class CartsController < ApplicationController
 
   def show
     @items = @current_cart.cart_items.includes(:model).to_a
+    @items = @items.each do |i|
+      i["string_id"] = i.id.to_s
+      i["model_reference"] = i.model
+    end
     @total = Cart.get_total(@items)
   end
 
@@ -22,6 +26,14 @@ class CartsController < ApplicationController
   end
 
   def delete_product
+    # DEBE retornar la cantidad de productos {total: 3} o en su caso un  null si se elimina por completo
+    # response =
+  end
+
+  def update_item
+    respond_to do |format|
+      format.json { render json: {total: 3} }
+    end
   end
 
 
