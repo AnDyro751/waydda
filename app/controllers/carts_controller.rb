@@ -7,14 +7,15 @@ class CartsController < ApplicationController
     @items = @items.each do |i|
       i["string_id"] = i.id.to_s
       i["model_reference"] = i.model
+      i["model_reference_id"] = i.model.id.to_s
     end
     @total = Cart.get_total(@items)
   end
 
   def add_product
-    response = @current_cart.add_item(params["product_id"])
+    response = @current_cart.update_item(params["product_id"], 1, true)
     respond_to do |format|
-      if response[0]
+      if response["success"]
         format.js
       else
         # TODO: Show message in js
@@ -32,7 +33,8 @@ class CartsController < ApplicationController
 
   def update_item
     respond_to do |format|
-      format.json { render json: {total: 3} }
+      default_response = @current_cart.update_item(params["item_id"], params["item"]["quantity"], params["item"]["plus"])
+      format.json { render json: default_response }
     end
   end
 

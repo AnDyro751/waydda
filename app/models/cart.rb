@@ -5,7 +5,7 @@ class Cart
   embeds_many :cart_items
   belongs_to :user, optional: true
 
-  def self.get_total(old_items=nil)
+  def self.get_total(old_items = nil)
     total = 0
     old_items.each do |i|
       total = total + (i.model.price * i.quantity)
@@ -13,33 +13,63 @@ class Cart
     total
   end
 
-  # @param [String] product_id
-  # @return [Array] [response, total_products]
-  def add_item(product_id)
+
+  def update_item(product_id, quantity, plus)
     product = Product.find_by(id: product_id)
     return [false, nil] if product.nil?
-    return [false, nil] if product.public_stock <= 0
     current_item = self.cart_items.find_by(model_id: product_id)
-    new_cart_quantity = self.quantity + 1
+    # plus = quantity > 0
+    puts "--------#{self}-----#{current_item}-----#{product}-------#{quantity}"
+    return add_item(self, current_item, product, quantity) if plus
+    return remove_item(self, current_item, product, quantity) unless plus
+  end
+
+
+  def add_item(current_cart, current_item, product, quantity = 1)
+    new_quantity = current_item.quantity + quantity unless current_item.nil?
+    new_quantity = quantity if current_item.nil?
+    new_cart_quantity = current_cart.quantity + quantity
+    return {success: false, total_items_counter: nil, total_items_cart: nil} unless product.valid_stock(new_quantity)
     if current_item.nil?
       begin
-        self.cart_items.create!(model: product, quantity: 1)
-        self.update(quantity: new_cart_quantity)
-        return [true, 1]
+        current_cart.cart_items.create!(model: product, quantity: new_quantity)
+        current_cart.update(quantity: new_cart_quantity)
+        return {success: true, total_items_counter: new_quantity, total_items_cart: current_cart.quantity}
       rescue
-        return [false, nil]
+        return {success: false, total_items_counter: nil, total_items_cart: nil}
       end
     else
-      return [false, nil] if current_item.quantity > product.public_stock
-      new_quantity = current_item.quantity + 1
-      # puts "#{new_quantity}----------"
       if current_item.update(quantity: new_quantity)
-        self.update(quantity: new_cart_quantity)
-        return [true, new_quantity]
+        current_cart.update(quantity: new_cart_quantity)
+        return {success: true, total_items_counter: current_item.quantity, total_items_cart: current_cart.quantity}
       else
-        return [false, nil]
+        return {success: false, total_items_counter: nil, total_items_cart: nil}
       end
     end
   end
+
+  def remove_item(current_cart, current_item, product, quantity)
+    new_quantity = current_item.quantity - quantity
+    if new_quantity <= 0
+      # Se elimina el item
+      begin
+        current_item.destroy
+        current_cart.update(quantity: current_cart.quantity - quantity)
+        return {success: true, total_items_counter: nil, total_items_cart: current_cart.quantity}
+      rescue
+        return {success: false, total_items_counter: nil, total_items_cart: nil}
+      end
+    else
+      begin
+        current_item.update(quantity: new_quantity)
+        current_cart.update(quantity: current_cart.quantity - quantity)
+        return {success: true, total_items_counter: current_item.quantity, total_items_cart: current_cart.quantity}
+      rescue
+        return {success: true, total_items_counter: nil, total_items_cart: nil}
+      end
+
+    end
+  end
+
 
 end

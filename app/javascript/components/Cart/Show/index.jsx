@@ -34,37 +34,34 @@ export default function CartShow({items, total, current_cart}) {
 }
 
 const Item = ({item, handleDeleteItem}) => {
-    // console.log(string_id)
     const [currentQuantity, setCurrentQuantity] = useState(item.quantity);
-    const handleBlur = (e) => {
-        setCurrentQuantity(e.target.value);
-        if (e.target.value === "0" || e.target.value <= 0) {
-            removeCartItem()
-        } else {
-            updateItem(e.target.value)
-        }
-    }
+    const [loading, setLoading] = useState(false);
 
     const removeCartItem = () => {
         handleDeleteItem(item.string_id)
         console.log("Eliminando item")
     }
 
-    const updateItem = async (quantity) => {
-        console.log("Nueva", quantity)
-
+    const updateItem = async (quantity, plus = true) => {
+        setLoading(true);
         try {
-            let response = await (await fetch(`/update_item/${item.string_id}`, {
+            let response = await (await fetch(`/update_item/${item.model_reference_id}`, {
                 method: "put",
                 body: JSON.stringify({
                     item: {
-                        quantity: quantity
+                        quantity: parseInt(quantity),
+                        plus: plus
                     }
                 }),
                 headers: getDefaultHeaders()
             })).json()
+            if (response.success && response.total_items_counter === null) {
+                removeCartItem();
+            }
             console.log(response, "Reponse")
+            setLoading(false);
         } catch (e) {
+            setLoading(false);
             console.log("Ha ocurrido un error", e)
         }
 
@@ -77,13 +74,24 @@ const Item = ({item, handleDeleteItem}) => {
                     {item.model_reference.name}
                 </div>
                 <div className="col-span-12">
-                    <input type="number"
-                           onChange={(e) => {
-                               setCurrentQuantity(e.target.value)
-                           }}
-                           onBlur={handleBlur}
-                           value={currentQuantity}
-                    />
+                    <div className="grid grid-cols-12">
+                        <button
+                            disabled={loading}
+                            className="col-span-4 cursor-pointer" onClick={() => {
+                            updateItem(1, false)
+                        }}>
+                            -
+                        </button>
+                        <div className="col-span-4">{currentQuantity}</div>
+                        <button
+                            disabled={loading}
+                            className="col-span-4 cursor-pointer"
+                            onClick={() => {
+                                updateItem(1)
+                            }}
+                        >+
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>

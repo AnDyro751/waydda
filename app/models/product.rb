@@ -25,6 +25,17 @@ class Product
   embeds_many :aggregates
 
 
+  # @param [Integer] new_value
+  # @return [TrueClass, FalseClass]
+  def valid_stock(new_value = nil)
+    puts "---------#{new_value}------new"
+    if new_value > self.public_stock
+      return false
+    else
+      return true
+    end
+  end
+
   private
 
   def update_counters
@@ -36,6 +47,7 @@ class Product
   def assign_slug
     self.slug = "#{self.name.parameterize}-#{SecureRandom.hex(10)}"
   end
+
 
   # @param [String] attribute
   # @param [String] id
