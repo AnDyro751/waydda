@@ -12,6 +12,7 @@
     "@uppy/locales": "^1.16.3",
     "@uppy/xhr-upload": "^1.6.3",
     "babel-plugin-transform-react-remove-prop-types": "^0.4.24",
+    "classnames": "^2.2.6",
     "hex-rgb": "^4.1.0",
     "js-base64": "^3.4.4",
     "mapbox-gl": "^1.11.1",

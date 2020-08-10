@@ -27,7 +27,7 @@
 <%= react_component('Headers/Simple', {current_user: current_user, current_user_id: current_user.id.to_s}, {prerender: true, class: "fixed w-full top-0 main-header"}) %>
 
 <%#= link_to "Carrito(#{@current_cart.quantity})", my_cart_path %>
-<div class="grid grid-cols-12 mt-20">
+<div class="grid grid-cols-12 mt-20 z-10">
   <div class="col-span-12">
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>

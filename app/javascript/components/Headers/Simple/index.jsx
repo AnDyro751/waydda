@@ -1,14 +1,14 @@
 import React, {useState} from 'react'
 import AddressModal from "../../Addresses/Modal";
-import {RiShoppingBasketLine} from 'react-icons/ri'
 import GetImageUrl from "../../../lib/getImageUrl";
+import CartSidebar from "../../Cart/Sidebar";
 
 export default function HeadersSimple({current_user, current_user_id}) {
 
     const [addressModalOpen, setAddressModalOpen] = useState(false);
 
     return (
-        <div className="grid grid-cols-12 px-6 py-4 bg-white bg-opacity-75 border-b items-center">
+        <div className="grid grid-cols-12 px-6 py-4 bg-white bg-opacity-75 border-b items-center h-20">
             <div className="col-span-2">
                 {/*Crear el componente de imagen responsiva*/}
                 <a href="/">
@@ -39,7 +39,7 @@ export default function HeadersSimple({current_user, current_user_id}) {
                         {/* TODO: Agregar funcionalidad */}
                     </div>
                     <div className="w-auto text-center">
-                        <RiShoppingBasketLine className="text-gray-800 inline" size={20} title={"Carrito"}/>
+                        <CartSidebar/>
                         {/*<span*/}
                         {/*    className="ml-3">Carrito</span>*/}
                         {/* TODO: Agregar funcionalidad */}
