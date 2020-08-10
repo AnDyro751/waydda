@@ -10,6 +10,7 @@ export default function CartShow({items, total, current_cart}) {
     return (
         <div className="grid grid-cols-12">
             <div className="col-span-12">
+                <h1>Total: {total}</h1>
                 <h2>Mostrando carrito</h2>
                 <h4>{current_cart.quantity} productos</h4>
             </div>

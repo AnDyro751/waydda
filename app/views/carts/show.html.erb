@@ -1,2 +1,3 @@
 <% content_for(:html_title) { 'Title' } %>
 <%= react_component('Cart/Show', {total: @total, current_cart: @current_cart, items: @items}, {prerender: false}) %>
+<%= link_to "Pagar", checkout_path(Checkout.create_or_get_checkout(@current_cart)) %>

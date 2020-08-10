@@ -4,5 +4,4 @@ class CartItem
   field :quantity, type: Integer, default: 0
   belongs_to :model, polymorphic: true
   embedded_in :cart
-  # belongs_to :place
 end

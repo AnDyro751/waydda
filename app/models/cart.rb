@@ -3,6 +3,7 @@ class Cart
   include Mongoid::Timestamps
   field :quantity, type: Integer, default: 0
   embeds_many :cart_items
+  embeds_one :checkout
   belongs_to :user, optional: true
 
   def self.get_total(old_items = nil)

@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'checkouts/show'
   root 'home#index'
 
   # users
@@ -18,6 +19,9 @@ Rails.application.routes.draw do
   put "/update_item/:item_id", to: "carts#update_item", as: "update_item_to_cart"
   post "/add_to_cart/:product_id", to: "carts#add_product", as: "add_product_to_cart"
   get "/cart", to: "carts#show", as: "my_cart"
+
+  # checkouts
+  resources :checkouts, only: [:show, :create]
 
   #Public places
   resources :places, only: [:show, :index]
