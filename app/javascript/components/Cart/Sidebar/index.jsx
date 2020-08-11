@@ -3,10 +3,11 @@ import {RiShoppingBasketLine} from "react-icons/ri";
 import classNames from 'classnames'
 import getDefaultHeaders from "../../../lib/getDefaultHeaders";
 import {RiCloseLine} from 'react-icons/ri'
+import ShowCartItems from "../ShowCartItems";
 
 export default function CartSidebar({}) {
 
-    const [open, setOpen] = useState(false);
+    const [open, setOpen] = useState(true);
     const [items, setItems] = useState([]);
     const [loading, setLoading] = useState(true);
 
@@ -85,6 +86,12 @@ export default function CartSidebar({}) {
                                     <RiCloseLine size={20} className="text-black"/>
                                 </div>
                             </div>
+                        </div>
+                        <div className="p-4 col-span-12">
+                            <ShowCartItems
+                                loading={loading}
+                                items={items}
+                            />
                         </div>
                     </div>
                 </div>
