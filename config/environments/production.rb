@@ -33,6 +33,7 @@ Rails.application.configure do
   # config.hosts << 'https://d2s1etkbzrrbc0.cloudfront.net'
   #
   config.hosts << "waydda.herokuapp.com"
+  config.hosts << "localhost"
   # config.hosts << "https://waydda.herokuapp.com"
   # Specifies the header that your server uses for sending files.
   # config.action_dispatch.x_sendfile_header = 'X-Sendfile' # for Apache
