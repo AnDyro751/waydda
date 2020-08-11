@@ -10,7 +10,7 @@ gem 'puma', '~> 4.1'
 # Use SCSS for stylesheets
 gem 'sass-rails', '>= 6'
 # Transpile app-like JavaScript. Read more: https://github.com/rails/webpacker
-gem 'webpacker', '~> 4.0'
+gem "webpacker", "~> 5"
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
 gem 'turbolinks', '~> 5'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
@@ -37,7 +37,8 @@ gem 'devise'
 gem 'simple_form'
 gem "aws-sdk-s3", "~> 1.14"
 # gem 'react-rails'
-gem 'react_on_rails', '11.2.1'
+# gem 'react_on_rails', '11.2.1'
+gem "react_on_rails", "12.0.0" # Update to the current version
 gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'city-state'
@@ -67,3 +68,5 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+
+gem 'mini_racer', platforms: :ruby

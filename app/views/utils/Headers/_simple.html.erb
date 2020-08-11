@@ -10,7 +10,10 @@
       </a>
     </div>
     <div class="col-span-5 col-start-8 px-0">
-      <%= react_component('Headers/Simple', {current_user: current_user, current_user_id: current_user ? current_user.id.to_s : nil}, {prerender: true, class: "z-40"}) %>
+      <!--      prerender: true, class: "z-40"-->
+      <%= react_component("Simple", props: nil, prerender: false) %>
+
+      <%#= react_component('HelloWorld', props: {current_user: current_user, current_user_id: current_user ? current_user.id.to_s : nil}, prerender: true ) %>
     </div>
   </div>
 
