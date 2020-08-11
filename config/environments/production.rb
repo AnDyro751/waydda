@@ -30,7 +30,6 @@ Rails.application.configure do
 
   # Enable serving of images, stylesheets, and JavaScripts from an asset server.
   config.action_controller.asset_host = 'https://d2s1etkbzrrbc0.cloudfront.net'
-  # config.hosts << 'https://d2s1etkbzrrbc0.cloudfront.net'
   #
   config.hosts << "waydda.herokuapp.com"
   config.hosts << "localhost"
