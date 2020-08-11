@@ -10,6 +10,10 @@ class CartsController < ApplicationController
       i["model_reference_id"] = i.model.id.to_s
     end
     @total = Cart.get_total(@items)
+    respond_to do |format|
+      format.html { render :show }
+      format.json { render json: {items: @items, total: @total} }
+    end
   end
 
   def add_product

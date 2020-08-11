@@ -1,4 +1,4 @@
-<div class="fixed w-full top-0 main-header">
+<div class="fixed w-full top-0 main-header z-50">
   <div class="grid grid-cols-12 px-6 py-4 bg-white bg-opacity-75 border-b items-center h-20">
     <div class="col-span-2">
       <a href="/">
@@ -10,7 +10,7 @@
       </a>
     </div>
     <div class="col-span-5 col-start-8 px-0">
-      <%= react_component('Headers/Simple', {current_user: current_user, current_user_id: current_user ? current_user.id.to_s : nil}, {prerender: true, class: ""}) %>
+      <%= react_component('Headers/Simple', {current_user: current_user, current_user_id: current_user ? current_user.id.to_s : nil}, {prerender: true, class: "z-40"}) %>
     </div>
   </div>
 
