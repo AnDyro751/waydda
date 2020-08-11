@@ -15,44 +15,44 @@ require("channels")
 // const imagePath = (name) => images(name, true)
 
 import '../../assets/stylesheets/application.scss'
-import Uppy from '@uppy/core'
-import Dashboard from '@uppy/dashboard'
+// import Uppy from '@uppy/core'
+// import Dashboard from '@uppy/dashboard'
 
 // const ImageEditor = require('@uppy/image-editor')
-const XHRUpload = require('@uppy/xhr-upload')
-const es = require("@uppy/locales/lib/es_ES")
-require('@uppy/core/dist/style.css')
-require('@uppy/dashboard/dist/style.css')
+// const XHRUpload = require('@uppy/xhr-upload')
+// const es = require("@uppy/locales/lib/es_ES")
+// require('@uppy/core/dist/style.css')
+// require('@uppy/dashboard/dist/style.css')
 
-document.addEventListener("turbolinks:load", () => {
-    const el = document.querySelector("#select-files")
-    if (el) {
-        const model = el["dataset"].model
-        const slug = el["dataset"].slug
-        const attribute = el["dataset"].attribute
-        Uppy({
-            allowMultipleUploads: false,
-            restrictions: {
-                maxFileSize: 10 * 1024 * 1024,
-                maxNumberOfFiles: 1,
-                minNumberOfFiles: 0,
-                allowedFileTypes: ['image/*', '.jpg', '.jpeg', '.png'],
-            },
-        })
-            .use(Dashboard, {
-                trigger: '#select-files',
-                showProgressDetails: true,
-                browserBackButtonClose: true,
-                closeAfterFinish: true,
-                locale: es,
-                note: "Imágenes solamente hasta 10 MB"
-            })
-            .use(XHRUpload, {endpoint: `/dashboard/upload/${model}/${slug}/${attribute}`, limit: 1})
-            .on('complete', (result) => {
-                console.log('Upload result:', result)
-            })
-    }
-})// Support component names relative to this directory:
+// document.addEventListener("turbolinks:load", () => {
+//     const el = document.querySelector("#select-files")
+//     if (el) {
+//         const model = el["dataset"].model
+//         const slug = el["dataset"].slug
+//         const attribute = el["dataset"].attribute
+//         Uppy({
+//             allowMultipleUploads: false,
+//             restrictions: {
+//                 maxFileSize: 10 * 1024 * 1024,
+//                 maxNumberOfFiles: 1,
+//                 minNumberOfFiles: 0,
+//                 allowedFileTypes: ['image/*', '.jpg', '.jpeg', '.png'],
+//             },
+//         })
+//             .use(Dashboard, {
+//                 trigger: '#select-files',
+//                 showProgressDetails: true,
+//                 browserBackButtonClose: true,
+//                 closeAfterFinish: true,
+//                 locale: es,
+//                 note: "Imágenes solamente hasta 10 MB"
+//             })
+//             .use(XHRUpload, {endpoint: `/dashboard/upload/${model}/${slug}/${attribute}`, limit: 1})
+//             .on('complete', (result) => {
+//                 console.log('Upload result:', result)
+//             })
+//     }
+// })// Support component names relative to this directory:
 var componentRequireContext = require.context("components", true);
 var ReactRailsUJS = require("react_ujs");
 ReactRailsUJS.useContext(componentRequireContext);
