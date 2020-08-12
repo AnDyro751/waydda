@@ -50,6 +50,7 @@ class Cart
   end
 
   def remove_item(current_cart, current_item, product, quantity)
+    return {success: false, total_items_counter: nil, total_items_cart: nil} if current_item.nil?
     new_quantity = current_item.quantity - quantity
     if new_quantity <= 0
       # Se elimina el item

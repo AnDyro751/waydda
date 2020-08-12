@@ -10,8 +10,9 @@ export default function CartSidebar({}) {
     const [open, setOpen] = useState(true);
     const [items, setItems] = useState([]);
     const [loading, setLoading] = useState(true);
-
+    const [didMount, setDidMount] = useState(false);
     useEffect(() => {
+        setDidMount(true);
         if (open) {
             const getData = async () => {
                 try {
@@ -24,12 +25,14 @@ export default function CartSidebar({}) {
                     setItems(response.items || [])
                     setLoading(false);
                     console.log(response, "Re")
+                    return () => setDidMount(false);
                 } catch (e) {
                     setLoading(false);
                 }
             }
-            getData()
+            getData();
         }
+        return () => setDidMount(false);
     }, [open])
 
     const sidebarClass = classNames({
@@ -88,10 +91,13 @@ export default function CartSidebar({}) {
                             </div>
                         </div>
                         <div className="col-span-12">
-                            <ShowCartItems
-                                loading={loading}
-                                items={items}
-                            />
+                            {
+                                !loading && items.length > 0 &&
+                                <ShowCartItems
+                                    loading={loading}
+                                    items={items}
+                                />
+                            }
                         </div>
                     </div>
                 </div>
