@@ -38,7 +38,7 @@ export default function CartSidebar({}) {
     })
 
     const sidebarParentClass = classNames({
-        "fixed transform top-0 w-4/12 z-10 flex right-0 bottom-0 h-screen justify-end transform transition duration-500 delay-75 ease-in-out text-left": true,
+        "fixed transform top-0 w-2/5 z-10 flex right-0 bottom-0 h-screen justify-end transform transition duration-500 delay-75 ease-in-out text-left": true,
         "translate-x-full": !open,
         "translate-x-0": open,
     })
@@ -87,7 +87,7 @@ export default function CartSidebar({}) {
                                 </div>
                             </div>
                         </div>
-                        <div className="p-4 col-span-12">
+                        <div className="col-span-12">
                             <ShowCartItems
                                 loading={loading}
                                 items={items}

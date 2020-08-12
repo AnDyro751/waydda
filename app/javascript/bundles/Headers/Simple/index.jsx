@@ -51,7 +51,7 @@ export default function HeadersSimple({current_user, current_user_id}) {
                             </a>
                             :
                             <a href="/users/sign_in"
-                               className="px-6 py-2 rounded border border-black">Ingresar</a>
+                               className="px-6 py-2 rounded bg-black text-white hover:shadow-2xl">Ingresar</a>
                     }
                 </div>
                 {/*    Login*/}
