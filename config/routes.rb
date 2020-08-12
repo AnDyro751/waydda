@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
   get 'hello_world', to: 'hello_world#index'
-  get 'checkouts/show'
   root 'home#index'
 
   # users
@@ -22,6 +21,7 @@ Rails.application.routes.draw do
   get "/cart", to: "carts#show", as: "my_cart"
   get "/my-json-cart", to: "carts#show_json"
   # checkouts
+  get 'checkout', to: "checkouts#show"
   resources :checkouts, only: [:show, :create]
 
   #Public places

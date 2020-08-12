@@ -3,14 +3,18 @@ class CheckoutsController < ApplicationController
   before_action :set_checkout
 
   def show
+    respond_to do |format|
+      format.html { render :show }
+      format.json { render json: {current_checkout: @current_checkout} }
+    end
   end
 
   private
 
   def set_checkout
-    current_checkout = @current_cart.checkout
-    if current_checkout
-      unless current_checkout.id.to_s == params["id"]
+    @current_checkout = @current_cart.checkout
+    if @current_checkout
+      unless @current_checkout.id.to_s == params["id"]
         not_found
       end
     else

@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import SidebarCartItem from "./Item";
 import LoaderSpinners from "../../Loaders/Spinner";
+import PayOrderButton from "../../Orders/PayOrderButton";
 
 export default function ShowCartItems({items = [], loading = true}) {
 
@@ -33,6 +34,11 @@ export default function ShowCartItems({items = [], loading = true}) {
                         ))}
                     </div>
                 </div>
+
+                {
+                    currentItems.length > 0 &&
+                    <PayOrderButton/>
+                }
 
             </div>
         </div>
