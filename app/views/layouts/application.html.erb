@@ -27,12 +27,12 @@
 
 <%= render "utils/Headers/simple", {current_user: current_user, current_user_id: current_user ? current_user.id.to_s : nil} %>
 
-<%#= link_to "Carrito(#{@current_cart.quantity})", my_cart_path %>
 <div class="grid grid-cols-12 mt-20 z-10">
   <div class="col-span-12">
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
     <%= yield %>
+    <%= Time.zone %>
     <%#= console %>
     <% if user_signed_in? %>
       <%= link_to "Cerrar sesión", destroy_user_session_path, method: :delete %>

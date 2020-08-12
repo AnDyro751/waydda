@@ -7,7 +7,7 @@ import ShowCartItems from "../ShowCartItems";
 
 export default function CartSidebar({}) {
 
-    const [open, setOpen] = useState(true);
+    const [open, setOpen] = useState(false);
     const [items, setItems] = useState([]);
     const [loading, setLoading] = useState(true);
     const [didMount, setDidMount] = useState(false);

@@ -15,6 +15,7 @@
     "classnames": "^2.2.6",
     "hex-rgb": "^4.1.0",
     "js-base64": "^3.4.4",
+    "jstz": "^2.1.1",
     "mapbox-gl": "^1.11.1",
     "prop-types": "^15.7.2",
     "react": "^16.13.1",

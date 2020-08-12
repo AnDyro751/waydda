@@ -4519,6 +4519,11 @@ jsprim@^1.2.2:
     json-schema "0.2.3"
     verror "1.10.0"
 
+jstz@^2.1.1:
+  version "2.1.1"
+  resolved "https://registry.yarnpkg.com/jstz/-/jstz-2.1.1.tgz#fff3373a518fa7cce69299930466f5a2b980389d"
+  integrity sha512-8hfl5RD6P7rEeIbzStBz3h4f+BQHfq/ABtoU6gXKQv5OcZhnmrIpG7e1pYaZ8hS9e0mp+bxUj08fnDUbKctYyA==
+
 kdbush@^3.0.0:
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/kdbush/-/kdbush-3.0.0.tgz#f8484794d47004cc2d85ed3a79353dbe0abc2bf0"

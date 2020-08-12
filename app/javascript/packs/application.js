@@ -56,3 +56,20 @@ import '../../assets/stylesheets/application.scss'
 // var componentRequireContext = require.context("components", true);
 // var ReactRailsUJS = require("react_ujs");
 // ReactRailsUJS.useContext(componentRequireContext);
+
+
+
+document.addEventListener("turbolinks:load", () => {
+    try {
+        const current_time_zone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+        setCookie("timezone", current_time_zone);
+    } catch (e) {
+
+    }
+})
+
+const setCookie = (name, value) => {
+    let expires = new Date();
+    expires.setTime(expires.getTime() + (24 * 60 * 60 * 1000))
+    document.cookie = name + "=" + value + ";expires=" + expires.toUTCString();
+}

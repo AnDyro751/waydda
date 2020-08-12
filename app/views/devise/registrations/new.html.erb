@@ -24,6 +24,11 @@
     <%= f.password_field :password, autocomplete: "new-password" %>
   </div>
 
+  <div class="field hidden">
+    <%= f.label :time_zone %>
+    <%= f.text_field :time_zone, value: browser_time_zone.name %>
+  </div>
+
   <div class="field">
     <%= f.label :password_confirmation %><br/>
     <%= f.password_field :password_confirmation, autocomplete: "new-password" %>

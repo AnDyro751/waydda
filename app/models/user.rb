@@ -19,6 +19,8 @@ class User
   field :encrypted_password, type: String
   field :status, type: String
   field :photo, type: String
+  field :time_zone, type: String
+  # validations
   validates :password, confirmation: true
   validates :password_confirmation, presence: true, on: :create
   # OMNIAUTH
