@@ -92,9 +92,8 @@ export default function CartSidebar({}) {
                         </div>
                         <div className="col-span-12">
                             {
-                                !loading && items.length > 0 &&
+                                !loading &&
                                 <ShowCartItems
-                                    loading={loading}
                                     items={items}
                                 />
                             }

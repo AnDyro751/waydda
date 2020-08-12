@@ -12,41 +12,32 @@ export default function ShowCartItems({items = [], loading = true}) {
     }
 
     useEffect(() => {
-        let mounted = true
-        if (mounted) {
-            setCurrentItems(items);
-        }
-        return () => mounted = false;
+        console.log("ITEMS", items)
+        setCurrentItems(items);
     }, [items])
 
     return (
         <div className="grid grid-cols-12">
             <div className="col-span-12">
-                {/*{currentItems.length <= 0 &&*/}
-                {/*<EmptyCart/>*/}
-                {/*}*/}
-                <RenderItems items={currentItems}
-                             onRemoveCartItem={handleRemoveItem}
-                />
+                {currentItems.length <= 0 &&
+                <EmptyCart/>
+                }
+                <div className="grid grid-cols-12">
+                    <div className="col-span-12">
+                        {currentItems.map((item, i) => (
+                            <SidebarCartItem
+                                removeCartItem={handleRemoveItem}
+                                key={i}
+                                item={item}
+                            />
+                        ))}
+                    </div>
+                </div>
+
             </div>
         </div>
     )
 }
-
-
-const RenderItems = ({items = [], onRemoveCartItem}) => (
-    <div className="grid grid-cols-12">
-        <div className="col-span-12">
-            {items.map((item, i) => (
-                <SidebarCartItem
-                    removeCartItem={onRemoveCartItem}
-                    key={i}
-                    item={item}
-                />
-            ))}
-        </div>
-    </div>
-)
 
 
 const EmptyCart = () => (

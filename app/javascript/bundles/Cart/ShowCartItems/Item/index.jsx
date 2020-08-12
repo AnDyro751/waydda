@@ -11,13 +11,14 @@ export default function SidebarCartItem({item, removeCartItem}) {
     const [addLoading, setAddLoading] = useState(false);
     const [minusLoading, setMinusLoading] = useState();
 
+
     useEffect(() => {
         let mounted = true;
         if (mounted) {
             setCurrentItem(item);
         }
         return () => mounted = false;
-    }, [])
+    }, [item])
 
 
     const updateItem = async (quantity, plus = true) => {
