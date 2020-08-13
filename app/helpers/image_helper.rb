@@ -10,8 +10,8 @@ module ImageHelper
         'key': path ? path : "places/default.png",
         'edits': {
             'resize': {
-                'width': 100,
-                'height': 40,
+                'width': width,
+                'height': height,
                 'fit': 'outside'
             }
         }

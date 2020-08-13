@@ -1,15 +1,15 @@
 <div class="fixed w-full top-0 main-header z-50">
-  <div class="grid grid-cols-12 px-6 py-4 bg-white bg-opacity-75 border-b items-center h-20">
-    <div class="col-span-2">
+  <div class="flex w-full px-6 bg-white items-center h-20 justify-between">
+    <div class="w-auto">
       <a href="/">
         <img
           draggable="false"
-          src="<%= get_image_url(20, 100, "w_logo.png") %>"
-          class="h-8"
+          src="<%= get_image_url(20, 100, "utils/w-logo-5.png") %>"
+          class="h-10"
           />
       </a>
     </div>
-    <div class="col-span-5 col-start-8 px-0">
+    <div class="w-5/12 px-0">
       <!--      prerender: true, class: "z-40"-->
       <%= react_component("Simple", props: nil, prerender: false) %>
 

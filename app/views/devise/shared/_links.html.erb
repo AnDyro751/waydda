@@ -1,25 +1,51 @@
-<%- if controller_name != 'sessions' %>
-  <%= link_to "Log in", new_session_path(resource_name) %><br />
-<% end %>
+<div class="grid grid-cols-12">
+  <div class="col-span-12">
+    <%#- if controller_name != 'sessions' %>
+    <%#= link_to "Log in", new_session_path(resource_name) %>
+    <%# end %>
 
-<%- if devise_mapping.registerable? && controller_name != 'registrations' %>
-  <%= link_to "Sign up", new_registration_path(resource_name) %><br />
-<% end %>
+    <%#- if devise_mapping.registerable? && controller_name != 'registrations' %>
+    <%#= link_to "Sign up", new_registration_path(resource_name) %>
+    <%# end %>
 
-<%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
-  <%= link_to "Forgot your password?", new_password_path(resource_name) %><br />
-<% end %>
+    <%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
+      <%= link_to "Forgot your password?", new_password_path(resource_name) %>
+    <% end %>
 
-<%- if devise_mapping.confirmable? && controller_name != 'confirmations' %>
-  <%= link_to "Didn't receive confirmation instructions?", new_confirmation_path(resource_name) %><br />
-<% end %>
+    <%- if devise_mapping.confirmable? && controller_name != 'confirmations' %>
+      <%= link_to "Didn't receive confirmation instructions?", new_confirmation_path(resource_name) %>
+    <% end %>
 
-<%- if devise_mapping.lockable? && resource_class.unlock_strategy_enabled?(:email) && controller_name != 'unlocks' %>
-  <%= link_to "Didn't receive unlock instructions?", new_unlock_path(resource_name) %><br />
-<% end %>
-
-<%- if devise_mapping.omniauthable? %>
-  <%- resource_class.omniauth_providers.each do |provider| %>
-    <%= link_to "Sign in with #{OmniAuth::Utils.camelize(provider)}", omniauth_authorize_path(resource_name, provider) %><br />
-  <% end %>
-<% end %>
+    <%- if devise_mapping.lockable? && resource_class.unlock_strategy_enabled?(:email) && controller_name != 'unlocks' %>
+      <%= link_to "Didn't receive unlock instructions?", new_unlock_path(resource_name) %>
+    <% end %>
+  </div>
+  <div class="col-span-12 my-3">
+    <%= link_to omniauth_authorize_path(resource_name, "facebook"), class: "hover:bg-blue-800 bg-facebook text-white w-full py-4 flex font-normal text-center justify-center rounded relative" do %>
+      <div class="absolute bottom-0 top-0 left-0 flex justify-center items-center ml-8">
+        <img src="<%= get_image_url(50, 50, "utils/icons8-facebook-104.png") %>" class="h-8" alt="waydda facebook login">
+      </div>
+      Continuar con Facebook
+    <% end %>
+  </div>
+  <div class="col-span-12 my-3">
+    <%= link_to omniauth_authorize_path(resource_name, "facebook"), class: "hover:bg-gray-200 bg-white text-gray-600 shadow w-full py-4 flex font-normal text-center justify-center rounded relative" do %>
+      <div class="absolute bottom-0 top-0 left-0 flex justify-center items-center ml-8">
+        <img src="<%= get_image_url(50, 50, "utils/icons8-google-144.png") %>" class="h-8" alt="waydda facebook login">
+      </div>
+      <!--      TODO: Add google oauth-->
+      Continuar con Google
+    <% end %>
+  </div>
+  <div class="col-span-12 mt-3">
+    <%= link_to omniauth_authorize_path(resource_name, "facebook"), class: "hover:bg-black hover:text-white bg-white border border-gray-400 text-gray-600 w-full py-4 flex font-normal text-center justify-center rounded relative" do %>
+      Correo Electrónico
+    <% end %>
+  </div>
+  <!--  -->
+</div>
+<%#- if devise_mapping.omniauthable? %>
+<%#- resource_class.omniauth_providers.each do |provider| %>
+<br/>
+<%# end %>
+<%# end %>

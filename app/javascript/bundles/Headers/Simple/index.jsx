@@ -51,7 +51,7 @@ export default function HeadersSimple({current_user, current_user_id}) {
                             </a>
                             :
                             <a href="/users/sign_in"
-                               className="text-black font-normal">Inicia sesión</a>
+                               className="text-black font-normal hover:text-red-800">Inicia sesión</a>
                     }
                 </div>
                 {/*    Login*/}

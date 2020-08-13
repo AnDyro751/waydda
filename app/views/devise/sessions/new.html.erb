@@ -1,26 +1,37 @@
-<h2>Log in</h2>
-
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+<div class="flex w-full items-center justify-around">
+  <!--  TODO: Add waydda logo-->
+  <div class="fixed circle-sessions w-10/12 shadow-2xl left-0 h-full top-0 bottom-0 z-0 rounded-r-full">
   </div>
-
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "current-password" %>
+  <div class="absolute ml-10 mt-10 z-40 left-0 top-0">
+    <%= link_to root_path, class: "w-auto" do %>
+      <img
+        draggable="false"
+        src="<%= get_image_url(20, 100, "utils/w-logo-5.png") %>"
+        class="h-10 inline"
+        />
+      <span class="inline">&#160;Waydda</span>
+    <% end %>
   </div>
-
-  <% if devise_mapping.rememberable? %>
-    <div class="field">
-      <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
+  <div class="w-6/12 z-10">
+    <img
+      draggable="false"
+      class="h-xxl select-none"
+      load="lazy"
+      src="<%= get_image_url(500, 1000, "utils/download (4).png") %>" alt="Inicia sesión en waydda">
+  </div>
+  <div class="w-5/12 px-10 py-16 z-10">
+    <div class="w-full flex flex-wrap bg-white p-10 form-sessions rounded">
+      <div class="w-full px-4">
+        <h1 class="text-4xl font-bold mb-3 text-gray-900 text-center">¡Hola, bienvenido de nuevo!</h1>
+        <h2 class="text-2xl font-normal text-gray-600 text-center my-6">¿Cómo deseas iniciar?</h2>
+      </div>
+      <div class="w-full">
+        <%#= render "devise/shared/form" %>
+        <%= render "devise/shared/links" %>
+      </div>
+      <div class="w-full text-center">
+        <p class="text-gray-500"><small>Al registrarte aceptas los términos y condiciones del servicio</small></p>
+      </div>
     </div>
-  <% end %>
-
-  <div class="actions">
-    <%= f.submit "Log in" %>
   </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+</div>

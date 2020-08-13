@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   root 'home#index'
 
   # users
-  devise_for :users, :controllers => {:omniauth_callbacks => "users/omniauth_callbacks"}
+  devise_for :users, :controllers => {:omniauth_callbacks => "users/omniauth_callbacks", sessions: "users/sessions"}
   get "/my-profile", to: "users#my_profile", as: "my_profile"
   get "/my-profile/edit", to: "users#edit", as: "edit_my_profile"
   resources :users, only: [:show, :update] do
