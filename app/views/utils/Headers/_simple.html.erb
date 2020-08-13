@@ -11,7 +11,7 @@
     </div>
     <div class="w-5/12 px-0">
       <!--      prerender: true, class: "z-40"-->
-      <%= react_component("Simple", props: nil, prerender: false) %>
+      <%= react_component("Simple", props: {current_user: current_user, current_user_id: current_user ? current_user.id.to_s : nil}, prerender: false) %>
 
       <%#= react_component('HelloWorld', props: {current_user: current_user, current_user_id: current_user ? current_user.id.to_s : nil}, prerender: true ) %>
     </div>
