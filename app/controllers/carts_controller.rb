@@ -1,6 +1,7 @@
 class CartsController < ApplicationController
 
   # before_action :authenticate_user!
+  skip_before_action :verify_authenticity_token, only: [:show, :update_item, :add_product]
 
   def show
     @items = @current_cart.cart_items.includes(:model).to_a
@@ -37,7 +38,7 @@ class CartsController < ApplicationController
 
   def update_item
     respond_to do |format|
-      default_response = @current_cart.update_item(params["item_id"], params["item"]["quantity"], params["item"]["plus"])
+      default_response = @current_cart.update_item(params["item_id"], params["item"]["quantity"], params["item"]["plus"], user_signed_in?)
       format.json { render json: default_response }
     end
   end

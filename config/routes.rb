@@ -1,9 +1,5 @@
 Rails.application.routes.draw do
-  get 'hello_world', to: 'hello_world#index'
   root 'home#index'
-
-  # 17179375395-4p50pm7an9mjce45n3ic6befrd45e3mb.apps.googleusercontent.com
-  # 1Po6DSTcHOH8qSKs5585X5w0
   # users
   devise_for :users, :controllers => {:omniauth_callbacks => "users/omniauth_callbacks", sessions: "users/sessions"}
   devise_scope :user do
