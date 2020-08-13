@@ -4,7 +4,7 @@ class User
   include ActiveModel::SecurePassword
   include AASM
 
-  devise :database_authenticatable, :registerable, :omniauthable, omniauth_providers: [:facebook]
+  devise :database_authenticatable, :registerable, :omniauthable, omniauth_providers: [:facebook, :google_oauth2]
   # Callbacks
   after_create :assign_default_role
   # TODO: Al registrarse y si ya cuenta con un carrito se debe hacer merge
@@ -19,10 +19,9 @@ class User
   field :encrypted_password, type: String
   field :status, type: String
   field :photo, type: String
-  field :time_zone, type: String
+  field :timezone, type: String
   # validations
   validates :password, confirmation: true
-  validates :password_confirmation, presence: true, on: :create
   # OMNIAUTH
   field :provider, type: String
   field :uid, type: String

@@ -10,6 +10,7 @@
 # Many of these configuration options can be set straight in your model.
 Devise.setup do |config|
   config.omniauth :facebook, "641527279645625", "86bcd5787a85bced9ac25633361dffc9" #, callback_url: "http://localhost:3000/auth/facebook/callback"
+  config.omniauth :google_oauth2, "17179375395-4p50pm7an9mjce45n3ic6befrd45e3mb.apps.googleusercontent.com", "1Po6DSTcHOH8qSKs5585X5w0"#, access_type: "online"
   # The secret key used by Devise. Devise uses this key to generate
   # random tokens. Changing this key will render invalid all existing
   # confirmation, reset password and unlock tokens in the database.

@@ -29,7 +29,7 @@
     <% end %>
   </div>
   <div class="col-span-12 my-3">
-    <%= link_to omniauth_authorize_path(resource_name, "facebook"), class: "hover:bg-gray-200 bg-white text-gray-600 shadow w-full py-4 flex font-normal text-center justify-center rounded relative" do %>
+    <%= link_to omniauth_authorize_path(resource_name, "google_oauth2"), class: "hover:bg-gray-200 bg-white text-gray-600 shadow w-full py-4 flex font-normal text-center justify-center rounded relative" do %>
       <div class="absolute bottom-0 top-0 left-0 flex justify-center items-center ml-8">
         <img src="<%= get_image_url(50, 50, "utils/icons8-google-144.png") %>" class="h-8" alt="waydda facebook login">
       </div>

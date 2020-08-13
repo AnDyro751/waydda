@@ -40,6 +40,7 @@ gem "aws-sdk-s3", "~> 1.14"
 # gem 'react_on_rails', '11.2.1'
 gem "react_on_rails", "12.0.0" # Update to the current version
 gem 'omniauth'
+gem 'omniauth-google-oauth2'
 gem 'omniauth-facebook'
 gem 'city-state'
 gem "mapbox-sdk"
