@@ -12,9 +12,9 @@ class Checkout
   # validations
   validates :status, inclusion: {in: %w[pending active]}
 
-  def self.update_intent(intent_id, new_amount)
+  def self.update_intent(current_cart, new_amount)
     begin
-      Stripe::PaymentIntent.update(intent_id,
+      Stripe::PaymentIntent.update(current_cart.intent_id,
                                    {
                                        amount: (new_amount * 100).to_i
                                    }
