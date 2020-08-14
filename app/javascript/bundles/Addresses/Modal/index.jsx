@@ -13,7 +13,7 @@ const customStyles = {
     }
 };
 
-export default function AddressModal({addresses, modalOpen = false, handleClose}) {
+export default function AddressModal({addresses, modalOpen = false, handleClose, current_address}) {
     const [isOpen, setIsOpen] = useState(modalOpen);
 
     useEffect(() => {
@@ -21,16 +21,27 @@ export default function AddressModal({addresses, modalOpen = false, handleClose}
     }, [modalOpen])
 
     return (
-        <Modal
-            isOpen={isOpen}
-            onRequestClose={() => {
-                setIsOpen(false);
-                handleClose()
-            }}
-            style={customStyles}
-            contentLabel="Addresses"
-        >
+        <>
+            <Modal
+                isOpen={isOpen}
+                onRequestClose={() => {
+                    setIsOpen(false);
+                    handleClose()
+                }}
+                style={customStyles}
+                contentLabel="Addresses"
+            >
 
-        </Modal>
+            </Modal>
+            <div className="flex w-full flex-wrap">
+                <div className="w-full">
+                    <p className="text-gray-500 text-xs">ENTREGAR EN</p>
+                </div>
+                <div className="w-full">
+                    <p
+                        className="truncate">{current_address}</p>
+                </div>
+            </div>
+        </>
     )
 }

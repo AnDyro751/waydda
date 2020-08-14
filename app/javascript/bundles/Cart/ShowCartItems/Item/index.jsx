@@ -5,7 +5,7 @@ import React, {useState, useEffect} from "react";
 import getDefaultHeaders from "../../../../lib/getDefaultHeaders";
 import LoaderSpinners from "../../../Loaders/Spinner";
 
-export default function SidebarCartItem({item, removeCartItem}) {
+export default function SidebarCartItem({item, removeCartItem, withImages}) {
     const [currentItem, setCurrentItem] = useState(null);
     const [loading, setLoading] = useState(false);
     const [addLoading, setAddLoading] = useState(false);
@@ -63,10 +63,13 @@ export default function SidebarCartItem({item, removeCartItem}) {
     }
 
     return (
-        <div className="flex w-full mb-4 border-b border-gray-200 py-4 px-2">
-            <div className="w-2/12">
-            </div>
-            <div className="w-10/12">
+        <div className="flex w-full mb-4 border-b border-gray-200 py-4 px-3">
+            {
+                withImages &&
+                <div className="w-2/12">
+                </div>
+            }
+            <div className={withImages ? "w-10/12" : "w-full"}>
                 <div className="flex w-full items-center gap-2">
                     <div className="w-5/12">
                         <p className="font-bold">

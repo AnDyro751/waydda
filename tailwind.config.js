@@ -10,7 +10,8 @@ module.exports = {
                 xxl: "28em"
             },
             backgroundColor: {
-                facebook: "#4065b4"
+                facebook: "#4065b4",
+                main: "#0a2540"
             }
         },
     },

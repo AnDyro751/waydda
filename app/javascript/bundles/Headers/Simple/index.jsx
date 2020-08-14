@@ -13,16 +13,9 @@ export default function HeadersSimple({current_user, current_user_id}) {
                 <div className="w-4/12"
                      title={"Calzada México Tacuba"}
                 >
-                    <div className="flex w-full flex-wrap">
-                        <div className="w-full">
-                            <p className="text-gray-500 text-xs">ENTREGAR EN</p>
-                        </div>
-                        <div className="w-full">
-                            <p
-                                className="truncate">Calzada México Tacuba - Torres del toreo 101</p>
-                        </div>
-                    </div>
-                    <AddressModal modalOpen={addressModalOpen} handleClose={() => {
+                    <AddressModal
+                        current_address={"Calzada México Tacuba - Torres del toreo 101"}
+                        modalOpen={addressModalOpen} handleClose={() => {
                         setAddressModalOpen(false);
                     }}/>
                     {/* TODO: Agregar funcionalidad */}

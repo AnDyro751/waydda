@@ -45,6 +45,9 @@ Rails.application.routes.draw do
     resources :places, only: [:edit, :update, :new, :create] do
       patch "/update_slug", to: "places#update_slug", as: "update_slug"
     end
+
+
   end
+  # get "/react-router(*all)", to: "home#react", as: "react"
 
 end

@@ -4,6 +4,8 @@ import classNames from 'classnames'
 import getDefaultHeaders from "../../../lib/getDefaultHeaders";
 import {RiCloseLine} from 'react-icons/ri'
 import ShowCartItems from "../ShowCartItems";
+import SelectAddress from "../../Addresses/Select";
+import AddressModal from "../../Addresses/Modal";
 
 export default function CartSidebar({}) {
 
@@ -41,7 +43,7 @@ export default function CartSidebar({}) {
     })
 
     const sidebarParentClass = classNames({
-        "fixed transform top-0 w-2/5 z-10 flex right-0 bottom-0 h-screen justify-end transform transition duration-500 delay-75 ease-in-out text-left": true,
+        "fixed transform top-0 w-2/6 z-10 flex right-0 bottom-0 h-screen justify-end transform transition duration-500 delay-75 ease-in-out text-left": true,
         "translate-x-full": !open,
         "translate-x-0": open,
     })
@@ -77,21 +79,31 @@ export default function CartSidebar({}) {
                                  backgroundColor: "#fafafa"
                              }}
                         >
-                            <div className="flex w-full items-center justify-between">
+                            <div className="flex w-full items-center justify-between flex-wrap">
                                 <div className="w-8/12">
                                     <h3 className="text-lg font-bold">Carrito</h3>
                                 </div>
-                                <div className="w-auto p-2 cursor-pointer flex justify-end"
+                                <div className="w-2/12 p-2 cursor-pointer flex justify-end"
                                      onClick={() => {
                                          setOpen(false);
                                      }}
                                 >
                                     <RiCloseLine size={20} className="text-black"/>
                                 </div>
+                                <div className="w-full py-4">
+                                    <AddressModal
+                                        current_address={"Calzada México Tacuba - Torres del toreo 101"}
+                                        modalOpen={false}
+                                        handleClose={() => {
+                                            // setAddressModalOpen(false);
+                                        }}/>
+                                </div>
                             </div>
                         </div>
+
                         <div className="col-span-12">
                             <ShowCartItems
+                                withImages={false}
                                 items={items}
                             />
                         </div>

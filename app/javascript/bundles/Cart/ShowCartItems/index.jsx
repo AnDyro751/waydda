@@ -1,9 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import SidebarCartItem from "./Item";
-import LoaderSpinners from "../../Loaders/Spinner";
-import PayOrderButton from "../../Orders/PayOrderButton";
 
-export default function ShowCartItems({items = [], loading = true, intent_id}) {
+export default function ShowCartItems({items = [], loading = true, withImages = false}) {
 
     const [currentItems, setCurrentItems] = useState(items);
 
@@ -26,6 +24,7 @@ export default function ShowCartItems({items = [], loading = true, intent_id}) {
                     <div className="col-span-12">
                         {currentItems.map((item, i) => (
                             <SidebarCartItem
+                                withImages={withImages}
                                 removeCartItem={handleRemoveItem}
                                 key={i}
                                 item={item}
@@ -34,11 +33,22 @@ export default function ShowCartItems({items = [], loading = true, intent_id}) {
                     </div>
                 </div>
 
-
                 {
                     currentItems.length > 0 &&
-                    <PayOrderButton intent_id={intent_id}/>
+                    <div className="grid grid-cols-12 px-3">
+                        <div className="col-span-12 text-center">
+                            <a href="/cart"
+                               className="bg-red-600 text-white font-normal py-4 w-full flex justify-center">
+                                Siguiente: Revisar y pagar
+                            </a>
+                        </div>
+                    </div>
                 }
+
+                {/*{*/}
+                {/*    currentItems.length > 0 &&*/}
+                {/*    <PayOrderButton intent_id={intent_id}/>*/}
+                {/*}*/}
 
             </div>
         </div>
