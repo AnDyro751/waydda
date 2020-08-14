@@ -6,11 +6,8 @@ class CartsController < ApplicationController
   skip_before_action :verify_authenticity_token, only: [:show, :update_item, :add_product]
 
   def show
-    intent_id = Checkout.get_intent(@current_cart)[1]
+    intent_id = Checkout.get_intent(@current_cart)
     respond_to do |format|
-      if intent_id.nil?
-        format.html { redirect_to root_path, notice: "Ha ocurrido un error al cargar el carrito", status: :unprocessable_entity }
-      end
       @intent = intent_id
       @custom_js = true
       @items = @current_cart.cart_items.includes(:model).to_a

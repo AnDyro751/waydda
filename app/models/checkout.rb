@@ -51,6 +51,7 @@ class Checkout
           currency: 'mxn'
       )
     rescue => e
+      puts "----------------#{e}"
       return nil
     end
     current_cart.update(intent_id: payment_intent["id"], client_secret: payment_intent["client_secret"])
