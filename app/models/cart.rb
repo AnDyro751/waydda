@@ -2,6 +2,8 @@ class Cart
   include Mongoid::Document
   include Mongoid::Timestamps
   field :quantity, type: Integer, default: 0
+  field :intent_id, type: String, default: nil
+  field :client_secret, type: String, default: nil
   embeds_many :cart_items
   embeds_one :checkout
   belongs_to :user, optional: true
@@ -16,18 +18,12 @@ class Cart
 
 
   def update_item(product_id, quantity, plus, user_logged_in = false)
+    # TODO: Update intent
     product = Product.find_by(id: product_id)
     return [false, nil] if product.nil?
     current_item = self.cart_items.find_by(model_id: product_id)
-    # plus = quantity > 0
-    puts "--------#{self}-----#{current_item}-----#{product}-------#{quantity}"
     return add_item(self, current_item, product, quantity, user_logged_in) if plus
     return remove_item(self, current_item, product, quantity, user_logged_in) unless plus
-  end
-
-
-  def merge_items(current_cart)
-    nil
   end
 
   def add_item(current_cart, current_item, product, quantity = 1, user_logged_in)
@@ -39,6 +35,9 @@ class Cart
       begin
         current_cart.cart_items.create!(model: product, quantity: new_quantity, added_in: user_logged_in)
         current_cart.update(quantity: new_cart_quantity)
+        # Update intent
+        new_total = Cart.get_total(current_cart.cart_items.includes(:model).to_a)
+        Checkout.update_intent(current_cart.intent_id, new_total)
         return {success: true, total_items_counter: new_quantity, total_items_cart: current_cart.quantity}
       rescue
         return {success: false, total_items_counter: nil, total_items_cart: nil}
@@ -46,6 +45,9 @@ class Cart
     else
       if current_item.update(quantity: new_quantity)
         current_cart.update(quantity: new_cart_quantity)
+        # Update intent
+        new_total = Cart.get_total(current_cart.cart_items.includes(:model).to_a)
+        Checkout.update_intent(current_cart.intent_id, new_total)
         return {success: true, total_items_counter: current_item.quantity, total_items_cart: current_cart.quantity}
       else
         return {success: false, total_items_counter: nil, total_items_cart: nil}
@@ -58,17 +60,23 @@ class Cart
     new_quantity = current_item.quantity - quantity
     if new_quantity <= 0
       # Se elimina el item
+      # Update intent
       begin
         current_item.destroy
         current_cart.update(quantity: current_cart.quantity - quantity)
+        new_total = Cart.get_total(current_cart.cart_items.includes(:model).to_a)
+        Checkout.update_intent(current_cart.intent_id, new_total)
         return {success: true, total_items_counter: nil, total_items_cart: current_cart.quantity}
       rescue
         return {success: false, total_items_counter: nil, total_items_cart: nil}
       end
     else
       begin
+        # Update intent
         current_item.update(quantity: new_quantity)
         current_cart.update(quantity: current_cart.quantity - quantity)
+        new_total = Cart.get_total(current_cart.cart_items.includes(:model).to_a)
+        Checkout.update_intent(current_cart.intent_id, new_total)
         return {success: true, total_items_counter: current_item.quantity, total_items_cart: current_cart.quantity}
       rescue
         return {success: true, total_items_counter: nil, total_items_cart: nil}

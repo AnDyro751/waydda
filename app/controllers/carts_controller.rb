@@ -1,17 +1,25 @@
 class CartsController < ApplicationController
 
+  layout "cart"
+
   # before_action :authenticate_user!
   skip_before_action :verify_authenticity_token, only: [:show, :update_item, :add_product]
 
   def show
-    @items = @current_cart.cart_items.includes(:model).to_a
-    @items = @items.each do |i|
-      i["string_id"] = i.id.to_s
-      i["model_reference"] = i.model
-      i["model_reference_id"] = i.model.id.to_s
-    end
-    @total = Cart.get_total(@items)
+    intent_id = Checkout.get_intent(@current_cart)[1]
     respond_to do |format|
+      if intent_id.nil?
+        format.html { redirect_to root_path, notice: "Ha ocurrido un error al cargar el carrito", status: :unprocessable_entity }
+      end
+      @intent = intent_id
+      @custom_js = true
+      @items = @current_cart.cart_items.includes(:model).to_a
+      @items = @items.each do |i|
+        i["string_id"] = i.id.to_s
+        i["model_reference"] = i.model
+        i["model_reference_id"] = i.model.id.to_s
+      end
+      @total = Cart.get_total(@items)
       format.html { render :show }
       format.json { render json: {items: @items, total: @total} }
     end
@@ -23,8 +31,7 @@ class CartsController < ApplicationController
       if response["success"]
         format.js
       else
-        # TODO: Show message in js
-        # TODO: Se puede agregar al carrito sin iniciar sesión
+        # TODO: Creo que esto ya no se usa
         format.js
         format.html { redirect_to root_path, alert: "Ha ocurrido un error a agregar el producto" }
       end

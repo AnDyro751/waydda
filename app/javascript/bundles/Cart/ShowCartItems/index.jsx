@@ -3,9 +3,9 @@ import SidebarCartItem from "./Item";
 import LoaderSpinners from "../../Loaders/Spinner";
 import PayOrderButton from "../../Orders/PayOrderButton";
 
-export default function ShowCartItems({items = [], loading = true}) {
+export default function ShowCartItems({items = [], loading = true, intent_id}) {
 
-    const [currentItems, setCurrentItems] = useState([]);
+    const [currentItems, setCurrentItems] = useState(items);
 
     const handleRemoveItem = (id) => {
         setCurrentItems(currentItems.filter(item => item.string_id !== id));
@@ -13,7 +13,6 @@ export default function ShowCartItems({items = [], loading = true}) {
     }
 
     useEffect(() => {
-        console.log("ITEMS", items)
         setCurrentItems(items);
     }, [items])
 
@@ -35,9 +34,10 @@ export default function ShowCartItems({items = [], loading = true}) {
                     </div>
                 </div>
 
+
                 {
                     currentItems.length > 0 &&
-                    <PayOrderButton/>
+                    <PayOrderButton intent_id={intent_id}/>
                 }
 
             </div>

@@ -6,6 +6,8 @@
     "@rails/actioncable": "^6.0.0",
     "@rails/ujs": "^6.0.0",
     "@rails/webpacker": "4.2.2",
+    "@stripe/react-stripe-js": "^1.1.2",
+    "@stripe/stripe-js": "^1.9.0",
     "@uppy/core": "^1.12.2",
     "@uppy/dashboard": "^1.12.2",
     "@uppy/image-editor": "^0.1.3",
