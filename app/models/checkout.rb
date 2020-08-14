@@ -58,4 +58,10 @@ class Checkout
     return [payment_intent["id"], payment_intent['client_secret']]
   end
 
+  # @param [Object] current_cart
+  def self.cancel_intent(current_cart)
+    Stripe::PaymentIntent.cancel(current_cart.intent_id)
+    current_cart.update(intent_id: nil, client_secret: nil)
+  end
+
 end
