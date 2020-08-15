@@ -25,6 +25,9 @@ class CartsController < ApplicationController
     @items = @current_cart.cart_items.includes(:model).to_a
     @total = Cart.get_total(@items)
     respond_to do |format|
+      if @total <= 0
+        format.json { render json: {errors: "El carrito está vacío"}, status: :unprocessable_entity }
+      end
       if params["token_id"].nil?
         format.json { render json: {errors: "Ha ocurrido un error al crear el cargo"}, status: :unprocessable_entity }
       end
@@ -47,7 +50,8 @@ class CartsController < ApplicationController
         @current_cart = new_cart
 
         format.json { render json: {errors: nil, success: true}, status: :created }
-      rescue
+      rescue => e
+        puts "-------#{e}"
         format.json { render json: {errors: "Ha ocurrido un error al crear el cargo"}, status: :unprocessable_entity }
       end
     end

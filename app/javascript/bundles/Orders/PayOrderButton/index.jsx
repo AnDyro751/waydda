@@ -7,7 +7,7 @@ import {
     Elements
 } from "@stripe/react-stripe-js";
 import getDefaultHeaders from "../../../lib/getDefaultHeaders";
-import CartShow from "../../Cart/Show";
+import {GoCheck} from 'react-icons/go'
 
 const stripePromise = loadStripe('pk_test_51H9CZeBOcPJ0nbHcn3sfLIpeMPDr4YfdEWe7ytAM7bge9lzgYQTC1uOAFopBIbeKc7i3btFTEGaHSrnBfTwmmu4o00Dz7IGOu6');
 
@@ -75,6 +75,7 @@ const CheckoutButton = ({client_secret}) => {
                 if (response.status === 201) {
                     setSucceeded(true);
                     setProcessing(false);
+                    Turbolinks.visit("/success/id");
                     console.log("PASO JEJE")
                 } else {
                     setError(jsonResponse.errors);
@@ -96,19 +97,28 @@ const CheckoutButton = ({client_secret}) => {
                     <CardElement id="card-element" options={cardStyle} onChange={handleChange}/>
                 </div>
                 {error && <p>{error}</p>}
+                {
+                    succeeded &&
+                    <div
+                        className={`bg-green-800 px-6 py-4 w-full text-white mx-auto font-normal cursor-not-allowed text-center`}>
+                        <span><GoCheck className={"inline"}/>&#160;&#160;Se ha completado tu pago</span>
+                    </div>
+                }
+                {!succeeded &&
                 <input
                     type="submit"
                     disabled={processing || disabled || succeeded}
-                    className={`bg-black px-6 py-4 w-full text-white mx-auto font-normal ${processing || disabled || succeeded ? "opacity-75 cursor-not-allowed" : "cursor-pointer"}`}
+                    className={`bg-black px-6 py-4 w-full text-white mx-auto font-normal ${processing || disabled || succeeded ? "opacity-50 cursor-not-allowed" : "cursor-pointer"}`}
                     // TODO: Agregar un loading
                     value={
                         processing ? (
                             "Cargando..."
                         ) : (
-                            "Siguiente: Terminar y pagar"
+                            "Realizar pedido"
                         )
                     }
                 />
+                }
             </form>
         </>
     )
