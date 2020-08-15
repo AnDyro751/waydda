@@ -28,7 +28,6 @@ class CartsController < ApplicationController
       if response["success"]
         format.js
       else
-        # TODO: Creo que esto ya no se usa
         format.js
         format.html { redirect_to root_path, alert: "Ha ocurrido un error a agregar el producto" }
       end

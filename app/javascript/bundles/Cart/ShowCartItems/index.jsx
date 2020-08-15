@@ -1,9 +1,9 @@
 import React, {useState, useEffect} from 'react';
 import SidebarCartItem from "./Item";
 
-export default function ShowCartItems({items = [], loading = true, withImages = false}) {
+export default function ShowCartItems({items = [], loading = true, withImages = false, simple = false}) {
 
-    const [currentItems, setCurrentItems] = useState(items);
+    const [currentItems, setCurrentItems] = useState(items || []);
 
     const handleRemoveItem = (id) => {
         setCurrentItems(currentItems.filter(item => item.string_id !== id));
@@ -11,7 +11,9 @@ export default function ShowCartItems({items = [], loading = true, withImages = 
     }
 
     useEffect(() => {
-        setCurrentItems(items);
+        if (items) {
+            setCurrentItems(items);
+        }
     }, [items])
 
     return (
@@ -24,6 +26,7 @@ export default function ShowCartItems({items = [], loading = true, withImages = 
                     <div className="col-span-12">
                         {currentItems.map((item, i) => (
                             <SidebarCartItem
+                                simple={simple}
                                 withImages={withImages}
                                 removeCartItem={handleRemoveItem}
                                 key={i}
@@ -35,10 +38,10 @@ export default function ShowCartItems({items = [], loading = true, withImages = 
 
                 {
                     currentItems.length > 0 &&
-                    <div className="grid grid-cols-12 px-3">
+                    <div className={`grid grid-cols-12 ${simple ? "" : "px-3"}`}>
                         <div className="col-span-12 text-center">
                             <a href="/cart"
-                               className="bg-red-600 text-white font-normal py-4 w-full flex justify-center">
+                               className="bg-green-800 text-white font-normal py-4 w-full flex justify-center">
                                 Siguiente: Revisar y pagar
                             </a>
                         </div>
