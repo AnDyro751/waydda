@@ -4,12 +4,14 @@ import GetImageUrl from "../../../lib/getImageUrl";
 export default function UniqueHeader() {
     return (
         <div className="flex w-full items-center justify-between py-3 px-16 bg-white border-b">
-            <div className="w-3/12">
-                <img
-                    draggable="false"
-                    src={GetImageUrl({publicId: "utils/w-logo-5.png", width: 100, height: 20})}
-                    className="h-10"
-                />
+            <div className="w-auto">
+                <a href="/">
+                    <img
+                        draggable="false"
+                        src={GetImageUrl({publicId: "utils/w-logo-5.png", width: 100, height: 20})}
+                        className="h-10"
+                    />
+                </a>
             </div>
             <div className="w-auto">
                 <a href="/my-profile"
