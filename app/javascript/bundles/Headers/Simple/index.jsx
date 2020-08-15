@@ -3,23 +3,13 @@ import AddressModal from "../../Addresses/Modal";
 import GetImageUrl from "../../../lib/getImageUrl";
 import CartSidebar from "../../Cart/Sidebar";
 
-export default function HeadersSimple({current_user, current_user_id}) {
+export default function HeadersSimple({current_user, current_user_id, current_address}) {
 
     const [addressModalOpen, setAddressModalOpen] = useState(false);
 
     return (
         <>
             <div className="flex w-full gap-12 items-center justify-end">
-                <div className="w-4/12"
-                     title={"Calzada México Tacuba"}
-                >
-                    <AddressModal
-                        current_address={"Calzada México Tacuba - Torres del toreo 101"}
-                        modalOpen={addressModalOpen} handleClose={() => {
-                        setAddressModalOpen(false);
-                    }}/>
-                    {/* TODO: Agregar funcionalidad */}
-                </div>
                 <div className="w-auto text-center">
                     <CartSidebar/>
                     {/*<span*/}

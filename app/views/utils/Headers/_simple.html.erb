@@ -1,20 +1,21 @@
-<div class="fixed w-full top-0 main-header z-50">
+<div class="w-full top-0 main-header fixed top-0 border-b">
   <div class="flex w-full px-6 bg-white items-center h-20 justify-between">
-    <div class="w-auto">
-      <a href="/">
-        <img
-          draggable="false"
-          src="<%= get_image_url(20, 100, "utils/w-logo-5.png") %>"
-          class="h-10"
-          />
-      </a>
+    <div class="w-auto flex items-center gap-12">
+      <div class="w-auto">
+        <a href="/">
+          <img
+            draggable="false"
+            src="<%= get_image_url(20, 100, "utils/w-logo-5.png") %>"
+            class="h-10"
+            />
+        </a>
+      </div>
+      <div class="w-auto">
+        <%= react_component("Shipment", props: {current_user: current_user, current_user_id: current_user ? current_user.id.to_s : nil, current_address: @current_address}, prerender: false) %>
+      </div>
     </div>
     <div class="w-5/12 px-0">
-      <!--      prerender: true, class: "z-40"-->
-      <%= react_component("Simple", props: {current_user: current_user, current_user_id: current_user ? current_user.id.to_s : nil}, prerender: false) %>
-
-      <%#= react_component('HelloWorld', props: {current_user: current_user, current_user_id: current_user ? current_user.id.to_s : nil}, prerender: true ) %>
+      <%= react_component("Simple", props: {current_user: current_user, current_user_id: current_user ? current_user.id.to_s : nil, current_address: @current_address}, prerender: false) %>
     </div>
   </div>
-
 </div>

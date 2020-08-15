@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react'
-
 import Modal from 'react-modal';
+import {FaMapMarkerAlt} from 'react-icons/fa'
 
 const customStyles = {
     content: {
@@ -33,14 +33,20 @@ export default function AddressModal({addresses, modalOpen = false, handleClose,
             >
 
             </Modal>
-            <div className="flex w-full flex-wrap">
-                <div className="w-full">
-                    <p className="text-gray-500 text-xs">ENTREGAR EN</p>
-                </div>
-                <div className="w-full">
-                    <p
-                        className="truncate">{current_address}</p>
-                </div>
+            <div
+                onClick={() => {
+                    setIsOpen(true);
+                }}
+                style={{
+                    backgroundColor: "#F6F6F6"
+                }}
+                className="flex w-full flex-wrap py-3 px-5 border-b border-gray-400 cursor-pointer">
+                <p className="text-gray-700">
+                    <FaMapMarkerAlt className={"inline text-black"}/>&#160;&#160;&#160;
+                    {
+                        current_address ? current_address.street : "Selecciona tu ubicación"
+                    }
+                </p>
             </div>
         </>
     )
