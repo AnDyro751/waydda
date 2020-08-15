@@ -15,6 +15,7 @@ class Address
   field :default, type: Boolean, default: false
   field :external_number, type: String, default: ""
   field :internal_number, type: String
+  field :current, type: Boolean, default: true
 
   embedded_in :model, polymorphic: true
 

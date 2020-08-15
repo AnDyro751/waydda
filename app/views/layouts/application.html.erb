@@ -33,8 +33,8 @@
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
     <%= yield %>
-    <%#= console %>
-    <% if user_signed_in? %>
+    <%= console %>
+    <% if user_sig  ned_in? %>
       <%= link_to "Cerrar sesión", destroy_user_session_path, method: :delete %>
     <% end %>
   </div>

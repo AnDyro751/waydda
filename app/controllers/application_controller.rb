@@ -1,6 +1,7 @@
 class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
   before_action :current_cart
+  before_action :set_current_address
   before_action :set_time_zone
 
   def browser_time_zone
@@ -26,6 +27,21 @@ class ApplicationController < ActionController::Base
 
   def not_found
     raise ActionController::RoutingError.new('Not Found')
+  end
+
+  private
+
+  def set_current_address
+    if user_signed_in?
+      @current_address = current_user.current_address
+      session[:current_address] = @current_address || nil
+    end
+    if session[:current_address]
+      @current_address = Address.find(session[:current_address])
+      session[:current_address] = @current_address
+    else
+      session[:current_address] = nil
+    end
   end
 
   protected

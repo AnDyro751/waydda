@@ -63,6 +63,11 @@ class User
     #Token.generate_token(self.id)
   end
 
+
+  def current_address
+    self.addresses.find_by(current: true) || nil
+  end
+
   private
 
   # Assign User default Role
