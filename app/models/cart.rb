@@ -35,14 +35,6 @@ class Cart
       begin
         current_cart.cart_items.create!(model: product, quantity: new_quantity, added_in: user_logged_in)
         current_cart.update(quantity: new_cart_quantity)
-        # Update intent
-        new_total_items = current_cart.cart_items.includes(:model).to_a
-        new_total = Cart.get_total(new_total_items)
-        if current_cart.intent_id.nil?
-          Checkout.create_intent(new_total_items, current_cart)
-        else
-          Checkout.update_intent(current_cart, new_total)
-        end
         return {success: true, total_items_counter: new_quantity, total_items_cart: current_cart.quantity}
       rescue
         return {success: false, total_items_counter: nil, total_items_cart: nil}
@@ -50,14 +42,6 @@ class Cart
     else
       if current_item.update(quantity: new_quantity)
         current_cart.update(quantity: new_cart_quantity)
-        # Update intent
-        new_total_items = current_cart.cart_items.includes(:model).to_a
-        new_total = Cart.get_total(new_total_items)
-        if current_cart.intent_id.nil?
-          Checkout.create_intent(new_total_items, current_cart)
-        else
-          Checkout.update_intent(current_cart, new_total)
-        end
         return {success: true, total_items_counter: current_item.quantity, total_items_cart: current_cart.quantity}
       else
         return {success: false, total_items_counter: nil, total_items_cart: nil}
@@ -75,13 +59,6 @@ class Cart
       begin
         current_item.destroy
         current_cart.update(quantity: current_cart.quantity - quantity)
-        new_total_items = current_cart.cart_items.includes(:model).to_a
-        if new_total_items.length <= 0
-          Checkout.cancel_intent(current_cart)
-        else
-          new_total = Cart.get_total(new_total_items)
-          Checkout.update_intent(current_cart, new_total)
-        end
         return {success: true, total_items_counter: nil, total_items_cart: current_cart.quantity}
       rescue
         return {success: false, total_items_counter: nil, total_items_cart: nil}

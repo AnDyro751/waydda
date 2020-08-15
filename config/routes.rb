@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   # users
   devise_for :users, :controllers => {:omniauth_callbacks => "users/omniauth_callbacks", sessions: "users/sessions"}
   devise_scope :user do
-    get 'acceder', to: 'users/sessions#new'#, as: :new_user_session
+    get 'acceder', to: 'users/sessions#new' #, as: :new_user_session
   end
   get "/my-profile", to: "users#my_profile", as: "my_profile"
   get "/my-profile/edit", to: "users#edit", as: "edit_my_profile"
@@ -20,7 +20,7 @@ Rails.application.routes.draw do
   put "/update_item/:item_id", to: "carts#update_item", as: "update_item_to_cart"
   post "/add_to_cart/:product_id", to: "carts#add_product", as: "add_product_to_cart"
   get "/cart", to: "carts#show", as: "my_cart"
-  get "/my-json-cart", to: "carts#show_json"
+  post "/cart", to: "carts#create_charge", as: "create_charge"
   # checkouts
   get 'checkout', to: "checkouts#show"
   resources :checkouts, only: [:show, :create]

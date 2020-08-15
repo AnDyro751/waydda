@@ -12,7 +12,7 @@
   </p>
   <div class="mt-4">
     <strong>Status:</strong>
-    <% if @place.status === "inactive" %>
+    <% if @place.status == "inactive" %>
       <%= button_to "Activar", {to_action: "activate"}, method: :put, remote: true, class: "cursor-pointer bg-green-700 focus:outline-none text-white px-8 py-3 rounded shadow-2xl" %>
     <% else %>
       <%= button_to "Desactivar", {to_action: "deactivate"}, method: :put, remote: true, class: "cursor-pointer bg-red-700 focus:outline-none text-white px-8 py-3 rounded shadow-2xl" %>

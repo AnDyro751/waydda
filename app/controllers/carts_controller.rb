@@ -1,14 +1,12 @@
 class CartsController < ApplicationController
-
   layout "cart"
+  Stripe.api_key = 'sk_test_51H9CZeBOcPJ0nbHctTzfQZhFXBnn8j05e0xqJ5RSVz5Bum72LsvmQKIecJnsoHISEg0jUWtKjERYGeCAEWiIAujP00Fae9MiKm'
 
   # before_action :authenticate_user!
   skip_before_action :verify_authenticity_token, only: [:show, :update_item, :add_product]
 
   def show
-    intent_id = Checkout.get_intent(@current_cart)
     respond_to do |format|
-      @intent = intent_id
       @custom_js = true
       @items = @current_cart.cart_items.includes(:model).to_a
       @items = @items.each do |i|
@@ -19,6 +17,39 @@ class CartsController < ApplicationController
       @total = Cart.get_total(@items)
       format.html { render :show }
       format.json { render json: {items: @items, total: @total} }
+    end
+  end
+
+
+  def create_charge
+    @items = @current_cart.cart_items.includes(:model).to_a
+    @total = Cart.get_total(@items)
+    respond_to do |format|
+      if params["token_id"].nil?
+        format.json { render json: {errors: "Ha ocurrido un error al crear el cargo"}, status: :unprocessable_entity }
+      end
+      begin
+        Stripe::Charge.create({
+                                  amount: (@total * 100).to_i,
+                                  currency: 'mxn',
+                                  source: params["token_id"],
+                                  description: "Waydda México",
+                              })
+        #TODO: Actualizar carrito al aceptar el pago
+        # Mandar el job con los datos del user y el address
+        # Eliminar el carrito del user
+        # Agregar otro carrito al user
+        # Nueva sesión del carrito
+
+        new_cart = Cart.create(user: current_user)
+        current_user.cart = new_cart
+        session[:cart_id] = new_cart.id.to_s
+        @current_cart = new_cart
+
+        format.json { render json: {errors: nil, success: true}, status: :created }
+      rescue
+        format.json { render json: {errors: "Ha ocurrido un error al crear el cargo"}, status: :unprocessable_entity }
+      end
     end
   end
 

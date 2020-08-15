@@ -7,22 +7,22 @@ import {
     Elements
 } from "@stripe/react-stripe-js";
 import getDefaultHeaders from "../../../lib/getDefaultHeaders";
+import CartShow from "../../Cart/Show";
 
 const stripePromise = loadStripe('pk_test_51H9CZeBOcPJ0nbHcn3sfLIpeMPDr4YfdEWe7ytAM7bge9lzgYQTC1uOAFopBIbeKc7i3btFTEGaHSrnBfTwmmu4o00Dz7IGOu6');
 
-export default function PayOrderButton({intent_id}) {
-
+export default function PayOrderButton({client_secret}) {
     return (
         <Elements stripe={stripePromise}>
-            <div className="w-full flex justify-center items-center px-4">
-                <CheckoutButton intent_id={intent_id}/>
+            <div className="w-full flex justify-center items-center">
+                <CheckoutButton client_secret={client_secret}/>
             </div>
         </Elements>
 
     )
 }
 
-const CheckoutButton = ({intent_id}) => {
+const CheckoutButton = ({client_secret}) => {
     const [succeeded, setSucceeded] = useState(false);
     const [error, setError] = useState(null);
     const [processing, setProcessing] = useState('');
@@ -61,20 +61,31 @@ const CheckoutButton = ({intent_id}) => {
     const handleSubmit = async ev => {
         ev.preventDefault();
         setProcessing(true);
-        const payload = await stripe.confirmCardPayment(intent_id, {
-            //TODO: Update this code
-            payment_method: {
-                card: elements.getElement(CardElement),
+        console.log("SUBMI");
+        const {token, error} = await stripe.createToken(elements.getElement(CardElement));
+        console.log(token, error);
+        if (token) {
+            try {
+                let response = await fetch("/cart.json", {
+                    method: "POST",
+                    headers: getDefaultHeaders(),
+                    body: JSON.stringify({token_id: token["id"]})
+                })
+                let jsonResponse = await response.json();
+                if (response.status === 201) {
+                    setSucceeded(true);
+                    setProcessing(false);
+                    console.log("PASO JEJE")
+                } else {
+                    setError(jsonResponse.errors);
+                    setProcessing(false);
+                    //    OCURRIO UN ERROR
+                    console.log(jsonResponse.errors, "ERROR")
+                }
+            } catch (e) {
+                console.log("EEE", e.errors)
             }
-        });
-        if (payload.error) {
-            setError(`Payment failed ${payload.error.message}`);
-            setProcessing(false);
-        } else {
-            setError(null);
-            setProcessing(false);
-            // Aquí el pago ya pasó y debemos mandar alv el pinche carrito y toda su sessión
-            setSucceeded(true);
+
         }
     };
 
@@ -84,19 +95,20 @@ const CheckoutButton = ({intent_id}) => {
                 <div className={"w-full"}>
                     <CardElement id="card-element" options={cardStyle} onChange={handleChange}/>
                 </div>
-                <button
-                    id="submit"
+                {error && <p>{error}</p>}
+                <input
+                    type="submit"
                     disabled={processing || disabled || succeeded}
-                    className="bg-black px-6 py-4 w-full text-white mx-auto font-normal">
-                    {/*TODO: Agregar un loading*/}
-                    <span id="button-text">
-                          {processing ? (
-                              "Cargando..."
-                          ) : (
-                              "Siguiente: Terminar y pagar"
-                          )}
-                        </span>
-                </button>
+                    className={`bg-black px-6 py-4 w-full text-white mx-auto font-normal ${processing || disabled || succeeded ? "opacity-75 cursor-not-allowed" : "cursor-pointer"}`}
+                    // TODO: Agregar un loading
+                    value={
+                        processing ? (
+                            "Cargando..."
+                        ) : (
+                            "Siguiente: Terminar y pagar"
+                        )
+                    }
+                />
             </form>
         </>
     )
