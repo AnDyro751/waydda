@@ -1,10 +1,11 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import UniqueHeader from "../../../Headers/UniqueHeader";
 import ShowCartItems from "../../../Cart/ShowCartItems";
 import ShipmentOptions from "../../../Cart/ShippentOptions";
 import GetImageUrl from "../../../../lib/getImageUrl";
 
 export default function ScreenCartShow({total = 0, current_cart = {}, items = [], intent_id, client_secret}) {
+    
     return (
         <div className="grid grid-cols-12">
             <div className="col-span-12">

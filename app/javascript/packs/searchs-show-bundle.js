@@ -1,12 +1,11 @@
 window.ReactOnRails = window.ReactOnRails || require('react-on-rails').default;
-
-// import HelloWorld from '../bundles/HelloWorld/components/HelloWorld';
+import SearchScreen from "../bundles/Screens/Search";
 import Simple from '../bundles/Headers/Simple'
 import Shipment from '../bundles/Headers/Shipment'
 import Search from '../bundles/Headers/Search'
-// import ShowCart from '../bundles/Cart/Show'
 // This is how react_on_rails can see the HelloWorld in the browser.
 ReactOnRails.register({
+    SearchScreen,
     Simple,
     Shipment,
     Search

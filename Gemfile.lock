@@ -60,6 +60,12 @@ GEM
       zeitwerk (~> 2.2, >= 2.2.2)
     addressable (2.7.0)
       public_suffix (>= 2.0.2, < 5.0)
+    algoliasearch (1.27.3)
+      httpclient (~> 2.8, >= 2.8.3)
+      json (>= 1.5.1)
+    algoliasearch-rails (1.24.1)
+      algoliasearch (>= 1.26.0, < 2.0.0)
+      json (>= 1.5.1)
     aws-eventstream (1.1.0)
     aws-partitions (1.351.0)
     aws-sdk-core (3.104.3)
@@ -127,11 +133,14 @@ GEM
     hashie (4.1.0)
     http-cookie (1.0.3)
       domain_name (~> 0.5)
+    httpclient (2.8.3)
     i18n (1.8.5)
       concurrent-ruby (~> 1.0)
     jbuilder (2.10.0)
       activesupport (>= 5.0.0)
     jmespath (1.4.0)
+    json (2.3.1)
+    json (2.3.1-java)
     jwt (2.2.1)
     libv8 (8.4.255.0)
     listen (3.2.1)
@@ -373,6 +382,7 @@ PLATFORMS
 
 DEPENDENCIES
   aasm
+  algoliasearch-rails
   aws-sdk-s3 (~> 1.14)
   bcrypt (~> 3.1.7)
   bootsnap (>= 1.4.2)

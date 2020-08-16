@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title><%= content_for?(:html_title) ? "#{yield(:html_title)} | Waydda" : "Waydda" %></title>
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
+  <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_packs_with_chunks_tag "application", "searchs-show-bundle", 'data-turbolinks-track': "reload" %>
+  <link rel="preconnect" href="https://d1nrrr6y3ujrjz.cloudfront.net" crossOrigin/>
+  <link rel="dns-prefetch" href="https://d1nrrr6y3ujrjz.cloudfront.net"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com" crossOrigin/>
+  <link rel="dns-prefetch" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com/" crossOrigin/>
+  <link rel="dns-prefetch" href="https://fonts.gstatic.com/"/>
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&display=swap" as="style">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&display=swap">
+</head>
+
+<body>
+
+<%= render "utils/Headers/simple", {current_user: current_user, current_user_id: current_user ? current_user.id.to_s : nil} %>
+<div class="grid grid-cols-12 mt-20 z-10">
+  <div class="col-span-12">
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
+    <%= yield %>
+    <%= console %>
+    <% if user_signed_in? %>
+      <%= link_to "Cerrar sesión", destroy_user_session_path, method: :delete %>
+    <% end %>
+  </div>
+
+</div>
+
+</body>
+</html>

@@ -1,6 +1,6 @@
 <div class="w-full top-0 main-header fixed top-0 border-b">
-  <div class="flex w-full px-6 bg-white items-center h-20 justify-between">
-    <div class="w-auto flex items-center gap-12">
+  <div class="flex w-full gap-4 px-6 bg-white items-center h-20 justify-between">
+    <div class="w-7/12 flex items-center gap-12">
       <div class="w-auto">
         <a href="/">
           <img
@@ -10,11 +10,14 @@
             />
         </a>
       </div>
-      <div class="w-auto">
-        <%= react_component("Shipment", props: {current_user: current_user, current_user_id: current_user ? current_user.id.to_s : nil, current_address: @current_address}, prerender: false) %>
+      <div class="w-10/12">
+        <%= react_component("Search", props: {current_param: @current_param}, prerender: false) %>
       </div>
     </div>
-    <div class="w-5/12 px-0">
+    <div class="w-4/12">
+      <%= react_component("Shipment", props: {current_user: current_user, current_user_id: current_user ? current_user.id.to_s : nil, current_address: @current_address}, prerender: false) %>
+    </div>
+    <div class="w-2/12 px-0">
       <%= react_component("Simple", props: {current_user: current_user, current_user_id: current_user ? current_user.id.to_s : nil, current_address: @current_address}, prerender: false) %>
     </div>
   </div>
