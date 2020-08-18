@@ -9,6 +9,7 @@
 # Use this hook to configure devise mailer, warden hooks and so forth.
 # Many of these configuration options can be set straight in your model.
 Devise.setup do |config|
+  config.secret_key = 'ca1cf13479dbf8d628efe1c09122d81232dcaf5ea8d1ccc35600225093a96a7f984b8e7f2227f90777524d32cee89ccabbabdc5559ac4a8b43b4cd63511ecbbc'
   config.omniauth :facebook, "641527279645625", "86bcd5787a85bced9ac25633361dffc9" #, callback_url: "http://localhost:3000/auth/facebook/callback"
   config.omniauth :google_oauth2, "17179375395-4p50pm7an9mjce45n3ic6befrd45e3mb.apps.googleusercontent.com", "1Po6DSTcHOH8qSKs5585X5w0"#, access_type: "online"
   # The secret key used by Devise. Devise uses this key to generate

@@ -1,0 +1,122 @@
+[34m
+* Installing apt-transport-https
+[0m
+Hit:1 http://archive.ubuntu.com/ubuntu bionic InRelease
+Get:2 http://security.ubuntu.com/ubuntu bionic-security InRelease [88.7 kB]
+Get:3 https://cli-assets.heroku.com/apt ./ InRelease [2879 B]
+Hit:4 https://deb.nodesource.com/node_10.x bionic InRelease
+Get:5 http://archive.ubuntu.com/ubuntu bionic-updates InRelease [88.7 kB]
+Get:6 http://archive.ubuntu.com/ubuntu bionic-backports InRelease [74.6 kB]
+Get:7 https://cli-assets.heroku.com/apt ./ Packages [620 B]
+Get:8 http://security.ubuntu.com/ubuntu bionic-security/main amd64 Packages [809 kB]
+Get:9 http://archive.ubuntu.com/ubuntu bionic-updates/main amd64 Packages [1034 kB]
+Get:10 http://archive.ubuntu.com/ubuntu bionic-updates/main Translation-en [347 kB]
+Get:11 http://security.ubuntu.com/ubuntu bionic-security/main Translation-en [254 kB]
+Get:12 http://archive.ubuntu.com/ubuntu bionic-updates/restricted amd64 Packages [84.7 kB]
+Get:13 http://archive.ubuntu.com/ubuntu bionic-updates/restricted Translation-en [18.7 kB]
+Get:14 http://archive.ubuntu.com/ubuntu bionic-updates/universe amd64 Packages [1097 kB]
+Get:15 http://security.ubuntu.com/ubuntu bionic-security/restricted amd64 Packages [75.6 kB]
+Get:16 http://security.ubuntu.com/ubuntu bionic-security/restricted Translation-en [16.5 kB]
+Get:17 http://security.ubuntu.com/ubuntu bionic-security/universe amd64 Packages [691 kB]
+Get:18 http://security.ubuntu.com/ubuntu bionic-security/universe Translation-en [229 kB]
+Get:19 http://security.ubuntu.com/ubuntu bionic-security/multiverse amd64 Packages [8100 B]
+Get:20 http://security.ubuntu.com/ubuntu bionic-security/multiverse Translation-en [2852 B]
+Get:21 http://archive.ubuntu.com/ubuntu bionic-updates/universe Translation-en [342 kB]
+Get:22 http://archive.ubuntu.com/ubuntu bionic-updates/multiverse amd64 Packages [19.2 kB]
+Get:23 http://archive.ubuntu.com/ubuntu bionic-updates/multiverse Translation-en [6712 B]
+Fetched 5291 kB in 1min 44s (50.9 kB/s)
+Reading package lists...
+Reading package lists...
+Building dependency tree...
+Reading state information...
+apt-transport-https is already the newest version (1.6.12ubuntu0.1).
+The following packages were automatically installed and are no longer required:
+  gyp javascript-common libc-ares2 libhttp-parser2.7.1 libjs-async
+  libjs-inherits libjs-jquery libjs-node-uuid libjs-underscore libuv1-dev
+  node-abbrev node-ansi node-ansi-color-table node-archy node-async
+  node-balanced-match node-block-stream node-brace-expansion
+  node-builtin-modules node-combined-stream node-concat-map node-cookie-jar
+  node-delayed-stream node-forever-agent node-form-data node-fs.realpath
+  node-fstream node-fstream-ignore node-github-url-from-git node-glob
+  node-graceful-fs node-gyp node-hosted-git-info node-inflight node-inherits
+  node-ini node-is-builtin-module node-isexe node-json-stringify-safe
+  node-lockfile node-lru-cache node-mime node-minimatch node-mkdirp
+  node-mute-stream node-node-uuid node-nopt node-normalize-package-data
+  node-npmlog node-once node-osenv node-path-is-absolute node-pseudomap
+  node-qs node-read node-read-package-json node-request node-retry node-rimraf
+  node-semver node-sha node-slide node-spdx-correct node-spdx-expression-parse
+  node-spdx-license-ids node-tar node-tunnel-agent node-underscore
+  node-validate-npm-package-license node-which node-wrappy node-yallist
+  nodejs-doc
+Use 'sudo apt autoremove' to remove them.
+0 upgraded, 0 newly installed, 0 to remove and 122 not upgraded.
+Reading package lists...
+Building dependency tree...
+Reading state information...
+dirmngr is already the newest version (2.2.4-1ubuntu1.2).
+dirmngr set to manually installed.
+The following packages were automatically installed and are no longer required:
+  gyp javascript-common libc-ares2 libhttp-parser2.7.1 libjs-async
+  libjs-inherits libjs-jquery libjs-node-uuid libjs-underscore libuv1-dev
+  node-abbrev node-ansi node-ansi-color-table node-archy node-async
+  node-balanced-match node-block-stream node-brace-expansion
+  node-builtin-modules node-combined-stream node-concat-map node-cookie-jar
+  node-delayed-stream node-forever-agent node-form-data node-fs.realpath
+  node-fstream node-fstream-ignore node-github-url-from-git node-glob
+  node-graceful-fs node-gyp node-hosted-git-info node-inflight node-inherits
+  node-ini node-is-builtin-module node-isexe node-json-stringify-safe
+  node-lockfile node-lru-cache node-mime node-minimatch node-mkdirp
+  node-mute-stream node-node-uuid node-nopt node-normalize-package-data
+  node-npmlog node-once node-osenv node-path-is-absolute node-pseudomap
+  node-qs node-read node-read-package-json node-request node-retry node-rimraf
+  node-semver node-sha node-slide node-spdx-correct node-spdx-expression-parse
+  node-spdx-license-ids node-tar node-tunnel-agent node-underscore
+  node-validate-npm-package-license node-which node-wrappy node-yallist
+  nodejs-doc
+Use 'sudo apt autoremove' to remove them.
+0 upgraded, 0 newly installed, 0 to remove and 122 not upgraded.
+[34m
+* Installing APT package sources for Datadog
+[0m
+Warning: apt-key output should not be parsed (stdout is not a terminal)
+Executing: /tmp/apt-key-gpghome.KELVADf7Yg/gpg.1.sh --recv-keys --keyserver hkp://keyserver.ubuntu.com:80 A2923DFF56EDA6E76E55E492D3A80E30382E94DE
+gpg: key D3A80E30382E94DE: public key "Datadog, Inc <package@datadoghq.com>" imported
+gpg: Total number processed: 1
+gpg:               imported: 1
+[34m
+* Installing the Datadog Agent package
+[0m
+Ign:1 https://apt.datadoghq.com stable InRelease
+Get:2 https://apt.datadoghq.com stable Release [8324 B]
+Get:3 https://apt.datadoghq.com stable Release.gpg [819 B]
+Get:4 https://apt.datadoghq.com stable/7 amd64 Packages [5964 B]
+Fetched 15.1 kB in 2s (8182 B/s)
+Reading package lists...
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following packages were automatically installed and are no longer required:
+  gyp javascript-common libc-ares2 libhttp-parser2.7.1 libjs-async
+  libjs-inherits libjs-jquery libjs-node-uuid libjs-underscore libuv1-dev
+  node-abbrev node-ansi node-ansi-color-table node-archy node-async
+  node-balanced-match node-block-stream node-brace-expansion
+  node-builtin-modules node-combined-stream node-concat-map node-cookie-jar
+  node-delayed-stream node-forever-agent node-form-data node-fs.realpath
+  node-fstream node-fstream-ignore node-github-url-from-git node-glob
+  node-graceful-fs node-gyp node-hosted-git-info node-inflight node-inherits
+  node-ini node-is-builtin-module node-isexe node-json-stringify-safe
+  node-lockfile node-lru-cache node-mime node-minimatch node-mkdirp
+  node-mute-stream node-node-uuid node-nopt node-normalize-package-data
+  node-npmlog node-once node-osenv node-path-is-absolute node-pseudomap
+  node-qs node-read node-read-package-json node-request node-retry node-rimraf
+  node-semver node-sha node-slide node-spdx-correct node-spdx-expression-parse
+  node-spdx-license-ids node-tar node-tunnel-agent node-underscore
+  node-validate-npm-package-license node-which node-wrappy node-yallist
+  nodejs-doc
+Use 'sudo apt autoremove' to remove them.
+The following NEW packages will be installed:
+  datadog-agent
+0 upgraded, 1 newly installed, 0 to remove and 122 not upgraded.
+Need to get 192 MB of archives.
+After this operation, 625 MB of additional disk space will be used.
+Get:1 https://apt.datadoghq.com stable/7 amd64 datadog-agent amd64 1:7.21.1-1 [192 MB]

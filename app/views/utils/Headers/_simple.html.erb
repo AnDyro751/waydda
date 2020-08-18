@@ -14,7 +14,9 @@
         <%= react_component("Search", props: {current_param: @current_param}, prerender: false) %>
       </div>
     </div>
-    <div class="w-4/12">
+    <div
+      id="select-address"
+      class="w-3/12">
       <%= react_component("Shipment", props: {current_user: current_user, current_user_id: current_user ? current_user.id.to_s : nil, current_address: @current_address}, prerender: false) %>
     </div>
     <div class="w-2/12 px-0">

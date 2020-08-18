@@ -31,7 +31,7 @@ export default function Search({current_param}) {
                    style={{
                        backgroundColor: "#F6F6F6"
                    }}
-                   className="py-3 pl-12 pr-5 border-b border-gray-400 focus:outline-none w-full"
+                   className="py-3 pl-12 pr-5 rounded-full focus:outline-none w-full"
                    placeholder={"Busca en tu ciudad"}
             />
         </form>

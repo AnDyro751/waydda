@@ -1,7 +1,9 @@
 class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
+  include Devise::Controllers::Rememberable
   def facebook
     @user = User.from_omniauth(request.env["omniauth.auth"])
     if @user.persisted?
+      remember_me(@user)
       if @current_cart
         # Merge items
         user_cart = @user.cart

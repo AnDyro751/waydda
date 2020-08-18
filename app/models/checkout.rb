@@ -19,7 +19,6 @@ class Checkout
                                        amount: (new_amount * 100).to_i
                                    }
       )
-      puts "--PASOOOOOOOOOOOO"
       return true
     rescue => e
       puts "-------------------------------ERROR #{e}"

@@ -12,9 +12,9 @@ export default function CartSidebar({}) {
     const [open, setOpen] = useState(false);
     const [items, setItems] = useState([]);
     const [loading, setLoading] = useState(true);
-    const [didMount, setDidMount] = useState(false);
+    const [currentAddress, setCurrentAddress] = useState(null);
+
     useEffect(() => {
-        setDidMount(true);
         if (open) {
             const getData = async () => {
                 try {
@@ -25,16 +25,15 @@ export default function CartSidebar({}) {
                         })
                     ).json()
                     setItems(response.items || [])
+                    setCurrentAddress(response.current_address || null)
                     setLoading(false);
                     console.log(response, "Re")
-                    return () => setDidMount(false);
                 } catch (e) {
                     setLoading(false);
                 }
             }
             getData();
         }
-        return () => setDidMount(false);
     }, [open])
 
     const sidebarClass = classNames({
@@ -92,7 +91,7 @@ export default function CartSidebar({}) {
                                 </div>
                                 <div className="w-full py-4">
                                     <AddressModal
-                                        current_address={"Calzada México Tacuba - Torres del toreo 101"}
+                                        current_address={currentAddress}
                                         modalOpen={false}
                                         handleClose={() => {
                                             // setAddressModalOpen(false);

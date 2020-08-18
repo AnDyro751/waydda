@@ -16,7 +16,7 @@ class CartsController < ApplicationController
       end
       @total = Cart.get_total(@items)
       format.html { render :show }
-      format.json { render json: {items: @items, total: @total} }
+      format.json { render json: {items: @items, total: @total, current_address: @current_address} }
     end
   end
 
@@ -25,6 +25,9 @@ class CartsController < ApplicationController
     @items = @current_cart.cart_items.includes(:model).to_a
     @total = Cart.get_total(@items)
     respond_to do |format|
+      if @current_address.nil?
+        format.json { render json: {errors: "Ingresa una dirección de entrega"}, status: :unprocessable_entity }
+      end
       if @total <= 0
         format.json { render json: {errors: "El carrito está vacío"}, status: :unprocessable_entity }
       end
@@ -39,11 +42,13 @@ class CartsController < ApplicationController
                                   description: "Waydda México",
                               })
         #TODO: Actualizar carrito al aceptar el pago
+        # Validar la dirección de entrega
         # Mandar el job con los datos del user y el address
         # Eliminar el carrito del user
         # Agregar otro carrito al user
         # Nueva sesión del carrito
 
+        CreateOrderJob.perform_later(@current_address.attributes, current_user.attributes, @current_cart.attributes) # Mandar el job para agregar la orden
         new_cart = Cart.create(user: current_user)
         current_user.cart = new_cart
         session[:cart_id] = new_cart.id.to_s
