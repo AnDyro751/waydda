@@ -28,10 +28,7 @@ export default function Search({current_param}) {
                        setSearchState(e.target.value)
                    }}
                    autoFocus={current_param ? true : false}
-                   style={{
-                       backgroundColor: "#F6F6F6"
-                   }}
-                   className="py-3 pl-12 pr-5 rounded-full focus:outline-none w-full"
+                   className="py-3 pl-12 pr-5 rounded-full bg-main-gray focus:outline-none w-full"
                    placeholder={"Busca en tu ciudad"}
             />
         </form>

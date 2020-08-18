@@ -3,6 +3,24 @@ class ApplicationController < ActionController::Base
   before_action :current_cart
   before_action :set_current_address
   before_action :set_time_zone
+  # before_action :set_default_locations
+
+
+  def default_locations
+    [
+        {key: "Atizapán de Zaragosa", value: "atizapan-de-zaragoza"},
+        {key: "Atlacomulco", value: "atlacomulco"},
+        {key: "Ecatepec", value: "ecatepec"},
+        {key: "Naucalpan", value: "naucalpan"},
+        {key: "Nezahualcóyotl", value: "nezahualcoyotl"},
+        {key: "Tenango", value: "tenango"},
+        {key: "Texcoco", value: "texcoco"},
+        {key: "Toluca", value: "toluca"},
+        {key: "Valle de Bravo", value: "valle-de-bravo"},
+    ]
+  end
+  helper_method :default_locations
+
 
   def browser_time_zone
     browser_tz = ActiveSupport::TimeZone.find_tzinfo(cookies[:timezone])

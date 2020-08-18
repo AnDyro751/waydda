@@ -7,7 +7,7 @@ import ShowCartItems from "../ShowCartItems";
 import SelectAddress from "../../Addresses/Select";
 import AddressModal from "../../Addresses/Modal";
 
-export default function CartSidebar({}) {
+export default function CartSidebar({locations}) {
 
     const [open, setOpen] = useState(false);
     const [items, setItems] = useState([]);
@@ -53,6 +53,7 @@ export default function CartSidebar({}) {
         "opacity-50 visible": open
     })
 
+
     return (
         <>
             <div
@@ -89,14 +90,16 @@ export default function CartSidebar({}) {
                                 >
                                     <RiCloseLine size={20} className="text-black"/>
                                 </div>
-                                <div className="w-full py-4">
-                                    <AddressModal
-                                        current_address={currentAddress}
-                                        modalOpen={false}
-                                        handleClose={() => {
-                                            // setAddressModalOpen(false);
-                                        }}/>
-                                </div>
+                                {
+                                    open &&
+                                    <div className="w-full py-4">
+                                        <AddressModal
+                                            current_address={currentAddress}
+                                            modalOpen={false}
+                                            locations={locations}
+                                        />
+                                    </div>
+                                }
                             </div>
                         </div>
 

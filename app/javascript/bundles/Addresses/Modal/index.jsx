@@ -1,7 +1,6 @@
-import React, {useEffect, useState} from 'react'
+import React, {useEffect, useState} from 'react';
 import Modal from 'react-modal';
-import {FaMapMarkerAlt, FaChevronDown} from 'react-icons/fa'
-import {RiCloseLine} from 'react-icons/ri';
+import {FaMapMarkerAlt, FaChevronDown, FaChevronRight, FaChevronLeft} from 'react-icons/fa';
 import {IoIosCloseCircle} from 'react-icons/io';
 
 const customStyles = {
@@ -14,14 +13,20 @@ const customStyles = {
         transform: 'translate(-50%, -50%)',
         width: "35%",
         padding: 0,
-        margin: 0
+        margin: 0,
+        maxHeight: "90vh"
     }
 };
 
 
-export default function AddressModal({addresses, modalOpen = false, current_address}) {
+export default function AddressModal({
+                                         modalOpen = false,
+                                         current_address,
+                                         locations
+                                     }) {
     const [isOpen, setIsOpen] = useState(modalOpen);
-
+    const [currentLocation, setCurrentLocation] = useState(current_address);
+    const [currentStep, setCurrentStep] = useState(0);
 
     const handleOpenModal = () => {
         setIsOpen(true);
@@ -32,8 +37,21 @@ export default function AddressModal({addresses, modalOpen = false, current_addr
     }
 
     useEffect(() => {
-        Modal.setAppElement(document.querySelector("#select-address"))
+        Modal.setAppElement("#select-address")
     }, [])
+
+    useEffect(() => {
+        if (isOpen) {
+            document.querySelector("body").classList.add("overflow-hidden")
+        } else {
+            document.querySelector("body").classList.remove("overflow-hidden")
+        }
+    }, [isOpen])
+
+    const onHandleSelectLocation = (newLocation) => {
+        setCurrentStep(1);
+        // setCurrentLocation(newLocation);
+    }
 
     return (
         <>
@@ -41,12 +59,43 @@ export default function AddressModal({addresses, modalOpen = false, current_addr
                 isOpen={isOpen}
                 onRequestClose={handleClose}
                 style={customStyles}
+                ariaHideApp={false}
                 contentLabel="Addresses"
-                overlayClassName="fixed top-0 left-0 right-0 bottom-0 bg-black bg-opacity-25"
+                overlayClassName="fixed top-0 left-0 right-0 bottom-0 bg-black bg-opacity-50"
             >
-                <ModalSelectLocation
-                    handleClose={handleClose}
-                />
+                <div className="w-full flex flex-wrap">
+                    <div
+                        className="w-full relative  sticky top-0 bg-white z-50 justify-center p-4 border-b border-gray-400 mb-6">
+                        <div className="w-full text-center">
+                            <h3 className="font-bold text-lg">Ciudad de México</h3>
+                        </div>
+                        <div
+                            onClick={() => {
+                                if (currentStep === 1) {
+                                    setCurrentStep(0);
+                                }
+                            }}
+                            className={`absolute left-0 top-0 bottom-0 ml-4 flex justify-center items-center p-2 ${currentStep === 0 ? "opacity-25 cursor-not-allowed" : "cursor-pointer"}`}>
+                            <FaChevronLeft size={15}/>
+                        </div>
+                        <div
+                            onClick={handleClose}
+                            className="absolute right-0 top-0 bottom-0 mr-4 flex justify-center items-center p-2 cursor-pointer">
+                            <IoIosCloseCircle size={25}/>
+                        </div>
+                    </div>
+                    {
+                        currentStep === 0 ?
+                            <ModalSelectLocation
+                                handleSelectLocation={onHandleSelectLocation}
+                                items={locations}
+                                handleClose={handleClose}
+                            />
+                            :
+                            <ModalSelectMap/>
+                    }
+                </div>
+
             </Modal>
             <div
                 onClick={handleOpenModal}
@@ -84,19 +133,80 @@ export default function AddressModal({addresses, modalOpen = false, current_addr
 }
 
 
-const ModalSelectLocation = ({handleClose}) => {
+const ModalSelectMap = () => {
+
+    //TODO: Validar los campos de este formulario
+    //Apartment: maxLength: 20
+    //external_number: maxLength: 10
+    //internal_number: maxLength: 10
+
+    const [fields, setFields] = useState({
+        apartment: "",
+        external_number: "",
+        internal_number: ""
+    })
+
+    const onHandleChange = (e) => {
+        setFields({...fields, [e.target.name]: e.target.value});
+    }
+
     return (
-        <div className="w-full flex flex-wrap">
-            <div className="w-full relative justify-center p-4 border-b border-gray-400 mb-6">
-                <div className="w-full text-center">
-                    <h3 className="font-bold text-lg">Ciudad de México</h3>
-                </div>
-                <div
-                    onClick={handleClose}
-                    className="absolute right-0 top-0 bottom-0 mr-6 flex justify-center items-center p-2 cursor-pointer">
-                    <IoIosCloseCircle size={25}/>
-                </div>
+        <div className="w-full flex flex-wrap px-6 mb-6">
+            <Input
+                name={"apartment"}
+                handleChange={onHandleChange}
+                value={fields.apartment}
+                label={"Apartamento/Suite/Casa"} placeholder={"Apartamento/Suite/Casa"}/>
+            <Input
+                name={"external_number"}
+                handleChange={onHandleChange}
+                value={fields.external_number}
+                label={"Número exterior"} placeholder={"Número exterior"}/>
+            <Input
+                name={"internal_number"}
+                handleChange={onHandleChange}
+                value={fields.internal_number}
+                label={"Número interior"} placeholder={"Número interior"}/>
+            <div className="w-full h-64 bg-gray-200">
+                {/*Insertar mapa*/}
             </div>
+            <div className="mt-6 w-full">
+                <button className="bg-black py-4 px-6 w-full text-white focus:outline-none">Agregar dirección</button>
+            </div>
+        </div>
+    )
+}
+
+const Input = ({label, placeholder, type = "text", value, handleChange, name}) => (
+    <div className="w-full mb-4">
+        <label className="text-xs text-gray-700">{label}</label>
+        <input type={type}
+               name={name}
+               value={value}
+               onChange={handleChange}
+               placeholder={placeholder}
+               className="w-full mt-2 py-3 px-4 bg-main-gray focus:outline-none"/>
+    </div>
+)
+
+const ModalSelectLocation = ({items, handleSelectLocation}) => {
+    return (
+        <div className="w-full px-6">
+            {Array.isArray(items) &&
+            items.map((item, i) => (
+                <div
+                    onClick={() => {
+                        handleSelectLocation(item);
+                    }}
+                    key={i}
+                    className="w-full location py-4 relative mb-4 cursor-pointer hover:font-normal opacity-75 hover:opacity-100">
+                    <h5>{item.key}</h5>
+                    <div className="absolute location-icon flex justify-center items-center bottom-0 top-0 right-0">
+                        <FaChevronRight size={14} className={"text-gray-800"}/>
+                    </div>
+                </div>
+            ))
+            }
         </div>
     )
 }

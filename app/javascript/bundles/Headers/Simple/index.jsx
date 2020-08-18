@@ -3,13 +3,13 @@ import AddressModal from "../../Addresses/Modal";
 import GetImageUrl from "../../../lib/getImageUrl";
 import CartSidebar from "../../Cart/Sidebar";
 
-export default function HeadersSimple({current_user, current_user_id}) {
+export default function HeadersSimple({current_user, current_user_id, locations}) {
 
     return (
         <>
             <div className="flex w-full gap-12 items-center justify-end">
                 <div className="w-auto text-center">
-                    <CartSidebar/>
+                    <CartSidebar locations={locations}/>
                     {/* TODO: Agregar funcionalidad */}
                 </div>
                 <div className="w-auto flex justify-center">
