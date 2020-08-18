@@ -14,7 +14,6 @@ const customStyles = {
         width: "35%",
         padding: 0,
         margin: 0,
-        maxHeight: "90vh"
     }
 };
 
@@ -70,15 +69,6 @@ export default function AddressModal({
                             <h3 className="font-bold text-lg">Ciudad de México</h3>
                         </div>
                         <div
-                            onClick={() => {
-                                if (currentStep === 1) {
-                                    setCurrentStep(0);
-                                }
-                            }}
-                            className={`absolute left-0 top-0 bottom-0 ml-4 flex justify-center items-center p-2 ${currentStep === 0 ? "opacity-25 cursor-not-allowed" : "cursor-pointer"}`}>
-                            <FaChevronLeft size={15}/>
-                        </div>
-                        <div
                             onClick={handleClose}
                             className="absolute right-0 top-0 bottom-0 mr-4 flex justify-center items-center p-2 cursor-pointer">
                             <IoIosCloseCircle size={25}/>
@@ -93,6 +83,10 @@ export default function AddressModal({
                     {/*        />*/}
                     {/*        :*/}
                     <ModalSelectMap/>
+                    <div className="fixed bottom-0 w-full justify-center flex right-0 bg-white py-4">
+                        <button className="bg-black py-4 px-6 w-11/12 text-white focus:outline-none">Agregar dirección
+                        </button>
+                    </div>
                     {/*}*/}
                 </div>
 
@@ -150,25 +144,25 @@ const ModalSelectMap = () => {
     }
 
     return (
-        <div className="w-full flex flex-wrap px-6 mb-6">
-            <Input
-                name={"address"}
-                handleChange={onHandleChange}
-                value={fields.address}
-                label={"Dirección"} placeholder={"Ingresar dirección"}/>
-            <Input
-                name={"description"}
-                handleChange={onHandleChange}
-                value={fields.description}
-                label={"Piso / Oficina / Apto / Depto"}
-                placeholder={"Descripción de la dirección (ej. torre, apartamento)"}/>
-            <div className="w-full h-64 bg-gray-200">
-                {/*Insertar mapa*/}
+        <>
+            <div className="w-full flex flex-wrap px-6 mb-24">
+                <Input
+                    name={"address"}
+                    handleChange={onHandleChange}
+                    value={fields.address}
+                    label={"Dirección"} placeholder={"Ingresar dirección"}/>
+                <Input
+                    name={"description"}
+                    handleChange={onHandleChange}
+                    value={fields.description}
+                    label={"Piso / Oficina / Apto / Depto"}
+                    placeholder={"Descripción de la dirección (ej. torre, apartamento)"}/>
+                <div className="w-full h-56 bg-gray-200">
+                    {/*Insertar mapa*/}
+                </div>
             </div>
-            <div className="mt-6 w-full">
-                <button className="bg-black py-4 px-6 w-full text-white focus:outline-none">Agregar dirección</button>
-            </div>
-        </div>
+
+        </>
     )
 }
 
