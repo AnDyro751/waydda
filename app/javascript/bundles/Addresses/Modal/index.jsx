@@ -55,7 +55,7 @@ export default function AddressModal({
     return (
         <>
             <Modal
-                isOpen={isOpen}
+                isOpen={true}
                 onRequestClose={handleClose}
                 style={customStyles}
                 ariaHideApp={false}
@@ -143,12 +143,39 @@ const ModalSelectMap = () => {
         setFields({...fields, [e.target.name]: e.target.value});
     }
 
+    const handleSearch = async (e) => {
+        setFields({...fields, [e.target.name]: e.target.value});
+        try {
+            if (e.target.value.length > 0) {
+                const URL = `https://api.mapbox.com/geocoding/v5/mapbox.places/${encodeURIComponent(e.target.value)}.json?access_token=pk.eyJ1Ijoic2VhcmNoLW1hY2hpbmUtdXNlci0xIiwiYSI6ImNrN2Y1Nmp4YjB3aG4zZ253YnJoY21kbzkifQ.JM5ZeqwEEm-Tonrk5wOOMw&cachebuster=1596775236930&autocomplete=true&country=mx&bbox=-102.36584333677,18.203715736351,-95.646605055518,20.200815919313&proximity=-99.630833,19.354167`
+                console.log(e.target.value, URL);
+                let response = await (
+                    await fetch(URL, {
+                        method: "GET"
+                    })
+                ).json();
+                if (typeof response === "object") {
+                    if (response.features.length > 0) {
+                        Object.keys(response.features).forEach((k, i) => {
+                            let currentItem = response.features[k];
+                            console.log(response.features[k], currentItem["id"].split(".")[0])
+                        })
+                    } else {
+                        console.log("No hay records")
+                    }
+                }
+            }
+        } catch (e) {
+            console.log("Hola", e);
+        }
+    }
+
     return (
         <>
             <div className="w-full flex flex-wrap px-6 mb-24">
                 <Input
                     name={"address"}
-                    handleChange={onHandleChange}
+                    handleChange={handleSearch}
                     value={fields.address}
                     label={"Dirección"} placeholder={"Ingresar dirección"}/>
                 <Input
