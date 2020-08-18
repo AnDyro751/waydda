@@ -84,16 +84,16 @@ export default function AddressModal({
                             <IoIosCloseCircle size={25}/>
                         </div>
                     </div>
-                    {
-                        currentStep === 0 ?
-                            <ModalSelectLocation
-                                handleSelectLocation={onHandleSelectLocation}
-                                items={locations}
-                                handleClose={handleClose}
-                            />
-                            :
-                            <ModalSelectMap/>
-                    }
+                    {/*{*/}
+                    {/*    currentStep === 0 ?*/}
+                    {/*        <ModalSelectLocation*/}
+                    {/*            handleSelectLocation={onHandleSelectLocation}*/}
+                    {/*            items={locations}*/}
+                    {/*            handleClose={handleClose}*/}
+                    {/*        />*/}
+                    {/*        :*/}
+                    <ModalSelectMap/>
+                    {/*}*/}
                 </div>
 
             </Modal>
@@ -141,9 +141,8 @@ const ModalSelectMap = () => {
     //internal_number: maxLength: 10
 
     const [fields, setFields] = useState({
-        apartment: "",
-        external_number: "",
-        internal_number: ""
+        address: "",
+        description: "",
     })
 
     const onHandleChange = (e) => {
@@ -153,20 +152,16 @@ const ModalSelectMap = () => {
     return (
         <div className="w-full flex flex-wrap px-6 mb-6">
             <Input
-                name={"apartment"}
+                name={"address"}
                 handleChange={onHandleChange}
-                value={fields.apartment}
-                label={"Apartamento/Suite/Casa"} placeholder={"Apartamento/Suite/Casa"}/>
+                value={fields.address}
+                label={"Dirección"} placeholder={"Ingresar dirección"}/>
             <Input
-                name={"external_number"}
+                name={"description"}
                 handleChange={onHandleChange}
-                value={fields.external_number}
-                label={"Número exterior"} placeholder={"Número exterior"}/>
-            <Input
-                name={"internal_number"}
-                handleChange={onHandleChange}
-                value={fields.internal_number}
-                label={"Número interior"} placeholder={"Número interior"}/>
+                value={fields.description}
+                label={"Piso / Oficina / Apto / Depto"}
+                placeholder={"Descripción de la dirección (ej. torre, apartamento)"}/>
             <div className="w-full h-64 bg-gray-200">
                 {/*Insertar mapa*/}
             </div>
