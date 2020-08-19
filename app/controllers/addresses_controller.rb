@@ -1,5 +1,4 @@
 class AddressesController < ApplicationController
-  before_action :authenticate_user!
   before_action :set_address, only: [:show, :edit, :update, :destroy]
 
 
@@ -29,17 +28,30 @@ class AddressesController < ApplicationController
   # POST /addresses.json
   def create
     @address = Address.new(address_params)
-    if params["address"]["model"] === "User"
-      @address.model = current_user
+    if user_signed_in?
+      if params["address"]["model"] === "User"
+        @address.model = current_user
+        # Debemos actualizar las otras direcciones de entrega
+      else
+        model = params["address"]["model"].constantize
+        @address.model = model.find_by(id: params["address"]["model_id"])
+      end
     else
-      model = params["address"]["model"].constantize
-      @address.model = model.find_by(id: params["address"]["model_id"])
+      @address.model = @current_cart
     end
+
     respond_to do |format|
       # format.json { render json: @address.errors, status: :unprocessable_entity } if poly_model.nil?
       if @address.save
+        if params["address"]["current"]
+          puts "-----------------#{params["address"]["current"]}----------AGREGANDO-------#{@address.attributes}"
+          #Se agrega este address a la sesión
+          session[:current_address] = @address
+          session[:demo] = "POPODEPERRO"
+          @current_address = @address
+        end
         format.html { redirect_to @address, notice: 'Address was successfully created.' }
-        format.json { render :show, status: :created, location: @address }
+        format.json { render :show, status: :created }
       else
         format.html { render :new }
         format.json { render json: @address.errors, status: :unprocessable_entity }
@@ -81,6 +93,6 @@ class AddressesController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def address_params
-    params.require(:address).permit(:street, :city, :country, :default, :internal_number, :external_number, location: [:lat, :lng])
+    params.require(:address).permit(:address, :city, :country, :default, :internal_number, :description, :current, :lat, :lng)
   end
 end

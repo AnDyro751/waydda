@@ -4,6 +4,7 @@ import {FaMapMarkerAlt, FaChevronDown, FaChevronRight, FaChevronLeft} from 'reac
 import {IoIosCloseCircle} from 'react-icons/io';
 import Input from "../../Forms/Input";
 import MapComponent from "../../Place/Map";
+import getDefaultHeaders from "../../../lib/getDefaultHeaders";
 
 const customStyles = {
     content: {
@@ -28,6 +29,13 @@ export default function AddressModal({
     const [isOpen, setIsOpen] = useState(modalOpen);
     const [currentLocation, setCurrentLocation] = useState(current_address);
     const [currentStep, setCurrentStep] = useState(0);
+    const [fields, setFields] = useState({
+        address: "",
+        current: true,
+        lat: 0,
+        lng: 0,
+        description: ""
+    })
 
     const handleOpenModal = () => {
         setIsOpen(true);
@@ -49,9 +57,32 @@ export default function AddressModal({
         }
     }, [isOpen])
 
-    const onHandleSelectLocation = (newLocation) => {
-        setCurrentStep(1);
-        // setCurrentLocation(newLocation);
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        try {
+            let response = await (await fetch("/addresses", {
+                method: "POST",
+                headers: getDefaultHeaders(),
+                body: JSON.stringify({
+                    address: {
+                        current: true,
+                        address: fields.address,
+                        description: fields.description,
+                        lat: fields.lat,
+                        lng: fields.lng,
+                        model: "User"
+                    }
+                })
+            })).json();
+            console.log(response);
+        } catch (e) {
+            console.log("Error", e)
+        }
+    }
+
+    const onHandleChange = (newFields) => {
+        // console.log(name, value, "SETEANDO", fields);
+        setFields({...fields, ...newFields});
     }
 
     return (
@@ -64,7 +95,9 @@ export default function AddressModal({
                 contentLabel="Addresses"
                 overlayClassName="fixed top-0 left-0 right-0 bottom-0 bg-black bg-opacity-50"
             >
-                <div className="w-full flex flex-wrap">
+                <form
+                    onSubmit={handleSubmit}
+                    className="w-full flex flex-wrap">
                     <div
                         className="w-full relative  sticky top-0 bg-white z-50 justify-center p-4 border-b border-gray-400 mb-6">
                         <div className="w-full text-center">
@@ -76,15 +109,16 @@ export default function AddressModal({
                             <IoIosCloseCircle size={25}/>
                         </div>
                     </div>
-                    <ModalSelectMap/>
+                    <ModalSelectMap receiveHandleChange={onHandleChange}/>
                     <div className="fixed bottom-0 w-full justify-center flex right-0 bg-white py-4">
                         <button
+                            type={"submit"}
                             className="bg-black py-3 px-6 w-6/12 text-white focus:outline-none rounded shadow text-sm">
                             Agregar dirección
                         </button>
                     </div>
                     {/*}*/}
-                </div>
+                </form>
 
             </Modal>
             <div
@@ -123,25 +157,27 @@ export default function AddressModal({
 }
 
 let timer;
-const ModalSelectMap = () => {
-
+const ModalSelectMap = ({receiveHandleChange}) => {
+    const [address, setAddress] = useState("");
+    const [description, setDescription] = useState("");
     const [currentFeatures, setCurrentFeatures] = useState([]);
     const [loading, setLoading] = useState(false);
     const [currentMap, setCurrentMap] = useState([-99.7240842389555, 19.6421051526]);
-
+    const [loaded, setLoaded] = useState(false);
     //TODO: Validar los campos de este formulario
     //Apartment: maxLength: 20
     //external_number: maxLength: 10
     //internal_number: maxLength: 10
 
-    const [fields, setFields] = useState({
-        address: "",
-        description: "",
-    })
+    useEffect(() => {
+        setLoaded(true);
+        if (loaded) {
+            console.log("HOLA JEJE")
+            const NEW_SEARCH = `${currentMap[0]},${currentMap[1]}`
+            handleSearch(NEW_SEARCH, 1);
+        }
+    }, [currentMap])
 
-    const onHandleChange = (e) => {
-        setFields({...fields, [e.target.name]: e.target.value});
-    }
 
     const findRegion = (arrayRegion) => {
         let newRegion = arrayRegion.context.find((el) => el.id.includes("region"))
@@ -154,9 +190,11 @@ const ModalSelectMap = () => {
 
     const handleSearch = async (e, limit = 5) => {
         setLoading(true);
+        console.log(address, description, "AAAIII");
         let newValue = e.target ? e.target.value : e;
         if (e.target) {
-            setFields({...fields, [e.target.name]: e.target.value});
+            console.log("HAY TARGET");
+            setAddress(e.target.value);
         }
         clearTimeout(timer)
         timer = setTimeout(async () => {
@@ -175,11 +213,17 @@ const ModalSelectMap = () => {
                             if (response.features.length > 0) {
                                 let currentFeature = response.features[0];
                                 let newRegion = findRegion(currentFeature) // Esto es un array creo
+                                console.log(newRegion);
                                 if (newRegion !== null) {
-                                    if (newRegion.short_code === "MX-MEX") {
-                                        console.log(newRegion.short_code, "Disponible")
-                                        //Validar que la nueva dirección esté dentro de el estado de mexico
-                                        setFields({...fields, address: currentFeature.place_name})
+                                    if (newRegion.short_code === "MX-MEX" || newRegion.short_code === "MX-DIF") {
+                                        // console.log(newRegion.short_code, "Disponible")
+                                        // console.log("HOLA", fields);
+                                        setAddress(currentFeature.place_name);
+                                        receiveHandleChange({
+                                            address: currentFeature.place_name,
+                                            lat: currentFeature.center[0],
+                                            lng: currentFeature.center[1],
+                                        });
                                     } else {
                                         console.log("Aún no está disponible aquí")
                                     }
@@ -212,7 +256,8 @@ const ModalSelectMap = () => {
         console.log("HOLA", e);
         let newRegion = findRegion(e);
         if (newRegion) {
-            setFields({...fields, address: e.place_name});
+            receiveHandleChange({address: e.place_name, lng: e.center[1], lat: e.center[0]});
+            setAddress(e.place_name);
             setCurrentFeatures([]);
             setCurrentMap(e.center);
         } else {
@@ -223,17 +268,15 @@ const ModalSelectMap = () => {
     }
 
     //Al hacer focus mostramos la dirección si es que se ha cancelado la busqueda anteriormente
-    const onHandleFocus = (e) => {
-        if (e.target.value.length > 0) {
-            if (currentFeatures.length <= 0) {
-                handleSearch(e);
-            }
-        }
-    }
+    // const onHandleFocus = (e) => {
+    //     if (e.target.value.length > 0) {
+    //         if (currentFeatures.length <= 0) {
+    //             handleSearch(e);
+    //         }
+    //     }
+    // }
     //Recibimos latitude y longitude {lng:Float, lat:Float}
     const handleDrag = (e) => {
-        const NEW_SEARCH = `${e.lng},${e.lat}`
-        handleSearch(NEW_SEARCH, 1);
         setCurrentMap([e.lng, e.lat]);
     }
 
@@ -243,10 +286,12 @@ const ModalSelectMap = () => {
                 <div className="relative w-full flex flex-wrap">
                     <Input
                         name={"address"}
-                        handleChange={handleSearch}
-                        value={fields.address}
+                        handleChange={(e) => {
+                            handleSearch(e);
+                        }}
+                        value={address}
                         className="pr-10"
-                        handleFocus={onHandleFocus}
+                        // handleFocus={onHandleFocus}
                         // handleBlur={onHandleBlur}
                         label={"Dirección"}
                         placeholder={"Ingresar dirección"}>
@@ -277,14 +322,19 @@ const ModalSelectMap = () => {
                 </div>
                 <Input
                     name={"description"}
-                    handleChange={onHandleChange}
-                    value={fields.description}
+                    handleChange={(e) => {
+                        setDescription(e.target.value);
+                        receiveHandleChange({description: e.target.value});
+                    }}
+                    value={description}
                     label={"Piso / Oficina / Apto / Depto"}
                     placeholder={"Descripción de la dirección (ej. torre, apartamento)"}/>
                 <div className="w-full h-56 bg-gray-200">
                     <MapComponent
                         draggable={true}
-                        onDrag={handleDrag}
+                        onDrag={(e) => {
+                            handleDrag(e);
+                        }}
                         center={currentMap}
                         marker={currentMap}/>
                     {/*Insertar mapa*/}

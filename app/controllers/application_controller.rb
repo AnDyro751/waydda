@@ -19,6 +19,7 @@ class ApplicationController < ActionController::Base
         {key: "Valle de Bravo", value: "valle-de-bravo"},
     ]
   end
+
   helper_method :default_locations
 
 
@@ -53,13 +54,15 @@ class ApplicationController < ActionController::Base
     if user_signed_in?
       @current_address = current_user.current_address
       session[:current_address] = @current_address || nil
-    end
-    if session[:current_address]
-      @current_address = Address.find(session[:current_address])
-      session[:current_address] = @current_address
     else
-      session[:current_address] = nil
+      if session[:current_address]
+        @current_address = Address.find_by(id: session[:current_address].id.to_s)
+        session[:current_address] = @current_address
+      else
+        session[:current_address] = nil
+      end
     end
+
   end
 
   protected
