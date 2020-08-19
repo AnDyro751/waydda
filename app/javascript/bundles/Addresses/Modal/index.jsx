@@ -143,6 +143,15 @@ const ModalSelectMap = () => {
         setFields({...fields, [e.target.name]: e.target.value});
     }
 
+    const findRegion = (arrayRegion) => {
+        let newRegion = arrayRegion.context.find((el) => el.id.includes("region"))
+        if (newRegion) {
+            return newRegion;
+        } else {
+            return null;
+        }
+    }
+
     const handleSearch = async (e, limit = 5) => {
         setLoading(true);
         let newValue = e.target ? e.target.value : e;
@@ -164,7 +173,17 @@ const ModalSelectMap = () => {
                             setCurrentFeatures(response.features || [])
                         } else {
                             if (response.features.length > 0) {
-                                setFields({...fields, address: response.features[0].place_name})
+                                let currentFeature = response.features[0];
+                                let newRegion = findRegion(currentFeature) // Esto es un array creo
+                                if (newRegion !== null) {
+                                    if (newRegion.short_code === "MX-MEX") {
+                                        console.log(newRegion.short_code, "Disponible")
+                                        //Validar que la nueva dirección esté dentro de el estado de mexico
+                                        setFields({...fields, address: currentFeature.place_name})
+                                    } else {
+                                        console.log("Aún no está disponible aquí")
+                                    }
+                                }
                             }
                         }
                         setLoading(false);
@@ -191,9 +210,15 @@ const ModalSelectMap = () => {
 
     const onHandleClick = (e) => {
         console.log("HOLA", e);
-        setFields({...fields, address: e.place_name});
-        setCurrentFeatures([]);
-        setCurrentMap(e.center);
+        let newRegion = findRegion(e);
+        if (newRegion) {
+            setFields({...fields, address: e.place_name});
+            setCurrentFeatures([]);
+            setCurrentMap(e.center);
+        } else {
+            console.log("Aún no está disponible aquí")
+        }
+
         // Al seleccionar el nuevo address borramos los features
     }
 
