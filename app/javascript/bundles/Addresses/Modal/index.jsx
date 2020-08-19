@@ -207,10 +207,9 @@ const ModalSelectMap = () => {
     }
     //Recibimos latitude y longitude {lng:Float, lat:Float}
     const handleDrag = (e) => {
-        console.log(e);
         const NEW_SEARCH = `${e.lng},${e.lat}`
         handleSearch(NEW_SEARCH, 1);
-        // setCurrentMap();
+        setCurrentMap([e.lng, e.lat]);
     }
 
     return (
