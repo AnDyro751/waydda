@@ -126,8 +126,11 @@ export default function AddressModal({
     )
 }
 
-
+let timer;
 const ModalSelectMap = () => {
+
+    const [currentFeatures, setCurrentFeatures] = useState([]);
+    const [loading, setLoading] = useState(false);
 
     //TODO: Validar los campos de este formulario
     //Apartment: maxLength: 20
@@ -144,30 +147,36 @@ const ModalSelectMap = () => {
     }
 
     const handleSearch = async (e) => {
+        setLoading(true);
         setFields({...fields, [e.target.name]: e.target.value});
-        try {
-            if (e.target.value.length > 0) {
-                const URL = `https://api.mapbox.com/geocoding/v5/mapbox.places/${encodeURIComponent(e.target.value)}.json?access_token=pk.eyJ1Ijoic2VhcmNoLW1hY2hpbmUtdXNlci0xIiwiYSI6ImNrN2Y1Nmp4YjB3aG4zZ253YnJoY21kbzkifQ.JM5ZeqwEEm-Tonrk5wOOMw&cachebuster=1596775236930&autocomplete=true&country=mx&bbox=-102.36584333677,18.203715736351,-95.646605055518,20.200815919313&proximity=-99.630833,19.354167`
-                console.log(e.target.value, URL);
-                let response = await (
-                    await fetch(URL, {
-                        method: "GET"
-                    })
-                ).json();
-                if (typeof response === "object") {
-                    if (response.features.length > 0) {
-                        Object.keys(response.features).forEach((k, i) => {
-                            let currentItem = response.features[k];
-                            console.log(response.features[k], currentItem["id"].split(".")[0])
+        clearTimeout(timer)
+        let newValue = e.target.value;
+        timer = setTimeout(async () => {
+            try {
+                if (newValue.length > 0) {
+                    const URL = `https://api.mapbox.com/geocoding/v5/mapbox.places/${encodeURIComponent(newValue)}.json?access_token=pk.eyJ1Ijoic2VhcmNoLW1hY2hpbmUtdXNlci0xIiwiYSI6ImNrN2Y1Nmp4YjB3aG4zZ253YnJoY21kbzkifQ.JM5ZeqwEEm-Tonrk5wOOMw&cachebuster=1596775236930&autocomplete=true&country=mx&bbox=-102.36584333677,18.203715736351,-95.646605055518,20.200815919313&proximity=-99.630833,19.354167`
+                    let response = await (
+                        await fetch(URL, {
+                            method: "GET"
                         })
+                    ).json();
+                    if (typeof response === "object") {
+                        setCurrentFeatures(response.features || [])
+                        setLoading(false);
                     } else {
-                        console.log("No hay records")
+                        console.log("Ha ocurrido un error")
                     }
+                } else {
+                    setCurrentFeatures([]);
+                    setLoading(false);
+                    console.log("H", newValue)
                 }
+            } catch (e) {
+                setCurrentFeatures([]);
+                setLoading(false);
+                console.log("Hola", e);
             }
-        } catch (e) {
-            console.log("Hola", e);
-        }
+        }, 180)
     }
 
     return (
