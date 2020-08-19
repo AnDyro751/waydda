@@ -1,4 +1,5 @@
 import React, {useState, useEffect, useRef} from 'react';
+import 'mapbox-gl/dist/mapbox-gl.css';
 import mapboxgl from 'mapbox-gl'
 
 mapboxgl.accessToken = 'pk.eyJ1IjoiYW5keXJvaG0iLCJhIjoiY2p6NmRldzJjMGsyMzNpbjJ0YjZjZjV5NSJ9.SeHsvxUe4-pszVk0B4gRAQ';
@@ -54,7 +55,7 @@ export default function MapComponent({center, newCenter, marker, draggable = fal
         )
     }
     return (
-        <div className="grid grid-cols-12 my-6 relative z-0 h-full">
+        <div className="grid grid-cols-12 relative z-0 h-full">
             <div className="col-span-12 h-full m-0 p-0 relative overflow-hidden">
                 <div className="h-full bg-gray-400 absolute w-full top-0 left-0 right-0 bottom-0" ref={mapRef}/>
             </div>

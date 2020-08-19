@@ -3,6 +3,7 @@ import Modal from 'react-modal';
 import {FaMapMarkerAlt, FaChevronDown, FaChevronRight, FaChevronLeft} from 'react-icons/fa';
 import {IoIosCloseCircle} from 'react-icons/io';
 import Input from "../../Forms/Input";
+import MapComponent from "../../Place/Map";
 
 const customStyles = {
     content: {
@@ -126,6 +127,7 @@ const ModalSelectMap = () => {
 
     const [currentFeatures, setCurrentFeatures] = useState([]);
     const [loading, setLoading] = useState(false);
+    const [currentMap, setCurrentMap] = useState([-99.7240842389555, 19.6421051526]);
 
     //TODO: Validar los campos de este formulario
     //Apartment: maxLength: 20
@@ -141,22 +143,30 @@ const ModalSelectMap = () => {
         setFields({...fields, [e.target.name]: e.target.value});
     }
 
-    const handleSearch = async (e) => {
+    const handleSearch = async (e, limit = 5) => {
         setLoading(true);
-        setFields({...fields, [e.target.name]: e.target.value});
+        let newValue = e.target ? e.target.value : e;
+        if (e.target) {
+            setFields({...fields, [e.target.name]: e.target.value});
+        }
         clearTimeout(timer)
-        let newValue = e.target.value;
         timer = setTimeout(async () => {
             try {
                 if (newValue.length > 0) {
-                    const URL = `https://api.mapbox.com/geocoding/v5/mapbox.places/${encodeURIComponent(newValue)}.json?access_token=pk.eyJ1Ijoic2VhcmNoLW1hY2hpbmUtdXNlci0xIiwiYSI6ImNrN2Y1Nmp4YjB3aG4zZ253YnJoY21kbzkifQ.JM5ZeqwEEm-Tonrk5wOOMw&cachebuster=1596775236930&autocomplete=true&country=mx&bbox=-102.36584333677,18.203715736351,-95.646605055518,20.200815919313&proximity=-99.630833,19.354167`
+                    const URL = `https://api.mapbox.com/geocoding/v5/mapbox.places/${encodeURIComponent(newValue)}.json?access_token=pk.eyJ1Ijoic2VhcmNoLW1hY2hpbmUtdXNlci0xIiwiYSI6ImNrN2Y1Nmp4YjB3aG4zZ253YnJoY21kbzkifQ.JM5ZeqwEEm-Tonrk5wOOMw&cachebuster=1596775236930&autocomplete=true&country=mx&bbox=-102.36584333677,18.203715736351,-95.646605055518,20.200815919313&proximity=-99.630833,19.354167`;
                     let response = await (
                         await fetch(URL, {
                             method: "GET"
                         })
                     ).json();
                     if (typeof response === "object") {
-                        setCurrentFeatures(response.features || [])
+                        if (limit > 1) {
+                            setCurrentFeatures(response.features || [])
+                        } else {
+                            if (response.features.length > 0) {
+                                setFields({...fields, address: response.features[0].place_name})
+                            }
+                        }
                         setLoading(false);
                     } else {
                         console.log("Ha ocurrido un error")
@@ -182,7 +192,9 @@ const ModalSelectMap = () => {
     const onHandleClick = (e) => {
         console.log("HOLA", e);
         setFields({...fields, address: e.place_name});
-        setCurrentFeatures([]); // Al seleccionar el nuevo address borramos los features
+        setCurrentFeatures([]);
+        setCurrentMap(e.center);
+        // Al seleccionar el nuevo address borramos los features
     }
 
     //Al hacer focus mostramos la dirección si es que se ha cancelado la busqueda anteriormente
@@ -192,6 +204,13 @@ const ModalSelectMap = () => {
                 handleSearch(e);
             }
         }
+    }
+    //Recibimos latitude y longitude {lng:Float, lat:Float}
+    const handleDrag = (e) => {
+        console.log(e);
+        const NEW_SEARCH = `${e.lng},${e.lat}`
+        handleSearch(NEW_SEARCH, 1);
+        // setCurrentMap();
     }
 
     return (
@@ -238,6 +257,11 @@ const ModalSelectMap = () => {
                     label={"Piso / Oficina / Apto / Depto"}
                     placeholder={"Descripción de la dirección (ej. torre, apartamento)"}/>
                 <div className="w-full h-56 bg-gray-200">
+                    <MapComponent
+                        draggable={true}
+                        onDrag={handleDrag}
+                        center={currentMap}
+                        marker={currentMap}/>
                     {/*Insertar mapa*/}
                 </div>
             </div>
@@ -247,7 +271,6 @@ const ModalSelectMap = () => {
 }
 
 const ItemAddress = ({item, handleClick}) => {
-    console.log(item);
     return (
         <div
             onClick={() => handleClick(item)}
