@@ -1,6 +1,6 @@
 import React from "react";
 
-const Input = ({label, placeholder, type = "text", value, handleChange, name, handleBlur, children, handleFocus}) => (
+const Input = ({label, placeholder, type = "text", value, handleChange, name, handleBlur, children, handleFocus, className}) => (
     <div className="w-full flex mb-4 flex-wrap">
         <div className="w-full mb-2">
             <label className="text-xs text-gray-700">{label}</label>
@@ -13,7 +13,7 @@ const Input = ({label, placeholder, type = "text", value, handleChange, name, ha
                    onChange={handleChange}
                    placeholder={placeholder}
                    onFocus={handleFocus ? handleFocus : null}
-                   className="w-full py-3 px-4 bg-main-gray focus:outline-none"/>
+                   className={`w-full py-3 px-4 bg-main-gray focus:outline-none ${className ? className : ""}`}/>
             {children}
         </div>
     </div>

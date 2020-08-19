@@ -245,6 +245,7 @@ const ModalSelectMap = () => {
                         name={"address"}
                         handleChange={handleSearch}
                         value={fields.address}
+                        className="pr-10"
                         handleFocus={onHandleFocus}
                         // handleBlur={onHandleBlur}
                         label={"Dirección"}
