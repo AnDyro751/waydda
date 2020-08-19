@@ -2,6 +2,7 @@ import React, {useEffect, useState} from 'react';
 import Modal from 'react-modal';
 import {FaMapMarkerAlt, FaChevronDown, FaChevronRight, FaChevronLeft} from 'react-icons/fa';
 import {IoIosCloseCircle} from 'react-icons/io';
+import Input from "../../Forms/Input";
 
 const customStyles = {
     content: {
@@ -74,17 +75,11 @@ export default function AddressModal({
                             <IoIosCloseCircle size={25}/>
                         </div>
                     </div>
-                    {/*{*/}
-                    {/*    currentStep === 0 ?*/}
-                    {/*        <ModalSelectLocation*/}
-                    {/*            handleSelectLocation={onHandleSelectLocation}*/}
-                    {/*            items={locations}*/}
-                    {/*            handleClose={handleClose}*/}
-                    {/*        />*/}
-                    {/*        :*/}
                     <ModalSelectMap/>
                     <div className="fixed bottom-0 w-full justify-center flex right-0 bg-white py-4">
-                        <button className="bg-black py-4 px-6 w-11/12 text-white focus:outline-none">Agregar dirección
+                        <button
+                            className="bg-black py-3 px-6 w-6/12 text-white focus:outline-none rounded shadow text-sm">
+                            Agregar dirección
                         </button>
                     </div>
                     {/*}*/}
@@ -179,14 +174,63 @@ const ModalSelectMap = () => {
         }, 180)
     }
 
+    const onHandleBlur = () => {
+        setLoading(false);
+        setCurrentFeatures([]);
+    }
+
+    const onHandleClick = (e) => {
+        console.log("HOLA", e);
+        setFields({...fields, address: e.place_name});
+        setCurrentFeatures([]); // Al seleccionar el nuevo address borramos los features
+    }
+
+    //Al hacer focus mostramos la dirección si es que se ha cancelado la busqueda anteriormente
+    const onHandleFocus = (e) => {
+        if (e.target.value.length > 0) {
+            if (currentFeatures.length <= 0) {
+                handleSearch(e);
+            }
+        }
+    }
+
     return (
         <>
             <div className="w-full flex flex-wrap px-6 mb-24">
-                <Input
-                    name={"address"}
-                    handleChange={handleSearch}
-                    value={fields.address}
-                    label={"Dirección"} placeholder={"Ingresar dirección"}/>
+                <div className="relative w-full flex flex-wrap">
+                    <Input
+                        name={"address"}
+                        handleChange={handleSearch}
+                        value={fields.address}
+                        handleFocus={onHandleFocus}
+                        // handleBlur={onHandleBlur}
+                        label={"Dirección"}
+                        placeholder={"Ingresar dirección"}>
+                        <>
+                            {
+                                currentFeatures.length > 0 &&
+                                <div
+                                    onClick={onHandleBlur}
+                                    className="absolute top-0 p-1 cursor-pointer mr-3 bottom-0 flex items-center right-0">
+                                    <IoIosCloseCircle size={14}/>
+                                </div>
+                            }
+                            {
+                                currentFeatures.length > 0 &&
+                                <div
+                                    className="absolute z-50 bg-white shadow transform translate-y-full flex flex-wrap bottom-0 left-0 right-0 justify-center items-center">
+                                    {currentFeatures.map((item, k) => (
+                                        <ItemAddress
+                                            handleClick={onHandleClick}
+                                            key={k} item={item}/>
+                                    ))}
+                                </div>
+                            }
+                        </>
+                    </Input>
+
+
+                </div>
                 <Input
                     name={"description"}
                     handleChange={onHandleChange}
@@ -202,37 +246,20 @@ const ModalSelectMap = () => {
     )
 }
 
-const Input = ({label, placeholder, type = "text", value, handleChange, name}) => (
-    <div className="w-full mb-4">
-        <label className="text-xs text-gray-700">{label}</label>
-        <input type={type}
-               name={name}
-               value={value}
-               onChange={handleChange}
-               placeholder={placeholder}
-               className="w-full mt-2 py-3 px-4 bg-main-gray focus:outline-none"/>
-    </div>
-)
-
-const ModalSelectLocation = ({items, handleSelectLocation}) => {
+const ItemAddress = ({item, handleClick}) => {
+    console.log(item);
     return (
-        <div className="w-full px-6">
-            {Array.isArray(items) &&
-            items.map((item, i) => (
-                <div
-                    onClick={() => {
-                        handleSelectLocation(item);
-                    }}
-                    key={i}
-                    className="w-full location py-4 relative mb-4 cursor-pointer hover:font-normal opacity-75 hover:opacity-100">
-                    <h5>{item.key}</h5>
-                    <div className="absolute location-icon flex justify-center items-center bottom-0 top-0 right-0">
-                        <FaChevronRight size={14} className={"text-gray-800"}/>
-                    </div>
-                </div>
-            ))
-            }
+        <div
+            onClick={() => handleClick(item)}
+            className="flex cursor-pointer gap-4 hover:bg-gray-200 w-full p-2 border-b border-gray-400 text-sm items-center">
+            <div className="w-auto flex justify-center">
+                <FaMapMarkerAlt
+                    className={"inline"}
+                    size={14}/>
+            </div>
+            <div className="w-11/12">
+                <p className="font-normal text-gray-700 hover:text-gray-900">{item.place_name}</p>
+            </div>
         </div>
     )
 }
-
