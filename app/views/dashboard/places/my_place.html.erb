@@ -1,19 +1,24 @@
-<% if @place.pending? %>
-  <h3>Esperando la confirmación del administrador</h3>
-<% else %>
-
-  <p>
-    <%= simple_form_for(@place, url: dashboard_place_update_slug_path(@place), remote: true) do |f| %>
-      <%= f.input :slug, value: @place.slug %>
-      <%= f.submit %>
-    <% end %>
-  </p>
-  <div class="mt-4">
-    <strong>Status:</strong>
-    <% if @place.status == "inactive" %>
-      <%= button_to "Activar", {to_action: "activate"}, method: :put, remote: true, class: "cursor-pointer bg-green-700 focus:outline-none text-white px-8 py-3 rounded shadow-2xl" %>
-    <% else %>
-      <%= button_to "Desactivar", {to_action: "deactivate"}, method: :put, remote: true, class: "cursor-pointer bg-red-700 focus:outline-none text-white px-8 py-3 rounded shadow-2xl" %>
-    <% end %>
+<div class="w-full items-center flex justify-between border-b py-12 border-gray-400">
+  <div class="w-4/12">
+    <div class="flex w-full gap-4 items-center">
+      <div class="w-20 h-20">
+        <%= react_component('ResponsiveImage', props: {publicId: @place.photo, alt: @place.name, byDefault: true, wrapperClass: "h-20 w-20 rounded-full", className: "rounded-full"}, prerender: false) %>
+      </div>
+      <div class="w-auto">
+        <div class="w-full relative">
+          <h1 class="text-4xl mb-2 font-bold"><%= @place.name %></h1>
+          <div class="absolute right-0 top-0 bottom-0  text-xs transform translate-x-full flex items-center -mr-4">
+            <span class="rounded-full border px-2"><%= I18n.t("status.#{@place.status}") %></span></div>
+        </div>
+        <h4 class="text-gray-600 text-sm uppercase font-normal"><%= @place.address %></h4>
+      </div>
+    </div>
   </div>
-<% end %>
+  <div class="w-8/12 flex justify-end">
+    <%= link_to "Editar empresa", dashboard_edit_my_place_path, class: "bg-black py-3 px-6 text-white rounded" %>
+  </div>
+</div>
+<div class="w-full mt-4" >
+  <%= render "dashboard/products/more_viewed" %>
+</div>
+

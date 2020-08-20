@@ -1,0 +1,4 @@
+es:
+  status:
+    pending: "Pendiente"
+    active: "Activo"

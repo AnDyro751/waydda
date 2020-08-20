@@ -1,0 +1,8 @@
+<h1 class="font-normal text-xl">Vistos ultimamente</h1>
+
+<% if @products.length <= 10 %>
+  <%= render 'dashboard/utils/empty_records', message: "Aún no hay productos que mostrar" %>
+<% else %>
+  <!--  TODO: Each Products -->
+<% end %>
+

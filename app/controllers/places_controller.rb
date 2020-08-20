@@ -3,13 +3,12 @@ class PlacesController < ApplicationController
   before_action :set_place, only: [:show, :edit, :update, :destroy, :my_place]
   before_action :validate_my_identity, except: [:show, :new, :index]
   before_action :set_my_place, only: [:my_place]
+  after_action :update_views, only: [:show]
+
   # GET /places
   # GET /places.json
   def index
     @places = Place.all
-  end
-
-  def my_place
   end
 
   # GET /places/1
@@ -20,6 +19,11 @@ class PlacesController < ApplicationController
   end
 
   private
+
+  def update_views
+    # code here
+  end
+
 
 
   # Use callbacks to share common setup or constraints between actions.

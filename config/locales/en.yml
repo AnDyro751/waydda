@@ -31,3 +31,6 @@
 
 en:
   hello: "Hello world"
+  status:
+    pending: "Pending"
+    active: "Active"

@@ -4,8 +4,8 @@ class Product
   include Mongoid::Geospatial
   require 'will_paginate/array'
   before_create :assign_slug
-
   after_create :update_counters
+
   #fields
   field :name, type: String
   field :description, type: String
@@ -16,6 +16,7 @@ class Product
   field :photo, type: String, default: "places/default.png"
   field :public_stock, type: Integer, default: 0
   field :original_stock, type: Integer, default: 0
+  field :last_viewed, type: DateTime
   # TODO: Agregar la cantidad publica y la privada
 
   # relations

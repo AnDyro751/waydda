@@ -44,6 +44,7 @@ Rails.application.routes.draw do
       resources :aggregates
     end
     # Places
+    get "/edit", to: "places#edit", as: "edit_my_place"
     resources :places, only: [:edit, :update, :new, :create] do
       patch "/update_slug", to: "places#update_slug", as: "update_slug"
     end
