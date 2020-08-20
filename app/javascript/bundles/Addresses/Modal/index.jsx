@@ -27,7 +27,7 @@ export default function AddressModal({
                                          locations
                                      }) {
     const [isOpen, setIsOpen] = useState(modalOpen);
-    const [currentLocation, setCurrentLocation] = useState(current_address);
+    const [currentLocation, setCurrentLocation] = useState(current_address || {});
     const [currentStep, setCurrentStep] = useState(0);
     const [fields, setFields] = useState({
         address: "",
@@ -88,7 +88,7 @@ export default function AddressModal({
     return (
         <>
             <Modal
-                isOpen={true}
+                isOpen={isOpen}
                 onRequestClose={handleClose}
                 style={customStyles}
                 ariaHideApp={false}
@@ -109,7 +109,14 @@ export default function AddressModal({
                             <IoIosCloseCircle size={25}/>
                         </div>
                     </div>
-                    <ModalSelectMap receiveHandleChange={onHandleChange}/>
+                    <ModalSelectMap
+                        defaultValues={{
+                            address: currentLocation.address,
+                            description: currentLocation.description,
+                            lat: currentLocation.lat,
+                            lng: currentLocation.lng,
+                        }}
+                        receiveHandleChange={onHandleChange}/>
                     <div className="fixed bottom-0 w-full justify-center flex right-0 bg-white py-4">
                         <button
                             type={"submit"}
@@ -122,6 +129,7 @@ export default function AddressModal({
 
             </Modal>
             <div
+                title={currentLocation ? currentLocation.address : "Selecciona tu ubicación"}
                 onClick={handleOpenModal}
                 style={{
                     boxShadow: "0 6px 10px 0 rgba(128,98,96,.16)"
@@ -133,7 +141,7 @@ export default function AddressModal({
                         size={20}
                     />
                 </div>
-                <h4 className="font-normal ml-8 text-gray-800 truncate ">Selecciona tu ubicación</h4>
+                <h4 className="font-normal ml-8 text-gray-800 truncate ">{currentLocation ? currentLocation.address : "Selecciona tu ubicación"}</h4>
                 <div className="absolute mr-4 right-0 top-0 bottom-0 flex justify-center items-center">
                     <FaChevronDown
                         className="text-gray-900"
@@ -141,6 +149,7 @@ export default function AddressModal({
                     />
                 </div>
             </div>
+
             {/*<div*/}
             {/*    style={{*/}
             {/*        backgroundColor: "#F6F6F6"*/}
@@ -157,12 +166,12 @@ export default function AddressModal({
 }
 
 let timer;
-const ModalSelectMap = ({receiveHandleChange}) => {
-    const [address, setAddress] = useState("");
-    const [description, setDescription] = useState("");
+const ModalSelectMap = ({receiveHandleChange, defaultValues = {}}) => {
+    const [address, setAddress] = useState(defaultValues.address || "");
+    const [description, setDescription] = useState(defaultValues.description || "");
     const [currentFeatures, setCurrentFeatures] = useState([]);
     const [loading, setLoading] = useState(false);
-    const [currentMap, setCurrentMap] = useState([-99.7240842389555, 19.6421051526]);
+    const [currentMap, setCurrentMap] = useState(defaultValues.lat ? [defaultValues.lat, defaultValues.lng] : [-99.7240842389555, 19.6421051526]);
     const [loaded, setLoaded] = useState(false);
     //TODO: Validar los campos de este formulario
     //Apartment: maxLength: 20
