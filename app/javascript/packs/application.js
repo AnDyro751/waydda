@@ -15,6 +15,7 @@ require("channels")
 // const imagePath = (name) => images(name, true)
 
 import '../../assets/stylesheets/application.scss'
+
 // import Uppy from '@uppy/core'
 // import Dashboard from '@uppy/dashboard'
 

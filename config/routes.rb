@@ -33,7 +33,6 @@ Rails.application.routes.draw do
 
   # Dashboard
   get "/dashboard", to: "dashboard/places#my_place", as: "my_place" # Index dashboard
-  put "/dashboard", to: "dashboard/places#update"
   namespace :dashboard do
     # Uploads
     post "/upload/:model/:slug/:attribute", to: "image#upload", as: "upload_image"

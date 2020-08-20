@@ -4,21 +4,16 @@
   <title>WayddaDev</title>
   <%= csrf_meta_tags %>
   <%= csp_meta_tag %>
-  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-  <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_packs_with_chunks_tag 'application', "dashboard-bundle", 'data-turbolinks-track': 'reload' %>
   <link rel="preconnect" href="https://d1nrrr6y3ujrjz.cloudfront.net" crossOrigin/>
   <link rel="dns-prefetch" href="https://d1nrrr6y3ujrjz.cloudfront.net"/>
-
-  <% if action_name == "my_place" %>
-    <link rel="preconnect" href="https://api.mapbox.com" crossOrigin/>
-    <link rel="dns-prefetch" href="https://api.mapbox.com"/>
-    <link href='https://api.mapbox.com/mapbox-gl-js/v1.11.1/mapbox-gl.css' rel='stylesheet'/>
-  <% end %>
 </head>
 
 <body>
 <p class="notice"><%= notice %></p>
 <p class="alert"><%= alert %></p>
+<%= render "utils/Headers/dashboard" %>
 <div class="grid grid-cols-12">
   <div class="col-span-2">
     <ul>
