@@ -7,7 +7,7 @@ import ShowCartItems from "../ShowCartItems";
 import SelectAddress from "../../Addresses/Select";
 import AddressModal from "../../Addresses/Modal";
 
-export default function CartSidebar({locations}) {
+export default function CartSidebar({locations, current_address}) {
 
     const [open, setOpen] = useState(false);
     const [items, setItems] = useState([]);
@@ -25,7 +25,8 @@ export default function CartSidebar({locations}) {
                         })
                     ).json()
                     setItems(response.items || [])
-                    setCurrentAddress(response.current_address || null)
+                    setCurrentAddress(response.current_address || null);
+                    // console.log(response);
                     setLoading(false);
                     console.log(response, "Re")
                 } catch (e) {
@@ -91,12 +92,12 @@ export default function CartSidebar({locations}) {
                                     <RiCloseLine size={20} className="text-black"/>
                                 </div>
                                 {
-                                    open &&
+                                    !loading &&
                                     <div className="w-full py-4">
+                                        <h4 className="text-sm text-gray-800 mb-4" >Entregar en:</h4>
                                         <AddressModal
                                             current_address={currentAddress}
                                             modalOpen={false}
-                                            locations={locations}
                                         />
                                     </div>
                                 }

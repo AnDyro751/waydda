@@ -47,6 +47,7 @@ export default function AddressModal({
 
     useEffect(() => {
         Modal.setAppElement("#select-address")
+        console.log(current_address, currentLocation);
     }, [])
 
     useEffect(() => {
