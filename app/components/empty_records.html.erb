@@ -1,0 +1,15 @@
+<!--<h2 class="font-normal text-xl"><%#= @title %></h2>-->
+<%# if @sales.length <= 0 %>
+<%#= render EmptyRecords %>
+<%#= render "dashboard/utils/empty_records", message: "No tienes ningún envío pendiente 🥳" %>
+<%# else %>
+<%# @sales.each do |v| %>
+<!--    Code here-->
+<%# end %>
+<%# end %>
+
+<div class="w-full py-20 bg-main-gray text-center my-4 rounded">
+  <h4 class="text-gray-800 font-normal"><%= @title %></h4>
+</div>
+
+

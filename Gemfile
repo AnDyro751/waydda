@@ -45,6 +45,7 @@ gem 'omniauth-facebook'
 gem 'city-state'
 gem "mapbox-sdk"
 gem 'stripe'
+gem "view_component"
 gem 'will_paginate', '~> 3.1.0'
 gem "algoliasearch-rails"
 group :development, :test do

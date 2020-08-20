@@ -11,6 +11,7 @@ class Dashboard::PlacesController < ApplicationController
 
   def my_place
     @products = @place.products.where(:last_viewed.gte => (Date.today - 30)).paginate(page: params[:page], per_page: 30)
+    @sales = []
   end
 
   # GET /places/1/edit

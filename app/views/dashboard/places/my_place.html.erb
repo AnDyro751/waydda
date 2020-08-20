@@ -18,7 +18,13 @@
     <%= link_to "Editar empresa", dashboard_edit_my_place_path, class: "bg-black py-3 px-6 text-white rounded" %>
   </div>
 </div>
-<div class="w-full mt-4" >
-  <%= render "dashboard/products/more_viewed" %>
+
+<div class="w-full mt-4">
+  <%#= render(TestComponent.new(title: "my title")) %>
+  <%#= render(EmptyRecords.new(title: "Envíos pendientes")) %>
+  <%= render(LastSales::LastSales.new(message: "Envíos pendientes", sales: @sales)) %>
 </div>
 
+<div class="w-full mt-4">
+  <%= render "dashboard/products/more_viewed" %>
+</div>
