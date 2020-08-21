@@ -1,6 +1,6 @@
-<header class="bg-white flex w-full border-b mx-auto">
+<header class="bg-white flex w-full mx-auto">
   <div class="w-9/12 mx-auto flex flex-wrap">
-    <div class="w-full flex py-2">
+    <div class="w-full flex pt-2">
       <div class="w-auto flex items-center gap-4">
         <div class="w-auto">
           <img
@@ -14,6 +14,12 @@
         </div>
       </div>
     </div>
-    <%= render "utils/Headers/dashboard/items" %>
   </div>
 </header>
+<div
+  data-scroll-shadow="true"
+  class="w-full border-b sticky top-0 bg-white z-50">
+  <div class="w-9/12 mx-auto flex flex-wrap">
+    <%= render "utils/Headers/dashboard/items" %>
+  </div>
+</div>

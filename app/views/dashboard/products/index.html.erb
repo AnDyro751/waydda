@@ -1,4 +1,4 @@
-<div class="w-full flex my-8 items-center">
+<div class="w-full flex py-12 items-center">
   <div class="w-6/12">
     <h1 class="text-4xl font-bold">Todos los productos</h1>
   </div>
@@ -19,7 +19,7 @@
       </div>
     <% end %>
   </div>
-  <div class="w-full flex">
+  <div class="w-full flex justify-center mt-8">
     <%= will_paginate @products %>
   </div>
 <% else %>

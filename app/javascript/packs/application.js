@@ -59,7 +59,6 @@ import '../../assets/stylesheets/application.scss'
 // ReactRailsUJS.useContext(componentRequireContext);
 
 
-
 document.addEventListener("turbolinks:load", () => {
     try {
         const current_time_zone = Intl.DateTimeFormat().resolvedOptions().timeZone;

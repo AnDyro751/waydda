@@ -1,0 +1,15 @@
+.pagination {
+
+}
+
+.pagination > .disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    font-width: 400;
+}
+.pagination .current{
+    padding: 0 .4em;
+}
+a[rel~="prev"]{
+    padding: 0 .4em;
+}

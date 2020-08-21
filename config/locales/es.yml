@@ -2,3 +2,19 @@ es:
   status:
     pending: "Pendiente"
     active: "Activo"
+  will_paginate:
+    previous_label: "&#8592; Anterior"
+    next_label: "Siguiente &#8594;"
+    page_gap: "&hellip;"
+    page_entries_info:
+      single_page:
+        zero:  "El modelo %{model} no se ha encontrado"
+        one:   "Mostrando 1 %{model}"
+        other: "Mostrando %{count} de %{model}"
+      single_page_html:
+        zero:  "No se ha encontrado %{model} "
+        one:   "Mostrando <b>1</b> %{model}"
+        other: "Mostrando <b>all&nbsp;%{count}</b> %{model}"
+
+      multi_page: "MOstrando %{model} %{from} - %{to} de %{count} en total"
+      multi_page_html: "Mostrando %{model} <b>%{from}&nbsp;-&nbsp;%{to}</b> de <b>%{count}</b> in total"
