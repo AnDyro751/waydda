@@ -24,7 +24,7 @@
 <div class="flex w-full justify-center">
   <div class="w-9/12 flex mx-auto flex-wrap">
     <%= yield %>
-    <% if Rails.env === "development" %>
+    <% if Rails.env === "development" && params["console"] %>
       <% console %>
     <% end %>
   </div>

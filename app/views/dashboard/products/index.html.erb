@@ -1,16 +1,24 @@
-<h1>Mis productos</h1>
-<% if @products.length <= 0 %>
-  <h2>Aún no has agregado productos</h2>
-<% end %>
-<% if @products.length > 0 %>
-  <div class="grid grid-cols-12">
-    <% @products.each do |product| %>
-      <div class="col-span-12 bg-gray-300 p-3 mb-2">
-        <p>
-          <%= link_to product.name, dashboard_product_path(product.slug) %>
-        </p>
-      </div>
-    <% end %>
+<div class="w-full flex mt-4 items-center">
+  <div class="w-6/12">
+    <h1 class="text-4xl font-bold">Todos los productos</h1>
   </div>
-<% end %>
-<%= link_to "Agregar producto", new_dashboard_product_path %>
+  <div class="w-6/12 flex justify-end">
+    <%= link_to "Agregar producto", new_dashboard_product_path, class: "bg-black py-3 px-6 text-white rounded hover:shadow-lg hover:bg-1 transition duration-500" %>
+  </div>
+</div>
+
+<% render EmptyRecords.new(title: "Aún no hay productos por mostrar") if @products.length <= 0 %>
+<div class="w-full mt-4">
+  <% if @products.length > 0 %>
+    <div class="grid grid-cols-12">
+      <% @products.each do |product| %>
+        <div class="col-span-12 bg-gray-300 p-3 mb-2">
+          <p>
+            <%= link_to product.name, dashboard_product_path(product.slug) %>
+          </p>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
+  <%= link_to "Agregar producto", new_dashboard_product_path %>
+</div>

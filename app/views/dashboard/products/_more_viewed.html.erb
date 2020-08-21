@@ -1,6 +1,6 @@
 <h2 class="font-normal text-xl">Vistos ultimamente</h2>
 
-<% if @products.length <= 10 %>
+<% if @products.length <= 0 %>
   <%= render(EmptyRecords.new(title: "Aún no hay productos para mostrar")) %>
 <% else %>
   <!--  TODO: Each Products -->
