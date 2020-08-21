@@ -29,7 +29,9 @@ Rails.application.routes.draw do
   resources :checkouts, only: [:show, :create]
 
   #Public places
-  resources :places, only: [:show, :index]
+  resources :places, only: [:show, :index] do
+    resources :products
+  end
 
   # Dashboard
   get "/dashboard", to: "dashboard/places#my_place", as: "my_place" # Index dashboard

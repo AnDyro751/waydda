@@ -10,6 +10,7 @@
       <%= f.button :submit, class: "bg-black px-6 py-3 text-white focus:outline-none transition duration-300 hover:shadow-lg cursor-pointer mt-4 rounded" %>
     </div>
     <div class="w-4/12">
+      <%= f.input :public_stock, placeholder: "Productos en stock", label: "Productos en stock" %>
       <%= f.input :item_id, collection: @place.items.map { |r| [r.name, r.id] }, prompt: "Selecciona una categoría", label: "Selecciona una categoría" %>
     </div>
   </div>

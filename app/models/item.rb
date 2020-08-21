@@ -4,6 +4,7 @@ class Item
 
   field :name, type: String
   field :total_products, type: Integer, default: 0
+  field :photo, type: String, default: "places/default.png"
   # relations
   belongs_to :place
   has_many :products
