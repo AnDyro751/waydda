@@ -1,5 +1,6 @@
-<h2 class="font-normal text-xl">Vistos recientemente</h2>
-
+<div class="w-full mt-5 mb-8">
+  <h2 class="font-normal text-xl">Vistos recientemente</h2>
+</div>
 <% if @products.length <= 0 %>
   <%= render(EmptyRecords.new(title: "Aún no hay productos para mostrar")) %>
 <% else %>

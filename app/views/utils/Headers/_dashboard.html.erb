@@ -3,14 +3,18 @@
     <div class="w-full flex pt-2">
       <div class="w-auto flex items-center gap-4">
         <div class="w-auto">
-          <img
-            draggable="false"
-            src="<%= get_image_url(20, 100, "utils/w-logo-5.png") %>"
-            class="h-10"
-            />
+          <%= link_to my_place_path do %>
+            <img
+              draggable="false"
+              src="<%= get_image_url(20, 100, "utils/w-logo-5.png") %>"
+              class="h-10"
+              />
+          <% end %>
         </div>
         <div class="w-auto">
-          <h4 class="font-bold"><%= @place.name %></h4>
+          <h4 class="font-bold">
+            <%= link_to @place.name, my_place_path %>
+          </h4>
         </div>
       </div>
     </div>

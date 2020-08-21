@@ -1,4 +1,4 @@
-<h2 class="font-normal text-xl"><%= @message %></h2>
+<h2 class="font-normal text-xl mt-5 mb-8"><%= @message %></h2>
 <% if @sales.length <= 0 %>
   <%= render(EmptyRecords.new(title: "No tienes ningún envío pendiente 🥳")) %>
 <% else %>

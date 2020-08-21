@@ -19,12 +19,12 @@
   </div>
 </div>
 
-<div class="w-full mt-4">
+<div class="w-full">
   <%#= render(TestComponent.new(title: "my title")) %>
   <%#= render(EmptyRecords.new(title: "Envíos pendientes")) %>
   <%= render(LastSales::LastSales.new(message: "Envíos pendientes", sales: @sales)) %>
 </div>
 
-<div class="w-full mt-4">
+<div class="w-full">
   <%= render "dashboard/products/more_viewed" %>
 </div>
