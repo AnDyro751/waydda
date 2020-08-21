@@ -1,10 +1,16 @@
-<h1>Crear nuevo producto</h1>
+<%= render Headers::Text.new(title: "Crear producto", small: true) %>
+<%= simple_form_for(@product, url: dashboard_products_path, defaults: {input_html: {class: 'bg-main-gray py-4 px-3 focus:bg-white border-transparent border-2 appearance-none focus:border-blue-400 focus:outline-none w-full mt-2 mb-4'}, label_html: {class: "text-sm font-normal text-gray-600"}}) do |f| %>
 
-<%= simple_form_for(@product, url: dashboard_products_path) do |f| %>
-  <%= f.input :name %>
-  <%= f.input :description %>
-  <%= f.input :price %>
-  <%= f.input :photo, as: :file %>
-  <%= f.input :item_id, collection: @place.items.map { |r| [r.name,r.id] },prompt: "Selecciona el item" %>
-  <%= f.button  :submit %>
+  <div class="w-full mb-12 flex gap-8">
+    <div class="w-8/12">
+      <%= f.input :name, placeholder: "Nombre del producto", label: "Nombre del producto" %>
+      <%= f.input :description, placeholder: "Descripción breve del producto", label: "Descripción" %>
+      <%= f.input :price, placeholder: "Precio del producto", label: "Precio" %>
+      <%= f.input :photo, as: :file, label: "Foto del producto" %>
+      <%= f.button :submit, class: "bg-black px-6 py-3 text-white focus:outline-none transition duration-300 hover:shadow-lg cursor-pointer mt-4 rounded" %>
+    </div>
+    <div class="w-4/12">
+      <%= f.input :item_id, collection: @place.items.map { |r| [r.name, r.id] }, prompt: "Selecciona una categoría", label: "Selecciona una categoría" %>
+    </div>
+  </div>
 <% end %>
