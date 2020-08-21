@@ -9,6 +9,10 @@ class Dashboard::PlacesController < ApplicationController
     @place = Place.new
   end
 
+  def sales
+    
+  end
+
   def my_place
     @products = @place.products.where(:last_viewed.gte => (Date.today - 30)).paginate(page: params[:page], per_page: 20)
     @sales = []

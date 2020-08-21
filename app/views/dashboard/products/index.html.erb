@@ -1,11 +1,6 @@
-<div class="w-full flex py-12 items-center">
-  <div class="w-6/12">
-    <h1 class="text-4xl font-bold">Todos los productos</h1>
-  </div>
-  <div class="w-6/12 flex justify-end">
-    <%= link_to "Agregar producto", new_dashboard_product_path, class: "bg-black py-3 px-6 text-white rounded hover:shadow-lg hover:bg-1 transition duration-500" %>
-  </div>
-</div>
+<%= render Headers::Text.new(title: "Todos los productos") do %>
+  <%= link_to "Agregar producto", new_dashboard_product_path, class: "bg-black py-3 px-6 text-white rounded hover:shadow-lg hover:bg-1 transition duration-500" %>
+<% end %>
 
 <% if @products.length > 0 %>
   <div class="grid grid-cols-12 gap-4 w-full">
