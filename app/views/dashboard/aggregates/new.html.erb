@@ -1,8 +1,32 @@
-<h1>Crear agregado</h1>
-<%= simple_form_for(@aggregate, url: dashboard_product_aggregates_path) do |f| %>
-  <%= f.input :name %>
-  <%= f.input :price, as: :float %>
-  <%= f.input :description %>
-  <%= f.input :default, as: :boolean %>
-  <%= f.submit %>
+<div class="w-full my-8">
+  <h4 class="text-gray-600 text-sm font-normal">
+    <%= link_to "Volver al producto", dashboard_product_path(@product.slug) %>
+  </h4>
+  <%= render Headers::Text.new(title: "Agregar variante") %>
+</div>
+<%= simple_form_for(@aggregate, url: dashboard_product_aggregates_path, html: {class: "w-full"}) do |f| %>
+  <div class="w-full flex gap-8 items-start">
+    <div class="w-4/12 flex flex-wrap">
+      <div class="w-full border-b pb-4">
+        <h4 class="mb-1 font-normal">
+          <%= link_to @product.name, dashboard_product_path(@product.slug) %>
+        </h4>
+        <h5 class="text-gray-600 text-sm"><%= pluralize(@product.aggregates.length, 'variante', plural: 'variantes') %></h5>
+      </div>
+    </div>
+    <div class="w-8/12">
+      <%= f.input :name %>
+      <%= f.input :price, as: :float %>
+      <%= f.input :price, as: :float %>
+      <%= f.input :price, as: :float %>
+      <%= f.input :price, as: :float %>
+      <%= f.input :price, as: :float %>
+      <%= f.input :price, as: :float %>
+      <%= f.input :price, as: :float %>
+      <%= f.input :price, as: :float %>
+      <%= f.input :description %>
+      <%= f.input :default, as: :boolean %>
+      <%= f.submit %>
+    </div>
+  </div>
 <% end %>

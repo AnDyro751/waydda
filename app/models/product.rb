@@ -13,10 +13,15 @@ class Product
   field :aggregates_required, type: Integer, default: 0
   field :max_aggregates, type: Integer, default: 1
   field :slug, type: String
+  field :last_viewed, type: DateTime
+
+  # TODO: Crear un helper para agregar estos fields y sus actions
   field :photo, type: String, default: "places/default.png"
   field :public_stock, type: Integer, default: 0
   field :original_stock, type: Integer, default: 0
-  field :last_viewed, type: DateTime
+  field :sku, type: String, default: ""
+  field :bar_code, type: String, default: ""
+
   # TODO: Agregar la cantidad publica y la privada
 
   # relations
