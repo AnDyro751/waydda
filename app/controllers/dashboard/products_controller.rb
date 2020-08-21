@@ -8,7 +8,7 @@ class Dashboard::ProductsController < ApplicationController
   # GET /places
   # GET /places.json
   def index
-    @products = @place.products
+    @products = @place.products.paginate(page: params[:page], per_page: 20)
   end
 
 

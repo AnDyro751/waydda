@@ -19,6 +19,9 @@
       </div>
     <% end %>
   </div>
+  <div class="w-full flex">
+    <%= will_paginate @products %>
+  </div>
 <% else %>
-  <%= render EmptyRecords.new(title: "Aún no hay productos por mostrar") %>
+  <%= render EmptyRecords.new(title: params["page"] ? "Pagina #{params["page"]}, por aquí no hay nada 😕" : "Aún no hay productos por mostrar") %>
 <% end %>
