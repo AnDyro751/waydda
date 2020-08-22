@@ -1,0 +1,14 @@
+var old_elements = document.querySelectorAll('[data-error="notice"]');
+old_elements.forEach((node) => {
+    node.parentNode.removeChild(node);
+})
+<% unless @aggregate.errors.empty? %>
+
+<% @aggregate.errors.messages.each do |key,value| %>
+console.log("<%= key %>")
+var element = document.querySelector("#<%=key%>-error");
+if (element) {
+    element.innerHTML = '<div data-error="notice" class="error-notice text-red-600 text-sm mb-2 font-bold"><%= value.first %></div>'
+}
+<% end %>
+<% end %>

@@ -30,6 +30,7 @@ class Dashboard::AggregatesController < ApplicationController
         format.json { render :show, status: :created, location: @aggregate }
       else
         format.html { render :new }
+        format.js
         format.json { render json: @aggregate.errors, status: :unprocessable_entity }
       end
     end
@@ -58,7 +59,7 @@ class Dashboard::AggregatesController < ApplicationController
   private
 
   def aggregate_params
-    params.require(:aggregate).permit(:name, :description, :price, :default)
+    params.require(:aggregate).permit(:name, :description, :price, :default, :add_to_price_product, :photo)
   end
 
   def set_aggregate

@@ -1,4 +1,19 @@
 es:
+  mongoid:
+    errors:
+      models:
+        user:
+          name:
+            blank: "El nombre no puede estar vacío"
+            invalid: "El nombre contiene un formato incorrecto"
+            too_short: "El nombre debe ser más largo"
+        aggregate:
+          attributes:
+            name:
+              blank: "El nombre no puede estar vacío"
+              too_short: "El nombre debe ser más largo"
+            price:
+              blank: "El precio no puede estar vacío"
   status:
     pending: "Pendiente"
     active: "Activo"

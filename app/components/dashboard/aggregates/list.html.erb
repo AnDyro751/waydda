@@ -2,7 +2,7 @@
   <%= render EmptyRecords.new(title: "Aún no has agregado ninguna variante") %>
 <% else %>
   <% @aggregates.each do |aggregate| %>
-
-  <!--Code here-->
+    <h4 class="py-2 text-sm text-gray-800" ><%= aggregate.name || "Sin nombre" %></h4>
+    <!--Code here-->
   <% end %>
 <% end %>
