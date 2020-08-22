@@ -7,6 +7,7 @@ class Aggregate
   field :price, type: Float
   field :description, type: String
   field :default, type: Boolean
+  field :photo, type: String, default: "places/default.png"
   field :add_to_price_product, type: Boolean, default: true
   # TODO: Agregar helper
   field :public_stock, type: Integer, default: 0
