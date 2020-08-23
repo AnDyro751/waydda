@@ -15,7 +15,6 @@ class PlacesController < ApplicationController
   # GET /places/1.json
   def show
     @products = @place.products.paginate(page: params[:page], per_page: 30)
-    # fresh_when @place
   end
 
   private

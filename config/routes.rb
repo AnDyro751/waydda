@@ -22,8 +22,7 @@ Rails.application.routes.draw do
   delete "/delete_product/:product_id", to: "carts#delete_product", as: "delete_product_to_cart"
   put "/update_item/:item_id", to: "carts#update_item", as: "update_item_to_cart"
   post "/add_to_cart/:product_id", to: "carts#add_product", as: "add_product_to_cart"
-  get "/cart", to: "carts#show", as: "my_cart"
-  post "/cart", to: "carts#create_charge", as: "create_charge"
+
   # checkouts
   get 'checkout', to: "checkouts#show"
   resources :checkouts, only: [:show, :create]
@@ -31,6 +30,8 @@ Rails.application.routes.draw do
   #Public places
   resources :places, only: [:show, :index] do
     resources :products
+    get "/cart", to: "carts#show", as: "my_cart"
+    post "/cart", to: "carts#create_charge", as: "create_charge"
   end
 
   # Dashboard
