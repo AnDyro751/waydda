@@ -28,6 +28,8 @@ class Place
   field :cover, type: String, default: "waydda.png"
   field :total_items, type: Integer, default: 0
   field :total_products, type: Integer, default: 0
+  field :delivery_option, type: Boolean, default: false
+  field :delivery_cost, type: Boolean, default: 10
   # Relations
   belongs_to :user
   has_many :items
@@ -58,6 +60,7 @@ class Place
     oper = plus ? self.total_products + quantity : self.total_products - quantity
     self.update(total_products: oper)
   end
+
 
   private
 

@@ -10,7 +10,7 @@ class Dashboard::PlacesController < ApplicationController
   end
 
   def sales
-    
+
   end
 
   def my_place
@@ -45,9 +45,11 @@ class Dashboard::PlacesController < ApplicationController
     else
       respond_to do |format|
         if @place.update(place_params)
+          format.js
           format.html { redirect_to my_place_path, notice: 'Place was successfully updated.' }
           format.json { render 'dashboard/places/show', status: :ok, location: my_place_path(@place) }
         else
+          format.js
           format.html { render :edit }
           format.json { render json: @place.errors, status: :unprocessable_entity }
         end
@@ -57,7 +59,6 @@ class Dashboard::PlacesController < ApplicationController
 
   # post /update_slug
   def update_slug
-
     respond_to do |format|
       format.html { redirect_to my_place_path, notice: 'Place was successfully updated.' } if params["place"]["slug"] == @place.slug
       other_place = Place.find_by(slug: params["place"]["slug"].parameterize)
@@ -115,6 +116,6 @@ class Dashboard::PlacesController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def place_params
-    params.require(:place).permit(:name, :address, :slug, :user_id, :status, location: [:lat, :lng])
+    params.require(:place).permit(:name, :address, :slug, :user_id, :status, :delivery_option, :delivery_cost, location: [:lat, :lng])
   end
 end
