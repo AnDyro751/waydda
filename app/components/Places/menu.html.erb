@@ -2,7 +2,7 @@
   <div class="w-10/12 mx-auto flex gap-4">
     <div class="w-3/12 flex items-center <%= @place.delivery_option ? "justify-around" : "justify-start" %>">
       <% if @place.delivery_option %>
-        <%= button_to place_delivery_options_path(@place.slug), params: {to_state: "delivery"}, remote: true, method: :put, class: "w-auto py-2 #{
+        <%= button_to place_delivery_options_path(@place.slug), data: {"disable-with": "Actualizando..."}, params: {to_state: "delivery"}, id: "menu-delivery", remote: true, method: :put, class: "text-sm w-auto py-2 hover:text-gray-600 focus:outline-none #{
         if @delivery_option.nil?
           "border-b-2 border-green-600"
         else
@@ -12,7 +12,7 @@
         <% end %>
       <% end %>
 
-      <%= button_to place_delivery_options_path(@place.slug), params: {to_state: "pickup"}, remote: true, method: :put, class: "w-auto py-2 #{
+      <%= button_to place_delivery_options_path(@place.slug), data: {"disable-with": "Actualizando..."}, params: {to_state: "pickup"}, id: "menu-pickup", remote: true, method: :put, class: "w-auto py-2 text-sm hover:text-gray-600 focus:outline-none #{
       if @delivery_option.nil?
         ""
       else

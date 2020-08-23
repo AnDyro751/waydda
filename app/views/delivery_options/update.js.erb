@@ -1,2 +1,14 @@
-
-console.log("HOLA ")
+<%if @delivery_option.errors.any? %>
+//TODO: Mostrar errores
+console.log("ERRORES")
+<% else %>
+<% if @delivery_option.kind === "delivery" %>
+document.querySelector("#menu-pickup").classList.remove("border-b-2");
+document.querySelector("#menu-pickup").classList.remove("border-green-600");
+document.querySelector("#menu-delivery").className += " border-b-2 border-green-600";
+<% else %>
+document.querySelector("#menu-delivery").classList.remove("border-b-2");
+document.querySelector("#menu-delivery").classList.remove("border-green-600");
+document.querySelector("#menu-pickup").className += " border-b-2 border-green-600";
+<% end %>
+<% end %>
