@@ -30,6 +30,8 @@
 <div id="portal"></div>
 <%= content_for?(:sticky) ? yield(:sticky) : nil %>
 <%= content_for?(:content) ? yield : nil %>
-
+<% if params["console"] %>
+  <%= console %>
+<% end %>
 </body>
 </html>

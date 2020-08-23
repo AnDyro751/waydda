@@ -82,9 +82,9 @@ const Sidebar = ({handleOpen, open}) => {
         "opacity-0 invisible": !open,
         "opacity-50 visible": open
     })
-    // if (error) {
-    //     return null;
-    // }
+    if (error) {
+        return null;
+    }
     return ReactDOM.createPortal(
         <>
             <div

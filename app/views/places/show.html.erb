@@ -1,5 +1,5 @@
 <% content_for :sticky do %>
-  <%= render Places::Menu.new %>
+  <%= render Places::Menu.new(delivery_option: @delivery_option, place: @place) %>
 <% end %>
 <% content_for :content do %>
   <div class="h-64 bg-gray-300 w-full">

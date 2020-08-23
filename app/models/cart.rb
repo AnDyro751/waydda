@@ -5,6 +5,7 @@ class Cart
   field :intent_id, type: String, default: nil
   field :client_secret, type: String, default: nil
   embeds_many :cart_items
+  embeds_many :delivery_options
   embeds_many :addresses, as: :model
   embeds_one :checkout
   belongs_to :user, optional: true

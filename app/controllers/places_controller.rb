@@ -15,6 +15,7 @@ class PlacesController < ApplicationController
   # GET /places/1.json
   def show
     @products = @place.products.paginate(page: params[:page], per_page: 30)
+    @delivery_option = @current_cart.delivery_options.find_by(place: @place)
   end
 
   private
@@ -22,7 +23,6 @@ class PlacesController < ApplicationController
   def update_views
     # code here
   end
-
 
 
   # Use callbacks to share common setup or constraints between actions.

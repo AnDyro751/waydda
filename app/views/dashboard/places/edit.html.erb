@@ -1,3 +1,4 @@
+<div class="w-full" id="messages"></div>
 <div class="w-full flex my-2">
   <h1 class="text-3xl font-bold">Editando mi empresa</h1>
 </div>
@@ -5,8 +6,17 @@
   <% if @place.pending? %>
     <h3>Esperando la confirmación del administrador</h3>
   <% else %>
+    <div class="w-full pb-4 border-b border-gray-400">
+      <h3 class="text-lg font-normal text-gray-900">Envíos</h3>
+      <%= simple_form_for(@place, url: dashboard_place_path(@place.slug), html: {class: "w-full flex flex-wrap"}, remote: true) do |f| %>
+        <%= f.input :delivery_option, as: :boolean, label: "¿Realizas envíos a domicilio?", label_html: {class: "select-none w-full text-sm mb-2 text-gray-600"} %>
+        <div class="w-full mt-4">
+          <%= f.submit value: "Actualizar empresa", class: "bg-black py-2 px-6 text-white rounded cursor-pointer", data: {"disable-with": "Actualizando..."} %>
+        </div>
+      <% end %>
+    </div>
     <p>
-      <%= simple_form_for(@place, url: dashboard_place_update_slug_path(@place), remote: true) do |f| %>
+      <%= simple_form_for(@place, url: dashboard_place_update_slug_path(@place.slug), remote: true) do |f| %>
         <%= f.input :slug, value: @place.slug %>
         <%= f.submit %>
       <% end %>

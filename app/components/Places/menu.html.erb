@@ -1,13 +1,30 @@
 <div class="sticky top-0 bg-white justify-center flex items-center border-b py-3">
   <div class="w-10/12 mx-auto flex gap-4">
-    <div class="w-3/12 flex items-center justify-around">
-      <div class="w-auto py-2 border-b-2 border-green-600 cursor-pointer">
-        <span class="text-sm font-normal">Enviar a domicilio</span>
-      </div>
-      <div class="w-auto py-2 cursor-pointer">
+    <div class="w-3/12 flex items-center <%= @place.delivery_option ? "justify-around" : "justify-start" %>">
+      <% if @place.delivery_option %>
+        <%= button_to place_delivery_options_path(@place.slug), params: {to_state: "delivery"}, remote: true, method: :put, class: "w-auto py-2 #{
+        if @delivery_option.nil?
+          "border-b-2 border-green-600"
+        else
+          @delivery_option.kind === "delivery" ? "border-b-2 border-green-600" : ""
+        end}" do %>
+          <span class="text-sm font-normal">Enviar a domicilio</span>
+        <% end %>
+      <% end %>
+
+      <%= button_to place_delivery_options_path(@place.slug), params: {to_state: "pickup"}, remote: true, method: :put, class: "w-auto py-2 #{
+      if @delivery_option.nil?
+        ""
+      else
+        if @delivery_option.kind === "pickup"
+          "border-b-2 border-green-600"
+        else
+          @place.delivery_option ? "" : "border-b-2 border-green-600"
+        end
+      end}" do %>
         <span class="text-sm font-normal">Recoger en tienda</span>
-        <!--        TODO: Agregar suscripciones a productos o items-->
-      </div>
+      <% end %>
+
     </div>
     <div class="w-auto flex items-center">
       <img
