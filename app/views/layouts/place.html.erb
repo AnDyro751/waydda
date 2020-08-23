@@ -24,12 +24,15 @@
 <div class="w-full">
   <div class="w-full sticky top-0">
     <%= render "utils/Headers/simple", {current_user: current_user, current_user_id: current_user ? current_user.id.to_s : nil} %>
-    <%= content_for?(:content) ? yield(:content) : yield %>
+  </div>
+  <div class="w-full h-64" ></div>
+</div>
+<div class="w-full" >
+  <div class="sticky top-0" >
+    <%= render "" %>
   </div>
 </div>
-
-<%= content_for?(:sticky) ? yield(:sticky) : nil %>
-<%= content_for?(:content) ? yield : nil %>
+<%= yield %>
 
 </body>
 </html>

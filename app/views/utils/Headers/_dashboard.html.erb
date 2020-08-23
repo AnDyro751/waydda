@@ -13,7 +13,7 @@
         </div>
         <div class="w-auto">
           <h4 class="font-bold">
-            <%= link_to @place.name, my_place_path %>
+            <%= link_to @place.name, place_path(@place.slug), target: "_blank" %>
           </h4>
         </div>
       </div>
