@@ -73,12 +73,12 @@ const Sidebar = ({handleOpen, open}) => {
     })
 
     const sidebarParentClass = classNames({
-        "fixed transform top-0 w-2/6 z-20 flex right-0 bottom-0 h-screen justify-end transform transition duration-500 delay-75 ease-in-out text-left": true,
+        "fixed transform top-0 w-2/6 z-50 flex right-0 bottom-0 h-screen justify-end transform transition duration-500 delay-75 ease-in-out text-left": true,
         "translate-x-full": !open,
         "translate-x-0": open,
     })
     const overlayClass = classNames({
-        "fixed transform z-10 top-0 w-full flex right-0 bottom-0 h-screen justify-end w-full bg-black sidebar-overlay": true,
+        "fixed transform z-50 top-0 w-full flex right-0 bottom-0 h-screen justify-end w-full bg-black sidebar-overlay": true,
         "opacity-0 invisible": !open,
         "opacity-50 visible": open
     })
