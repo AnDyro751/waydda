@@ -78,8 +78,8 @@ class ApplicationController < ActionController::Base
         session[:cart_id] = cart.id.to_s
         @current_cart = cart
       else
-        @current_cart = Cart.find(session[:cart_id])
-        create_cart if @current_cart.nil?
+        @current_cart = current_user.cart
+        create_cart(with_user: true) if @current_cart.nil?
       end
     else
       if session[:cart_id]
@@ -92,8 +92,8 @@ class ApplicationController < ActionController::Base
   end
 
 
-  def create_cart
-    cart = Cart.new(quantity: 0)
+  def create_cart(with_user: false)
+    cart = Cart.new(quantity: 0, user: with_user ? current_user : nil)
     if cart.save
       session[:cart_id] = cart.id.to_s
       @current_cart = Cart.find(cart.id)
