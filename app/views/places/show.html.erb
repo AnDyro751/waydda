@@ -1,3 +1,8 @@
+<% if @delivery_option %>
+  <h5>JOALALLALS</h5>
+<% else %>
+  <h5>NOOOOO</h5>
+<% end %>
 <%= render Places::Presentation.new(delivery_option: @delivery_option, place: @place) %>
 <p>
   <strong>Name:</strong>
