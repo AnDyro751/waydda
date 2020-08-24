@@ -29,7 +29,9 @@ class Place
   field :total_items, type: Integer, default: 0
   field :total_products, type: Integer, default: 0
   field :delivery_option, type: Boolean, default: false
-  field :delivery_cost, type: Boolean, default: 10
+  field :delivery_cost, type: Float, default: 10
+  field :delivery_distance, type: Float, default: 5
+  field :delivery_extra_cost, type: Float, default: 0
   # Relations
   belongs_to :user
   has_many :items
