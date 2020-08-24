@@ -2,7 +2,8 @@
   <%= render Places::Menu.new(delivery_option: @delivery_option, place: @place) %>
 <% end %>
 <% content_for :content do %>
-  <div class="h-64 bg-gray-300 w-full">
-
+  <div class="h-64 bg-gray-300 w-full bg-center bg-cover bg-no-repeat"
+       style='background: url(<%= helpers.get_image_url(500, 1000, @place.cover) %>);background-repeat: no-repeat;background-size: cover;background-position: center;'
+  >
   </div>
 <% end %>

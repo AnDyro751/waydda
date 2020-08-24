@@ -74,7 +74,7 @@ class ApplicationController < ActionController::Base
   def current_cart
     if user_signed_in?
       if session[:cart_id].nil?
-        cart = current_user.create_cart
+        cart = current_user.create_cart(with_user: true)
         session[:cart_id] = cart.id.to_s
         @current_cart = cart
       else
