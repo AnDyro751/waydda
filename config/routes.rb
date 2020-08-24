@@ -29,6 +29,7 @@ Rails.application.routes.draw do
 
   #Public places
   resources :places, only: [:show, :index] do
+    get "/catalog", to: "places#catalog", as: :catalog
     put 'delivery-options', to: "delivery_options#update"
     resources :products
     get "/cart", to: "carts#show", as: "my_cart"

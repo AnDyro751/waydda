@@ -1,14 +1,17 @@
 class PlacesController < ApplicationController
-  before_action :authenticate_user!, except: [:show]
-  before_action :set_place, only: [:show, :edit, :update, :destroy, :my_place]
-  before_action :validate_my_identity, except: [:show, :new, :index]
-  before_action :set_my_place, only: [:my_place]
+  before_action :authenticate_user!, except: [:show, :catalog]
+  before_action :set_place, only: [:show, :edit, :update, :destroy, :catalog]
+  before_action :validate_my_identity, except: [:show, :new, :index, :catalog]
   after_action :update_views, only: [:show]
 
   # GET /places
   # GET /places.json
   def index
     @places = Place.all
+  end
+
+  def catalog
+
   end
 
   # GET /places/1
@@ -21,13 +24,14 @@ class PlacesController < ApplicationController
   private
 
   def update_views
+    # TODO: Add counter
     # code here
   end
 
 
   # Use callbacks to share common setup or constraints between actions.
   def set_place
-    @place = Place.find_by(slug: params[:id])
+    @place = Place.find_by(slug: params[:id] || params["place_id"])
     not_found if @place.nil?
     if current_user
       unless current_user.id == @place.user_id

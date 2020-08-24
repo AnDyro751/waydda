@@ -21,17 +21,48 @@
         else
           @place.delivery_option ? "" : "border-b-2 border-green-600"
         end
-      end}" do %>
+      end
+      }" do %>
         <span class="text-sm font-normal">Recoger en tienda</span>
       <% end %>
 
     </div>
-    <div class="w-auto flex items-center">
-      <img
-        class="inline"
-        src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABmJLR0QA/wD/AP+gvaeTAAAA10lEQVRIieWSMQrCMABFnyKoOIuDHV08hIPoIoLH8Apex9HZKygewMUTFAfRrloLdWgiJbZNk1ah+OEv4ed9Qj78kxxgJ+yUDR8BZyAUvgDTsuBLwI/BpQNgBdRswW1gnQBWvQE6pvABcMwBlz4Bw7zwOeAZwKU9cTdTE+BpAZf2gXFWwaEAXHofB6oLuANN3TM1egCttIKwIPyDWy8JmKqvFzQMsi7R3iHafN+mMGsd3Viup8m+ZfLJVtnqf/LPC24puWvCWa6sOtMZsFDOA2CbADLJVlgvgcFv6queTAcAAAAASUVORK5CYII="/>
-      <span>Inicio</span>
-      <!--      <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABmJLR0QA/wD/AP+gvaeTAAAA60lEQVRIieWSQUrDQBhGv18ELd23i2bpJofoQtpNKXgMr9DruHTtFSwewE1PIAqhzbbWwOvCRENM0pkkLRQfDAzDN++D+Uf6NwAB8JyuoGv5GHjnlwiYdiW/B3b8JQEWgDUV94CHEnGRR6DvK78BXh3kGSsgdJXPgdhDnhED80PyCfDVQJ6xA27rCl5ayDOWeacVCraSrpzesppPM7uuKqCl/Ftq9uO96EJYx9ELLj2yb5JW6T6UNHK55DODgZlFaW4o6aNSmpuBc0H+kk/2/Id88oJNRW5dcuaULX7TmaS7wnki6alE5JM9Y/aFr5i5OGFtXAAAAABJRU5ErkJggg==">-->
-    </div>
+    <%= link_to place_path(@place.slug), class: "w-auto flex items-center #{current_page?(place_path(@place.slug)) ? "bg-black text-white shadow-lg" : "shadow"} text-sm px-3 rounded cursor-pointer gap-2" do %>
+
+
+      <div class="w-auto">
+        <% if current_page?(place_path(@place.slug)) %>
+          <img
+            class="h-5"
+            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABmJLR0QA/wD/AP+gvaeTAAAA60lEQVRIieWSQUrDQBhGv18ELd23i2bpJofoQtpNKXgMr9DruHTtFSwewE1PIAqhzbbWwOvCRENM0pkkLRQfDAzDN++D+Uf6NwAB8JyuoGv5GHjnlwiYdiW/B3b8JQEWgDUV94CHEnGRR6DvK78BXh3kGSsgdJXPgdhDnhED80PyCfDVQJ6xA27rCl5ayDOWeacVCraSrpzesppPM7uuKqCl/Ftq9uO96EJYx9ELLj2yb5JW6T6UNHK55DODgZlFaW4o6aNSmpuBc0H+kk/2/Id88oJNRW5dcuaULX7TmaS7wnki6alE5JM9Y/aFr5i5OGFtXAAAAABJRU5ErkJggg==">
+        <% else %>
+          <img
+            class="h-5"
+            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABmJLR0QA/wD/AP+gvaeTAAAA10lEQVRIieWSMQrCMABFnyKoOIuDHV08hIPoIoLH8Apex9HZKygewMUTFAfRrloLdWgiJbZNk1ah+OEv4ed9Qj78kxxgJ+yUDR8BZyAUvgDTsuBLwI/BpQNgBdRswW1gnQBWvQE6pvABcMwBlz4Bw7zwOeAZwKU9cTdTE+BpAZf2gXFWwaEAXHofB6oLuANN3TM1egCttIKwIPyDWy8JmKqvFzQMsi7R3iHafN+mMGsd3Viup8m+ZfLJVtnqf/LPC24puWvCWa6sOtMZsFDOA2CbADLJVlgvgcFv6queTAcAAAAASUVORK5CYII="/>
+        <% end %>
+      </div>
+      <div class="w-auto">
+        <span class="font-bold">Inicio</span>
+      </div>
+    <% end %>
+
+    <%= link_to place_catalog_path(@place.slug), class: "w-auto flex items-center #{current_page?(place_catalog_path(@place.slug)) ? "bg-black text-white shadow-2xl" : "shadow"} text-sm px-3 rounded cursor-pointer gap-2" do %>
+
+      <div class="w-auto">
+        <% if current_page?(place_catalog_path(@place.slug)) %>
+          <img
+            class="h-5"
+            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABmJLR0QA/wD/AP+gvaeTAAAAnUlEQVRIie2Uyw3CMBAFnxFnSElw4AhUAkWFNAANUAOlOA0MlxAFK6wTtByAjGRZltZv/JEtTYwBKIAKiPSzalofETgBhSWoXkweInhQdjNniWPrcBA7S7BwECwtgTuTIMs8GW8y9beBdS0f30HoDgAy9eumv5qhIbS533/JvyeoHTKjJbg4CJ4y0od2kISkvcb/rLWks6Tj20v7T+48mpdjOlOATQAAAABJRU5ErkJggg==">
+        <% else %>
+          <img
+            class="h-5"
+            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABmJLR0QA/wD/AP+gvaeTAAAAi0lEQVRIiWNgGAUkAgEGBoYlDAwMHxkYGP5jwQ5QjE3uIwMDw2KoGTjBEhyaibEAhhchG8iEZoEvCb7FBfzwWcBHBQv48VlAdTBqAUHAgsZ3JaD+IpHq4IDmPmBE4/8noN4RSu8n1tyhH8nDz4JPVDDzIz4LNlHBArxmCDBAynNyK5xFDAQqnFGAAQBQAzKt/7KN6wAAAABJRU5ErkJggg=="/>
+        <% end %>
+      </div>
+
+      <div class="w-auto">
+        <span class="font-bold">Pasillos</span>
+      </div>
+    <% end %>
   </div>
 </div>
