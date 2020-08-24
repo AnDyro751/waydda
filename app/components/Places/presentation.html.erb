@@ -3,7 +3,22 @@
 <% end %>
 <% content_for :content do %>
   <div class="h-64 bg-gray-300 w-full bg-center bg-cover bg-no-repeat"
-       style='background: url(<%= helpers.get_image_url(500, 1000, @place.cover) %>);background-repeat: no-repeat;background-size: cover;background-position: center;'
-  >
+       style='background: url(<%= helpers.get_image_url(500, 1000, @place.cover) %>);background-repeat: no-repeat;background-size: cover;background-position: center;'>
   </div>
 <% end %>
+<div class="w-full py-16 justify-center flex">
+  <div class="w-10/12 mx-auto">
+    <h1 class="text-4xl font-bold text-gray-900"><%= @place.name %></h1>
+    <div class="w-auto gap-2 flex items-center mt-3">
+      <div class="w-auto">
+        <img
+          load="lazy"
+          class="h-5"
+          src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABmJLR0QA/wD/AP+gvaeTAAABqklEQVRoge3ZMWsUQRiH8V+SImARUnhgYroQUAQrm4Ck0UK/gZ8ggWC00EoLwQ8gWASEFAp2FtaCooitEDAQhQQCEsWQxsKkiZ4WtweHucvd7M7diJkH3nL+7/vsws7uDplMJpOSoYrrx3ENcxjGKp5jo2Ju35nFE+zjd5taxR3MlMhdwaeiHmEyysQaV/s6Pmg/dKfqJtMtdxtTVQa/gMfYCxy8m8xsQO7TMoMPYRn1CINXrd0yAjcCm7zB2aJu4h1+RZQIZj2wwXSbjEks4W0EmWAOIjc4hcVCZiAC/WxwK1b+URtZ6FAhm+IJjadP5fxUAtHyhwND/jmyQGqyQGqyQGqyQGqyQGqyQGqyQGpiCoxEzOqZmAKXImZFIfSb9Tvu4Uwf8uuDEGittULmXIfsk4F5nwct0FrruI/zRe4IHgZmPCgj8COiRLO+4FvgmvcYKyPwuscGW7iLBbzCz0iyW7iN0TLDw0Wd/84daBxkXHH4SVarIHNUbiku42NLg02Nqz3R4/oa5vGyi0zzLkY7zPib0xHCmzIvsIOveIar/oM3gkwmc1z5AzWXmPF9iwImAAAAAElFTkSuQmCC"/>
+      </div>
+      <div class="w-auto">
+        <h5 class="text-base text-gray-600 font-normal opacity-50"><%= @place.address %></h5>
+      </div>
+    </div>
+  </div>
+</div>

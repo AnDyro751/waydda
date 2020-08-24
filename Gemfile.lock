@@ -128,6 +128,8 @@ GEM
     ffi (1.13.1-java)
     ffi (1.13.1-x64-mingw32)
     ffi (1.13.1-x86-mingw32)
+    font-awesome-rails (4.7.0.5)
+      railties (>= 3.2, < 6.1)
     globalid (0.4.2)
       activesupport (>= 4.2.0)
     hashie (4.1.0)
@@ -394,6 +396,7 @@ DEPENDENCIES
   city-state
   devise
   email_address
+  font-awesome-rails
   jbuilder (~> 2.7)
   listen (~> 3.2)
   mapbox-sdk
