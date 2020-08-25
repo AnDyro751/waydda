@@ -5,11 +5,11 @@ class Cart
   field :intent_id, type: String, default: nil
   field :client_secret, type: String, default: nil
   embeds_many :cart_items
-  embeds_many :delivery_options
+  embeds_one :delivery_option
   embeds_many :addresses, as: :model
   embeds_one :checkout
-  embeds_one :place
-  embedded_in :user
+  belongs_to :place
+  belongs_to :user
 
   def self.get_total(old_items = nil)
     total = 0

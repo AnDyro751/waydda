@@ -3,7 +3,7 @@ class PlacesController < ApplicationController
   before_action :set_place, only: [:show, :edit, :update, :destroy, :catalog]
   before_action :validate_my_identity, except: [:show, :new, :index, :catalog]
   after_action :update_views, only: [:show]
-
+  before_action :set_current_cart, only: [:show, :catalog]
   # GET /places
   # GET /places.json
   def index
@@ -33,7 +33,7 @@ class PlacesController < ApplicationController
   # Use callbacks to share common setup or constraints between actions.
   def set_place
     @place = Place.find_by(slug: params[:id] || params["place_id"])
-    @delivery_option = @current_cart.delivery_options.find_by(place: @place)
+    # TODO: Agregar delivery option y current cart
     not_found if @place.nil?
     if current_user
       unless current_user.id == @place.user_id
@@ -41,6 +41,13 @@ class PlacesController < ApplicationController
       end
     else
       not_found if !@place.active?
+    end
+  end
+
+  def set_current_cart
+    @current_cart = current_user.carts.find_by(place: @place)
+    if @current_cart
+      @delivery_option = @current_cart.delivery_option
     end
   end
 

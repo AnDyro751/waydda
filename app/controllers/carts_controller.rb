@@ -1,7 +1,7 @@
 class CartsController < ApplicationController
   layout "cart"
   Stripe.api_key = 'sk_test_51H9CZeBOcPJ0nbHctTzfQZhFXBnn8j05e0xqJ5RSVz5Bum72LsvmQKIecJnsoHISEg0jUWtKjERYGeCAEWiIAujP00Fae9MiKm'
-
+  before_action :set_current_cart
   # before_action :authenticate_user!
   skip_before_action :verify_authenticity_token, only: [:show, :update_item, :add_product]
 
@@ -63,6 +63,14 @@ class CartsController < ApplicationController
   end
 
   def add_product
+    #Agregar producto
+    # Al current user le buscamos un carrito con el place actual
+    # Si lo encontramos retornamos
+    # De lo contrario creamos un carrito con el place actual y retornamos
+    # Buscamos si el carrito tiene un item como el que estamos añadiendo
+    # Si lo tiene aumentamos a uno
+    # De lo contrario creamos un item nuevo
+
     response = @current_cart.update_item(params["product_id"], 1, true)
     respond_to do |format|
       if response["success"]
@@ -84,6 +92,12 @@ class CartsController < ApplicationController
       default_response = @current_cart.update_item(params["item_id"], params["item"]["quantity"], params["item"]["plus"], user_signed_in?)
       format.json { render json: default_response }
     end
+  end
+
+  private
+
+  def set_current_cart
+    @current_cart = current_user.carts.find_by(place_id: params["place_id"]) || not_found
   end
 
 

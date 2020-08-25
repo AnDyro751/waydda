@@ -21,7 +21,7 @@ Rails.application.routes.draw do
   #cart
   delete "/delete_product/:product_id", to: "carts#delete_product", as: "delete_product_to_cart"
   put "/update_item/:item_id", to: "carts#update_item", as: "update_item_to_cart"
-  post "/add_to_cart/:product_id", to: "carts#add_product", as: "add_product_to_cart"
+  post "/add_to_cart/:place_id/:product_id", to: "carts#add_product", as: "add_product_to_cart"
 
   # checkouts
   get 'checkout', to: "checkouts#show"

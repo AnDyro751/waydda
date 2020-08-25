@@ -32,6 +32,7 @@ class Place
   field :delivery_cost, type: Float, default: 10
   field :delivery_distance, type: Float, default: 5
   field :delivery_extra_cost, type: Float, default: 0
+  # TODO: Añadir pedido minimo
   # Relations
   belongs_to :user
   has_many :items
