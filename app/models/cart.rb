@@ -2,8 +2,6 @@ class Cart
   include Mongoid::Document
   include Mongoid::Timestamps
   field :quantity, type: Integer, default: 0
-  field :intent_id, type: String, default: nil
-  field :client_secret, type: String, default: nil
   has_many :cart_items
   embeds_one :delivery_option
   embeds_many :addresses, as: :model

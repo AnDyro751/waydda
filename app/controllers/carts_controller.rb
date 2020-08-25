@@ -6,11 +6,21 @@ class CartsController < ApplicationController
 
   def show
     respond_to do |format|
-      @carts = current_user.carts.includes(:place, cart_items: [:product]).to_a
+      cart_items_ids = []
+      @carts = current_user.carts.includes(:place).to_a.each do |ct|
+        cart_items_ids = cart_items_ids + ct.cart_item_ids
+      end
       @total = 0
-      @carts.each { |ct| @total = @total + Cart.get_total(ct.cart_items) }
+      @cart_items = CartItem.where(:_id.in => cart_items_ids).includes(:product).to_a.each do |ci|
+        ci["product_record"] = ci.product.attributes.slice(:name, :description, :price, :photo)
+      end
+      @carts.each do |ct|
+        ct["place_record"] = ct.place
+        ct["items"] = @cart_items.select { |ci| ci.cart_id.to_s == ct.id.to_s }
+      end
+      @total = @total + Cart.get_total(@cart_items)
       format.html { render :show }
-      format.json { render json: {carts: @carts, items: [], total: @total, current_address: @current_address} }
+      format.json { render "carts/show" }
     end
   end
 

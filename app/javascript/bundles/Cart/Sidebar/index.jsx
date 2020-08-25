@@ -38,6 +38,7 @@ const Sidebar = ({handleOpen, open}) => {
     const [loading, setLoading] = useState(true);
     const [currentAddress, setCurrentAddress] = useState(null);
     const [error, setError] = useState(false);
+    const [carts, setCarts] = useState([]);
 
     useEffect(() => {
         console.log(document.querySelector("#portal"), "HOLA")
@@ -51,7 +52,7 @@ const Sidebar = ({handleOpen, open}) => {
                             headers: getDefaultHeaders()
                         })
                     ).json()
-                    setItems(response.items || [])
+                    setCarts(response.carts || [])
                     setCurrentAddress(response.current_address || null);
                     // console.log(response);
                     setError(false);
@@ -128,10 +129,18 @@ const Sidebar = ({handleOpen, open}) => {
                         </div>
 
                         <div className="col-span-12">
-                            <ShowCartItems
-                                withImages={false}
-                                items={items}
-                            />
+                            {
+                                carts.length > 0 &&
+                                carts.map((cart, i) => (
+                                    <div key={i} className="w-full">
+                                        <h4>HOLA</h4>
+                                    </div>
+                                    // <ShowCartItems
+                                    // withImages={false}
+                                    // items={items}
+                                    // />
+                                ))
+                            }
                         </div>
                     </div>
                 </div>
