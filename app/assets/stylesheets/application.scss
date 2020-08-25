@@ -41,3 +41,12 @@ body, html {
 .location-icon {
   display: none;
 }
+
+.translate-y-full {
+  transform: translateY(300%);
+}
+
+.translate-middle {
+  left: 50%;
+  transform: translate(-50%, 0);
+}

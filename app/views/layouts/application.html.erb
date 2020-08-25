@@ -19,8 +19,14 @@
 </head>
 
 <body>
-<p class="notice"><%= notice %></p>
-<p class="alert"><%= alert %></p>
+<div id="notifications">
+  <% if notice.present? %>
+    <%= render Notifications::Alert.new(alert: notice) %>
+  <% end %>
+  <% if alert.present? %>
+    <%= render Notifications::Alert.new(alert: alert) %>
+  <% end %>
+</div>
 <div class="w-full">
   <div class="w-full sticky top-0">
     <%= render "utils/Headers/simple", {current_user: current_user, current_user_id: current_user ? current_user.id.to_s : nil} %>

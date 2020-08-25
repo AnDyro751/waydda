@@ -1,1 +1,22 @@
+//TODO:  Estilizar la notificación
+var old_element = document.querySelector("#notifications");
+if (old_element) {
+    old_element.innerHTML = "";
+    old_element.innerHTML = "<%= escape_javascript  render Notifications::Alert.new(alert: "Se ha agregado un producto al carrito") %>"
+    var class_element = document.querySelector("#flash-notice");
+    old_element.addEventListener("click", () => {
+        if (class_element) {
+            class_element.classList.add("translate-y-full");
+        }
+    }, false)
+    setTimeout(() => {
+        if (class_element) {
+            class_element.classList.add("translate-y-full");
+        }
+    }, 5000)
+    setTimeout(() => {
+        old_element.innerHTML = "";
+    }, 5500)
+}
+
 console.log("HOLA")

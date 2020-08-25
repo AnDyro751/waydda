@@ -1,10 +1,9 @@
 var old_element = document.querySelector("#messages");
-old_element.innerHTML = "";
 <% if @place.errors.any?  %>
 console.log("HAY ERRORES")
 <% else %>
 if (old_element) {
-
+    old_element.innerHTML = "";
     old_element.innerHTML = `
 <div id="js-notification" class="p-3 bg-indigo-600 cursor-pointer text-white mt-4 rounded shadow relative" >
 <span class="text-sm font-normal" >Se ha actualizado la empresa</span>
