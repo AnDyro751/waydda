@@ -7,8 +7,10 @@ class CartsController < ApplicationController
   def show
     respond_to do |format|
       @carts = current_user.carts.includes(:place, cart_items: [:product]).to_a
+      @total = 0
+      @carts.each { |ct| @total = @total + Cart.get_total(ct.cart_items) }
       format.html { render :show }
-      format.json { render json: {carts: @carts, items: [], total: 0, current_address: @current_address} }
+      format.json { render json: {carts: @carts, items: [], total: @total, current_address: @current_address} }
     end
   end
 
@@ -67,16 +69,16 @@ class CartsController < ApplicationController
       if @current_cart.nil?
         place = Place.find_by(id: params["place_id"])
         if place.nil?
-          format.html { redirect_to root_path, alert: "Ha ocurrido un error al agregar el producto", status: :not_found }
+          return format.html { redirect_to root_path, alert: "El contenido ya no se encuentra disponible", status: :not_found }
         end
         @current_cart = current_user.carts.create(place: place)
       end
       response = @current_cart.update_item(params["product_id"], 1, true)
-      if response["success"]
+      if response[:success]
         format.js
       else
-        format.js
-        format.html { redirect_to root_path, alert: "Ha ocurrido un error a agregar el producto" }
+        puts "#{response}----#{response["success"]}-------#{response[:success]}"
+        format.html { redirect_to root_path, alert: "Ha ocurrido un error a agregar el producto", status: :unprocessable_entity }
       end
     end
   end

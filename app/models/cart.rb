@@ -14,7 +14,9 @@ class Cart
   def self.get_total(old_items = nil)
     total = 0
     old_items.each do |i|
-      total = total + (i.model.price * i.quantity)
+      unless i.product.nil?
+        total = total + (i.product.price * i.quantity)
+      end
     end
     total
   end
@@ -24,7 +26,7 @@ class Cart
     # TODO: Update intent
     product = Product.find_by(id: product_id)
     return [false, nil] if product.nil?
-    current_item = self.cart_items.find_by(model_id: product_id)
+    current_item = self.cart_items.find_by(product_id: product_id)
     return add_item(self, current_item, product, quantity, user_logged_in) if plus
     return remove_item(self, current_item, product, quantity, user_logged_in) unless plus
   end
