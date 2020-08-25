@@ -1,4 +1,11 @@
 es:
+  devise:
+    omniauth_callbacks:
+      user:
+        success: "Se ha iniciado sesión"
+    sessions:
+      user:
+        signed_out: "Se ha cerrado la sesión"
   mongoid:
     errors:
       models:

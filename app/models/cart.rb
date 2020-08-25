@@ -8,7 +8,8 @@ class Cart
   embeds_many :delivery_options
   embeds_many :addresses, as: :model
   embeds_one :checkout
-  belongs_to :user, optional: true
+  embeds_one :place
+  embedded_in :user
 
   def self.get_total(old_items = nil)
     total = 0

@@ -15,12 +15,14 @@ export default function HeadersSimple({current_user, current_user_id, locations,
                         locations={locations}/>
                     {/* TODO: Agregar funcionalidad */}
                 </div>
+                {current_user &&
                 <a
                     className={"w-auto p-1"}
                     href="/dashboard">
                     {/*TODO: Agregar un campo para saber si el usuario tiene algún rol de admin*/}
                     <MdDashboard className={"text-gray-700"}/>
                 </a>
+                }
                 <div className="w-auto flex justify-center">
                     {
                         current_user ?

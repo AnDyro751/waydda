@@ -42,6 +42,9 @@ export default function ShowCartItems({items = [], loading = true, withImages = 
                         <div className="col-span-12 text-center">
                             <a href="/cart"
                                className="bg-green-800 text-white font-normal py-4 w-full flex justify-center">
+                                {/*TODO: Mostrar el place y la opción de pagar de acuerdo al checkout de cada place*/}
+                                {/*places/:place_id/cart
+                                */}
                                 Siguiente: Revisar y pagar
                             </a>
                         </div>

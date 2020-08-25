@@ -30,7 +30,7 @@ class User
 
   # Relations
   has_many :places
-  has_one :cart
+  embeds_many :carts
   embeds_many :addresses, as: :model
   #has_many :qr
 

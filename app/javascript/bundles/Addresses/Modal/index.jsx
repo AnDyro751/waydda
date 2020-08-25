@@ -27,7 +27,7 @@ export default function AddressModal({
                                          locations
                                      }) {
     const [isOpen, setIsOpen] = useState(modalOpen);
-    const [currentLocation, setCurrentLocation] = useState(current_address || {});
+    const [currentLocation, setCurrentLocation] = useState(current_address || null);
     const [currentStep, setCurrentStep] = useState(0);
     const [fields, setFields] = useState({
         address: "",
@@ -112,10 +112,10 @@ export default function AddressModal({
                     </div>
                     <ModalSelectMap
                         defaultValues={{
-                            address: currentLocation.address,
-                            description: currentLocation.description,
-                            lat: currentLocation.lat,
-                            lng: currentLocation.lng,
+                            address: currentLocation ? currentLocation.address : null,
+                            description: currentLocation ? currentLocation.description : null,
+                            lat: currentLocation ? currentLocation.lat : null,
+                            lng: currentLocation ? currentLocation.lng : null,
                         }}
                         receiveHandleChange={onHandleChange}/>
                     <div className="fixed bottom-0 w-full justify-center flex right-0 bg-white py-4">

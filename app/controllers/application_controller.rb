@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
-  before_action :current_cart
+  # before_action :current_cart
   before_action :set_current_address
   before_action :set_time_zone
   # before_action :set_default_locations
@@ -70,37 +70,5 @@ class ApplicationController < ActionController::Base
   def configure_permitted_parameters
     devise_parameter_sanitizer.permit(:sign_up, keys: [:name, :lastName, :timezone])
   end
-
-  def current_cart
-    if user_signed_in?
-      if session[:cart_id].nil?
-        cart = current_user.create_cart(with_user: true)
-        session[:cart_id] = cart.id.to_s
-        @current_cart = cart
-      else
-        @current_cart = current_user.cart
-        create_cart(with_user: true) if @current_cart.nil?
-      end
-    else
-      if session[:cart_id]
-        @current_cart = Cart.find(session[:cart_id])
-        create_cart if @current_cart.nil?
-      else
-        create_cart
-      end
-    end
-  end
-
-
-  def create_cart(with_user: false)
-    cart = Cart.new(quantity: 0, user: with_user ? current_user : nil)
-    if cart.save
-      session[:cart_id] = cart.id.to_s
-      @current_cart = Cart.find(cart.id)
-    else
-      puts "--------#{cart.errors.full_messages}"
-    end
-  end
-
 
 end

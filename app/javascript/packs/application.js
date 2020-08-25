@@ -60,6 +60,17 @@ import '../../assets/stylesheets/application.scss'
 
 
 document.addEventListener("turbolinks:load", () => {
+    var class_element = document.querySelector("#flash-notice");
+    if (class_element) {
+        class_element.addEventListener("click", () => {
+            class_element.classList.add("translate-y-full");
+        }, false)
+        setTimeout(() => {
+            if (class_element) {
+                class_element.classList.add("translate-y-full");
+            }
+        }, 5000)
+    }
     try {
         const current_time_zone = Intl.DateTimeFormat().resolvedOptions().timeZone;
         setCookie("timezone", current_time_zone);
