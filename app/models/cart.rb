@@ -4,12 +4,12 @@ class Cart
   field :quantity, type: Integer, default: 0
   field :intent_id, type: String, default: nil
   field :client_secret, type: String, default: nil
-  embeds_many :cart_items
+  has_many :cart_items
   embeds_one :delivery_option
   embeds_many :addresses, as: :model
   embeds_one :checkout
   belongs_to :place
-  belongs_to :user
+  belongs_to :user, optional: true
 
   def self.get_total(old_items = nil)
     total = 0
@@ -36,7 +36,7 @@ class Cart
     return {success: false, total_items_counter: nil, total_items_cart: nil} unless product.valid_stock(new_quantity)
     if current_item.nil?
       begin
-        current_cart.cart_items.create!(model: product, quantity: new_quantity, added_in: user_logged_in)
+        current_cart.cart_items.create!(product: product, quantity: new_quantity, added_in: user_logged_in)
         current_cart.update(quantity: new_cart_quantity)
         return {success: true, total_items_counter: new_quantity, total_items_cart: current_cart.quantity}
       rescue
@@ -71,13 +71,7 @@ class Cart
         # Update intent
         current_item.update(quantity: new_quantity)
         current_cart.update(quantity: current_cart.quantity - quantity)
-        new_total_items = current_cart.cart_items.includes(:model).to_a
-        if new_total_items.length <= 0
-          Checkout.cancel_intent(current_cart)
-        else
-          new_total = Cart.get_total(new_total_items)
-          Checkout.update_intent(current_cart, new_total)
-        end
+
         return {success: true, total_items_counter: current_item.quantity, total_items_cart: current_cart.quantity}
       rescue
         return {success: true, total_items_counter: nil, total_items_cart: nil}

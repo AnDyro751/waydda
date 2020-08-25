@@ -28,7 +28,6 @@ Rails.application.routes.draw do
   resources :checkouts, only: [:show, :create]
   get "/cart", to: "carts#show", as: "my_cart"
 
-
   #Public places
   resources :places, only: [:show, :index] do
     get "/catalog", to: "places#catalog", as: :catalog

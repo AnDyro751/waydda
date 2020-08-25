@@ -1,22 +1,14 @@
 class CartsController < ApplicationController
   layout "cart"
   Stripe.api_key = 'sk_test_51H9CZeBOcPJ0nbHctTzfQZhFXBnn8j05e0xqJ5RSVz5Bum72LsvmQKIecJnsoHISEg0jUWtKjERYGeCAEWiIAujP00Fae9MiKm'
-  before_action :set_current_cart
-  # before_action :authenticate_user!
+  before_action :set_current_cart, only: [:create_charge, :add_product]
   skip_before_action :verify_authenticity_token, only: [:show, :update_item, :add_product]
 
   def show
     respond_to do |format|
-      @custom_js = true
-      @items = @current_cart.cart_items.includes(:model).to_a
-      @items = @items.each do |i|
-        i["string_id"] = i.id.to_s
-        i["model_reference"] = i.model
-        i["model_reference_id"] = i.model.id.to_s
-      end
-      @total = Cart.get_total(@items)
+      @carts = current_user.carts.includes(:place, cart_items: [:product]).to_a
       format.html { render :show }
-      format.json { render json: {items: @items, total: @total, current_address: @current_address} }
+      format.json { render json: {carts: @carts, items: [], total: 0, current_address: @current_address} }
     end
   end
 
@@ -71,8 +63,15 @@ class CartsController < ApplicationController
     # Si lo tiene aumentamos a uno
     # De lo contrario creamos un item nuevo
 
-    response = @current_cart.update_item(params["product_id"], 1, true)
     respond_to do |format|
+      if @current_cart.nil?
+        place = Place.find_by(id: params["place_id"])
+        if place.nil?
+          format.html { redirect_to root_path, alert: "Ha ocurrido un error al agregar el producto", status: :not_found }
+        end
+        @current_cart = current_user.carts.create(place: place)
+      end
+      response = @current_cart.update_item(params["product_id"], 1, true)
       if response["success"]
         format.js
       else
@@ -97,7 +96,7 @@ class CartsController < ApplicationController
   private
 
   def set_current_cart
-    @current_cart = current_user.carts.find_by(place_id: params["place_id"]) || not_found
+    @current_cart = current_user.carts.find_by(place_id: params["place_id"])
   end
 
 
