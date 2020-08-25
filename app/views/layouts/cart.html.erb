@@ -5,7 +5,8 @@
   <%= csrf_meta_tags %>
   <%= csp_meta_tag %>
   <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-  <%= javascript_packs_with_chunks_tag 'application', "carts-show-bundle", 'data-turbolinks-track': 'reload' %>
+  <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_pack_tag 'carts-show-bundle', 'data-turbolinks-track': 'reload', :defer => "defer" %>
   <link rel="preconnect" href="https://d1nrrr6y3ujrjz.cloudfront.net" crossOrigin/>
   <link rel="dns-prefetch" href="https://d1nrrr6y3ujrjz.cloudfront.net"/>
   <link rel="preconnect" href="https://fonts.googleapis.com" crossOrigin/>
@@ -23,6 +24,7 @@
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
     <%= yield %>
+    <%= console %>
   </div>
 </div>
 </body>

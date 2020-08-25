@@ -1,23 +1,17 @@
 import React, {useState, useEffect} from 'react';
 import SidebarCartItem from "./Item";
 
-export default function ShowCartItems({items = [], loading = true, withImages = false, simple = false}) {
+export default function ShowCartItems({items = [], loading = true, withImages = false, simple = true}) {
 
-    const [currentItems, setCurrentItems] = useState(items || []);
+    const [currentItems, setCurrentItems] = useState(items);
 
     const handleRemoveItem = (id) => {
         setCurrentItems(currentItems.filter(item => item.string_id !== id));
         console.log("ELIMINANDO ITEM", id)
     }
 
-    useEffect(() => {
-        if (items) {
-            setCurrentItems(items);
-        }
-    }, [items])
-
     return (
-        <div className="grid grid-cols-12">
+        <div className="grid grid-cols-12 w-full">
             <div className="col-span-12">
                 {currentItems.length <= 0 &&
                 <EmptyCart/>
@@ -26,7 +20,7 @@ export default function ShowCartItems({items = [], loading = true, withImages = 
                     <div className="col-span-12">
                         {currentItems.map((item, i) => (
                             <SidebarCartItem
-                                simple={simple}
+                                simple={false}
                                 withImages={withImages}
                                 removeCartItem={handleRemoveItem}
                                 key={i}
@@ -35,26 +29,6 @@ export default function ShowCartItems({items = [], loading = true, withImages = 
                         ))}
                     </div>
                 </div>
-
-                {
-                    currentItems.length > 0 &&
-                    <div className={`grid grid-cols-12 ${simple ? "" : "px-3"}`}>
-                        <div className="col-span-12 text-center">
-                            <a href="/cart"
-                               className="bg-green-800 text-white font-normal py-4 w-full flex justify-center">
-                                {/*TODO: Mostrar el place y la opción de pagar de acuerdo al checkout de cada place*/}
-                                {/*places/:place_id/cart
-                                */}
-                                Siguiente: Revisar y pagar
-                            </a>
-                        </div>
-                    </div>
-                }
-
-                {/*{*/}
-                {/*    currentItems.length > 0 &&*/}
-                {/*    <PayOrderButton intent_id={intent_id}/>*/}
-                {/*}*/}
 
             </div>
         </div>

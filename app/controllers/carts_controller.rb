@@ -2,23 +2,33 @@ class CartsController < ApplicationController
   layout "cart"
   Stripe.api_key = 'sk_test_51H9CZeBOcPJ0nbHctTzfQZhFXBnn8j05e0xqJ5RSVz5Bum72LsvmQKIecJnsoHISEg0jUWtKjERYGeCAEWiIAujP00Fae9MiKm'
   before_action :set_current_cart, only: [:create_charge, :add_product]
-  skip_before_action :verify_authenticity_token, only: [:show, :update_item, :add_product]
+  skip_before_action :verify_authenticity_token, only: [:update_item, :add_product]
 
   def show
     respond_to do |format|
-      cart_items_ids = []
-      @carts = current_user.carts.includes(:place).to_a.each do |ct|
-        cart_items_ids = cart_items_ids + ct.cart_item_ids
+      if params["place_id"].present?
+        @place = Place.find_by(slug: params["place_id"]) || not_found
+        @current_cart = current_user.carts.find_by(place: @place)
+        @cart_items = CartItem.where(cart: @current_cart).includes(:product).to_a
+        @cart_items.each do |ci|
+          ci["product_record"] = ci.product
+        end
+        @total =  Cart.get_total(@cart_items)
+      else
+        cart_items_ids = []
+        @carts = current_user.carts.includes(:place).to_a.each do |ct|
+          cart_items_ids = cart_items_ids + ct.cart_item_ids
+        end
+        @total = 0
+        @cart_items = CartItem.where(:_id.in => cart_items_ids).includes(:product).to_a.each do |ci|
+          ci["product_record"] = ci.product.attributes.slice(:name, :description, :price, :photo)
+        end
+        @carts.each do |ct|
+          ct["place_record"] = ct.place
+          ct["items"] = @cart_items.select { |ci| ci.cart_id.to_s == ct.id.to_s }
+        end
+        @total = @total + Cart.get_total(@cart_items)
       end
-      @total = 0
-      @cart_items = CartItem.where(:_id.in => cart_items_ids).includes(:product).to_a.each do |ci|
-        ci["product_record"] = ci.product.attributes.slice(:name, :description, :price, :photo)
-      end
-      @carts.each do |ct|
-        ct["place_record"] = ct.place
-        ct["items"] = @cart_items.select { |ci| ci.cart_id.to_s == ct.id.to_s }
-      end
-      @total = @total + Cart.get_total(@cart_items)
       format.html { render :show }
       format.json { render "carts/show" }
     end

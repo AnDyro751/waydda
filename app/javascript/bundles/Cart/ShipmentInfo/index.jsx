@@ -2,7 +2,7 @@ import React, {useEffect, useState} from 'react';
 import {AiOutlineClockCircle} from 'react-icons/ai';
 import PayOrderButton from "../../Orders/PayOrderButton";
 
-export default function ShipmentInfo({deliveryOption = "delivery", client_secret = null}) {
+export default function ShipmentInfo({deliveryOption = "delivery"}) {
 
     const [currentDeliveryOption, setCurrentDeliveryOption] = useState(deliveryOption)
 
@@ -32,7 +32,7 @@ export default function ShipmentInfo({deliveryOption = "delivery", client_secret
                     </ShipmentItem>
                 </>
             }
-            <PayOrderButton client_secret={client_secret}/>
+            <PayOrderButton />
         </div>
     )
 }

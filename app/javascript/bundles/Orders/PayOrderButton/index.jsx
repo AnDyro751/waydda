@@ -15,14 +15,14 @@ export default function PayOrderButton({client_secret}) {
     return (
         <Elements stripe={stripePromise}>
             <div className="w-full flex justify-center items-center">
-                <CheckoutButton client_secret={client_secret}/>
+                <CheckoutButton/>
             </div>
         </Elements>
 
     )
 }
 
-const CheckoutButton = ({client_secret}) => {
+const CheckoutButton = ({}) => {
     const [succeeded, setSucceeded] = useState(false);
     const [error, setError] = useState(null);
     const [processing, setProcessing] = useState('');

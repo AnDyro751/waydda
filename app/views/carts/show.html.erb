@@ -1,1 +1,33 @@
-<%= react_component('CartPage', props: {total: @total, current_cart: @current_cart, items: @items}, prerender: false) %>
+<div class="flex w-full items-center justify-between py-3 px-16 bg-white border-b">
+  <div class="w-auto">
+    <a href="/">
+      <img
+        class="h-10"
+        src="<%= get_image_url(20, 100, "utils/w-logo-5.png") %>" alt="">
+    </a>
+  </div>
+  <div class="w-auto">
+    <a href="/my-profile"
+       class="rounded-full"
+    >
+      <img
+        class="h-8 shadow-lg rounded-full"
+        alt="Waydda default profile photo"
+        src="<%= get_image_url(50, 50, "utils/icons8-test-account-96.png") %>"
+        title="Mi perfil"
+        />
+    </a>
+  </div>
+</div>
+
+<% if @cart_items.length <= 0 %>
+  <div class="text-center mt-12 w-full">
+    <img
+      class="h-xl mx-auto mb-12"
+      src="<%= get_image_url(400, 400, "utils/flame-777.png") %>"
+      alt="Waydda Empty Cart"
+      />
+    <h4 class="text-center text-lg text-gray-700">Aún no tienes productos en tu carrito</h4>
+  </div>
+<% end %>
+<%= react_component('CartPage', props: {total: @total, current_cart: @current_cart, cart_items: @cart_items}, prerender: false) %>

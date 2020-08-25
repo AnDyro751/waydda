@@ -5,7 +5,7 @@ import React, {useState, useEffect} from "react";
 import getDefaultHeaders from "../../../../lib/getDefaultHeaders";
 import LoaderSpinners from "../../../Loaders/Spinner";
 
-export default function SidebarCartItem({item, removeCartItem, withImages, simple = true}) {
+export default function SidebarCartItem({item, removeCartItem, withImages, simple = false}) {
     const [currentItem, setCurrentItem] = useState(null);
     const [loading, setLoading] = useState(false);
     const [addLoading, setAddLoading] = useState(false);
@@ -72,18 +72,18 @@ export default function SidebarCartItem({item, removeCartItem, withImages, simpl
             <div className={withImages ? "w-10/12" : "w-full"}>
                 <div className="flex w-full items-center gap-2">
                     <div className="w-5/12">
-                        <p className="font-bold">
-                            {currentItem.model_reference.name}
+                        <p className="font-normal">
+                            {currentItem.product_record.name}
                         </p>
-                        <p className="text-xs">
-                            {currentItem.model_reference.description}
+                        <p className="text-xs text-gray-600">
+                            {currentItem.product_record.description}
                         </p>
                     </div>
                     <div className="w-4/12">
                         <div className="flex w-full text-center gap-2 justify-between">
                             <button
                                 disabled={loading}
-                                className={`h-10 w-10 cursor-pointer hover:bg-gray-900 rounded flex justify-center items-center hover:text-white ${minusLoading ? "bg-gray-900 cursor-not-allowed" : ""}`}
+                                className={`h-10 w-10 cursor-pointer hover:bg-gray-900 rounded flex justify-center items-center text-gray-700 hover:text-white ${minusLoading ? "bg-gray-900 cursor-not-allowed" : ""}`}
                                 onClick={() => {
                                     updateItem(1, false)
                                 }}>
@@ -123,7 +123,7 @@ export default function SidebarCartItem({item, removeCartItem, withImages, simpl
                     </div>
                     <div className="w-3/12 text-center">
                     <span className="text-gray-700">
-                        MXN {currentItem.model_reference.price * currentItem.quantity}
+                        MXN {currentItem.product_record.price * currentItem.quantity}
                     </span>
                     </div>
                 </div>

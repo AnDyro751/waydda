@@ -19,12 +19,22 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b89cb0fb-b680-4bb9-8ae0-f4b41721cfb9" name="Default Changelist" comment="refactor(Cart): Bugs del carrito, buscabamos model cuando era product, relations">
+    <list default="true" id="b89cb0fb-b680-4bb9-8ae0-f4b41721cfb9" name="Default Changelist" comment="refactor(Cart): Mostramos el json del carrito">
+      <change afterPath="$PROJECT_DIR$/app/javascript/bundles/Cart/Item/index.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/controllers/carts_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/carts_controller.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/javascript/bundles/Cart/ShipmentInfo/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/javascript/bundles/Cart/ShipmentInfo/index.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/javascript/bundles/Cart/ShippentOptions/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/javascript/bundles/Cart/ShippentOptions/index.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/javascript/bundles/Cart/ShowCartItems/Item/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/javascript/bundles/Cart/ShowCartItems/Item/index.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/javascript/bundles/Cart/ShowCartItems/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/javascript/bundles/Cart/ShowCartItems/index.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/javascript/bundles/Cart/Sidebar/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/javascript/bundles/Cart/Sidebar/index.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/cart.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/cart.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/javascript/bundles/Orders/PayOrderButton/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/javascript/bundles/Orders/PayOrderButton/index.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/javascript/bundles/Screens/Cart/Show/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/javascript/bundles/Screens/Cart/Show/index.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/carts/show.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/carts/show.html.erb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/views/carts/show.json.jbuilder" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/carts/show.json.jbuilder" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/layouts/cart.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/layouts/cart.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/places/show.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/places/show.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/routes.rb" beforeDir="false" afterPath="$PROJECT_DIR$/config/routes.rb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -73,6 +83,7 @@
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="yarn" />
     <property name="settings.editor.selected.configurable" value="editing.templates" />
+    <property name="ts.external.directory.path" value="D:\Program Files\RubyMine 2020.1.2\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -189,14 +200,7 @@
       <workItem from="1598064558786" duration="3993000" />
       <workItem from="1598128239768" duration="23917000" />
       <workItem from="1598239761227" duration="16203000" />
-      <workItem from="1598326081992" duration="14513000" />
-    </task>
-    <task id="LOCAL-00002" summary="feat(Address): Dos pasos para guardar la dirección&#10;Paso 1: Seleccionar la delegación&#10;Paso 2: Agregar el tipo de ubicación, casa, depa..etc, numero y calle">
-      <created>1597725625109</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1597725625110</updated>
+      <workItem from="1598326081992" duration="19884000" />
     </task>
     <task id="LOCAL-00003" summary="feat(Address): Removimos el pinche select de las delegaciones :v Solo vamos a mostrar el input de la dirección y vamos a poder que solo está disponible en el estado de méxico">
       <created>1597725936323</created>
@@ -534,7 +538,14 @@
       <option name="project" value="LOCAL" />
       <updated>1598366759549</updated>
     </task>
-    <option name="localTasksCounter" value="51" />
+    <task id="LOCAL-00051" summary="refactor(Cart): Mostramos el json del carrito">
+      <created>1598376826537</created>
+      <option name="number" value="00051" />
+      <option name="presentableId" value="LOCAL-00051" />
+      <option name="project" value="LOCAL" />
+      <updated>1598376826538</updated>
+    </task>
+    <option name="localTasksCounter" value="52" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -554,7 +565,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="feat(Dashboard): Create product style" />
     <MESSAGE value="feat(Dashboard): Product Page 50%" />
     <MESSAGE value="feat(Dashboard): Add variant init form" />
     <MESSAGE value="feat(Dashboard): Form de las variantes, mostramos los errores al crear el recurso" />
@@ -579,7 +589,8 @@
     <MESSAGE value="feat(Cart): Agregamos un carrito a cada place" />
     <MESSAGE value="feat(Cart): Agregamos carritos al usuario y al user, agregamos los items al carrito especifico" />
     <MESSAGE value="refactor(Cart): Bugs del carrito, buscabamos model cuando era product, relations" />
-    <option name="LAST_COMMIT_MESSAGE" value="refactor(Cart): Bugs del carrito, buscabamos model cuando era product, relations" />
+    <MESSAGE value="refactor(Cart): Mostramos el json del carrito" />
+    <option name="LAST_COMMIT_MESSAGE" value="refactor(Cart): Mostramos el json del carrito" />
   </component>
   <component name="WindowStateProjectService">
     <state x="515" y="239" key="#Other_File_Types" timestamp="1597960931507">
@@ -636,12 +647,12 @@
       <screen x="1366" y="-69" width="1920" height="1080" />
     </state>
     <state x="2142" y="392" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1366.768/1366.-69.1920.1080@1366.-69.1920.1080" timestamp="1597712613222" />
-    <state x="390" y="117" width="585" height="624" key="find.popup" timestamp="1598371899980">
+    <state x="390" y="117" width="585" height="624" key="find.popup" timestamp="1598387115925">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="1914" y="96" width="823" height="878" key="find.popup/0.0.1366.768/1366.-69.1920.1080@1366.-69.1920.1080" timestamp="1597716285449" />
     <state x="1754" y="117" width="583" height="624" key="find.popup/0.0.1366.768/1366.0.1360.768@1366.0.1360.768" timestamp="1598230410609" />
-    <state x="390" y="117" width="585" height="624" key="find.popup/0.0.1366.768@0.0.1366.768" timestamp="1598371899980" />
+    <state x="390" y="117" width="585" height="624" key="find.popup/0.0.1366.768@0.0.1366.768" timestamp="1598387115925" />
     <state x="549" y="254" width="250" height="278" key="jetbrains.javascript.buildTools.run-task-popup" timestamp="1597946321130">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
@@ -650,11 +661,11 @@
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="339" y="174" width="672" height="677" key="run.anything.popup/0.0.1366.768@0.0.1366.768" timestamp="1598367329609" />
-    <state x="346" y="89" width="672" height="678" key="search.everywhere.popup" timestamp="1598376473934">
+    <state x="346" y="89" width="672" height="678" key="search.everywhere.popup" timestamp="1598387140494">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="1852" y="56" width="945" height="954" key="search.everywhere.popup/0.0.1366.768/1366.-69.1920.1080@1366.-69.1920.1080" timestamp="1597715976170" />
     <state x="1710" y="89" width="672" height="678" key="search.everywhere.popup/0.0.1366.768/1366.0.1360.768@1366.0.1360.768" timestamp="1598230246430" />
-    <state x="346" y="89" width="672" height="678" key="search.everywhere.popup/0.0.1366.768@0.0.1366.768" timestamp="1598376473934" />
+    <state x="346" y="89" width="672" height="678" key="search.everywhere.popup/0.0.1366.768@0.0.1366.768" timestamp="1598387140494" />
   </component>
 </project>

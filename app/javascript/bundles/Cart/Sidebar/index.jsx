@@ -3,14 +3,17 @@ import {RiShoppingBasketLine} from "react-icons/ri";
 import classNames from 'classnames'
 import getDefaultHeaders from "../../../lib/getDefaultHeaders";
 import {RiCloseLine} from 'react-icons/ri'
-import ShowCartItems from "../ShowCartItems";
 import AddressModal from "../../Addresses/Modal";
 import ReactDOM from 'react-dom'
+import CartItem from "../Item";
 
 export default function CartSidebar({locations, current_address}) {
 
     const [open, setOpen] = useState(false);
+    const onHandleOpen = (e) => {
+        setOpen(e);
 
+    }
 
     //TODO: Mover esto a algo que no sea un sidebar
 
@@ -25,7 +28,7 @@ export default function CartSidebar({locations, current_address}) {
             </div>
             <Sidebar
                 open={open}
-                handleOpen={(e) => setOpen(e)}
+                handleOpen={onHandleOpen}
             />
         </>
     )
@@ -42,6 +45,11 @@ const Sidebar = ({handleOpen, open}) => {
 
     useEffect(() => {
         console.log(document.querySelector("#portal"), "HOLA")
+        if (open) {
+            document.querySelector("body").classList.add("overflow-y-hidden");
+        } else {
+            document.querySelector("body").classList.remove("overflow-y-hidden");
+        }
 
         if (open) {
             const getData = async () => {
@@ -74,7 +82,7 @@ const Sidebar = ({handleOpen, open}) => {
     })
 
     const sidebarParentClass = classNames({
-        "fixed transform top-0 w-2/6 z-50 flex right-0 bottom-0 h-screen justify-end transform transition duration-500 delay-75 ease-in-out text-left": true,
+        "fixed bg-white overflow-y-auto transform top-0 w-2/6 z-50 flex right-0 bottom-0 h-screen justify-end transform transition duration-500 delay-75 ease-in-out text-left": true,
         "translate-x-full": !open,
         "translate-x-0": open,
     })
@@ -132,13 +140,7 @@ const Sidebar = ({handleOpen, open}) => {
                             {
                                 carts.length > 0 &&
                                 carts.map((cart, i) => (
-                                    <div key={i} className="w-full">
-                                        <h4>HOLA</h4>
-                                    </div>
-                                    // <ShowCartItems
-                                    // withImages={false}
-                                    // items={items}
-                                    // />
+                                    <CartItem cart={cart} key={i}/>
                                 ))
                             }
                         </div>

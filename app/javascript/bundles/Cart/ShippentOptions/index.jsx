@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import classNames from 'classnames'
 import ShipmentInfo from "../ShipmentInfo";
 
-export default function ShipmentOptions({deliveryOption = "delivery", client_secret = null}) {
+export default function ShipmentOptions({deliveryOption = "delivery"}) {
     const [currentDeliveryOption, setCurrentDeliveryOption] = useState(deliveryOption);
     return (
         <div className="flex w-full">
@@ -14,7 +14,6 @@ export default function ShipmentOptions({deliveryOption = "delivery", client_sec
                     }}
                 />
                 <ShipmentInfo
-                    client_secret={client_secret}
                     deliveryOption={currentDeliveryOption}/>
             </div>
         </div>
