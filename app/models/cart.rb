@@ -1,13 +1,17 @@
 class Cart
+
   include Mongoid::Document
   include Mongoid::Timestamps
   field :quantity, type: Integer, default: 0
+  field :payment_type, type: String, default: "card"
   has_many :cart_items
   embeds_one :delivery_option
   embeds_many :addresses, as: :model
   embeds_one :checkout
   belongs_to :place
   belongs_to :user, optional: true
+
+  validates :payment_type, inclusion: {in: %w[card cash]}
 
   def self.get_total(old_items = nil)
     total = 0
@@ -18,7 +22,6 @@ class Cart
     end
     total
   end
-
 
   def update_item(product_id, quantity, plus, user_logged_in = false)
     # TODO: Update intent
