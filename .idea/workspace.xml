@@ -19,9 +19,13 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b89cb0fb-b680-4bb9-8ae0-f4b41721cfb9" name="Default Changelist" comment="refactor(Cart): Agregamos la opción de cambiar de método de pago y actualizamos todo el formulario sin necesidad de React">
+    <list default="true" id="b89cb0fb-b680-4bb9-8ae0-f4b41721cfb9" name="Default Changelist" comment="refactor(Cart): Creamos token y añadimos estilos al form de la tarjeta">
+      <change afterPath="$PROJECT_DIR$/app/javascript/lib/getAddresses.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/components/Carts/form.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/components/Carts/form.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/components/Carts/form.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/components/Carts/form.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/javascript/packs/carts-show-bundle.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/javascript/packs/carts-show-bundle.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/carts/show.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/carts/show.html.erb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -188,14 +192,7 @@
       <workItem from="1598128239768" duration="23917000" />
       <workItem from="1598239761227" duration="16203000" />
       <workItem from="1598326081992" duration="27868000" />
-      <workItem from="1598410984451" duration="7987000" />
-    </task>
-    <task id="LOCAL-00007" summary="feat(Address): Mostramos las direcciones y seleccionamos">
-      <created>1597812259333</created>
-      <option name="number" value="00007" />
-      <option name="presentableId" value="LOCAL-00007" />
-      <option name="project" value="LOCAL" />
-      <updated>1597812259333</updated>
+      <workItem from="1598410984451" duration="10335000" />
     </task>
     <task id="LOCAL-00008" summary="feat(Address): Seleccionamos y mostramos el address en el map para que puedan seleccionar o arrastrar y mostrar la dirección">
       <created>1597813802393</created>
@@ -533,7 +530,14 @@
       <option name="project" value="LOCAL" />
       <updated>1598420558160</updated>
     </task>
-    <option name="localTasksCounter" value="56" />
+    <task id="LOCAL-00056" summary="refactor(Cart): Creamos token y añadimos estilos al form de la tarjeta">
+      <created>1598421386186</created>
+      <option name="number" value="00056" />
+      <option name="presentableId" value="LOCAL-00056" />
+      <option name="project" value="LOCAL" />
+      <updated>1598421386186</updated>
+    </task>
+    <option name="localTasksCounter" value="57" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -553,7 +557,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="feat(Place): Vamos a crear la vista báscia del place" />
     <MESSAGE value="feat(Place): Init place menu" />
     <MESSAGE value="feat(Place): Cart sidebar in react portal" />
     <MESSAGE value="feat(Place): Overlay class" />
@@ -578,7 +581,8 @@
     <MESSAGE value="refactor(Cart): Mostramos información de los costos en el carrito" />
     <MESSAGE value="refactor(Cart): Agregamos el sidebar a otro componente para tenerlo más estilisado" />
     <MESSAGE value="refactor(Cart): Agregamos la opción de cambiar de método de pago y actualizamos todo el formulario sin necesidad de React" />
-    <option name="LAST_COMMIT_MESSAGE" value="refactor(Cart): Agregamos la opción de cambiar de método de pago y actualizamos todo el formulario sin necesidad de React" />
+    <MESSAGE value="refactor(Cart): Creamos token y añadimos estilos al form de la tarjeta" />
+    <option name="LAST_COMMIT_MESSAGE" value="refactor(Cart): Creamos token y añadimos estilos al form de la tarjeta" />
   </component>
   <component name="WindowStateProjectService">
     <state x="515" y="239" key="#Other_File_Types" timestamp="1597960931507">
@@ -622,11 +626,11 @@
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="318" y="58" key="SettingsEditor/0.0.1366.768@0.0.1366.768" timestamp="1598040503470" />
-    <state x="275" y="117" key="Vcs.Push.Dialog.v2" timestamp="1598403209328">
+    <state x="275" y="117" key="Vcs.Push.Dialog.v2" timestamp="1598421417419">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="1640" y="117" key="Vcs.Push.Dialog.v2/0.0.1366.768/1366.0.1360.768@1366.0.1360.768" timestamp="1598221582431" />
-    <state x="275" y="117" key="Vcs.Push.Dialog.v2/0.0.1366.768@0.0.1366.768" timestamp="1598403209328" />
+    <state x="275" y="117" key="Vcs.Push.Dialog.v2/0.0.1366.768@0.0.1366.768" timestamp="1598421417419" />
     <state x="289" y="0" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1597888548617">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
@@ -635,12 +639,12 @@
       <screen x="1366" y="-69" width="1920" height="1080" />
     </state>
     <state x="2142" y="392" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1366.768/1366.-69.1920.1080@1366.-69.1920.1080" timestamp="1597712613222" />
-    <state x="390" y="117" width="585" height="624" key="find.popup" timestamp="1598419476978">
+    <state x="390" y="117" width="585" height="624" key="find.popup" timestamp="1598462028138">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="1914" y="96" width="823" height="878" key="find.popup/0.0.1366.768/1366.-69.1920.1080@1366.-69.1920.1080" timestamp="1597716285449" />
     <state x="1754" y="117" width="583" height="624" key="find.popup/0.0.1366.768/1366.0.1360.768@1366.0.1360.768" timestamp="1598230410609" />
-    <state x="390" y="117" width="585" height="624" key="find.popup/0.0.1366.768@0.0.1366.768" timestamp="1598419476978" />
+    <state x="390" y="117" width="585" height="624" key="find.popup/0.0.1366.768@0.0.1366.768" timestamp="1598462028138" />
     <state x="549" y="254" width="250" height="278" key="jetbrains.javascript.buildTools.run-task-popup" timestamp="1597946321130">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
@@ -649,11 +653,11 @@
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="339" y="174" width="672" height="677" key="run.anything.popup/0.0.1366.768@0.0.1366.768" timestamp="1598367329609" />
-    <state x="346" y="89" width="672" height="678" key="search.everywhere.popup" timestamp="1598419923598">
+    <state x="346" y="89" width="672" height="678" key="search.everywhere.popup" timestamp="1598461710260">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="1852" y="56" width="945" height="954" key="search.everywhere.popup/0.0.1366.768/1366.-69.1920.1080@1366.-69.1920.1080" timestamp="1597715976170" />
     <state x="1710" y="89" width="672" height="678" key="search.everywhere.popup/0.0.1366.768/1366.0.1360.768@1366.0.1360.768" timestamp="1598230246430" />
-    <state x="346" y="89" width="672" height="678" key="search.everywhere.popup/0.0.1366.768@0.0.1366.768" timestamp="1598419923598" />
+    <state x="346" y="89" width="672" height="678" key="search.everywhere.popup/0.0.1366.768@0.0.1366.768" timestamp="1598461710260" />
   </component>
 </project>

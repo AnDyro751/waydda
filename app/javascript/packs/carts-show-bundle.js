@@ -1,7 +1,9 @@
 import {loadStripe} from '@stripe/stripe-js';
+import GetAddresses from "../lib/getAddresses";
 
 
 document.addEventListener("turbolinks:load", async () => {
+    GetAddresses();
     const stripe = await loadStripe('pk_test_2cj88edK605KUkkoRWBH67gq007NzYIttB');
     var elements = stripe.elements();
 
