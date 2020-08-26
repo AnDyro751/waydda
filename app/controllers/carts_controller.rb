@@ -1,8 +1,21 @@
 class CartsController < ApplicationController
   layout "cart"
   Stripe.api_key = 'sk_test_51H9CZeBOcPJ0nbHctTzfQZhFXBnn8j05e0xqJ5RSVz5Bum72LsvmQKIecJnsoHISEg0jUWtKjERYGeCAEWiIAujP00Fae9MiKm'
-  before_action :set_current_cart, only: [:create_charge, :add_product]
+  before_action :set_current_cart, only: [:create_charge, :add_product, :payment_method]
   skip_before_action :verify_authenticity_token, only: [:update_item, :add_product]
+
+
+  def payment_method
+    @place = Place.find_by(id: params["place_id"]) || not_found
+    respond_to do |format|
+      if @current_cart.update(payment_type: params["to_state"])
+        format.js {}
+      else
+        puts "---------#{@current_cart.errors.full_messages}"
+        format.html { redirect_to root_path, status: :unprocessable_entity, alert: "Ha ocurrido un error al actualizar el carrito" }
+      end
+    end
+  end
 
   def show
     respond_to do |format|
@@ -13,7 +26,7 @@ class CartsController < ApplicationController
         @cart_items.each do |ci|
           ci["product_record"] = ci.product
         end
-        @total =  Cart.get_total(@cart_items)
+        @total = Cart.get_total(@cart_items)
       else
         cart_items_ids = []
         @carts = current_user.carts.includes(:place).to_a.each do |ct|

@@ -1,0 +1,11 @@
+var element = document.querySelector("input[name='to_state']")
+if (element) {
+    console.log(element.value)
+    if (element.value === "card") {
+        document.querySelector("#payment-form").classList.remove("hidden")
+    } else {
+        document.querySelector("#payment-form").classList.add("hidden")
+    }
+    document.querySelector("#payment-selected").innerHTML = element.value === "card" ? "Tarjeta de crédito/débito" : "Efectivo"
+    element.value = element.value === "card" ? "cash" : "card"
+}

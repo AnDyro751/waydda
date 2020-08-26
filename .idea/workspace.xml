@@ -19,12 +19,20 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b89cb0fb-b680-4bb9-8ae0-f4b41721cfb9" name="Default Changelist" comment="refactor(Cart): Mostramos información de los costos en el carrito">
-      <change afterPath="$PROJECT_DIR$/app/components/Carts/sidebar.html.erb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/components/Carts/sidebar.rb" afterDir="false" />
+    <list default="true" id="b89cb0fb-b680-4bb9-8ae0-f4b41721cfb9" name="Default Changelist" comment="refactor(Cart): Agregamos el sidebar a otro componente para tenerlo más estilisado">
+      <change afterPath="$PROJECT_DIR$/app/models/payment_method.rb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/views/carts/payment_method.js.erb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test/fixtures/payment_methods.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test/models/payment_method_test.rb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/components/Carts/form.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/components/Carts/form.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/cart.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/cart.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/components/Carts/form.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/components/Carts/form.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/components/Carts/sidebar.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/components/Carts/sidebar.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/carts_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/carts_controller.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/javascript/packs/carts-show-bundle.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/javascript/packs/carts-show-bundle.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/user.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/user.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/carts/show.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/carts/show.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/routes.rb" beforeDir="false" afterPath="$PROJECT_DIR$/config/routes.rb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,7 +65,7 @@
   <component name="PropertiesComponent">
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="Ruby.ViewRefParam.DefaultExtension" value="html.erb" />
+    <property name="Ruby.ViewRefParam.DefaultExtension" value="js.erb" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
@@ -191,14 +199,7 @@
       <workItem from="1598128239768" duration="23917000" />
       <workItem from="1598239761227" duration="16203000" />
       <workItem from="1598326081992" duration="27868000" />
-      <workItem from="1598410984451" duration="896000" />
-    </task>
-    <task id="LOCAL-00005" summary="feat(Address): Buscamos la dirección">
-      <created>1597791460214</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1597791460214</updated>
+      <workItem from="1598410984451" duration="7150000" />
     </task>
     <task id="LOCAL-00006" summary="feat(Address): Agregamos el encodeUriComponent para que el texto se convierta en URL">
       <created>1597801647142</created>
@@ -536,7 +537,14 @@
       <option name="project" value="LOCAL" />
       <updated>1598400436688</updated>
     </task>
-    <option name="localTasksCounter" value="54" />
+    <task id="LOCAL-00054" summary="refactor(Cart): Agregamos el sidebar a otro componente para tenerlo más estilisado">
+      <created>1598411916768</created>
+      <option name="number" value="00054" />
+      <option name="presentableId" value="LOCAL-00054" />
+      <option name="project" value="LOCAL" />
+      <updated>1598411916768</updated>
+    </task>
+    <option name="localTasksCounter" value="55" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -556,7 +564,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="feat(Dashboard): Form de las variantes, mostramos los errores al crear el recurso" />
     <MESSAGE value="feat(Dashboard): Mostramos la imagen de la foto del aggregate" />
     <MESSAGE value="feat(Place): Vamos a crear la vista báscia del place" />
     <MESSAGE value="feat(Place): Init place menu" />
@@ -581,7 +588,8 @@
     <MESSAGE value="refactor(Cart): Mostramos el json del carrito" />
     <MESSAGE value="refactor(Cart): El carrito se ha reconstruido para usar uno por cada local que se necesite, la vista del html ya funciona" />
     <MESSAGE value="refactor(Cart): Mostramos información de los costos en el carrito" />
-    <option name="LAST_COMMIT_MESSAGE" value="refactor(Cart): Mostramos información de los costos en el carrito" />
+    <MESSAGE value="refactor(Cart): Agregamos el sidebar a otro componente para tenerlo más estilisado" />
+    <option name="LAST_COMMIT_MESSAGE" value="refactor(Cart): Agregamos el sidebar a otro componente para tenerlo más estilisado" />
   </component>
   <component name="WindowStateProjectService">
     <state x="515" y="239" key="#Other_File_Types" timestamp="1597960931507">
@@ -638,12 +646,12 @@
       <screen x="1366" y="-69" width="1920" height="1080" />
     </state>
     <state x="2142" y="392" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1366.768/1366.-69.1920.1080@1366.-69.1920.1080" timestamp="1597712613222" />
-    <state x="390" y="117" width="585" height="624" key="find.popup" timestamp="1598411666395">
+    <state x="390" y="117" width="585" height="624" key="find.popup" timestamp="1598419476978">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="1914" y="96" width="823" height="878" key="find.popup/0.0.1366.768/1366.-69.1920.1080@1366.-69.1920.1080" timestamp="1597716285449" />
     <state x="1754" y="117" width="583" height="624" key="find.popup/0.0.1366.768/1366.0.1360.768@1366.0.1360.768" timestamp="1598230410609" />
-    <state x="390" y="117" width="585" height="624" key="find.popup/0.0.1366.768@0.0.1366.768" timestamp="1598411666395" />
+    <state x="390" y="117" width="585" height="624" key="find.popup/0.0.1366.768@0.0.1366.768" timestamp="1598419476978" />
     <state x="549" y="254" width="250" height="278" key="jetbrains.javascript.buildTools.run-task-popup" timestamp="1597946321130">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
@@ -652,11 +660,11 @@
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="339" y="174" width="672" height="677" key="run.anything.popup/0.0.1366.768@0.0.1366.768" timestamp="1598367329609" />
-    <state x="346" y="89" width="672" height="678" key="search.everywhere.popup" timestamp="1598411571841">
+    <state x="346" y="89" width="672" height="678" key="search.everywhere.popup" timestamp="1598419923598">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="1852" y="56" width="945" height="954" key="search.everywhere.popup/0.0.1366.768/1366.-69.1920.1080@1366.-69.1920.1080" timestamp="1597715976170" />
     <state x="1710" y="89" width="672" height="678" key="search.everywhere.popup/0.0.1366.768/1366.0.1360.768@1366.0.1360.768" timestamp="1598230246430" />
-    <state x="346" y="89" width="672" height="678" key="search.everywhere.popup/0.0.1366.768@0.0.1366.768" timestamp="1598411571841" />
+    <state x="346" y="89" width="672" height="678" key="search.everywhere.popup/0.0.1366.768@0.0.1366.768" timestamp="1598419923598" />
   </component>
 </project>

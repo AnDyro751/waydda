@@ -26,7 +26,7 @@ Rails.application.routes.draw do
   # checkouts
   get 'checkout', to: "checkouts#show"
   resources :checkouts, only: [:show, :create]
-  get "/cart", to: "carts#show", as: "my_cart"
+  get "/cart", to: "carts#show", as: "my_public_cart"
 
   #Public places
   resources :places, only: [:show, :index] do
@@ -35,6 +35,7 @@ Rails.application.routes.draw do
     resources :products
     get "/cart", to: "carts#show", as: "my_cart"
     post "/cart", to: "carts#create_charge", as: "create_charge"
+    put "/cart/payment-method", to: "carts#payment_method", as: "update_payment_method"
   end
 
   # Dashboard

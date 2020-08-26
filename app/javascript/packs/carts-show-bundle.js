@@ -1,8 +1,8 @@
 import {loadStripe} from '@stripe/stripe-js';
 
+
 document.addEventListener("turbolinks:load", async () => {
     const stripe = await loadStripe('pk_test_2cj88edK605KUkkoRWBH67gq007NzYIttB');
-
     var elements = stripe.elements();
 
 // Custom styling can be passed to options when creating an Element.
@@ -42,6 +42,7 @@ document.addEventListener("turbolinks:load", async () => {
 // Handle form submission.
     var form = document.getElementById('payment-form');
     form.addEventListener('submit', function (event) {
+        console.log("HOLA");
         event.preventDefault();
 
         stripe.createToken(card).then(function (result) {
