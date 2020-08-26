@@ -45,10 +45,10 @@
       </div>
       <form action="/charge" method="post" id="payment-form" class="w-full flex flex-wrap <%= @current_cart.payment_type === "card" ? "" : "hidden" %>">
         <div class="w-full">
-          <label for="card-element">
+          <label for="card-element" class="text-sm text-gray-600">
             Credit or debit card
           </label>
-          <div id="card-element">
+          <div id="card-element" class="mt-2 bg-gray-200 p-4 rounded">
             <!-- A Stripe Element will be inserted here. -->
           </div>
 
