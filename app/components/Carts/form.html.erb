@@ -1,0 +1,94 @@
+<div class="w-9/12 flex-wrap flex mx-auto mt-8">
+  <div class="w-full flex gap-8 items-start">
+    <div class="w-8/12 flex flex-wrap">
+      <div class="w-full flex">
+        <% if @place.delivery_option %>
+          <div class="w-4/12">
+            <div
+              class="hover:border-black py-3 px-4 border border-transparent text-center cursor-pointer <%= if @current_cart.delivery_option
+                                                                                                             @current_cart.delivery_option.kind === "delivery" ? "bg-black text-white" : "bg-white text-black"
+                                                                                                           else
+                                                                                                             "bg-black text-white"
+                                                                                                           end %> font-normal">
+              Envío a domicilio
+            </div>
+          </div>
+        <% end %>
+        <div class="w-4/12">
+          <div class="hover:border-black py-3 px-4 font-normal text-center cursor-pointer <%= if @place.delivery_option
+                                                                                                if @current_cart.delivery_option
+                                                                                                  @current_cart.delivery_option.kind === "pickup" ? "bg-black text-white border border-black" : "bg-white border text-white border-gray-400"
+                                                                                                else
+                                                                                                  "bg-white border text-black border-gray-400"
+                                                                                                end
+                                                                                              else
+                                                                                                "bg-black text-white border border-black"
+                                                                                              end %>">
+            Recoger en tienda
+          </div>
+        </div>
+      </div>
+
+      <form action="/charge" method="post" id="payment-form" class="w-full flex flex-wrap">
+        <div class="w-full">
+          <label for="card-element">
+            Credit or debit card
+          </label>
+          <div id="card-element">
+            <!-- A Stripe Element will be inserted here. -->
+          </div>
+
+          <!-- Used to display form errors. -->
+          <div id="card-errors" role="alert"></div>
+        </div>
+
+        <div class="w-full mt-4">
+          <button class="bg-black text-white rounded py-2 px-6">Realizar pago</button>
+        </div>
+      </form>
+    </div>
+    <div class="w-4/12 flex flex-wrap">
+      <div class="w-full h-40 bg-gray-200">
+        <!--        MAPA-->
+      </div>
+      <div class="w-full mt-4">
+        <!--        Place information-->
+        <h3 class="font-bold">
+          <%= @place.name %>
+        </h3>
+        <h4 class="text-sm mt-1 text-gray-600">
+          <%= @place.address %>
+        </h4>
+      </div>
+      <div class="w-full flex items-start flex-wrap">
+
+        <div class="w-full flex items-center mt-4 justify-between">
+          <div class="w-7/12">
+            <p class="text-gray-600">Costo de los productos:</p>
+          </div>
+          <div class="w-4/12 flex justify-end">
+            <span class="font-bold text-sm"><%= number_to_currency(@total) %></span>
+          </div>
+        </div>
+
+        <div class="w-full items-center flex justify-between mt-4">
+          <div class="w-7/12">
+            <p class="text-gray-600">Envío:</p>
+          </div>
+          <div class="w-4/12 flex justify-end">
+            <span class="text-sm font-bold"><%= number_to_currency(@place.delivery_cost) %></span>
+          </div>
+        </div>
+
+        <div class="w-full flex items-center mt-4 justify-between">
+          <div class="w-7/12">
+            <p class="text-gray-600">Total:</p>
+          </div>
+          <div class="w-4/12 flex justify-end">
+            <span class="font-bold text-sm"><%= number_to_currency(@total + @place.delivery_cost) %></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

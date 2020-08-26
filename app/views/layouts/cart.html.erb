@@ -24,7 +24,9 @@
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
     <%= yield %>
-    <%= console %>
+    <% if params["console"].present? %>
+      <%= console %>
+    <% end %>
   </div>
 </div>
 </body>
