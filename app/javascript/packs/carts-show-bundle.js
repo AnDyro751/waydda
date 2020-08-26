@@ -13,13 +13,15 @@ function setMap() {
     var el = document.createElement('div');
     el.className = 'marker rounded-full';
     el.style.backgroundImage =
-        `url(${document.querySelector("[name='place_image_url']").content})`;
+        `url(https://d1nrrr6y3ujrjz.cloudfront.net/eyJidWNrZXQiOiJ3YXlkZGEtcXIiLCJrZXkiOiJ1dGlscy93LWxvZ28tNS5wbmciLCJlZGl0cyI6eyJyZXNpemUiOnsid2lkdGgiOjEwMCwiaGVpZ2h0IjoyMCwiZml0Ijoib3V0c2lkZSJ9fX0=)`;
     el.style.width = '38px';
     el.style.height = '38px';
+    el.style.backgroundSize = "cover";
     el.style.backgroundPosition = 'center';
     var elHouse = document.createElement("div");
     elHouse.className = "marker";
     elHouse.style.width = '38px';
+    elHouse.style.backgroundSize = "cover";
     elHouse.style.height = '38px';
     elHouse.style.backgroundPosition = 'center';
 

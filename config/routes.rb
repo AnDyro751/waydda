@@ -31,7 +31,7 @@ Rails.application.routes.draw do
   #Public places
   resources :places, only: [:show, :index] do
     get "/catalog", to: "places#catalog", as: :catalog
-    put 'delivery-options', to: "delivery_options#update"
+    put '/:cart_id/delivery-options', to: "delivery_options#update", as: "delivery_options"
     resources :products
     get "/cart", to: "carts#show", as: "my_cart"
     post "/cart", to: "carts#create_charge", as: "create_charge"

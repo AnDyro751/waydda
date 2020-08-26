@@ -9,6 +9,10 @@ es:
   mongoid:
     errors:
       models:
+        delivery_option:
+          attributes:
+            kind:
+              inclusion: "El valor no está permitido"
         user:
           name:
             blank: "El nombre no puede estar vacío"

@@ -2,6 +2,16 @@
 //TODO: Mostrar errores
 console.log("ERRORES")
 <% else %>
+<% if @big %>
+<% if @delivery_option.kind === "delivery" %>
+document.querySelector("#delivery-address").classList.remove("hidden");
+document.querySelector("#pickup-address").classList.add("hidden");
+<% else %>
+document.querySelector("#delivery-address").classList.add("hidden");
+document.querySelector("#pickup-address").classList.remove("hidden");
+<% end %>
+//TODO: Hacer toogle de los botones
+<% else %>
 <% if @delivery_option.kind === "delivery" %>
 document.querySelector("#menu-pickup").classList.remove("border-b-2");
 document.querySelector("#menu-pickup").classList.remove("border-green-600");
@@ -10,5 +20,6 @@ document.querySelector("#menu-delivery").className += " border-b-2 border-green-
 document.querySelector("#menu-delivery").classList.remove("border-b-2");
 document.querySelector("#menu-delivery").classList.remove("border-green-600");
 document.querySelector("#menu-pickup").className += " border-b-2 border-green-600";
+<% end %>
 <% end %>
 <% end %>

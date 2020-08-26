@@ -5,6 +5,10 @@ class CartsController < ApplicationController
   skip_before_action :verify_authenticity_token, only: [:update_item, :add_product]
 
 
+  def delivery_option
+
+  end
+
   def payment_method
     @place = Place.find_by(id: params["place_id"]) || not_found
     respond_to do |format|

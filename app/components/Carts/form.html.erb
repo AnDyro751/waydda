@@ -4,42 +4,74 @@
       <div class="w-full flex">
         <% if @place.delivery_option %>
           <div class="w-4/12">
-            <div
-              class="hover:border-black py-3 px-4 border border-transparent text-center cursor-pointer <%= if @current_cart.delivery_option
-                                                                                                             @current_cart.delivery_option.kind === "delivery" ? "bg-black text-white" : "bg-white text-black"
-                                                                                                           else
-                                                                                                             "bg-black text-white"
-                                                                                                           end %> font-normal">
-              Envío a domicilio
-            </div>
+            <%= button_to "Envío a domicilio",
+                          place_delivery_options_path(@place.slug, @current_cart),
+                          remote: true,
+                          data: {"disable-with": "Actualizando..."},
+                          params: {to_state: "delivery", size: "big"},
+                          method: :put,
+                          class: "hover:border-black w-full focus:outline-none py-3 px-4 border font-normal border-transparent text-center cursor-pointer #{
+                          if @current_cart.delivery_option
+                            @current_cart.delivery_option.kind === "delivery" ? "bg-black text-white" : "bg-white text-black"
+                          else
+                            "bg-black text-white"
+                          end}" %>
           </div>
         <% end %>
         <div class="w-4/12">
-          <div class="hover:border-black py-3 px-4 font-normal text-center cursor-pointer <%= if @place.delivery_option
-                                                                                                if @current_cart.delivery_option
-                                                                                                  @current_cart.delivery_option.kind === "pickup" ? "bg-black text-white border border-black" : "bg-white border text-white border-gray-400"
-                                                                                                else
-                                                                                                  "bg-white border text-black border-gray-400"
-                                                                                                end
-                                                                                              else
-                                                                                                "bg-black text-white border border-black"
-                                                                                              end %>">
-            Recoger en tienda
-          </div>
+
+          <% if @place.delivery_option %>
+            <%= button_to "Recoger en tienda",
+                          place_delivery_options_path(@place.slug, @current_cart),
+                          data: {"disable-with": "Actualizando..."},
+                          remote: true,
+                          params: {to_state: "pickup", size: "big"},
+                          method: :put,
+                          class: "hover:border-black w-full focus:outline-none py-3 px-4 font-normal text-center cursor-pointer #{
+                          if @place.delivery_option
+                            if @current_cart.delivery_option
+                              @current_cart.delivery_option.kind === "pickup" ? "bg-black text-white" : "bg-white text-black"
+                            else
+                              "bg-black text-white"
+                            end
+                          else
+                            "bg-black text-white"
+                          end
+                          }" %>
+          <% else %>
+            <div class="hover:border-black w-full focus:outline-none py-3 px-4 font-normal text-center bg-black text-white">
+              Recoger en tienda
+            </div>
+          <% end %>
         </div>
       </div>
       <% if @current_address %>
         <div class="w-full mt-10 px-4 py-6 rounded bg-white <%= if @current_cart.delivery_option
-                                      @current_cart.delivery_option === "delivery" ? "" : "hidden"
-                                    else
-                                      ""
-                                    end %>" id="delivery-address">
+                                                                  @current_cart.delivery_option.kind === "delivery" ? "" : "hidden"
+                                                                else
+                                                                  ""
+                                                                end %>" id="delivery-address">
           <h3 class="font-bold text-sm">
             Dirección de entrega
           </h3>
           <h2
             title="<%= @current_address.address %>"
-            class="text-2xl truncate font-bold mt-8"><%= @current_address.address %></h2>
+            class="text-2xl font-bold mt-8"><%= @current_address.address %></h2>
+        </div>
+      <% end %>
+
+      <% if @current_cart.delivery_option %>
+        <div class="w-full mt-10 px-4 py-6 rounded bg-white <%= if @current_cart.delivery_option
+                                                                  @current_cart.delivery_option.kind === "pickup" ? "" : "hidden"
+                                                                else
+                                                                  ""
+                                                                end %>" id="pickup-address">
+          <h3 class="font-bold text-sm">
+            Recoger pedido en:
+          </h3>
+          <h2
+            title="<%= @place.address %>"
+            class="text-2xl font-bold mt-8"><%= @place.address %></h2>
         </div>
       <% end %>
       <div class="w-full px-4 py-6 flex flex-wrap items-center mt-8 bg-white rounded">
