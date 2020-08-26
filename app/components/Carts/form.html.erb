@@ -29,18 +29,22 @@
         </div>
       </div>
       <% if @current_address %>
-        <%= simple_form_for(@current_address, html: {class: "w-full mt-8"}) do |f| %>
-          <%= f.input :address, label: "Dirección de entrega", label_html: {class: "w-full text-sm font-normal text-gray-600"}, input_html: {class: "py-3 px-3 bg-white border-gray-400 border appearance-none focus:border-black rounded focus:outline-none w-full mt-2 mb-4"} %>
-        <% end %>
-      <% end %>
-      <div class="w-full flex flex-wrap" id="delivery-form">
-        <div class="w-full">
-
+        <div class="w-full mt-10 px-4 py-6 rounded bg-white <%= if @current_cart.delivery_option
+                                      @current_cart.delivery_option === "delivery" ? "" : "hidden"
+                                    else
+                                      ""
+                                    end %>" id="delivery-address">
+          <h3 class="font-bold text-sm">
+            Dirección de entrega
+          </h3>
+          <h2
+            title="<%= @current_address.address %>"
+            class="text-2xl truncate font-bold mt-8"><%= @current_address.address %></h2>
         </div>
-      </div>
-      <div class="w-full py-4 flex items-center">
+      <% end %>
+      <div class="w-full px-4 py-6 flex flex-wrap items-center mt-8 bg-white rounded">
         <div class="w-5/12">
-          <p class="font-bold">Método de pago</p>
+          <h3 class="font-bold text-sm">Método de pago</h3>
           <!--          <div clas ></div>-->
         </div>
         <div class="w-7/12 flex items-center gap-4 justify-end">
@@ -51,24 +55,25 @@
             <%= button_to "Cambiar", place_update_payment_method_path(@place.id), data: {"disable-with": "Actualizando..."}, params: {to_state: @current_cart.payment_type === "card" ? "cash" : "card"}, remote: true, method: :put, class: "bg-green-700 py-2 px-6 text-white rounded-lg cursor-pointer focus:outline-none" %>
           </div>
         </div>
-      </div>
-      <form action="/charge" method="post" id="payment-form" class="w-full flex flex-wrap <%= @current_cart.payment_type === "card" ? "" : "hidden" %>">
-        <div class="w-full">
-          <label for="card-element" class="text-sm text-gray-600">
-            Tarjeta de crédito o débito
-          </label>
-          <div id="card-element" class="mt-2 bg-gray-200 p-4 rounded">
-            <!-- A Stripe Element will be inserted here. -->
+        <form action="/charge" method="post" id="payment-form" class="w-full flex flex-wrap mt-4 <%= @current_cart.payment_type === "card" ? "" : "hidden" %>">
+          <div class="w-full">
+            <label for="card-element" class="text-sm text-gray-600">
+              Tarjeta de crédito o débito
+            </label>
+            <div id="card-element" class="mt-2 bg-gray-200 p-4 rounded">
+              <!-- A Stripe Element will be inserted here. -->
+            </div>
+
+            <!-- Used to display form errors. -->
+            <div id="card-errors" role="alert"></div>
           </div>
 
-          <!-- Used to display form errors. -->
-          <div id="card-errors" role="alert"></div>
-        </div>
+          <div class="w-full mt-12 flex justify-end">
+            <button class="bg-black text-white rounded py-3 px-10">Realizar pago</button>
+          </div>
+        </form>
+      </div>
 
-        <div class="w-full mt-12 flex justify-end">
-          <button class="bg-black text-white rounded py-3 px-10">Realizar pago</button>
-        </div>
-      </form>
     </div>
     <%= render Carts::Sidebar.new(place: @place, total: @total) %>
   </div>

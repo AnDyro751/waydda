@@ -63,11 +63,11 @@ document.addEventListener("turbolinks:load", () => {
     var class_element = document.querySelector("#flash-notice");
     if (class_element) {
         class_element.addEventListener("click", () => {
-            class_element.classList.add("translate-y-full");
+            class_element.classList.add("translate-y-full-custom");
         }, false)
         setTimeout(() => {
             if (class_element) {
-                class_element.classList.add("translate-y-full");
+                class_element.classList.add("translate-y-full-custom");
             }
         }, 5000)
     }

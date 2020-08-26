@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html style="background: #f5f5f3">
 <head>
   <title>Carrito | Waydda</title>
   <%= csrf_meta_tags %>
@@ -7,6 +7,11 @@
   <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
   <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   <%= javascript_pack_tag 'carts-show-bundle', 'data-turbolinks-track': 'reload', :defer => "defer" %>
+
+  <meta name="place_image_url" content="<%= get_image_url(50, 50, @place.photo) %>"/>
+  <meta name="place_lat" content="<%= @place.lat %>"/>
+  <meta name="place_lng" content="<%= @place.lng %>"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <link rel="preconnect" href="https://d1nrrr6y3ujrjz.cloudfront.net" crossOrigin/>
   <link rel="dns-prefetch" href="https://d1nrrr6y3ujrjz.cloudfront.net"/>
   <link rel="preconnect" href="https://fonts.googleapis.com" crossOrigin/>
@@ -18,7 +23,7 @@
 
 </head>
 
-<body>
+<body style="background: #f5f5f3">
 <div class="grid grid-cols-12">
   <div class="col-span-12">
     <p class="notice"><%= notice %></p>

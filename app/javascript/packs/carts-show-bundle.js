@@ -1,9 +1,29 @@
 import {loadStripe} from '@stripe/stripe-js';
-import GetAddresses from "../lib/getAddresses";
+import mapboxgl from 'mapbox-gl';
 
+function setMap() {
+    mapboxgl.accessToken = 'pk.eyJ1IjoiYW5keXJvaG0iLCJhIjoiY2p6NmRldzJjMGsyMzNpbjJ0YjZjZjV5NSJ9.SeHsvxUe4-pszVk0B4gRAQ';
+    const map = new mapboxgl.Map({
+        container: 'address-map',
+        style: 'mapbox://styles/mapbox/streets-v11', // stylesheet location
+        center: [document.querySelector("[name='place_lng']").content, document.querySelector("[name='place_lat']").content], // starting position [lng, lat]
+        zoom: 14
+    });
+
+    var el = document.createElement('div');
+    el.className = 'marker shadow-lg rounded-full';
+    el.style.backgroundImage =
+        `url(${document.querySelector("[name='place_image_url']").content})`;
+    el.style.width = '50px';
+    el.style.height = '50px';
+    var marker = new mapboxgl.Marker(el)
+        .setLngLat([document.querySelector("[name='place_lng']").content, document.querySelector("[name='place_lat']").content])
+        .addTo(map);
+
+}
 
 document.addEventListener("turbolinks:load", async () => {
-    GetAddresses();
+    setMap()
     const stripe = await loadStripe('pk_test_2cj88edK605KUkkoRWBH67gq007NzYIttB');
     var elements = stripe.elements();
 
