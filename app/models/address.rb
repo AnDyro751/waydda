@@ -39,8 +39,11 @@ class Address
   def coordinated_validation
     if lat.present? && lng.present?
       # Hacer la petición a mapbox
-      Address.current_available?([lat, lng], ["MX-MEX", "MX-DIF"])
-
+      response = Address.current_available?([lat, lng], %w[MX-MEX MX-DIF])
+      unless response
+        errors.add(:lng, "Los valores son incorrectos")
+        errors.add(:lat, "Los valores son incorrectos")
+      end
     else
       errors.add(:lng, "Can't be blank")
       errors.add(:lat, "Can't be blank")
@@ -76,13 +79,17 @@ class Address
     return false unless location.kind_of?(Array)
     placenames = Mapbox::Geocoder
                      .geocode_reverse({
-                                          "latitude": search_param[1],
-                                          "longitude": search_param[0],
+                                          "latitude": search_param[0],
+                                          "longitude": search_param[1],
                                           limit: 1
                                       })
     return false if placenames.first.nil?
     features = placenames.first["features"]
-    str = features.first["context"].find { |el| el["id"].include?("region") }
+    if features.length > 0
+      str = features.first["context"].find { |el| el["id"].include?("region") }
+    else
+      return false
+    end
     if str
       return location.any? { |word| str["short_code"].include?(word) }
     else
@@ -103,7 +110,6 @@ class Address
     if placenames.first
       features = placenames.first["features"]
       begin
-        puts features.first["context"]
         return features.first["place_name"]
       rescue => e
         return nil

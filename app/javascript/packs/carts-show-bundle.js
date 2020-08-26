@@ -11,13 +11,25 @@ function setMap() {
     });
 
     var el = document.createElement('div');
-    el.className = 'marker shadow-lg rounded-full';
+    el.className = 'marker rounded-full';
     el.style.backgroundImage =
         `url(${document.querySelector("[name='place_image_url']").content})`;
-    el.style.width = '50px';
-    el.style.height = '50px';
+    el.style.width = '38px';
+    el.style.height = '38px';
+    el.style.backgroundPosition = 'center';
+    var elHouse = document.createElement("div");
+    elHouse.className = "marker";
+    elHouse.style.width = '38px';
+    elHouse.style.height = '38px';
+    elHouse.style.backgroundPosition = 'center';
+
+    elHouse.style.backgroundImage = "url(https://img.icons8.com/cotton/64/000000/dog-house--v1.png)";
+
     var marker = new mapboxgl.Marker(el)
         .setLngLat([document.querySelector("[name='place_lng']").content, document.querySelector("[name='place_lat']").content])
+        .addTo(map);
+    new mapboxgl.Marker(elHouse)
+        .setLngLat([document.querySelector("[name='address_lng']").content, document.querySelector("[name='address_lat']").content])
         .addTo(map);
 
 }

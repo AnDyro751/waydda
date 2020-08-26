@@ -11,6 +11,10 @@
   <meta name="place_image_url" content="<%= get_image_url(50, 50, @place.photo) %>"/>
   <meta name="place_lat" content="<%= @place.lat %>"/>
   <meta name="place_lng" content="<%= @place.lng %>"/>
+  <% if @current_address %>
+    <meta name="address_lat" content="<%= @current_address.lat %>"/>
+    <meta name="address_lng" content="<%= @current_address.lng %>"/>
+  <% end %>
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <link rel="preconnect" href="https://d1nrrr6y3ujrjz.cloudfront.net" crossOrigin/>
   <link rel="dns-prefetch" href="https://d1nrrr6y3ujrjz.cloudfront.net"/>
