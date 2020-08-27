@@ -19,22 +19,21 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b89cb0fb-b680-4bb9-8ae0-f4b41721cfb9" name="Default Changelist" comment="refactor(Cart): Mostramos la información en el mapa, solo es cuestión de mostrar el place cuando se va a ir a recoger en lugar de deliver">
+    <list default="true" id="b89cb0fb-b680-4bb9-8ae0-f4b41721cfb9" name="Default Changelist" comment="refactor(Cart): Hacemos toogle de la información del carrito para la entrega del producto.&#10;Mostramos el delivery address cuando se va a envíar a domicilio y la dirección para recoger cuando se va a recoger">
+      <change afterPath="$PROJECT_DIR$/app/components/Carts/item.html.erb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/components/Carts/item.rb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/components/Products/public_item.html.erb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/components/Products/public_item.rb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/components/Carts/form.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/components/Carts/form.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/components/Places/menu.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/components/Places/menu.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/components/Places/menu.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/components/Places/menu.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/components/Places/presentation.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/components/Places/presentation.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/components/Places/presentation.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/components/Places/presentation.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/components/Carts/sidebar.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/components/Carts/sidebar.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/components/Carts/sidebar.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/components/Carts/sidebar.rb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/controllers/carts_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/carts_controller.rb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/controllers/delivery_options_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/delivery_options_controller.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/javascript/packs/carts-show-bundle.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/javascript/packs/carts-show-bundle.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/place.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/place.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/users/omniauth_callbacks_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/users/omniauth_callbacks_controller.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/checkout.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/checkout.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/carts/payment_method.js.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/carts/payment_method.js.erb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/views/delivery_options/update.js.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/delivery_options/update.js.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/places/catalog.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/places/catalog.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/places/show.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/places/show.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/locales/es.yml" beforeDir="false" afterPath="$PROJECT_DIR$/config/locales/es.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/routes.rb" beforeDir="false" afterPath="$PROJECT_DIR$/config/routes.rb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -201,14 +200,8 @@
       <workItem from="1598128239768" duration="23917000" />
       <workItem from="1598239761227" duration="16203000" />
       <workItem from="1598326081992" duration="27868000" />
-      <workItem from="1598410984451" duration="21225000" />
-    </task>
-    <task id="LOCAL-00011" summary="refactor(Input): Se agregó un prop para agregar clases personalizadas al input">
-      <created>1597857012876</created>
-      <option name="number" value="00011" />
-      <option name="presentableId" value="LOCAL-00011" />
-      <option name="project" value="LOCAL" />
-      <updated>1597857012876</updated>
+      <workItem from="1598410984451" duration="21935000" />
+      <workItem from="1598501301306" duration="3980000" />
     </task>
     <task id="LOCAL-00012" summary="feat(Address): Ya agregamos el address a la sesión">
       <created>1597881113595</created>
@@ -546,7 +539,14 @@
       <option name="project" value="LOCAL" />
       <updated>1598479250485</updated>
     </task>
-    <option name="localTasksCounter" value="60" />
+    <task id="LOCAL-00060" summary="refactor(Cart): Hacemos toogle de la información del carrito para la entrega del producto.&#10;Mostramos el delivery address cuando se va a envíar a domicilio y la dirección para recoger cuando se va a recoger">
+      <created>1598484443702</created>
+      <option name="number" value="00060" />
+      <option name="presentableId" value="LOCAL-00060" />
+      <option name="project" value="LOCAL" />
+      <updated>1598484443702</updated>
+    </task>
+    <option name="localTasksCounter" value="61" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -566,7 +566,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="feat(Place): Agregamos la opción de delivery para que la empresa pueda ofrecer envios" />
     <MESSAGE value="feat(Dashboard): Creamos el formulario para editar la empresa y que seleccione sus opciones de envío" />
     <MESSAGE value="feat(Place): Agregamos al menú la opción de pasillos dónde vamos a mostrar los pasillos" />
     <MESSAGE value="feat(Place): Agregamos el delivery options a todas las páginas del place" />
@@ -591,7 +590,8 @@
     <MESSAGE value="refactor(Cart): Hace la petición bien" />
     <MESSAGE value="refactor(Cart): Mostramos toda la información real del place y del carrito. Solo falta mostrar los items que se van a pagar y cambiar la opción para el delivery. Recoger en tienda o dirección de entrega" />
     <MESSAGE value="refactor(Cart): Mostramos la información en el mapa, solo es cuestión de mostrar el place cuando se va a ir a recoger en lugar de deliver" />
-    <option name="LAST_COMMIT_MESSAGE" value="refactor(Cart): Mostramos la información en el mapa, solo es cuestión de mostrar el place cuando se va a ir a recoger en lugar de deliver" />
+    <MESSAGE value="refactor(Cart): Hacemos toogle de la información del carrito para la entrega del producto.&#10;Mostramos el delivery address cuando se va a envíar a domicilio y la dirección para recoger cuando se va a recoger" />
+    <option name="LAST_COMMIT_MESSAGE" value="refactor(Cart): Hacemos toogle de la información del carrito para la entrega del producto.&#10;Mostramos el delivery address cuando se va a envíar a domicilio y la dirección para recoger cuando se va a recoger" />
   </component>
   <component name="WindowStateProjectService">
     <state x="515" y="239" key="#Other_File_Types" timestamp="1597960931507">
@@ -610,22 +610,22 @@
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="463" y="139" key="FileChooserDialogImpl/0.0.1366.768@0.0.1366.768" timestamp="1597589387085" />
-    <state width="1323" height="192" key="GridCell.Tab.0.bottom" timestamp="1597951036767">
+    <state width="1323" height="192" key="GridCell.Tab.0.bottom" timestamp="1598492691952">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state width="1323" height="192" key="GridCell.Tab.0.bottom/0.0.1366.768@0.0.1366.768" timestamp="1597951036767" />
-    <state width="1323" height="192" key="GridCell.Tab.0.center" timestamp="1597951036766">
+    <state width="1323" height="192" key="GridCell.Tab.0.bottom/0.0.1366.768@0.0.1366.768" timestamp="1598492691952" />
+    <state width="1323" height="192" key="GridCell.Tab.0.center" timestamp="1598492691951">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state width="1323" height="192" key="GridCell.Tab.0.center/0.0.1366.768@0.0.1366.768" timestamp="1597951036766" />
-    <state width="1323" height="192" key="GridCell.Tab.0.left" timestamp="1597951036766">
+    <state width="1323" height="192" key="GridCell.Tab.0.center/0.0.1366.768@0.0.1366.768" timestamp="1598492691951" />
+    <state width="1323" height="192" key="GridCell.Tab.0.left" timestamp="1598492691951">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state width="1323" height="192" key="GridCell.Tab.0.left/0.0.1366.768@0.0.1366.768" timestamp="1597951036766" />
-    <state width="1323" height="192" key="GridCell.Tab.0.right" timestamp="1597951036766">
+    <state width="1323" height="192" key="GridCell.Tab.0.left/0.0.1366.768@0.0.1366.768" timestamp="1598492691951" />
+    <state width="1323" height="192" key="GridCell.Tab.0.right" timestamp="1598492691951">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state width="1323" height="192" key="GridCell.Tab.0.right/0.0.1366.768@0.0.1366.768" timestamp="1597951036766" />
+    <state width="1323" height="192" key="GridCell.Tab.0.right/0.0.1366.768@0.0.1366.768" timestamp="1598492691951" />
     <state x="518" y="173" key="RollbackChangesDialog" timestamp="1598294478879">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
@@ -648,25 +648,25 @@
       <screen x="1366" y="-69" width="1920" height="1080" />
     </state>
     <state x="2142" y="392" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1366.768/1366.-69.1920.1080@1366.-69.1920.1080" timestamp="1597712613222" />
-    <state x="390" y="117" width="585" height="624" key="find.popup" timestamp="1598483581683">
+    <state x="390" y="117" width="585" height="624" key="find.popup" timestamp="1598505217911">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="1914" y="96" width="823" height="878" key="find.popup/0.0.1366.768/1366.-69.1920.1080@1366.-69.1920.1080" timestamp="1597716285449" />
     <state x="1754" y="117" width="583" height="624" key="find.popup/0.0.1366.768/1366.0.1360.768@1366.0.1360.768" timestamp="1598230410609" />
-    <state x="390" y="117" width="585" height="624" key="find.popup/0.0.1366.768@0.0.1366.768" timestamp="1598483581683" />
+    <state x="390" y="117" width="585" height="624" key="find.popup/0.0.1366.768@0.0.1366.768" timestamp="1598505217911" />
     <state x="549" y="254" width="250" height="278" key="jetbrains.javascript.buildTools.run-task-popup" timestamp="1597946321130">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="549" y="254" width="250" height="278" key="jetbrains.javascript.buildTools.run-task-popup/0.0.1366.768@0.0.1366.768" timestamp="1597946321130" />
-    <state x="339" y="174" width="672" height="677" key="run.anything.popup" timestamp="1598462327846">
+    <state x="339" y="174" width="672" height="677" key="run.anything.popup" timestamp="1598503032264">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state x="339" y="174" width="672" height="677" key="run.anything.popup/0.0.1366.768@0.0.1366.768" timestamp="1598462327846" />
-    <state x="346" y="89" width="672" height="678" key="search.everywhere.popup" timestamp="1598483596708">
+    <state x="339" y="174" width="672" height="677" key="run.anything.popup/0.0.1366.768@0.0.1366.768" timestamp="1598503032264" />
+    <state x="346" y="89" width="672" height="678" key="search.everywhere.popup" timestamp="1598505283385">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="1852" y="56" width="945" height="954" key="search.everywhere.popup/0.0.1366.768/1366.-69.1920.1080@1366.-69.1920.1080" timestamp="1597715976170" />
     <state x="1710" y="89" width="672" height="678" key="search.everywhere.popup/0.0.1366.768/1366.0.1360.768@1366.0.1360.768" timestamp="1598230246430" />
-    <state x="346" y="89" width="672" height="678" key="search.everywhere.popup/0.0.1366.768@0.0.1366.768" timestamp="1598483596708" />
+    <state x="346" y="89" width="672" height="678" key="search.everywhere.popup/0.0.1366.768@0.0.1366.768" timestamp="1598505283385" />
   </component>
 </project>

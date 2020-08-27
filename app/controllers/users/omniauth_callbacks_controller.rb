@@ -9,7 +9,7 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
         user_cart = @user.cart
         if user_cart
           # TODO: Hacer refactor de este código, mandarlo en un job o en un callback y poner lo mismo a google y al login normal
-          items = @current_cart.cart_items.where(added_in: false).includes(:model)
+          items = @current_cart.cart_items.where(added_in: false).includes(:product)
           session[:cart_id] = user_cart.id.to_s
           @current_cart = user_cart
           items.each do |item|

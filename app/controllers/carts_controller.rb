@@ -1,5 +1,6 @@
 class CartsController < ApplicationController
   layout "cart"
+  before_action :authenticate_user!
   Stripe.api_key = 'sk_test_51H9CZeBOcPJ0nbHctTzfQZhFXBnn8j05e0xqJ5RSVz5Bum72LsvmQKIecJnsoHISEg0jUWtKjERYGeCAEWiIAujP00Fae9MiKm'
   before_action :set_current_cart, only: [:create_charge, :add_product, :payment_method]
   skip_before_action :verify_authenticity_token, only: [:update_item, :add_product]
@@ -15,7 +16,6 @@ class CartsController < ApplicationController
       if @current_cart.update(payment_type: params["to_state"])
         format.js {}
       else
-        puts "---------#{@current_cart.errors.full_messages}"
         format.html { redirect_to root_path, status: :unprocessable_entity, alert: "Ha ocurrido un error al actualizar el carrito" }
       end
     end
@@ -53,7 +53,7 @@ class CartsController < ApplicationController
 
 
   def create_charge
-    @items = @current_cart.cart_items.includes(:model).to_a
+    @items = @current_cart.cart_items.includes(:product).to_a
     @total = Cart.get_total(@items)
     respond_to do |format|
       if @current_address.nil?

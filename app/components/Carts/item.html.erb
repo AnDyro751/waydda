@@ -1,0 +1,20 @@
+<div class="w-full mb-4 flex items-center">
+  <div class="w-8/12 truncate">
+    <h5 class="font-normal text-sm truncate">
+      <%= @cart_item.product.name %>
+    </h5>
+    <h6 class="mt-1 text-xs text-gray-600 truncate">
+      <%= @cart_item.product.description %>
+    </h6>
+  </div>
+  <div class="w-4/12 flex items-center gap-4">
+    <div class="w-6/12 text-center flex justify-center">
+      <p class="border border-gray-400 h-8 w-8 rounded flex justify-center items-center" ><%= @cart_item.quantity %></p>
+    </div>
+    <div class="w-6/12 text-center">
+      <span class="text-xs text-gray-600" >
+        <%= number_to_currency(@cart_item.quantity * @cart_item.product.price) %>
+      </span>
+    </div>
+  </div>
+</div>

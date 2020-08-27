@@ -1,6 +1,5 @@
-var element = document.querySelector("input[name='to_state']")
+var element = document.querySelector("#select-payment-method input[name='to_state']")
 if (element) {
-    console.log(element.value)
     if (element.value === "card") {
         document.querySelector("#payment-form").classList.remove("hidden")
     } else {

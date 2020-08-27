@@ -5,6 +5,7 @@ class DeliveryOptionsController < ApplicationController
   def update
     respond_to do |format|
       @big = params["size"].present?
+      @total = Cart.get_total(@current_cart.cart_items.includes(:product))
       unless params["to_state"].present?
         format.html { redirect_to place_path(@place.slug), alert: "Ha ocurrido un error" }
       end
@@ -25,11 +26,11 @@ class DeliveryOptionsController < ApplicationController
 
 
   def set_delivery_option
-    current_cart = Cart.find_by(id: params["cart_id"])
-    not_found if current_cart.nil?
-    @delivery_option = current_cart.delivery_option
+    @current_cart = Cart.find_by(id: params["cart_id"])
+    not_found if @current_cart.nil?
+    @delivery_option = @current_cart.delivery_option
     if @delivery_option.nil?
-      @delivery_option = current_cart.create_delivery_option
+      @delivery_option = @current_cart.create_delivery_option
     end
   end
 

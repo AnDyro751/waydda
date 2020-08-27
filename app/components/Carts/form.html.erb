@@ -1,4 +1,4 @@
-<div class="w-9/12 flex-wrap flex mx-auto mt-8">
+<div class="w-9/12 flex-wrap flex mx-auto mt-8 mb-24">
   <div class="w-full flex gap-8 items-start">
     <div class="w-8/12 flex flex-wrap">
       <div class="w-full flex">
@@ -10,6 +10,7 @@
                           data: {"disable-with": "Actualizando..."},
                           params: {to_state: "delivery", size: "big"},
                           method: :put,
+                          id: "delivery-button",
                           class: "hover:border-black w-full focus:outline-none py-3 px-4 border font-normal border-transparent text-center cursor-pointer #{
                           if @current_cart.delivery_option
                             @current_cart.delivery_option.kind === "delivery" ? "bg-black text-white" : "bg-white text-black"
@@ -25,9 +26,10 @@
                           place_delivery_options_path(@place.slug, @current_cart),
                           data: {"disable-with": "Actualizando..."},
                           remote: true,
+                          id: "pickup-button",
                           params: {to_state: "pickup", size: "big"},
                           method: :put,
-                          class: "hover:border-black w-full focus:outline-none py-3 px-4 font-normal text-center cursor-pointer #{
+                          class: "hover:border-black w-full focus:outline-none border border-transparent py-3 px-4 font-normal text-center cursor-pointer #{
                           if @place.delivery_option
                             if @current_cart.delivery_option
                               @current_cart.delivery_option.kind === "pickup" ? "bg-black text-white" : "bg-white text-black"
@@ -74,16 +76,24 @@
             class="text-2xl font-bold mt-8"><%= @place.address %></h2>
         </div>
       <% end %>
+      <div class="w-full py-6 px-4 mt-10 bg-white rounded flex flex-wrap">
+        <h3 class="font-bold text-sm mb-8">
+          Productos en el carrito
+        </h3>
+        <% @cart_items.each do |ci| %>
+          <%= render Carts::Item.new(cart_item: ci) %>
+        <% end %>
+      </div>
       <div class="w-full px-4 py-6 flex flex-wrap items-center mt-8 bg-white rounded">
-        <div class="w-5/12">
+        <div class="w-4/12">
           <h3 class="font-bold text-sm">Método de pago</h3>
           <!--          <div clas ></div>-->
         </div>
-        <div class="w-7/12 flex items-center gap-4 justify-end">
+        <div class="w-8/12 flex items-center gap-4 justify-end">
           <div class="w-auto">
-            <span id="payment-selected" class="font-bold"><%= @current_cart.payment_type === "card" ? "Tarjeta de crédito/débito" : "Efectivo" %></span>
+            <span id="payment-selected" class="font-bold select-none"><%= @current_cart.payment_type === "card" ? "Tarjeta de crédito/débito" : "Efectivo" %></span>
           </div>
-          <div class="w-auto">
+          <div class="w-auto" id="select-payment-method">
             <%= button_to "Cambiar", place_update_payment_method_path(@place.id), data: {"disable-with": "Actualizando..."}, params: {to_state: @current_cart.payment_type === "card" ? "cash" : "card"}, remote: true, method: :put, class: "bg-green-700 py-2 px-6 text-white rounded-lg cursor-pointer focus:outline-none" %>
           </div>
         </div>
@@ -93,10 +103,10 @@
               Tarjeta de crédito o débito
             </label>
             <div id="card-element" class="mt-2 bg-gray-200 p-4 rounded">
-              <!-- A Stripe Element will be inserted here. -->
+              <!-- a stripe element will be inserted here. -->
             </div>
 
-            <!-- Used to display form errors. -->
+            <!-- used to display form errors. -->
             <div id="card-errors" role="alert"></div>
           </div>
 
@@ -106,7 +116,11 @@
         </form>
       </div>
 
+      <div class="w-full mt-12 flex justify-end">
+        <button class="bg-black text-white rounded py-3 px-10">Realizar pago</button>
+      </div>
+
     </div>
-    <%= render Carts::Sidebar.new(place: @place, total: @total) %>
+    <%= render Carts::Sidebar.new(place: @place, total: @total, current_cart: @current_cart) %>
   </div>
 </div>

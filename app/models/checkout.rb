@@ -30,7 +30,7 @@ class Checkout
   # @return [Object] client_secret - Stripe
   def self.get_intent(current_cart)
     if current_cart.intent_id.nil?
-      items = current_cart.cart_items.includes(:model)
+      items = current_cart.cart_items.includes(:product)
       return Checkout.create_intent(items, current_cart)
     else
       return [current_cart.intent_id, current_cart.client_secret]

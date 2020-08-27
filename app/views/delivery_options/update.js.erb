@@ -4,9 +4,35 @@ console.log("ERRORES")
 <% else %>
 <% if @big %>
 <% if @delivery_option.kind === "delivery" %>
+// Remove styles
+//Button
+document.querySelector("#total-cost").innerHTML = "<%= number_to_currency(@total + @place.delivery_cost) %>"
+document.querySelector("#shipment-cost").innerHTML = "<%= number_to_currency(@place.delivery_cost) %>"
+document.querySelector("#delivery-button").classList.remove("bg-white");
+document.querySelector("#delivery-button").classList.remove("text-black");
+document.querySelector("#delivery-button").classList.add("bg-black");
+document.querySelector("#delivery-button").classList.add("text-white");
+
+document.querySelector("#pickup-button").classList.remove("text-white");
+document.querySelector("#pickup-button").classList.add("text-black");
+document.querySelector("#pickup-button").classList.add("bg-white");
+
+
 document.querySelector("#delivery-address").classList.remove("hidden");
 document.querySelector("#pickup-address").classList.add("hidden");
+
 <% else %>
+// Button
+document.querySelector("#total-cost").innerHTML = "<%= number_to_currency(@total) %>"
+document.querySelector("#shipment-cost").innerHTML = "<%= number_to_currency(0) %>"
+document.querySelector("#pickup-button").classList.remove("bg-white");
+document.querySelector("#pickup-button").classList.remove("text-black");
+document.querySelector("#pickup-button").classList.add("bg-black");
+document.querySelector("#pickup-button").classList.add("text-white");
+document.querySelector("#delivery-button").classList.add("text-black");
+document.querySelector("#delivery-button").classList.remove("text-white");
+document.querySelector("#delivery-button").classList.add("bg-white");
+
 document.querySelector("#delivery-address").classList.add("hidden");
 document.querySelector("#pickup-address").classList.remove("hidden");
 <% end %>
