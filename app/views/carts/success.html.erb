@@ -1,0 +1,16 @@
+<div class="items-center mt-12 flex justify-center flex-wrap">
+  <div class="w-full text-center">
+    <img
+      class="h-64 mx-auto mb-12"
+      src="<%= get_image_url(400, 800, "utils/kingdom-9.png") %>" alt="Success cart waydda">
+    <h1 class="text-4xl font-bold">Tu pedido se ha realizado con exito</h1>
+    <h2 class="text-lg font-normal text-gray-600 mt-3"><span class="text-black font-bold"><%= @place.name %></span> se
+      comunicará contigo en un instante</h2>
+    <h4 class="text-xs text-gray-500 mt-3">
+      Se ha enviado el comprobante a tu correo electrónico
+    </h4>
+  </div>
+  <div class="w-full mt-12 flex justify-center">
+    <%= link_to "Volver al inicio", root_path, class: "bg-black text-white py-3 px-10 rounded" %>
+  </div>
+</div>

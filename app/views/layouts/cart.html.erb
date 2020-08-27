@@ -32,6 +32,29 @@
   <div class="col-span-12">
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
+    <div class="py-3 bg-white border-b w-full">
+      <div class="w-9/12 flex mx-auto items-center justify-between">
+        <div class="w-auto">
+          <a href="/">
+            <img
+              class="h-10"
+              src="<%= get_image_url(20, 100, "utils/w-logo-5.png") %>" alt="">
+          </a>
+        </div>
+        <div class="w-auto">
+          <a href="/my-profile"
+             class="rounded-full"
+          >
+            <img
+              class="h-8 shadow-lg rounded-full"
+              alt="Waydda default profile photo"
+              src="<%= get_image_url(50, 50, "utils/icons8-test-account-96.png") %>"
+              title="Mi perfil"
+              />
+          </a>
+        </div>
+      </div>
+    </div>
     <%= yield %>
     <% if params["console"].present? %>
       <%= console %>

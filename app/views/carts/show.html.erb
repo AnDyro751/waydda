@@ -1,26 +1,4 @@
-<div class="py-3 bg-white border-b w-full">
-  <div class="w-9/12 flex mx-auto items-center justify-between">
-    <div class="w-auto">
-      <a href="/">
-        <img
-          class="h-10"
-          src="<%= get_image_url(20, 100, "utils/w-logo-5.png") %>" alt="">
-      </a>
-    </div>
-    <div class="w-auto">
-      <a href="/my-profile"
-         class="rounded-full"
-      >
-        <img
-          class="h-8 shadow-lg rounded-full"
-          alt="Waydda default profile photo"
-          src="<%= get_image_url(50, 50, "utils/icons8-test-account-96.png") %>"
-          title="Mi perfil"
-          />
-      </a>
-    </div>
-  </div>
-</div>
+
 
 <% if @cart_items.length <= 0 %>
   <div class="text-center mt-12 w-full">

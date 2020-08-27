@@ -96,7 +96,15 @@
           <div class="w-auto" id="select-payment-method">
             <%= button_to "Cambiar", place_update_payment_method_path(@place.id), data: {"disable-with": "Actualizando..."}, params: {to_state: @current_cart.payment_type === "card" ? "cash" : "card"}, remote: true, method: :put, class: "bg-green-700 py-2 px-6 text-white rounded-lg cursor-pointer focus:outline-none" %>
           </div>
+
+
         </div>
+        <div
+          id="payment-with-cash"
+          class="w-full mt-12 flex justify-end <%= @current_cart.payment_type === "card" ? "hidden" : "" %>">
+          <%= button_to "Hacer pedido", place_create_charge_path(@place), data: {"disable-with": "Finalizando pedido..."}, params: {payment_type: "cash"}, remote: true, class: "bg-black cursor-pointer text-white rounded py-3 px-10" %>
+        </div>
+
         <form action="/charge" method="post" id="payment-form" class="w-full flex flex-wrap mt-4 <%= @current_cart.payment_type === "card" ? "" : "hidden" %>">
           <div class="w-full">
             <label for="card-element" class="text-sm text-gray-600">
@@ -111,14 +119,11 @@
           </div>
 
           <div class="w-full mt-12 flex justify-end">
-            <button class="bg-black text-white rounded py-3 px-10">Realizar pago</button>
+            <button class="bg-black text-white rounded py-3 px-10">Hacer pedido</button>
           </div>
         </form>
       </div>
 
-      <div class="w-full mt-12 flex justify-end">
-        <button class="bg-black text-white rounded py-3 px-10">Realizar pago</button>
-      </div>
 
     </div>
     <%= render Carts::Sidebar.new(place: @place, total: @total, current_cart: @current_cart) %>
