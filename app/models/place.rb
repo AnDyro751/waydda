@@ -4,6 +4,8 @@ class Place
   include Mongoid::Geospatial
   include AASM
   include AlgoliaSearch
+  include GlobalID::Identification
+
   # Algolia search
   algoliasearch do
     attributes :name, :address, :slug, :lat, :lng #, :city, :city_state
@@ -40,6 +42,7 @@ class Place
   has_many :products
   has_many :viewers
   has_many :views
+  has_many :orders # Todas las ordenes que recibe
 
   # Validations
   validates :name, presence: true, length: {in: 4..30}

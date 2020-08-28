@@ -19,17 +19,24 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b89cb0fb-b680-4bb9-8ae0-f4b41721cfb9" name="Default Changelist" comment="refactor(Cart): Mostramos los productos y actualizamos lo necesario para hacer el pedido">
-      <change afterPath="$PROJECT_DIR$/app/views/carts/create_charge.js.erb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/views/carts/success.html.erb" afterDir="false" />
+    <list default="true" id="b89cb0fb-b680-4bb9-8ae0-f4b41721cfb9" name="Default Changelist" comment="refactor(Cart): Mostramos la página de success al momento de simular crear la orden">
+      <change afterPath="$PROJECT_DIR$/app/mailers/user_notifier_mailer.rb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/views/user_notifier_mailer/send_signup_email.html.erb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/initializers/sendgrind.rb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test/mailers/previews/user_notifier_mailer_preview.rb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test/mailers/user_notifier_mailer_test.rb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/components/Carts/form.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/components/Carts/form.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Gemfile" beforeDir="false" afterPath="$PROJECT_DIR$/Gemfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Gemfile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/Gemfile.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/controllers/carts_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/carts_controller.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/carts/payment_method.js.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/carts/payment_method.js.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/carts/show.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/carts/show.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/layouts/application.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/layouts/application.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/layouts/cart.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/layouts/cart.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/routes.rb" beforeDir="false" afterPath="$PROJECT_DIR$/config/routes.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/jobs/create_order_job.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/jobs/create_order_job.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/mailers/application_mailer.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/mailers/application_mailer.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/address.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/address.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/cart.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/cart.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/order.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/order.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/place.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/place.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/user.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/user.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/environments/development.rb" beforeDir="false" afterPath="$PROJECT_DIR$/config/environments/development.rb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -197,14 +204,7 @@
       <workItem from="1598239761227" duration="16203000" />
       <workItem from="1598326081992" duration="27868000" />
       <workItem from="1598410984451" duration="21935000" />
-      <workItem from="1598501301306" duration="10233000" />
-    </task>
-    <task id="LOCAL-00013" summary="feat(Address): Set default values">
-      <created>1597888763943</created>
-      <option name="number" value="00013" />
-      <option name="presentableId" value="LOCAL-00013" />
-      <option name="project" value="LOCAL" />
-      <updated>1597888763943</updated>
+      <workItem from="1598501301306" duration="20618000" />
     </task>
     <task id="LOCAL-00014" summary="feat(Address): Show in sidebar">
       <created>1597889428464</created>
@@ -542,7 +542,14 @@
       <option name="project" value="LOCAL" />
       <updated>1598505390638</updated>
     </task>
-    <option name="localTasksCounter" value="62" />
+    <task id="LOCAL-00062" summary="refactor(Cart): Mostramos la página de success al momento de simular crear la orden">
+      <created>1598555000559</created>
+      <option name="number" value="00062" />
+      <option name="presentableId" value="LOCAL-00062" />
+      <option name="project" value="LOCAL" />
+      <updated>1598555000559</updated>
+    </task>
+    <option name="localTasksCounter" value="63" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -562,7 +569,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="feat(Place): Agregamos al menú la opción de pasillos dónde vamos a mostrar los pasillos" />
     <MESSAGE value="feat(Place): Agregamos el delivery options a todas las páginas del place" />
     <MESSAGE value="refactor(Cart): Agregamos el usurio cuando al carrito cuando hay sesión" />
     <MESSAGE value="feat(Place): Mostrmos la imagen de portada" />
@@ -587,7 +593,8 @@
     <MESSAGE value="refactor(Cart): Mostramos la información en el mapa, solo es cuestión de mostrar el place cuando se va a ir a recoger en lugar de deliver" />
     <MESSAGE value="refactor(Cart): Hacemos toogle de la información del carrito para la entrega del producto.&#10;Mostramos el delivery address cuando se va a envíar a domicilio y la dirección para recoger cuando se va a recoger" />
     <MESSAGE value="refactor(Cart): Mostramos los productos y actualizamos lo necesario para hacer el pedido" />
-    <option name="LAST_COMMIT_MESSAGE" value="refactor(Cart): Mostramos los productos y actualizamos lo necesario para hacer el pedido" />
+    <MESSAGE value="refactor(Cart): Mostramos la página de success al momento de simular crear la orden" />
+    <option name="LAST_COMMIT_MESSAGE" value="refactor(Cart): Mostramos la página de success al momento de simular crear la orden" />
   </component>
   <component name="WindowStateProjectService">
     <state x="309" y="62" key="#Inspections" timestamp="1598548244558">
@@ -648,12 +655,12 @@
       <screen x="1366" y="-69" width="1920" height="1080" />
     </state>
     <state x="2142" y="392" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1366.768/1366.-69.1920.1080@1366.-69.1920.1080" timestamp="1597712613222" />
-    <state x="390" y="117" width="585" height="624" key="find.popup" timestamp="1598554675758">
+    <state x="390" y="117" width="585" height="624" key="find.popup" timestamp="1598575014587">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="1914" y="96" width="823" height="878" key="find.popup/0.0.1366.768/1366.-69.1920.1080@1366.-69.1920.1080" timestamp="1597716285449" />
     <state x="1754" y="117" width="583" height="624" key="find.popup/0.0.1366.768/1366.0.1360.768@1366.0.1360.768" timestamp="1598230410609" />
-    <state x="390" y="117" width="585" height="624" key="find.popup/0.0.1366.768@0.0.1366.768" timestamp="1598554675758" />
+    <state x="390" y="117" width="585" height="624" key="find.popup/0.0.1366.768@0.0.1366.768" timestamp="1598575014587" />
     <state x="549" y="254" width="250" height="278" key="jetbrains.javascript.buildTools.run-task-popup" timestamp="1597946321130">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
@@ -662,11 +669,11 @@
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="339" y="174" width="672" height="677" key="run.anything.popup/0.0.1366.768@0.0.1366.768" timestamp="1598554712568" />
-    <state x="346" y="89" width="672" height="678" key="search.everywhere.popup" timestamp="1598554573729">
+    <state x="346" y="89" width="672" height="678" key="search.everywhere.popup" timestamp="1598575285374">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="1852" y="56" width="945" height="954" key="search.everywhere.popup/0.0.1366.768/1366.-69.1920.1080@1366.-69.1920.1080" timestamp="1597715976170" />
     <state x="1710" y="89" width="672" height="678" key="search.everywhere.popup/0.0.1366.768/1366.0.1360.768@1366.0.1360.768" timestamp="1598230246430" />
-    <state x="346" y="89" width="672" height="678" key="search.everywhere.popup/0.0.1366.768@0.0.1366.768" timestamp="1598554573729" />
+    <state x="346" y="89" width="672" height="678" key="search.everywhere.popup/0.0.1366.768@0.0.1366.768" timestamp="1598575285374" />
   </component>
 </project>

@@ -60,8 +60,14 @@ class CartsController < ApplicationController
 
   def create_charge
     if params["payment_type"] === "cash"
+      @order = @place.orders.new(send_to: {name: "#{current_user.name} #{current_user.lastName}", email: current_user.email}, address: @current_address, cart: @current_cart)
       respond_to do |format|
-        format.html { redirect_to place_success_checkout_path(@place.slug, @current_cart), status: :created }
+        if @order.save
+          format.html { redirect_to place_success_checkout_path(@place.slug, @current_cart), status: :created }
+        else
+          puts "-----#{@order.errors.full_messages} -#{current_user}"
+          format.html { redirect_to place_my_cart_path(@place.slug), status: :unprocessable_entity, alert: "!!!Ha ocurrido un error al procesar el pago!!! #{@order.errors.full_messages}" }
+        end
       end
     else
       @items = @current_cart.cart_items.includes(:product).to_a

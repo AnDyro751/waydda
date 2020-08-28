@@ -3,6 +3,7 @@ class User
   include Mongoid::Timestamps
   include ActiveModel::SecurePassword
   include AASM
+  include GlobalID::Identification
 
   devise :database_authenticatable, :registerable, :omniauthable, :rememberable, omniauth_providers: [:facebook, :google_oauth2]
   # Callbacks

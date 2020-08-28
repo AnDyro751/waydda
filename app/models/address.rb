@@ -2,6 +2,8 @@ class Address
   include Mongoid::Document
   include Mongoid::Timestamps
   include Mongoid::Geospatial
+  include GlobalID::Identification
+
   # includes ActiveModel::Validations
 
   Mapbox.access_token = "pk.eyJ1IjoiYW5keXJvaG0iLCJhIjoiY2p6NmRldzJjMGsyMzNpbjJ0YjZjZjV5NSJ9.SeHsvxUe4-pszVk0B4gRAQ"
@@ -20,6 +22,7 @@ class Address
   field :current, type: Boolean, default: true
   field :lat, type: Float
   field :lng, type: Float
+
 
   embedded_in :model, polymorphic: true
 

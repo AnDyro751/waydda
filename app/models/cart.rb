@@ -2,6 +2,8 @@ class Cart
 
   include Mongoid::Document
   include Mongoid::Timestamps
+  include GlobalID::Identification
+
   field :quantity, type: Integer, default: 0
   field :payment_type, type: String, default: "card"
   has_many :cart_items
