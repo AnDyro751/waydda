@@ -11,10 +11,10 @@ class CreateOrderJob < ApplicationJob
   # @param [Object] address
   # @param [Object] cart
   def perform(this_order)
-    # cart_items = cart.cart_items.includes(:product)
-    # order = place.orders.create(user: user, address: address, cart: cart)
-    # cart_items.each do |ci|
-    #   order.products << ci.product
-    # end
+    cart = this_order.cart
+    cart_items = cart.cart_items.includes(:product)
+    cart_items.each do |ci|
+      this_order.products << ci.product
+    end
   end
 end

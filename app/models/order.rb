@@ -11,11 +11,11 @@ class Order
   field :send_to, type: Hash
   # Relations
   belongs_to :place
-
+  belongs_to :cart
   # Embeds
   embeds_many :products
   embeds_one :address
-  embeds_one :cart
+  # embeds_one :cart
 
 
   # AASM STATES

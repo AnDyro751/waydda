@@ -2,6 +2,7 @@ class Cart
 
   include Mongoid::Document
   include Mongoid::Timestamps
+  include AASM
   include GlobalID::Identification
 
   field :quantity, type: Integer, default: 0
@@ -16,6 +17,16 @@ class Cart
   belongs_to :user, optional: true
 
   validates :payment_type, inclusion: {in: %w[card cash]}
+  validates :status, presence: true, inclusion: {in: %w[pending success]}
+
+
+  aasm column: :status do
+    state :pending, initial: true
+    state :success
+    event :to_success do
+      transitions from: [:pending], to: :success
+    end
+  end
 
   def self.get_total(old_items = nil)
     total = 0

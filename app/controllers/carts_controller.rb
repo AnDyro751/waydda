@@ -32,11 +32,11 @@ class CartsController < ApplicationController
         @total = Cart.get_total(@cart_items)
       else
         cart_items_ids = []
-        @carts = current_user.carts.includes(:place).to_a.each do |ct|
+        @carts = current_user.carts.where(status: "pending", :quantity.gt => 0).includes(:place).to_a.each do |ct|
           cart_items_ids = cart_items_ids + ct.cart_item_ids
         end
         @total = 0
-        @cart_items = CartItem.where(:_id.in => cart_items_ids, status: "pending").includes(:product).to_a.each do |ci|
+        @cart_items = CartItem.where(:_id.in => cart_items_ids).includes(:product).to_a.each do |ci|
           ci["product_record"] = ci.product.attributes.slice(:name, :description, :price, :photo)
         end
         @carts.each do |ct|
@@ -58,12 +58,17 @@ class CartsController < ApplicationController
 
   def create_charge
     if params["payment_type"] === "cash"
-      @order = @place.orders.new(send_to: {name: "#{current_user.name} #{current_user.lastName}", email: current_user.email}, address: @current_address, cart: @current_cart)
+      new_order = @place.orders.new(send_to: {name: "#{current_user.name} #{current_user.lastName}", email: current_user.email}, address: @current_address, cart_id: @current_cart.id.to_s)
       respond_to do |format|
-        if @order.save
-          @current_cart.update(status: "completed")
-          @current_cart = current_user.carts.create(place: @place)
-          format.html { redirect_to place_success_checkout_path(@place.slug, @current_cart), status: :created }
+        if new_order.save
+          if @current_cart.to_success!
+            # TODO: Redireccionar al lugar del success
+            format.html { redirect_to root_path, status: :created, alert: "Gracias por tu pedido" }
+          else
+            # TODO: Eliminar estos mensajes !!!
+            @order.delete
+            format.html { redirect_to place_my_cart_path(@place.slug), status: :unprocessable_entity, alert: "!!!Ha ocurrido un error al procesar el pago!!! #{@order.errors.full_messages}" }
+          end
         else
           puts "-----#{@order.errors.full_messages} -#{current_user}"
           format.html { redirect_to place_my_cart_path(@place.slug), status: :unprocessable_entity, alert: "!!!Ha ocurrido un error al procesar el pago!!! #{@order.errors.full_messages}" }

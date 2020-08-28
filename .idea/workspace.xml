@@ -19,13 +19,12 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b89cb0fb-b680-4bb9-8ae0-f4b41721cfb9" name="Default Changelist" comment="refactor(Cart): Creamos la orden con los datos necesarios para enviar el correo electronico. Solo falta eliminar el carrito para que pueda seguir comprando">
+    <list default="true" id="b89cb0fb-b680-4bb9-8ae0-f4b41721cfb9" name="Default Changelist" comment="refactor(Cart): Creamos los carritos y mostramos las opciones correctas">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/components/Places/menu.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/components/Places/menu.html.erb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/controllers/carts_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/carts_controller.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/places_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/places_controller.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/jobs/create_order_job.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/jobs/create_order_job.rb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/models/cart.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/cart.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/layouts/cart.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/layouts/cart.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/order.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/order.rb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -193,14 +192,7 @@
       <workItem from="1598239761227" duration="16203000" />
       <workItem from="1598326081992" duration="27868000" />
       <workItem from="1598410984451" duration="21935000" />
-      <workItem from="1598501301306" duration="22706000" />
-    </task>
-    <task id="LOCAL-00015" summary="feat(Dashboard): Empezamos con el diseño minimo de dashboard">
-      <created>1597952349541</created>
-      <option name="number" value="00015" />
-      <option name="presentableId" value="LOCAL-00015" />
-      <option name="project" value="LOCAL" />
-      <updated>1597952349542</updated>
+      <workItem from="1598501301306" duration="25815000" />
     </task>
     <task id="LOCAL-00016" summary="feat(Dashboard): Se creó una pequeña interfaz para visualizar los productos que se han visto ultimamente y se agregó un componente para mostrar un mensaje cuando no hay valores">
       <created>1597962737089</created>
@@ -538,7 +530,14 @@
       <option name="project" value="LOCAL" />
       <updated>1598575436904</updated>
     </task>
-    <option name="localTasksCounter" value="64" />
+    <task id="LOCAL-00064" summary="refactor(Cart): Creamos los carritos y mostramos las opciones correctas">
+      <created>1598577486451</created>
+      <option name="number" value="00064" />
+      <option name="presentableId" value="LOCAL-00064" />
+      <option name="project" value="LOCAL" />
+      <updated>1598577486451</updated>
+    </task>
+    <option name="localTasksCounter" value="65" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -558,7 +557,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="refactor(Cart): Agregamos el usurio cuando al carrito cuando hay sesión" />
     <MESSAGE value="feat(Place): Mostrmos la imagen de portada" />
     <MESSAGE value="feat(Place): Mostrmos el nombre del place" />
     <MESSAGE value="refactor(Place): text gray - opacity" />
@@ -583,7 +581,8 @@
     <MESSAGE value="refactor(Cart): Mostramos los productos y actualizamos lo necesario para hacer el pedido" />
     <MESSAGE value="refactor(Cart): Mostramos la página de success al momento de simular crear la orden" />
     <MESSAGE value="refactor(Cart): Creamos la orden con los datos necesarios para enviar el correo electronico. Solo falta eliminar el carrito para que pueda seguir comprando" />
-    <option name="LAST_COMMIT_MESSAGE" value="refactor(Cart): Creamos la orden con los datos necesarios para enviar el correo electronico. Solo falta eliminar el carrito para que pueda seguir comprando" />
+    <MESSAGE value="refactor(Cart): Creamos los carritos y mostramos las opciones correctas" />
+    <option name="LAST_COMMIT_MESSAGE" value="refactor(Cart): Creamos los carritos y mostramos las opciones correctas" />
   </component>
   <component name="WindowStateProjectService">
     <state x="309" y="62" key="#Inspections" timestamp="1598548244558">
@@ -631,11 +630,11 @@
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="318" y="58" key="SettingsEditor/0.0.1366.768@0.0.1366.768" timestamp="1598040503470" />
-    <state x="275" y="117" key="Vcs.Push.Dialog.v2" timestamp="1598575882514">
+    <state x="275" y="117" key="Vcs.Push.Dialog.v2" timestamp="1598580097983">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="1640" y="117" key="Vcs.Push.Dialog.v2/0.0.1366.768/1366.0.1360.768@1366.0.1360.768" timestamp="1598221582431" />
-    <state x="275" y="117" key="Vcs.Push.Dialog.v2/0.0.1366.768@0.0.1366.768" timestamp="1598575882514" />
+    <state x="275" y="117" key="Vcs.Push.Dialog.v2/0.0.1366.768@0.0.1366.768" timestamp="1598580097983" />
     <state x="289" y="0" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1597888548617">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
@@ -644,12 +643,12 @@
       <screen x="1366" y="-69" width="1920" height="1080" />
     </state>
     <state x="2142" y="392" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1366.768/1366.-69.1920.1080@1366.-69.1920.1080" timestamp="1597712613222" />
-    <state x="390" y="117" width="585" height="624" key="find.popup" timestamp="1598577009072">
+    <state x="390" y="117" width="585" height="624" key="find.popup" timestamp="1598579392564">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="1914" y="96" width="823" height="878" key="find.popup/0.0.1366.768/1366.-69.1920.1080@1366.-69.1920.1080" timestamp="1597716285449" />
     <state x="1754" y="117" width="583" height="624" key="find.popup/0.0.1366.768/1366.0.1360.768@1366.0.1360.768" timestamp="1598230410609" />
-    <state x="390" y="117" width="585" height="624" key="find.popup/0.0.1366.768@0.0.1366.768" timestamp="1598577009072" />
+    <state x="390" y="117" width="585" height="624" key="find.popup/0.0.1366.768@0.0.1366.768" timestamp="1598579392564" />
     <state x="549" y="254" width="250" height="278" key="jetbrains.javascript.buildTools.run-task-popup" timestamp="1597946321130">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
@@ -658,11 +657,11 @@
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="339" y="174" width="672" height="677" key="run.anything.popup/0.0.1366.768@0.0.1366.768" timestamp="1598554712568" />
-    <state x="346" y="89" width="672" height="678" key="search.everywhere.popup" timestamp="1598577415759">
+    <state x="346" y="89" width="672" height="678" key="search.everywhere.popup" timestamp="1598580266249">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="1852" y="56" width="945" height="954" key="search.everywhere.popup/0.0.1366.768/1366.-69.1920.1080@1366.-69.1920.1080" timestamp="1597715976170" />
     <state x="1710" y="89" width="672" height="678" key="search.everywhere.popup/0.0.1366.768/1366.0.1360.768@1366.0.1360.768" timestamp="1598230246430" />
-    <state x="346" y="89" width="672" height="678" key="search.everywhere.popup/0.0.1366.768@0.0.1366.768" timestamp="1598577415759" />
+    <state x="346" y="89" width="672" height="678" key="search.everywhere.popup/0.0.1366.768@0.0.1366.768" timestamp="1598580266249" />
   </component>
 </project>
