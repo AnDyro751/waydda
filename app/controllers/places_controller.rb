@@ -45,7 +45,7 @@ class PlacesController < ApplicationController
   end
 
   def set_current_cart
-    @current_cart = current_user.carts.find_by(place: @place)
+    @current_cart = current_user.carts.find_or_create_by(place: @place, status: "pending")
     if @current_cart
       @delivery_option = @current_cart.delivery_option
     end

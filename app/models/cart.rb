@@ -6,6 +6,8 @@ class Cart
 
   field :quantity, type: Integer, default: 0
   field :payment_type, type: String, default: "card"
+  field :status, type: String, default: "pending"
+
   has_many :cart_items
   embeds_one :delivery_option
   embeds_many :addresses, as: :model

@@ -14,7 +14,7 @@
 
       <%= button_to place_delivery_options_path(@place.slug, @current_cart), data: {"disable-with": "Actualizando..."}, params: {to_state: "pickup"}, id: "menu-pickup", remote: true, method: :put, class: "w-auto py-2 text-sm hover:text-gray-600 focus:outline-none #{
       if @delivery_option.nil?
-        ""
+        "border-b-2 border-green-600"
       else
         if @delivery_option.kind === "pickup"
           "border-b-2 border-green-600"

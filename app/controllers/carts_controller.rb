@@ -2,8 +2,8 @@ class CartsController < ApplicationController
   layout "cart"
   before_action :authenticate_user!
   Stripe.api_key = 'sk_test_51H9CZeBOcPJ0nbHctTzfQZhFXBnn8j05e0xqJ5RSVz5Bum72LsvmQKIecJnsoHISEg0jUWtKjERYGeCAEWiIAujP00Fae9MiKm'
-  before_action :set_place, only: [:create_charge, :success]
-  before_action :set_current_cart, only: [:create_charge, :add_product, :payment_method, :success]
+  before_action :set_place, only: [:create_charge, :success, :payment_method, :show, :add_product]
+  before_action :set_current_cart, only: [:create_charge, :add_product, :payment_method, :success, :show]
   skip_before_action :verify_authenticity_token, only: [:update_item, :add_product]
 
 
@@ -12,7 +12,6 @@ class CartsController < ApplicationController
   end
 
   def payment_method
-    @place = Place.find_by(id: params["place_id"]) || not_found
     respond_to do |format|
       if @current_cart.update(payment_type: params["to_state"])
         format.js {}
@@ -26,7 +25,6 @@ class CartsController < ApplicationController
     respond_to do |format|
       if params["place_id"].present?
         @place = Place.find_by(slug: params["place_id"]) || not_found
-        @current_cart = current_user.carts.find_by(place: @place)
         @cart_items = CartItem.where(cart: @current_cart).includes(:product).to_a
         @cart_items.each do |ci|
           ci["product_record"] = ci.product
@@ -38,7 +36,7 @@ class CartsController < ApplicationController
           cart_items_ids = cart_items_ids + ct.cart_item_ids
         end
         @total = 0
-        @cart_items = CartItem.where(:_id.in => cart_items_ids).includes(:product).to_a.each do |ci|
+        @cart_items = CartItem.where(:_id.in => cart_items_ids, status: "pending").includes(:product).to_a.each do |ci|
           ci["product_record"] = ci.product.attributes.slice(:name, :description, :price, :photo)
         end
         @carts.each do |ct|
@@ -63,6 +61,8 @@ class CartsController < ApplicationController
       @order = @place.orders.new(send_to: {name: "#{current_user.name} #{current_user.lastName}", email: current_user.email}, address: @current_address, cart: @current_cart)
       respond_to do |format|
         if @order.save
+          @current_cart.update(status: "completed")
+          @current_cart = current_user.carts.create(place: @place)
           format.html { redirect_to place_success_checkout_path(@place.slug, @current_cart), status: :created }
         else
           puts "-----#{@order.errors.full_messages} -#{current_user}"
@@ -126,7 +126,7 @@ class CartsController < ApplicationController
         if place.nil?
           return format.html { redirect_to root_path, alert: "El contenido ya no se encuentra disponible", status: :not_found }
         end
-        @current_cart = current_user.carts.create(place: place)
+        @current_cart = current_user.carts.create(place: place, status: "pending")
       end
       response = @current_cart.update_item(params["product_id"], 1, true)
       if response[:success]
@@ -153,15 +153,17 @@ class CartsController < ApplicationController
   private
 
   def set_place
-    @place = Place.find_by('$or' => [{id: params["place_id"]}, {slug: params["place_id"]}]) || not_found
+    if params["place_id"].present?
+      @place = Place.find_by('$or' => [{id: params["place_id"]}, {slug: params["place_id"]}]) || not_found
+    end
   end
 
 
   def set_current_cart
     if params["cart_id"].present?
-      @current_cart = current_user.carts.find_by(id: params["cart_id"])
+      @current_cart = current_user.carts.find_by(id: params["cart_id"], status: "pending")
     else
-      @current_cart = current_user.carts.find_by(place: @place)
+      @current_cart = current_user.carts.find_by(place: @place, status: "pending")
     end
   end
 
