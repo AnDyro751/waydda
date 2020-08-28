@@ -29,6 +29,7 @@ export default function AddressModal({
     const [isOpen, setIsOpen] = useState(modalOpen);
     const [currentLocation, setCurrentLocation] = useState(current_address || null);
     const [currentStep, setCurrentStep] = useState(0);
+    const buttonSelectRef = React.useRef();
     const [fields, setFields] = useState({
         address: "",
         current: true,
@@ -94,7 +95,7 @@ export default function AddressModal({
                 style={customStyles}
                 ariaHideApp={false}
                 contentLabel="Addresses"
-                overlayClassName="fixed top-0 left-0 right-0 bottom-0 bg-black bg-opacity-50"
+                overlayClassName="fixed top-0 left-0 right-0 bottom-0 bg-black bg-opacity-50 z-50"
             >
                 <form
                     onSubmit={handleSubmit}
@@ -121,8 +122,10 @@ export default function AddressModal({
                     <div className="fixed bottom-0 w-full justify-center flex right-0 bg-white py-4">
                         <button
                             type={"submit"}
+                            id={"button-select-address"}
+                            // ref={buttonSelectRef}
                             className="bg-black py-3 px-6 w-6/12 text-white focus:outline-none rounded shadow text-sm">
-                            Agregar dirección
+                            {currentLocation ? "Actualizar ubicación" : "Agregar dirección"}
                         </button>
                     </div>
                     {/*}*/}
@@ -172,7 +175,7 @@ const ModalSelectMap = ({receiveHandleChange, defaultValues = {}}) => {
     const [description, setDescription] = useState(defaultValues.description || "");
     const [currentFeatures, setCurrentFeatures] = useState([]);
     const [loading, setLoading] = useState(false);
-    const [currentMap, setCurrentMap] = useState(defaultValues.lat ? [defaultValues.lat, defaultValues.lng] : [-99.7240842389555, 19.6421051526]);
+    const [currentMap, setCurrentMap] = useState(defaultValues.lat ? [defaultValues.lng, defaultValues.lat] : [-99.7240842389555, 19.6421051526]);
     const [loaded, setLoaded] = useState(false);
     //TODO: Validar los campos de este formulario
     //Apartment: maxLength: 20
@@ -234,8 +237,13 @@ const ModalSelectMap = ({receiveHandleChange, defaultValues = {}}) => {
                                             lat: currentFeature.center[0],
                                             lng: currentFeature.center[1],
                                         });
+                                        document.querySelector("#button-select-address").innerHTML = "Actualizar dirección";
+                                        document.querySelector("#button-select-address").disabled = false;
+                                        document.querySelector("#button-select-address").classList.remove("opacity-50")
                                     } else {
-                                        console.log("Aún no está disponible aquí")
+                                        document.querySelector("#button-select-address").classList.add("opacity-50")
+                                        document.querySelector("#button-select-address").disabled = true;
+                                        document.querySelector("#button-select-address").innerHTML = "No disponible";
                                     }
                                 }
                             }
@@ -270,8 +278,13 @@ const ModalSelectMap = ({receiveHandleChange, defaultValues = {}}) => {
             setAddress(e.place_name);
             setCurrentFeatures([]);
             setCurrentMap(e.center);
+            document.querySelector("#button-select-address").disabled = false;
+            document.querySelector("#button-select-address").innerHTML = "Actualizar dirección";
+            document.querySelector("#button-select-address").classList.remove("opacity-50")
         } else {
-            console.log("Aún no está disponible aquí")
+            document.querySelector("#button-select-address").disabled = true;
+            document.querySelector("#button-select-address").classList.add("opacity-50")
+            document.querySelector("#button-select-address").innerHTML = "No disponible";
         }
 
         // Al seleccionar el nuevo address borramos los features

@@ -20,6 +20,9 @@
 </head>
 
 <body>
+<div
+  id="select-address"
+></div>
 <div id="notifications">
   <% if notice.present? %>
     <%= render Notifications::Alert.new(alert: notice) %>
