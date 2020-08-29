@@ -19,66 +19,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b89cb0fb-b680-4bb9-8ae0-f4b41721cfb9" name="Default Changelist" comment="refactor(Header): Alpine integration">
-      <change afterPath="$PROJECT_DIR$/.idea/remote-mappings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/terminal.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.rspec" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/channels/order_channel.rb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/components/Header/Public/cart.html.erb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/components/Header/Public/cart.rb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/javascript/channels/order_channel.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/javascript/packs/main_alpine.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/jobs/order_delay_job.rb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config/initializers/mongoid.rb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/spec/factories/addresses.rb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/spec/factories/aggregates.rb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/spec/factories/cart_items.rb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/spec/factories/carts.rb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/spec/factories/delivery_options.rb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/spec/factories/items.rb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/spec/factories/orders.rb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/spec/factories/payment_methods.rb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/spec/factories/places.rb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/spec/factories/products.rb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/spec/factories/roles.rb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/spec/factories/users.rb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/spec/models/place_spec.rb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/spec/models/user_spec.rb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/spec/models/user_test.rb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/spec/rails_helper.rb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/spec/requests/places_spec.rb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/spec/requests/users_spec.rb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/spec/spec_helper.rb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test/channels/order_channel_test.rb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test/jobs/order_delay_job_test.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/waydda.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/waydda.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Gemfile" beforeDir="false" afterPath="$PROJECT_DIR$/Gemfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Gemfile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/Gemfile.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/components/LastSales/last_sales.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/components/LastSales/last_sales.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/components/LastSales/last_sales.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/components/LastSales/last_sales.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/application_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/application_controller.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/dashboard/places_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/dashboard/places_controller.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/dashboard_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/dashboard_controller.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/places_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/places_controller.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/javascript/packs/application.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/javascript/packs/application.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/javascript/packs/server_rendering.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/javascript/packs/server_rendering.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/place.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/place.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/user.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/user.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/dashboard/places/my_place.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/dashboard/places/my_place.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/dashboard/places/new.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/dashboard/places/new.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/layouts/application.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/layouts/application.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/layouts/dashboard.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/layouts/dashboard.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/places/index.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/places/index.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/utils/Headers/_dashboard.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/utils/Headers/_dashboard.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/utils/Headers/_simple.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/utils/Headers/_simple.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/application.rb" beforeDir="false" afterPath="$PROJECT_DIR$/config/application.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/mongoid.yml" beforeDir="false" afterPath="$PROJECT_DIR$/config/mongoid.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/routes.rb" beforeDir="false" afterPath="$PROJECT_DIR$/config/routes.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
-    </list>
+    <list default="true" id="b89cb0fb-b680-4bb9-8ae0-f4b41721cfb9" name="Default Changelist" comment="test: Se agregaron test para dos modelos. Comportamientos básicos" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -547,14 +488,7 @@
       <workItem from="1598657474474" duration="7015000" />
       <workItem from="1598671994350" duration="9650000" />
       <workItem from="1598729212266" duration="3282000" />
-      <workItem from="1598732675498" duration="8648000" />
-    </task>
-    <task id="LOCAL-00018" summary="feat(Dashboard): Se crearon componentes para cuando no hay ningún item">
-      <created>1597969031747</created>
-      <option name="number" value="00018" />
-      <option name="presentableId" value="LOCAL-00018" />
-      <option name="project" value="LOCAL" />
-      <updated>1597969031747</updated>
+      <workItem from="1598732675498" duration="8735000" />
     </task>
     <task id="LOCAL-00019" summary="feat(Dashboard): La vista de productos tiene un diseño simple">
       <created>1597973056963</created>
@@ -892,7 +826,14 @@
       <option name="project" value="LOCAL" />
       <updated>1598637453047</updated>
     </task>
-    <option name="localTasksCounter" value="67" />
+    <task id="LOCAL-00067" summary="test: Se agregaron test para dos modelos. Comportamientos básicos">
+      <created>1598742038533</created>
+      <option name="number" value="00067" />
+      <option name="presentableId" value="LOCAL-00067" />
+      <option name="project" value="LOCAL" />
+      <updated>1598742038534</updated>
+    </task>
+    <option name="localTasksCounter" value="68" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -912,7 +853,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="refactor(Place): Heroku" />
     <MESSAGE value="Antes de agregar svelte" />
     <MESSAGE value="Vamos a mostrar un mensaje cuando se agregue un producto al carrito" />
     <MESSAGE value="feat(Notifications): Mostramos nuevo diseño de las notificaciones" />
@@ -937,7 +877,8 @@
     <MESSAGE value="refactor(Cart): Pinches errores culeros" />
     <MESSAGE value="refactor(Address): Agregamos estilos al botón cuando la dirección no está disponible" />
     <MESSAGE value="refactor(Header): Alpine integration" />
-    <option name="LAST_COMMIT_MESSAGE" value="refactor(Header): Alpine integration" />
+    <MESSAGE value="test: Se agregaron test para dos modelos. Comportamientos básicos" />
+    <option name="LAST_COMMIT_MESSAGE" value="test: Se agregaron test para dos modelos. Comportamientos básicos" />
   </component>
   <component name="WindowStateProjectService">
     <state x="392" y="0" key="#All_specs_in_spec:_waydda" timestamp="1598730457189">
@@ -1037,11 +978,11 @@
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="339" y="174" width="672" height="677" key="run.anything.popup/0.0.1366.768@0.0.1366.768" timestamp="1598731435607" />
-    <state x="346" y="89" width="672" height="678" key="search.everywhere.popup" timestamp="1598741797311">
+    <state x="346" y="89" width="672" height="678" key="search.everywhere.popup" timestamp="1598742053674">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="1852" y="56" width="945" height="954" key="search.everywhere.popup/0.0.1366.768/1366.-69.1920.1080@1366.-69.1920.1080" timestamp="1597715976170" />
     <state x="1710" y="89" width="672" height="678" key="search.everywhere.popup/0.0.1366.768/1366.0.1360.768@1366.0.1360.768" timestamp="1598664318183" />
-    <state x="346" y="89" width="672" height="678" key="search.everywhere.popup/0.0.1366.768@0.0.1366.768" timestamp="1598741797311" />
+    <state x="346" y="89" width="672" height="678" key="search.everywhere.popup/0.0.1366.768@0.0.1366.768" timestamp="1598742053674" />
   </component>
 </project>
