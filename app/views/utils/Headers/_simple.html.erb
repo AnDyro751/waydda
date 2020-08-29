@@ -11,15 +11,31 @@
         </a>
       </div>
       <div class="w-10/12">
-        <%= react_component("Search", props: {current_param: @current_param}, prerender: false) %>
+        <form
+          class="w-full relative">
+          <div class="absolute top-0 flex justify-center items-center left-0 bottom-0 h-full ml-4">
+            <img
+              class="h-5 opacity-75"
+              alt="svgImg"
+              src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHg9IjBweCIgeT0iMHB4Igp3aWR0aD0iOTYiIGhlaWdodD0iOTYiCnZpZXdCb3g9IjAgMCA0OCA0OCIKc3R5bGU9IiBmaWxsOiMwMDAwMDA7Ij48cGF0aCBkPSJNIDIwLjUgNiBDIDEyLjUxNTU1NiA2IDYgMTIuNTE1NTYyIDYgMjAuNSBDIDYgMjguNDg0NDM4IDEyLjUxNTU1NiAzNSAyMC41IDM1IEMgMjMuNzczMTU4IDM1IDI2Ljc4ODkxOSAzMy44OTMwMTggMjkuMjIwNzAzIDMyLjA1MDc4MSBMIDM4LjU4NTkzOCA0MS40MTQwNjIgQSAyLjAwMDIgMi4wMDAyIDAgMSAwIDQxLjQxNDA2MiAzOC41ODU5MzggTCAzMi4wNTA3ODEgMjkuMjIwNzAzIEMgMzMuODkzMDE3IDI2Ljc4ODkxOCAzNSAyMy43NzMxNTYgMzUgMjAuNSBDIDM1IDEyLjUxNTU2MiAyOC40ODQ0NDQgNiAyMC41IDYgeiBNIDIwLjUgMTAgQyAyNi4zMjI2ODUgMTAgMzEgMTQuNjc3MzE5IDMxIDIwLjUgQyAzMSAyMy4yOTU3MTEgMjkuOTE0MDY1IDI1LjgyMDYwMSAyOC4xNDg0MzggMjcuNjk3MjY2IEEgMi4wMDAyIDIuMDAwMiAwIDAgMCAyNy43MDExNzIgMjguMTQ0NTMxIEMgMjUuODI0MTAzIDI5LjkxMjQwMyAyMy4yOTc3MSAzMSAyMC41IDMxIEMgMTQuNjc3MzE1IDMxIDEwIDI2LjMyMjY4MSAxMCAyMC41IEMgMTAgMTQuNjc3MzE5IDE0LjY3NzMxNSAxMCAyMC41IDEwIHoiPjwvcGF0aD48L3N2Zz4="/>
+            <!--            <FaSearch className={"inline"}/>-->
+          </div>
+          <input type="search"
+                 value="<%= params["seach"].present? ? params["seach"] : "" %>"
+                 autoFocus="<%= params["seach"].present? %>"
+                 class="py-3 pl-12 pr-5 rounded-full bg-main-gray focus:outline-none w-full"
+                 placeholder="Busca en tu ciudad"
+            />
+        </form>
       </div>
     </div>
     <div
       class="w-3/12">
       <%= react_component("Shipment", props: {current_user: current_user, current_user_id: current_user ? current_user.id.to_s : nil, current_address: @current_address, locations: default_locations}, prerender: false) %>
     </div>
-    <div class="w-2/12 px-0">
-      <%= react_component("Simple", props: {current_user: current_user, current_user_id: current_user ? current_user.id.to_s : nil, current_address: @current_address, locations: default_locations}, prerender: false) %>
+    <div class="w-2/12 px-0 flex">
+      <%= render Header::Public::Cart.new(current_cart: @current_cart) %>
+      <%#= react_component("Simple", props: {current_user: current_user, current_user_id: current_user ? current_user.id.to_s : nil, current_address: @current_address, locations: default_locations}, prerender: false) %>
     </div>
   </div>
 </div>

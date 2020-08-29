@@ -5,7 +5,7 @@
   <%= csrf_meta_tags %>
   <%= csp_meta_tag %>
   <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-  <%= javascript_packs_with_chunks_tag "application", 'hello-world-bundle', 'data-turbolinks-track': "reload" %>
+  <%= javascript_packs_with_chunks_tag "application", 'data-turbolinks-track': "reload" %>
 
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <link rel="preconnect" href="https://d1nrrr6y3ujrjz.cloudfront.net" crossOrigin/>
@@ -43,7 +43,8 @@
 <% if params["console"] %>
   <%= console %>
 <% end %>
-<%= console %>
-
+<% if Rails.env === "development" %>
+  <%= console %>
+<% end %>
 </body>
 </html>

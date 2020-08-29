@@ -19,8 +19,8 @@ development:
       # Provides the hosts the default client can connect to. Must be an array
       # of host:port pairs. (required)
       uri: mongodb+srv://develop:popodeperro@develop.nsxax.mongodb.net/waydda_development?retryWrites=true&w=majority
-      #uri: mongodb+srv://azachii:iJK9309djnd5YWFQ@primary.659gz.mongodb.net/waydda_development?retryWrites=true&w=majority
       options:
+        server_selection_timeout: 5
       # Note that all options listed below are Ruby driver client options (the mongo gem).
       # Please refer to the driver documentation of the version of the mongo gem you are using
       # for the most up-to-date list of options.
@@ -176,7 +176,9 @@ development:
 test:
   clients:
     default:
+      uri: mongodb+srv://develop:popodeperro@develop.nsxax.mongodb.net/waydda_development?retryWrites=true&w=majority
       options:
+        raise_not_found_error: false
         read:
           mode: :primary
         max_pool_size: 1

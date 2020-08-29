@@ -6,8 +6,4 @@ class DashboardController < ApplicationController
 
   end
 
-  def my_sales
-
-  end
-
 end

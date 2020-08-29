@@ -1,6 +1,6 @@
 class LastSales::LastSales < ViewComponent::Base
-  def initialize(message:, sales:)
+  def initialize(message:, orders:)
     @message = message
-    @sales = sales
+    @orders = orders
   end
 end

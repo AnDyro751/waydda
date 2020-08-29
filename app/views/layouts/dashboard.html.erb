@@ -21,7 +21,9 @@
 <body class="bg-white">
 <p class="notice"><%= notice %></p>
 <p class="alert"><%= alert %></p>
-<%= render "utils/Headers/dashboard" %>
+<% unless @place.nil? %>
+  <%= render "utils/Headers/dashboard" %>
+<% end %>
 <div class="flex w-full justify-center">
   <div class="w-9/12 flex mx-auto flex-wrap">
     <%= yield %>

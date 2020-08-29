@@ -1,5 +1,5 @@
 class PlacesController < ApplicationController
-  before_action :authenticate_user!, except: [:show, :catalog]
+  before_action :authenticate_user!, except: [:show, :catalog, :index]
   before_action :set_place, only: [:show, :edit, :update, :destroy, :catalog]
   before_action :validate_my_identity, except: [:show, :new, :index, :catalog]
   after_action :update_views, only: [:show]

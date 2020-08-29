@@ -40,9 +40,7 @@ class ApplicationController < ActionController::Base
     end
   end
 
-  def set_my_place
-    @place = current_user.places.first
-  end
+
 
   def not_found
     raise ActionController::RoutingError.new('Not Found')

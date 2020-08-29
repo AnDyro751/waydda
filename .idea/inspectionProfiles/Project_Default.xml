@@ -3,6 +3,9 @@
     <option name="myName" value="Project Default" />
     <inspection_tool class="RailsParamDefResolve" enabled="false" level="WARNING" enabled_by_default="false" />
     <inspection_tool class="Rubocop" enabled="false" level="WARNING" enabled_by_default="false" />
+    <inspection_tool class="RubyResolve" enabled="false" level="WARNING" enabled_by_default="false">
+      <option name="warnImplicitResults" value="false" />
+    </inspection_tool>
     <inspection_tool class="RubyYardParamTypeMatch" enabled="false" level="WARNING" enabled_by_default="false" />
   </profile>
 </component>

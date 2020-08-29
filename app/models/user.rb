@@ -19,11 +19,10 @@ class User
   field :phone, type: String
   field :encrypted_password, type: String
   field :status, type: String
-  field :photo, type: String
+  field :photo, type: String, default: "waydda.png"
   field :timezone, type: String
   field :remember_created_at, type: DateTime
-  # validations
-  validates :password, confirmation: true
+
   # OMNIAUTH
   field :provider, type: String
   field :uid, type: String
@@ -37,11 +36,22 @@ class User
   #has_many :qr
 
   # Validations
-  validates :name, presence: true, format: {with: /\A[a-zA-ZáéíóúñÁÉÍÓÚÑ\s]+\z/}, length: {in: 3..20}
-  validates :lastName, presence: false, format: {with: /\A[a-zA-ZáéíóúñÁÉÍÓÚÑ\s]+\z/}, length: {in: 3..20}, allow_nil: true
+  validates :name, presence: true, format: {with: /\A[a-zA-ZáéíóúñÁÉÍÓÚÑ\s]+\z/}, length: {in: 3..30}
+  validates :lastName, presence: false, format: {with: /\A[a-zA-ZáéíóúñÁÉÍÓÚÑ\s]+\z/}, length: {in: 3..30}, allow_nil: true
   validates :email, presence: true, uniqueness: {case_sensitive: false}
-  validates_with EmailAddress::ActiveRecordValidator, field: :email
+  validate :valid_email
   validates :phone, uniqueness: {case_sensitive: false}, allow_nil: true, phone: {possible: true, types: :mobile, countries: :mx}
+
+
+  def valid_email
+    if email.present?
+      unless EmailAddress.valid? email, host_validation: :syntax
+        errors.add(:email, "invalid syntax")
+      end
+    else
+      errors.add(:email, "Can't be blank")
+    end
+  end
 
   # Plugins
   rolify

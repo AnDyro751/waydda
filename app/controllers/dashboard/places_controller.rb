@@ -1,7 +1,7 @@
 class Dashboard::PlacesController < ApplicationController
   layout "dashboard"
   before_action :authenticate_user!
-  before_action :set_my_place #, except: [:new, :create]
+  before_action :set_my_place, except: [:new, :create] #, except: [:new, :create]
   before_action :valid_uniqueness_place, only: [:new, :create]
   before_action :redirect_if_empty_place, only: [:my_place, :edit, :update, :destroy]
 
@@ -10,12 +10,14 @@ class Dashboard::PlacesController < ApplicationController
   end
 
   def sales
-
   end
 
   def my_place
+    if @place.nil?
+      redirect_to new_dashboard_place_path
+    end
     @products = @place.products.where(:last_viewed.gte => (Date.today - 30)).paginate(page: params[:page], per_page: 20)
-    @sales = []
+    @orders = Order.where(place: @place, status: "pending")
   end
 
   # GET /places/1/edit
@@ -97,6 +99,13 @@ class Dashboard::PlacesController < ApplicationController
 
 
   private
+
+  def set_my_place
+    @place = current_user.places.first
+    if @place.nil?
+      redirect_to new_dashboard_place_path
+    end
+  end
 
   def valid_uniqueness_place
     unless @place.nil?
