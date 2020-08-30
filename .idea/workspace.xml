@@ -19,18 +19,9 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b89cb0fb-b680-4bb9-8ae0-f4b41721cfb9" name="Default Changelist" comment="refactor(Header): Delete react - add alpine">
-      <change afterPath="$PROJECT_DIR$/app/views/addresses/create.js.erb" afterDir="false" />
+    <list default="true" id="b89cb0fb-b680-4bb9-8ae0-f4b41721cfb9" name="Default Changelist" comment="refactor(UserProfile): Agregamos la dirección de entrega en el perfil del usuario">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/components/notifications/alert.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/components/notifications/alert.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/addresses_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/addresses_controller.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/users_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/users_controller.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/javascript/packs/application.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/javascript/packs/application.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/addresses/new.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/addresses/new.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/layouts/application.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/layouts/application.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/users/edit.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/users/edit.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/users/my_profile.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/users/my_profile.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/utils/Headers/_simple.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/utils/Headers/_simple.html.erb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -501,14 +492,7 @@
       <workItem from="1598671994350" duration="9650000" />
       <workItem from="1598729212266" duration="3282000" />
       <workItem from="1598732675498" duration="8796000" />
-      <workItem from="1598748382521" duration="11857000" />
-    </task>
-    <task id="LOCAL-00024" summary="feat(Dashboard): Form para crear un nuevo producto">
-      <created>1598031923423</created>
-      <option name="number" value="00024" />
-      <option name="presentableId" value="LOCAL-00024" />
-      <option name="project" value="LOCAL" />
-      <updated>1598031923423</updated>
+      <workItem from="1598748382521" duration="12078000" />
     </task>
     <task id="LOCAL-00025" summary="feat(Dashboard): Create product style">
       <created>1598035164664</created>
@@ -846,7 +830,14 @@
       <option name="project" value="LOCAL" />
       <updated>1598759795742</updated>
     </task>
-    <option name="localTasksCounter" value="73" />
+    <task id="LOCAL-00073" summary="refactor(UserProfile): Agregamos la dirección de entrega en el perfil del usuario">
+      <created>1598762506327</created>
+      <option name="number" value="00073" />
+      <option name="presentableId" value="LOCAL-00073" />
+      <option name="project" value="LOCAL" />
+      <updated>1598762506327</updated>
+    </task>
+    <option name="localTasksCounter" value="74" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -866,7 +857,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="feat(Cart): Agregamos carritos al usuario y al user, agregamos los items al carrito especifico" />
     <MESSAGE value="refactor(Cart): Bugs del carrito, buscabamos model cuando era product, relations" />
     <MESSAGE value="refactor(Cart): Mostramos el json del carrito" />
     <MESSAGE value="refactor(Cart): El carrito se ha reconstruido para usar uno por cada local que se necesite, la vista del html ya funciona" />
@@ -891,7 +881,8 @@
     <MESSAGE value="test(Place): Typo in place spec" />
     <MESSAGE value="test: Simple test" />
     <MESSAGE value="refactor(Header): Delete react - add alpine" />
-    <option name="LAST_COMMIT_MESSAGE" value="refactor(Header): Delete react - add alpine" />
+    <MESSAGE value="refactor(UserProfile): Agregamos la dirección de entrega en el perfil del usuario" />
+    <option name="LAST_COMMIT_MESSAGE" value="refactor(UserProfile): Agregamos la dirección de entrega en el perfil del usuario" />
   </component>
   <component name="WindowStateProjectService">
     <state x="392" y="0" key="#All_specs_in_spec:_waydda" timestamp="1598730457189">
@@ -995,11 +986,11 @@
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="339" y="174" width="672" height="677" key="run.anything.popup/0.0.1366.768@0.0.1366.768" timestamp="1598731435607" />
-    <state x="346" y="89" width="672" height="678" key="search.everywhere.popup" timestamp="1598761621633">
+    <state x="346" y="89" width="672" height="678" key="search.everywhere.popup" timestamp="1598762570720">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="1852" y="56" width="945" height="954" key="search.everywhere.popup/0.0.1366.768/1366.-69.1920.1080@1366.-69.1920.1080" timestamp="1597715976170" />
     <state x="1710" y="89" width="672" height="678" key="search.everywhere.popup/0.0.1366.768/1366.0.1360.768@1366.0.1360.768" timestamp="1598664318183" />
-    <state x="346" y="89" width="672" height="678" key="search.everywhere.popup/0.0.1366.768@0.0.1366.768" timestamp="1598761621633" />
+    <state x="346" y="89" width="672" height="678" key="search.everywhere.popup/0.0.1366.768@0.0.1366.768" timestamp="1598762570720" />
   </component>
 </project>
