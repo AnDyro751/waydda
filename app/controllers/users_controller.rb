@@ -2,8 +2,9 @@ class UsersController < ApplicationController
   before_action :authenticate_user!
 
   def my_profile
-    @current_address = current_user.addresses.select { |address| address.default }.first
+    @current_address = current_user.addresses.select { |address| address.default }.first || current_user.addresses.new
   end
+
 
   def update
     respond_to do |format|

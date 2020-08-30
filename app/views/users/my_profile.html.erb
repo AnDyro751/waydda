@@ -1,8 +1,50 @@
-<h1>Hola: <%= current_user.name %></h1>
-<% if @current_address %>
-  <h4><strong>Dirección de entrega:</strong> <%= @current_address.street %></h4>
-<% end %>
-<%= link_to "Editar perfil", edit_my_profile_path %>
-<%= link_to "Agregar dirección de entrega", new_address_path %>
-
-<%= link_to "Cerrar sesión", destroy_user_session_path, method: :delete %>
+<div class="w-full mx-auto flex gap-4">
+  <div class="w-9/12 mx-auto flex-wrap">
+    <div class="w-full items-center flex">
+      <div class="w-8/12">
+        <%= render Headers::Text.new(title: current_user.name) %>
+      </div>
+      <div class="w-4/12 flex justify-end">
+        <%= link_to "Editar perfil", edit_my_profile_path, class: "bg-black py-2 px-6 text-white rounded" %>
+      </div>
+    </div>
+    <div class="w-full">
+      <h2 class="font-bold mb-4 text-lg">
+        Dirección de entrega
+      </h2>
+      <%= simple_form_for(@current_address,
+                          defaults: {
+                              input_html: {
+                                  class: "py-3 px-3 bg-white border-gray-400 border appearance-none focus:border-black rounded focus:outline-none w-full mt-2 mb-4"
+                              },
+                              label_html: {
+                                  class: "text-sm font-normal text-gray-600"
+                              }
+                          },
+                          html: {class: "w-full"},
+                          remote: true
+          ) do |f| %>
+        <div class="w-full flex gap-6">
+          <div class="w-6/12">
+            <%= f.input :address, label: "Calle", placeholder: "Torres del Toreo" %>
+          </div>
+          <div class="w-6/12">
+            <%= f.input :description, label: "Piso / Oficina / Apto / Depto", placeholder: "Descripción de la dirección (ej. torre, apartamento)" %>
+          </div>
+        </div>
+        <div class="w-full flex gap-6 mt-6">
+          <div class="w-6/12">
+            <%= f.input :internal_number, label: "Número interno", placeholder: "15 B" %>
+          </div>
+          <div class="w-6/12">
+            <%= f.input :country, as: :select, label: "País", prompt: "País", collection: ["México"], selected: "México", disabled: true %>
+          </div>
+        </div>
+        <div class="w-full mt-6 flex justify-end">
+          <%= f.submit @current_address ? "Actualizar dirección" : "Agregar dirección", class: "bg-black text-white font-normal cursor-pointer rounded py-2 px-6" %>
+        </div>
+      <% end %>
+      <%= link_to "Cerrar sesión", destroy_user_session_path, method: :delete %>
+    </div>
+  </div>
+</div>

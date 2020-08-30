@@ -59,20 +59,19 @@ import '../../assets/stylesheets/application.scss'
 // ReactRailsUJS.useContext(componentRequireContext);
 
 
-document.addEventListener("turbolinks:load", () => {
-
-
+window.deleteFlashs = function deleteFlashNotice() {
     var class_element = document.querySelector("#flash-notice");
+    console.log(class_element)
     if (class_element) {
         class_element.addEventListener("click", () => {
-            class_element.classList.add("translate-y-full-custom");
+            var flashElement = document.querySelector("#notifications").innerHTML = ""
         }, false)
-        setTimeout(() => {
-            if (class_element) {
-                class_element.classList.add("translate-y-full-custom");
-            }
-        }, 5000)
     }
+}
+
+document.addEventListener("turbolinks:load", () => {
+
+    window.deleteFlashs()
     try {
         const current_time_zone = Intl.DateTimeFormat().resolvedOptions().timeZone;
         setCookie("timezone", current_time_zone);

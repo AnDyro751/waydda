@@ -38,12 +38,14 @@
       <% if user_signed_in? %>
         <% if current_user.is_admin %>
           <!--        TODO: Agregar imagen para el dashboard -->
+          <!--        TODO: Agregar dirección de entrega -->
           <% link_to "Da", my_place_path %>
         <% end %>
       <% end %>
       <div class="w-auto flex justify-center">
         <% if user_signed_in? %>
           <%= link_to my_profile_path, class: "rounded-full select-none" do %>
+            <!--            TODO: Agregar el dropdown-->
             <img class="h-8 shadow-lg rounded-full" src="<%= get_image_url(50, 50, "utils/icons8-test-account-96.png") %>" alt="Waydda default profile photo">
           <% end %>
         <% else %>

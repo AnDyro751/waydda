@@ -29,31 +29,19 @@ class AddressesController < ApplicationController
   def create
     @address = Address.new(address_params)
     if user_signed_in?
-      if params["address"]["model"] === "User"
-        @address.model = current_user
-        # Debemos actualizar las otras direcciones de entrega
-      else
-        model = params["address"]["model"].constantize
-        @address.model = model.find_by(id: params["address"]["model_id"])
-      end
+      @address.model = current_user
     else
       @address.model = @current_cart
     end
 
     respond_to do |format|
-      # format.json { render json: @address.errors, status: :unprocessable_entity } if poly_model.nil?
       if @address.save
-        if params["address"]["current"]
-          puts "-----------------#{params["address"]["current"]}----------AGREGANDO-------#{@address.attributes}"
-          #Se agrega este address a la sesión
-          session[:current_address] = @address
-          session[:demo] = "POPODEPERRO"
-          @current_address = @address
-        end
-        format.html { redirect_to @address, notice: 'Address was successfully created.' }
-        format.json { render :show, status: :created }
+        session[:current_address] = @address
+        @current_address = @address
+        format.html { redirect_to my_profile_path, notice: 'Se ha registrado la dirección de entrega' }
+        format.js {}
       else
-        format.html { render :new }
+        format.js {}
         format.json { render json: @address.errors, status: :unprocessable_entity }
       end
     end

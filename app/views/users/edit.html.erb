@@ -1,14 +1,28 @@
-<h1>Editar mi perfil</h1>
-<%= simple_form_for(current_user, remote: true) do |f| %>
-  <%= f.input :name %>
-  <%= f.input :lastName %>
-  <%= f.input :email, as: :email %>
-  <%= f.submit %>
-<% end %>
-<h2>Editar contraseña</h2>
+<div class="w-9/12 flex flex-wrap mx-auto">
+  <div class="w-full mt-4">
+    <%= link_to "Regresar", my_profile_path, class: "text-sm text-gray-600 font-normal" %>
+  </div>
+  <%= render Headers::Text.new(title: "Editar perfil") %>
+  <div class="w-full flex flex-wrap">
+    <div class="w-full my-4">
+      <%= simple_form_for(current_user, remote: true) do |f| %>
+        <%= f.input :name %>
+        <%= f.input :lastName %>
+        <%= f.input :email, as: :email %>
+        <%= f.submit %>
+      <% end %>
+    </div>
 
-<%= simple_form_for(current_user, :url => {:action => "update_password"}) do |f| %>
-  <%= f.input :password, as: :password, validate: {presence: true, length: true, confirmation: false} %>
-  <%= f.input :password_confirmation, as: :password %>
-  <%= f.submit %>
-<% end %>
+    <div class="w-full ">
+      <h2 class="font-bold mb-4 text-lg">
+        Editar contraseña
+      </h2>
+      <%= simple_form_for(current_user, :url => {:action => "update_password"}) do |f| %>
+        <%= f.input :password, as: :password, validate: {presence: true, length: true, confirmation: false} %>
+        <%= f.input :password_confirmation, as: :password %>
+        <%= f.submit %>
+
+      <% end %>
+    </div>
+  </div>
+</div>

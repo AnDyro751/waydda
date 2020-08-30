@@ -20,20 +20,18 @@
 </head>
 
 <body>
-<div
-  id="select-address"
-></div>
-<div id="notifications">
-  <% if notice.present? %>
-    <%= render Notifications::Alert.new(alert: notice) %>
-  <% end %>
-  <% if alert.present? %>
-    <%= render Notifications::Alert.new(alert: alert) %>
-  <% end %>
-</div>
+
 <div class="w-full">
   <div class="w-full sticky top-0">
     <%= render "utils/Headers/simple", {current_user: current_user, current_user_id: current_user ? current_user.id.to_s : nil} %>
+    <div id="notifications">
+      <% if notice.present? %>
+        <%= render Notifications::Alert.new(alert: notice) %>
+      <% end %>
+      <% if alert.present? %>
+        <%= render Notifications::Alert.new(alert: alert) %>
+      <% end %>
+    </div>
     <%= content_for?(:content) ? yield(:content) : yield %>
   </div>
 </div>
@@ -44,7 +42,7 @@
   <%= console %>
 <% end %>
 <% if Rails.env === "development" %>
-  <%= console %>
+  <%#= console %>
 <% end %>
 </body>
 </html>
