@@ -19,6 +19,9 @@ RSpec.describe Place, type: :model do
   it { is_expected.to have_field(:delivery_distance).of_type(Float).with_default_value_of(5) }
   it { is_expected.to have_field(:delivery_extra_cost).of_type(Float).with_default_value_of(0) }
 
+  it { is_expected.to have_field(:city).of_type(String) }
+  it { is_expected.to validate_presence_of(:city) }
+
   # Relations
 
   describe "#name" do

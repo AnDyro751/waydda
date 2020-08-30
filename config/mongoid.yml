@@ -176,7 +176,7 @@ development:
 test:
   clients:
     default:
-      uri: mongodb+srv://develop:popodeperro@develop.nsxax.mongodb.net/waydda_development?retryWrites=true&w=majority
+      uri: mongodb+srv://demo:popodeperro@cluster0.vfszt.mongodb.net/waydda_test?retryWrites=true&w=majority
       options:
         raise_not_found_error: false
         read:

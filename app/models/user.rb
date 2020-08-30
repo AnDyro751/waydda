@@ -22,6 +22,7 @@ class User
   field :photo, type: String, default: "waydda.png"
   field :timezone, type: String
   field :remember_created_at, type: DateTime
+  field :is_admin, type: Boolean, default: false
 
   # OMNIAUTH
   field :provider, type: String

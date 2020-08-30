@@ -10,6 +10,8 @@ RSpec.describe User, type: :model do
   it { is_expected.to embed_many(:addresses) }
 
   # Fields
+  it { is_expected.to have_field(:is_admin).of_type(Mongoid::Boolean).with_default_value_of(false) }
+
   describe "#name" do
     # Name
     it { is_expected.to have_field(:name).of_type(String) }
