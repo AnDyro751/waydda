@@ -2,13 +2,12 @@ class UsersController < ApplicationController
   before_action :authenticate_user!
 
   def my_profile
-    @current_address = current_user.addresses.select { |address| address.default }.first || current_user.addresses.new
+    @new_address = current_user.current_address || current_user.addresses.new
   end
 
 
   def update
     respond_to do |format|
-
       if current_user.update(user_params)
         format.html { redirect_to my_profile_path, notice: 'Se ha actualizado tu perfil' }
         # format.json { render :show, status: :ok, location: @address }

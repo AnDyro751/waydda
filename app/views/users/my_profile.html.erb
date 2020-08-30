@@ -1,4 +1,14 @@
-<div class="w-full mx-auto flex gap-4">
+<%= javascript_pack_tag "my_profile", 'data-turbolinks-track': "reload" %>
+<% content_for :head_tags do %>
+  <% if current_user.current_address %>
+    <meta name="user_lat" content="<%= current_user.current_address.lat %>"/>
+    <meta name="user_lng" content="<%= current_user.current_address.lng %>"/>
+  <% end %>
+<% end %>
+
+<div
+  x-data="address()"
+  class="w-full mx-auto flex gap-4">
   <div class="w-9/12 mx-auto flex-wrap">
     <div class="w-full items-center flex">
       <div class="w-8/12">
@@ -8,43 +18,104 @@
         <%= link_to "Editar perfil", edit_my_profile_path, class: "bg-black py-2 px-6 text-white rounded" %>
       </div>
     </div>
-    <div class="w-full">
-      <h2 class="font-bold mb-4 text-lg">
-        Dirección de entrega
-      </h2>
-      <%= simple_form_for(@current_address,
-                          defaults: {
-                              input_html: {
-                                  class: "py-3 px-3 bg-white border-gray-400 border appearance-none focus:border-black rounded focus:outline-none w-full mt-2 mb-4"
+    <div class="w-full flex flex-wrap items-start">
+      <div class="w-full flex gap-12">
+        <div class="w-6/12">
+          <h2 class="font-bold mb-4 text-lg">
+            Dirección de entrega
+          </h2>
+          <%= simple_form_for(@new_address,
+                              defaults: {
+                                  input_html: {
+                                      class: "py-3 px-3 bg-white border-gray-400 border appearance-none focus:border-black rounded focus:outline-none w-full mt-2"
+                                  },
+                                  label_html: {
+                                      class: "text-sm font-normal text-gray-600"
+                                  }
                               },
-                              label_html: {
-                                  class: "text-sm font-normal text-gray-600"
-                              }
-                          },
-                          html: {class: "w-full"},
-                          remote: true
-          ) do |f| %>
-        <div class="w-full flex gap-6">
-          <div class="w-6/12">
-            <%= f.input :address, label: "Calle", placeholder: "Torres del Toreo" %>
-          </div>
-          <div class="w-6/12">
-            <%= f.input :description, label: "Piso / Oficina / Apto / Depto", placeholder: "Descripción de la dirección (ej. torre, apartamento)" %>
+                              html: {class: "w-full", },
+                              remote: true
+              ) do |f| %>
+            <div class="w-full flex flex-wrap">
+              <div class="w-full relative mb-4">
+                <%= f.input :search_address, label: "Calle", placeholder: "Torres del Toreo", input_html: {"x-on:input": "addressHandleChange($event)", value: ""} %>
+                <%= f.input :address, as: :hidden, label: "Calle", placeholder: "Torres del Toreo", input_html: {"x-on:input": "addressHandleChange($event)", value: ""} %>
+                <div
+                  :class="{'hidden' : addresses.length <= 0}"
+                  class="absolute transform translate-y-full bottom-0 left-0 right-0 w-full shadow bg-white">
+                  <template x-for="address in addresses" :key="address.id">
+                    <p
+                      @click="selectAddress({address: address.place_name, center: JSON.stringify(address.center)})"
+                      class="px-4 py-2 hover:bg-gray-100 border-b cursor-pointer" x-text="address.place_name"></p>
+                  </template>
+                </div>
+              </div>
+              <div class="w-full mb-4">
+                <%= f.input :description, label: "Piso / Oficina / Apto / Depto", placeholder: "Descripción de la dirección (ej. torre, apartamento)" %>
+              </div>
+            </div>
+            <div class="w-full flex flex-grow">
+              <div class="w-full mb-4">
+                <%= f.input :internal_number, label: "Número interno", placeholder: "15 B" %>
+              </div>
+            </div>
+            <div class="w-full mt-6 flex justify-end">
+              <%= f.submit current_user.current_address ? "Actualizar dirección" : "Agregar dirección", class: "bg-black text-white font-normal cursor-pointer rounded py-2 px-6" %>
+            </div>
+          <% end %>
+        </div>
+        <div class="w-6/12">
+          <h2 class="font-bold mb-4 text-lg">
+            Mapa
+          </h2>
+          <div class="h-xl bg-gray-200 w-full rounded" id="map">
+
           </div>
         </div>
-        <div class="w-full flex gap-6 mt-6">
-          <div class="w-6/12">
-            <%= f.input :internal_number, label: "Número interno", placeholder: "15 B" %>
-          </div>
-          <div class="w-6/12">
-            <%= f.input :country, as: :select, label: "País", prompt: "País", collection: ["México"], selected: "México", disabled: true %>
-          </div>
-        </div>
-        <div class="w-full mt-6 flex justify-end">
-          <%= f.submit @current_address ? "Actualizar dirección" : "Agregar dirección", class: "bg-black text-white font-normal cursor-pointer rounded py-2 px-6" %>
-        </div>
-      <% end %>
+      </div>
       <%= link_to "Cerrar sesión", destroy_user_session_path, method: :delete %>
     </div>
   </div>
+  <script type="text/javascript" charset="utf-8">
+      let timer;
+
+      function address() {
+          return {
+              loading: false,
+              addresses: [],
+              selectAddress: function (e) {
+                  this.addresses = [];
+                  document.querySelector("#address_search_address").value = e.address;
+                  document.querySelector("#address_address").value = e.address;
+
+                  var coordinates = JSON.parse(e.center);
+                  window.current_map.setCenter(coordinates);
+                  window.current_marker.setLngLat(coordinates)
+              },
+              addressHandleChange: function (e) {
+                  clearTimeout(timer);
+                  let value = e.target.value;
+                  if (value.length > 0) {
+                      timer = setTimeout(async () => {
+                          const URL = `https://api.mapbox.com/geocoding/v5/mapbox.places/${encodeURIComponent(e.target.value)}.json?access_token=pk.eyJ1Ijoic2VhcmNoLW1hY2hpbmUtdXNlci0xIiwiYSI6ImNrN2Y1Nmp4YjB3aG4zZ253YnJoY21kbzkifQ.JM5ZeqwEEm-Tonrk5wOOMw&cachebuster=1596775236930&autocomplete=true&country=mx&bbox=-102.36584333677,18.203715736351,-95.646605055518,20.200815919313&proximity=-99.630833,19.354167`;
+                          try {
+                              let response = await (
+                                  await fetch(URL, {
+                                      method: "GET"
+                                  })
+                              ).json();
+                              console.log(response.features);
+                              this.addresses = response.features
+                          } catch (e) {
+                              console.log("HA OCUURRIDO UN ERROR")
+                          }
+                      }, 300)
+                  } else {
+                      this.addresses = []
+                  }
+              }
+          }
+      }
+
+  </script>
 </div>

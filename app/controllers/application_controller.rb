@@ -66,7 +66,6 @@ class ApplicationController < ActionController::Base
         session[:current_address] = nil
       end
     end
-
   end
 
   protected

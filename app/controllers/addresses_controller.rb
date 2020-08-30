@@ -41,6 +41,7 @@ class AddressesController < ApplicationController
         format.html { redirect_to my_profile_path, notice: 'Se ha registrado la dirección de entrega' }
         format.js {}
       else
+        puts "--------#{@address.errors.map { |e, k| puts "-----#{e}------#{k}" }}"
         format.js {}
         format.json { render json: @address.errors, status: :unprocessable_entity }
       end

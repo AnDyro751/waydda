@@ -19,7 +19,7 @@ class Address
   field :default, type: Boolean, default: false
   field :description, type: String, default: ""
   field :internal_number, type: String
-  field :current, type: Boolean, default: true
+  field :current, type: Boolean, default: false
   field :lat, type: Float
   field :lng, type: Float
 
