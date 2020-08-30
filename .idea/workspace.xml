@@ -19,7 +19,11 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b89cb0fb-b680-4bb9-8ae0-f4b41721cfb9" name="Default Changelist" comment="test(Product): Spec failed" />
+    <list default="true" id="b89cb0fb-b680-4bb9-8ae0-f4b41721cfb9" name="Default Changelist" comment="test(Place): Typo in place spec">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spec/factories/places.rb" beforeDir="false" afterPath="$PROJECT_DIR$/spec/factories/places.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spec/requests/products_spec.rb" beforeDir="false" afterPath="$PROJECT_DIR$/spec/requests/products_spec.rb" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -489,14 +493,7 @@
       <workItem from="1598671994350" duration="9650000" />
       <workItem from="1598729212266" duration="3282000" />
       <workItem from="1598732675498" duration="8796000" />
-      <workItem from="1598748382521" duration="3467000" />
-    </task>
-    <task id="LOCAL-00021" summary="feat(Dashboard): Agregamos la vista de los productos a los productos vistos recientemente">
-      <created>1597981879720</created>
-      <option name="number" value="00021" />
-      <option name="presentableId" value="LOCAL-00021" />
-      <option name="project" value="LOCAL" />
-      <updated>1597981879720</updated>
+      <workItem from="1598748382521" duration="5257000" />
     </task>
     <task id="LOCAL-00022" summary="feat(Dashboard): Init my sales pages">
       <created>1597982487186</created>
@@ -834,7 +831,14 @@
       <option name="project" value="LOCAL" />
       <updated>1598752266846</updated>
     </task>
-    <option name="localTasksCounter" value="70" />
+    <task id="LOCAL-00070" summary="test(Place): Typo in place spec">
+      <created>1598752360058</created>
+      <option name="number" value="00070" />
+      <option name="presentableId" value="LOCAL-00070" />
+      <option name="project" value="LOCAL" />
+      <updated>1598752360058</updated>
+    </task>
+    <option name="localTasksCounter" value="71" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -854,7 +858,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="feat(Notifications): Mostramos nuevo diseño de las notificaciones" />
     <MESSAGE value="feat: Se han corregido pequeños errores en la UI, vamos a obligar a iniciar sesión al agregar al carrito" />
     <MESSAGE value="feat(Cart): Agregamos un carrito a cada place" />
     <MESSAGE value="feat(Cart): Agregamos carritos al usuario y al user, agregamos los items al carrito especifico" />
@@ -879,7 +882,8 @@
     <MESSAGE value="test: Se agregaron test para dos modelos. Comportamientos básicos" />
     <MESSAGE value="test(User): Comentamos lo innecesario" />
     <MESSAGE value="test(Product): Spec failed" />
-    <option name="LAST_COMMIT_MESSAGE" value="test(Product): Spec failed" />
+    <MESSAGE value="test(Place): Typo in place spec" />
+    <option name="LAST_COMMIT_MESSAGE" value="test(Place): Typo in place spec" />
   </component>
   <component name="WindowStateProjectService">
     <state x="392" y="0" key="#All_specs_in_spec:_waydda" timestamp="1598730457189">
@@ -969,12 +973,12 @@
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="628" y="298" key="com.jetbrains.plugins.remotesdk.ui.RemoteMappingsConfiguration/0.0.1366.768@0.0.1366.768" timestamp="1598729856431" />
-    <state x="390" y="117" width="585" height="624" key="find.popup" timestamp="1598752168001">
+    <state x="390" y="117" width="585" height="624" key="find.popup" timestamp="1598753329490">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="1914" y="96" width="823" height="878" key="find.popup/0.0.1366.768/1366.-69.1920.1080@1366.-69.1920.1080" timestamp="1597716285449" />
     <state x="1754" y="117" width="583" height="624" key="find.popup/0.0.1366.768/1366.0.1360.768@1366.0.1360.768" timestamp="1598661885414" />
-    <state x="390" y="117" width="585" height="624" key="find.popup/0.0.1366.768@0.0.1366.768" timestamp="1598752168001" />
+    <state x="390" y="117" width="585" height="624" key="find.popup/0.0.1366.768@0.0.1366.768" timestamp="1598753329490" />
     <state x="549" y="254" width="250" height="278" key="jetbrains.javascript.buildTools.run-task-popup" timestamp="1597946321130">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
@@ -983,11 +987,11 @@
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="339" y="174" width="672" height="677" key="run.anything.popup/0.0.1366.768@0.0.1366.768" timestamp="1598731435607" />
-    <state x="346" y="89" width="672" height="678" key="search.everywhere.popup" timestamp="1598752297984">
+    <state x="346" y="89" width="672" height="678" key="search.everywhere.popup" timestamp="1598752790434">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="1852" y="56" width="945" height="954" key="search.everywhere.popup/0.0.1366.768/1366.-69.1920.1080@1366.-69.1920.1080" timestamp="1597715976170" />
     <state x="1710" y="89" width="672" height="678" key="search.everywhere.popup/0.0.1366.768/1366.0.1360.768@1366.0.1360.768" timestamp="1598664318183" />
-    <state x="346" y="89" width="672" height="678" key="search.everywhere.popup/0.0.1366.768@0.0.1366.768" timestamp="1598752297984" />
+    <state x="346" y="89" width="672" height="678" key="search.everywhere.popup/0.0.1366.768@0.0.1366.768" timestamp="1598752790434" />
   </component>
 </project>

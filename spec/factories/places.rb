@@ -5,4 +5,5 @@ FactoryBot.define do
     association :user, factory: :user
     slug { "demo-place-slug" }
   end
+
 end
