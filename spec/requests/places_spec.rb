@@ -13,8 +13,7 @@ RSpec.describe "Places", type: :request do
   describe "UNAUTH - GET /dashboard/places/new" do
     it 'should be redirect to sign in' do
       get new_dashboard_place_path
-      expect(response).to
-(302)
+      expect(response).to have_http_status(302)
       expect(response).to redirect_to(new_user_session_path)
       # expect(response).to render_template(:new)
     end
