@@ -45,7 +45,7 @@ class Place
   has_many :orders # Todas las ordenes que recibe
 
   # Validations
-  validates :name, presence: true, length: {in: 4..30}, format: {with: /\A[a-zA-ZáéíóúñÁÉÍÓÚÑ\s]+\z/}
+  validates :name, presence: true, length: {in: 4..30}
   validates :address, presence: true, length: {in: 4..100}
   validates :status, presence: true, inclusion: {in: %w(pending active inactive)}
 

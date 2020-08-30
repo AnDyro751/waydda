@@ -33,9 +33,9 @@ class Dashboard::PlacesController < ApplicationController
     @place.user = current_user
     respond_to do |format|
       if @place.save
-        format.html { redirect_to my_place_path, notice: 'Place was successfully created.' }
+        format.html { redirect_to my_place_path, notice: 'Se ha creado tu empresa' }
       else
-        format.html { render :new }
+        format.html { render :new, status: :unprocessable_entity }
       end
     end
   end
@@ -100,12 +100,6 @@ class Dashboard::PlacesController < ApplicationController
 
   private
 
-  def set_my_place
-    @place = current_user.places.first
-    if @place.nil?
-      redirect_to new_dashboard_place_path
-    end
-  end
 
   def valid_uniqueness_place
     unless @place.nil?

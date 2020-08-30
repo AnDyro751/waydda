@@ -1,0 +1,8 @@
+Iniciar sesión o Registrarse
+Al acceder al dashboard se debe redirigir al crear una empresa
+Al crear la empresa se debe redirigir a / o my_place_path
+
+# Al crear el place ya puede crear productos
+
+Al ir a products/new se debe renderizar la vista del formulario para agregar producto
+Al hacer post a /products y que all esté ok debe redirigir a /products

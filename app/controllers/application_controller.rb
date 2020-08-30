@@ -6,6 +6,13 @@ class ApplicationController < ActionController::Base
   # before_action :set_default_locations
 
 
+  def set_my_place
+    @place = current_user.places.first
+    if @place.nil?
+      redirect_to new_dashboard_place_path
+    end
+  end
+
   def default_locations
     [
         {key: "Atizapán de Zaragosa", value: "atizapan-de-zaragoza"},
@@ -39,7 +46,6 @@ class ApplicationController < ActionController::Base
       Time.zone = browser_time_zone
     end
   end
-
 
 
   def not_found

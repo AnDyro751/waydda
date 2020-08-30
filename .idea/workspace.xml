@@ -19,7 +19,17 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b89cb0fb-b680-4bb9-8ae0-f4b41721cfb9" name="Default Changelist" comment="test: Se agregaron test para dos modelos. Comportamientos básicos" />
+    <list default="true" id="b89cb0fb-b680-4bb9-8ae0-f4b41721cfb9" name="Default Changelist" comment="test(User): Comentamos lo innecesario">
+      <change afterPath="$PROJECT_DIR$/spec/requests/products_spec.rb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/workflow.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/application_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/application_controller.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/dashboard/places_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/dashboard/places_controller.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/place.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/place.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/dashboard/places/new.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/dashboard/places/new.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spec/requests/places_spec.rb" beforeDir="false" afterPath="$PROJECT_DIR$/spec/requests/places_spec.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spec/requests/users_spec.rb" beforeDir="false" afterPath="$PROJECT_DIR$/spec/requests/users_spec.rb" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -488,14 +498,8 @@
       <workItem from="1598657474474" duration="7015000" />
       <workItem from="1598671994350" duration="9650000" />
       <workItem from="1598729212266" duration="3282000" />
-      <workItem from="1598732675498" duration="8735000" />
-    </task>
-    <task id="LOCAL-00019" summary="feat(Dashboard): La vista de productos tiene un diseño simple">
-      <created>1597973056963</created>
-      <option name="number" value="00019" />
-      <option name="presentableId" value="LOCAL-00019" />
-      <option name="project" value="LOCAL" />
-      <updated>1597973056963</updated>
+      <workItem from="1598732675498" duration="8796000" />
+      <workItem from="1598748382521" duration="3357000" />
     </task>
     <task id="LOCAL-00020" summary="feat(Dashboard): Agregamos will paginate">
       <created>1597973309645</created>
@@ -833,7 +837,14 @@
       <option name="project" value="LOCAL" />
       <updated>1598742038534</updated>
     </task>
-    <option name="localTasksCounter" value="68" />
+    <task id="LOCAL-00068" summary="test(User): Comentamos lo innecesario">
+      <created>1598742099543</created>
+      <option name="number" value="00068" />
+      <option name="presentableId" value="LOCAL-00068" />
+      <option name="project" value="LOCAL" />
+      <updated>1598742099544</updated>
+    </task>
+    <option name="localTasksCounter" value="69" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -853,7 +864,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Antes de agregar svelte" />
     <MESSAGE value="Vamos a mostrar un mensaje cuando se agregue un producto al carrito" />
     <MESSAGE value="feat(Notifications): Mostramos nuevo diseño de las notificaciones" />
     <MESSAGE value="feat: Se han corregido pequeños errores en la UI, vamos a obligar a iniciar sesión al agregar al carrito" />
@@ -878,7 +888,8 @@
     <MESSAGE value="refactor(Address): Agregamos estilos al botón cuando la dirección no está disponible" />
     <MESSAGE value="refactor(Header): Alpine integration" />
     <MESSAGE value="test: Se agregaron test para dos modelos. Comportamientos básicos" />
-    <option name="LAST_COMMIT_MESSAGE" value="test: Se agregaron test para dos modelos. Comportamientos básicos" />
+    <MESSAGE value="test(User): Comentamos lo innecesario" />
+    <option name="LAST_COMMIT_MESSAGE" value="test(User): Comentamos lo innecesario" />
   </component>
   <component name="WindowStateProjectService">
     <state x="392" y="0" key="#All_specs_in_spec:_waydda" timestamp="1598730457189">
@@ -917,22 +928,22 @@
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="255" y="251" key="FileChooserDialogImpl/0.0.1366.768@0.0.1366.768" timestamp="1598733276444" />
-    <state width="1323" height="188" key="GridCell.Tab.0.bottom" timestamp="1598735447834">
+    <state width="1323" height="188" key="GridCell.Tab.0.bottom" timestamp="1598742120387">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state width="1323" height="188" key="GridCell.Tab.0.bottom/0.0.1366.768@0.0.1366.768" timestamp="1598735447834" />
-    <state width="1323" height="188" key="GridCell.Tab.0.center" timestamp="1598735447834">
+    <state width="1323" height="188" key="GridCell.Tab.0.bottom/0.0.1366.768@0.0.1366.768" timestamp="1598742120386" />
+    <state width="1323" height="188" key="GridCell.Tab.0.center" timestamp="1598742120386">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state width="1323" height="188" key="GridCell.Tab.0.center/0.0.1366.768@0.0.1366.768" timestamp="1598735447834" />
-    <state width="1323" height="188" key="GridCell.Tab.0.left" timestamp="1598735447834">
+    <state width="1323" height="188" key="GridCell.Tab.0.center/0.0.1366.768@0.0.1366.768" timestamp="1598742120386" />
+    <state width="1323" height="188" key="GridCell.Tab.0.left" timestamp="1598742120386">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state width="1323" height="188" key="GridCell.Tab.0.left/0.0.1366.768@0.0.1366.768" timestamp="1598735447834" />
-    <state width="1323" height="188" key="GridCell.Tab.0.right" timestamp="1598735447834">
+    <state width="1323" height="188" key="GridCell.Tab.0.left/0.0.1366.768@0.0.1366.768" timestamp="1598742120386" />
+    <state width="1323" height="188" key="GridCell.Tab.0.right" timestamp="1598742120386">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state width="1323" height="188" key="GridCell.Tab.0.right/0.0.1366.768@0.0.1366.768" timestamp="1598735447834" />
+    <state width="1323" height="188" key="GridCell.Tab.0.right/0.0.1366.768@0.0.1366.768" timestamp="1598742120386" />
     <state x="518" y="173" key="RollbackChangesDialog" timestamp="1598294478879">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
@@ -942,6 +953,10 @@
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="232" y="56" key="SettingsEditor/0.0.1366.768@0.0.1366.768" timestamp="1598736787664" />
+    <state x="544" y="96" key="VCS.ChangeListViewerDialog" timestamp="1598750646694">
+      <screen x="0" y="0" width="1366" height="768" />
+    </state>
+    <state x="544" y="96" key="VCS.ChangeListViewerDialog/0.0.1366.768@0.0.1366.768" timestamp="1598750646694" />
     <state x="275" y="117" key="Vcs.Push.Dialog.v2" timestamp="1598636621032">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
@@ -964,12 +979,12 @@
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="628" y="298" key="com.jetbrains.plugins.remotesdk.ui.RemoteMappingsConfiguration/0.0.1366.768@0.0.1366.768" timestamp="1598729856431" />
-    <state x="390" y="117" width="585" height="624" key="find.popup" timestamp="1598741580935">
+    <state x="390" y="117" width="585" height="624" key="find.popup" timestamp="1598752168001">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="1914" y="96" width="823" height="878" key="find.popup/0.0.1366.768/1366.-69.1920.1080@1366.-69.1920.1080" timestamp="1597716285449" />
     <state x="1754" y="117" width="583" height="624" key="find.popup/0.0.1366.768/1366.0.1360.768@1366.0.1360.768" timestamp="1598661885414" />
-    <state x="390" y="117" width="585" height="624" key="find.popup/0.0.1366.768@0.0.1366.768" timestamp="1598741580935" />
+    <state x="390" y="117" width="585" height="624" key="find.popup/0.0.1366.768@0.0.1366.768" timestamp="1598752168001" />
     <state x="549" y="254" width="250" height="278" key="jetbrains.javascript.buildTools.run-task-popup" timestamp="1597946321130">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
@@ -978,11 +993,11 @@
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="339" y="174" width="672" height="677" key="run.anything.popup/0.0.1366.768@0.0.1366.768" timestamp="1598731435607" />
-    <state x="346" y="89" width="672" height="678" key="search.everywhere.popup" timestamp="1598742053674">
+    <state x="346" y="89" width="672" height="678" key="search.everywhere.popup" timestamp="1598752179645">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="1852" y="56" width="945" height="954" key="search.everywhere.popup/0.0.1366.768/1366.-69.1920.1080@1366.-69.1920.1080" timestamp="1597715976170" />
     <state x="1710" y="89" width="672" height="678" key="search.everywhere.popup/0.0.1366.768/1366.0.1360.768@1366.0.1360.768" timestamp="1598664318183" />
-    <state x="346" y="89" width="672" height="678" key="search.everywhere.popup/0.0.1366.768@0.0.1366.768" timestamp="1598742053674" />
+    <state x="346" y="89" width="672" height="678" key="search.everywhere.popup/0.0.1366.768@0.0.1366.768" timestamp="1598752179645" />
   </component>
 </project>
