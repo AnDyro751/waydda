@@ -19,10 +19,9 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b89cb0fb-b680-4bb9-8ae0-f4b41721cfb9" name="Default Changelist" comment="feat(Address): Actualiza y crea direcciones">
+    <list default="true" id="b89cb0fb-b680-4bb9-8ae0-f4b41721cfb9" name="Default Changelist" comment="feat(Address): Script no carga si lo ponemos en una página">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/javascript/packs/my_profile.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/javascript/packs/my_profile.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/layouts/application.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/layouts/application.html.erb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/views/users/my_profile.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/users/my_profile.html.erb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -495,14 +494,7 @@
       <workItem from="1598729212266" duration="3282000" />
       <workItem from="1598732675498" duration="8796000" />
       <workItem from="1598748382521" duration="34374000" />
-      <workItem from="1598839720453" duration="511000" />
-    </task>
-    <task id="LOCAL-00030" summary="feat(Place): Vamos a crear la vista báscia del place">
-      <created>1598145378955</created>
-      <option name="number" value="00030" />
-      <option name="presentableId" value="LOCAL-00030" />
-      <option name="project" value="LOCAL" />
-      <updated>1598145378955</updated>
+      <workItem from="1598839720453" duration="942000" />
     </task>
     <task id="LOCAL-00031" summary="feat(Place): Init place menu">
       <created>1598146448565</created>
@@ -840,7 +832,14 @@
       <option name="project" value="LOCAL" />
       <updated>1598839547976</updated>
     </task>
-    <option name="localTasksCounter" value="79" />
+    <task id="LOCAL-00079" summary="feat(Address): Script no carga si lo ponemos en una página">
+      <created>1598840285599</created>
+      <option name="number" value="00079" />
+      <option name="presentableId" value="LOCAL-00079" />
+      <option name="project" value="LOCAL" />
+      <updated>1598840285599</updated>
+    </task>
+    <option name="localTasksCounter" value="80" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -860,7 +859,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="refactor(Cart): Agregamos la opción de cambiar de método de pago y actualizamos todo el formulario sin necesidad de React" />
     <MESSAGE value="refactor(Cart): Creamos token y añadimos estilos al form de la tarjeta" />
     <MESSAGE value="refactor(Cart): Hace la petición bien" />
     <MESSAGE value="refactor(Cart): Mostramos toda la información real del place y del carrito. Solo falta mostrar los items que se van a pagar y cambiar la opción para el delivery. Recoger en tienda o dirección de entrega" />
@@ -885,7 +883,8 @@
     <MESSAGE value="feat(Address): Parece que ya se completo" />
     <MESSAGE value="feat(Address): Ya quedó ejeje" />
     <MESSAGE value="feat(Address): Actualiza y crea direcciones" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat(Address): Actualiza y crea direcciones" />
+    <MESSAGE value="feat(Address): Script no carga si lo ponemos en una página" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat(Address): Script no carga si lo ponemos en una página" />
   </component>
   <component name="WindowStateProjectService">
     <state x="392" y="0" key="#All_specs_in_spec:_waydda" timestamp="1598730457189">

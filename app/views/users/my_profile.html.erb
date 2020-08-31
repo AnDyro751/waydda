@@ -1,5 +1,4 @@
 <% content_for :head_tags do %>
-  <%= javascript_pack_tag "my_profile", 'data-turbolinks-track': "reload" %>
   <% if current_user.current_address %>
     <meta name="user_lat" content="<%= current_user.current_address.lat %>"/>
     <meta name="user_lng" content="<%= current_user.current_address.lng %>"/>
@@ -84,7 +83,7 @@
     </div>
   </div>
   <script type="text/javascript" charset="utf-8">
-      let timer;
+      var timer;
 
       function address() {
           return {
@@ -140,3 +139,4 @@
 
   </script>
 </div>
+<%= javascript_pack_tag "my_profile", 'data-turbolinks-track': "reload" %>
