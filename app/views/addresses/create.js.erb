@@ -2,6 +2,7 @@
 document.querySelector("#notifications").innerHTML = "<%= j render Notifications::Alert.new(alert: "Se han encontrado errores al guardar la dirección",kind: "error") %>";
 document.querySelector("#notifications");
 <% @address.errors.each do |keyE,error| %>
+console.log("<%= keyE %>", "<%= error %>")
 <% if keyE.to_s === "address" %>
 document.querySelector("#address_search_<%= keyE.to_s %>").classList.add("border-red-500");
 document.querySelector("[name='address[address]_error']").innerHTML = "<%= error %>";
@@ -9,7 +10,15 @@ document.querySelector("[name='address[address]_error']").innerHTML = "<%= error
 var element = document.querySelector("#address_<%= keyE %>");
 if (element) {
     element.classList.add("border-red-500");
-    document.querySelector('[name="address[<%=keyE %>]_error"]').innerHTML = "<%= error %>";
+    var spanElement = document.querySelector('[name="address[<%=keyE %>]_error"]')
+    if (spanElement) {
+        spanElement.innerHTML = "<%= error %>";
+    } else {
+        window.scrollTo(0, 0)
+        var newNotification = document.createElement("div")
+        newNotification.innerHTML = "<%= j render Notifications::Alert.new(alert: "#{keyE} #{error}" ,kind: "error") %>";
+        document.querySelector("#notifications").appendChild(newNotification);
+    }
 }
 <% end %>
 <% end %>

@@ -39,10 +39,12 @@
             <div class="w-full flex flex-wrap">
               <div class="w-full relative mb-4">
                 <div class="w-full">
-                  <%= f.input :search_address, label: "Calle", placeholder: "Torres del Toreo", input_html: {"x-on:input": "addressHandleChange($event)", value: ""} %>
+                  <%= f.input :search_address, label: "Calle", placeholder: "Torres del Toreo", input_html: {"x-on:input": "addressHandleChange($event)", value: @new_address.address} %>
                   <span name="address[address]_error" class="text-sm font-bold text-red-600"></span>
                 </div>
-                <%= f.input :address, as: :hidden, label: "Calle", placeholder: "Torres del Toreo" %>
+                <%= f.input :address, as: :hidden, label: "address" %>
+                <%= f.input :lat, as: :hidden, label: "lat" %>
+                <%= f.input :lng, as: :hidden, label: "lng" %>
                 <div
                   :class="{'hidden' : addresses.length <= 0}"
                   class="absolute transform translate-y-full bottom-0 left-0 right-0 w-full shadow bg-white">
@@ -98,9 +100,12 @@
               },
               selectAddress: function (e) {
                   this.addresses = [];
+                  var coordinates = JSON.parse(e.center);
+
                   document.querySelector("#address_search_address").value = e.address;
                   document.querySelector("#address_address").value = e.address;
-                  var coordinates = JSON.parse(e.center);
+                  document.querySelector("#address_lng").value = coordinates[0];
+                  document.querySelector("#address_lat").value = coordinates[1];
                   window.current_map.setCenter(coordinates);
                   window.current_marker.setLngLat(coordinates);
               },

@@ -11,11 +11,11 @@ document.addEventListener("turbolinks:load", () => {
     window.current_map = new mapboxgl.Map({
         container: document.querySelector("#map"),
         style: 'mapbox://styles/mapbox/streets-v11', // stylesheet location
-        center: [lat ? lat : -99.212594, lng ? lng : 19.455834], // starting position [lng, lat]
+        center: [lng ? lng.content : -99.212594, lat ? lat.content : 19.455834], // starting position [lng, lat]
         zoom: 15 // starting zoom
     });
     window.current_marker = new mapboxgl.Marker({draggable: true})
-        .setLngLat([lat ? lat : -99.212594, lng ? lng : 19.455834])
+        .setLngLat([lng ? lng.content : -99.212594, lat ? lat.content : 19.455834])
         .addTo(window.current_map);
     window.current_marker.on('dragend', onDragEnd);
 
@@ -23,6 +23,8 @@ document.addEventListener("turbolinks:load", () => {
         var lngLat = current_marker.getLngLat();
         document.querySelector("#address_search_address").value = "";
         document.querySelector("#address_address").value = "";
+        document.querySelector("#address_lng").value = "";
+        document.querySelector("#address_lat").value = "";
         window.current_map.setCenter([lngLat.lng, lngLat.lat]);
         const URL = `https://api.mapbox.com/geocoding/v5/mapbox.places/${encodeURIComponent(`${lngLat.lng},${lngLat.lat}`)}.json?access_token=pk.eyJ1Ijoic2VhcmNoLW1hY2hpbmUtdXNlci0xIiwiYSI6ImNrN2Y1Nmp4YjB3aG4zZ253YnJoY21kbzkifQ.JM5ZeqwEEm-Tonrk5wOOMw&cachebuster=1596775236930&autocomplete=true&country=mx&bbox=-102.36584333677,18.203715736351,-95.646605055518,20.200815919313&proximity=-99.630833,19.354167&limit=1`;
         try {
@@ -38,6 +40,8 @@ document.addEventListener("turbolinks:load", () => {
                     let newRegion = findRegion(currentFeature);
                     if (newRegion !== null) {
                         if (newRegion.short_code === "MX-MEX" || newRegion.short_code === "MX-DIF" || newRegion.short_code === "MX-MEX" || newRegion.short_code === "MX-CMX") {
+                            document.querySelector("#address_lng").value = currentFeature.center[0];
+                            document.querySelector("#address_lat").value = currentFeature.center[1];
                             document.querySelector("#address_search_address").value = currentFeature.place_name;
                             document.querySelector("#address_address").value = currentFeature.place_name;
                         } else {
@@ -53,8 +57,7 @@ document.addEventListener("turbolinks:load", () => {
             }
             // this.addresses = response.features
         } catch (e) {
-
-            console.log("HA OCUURRIDO UN ERROR")
+            window.addFlashMessage("Ha ocurrido un error", true)
         }
 
     }

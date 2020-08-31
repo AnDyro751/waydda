@@ -28,6 +28,7 @@ class AddressesController < ApplicationController
   # POST /addresses.json
   def create
     @address = Address.new(address_params)
+    @address.current = true
     if user_signed_in?
       @address.model = current_user
     else
