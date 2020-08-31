@@ -1,5 +1,5 @@
-<%= javascript_pack_tag "my_profile", 'data-turbolinks-track': "reload" %>
 <% content_for :head_tags do %>
+  <%= javascript_pack_tag "my_profile", 'data-turbolinks-track': "reload" %>
   <% if current_user.current_address %>
     <meta name="user_lat" content="<%= current_user.current_address.lat %>"/>
     <meta name="user_lng" content="<%= current_user.current_address.lng %>"/>
