@@ -58,6 +58,39 @@ import '../../assets/stylesheets/application.scss'
 // var ReactRailsUJS = require("react_ujs");
 // ReactRailsUJS.useContext(componentRequireContext);
 
+window.findRegion = function (arrayRegion) {
+    let newRegion = arrayRegion.context.find((el) => el.id.includes("region"))
+    let newPlace = arrayRegion.context.find((el) => el.id.includes("place"))
+    if (newRegion) {
+        if (newRegion.short_code) {
+            return newRegion;
+        } else {
+            return null;
+        }
+    } else {
+        if (newPlace) {
+            if (newPlace.short_code) {
+                return newPlace
+            } else {
+                return null;
+            }
+        } else {
+            return null;
+        }
+    }
+}
+
+window.addFlashMessage = function (text, error = false) {
+    document.querySelector("#notifications").innerHTML = `
+                            <div class="z-20 bottom-0 mx-auto w-9/12 mt-10">
+                          <div id="flash-notice" class="transition w-full duration-300 truncate cursor-pointer px-4 py-4 text-white rounded ${error ? "bg-red-500" : "bg-indigo-600"}">
+                            <p class="font-normal">${text}</p>
+                          </div>
+                        </div>
+                            `
+    window.deleteFlashs();
+    window.scrollTo(0, 0);
+}
 
 window.deleteFlashs = function deleteFlashNotice() {
     var class_element = document.querySelector("#flash-notice");
