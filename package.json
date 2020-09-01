@@ -35,7 +35,8 @@
     "react_ujs": "^2.6.1",
     "semantic-ui-react": "^1.2.1",
     "tailwindcss": "^1.6.2",
-    "turbolinks": "^5.2.0"
+    "turbolinks": "^5.2.0",
+    "vanilla-lazyload": "^17.1.2"
   },
   "version": "0.1.0",
   "devDependencies": {

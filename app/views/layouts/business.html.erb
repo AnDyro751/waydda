@@ -1,11 +1,13 @@
 <!DOCTYPE html>
-<html>
+<html lang="es" xml:lang="es" xmlns="http://www.w3.org/1999/xhtml">
 <head>
-  <title><%= content_for?(:html_title) ? "#{yield(:html_title)} | Waydda" : "Waydda para empresas" %></title>
+  <title class="notranslate" ><%= content_for?(:html_title) ? "#{yield(:html_title)} | Waydda" : "Waydda para empresas" %></title>
   <%= csrf_meta_tags %>
   <%= csp_meta_tag %>
   <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
   <%= javascript_packs_with_chunks_tag "application", 'data-turbolinks-track': "reload" %>
+  <meta charset="UTF-8"/>
+  <meta http-equiv="Content-Language" content="es"/>
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="action_name" content="<%= action_name %>"/>
   <link rel="preconnect" href="https://d1nrrr6y3ujrjz.cloudfront.net" crossOrigin/>

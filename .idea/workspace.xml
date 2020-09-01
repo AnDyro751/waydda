@@ -19,20 +19,16 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b89cb0fb-b680-4bb9-8ae0-f4b41721cfb9" name="Default Changelist" comment="feat(Address): Cambiamos el color de los iconos">
-      <change afterPath="$PROJECT_DIR$/app/components/Header/Business/index.html.erb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/components/Header/Business/index.rb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/views/home/business.html.erb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/views/home/pricing.html.erb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/views/layouts/business.html.erb" afterDir="false" />
+    <list default="true" id="b89cb0fb-b680-4bb9-8ae0-f4b41721cfb9" name="Default Changelist" comment="feat(Business): Creamos el business layout para promocionar los beneficios de waydda y la página de precios">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/home_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/home_controller.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/layouts/application.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/layouts/application.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/layouts/cart.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/layouts/cart.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/users/my_profile.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/users/my_profile.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/utils/Headers/_simple.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/utils/Headers/_simple.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/routes.rb" beforeDir="false" afterPath="$PROJECT_DIR$/config/routes.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/components/Header/Business/index.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/components/Header/Business/index.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/application_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/application_controller.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/javascript/packs/application.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/javascript/packs/application.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/home/business.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/home/business.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/layouts/business.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/layouts/business.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tailwind.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/tailwind.config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -505,14 +501,7 @@
       <workItem from="1598732675498" duration="8796000" />
       <workItem from="1598748382521" duration="34374000" />
       <workItem from="1598839720453" duration="998000" />
-      <workItem from="1598891533514" duration="7438000" />
-    </task>
-    <task id="LOCAL-00034" summary="feat(Place): Agregamos la opción de delivery para que la empresa pueda ofrecer envios">
-      <created>1598219436104</created>
-      <option name="number" value="00034" />
-      <option name="presentableId" value="LOCAL-00034" />
-      <option name="project" value="LOCAL" />
-      <updated>1598219436104</updated>
+      <workItem from="1598891533514" duration="11781000" />
     </task>
     <task id="LOCAL-00035" summary="feat(Dashboard): Creamos el formulario para editar la empresa y que seleccione sus opciones de envío">
       <created>1598219593305</created>
@@ -850,7 +839,14 @@
       <option name="project" value="LOCAL" />
       <updated>1598977402709</updated>
     </task>
-    <option name="localTasksCounter" value="83" />
+    <task id="LOCAL-00083" summary="feat(Business): Creamos el business layout para promocionar los beneficios de waydda y la página de precios">
+      <created>1598981703107</created>
+      <option name="number" value="00083" />
+      <option name="presentableId" value="LOCAL-00083" />
+      <option name="project" value="LOCAL" />
+      <updated>1598981703108</updated>
+    </task>
+    <option name="localTasksCounter" value="84" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -870,7 +866,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="refactor(Cart): Mostramos la información en el mapa, solo es cuestión de mostrar el place cuando se va a ir a recoger en lugar de deliver" />
     <MESSAGE value="refactor(Cart): Hacemos toogle de la información del carrito para la entrega del producto.&#10;Mostramos el delivery address cuando se va a envíar a domicilio y la dirección para recoger cuando se va a recoger" />
     <MESSAGE value="refactor(Cart): Mostramos los productos y actualizamos lo necesario para hacer el pedido" />
     <MESSAGE value="refactor(Cart): Mostramos la página de success al momento de simular crear la orden" />
@@ -895,7 +890,8 @@
     <MESSAGE value="feat(Address): Se mandó el script de carga hasta el final de la página para evitar la recarga completa" />
     <MESSAGE value="feat(Address): Actualizamos la dirección de entrega para que se pueda editar y mostrar en el header" />
     <MESSAGE value="feat(Address): Cambiamos el color de los iconos" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat(Address): Cambiamos el color de los iconos" />
+    <MESSAGE value="feat(Business): Creamos el business layout para promocionar los beneficios de waydda y la página de precios" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat(Business): Creamos el business layout para promocionar los beneficios de waydda y la página de precios" />
   </component>
   <component name="WindowStateProjectService">
     <state x="392" y="0" key="#All_specs_in_spec:_waydda" timestamp="1598730457189">
@@ -999,11 +995,11 @@
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="339" y="174" width="672" height="677" key="run.anything.popup/0.0.1366.768@0.0.1366.768" timestamp="1598731435607" />
-    <state x="1710" y="89" width="672" height="678" key="search.everywhere.popup" timestamp="1598981514419">
+    <state x="1710" y="89" width="672" height="678" key="search.everywhere.popup" timestamp="1598985878395">
       <screen x="1366" y="0" width="1360" height="768" />
     </state>
     <state x="1852" y="56" width="945" height="954" key="search.everywhere.popup/0.0.1366.768/1366.-69.1920.1080@1366.-69.1920.1080" timestamp="1597715976170" />
-    <state x="1710" y="89" width="672" height="678" key="search.everywhere.popup/0.0.1366.768/1366.0.1360.768@1366.0.1360.768" timestamp="1598981514419" />
+    <state x="1710" y="89" width="672" height="678" key="search.everywhere.popup/0.0.1366.768/1366.0.1360.768@1366.0.1360.768" timestamp="1598985878395" />
     <state x="346" y="89" width="672" height="678" key="search.everywhere.popup/0.0.1366.768@0.0.1366.768" timestamp="1598978157366" />
   </component>
 </project>

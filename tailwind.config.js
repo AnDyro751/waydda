@@ -12,8 +12,13 @@ module.exports = {
             backgroundColor: {
                 facebook: "#4065b4",
                 main: "#f8f5f2",
+                "main-red": "#f45d48",
                 "main-gray": "#F6F6F6",
                 "light-black": "#2d2d2d"
+            },
+            textColor: {
+                main: "#f8f5f2",
+                "main-red": "#f45d48"
             }
         },
     },

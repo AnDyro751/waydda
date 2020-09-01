@@ -8437,6 +8437,11 @@ value-equal@^1.0.1:
   resolved "https://registry.yarnpkg.com/value-equal/-/value-equal-1.0.1.tgz#1e0b794c734c5c0cade179c437d356d931a34d6c"
   integrity sha512-NOJ6JZCAWr0zlxZt+xqCHNTEKOsrks2HQd4MqhP1qy4z1SkbEP467eNx6TgDKXMvUOb+OENfJCZwM+16n7fRfw==
 
+vanilla-lazyload@^17.1.2:
+  version "17.1.2"
+  resolved "https://registry.yarnpkg.com/vanilla-lazyload/-/vanilla-lazyload-17.1.2.tgz#29030e21b2417b950bdab5d7cea0154aeda7c22d"
+  integrity sha512-WC5350/UlY3c9MEBDxKdWuvwgyPwUmVgUwqiYFmdjmUCTEdCnuW3RFQzQXu9fO1q5c545OYCPPs24Yma9rI/Mg==
+
 vary@~1.1.2:
   version "1.1.2"
   resolved "https://registry.yarnpkg.com/vary/-/vary-1.1.2.tgz#2299f02c6ded30d4a5961b0b9f74524a18f634fc"

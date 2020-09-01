@@ -3,8 +3,13 @@ class ApplicationController < ActionController::Base
   # before_action :current_cart
   before_action :set_current_address
   before_action :set_time_zone
+  before_action :set_language
   # before_action :set_default_locations
 
+
+  def set_language
+    response.headers["Content-Language"] = "es"
+  end
 
   def set_my_place
     @place = current_user.places.first
