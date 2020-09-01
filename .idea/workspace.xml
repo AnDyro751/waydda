@@ -19,17 +19,9 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b89cb0fb-b680-4bb9-8ae0-f4b41721cfb9" name="Default Changelist" comment="feat(Address): Se mandó el script de carga hasta el final de la página para evitar la recarga completa">
-      <change afterPath="$PROJECT_DIR$/app/components/Shipment/selecter.html.erb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/components/Shipment/selecter.rb" afterDir="false" />
+    <list default="true" id="b89cb0fb-b680-4bb9-8ae0-f4b41721cfb9" name="Default Changelist" comment="feat(Address): Actualizamos la dirección de entrega para que se pueda editar y mostrar en el header">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/components/Header/Public/cart.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/components/Header/Public/cart.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/addresses_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/addresses_controller.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/address.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/address.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/addresses/create.js.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/addresses/create.js.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/addresses/edit.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/addresses/edit.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/addresses/update.js.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/addresses/update.js.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/utils/Headers/_simple.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/utils/Headers/_simple.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/components/Shipment/selecter.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/components/Shipment/selecter.html.erb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -502,14 +494,7 @@
       <workItem from="1598732675498" duration="8796000" />
       <workItem from="1598748382521" duration="34374000" />
       <workItem from="1598839720453" duration="998000" />
-      <workItem from="1598891533514" duration="3715000" />
-    </task>
-    <task id="LOCAL-00032" summary="feat(Place): Cart sidebar in react portal">
-      <created>1598209347831</created>
-      <option name="number" value="00032" />
-      <option name="presentableId" value="LOCAL-00032" />
-      <option name="project" value="LOCAL" />
-      <updated>1598209347831</updated>
+      <workItem from="1598891533514" duration="3821000" />
     </task>
     <task id="LOCAL-00033" summary="feat(Place): Overlay class">
       <created>1598209570073</created>
@@ -847,7 +832,14 @@
       <option name="project" value="LOCAL" />
       <updated>1598840730006</updated>
     </task>
-    <option name="localTasksCounter" value="81" />
+    <task id="LOCAL-00081" summary="feat(Address): Actualizamos la dirección de entrega para que se pueda editar y mostrar en el header">
+      <created>1598977344668</created>
+      <option name="number" value="00081" />
+      <option name="presentableId" value="LOCAL-00081" />
+      <option name="project" value="LOCAL" />
+      <updated>1598977344669</updated>
+    </task>
+    <option name="localTasksCounter" value="82" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -867,7 +859,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="refactor(Cart): Hace la petición bien" />
     <MESSAGE value="refactor(Cart): Mostramos toda la información real del place y del carrito. Solo falta mostrar los items que se van a pagar y cambiar la opción para el delivery. Recoger en tienda o dirección de entrega" />
     <MESSAGE value="refactor(Cart): Mostramos la información en el mapa, solo es cuestión de mostrar el place cuando se va a ir a recoger en lugar de deliver" />
     <MESSAGE value="refactor(Cart): Hacemos toogle de la información del carrito para la entrega del producto.&#10;Mostramos el delivery address cuando se va a envíar a domicilio y la dirección para recoger cuando se va a recoger" />
@@ -892,7 +883,8 @@
     <MESSAGE value="feat(Address): Actualiza y crea direcciones" />
     <MESSAGE value="feat(Address): Script no carga si lo ponemos en una página" />
     <MESSAGE value="feat(Address): Se mandó el script de carga hasta el final de la página para evitar la recarga completa" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat(Address): Se mandó el script de carga hasta el final de la página para evitar la recarga completa" />
+    <MESSAGE value="feat(Address): Actualizamos la dirección de entrega para que se pueda editar y mostrar en el header" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat(Address): Actualizamos la dirección de entrega para que se pueda editar y mostrar en el header" />
   </component>
   <component name="WindowStateProjectService">
     <state x="392" y="0" key="#All_specs_in_spec:_waydda" timestamp="1598730457189">
@@ -996,11 +988,11 @@
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="339" y="174" width="672" height="677" key="run.anything.popup/0.0.1366.768@0.0.1366.768" timestamp="1598731435607" />
-    <state x="346" y="89" width="672" height="678" key="search.everywhere.popup" timestamp="1598977064952">
+    <state x="346" y="89" width="672" height="678" key="search.everywhere.popup" timestamp="1598977344537">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="1852" y="56" width="945" height="954" key="search.everywhere.popup/0.0.1366.768/1366.-69.1920.1080@1366.-69.1920.1080" timestamp="1597715976170" />
     <state x="1710" y="89" width="672" height="678" key="search.everywhere.popup/0.0.1366.768/1366.0.1360.768@1366.0.1360.768" timestamp="1598664318183" />
-    <state x="346" y="89" width="672" height="678" key="search.everywhere.popup/0.0.1366.768@0.0.1366.768" timestamp="1598977064952" />
+    <state x="346" y="89" width="672" height="678" key="search.everywhere.popup/0.0.1366.768@0.0.1366.768" timestamp="1598977344537" />
   </component>
 </project>
