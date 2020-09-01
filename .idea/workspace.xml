@@ -20,15 +20,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b89cb0fb-b680-4bb9-8ae0-f4b41721cfb9" name="Default Changelist" comment="feat(Business): Creamos el business layout para promocionar los beneficios de waydda y la página de precios">
+      <change afterPath="$PROJECT_DIR$/app/assets/stylesheets/business.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/javascript/packs/css/carts.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/components/Header/Business/index.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/components/Header/Business/index.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/application_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/application_controller.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/javascript/packs/application.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/javascript/packs/application.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/addresses_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/addresses_controller.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/javascript/css/application.scss" beforeDir="false" afterPath="$PROJECT_DIR$/app/javascript/packs/css/business.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/javascript/css/dashboard.scss" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/app/views/home/business.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/home/business.html.erb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/views/layouts/business.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/layouts/business.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tailwind.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/tailwind.config.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/utils/Headers/_simple.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/utils/Headers/_simple.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/webpacker.yml" beforeDir="false" afterPath="$PROJECT_DIR$/config/webpacker.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -90,6 +91,7 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="\\wsl$\Ubuntu-18.04\home\andyro\Code\RB\waydda\app\javascript\packs\css" />
       <recent name="\\wsl$\Ubuntu-18.04\home\andyro\Code\RB\waydda\app\views\dashboard\dashboard" />
     </key>
   </component>
@@ -502,6 +504,7 @@
       <workItem from="1598748382521" duration="34374000" />
       <workItem from="1598839720453" duration="998000" />
       <workItem from="1598891533514" duration="11781000" />
+      <workItem from="1598993828472" duration="3161000" />
     </task>
     <task id="LOCAL-00035" summary="feat(Dashboard): Creamos el formulario para editar la empresa y que seleccione sus opciones de envío">
       <created>1598219593305</created>
@@ -995,11 +998,11 @@
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="339" y="174" width="672" height="677" key="run.anything.popup/0.0.1366.768@0.0.1366.768" timestamp="1598731435607" />
-    <state x="1710" y="89" width="672" height="678" key="search.everywhere.popup" timestamp="1598985878395">
-      <screen x="1366" y="0" width="1360" height="768" />
+    <state x="346" y="89" width="672" height="678" key="search.everywhere.popup" timestamp="1599002058141">
+      <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="1852" y="56" width="945" height="954" key="search.everywhere.popup/0.0.1366.768/1366.-69.1920.1080@1366.-69.1920.1080" timestamp="1597715976170" />
     <state x="1710" y="89" width="672" height="678" key="search.everywhere.popup/0.0.1366.768/1366.0.1360.768@1366.0.1360.768" timestamp="1598985878395" />
-    <state x="346" y="89" width="672" height="678" key="search.everywhere.popup/0.0.1366.768@0.0.1366.768" timestamp="1598978157366" />
+    <state x="346" y="89" width="672" height="678" key="search.everywhere.popup/0.0.1366.768@0.0.1366.768" timestamp="1599002058141" />
   </component>
 </project>
