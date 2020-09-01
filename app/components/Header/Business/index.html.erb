@@ -1,0 +1,26 @@
+<div class="w-full flex">
+  <ul class="w-10/12 mx-auto gap-4 flex items-center py-2">
+    <div class="w-2/12">
+      <%= link_to "Waydda", root_path, class: "font-extrabold uppercase text-3xl" %>
+    </div>
+    <div class="w-8/12 flex items-center gap-8">
+      <div class="w-auto">
+        <li class="text-gray-700 text-sm font-medium hover:text-teal-600">
+          <%= link_to "¿Por qué Waydda?", home_business_path %>
+        </li>
+      </div>
+      <div class="w-auto">
+        <li class="text-gray-700 text-sm font-medium hover:text-teal-600">
+          <%= link_to "Precios", price_business_path %>
+        </li>
+      </div>
+    </div>
+    <div class="w-2/12 flex justify-end items-center">
+      <% if helpers.user_signed_in? %>
+        <%= link_to "Empezar", new_dashboard_place_path, class: "rounded bg-main py-3 px-5 font-medium text-black hover:text-teal-600" %>
+      <% else %>
+        <%= link_to "Iniciar sesión", new_user_session_path, class: "rounded bg-main py-3 px-5 font-medium text-black hover:text-teal-600" %>
+      <% end %>
+    </div>
+  </ul>
+</div>

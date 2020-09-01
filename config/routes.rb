@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
-  get 'searchs/show'
   root 'home#index'
+  # Business
+  get "/business", to: "home#business", as: :home_business
+  get "/pricing", to: "home#pricing", as: :price_business
+
   # search
   get "/search", to: "searchs#show", as: "search"
   # users

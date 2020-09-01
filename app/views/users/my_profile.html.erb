@@ -32,7 +32,7 @@
                                       class: "text-sm font-normal text-gray-600"
                                   }
                               },
-                              html: {class: "w-full", },
+                              html: {class: "w-full", autocomplete: 'off'},
                               remote: true
               ) do |f| %>
             <div class="w-full flex flex-wrap">
@@ -66,7 +66,7 @@
               </div>
             </div>
             <div class="w-full mt-6 flex justify-end">
-              <%= f.submit current_user.current_address ? "Actualizar dirección" : "Agregar dirección", class: "bg-black text-white font-normal cursor-pointer rounded py-2 px-6" %>
+              <%= f.submit current_user.current_address ? "Actualizar dirección" : "Agregar dirección", data: {"disable-with": "Actualizando..."}, class: "bg-black text-white font-normal cursor-pointer rounded py-2 px-6" %>
             </div>
           <% end %>
         </div>

@@ -52,7 +52,7 @@
             <img class="h-8 shadow-lg rounded-full" src="<%= get_image_url(50, 50, "utils/icons8-test-account-96.png") %>" alt="Waydda default profile photo">
           <% end %>
         <% else %>
-          <%= link_to "Inicia sesión", new_user_session_path, class: "text-gray-600 hover:text-black font-medium" %>
+          <%= link_to "Inicia sesión", new_user_session_path, class: "text-gray-800 hover:text-green-600 font-medium bg-main py-3 rounded px-5" %>
         <% end %>
       </div>
       <%#= react_component("Simple", props: {current_user: current_user, current_user_id: current_user ? current_user.id.to_s : nil, current_address: @current_address, locations: default_locations}, prerender: false) %>

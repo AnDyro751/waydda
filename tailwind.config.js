@@ -11,7 +11,7 @@ module.exports = {
             },
             backgroundColor: {
                 facebook: "#4065b4",
-                main: "#ff2525",
+                main: "#f8f5f2",
                 "main-gray": "#F6F6F6",
                 "light-black": "#2d2d2d"
             }
