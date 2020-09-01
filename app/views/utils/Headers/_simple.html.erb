@@ -31,7 +31,10 @@
     </div>
     <div
       class="w-3/12">
-      <%= react_component("Shipment", props: {current_user: current_user, current_user_id: current_user ? current_user.id.to_s : nil, current_address: @current_address, locations: default_locations}, prerender: false) %>
+      <div class="w-full">
+        <%= render Shipment::Selecter.new(current_address: @current_address) %>
+      </div>
+      <%#= react_component("Shipment", props: {current_user: current_user, current_user_id: current_user ? current_user.id.to_s : nil, current_address: @current_address, locations: default_locations}, prerender: false) %>
     </div>
     <div class="w-2/12 px-0 flex items-center gap-3 justify-around">
       <%= render Header::Public::Cart.new(current_cart: @current_cart) %>

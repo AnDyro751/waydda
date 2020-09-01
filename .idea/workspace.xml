@@ -19,10 +19,17 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b89cb0fb-b680-4bb9-8ae0-f4b41721cfb9" name="Default Changelist" comment="feat(Address): Script no carga si lo ponemos en una página">
+    <list default="true" id="b89cb0fb-b680-4bb9-8ae0-f4b41721cfb9" name="Default Changelist" comment="feat(Address): Se mandó el script de carga hasta el final de la página para evitar la recarga completa">
+      <change afterPath="$PROJECT_DIR$/app/components/Shipment/selecter.html.erb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/components/Shipment/selecter.rb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/javascript/packs/my_profile.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/javascript/packs/my_profile.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/users/my_profile.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/users/my_profile.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/components/Header/Public/cart.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/components/Header/Public/cart.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/addresses_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/addresses_controller.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/address.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/address.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/addresses/create.js.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/addresses/create.js.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/addresses/edit.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/addresses/edit.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/addresses/update.js.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/addresses/update.js.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/utils/Headers/_simple.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/utils/Headers/_simple.html.erb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -494,14 +501,8 @@
       <workItem from="1598729212266" duration="3282000" />
       <workItem from="1598732675498" duration="8796000" />
       <workItem from="1598748382521" duration="34374000" />
-      <workItem from="1598839720453" duration="942000" />
-    </task>
-    <task id="LOCAL-00031" summary="feat(Place): Init place menu">
-      <created>1598146448565</created>
-      <option name="number" value="00031" />
-      <option name="presentableId" value="LOCAL-00031" />
-      <option name="project" value="LOCAL" />
-      <updated>1598146448565</updated>
+      <workItem from="1598839720453" duration="998000" />
+      <workItem from="1598891533514" duration="3715000" />
     </task>
     <task id="LOCAL-00032" summary="feat(Place): Cart sidebar in react portal">
       <created>1598209347831</created>
@@ -839,7 +840,14 @@
       <option name="project" value="LOCAL" />
       <updated>1598840285599</updated>
     </task>
-    <option name="localTasksCounter" value="80" />
+    <task id="LOCAL-00080" summary="feat(Address): Se mandó el script de carga hasta el final de la página para evitar la recarga completa">
+      <created>1598840730006</created>
+      <option name="number" value="00080" />
+      <option name="presentableId" value="LOCAL-00080" />
+      <option name="project" value="LOCAL" />
+      <updated>1598840730006</updated>
+    </task>
+    <option name="localTasksCounter" value="81" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -859,7 +867,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="refactor(Cart): Creamos token y añadimos estilos al form de la tarjeta" />
     <MESSAGE value="refactor(Cart): Hace la petición bien" />
     <MESSAGE value="refactor(Cart): Mostramos toda la información real del place y del carrito. Solo falta mostrar los items que se van a pagar y cambiar la opción para el delivery. Recoger en tienda o dirección de entrega" />
     <MESSAGE value="refactor(Cart): Mostramos la información en el mapa, solo es cuestión de mostrar el place cuando se va a ir a recoger en lugar de deliver" />
@@ -884,7 +891,8 @@
     <MESSAGE value="feat(Address): Ya quedó ejeje" />
     <MESSAGE value="feat(Address): Actualiza y crea direcciones" />
     <MESSAGE value="feat(Address): Script no carga si lo ponemos en una página" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat(Address): Script no carga si lo ponemos en una página" />
+    <MESSAGE value="feat(Address): Se mandó el script de carga hasta el final de la página para evitar la recarga completa" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat(Address): Se mandó el script de carga hasta el final de la página para evitar la recarga completa" />
   </component>
   <component name="WindowStateProjectService">
     <state x="392" y="0" key="#All_specs_in_spec:_waydda" timestamp="1598730457189">
@@ -974,12 +982,12 @@
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="628" y="298" key="com.jetbrains.plugins.remotesdk.ui.RemoteMappingsConfiguration/0.0.1366.768@0.0.1366.768" timestamp="1598729856431" />
-    <state x="390" y="117" width="585" height="624" key="find.popup" timestamp="1598840075085">
+    <state x="390" y="117" width="585" height="624" key="find.popup" timestamp="1598977063168">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="1914" y="96" width="823" height="878" key="find.popup/0.0.1366.768/1366.-69.1920.1080@1366.-69.1920.1080" timestamp="1597716285449" />
     <state x="1754" y="117" width="583" height="624" key="find.popup/0.0.1366.768/1366.0.1360.768@1366.0.1360.768" timestamp="1598661885414" />
-    <state x="390" y="117" width="585" height="624" key="find.popup/0.0.1366.768@0.0.1366.768" timestamp="1598840075085" />
+    <state x="390" y="117" width="585" height="624" key="find.popup/0.0.1366.768@0.0.1366.768" timestamp="1598977063168" />
     <state x="549" y="254" width="250" height="278" key="jetbrains.javascript.buildTools.run-task-popup" timestamp="1597946321130">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
@@ -988,11 +996,11 @@
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="339" y="174" width="672" height="677" key="run.anything.popup/0.0.1366.768@0.0.1366.768" timestamp="1598731435607" />
-    <state x="346" y="89" width="672" height="678" key="search.everywhere.popup" timestamp="1598840043154">
+    <state x="346" y="89" width="672" height="678" key="search.everywhere.popup" timestamp="1598977064952">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="1852" y="56" width="945" height="954" key="search.everywhere.popup/0.0.1366.768/1366.-69.1920.1080@1366.-69.1920.1080" timestamp="1597715976170" />
     <state x="1710" y="89" width="672" height="678" key="search.everywhere.popup/0.0.1366.768/1366.0.1360.768@1366.0.1360.768" timestamp="1598664318183" />
-    <state x="346" y="89" width="672" height="678" key="search.everywhere.popup/0.0.1366.768@0.0.1366.768" timestamp="1598840043154" />
+    <state x="346" y="89" width="672" height="678" key="search.everywhere.popup/0.0.1366.768@0.0.1366.768" timestamp="1598977064952" />
   </component>
 </project>

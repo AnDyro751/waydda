@@ -87,7 +87,25 @@ class Address
     features = placenames.first["features"]
     if features.length > 0
       # TODO: Buscar en region y en place
-      str = features.first["context"].find { |el| el["id"].include?("region") }
+      region = features.first["context"].find { |el| el["id"].include?("region") }
+      place = features.first["context"].find { |el| el["id"].include?("place") }
+      if region
+        if region["short_code"]
+          str = region
+        else
+          return false
+        end
+      else
+        if place
+          if place["short_code"]
+            str = place
+          else
+            return false
+          end
+        else
+          return false
+        end
+      end
     else
       return false
     end

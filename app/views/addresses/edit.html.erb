@@ -1,18 +1,1 @@
 <h1>Editing Address</h1>
-<%= react_component('User/Edit', {
-    states: CS.get(:mx),
-    current_user: current_user,
-    current_user_id: current_user.id.to_s,
-    defaultValues: {
-        addressValue: @address.street,
-        location: @address.location.to_a,
-        defaultValue: @address.default,
-        externalNumber: @address.external_number,
-        internalNumber: @address.internal_number,
-        id: @address.id.to_s
-    }},
-                    {prerender: false}) %>
-<%#= render 'form', address: @address %>
-
-<%= link_to 'Show', @address %> |
-<%= link_to 'Back', addresses_path %>

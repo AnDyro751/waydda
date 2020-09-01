@@ -4,7 +4,7 @@ document.querySelector("#notifications").innerHTML = "";
 document.querySelector("#notifications").innerHTML = "<%= j render Notifications::Alert.new(alert: "Se han encontrado errores al guardar la dirección",kind: "error") %>";
 document.querySelector("#notifications");
 <% @address.errors.each do |keyE,error| %>
-console.log("<%= keyE %>", "<%= error %>")
+//console.log("<%= keyE %>", "<%= error %>")
 <% if keyE.to_s === "address" %>
 document.querySelector("#address_search_<%= keyE.to_s %>").classList.add("border-red-500");
 document.querySelector("[name='address[address]_error']").innerHTML = "<%= error %>";
@@ -25,6 +25,8 @@ if (element) {
 <% end %>
 <% else %>
 document.querySelector("#notifications").innerHTML = "<%= j render Notifications::Alert.new(alert: "Se ha guardado la dirección",kind: "success") %>";
+document.querySelector("#address_value").innerHTML = "<%= @address.address %>";
+document.querySelector("#address_value").title = "<%= @address.address %>";
 <% end %>
 
 window.deleteFlashs();

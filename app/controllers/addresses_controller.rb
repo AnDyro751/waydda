@@ -54,12 +54,13 @@ class AddressesController < ApplicationController
   def update
     respond_to do |format|
       if @address.update(address_params)
-        format.html { redirect_to @address, notice: 'Address was successfully updated.' }
+        # format.html { redirect_to @address, notice: 'Address was successfully updated.' }
         format.js
-        format.json { render :show, status: :ok, location: @address }
+        # format.json { render :show, status: :ok, location: @address }
       else
-        format.html { render :edit }
-        format.json { render json: @address.errors, status: :unprocessable_entity }
+        format.js
+        # format.html { render :edit }
+        # format.json { render json: @address.errors, status: :unprocessable_entity }
       end
     end
   end
