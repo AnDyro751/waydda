@@ -1,7 +1,7 @@
 class Checkout
   include Mongoid::Document
   include Mongoid::Timestamps
-  Stripe.api_key = 'sk_test_51H9CZeBOcPJ0nbHctTzfQZhFXBnn8j05e0xqJ5RSVz5Bum72LsvmQKIecJnsoHISEg0jUWtKjERYGeCAEWiIAujP00Fae9MiKm'
+  Stripe.api_key = 'sk_test_nLhx5k3K0NFLM06YC7nZAQVW003TPd9B70'
 
   # fields
   field :status, type: String, default: "pending"

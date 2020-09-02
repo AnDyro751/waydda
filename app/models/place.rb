@@ -9,16 +9,15 @@ class Place
 # Rolify
   resourcify
 
-  # Algolia search
+# Algolia search
   algoliasearch do
     attributes :name, :address, :slug, :lat, :lng #, :city, :city_state
     geoloc :lat, :lng
   end
 
-  # Callbacks
+# Callbacks
   before_create :assign_slug
   after_create :add_owner_role
-
 
   field :name, type: String
   field :address, type: String
@@ -37,9 +36,9 @@ class Place
   field :delivery_cost, type: Float, default: 10
   field :delivery_distance, type: Float, default: 5
   field :delivery_extra_cost, type: Float, default: 0
-  # TODO: Añadir horarios de envío y recolección
-  # TODO: Añadir pedido minimo
-  # Relations
+# TODO: Añadir horarios de envío y recolección
+# TODO: Añadir pedido minimo
+# Relations
   belongs_to :user
   has_many :items
   has_many :products
@@ -47,11 +46,11 @@ class Place
   has_many :views
   has_many :orders # Todas las ordenes que recibe
 
-  # Validations
+# Validations
   validates :name, presence: true, length: {in: 4..30}
   validates :address, presence: true, length: {in: 4..100}
   validates :status, presence: true, inclusion: {in: %w(pending active inactive)}
-  # validates :city, presence: true
+# validates :city, presence: true
 
   aasm column: :status do
     state :pending, initial: true
@@ -66,8 +65,8 @@ class Place
   end
 
 
-  # @param [Integer] quantity
-  # @param [Boolean] plus {true: +, false: - }
+# @param [Integer] quantity
+# @param [Boolean] plus {true: +, false: - }
   def update_products_counter(quantity, plus)
     oper = plus ? self.total_products + quantity : self.total_products - quantity
     self.update(total_products: oper)
@@ -100,6 +99,12 @@ class Place
 
   def add_owner_role
     self.user.add_role(:owner, self)
+  end
+
+  # @param [Object] user
+  # @return [Object] Account link
+  def self.create_stripe_account_link(user)
+    Account.create_stripe_account(self, user)
   end
 end
 

@@ -4,6 +4,8 @@ class Dashboard::PlacesController < ApplicationController
   before_action :set_my_place, except: [:new, :create] #, except: [:new, :create]
   before_action :valid_uniqueness_place, only: [:new, :create]
   before_action :redirect_if_empty_place, only: [:my_place, :edit, :update, :destroy]
+  before_action :set_user_account, only: [:connect, :create_account_link]
+  Stripe.api_key = 'sk_test_nLhx5k3K0NFLM06YC7nZAQVW003TPd9B70'
 
   def new
     @place = current_user.places.first
@@ -16,6 +18,49 @@ class Dashboard::PlacesController < ApplicationController
 
   def sales
   end
+
+
+  def connect
+    # details_submitted
+    unless @user_account.nil?
+      unless @user_account.completed
+        puts "----------HOLAAAAAAAAAAAA"
+        @stripe_account = Stripe::Account.retrieve(@user_account.account_id)
+        if @stripe_account.details_submitted
+          @user_account.update(completed: true)
+        end
+      end
+    end
+
+  end
+
+  def create_account_link
+    redirect_to dashboard_place_connect_path, notice: "Primero conecta tu cuenta bancaria" if @user_account.nil?
+
+    @account_link = Account.create_login_account(@user_account.account_id)
+
+    respond_to do |format|
+      if @account_link.nil?
+        format.html { redirect_to dashboard_place_connect_path, notice: "Ha ocurrido un error al redirigir a tu panel de control", status: :unprocessable_entity }
+        format.json { render json: {errors: "Ha ocurrido un error al redirigir a tu panel de control"}, status: :unprocessable_entity }
+      else
+        format.json { render json: {link: @account_link["url"]}, status: :created }
+        format.js
+      end
+    end
+  end
+
+  def create_stripe_account
+    respond_to do |format|
+      @connect = Place.create_stripe_account_link(current_user)
+      unless @connect.nil?
+        format.js
+      else
+        format.html { redirect_to dashboard_place_connect_path, notice: "Ha ocurrido un error al generar la configuración", status: :unprocessable_entity }
+      end
+    end
+  end
+
 
   def my_place
     if @place.nil?
@@ -108,6 +153,11 @@ class Dashboard::PlacesController < ApplicationController
 
 
   private
+
+
+  def set_user_account
+    @user_account = current_user.account
+  end
 
 
   def valid_uniqueness_place

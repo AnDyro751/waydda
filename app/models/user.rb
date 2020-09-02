@@ -31,6 +31,7 @@ class User
 
   # Relations
   has_many :places
+  has_one :account # Stripe account
   has_many :carts
   embeds_many :payment_methods # TODO: Agregar esto a stripe
   embeds_many :addresses, as: :model

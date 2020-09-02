@@ -1,0 +1,20 @@
+<h1>Conecta tu empresa para recibir pagos</h1>
+
+<div class="w-full">
+  <% if @user_account.nil? %>
+    <%= button_to "Empezar registro", dashboard_place_create_connect_path, method: :post, class: "bg-black cursor-pointer text-white py-3 px-8 rounded flex mt-3", remote: true, data: {"disable-with": "Cargando..."} %>
+  <% else %>
+    <% unless @user_account.completed %>
+      <%= button_to "Completar registro", dashboard_place_create_connect_path, method: :post, class: "bg-black cursor-pointer text-white py-3 px-8 rounded flex mt-3", remote: true, data: {"disable-with": "Cargando..."} %>
+    <% end %>
+  <% end %>
+</div>
+<div class="w-full">
+  <button id="get-to-my-dashboard" class="disabled:cursor-not-allowed disabled:bg-gray-500 bg-black cursor-pointer text-white py-3 px-8 rounded flex mt-3">
+    Ir a mi dashboard
+  </button>
+  <%#= button_to "Ir a mi dashboard", dashboard_place_create_link_path, method: :post, class: "bg-black cursor-pointer text-white py-3 px-8 rounded flex mt-3", remote: true, data: {"disable-with": "Cargando..."} %>
+</div>
+
+<%= javascript_pack_tag "places/connect", 'data-turbolinks-track': 'reload' %>
+
