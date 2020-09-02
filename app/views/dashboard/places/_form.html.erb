@@ -1,17 +1,20 @@
 <div class="w-full" x-data="addressForm()">
   <%= simple_form_for(@place, url: dashboard_places_path, remote: true, html: {class: "w-full flex-wrap"}) do |f| %>
-    <%= f.input :name, label: "Nombre de tu empresa", placeholder: "Ej. Miscelanea Hermanos Ponchos", label_html: {class: "text-sm font-normal text-gray-600"}, input_html: {class: "py-3 px-3 bg-white border-gray-400 border appearance-none focus:border-black rounded focus:outline-none w-full mt-2 mb-4"} %>
+    <div class="w-full mb-4">
+      <%= f.input :name, label: "Nombre de tu empresa", placeholder: "Ej. Miscelanea Hermanos Ponchos", label_html: {class: "text-sm font-normal text-gray-600"}, input_html: {"x-on:input": "handleChange($event)", class: "py-3 px-3 bg-white border-gray-400 border appearance-none focus:border-black rounded focus:outline-none w-full mt-2"} %>
+      <span name="place[name]_error" class="text-sm font-bold text-red-600"></span>
+    </div>
     <%= f.input :address, as: :hidden, label: "address" %>
     <%= f.input :lat, as: :hidden, label: "lat" %>
     <%= f.input :lng, as: :hidden, label: "lng" %>
-    <div class="w-full">
-      <div class="w-full" >
-        <%= f.input :search_address, required: true, label: "Dirección de tu empresa", placeholder: "Torres del Toreo", label_html: {class: "text-sm font-normal text-gray-600"}, input_html: {"x-on:input": "addressHandleChange($event)", value: "", class: "py-3 px-3 bg-white border-gray-400 border appearance-none focus:border-black rounded focus:outline-none w-full mt-2 mb-4"} %>
-        <span class="font-bold text-red-600" >Error</span>
+    <div class="w-full relative mb-4">
+      <div class="w-full">
+        <%= f.input :search_address, required: true, label: "Dirección de tu empresa", placeholder: "Torres del Toreo", label_html: {class: "text-sm font-normal text-gray-600"}, input_html: {"x-on:input": "addressHandleChange($event)", value: "", class: "py-3 px-3 bg-white border-gray-400 border appearance-none focus:border-black rounded focus:outline-none w-full mt-2"} %>
+        <span name="place[address]_error" class="text-sm font-bold text-red-600"></span>
       </div>
       <div
         :class="{'hidden' : addresses.length <= 0}"
-        class="absolute transform translate-y-full bottom-0 left-0 right-0 w-full shadow bg-white">
+        class="absolute transform translate-y-full bottom-0 z-50 left-0 right-0 w-full shadow bg-white">
         <template x-for="address in addresses" :key="address.id">
           <p
             @click="selectAddress({address: address.place_name, center: JSON.stringify(address.center)})"
@@ -26,18 +29,46 @@
 
       </div>
     </div>
-    <%= f.submit data: {"disable-with": "Creando..."}, class: "bg-black text-white py-3 px-6 rounded cursor-pointer mt-8" %>
+    <div class="w-full justify-end flex">
+      <%= f.submit "Crear empresa", data: {"disable-with": "Creando..."}, class: "bg-black text-white py-3 px-8 rounded cursor-pointer mt-8" %>
+    </div>
 
   <% end %>
   <script type="text/javascript" charset="utf-8">
+      var timer;
+
       function addressForm() {
           return {
               addresses: [],
+              handleChange: function (e) {
+                  e.target.classList.remove("border-red-500");
+                  var element = document.querySelector(`[name="${e.target.name}_error"`);
+                  console.log(e.target, element, `[name="${e.target.name}_error"`);
+                  if (element) {
+                      element.innerHTML = "";
+                  }
+              },
+              selectAddress: function (e) {
+                  this.addresses = [];
+                  var coordinates = JSON.parse(e.center);
+                  document.querySelector("#place_search_address").value = e.address;
+                  document.querySelector("#place_address").value = e.address;
+                  document.querySelector("#place_lng").value = coordinates[0];
+                  document.querySelector("#place_lat").value = coordinates[1];
+                  window.current_map.setCenter(coordinates);
+                  window.current_marker.setLngLat(coordinates);
+              },
               addressHandleChange: function (e) {
+                  var element = document.querySelector('[name="place[address]_error"]');
+                  element.innerHTML = "";
+                  e.target.classList.remove("border-red-500")
+                  clearTimeout(timer);
+
                   var value = e.target.value;
                   if (value.length > 0) {
                       timer = setTimeout(async () => {
-                          var records = window.getMapRecords({text: value});
+                          var records = await window.getMapRecords({text: value});
+                          console.log(records, Array.isArray(records))
                           if (Array.isArray(records)) {
                               this.addresses = records;
                           }

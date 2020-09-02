@@ -50,7 +50,7 @@ class Place
   validates :name, presence: true, length: {in: 4..30}
   validates :address, presence: true, length: {in: 4..100}
   validates :status, presence: true, inclusion: {in: %w(pending active inactive)}
-  validates :city, presence: true
+  # validates :city, presence: true
 
   aasm column: :status do
     state :pending, initial: true

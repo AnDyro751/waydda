@@ -2,18 +2,21 @@
   <div class="w-4/12">
     <div class="flex w-full gap-4 items-center">
       <div class="w-20 h-20">
-        <%= react_component('ResponsiveImage', props: {publicId: @place.photo, alt: @place.name, byDefault: true, wrapperClass: "h-20 w-20 rounded-full", className: "rounded-full"}, prerender: false) %>
       </div>
       <div class="w-auto">
-        <div class="w-full relative">
-          <h1 class="text-4xl mb-2 font-bold">
+        <div class="w-full flex relative">
+          <h1 class="text-4xl relative mb-2 font-bold">
             <%= link_to @place.name, place_path(@place.slug), target: "_blank" %>
+            <div class="absolute right-0 top-0 bottom-0 text-xs transform font-normal flex items-center -mr-4 translate-x-full">
+              <span class="rounded-full border px-2"><%= I18n.t("status.#{@place.status}") %></span>
+            </div>
           </h1>
-          <div class="absolute right-0 top-0 bottom-0  text-xs transform translate-x-full flex items-center -mr-4">
-            <span class="rounded-full border px-2"><%= I18n.t("status.#{@place.status}") %></span></div>
         </div>
-        <h4 class="text-gray-600 text-sm uppercase font-normal"><%= @place.address %></h4>
+        <h4
+          title="<%= @place.address %>"
+          class="text-gray-600 text-sm uppercase font-normal truncate"><%= @place.address %></h4>
       </div>
+
     </div>
   </div>
   <div class="w-8/12 flex justify-end">

@@ -2,6 +2,26 @@ window.scrollTo(0, 0);
 document.querySelector("#notifications").innerHTML = "";
 <% if @place.errors.any? %>
 document.querySelector("#notifications").innerHTML = "<%= j render Notifications::Alert.new(alert: "Se han encontrado errores al crear la empresa",kind: "error") %>";
+<% @place.errors.each do |keyE,error| %>
+//console.log("<%= keyE %>", "<%= error %>")
+<% if keyE.to_s === "address" %>
+document.querySelector("#place_search_address").classList.add("border-red-500");
+document.querySelector("[name='place[address]_error']").innerHTML = "<%= error %>";
+<% else %>
+var element = document.querySelector("#place_<%= keyE %>");
+if (element) {
+    element.classList.add("border-red-500");
+    var spanElement = document.querySelector('[name="place[<%=keyE %>]_error"]')
+    if (spanElement) {
+        spanElement.innerHTML = "<%= error %>";
+    } else {
+        var newNotification = document.createElement("div")
+        newNotification.innerHTML = "<%= j render Notifications::Alert.new(alert: "#{keyE} #{error}" ,kind: "error") %>";
+        document.querySelector("#notifications").appendChild(newNotification);
+    }
+}
+<% end %>
+<% end %>
 <% end %>
 
 window.deleteFlashs();

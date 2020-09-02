@@ -2,7 +2,7 @@ class UsersController < ApplicationController
   before_action :authenticate_user!
 
   def my_profile
-    @new_address = current_user.current_address ||= current_user.addresses.new
+    @new_address = current_user.current_address || current_user.addresses.new
   end
 
 

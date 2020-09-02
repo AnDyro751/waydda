@@ -6,7 +6,12 @@ class Dashboard::PlacesController < ApplicationController
   before_action :redirect_if_empty_place, only: [:my_place, :edit, :update, :destroy]
 
   def new
-    @place = Place.new
+    @place = current_user.places.first
+    if @place.nil?
+      @place = Place.new
+    else
+      redirect_to my_place_path, notice: "Solo puedes crear una empresa"
+    end
   end
 
   def sales
@@ -29,12 +34,14 @@ class Dashboard::PlacesController < ApplicationController
 
 
   def create
+    @place = current_user.places.first
+    redirect_to my_place_path, notice: "Solo puedes crear una empresa" unless @place.nil?
     @place = Place.new(place_params)
     @place.user = current_user
     respond_to do |format|
       if @place.save
-        format.js
-        format.html { redirect_to my_place_path, notice: 'Se ha creado tu empresa' }
+        # format.js
+        format.html { redirect_to my_place_path, alert: 'Se ha creado tu empresa' }
       else
         format.js
         format.html { render :new, status: :unprocessable_entity }
@@ -105,7 +112,7 @@ class Dashboard::PlacesController < ApplicationController
 
   def valid_uniqueness_place
     unless @place.nil?
-      flash[:alert] = "Por el momento sólo puedes crear una empresa"
+      flash[:notice] = "Por el momento sólo puedes crear una empresa"
       redirect_to my_place_path
     end
   end
