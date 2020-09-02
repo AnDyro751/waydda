@@ -15,7 +15,7 @@ if (metaElement) {
             container: document.querySelector("#map"),
             style: 'mapbox://styles/mapbox/streets-v11', // stylesheet location
             center: [lng ? lng.content : -99.212594, lat ? lat.content : 19.455834], // starting position [lng, lat]
-            zoom: 15 // starting zoom
+            zoom: 16 // starting zoom
         });
         window.current_marker = new mapboxgl.Marker({draggable: true})
             .setLngLat([lng ? lng.content : -99.212594, lat ? lat.content : 19.455834])
