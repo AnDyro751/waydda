@@ -6,7 +6,8 @@ class Place
   include AlgoliaSearch
   include GlobalID::Identification
   require 'will_paginate/array'
-
+# Rolify
+  resourcify
 
   # Algolia search
   algoliasearch do
