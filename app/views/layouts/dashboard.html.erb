@@ -8,6 +8,8 @@
   <%= stylesheet_link_tag 'dashboard', media: 'all', 'data-turbolinks-track': 'reload' %>
   <%= javascript_packs_with_chunks_tag 'application', 'data-turbolinks-track': 'reload' %>
 
+  <meta name="model" content="<%= controller_name.singularize %>"/>
+  <meta name="action_name" content="<%= action_name %>_<%= controller_name %>"/>
   <link rel="preconnect" href="https://d1nrrr6y3ujrjz.cloudfront.net" crossOrigin/>
   <link rel="dns-prefetch" href="https://d1nrrr6y3ujrjz.cloudfront.net"/>
   <link rel="preconnect" href="https://fonts.googleapis.com" crossOrigin/>

@@ -33,8 +33,10 @@ class Dashboard::PlacesController < ApplicationController
     @place.user = current_user
     respond_to do |format|
       if @place.save
+        format.js
         format.html { redirect_to my_place_path, notice: 'Se ha creado tu empresa' }
       else
+        format.js
         format.html { render :new, status: :unprocessable_entity }
       end
     end

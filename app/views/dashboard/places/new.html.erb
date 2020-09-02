@@ -1,3 +1,13 @@
-<h1>Agregar nueva empresa</h1>
+<div class="w-full flex flex-wrap">
+  <%= render Headers::Text.new(title: "Crear empresa") %>
+  <div class="w-full gap-12 flex items-center">
+    <div class="w-6/12">
+      <%= render "form", place: @place %>
+    </div>
+    <div class="w-6/12">
+      <img class="notranslate lazy" src="<%= get_image_url(20, 20, "utils/conifer-design.png") %>" data-src="<%= get_image_url(1001, 500, "utils/conifer-design.png") %>" alt="Waydda create place">
+    </div>
+  </div>
+</div>
 
-<%= render "form", place: @place %>
+<%= javascript_pack_tag "my_profile", 'data-turbolinks-track': "reload" %>

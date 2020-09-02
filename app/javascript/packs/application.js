@@ -93,6 +93,19 @@ window.addFlashMessage = function (text, error = false) {
     window.scrollTo(0, 0);
 }
 
+window.getMapRecords = async function ({text, limit = 5}) {
+    const URL = `https://api.mapbox.com/geocoding/v5/mapbox.places/${encodeURIComponent(text)}.json?access_token=pk.eyJ1Ijoic2VhcmNoLW1hY2hpbmUtdXNlci0xIiwiYSI6ImNrN2Y1Nmp4YjB3aG4zZ253YnJoY21kbzkifQ.JM5ZeqwEEm-Tonrk5wOOMw&cachebuster=1596775236930&autocomplete=true&country=mx&bbox=-102.36584333677,18.203715736351,-95.646605055518,20.200815919313&proximity=-99.630833,19.354167&limit=${limit}`;
+    try {
+        let response = await (
+            await fetch(URL, {
+                method: "GET"
+            })
+        ).json();
+        return response.features;
+    } catch (e) {
+        return null;
+    }
+}
 window.deleteFlashs = function deleteFlashNotice() {
     var class_element = document.querySelector("#flash-notice");
     console.log(class_element)
@@ -143,14 +156,6 @@ document.addEventListener("turbolinks:load", () => {
         callback_error: callback_error,
         callback_finish: callback_finish
     });
-    window.addEventListener(
-        "LazyLoad::Initialized",
-        function (e) {
-            console.log("MOL")
-            console.log(e.detail.instance);
-        },
-        false
-    );
 
     window.deleteFlashs()
     try {

@@ -1,5 +1,50 @@
-<%= simple_form_for(@place, url: dashboard_places_path) do |f| %>
-  <%= f.input :name %>
-  <%= f.input :address %>
-  <%= f.submit %>
-<% end %>
+<div class="w-full" x-data="addressForm()">
+  <%= simple_form_for(@place, url: dashboard_places_path, remote: true, html: {class: "w-full flex-wrap"}) do |f| %>
+    <%= f.input :name, label: "Nombre de tu empresa", placeholder: "Ej. Miscelanea Hermanos Ponchos", label_html: {class: "text-sm font-normal text-gray-600"}, input_html: {class: "py-3 px-3 bg-white border-gray-400 border appearance-none focus:border-black rounded focus:outline-none w-full mt-2 mb-4"} %>
+    <%= f.input :address, as: :hidden, label: "address" %>
+    <%= f.input :lat, as: :hidden, label: "lat" %>
+    <%= f.input :lng, as: :hidden, label: "lng" %>
+    <div class="w-full">
+      <%= f.input :search_address, required: true, label: "Dirección de tu empresa", placeholder: "Torres del Toreo", label_html: {class: "text-sm font-normal text-gray-600"}, input_html: {"x-on:input": "addressHandleChange($event)", value: "", class: "py-3 px-3 bg-white border-gray-400 border appearance-none focus:border-black rounded focus:outline-none w-full mt-2 mb-4"} %>
+      <div
+        :class="{'hidden' : addresses.length <= 0}"
+        class="absolute transform translate-y-full bottom-0 left-0 right-0 w-full shadow bg-white">
+        <template x-for="address in addresses" :key="address.id">
+          <p
+            @click="selectAddress({address: address.place_name, center: JSON.stringify(address.center)})"
+            class="px-4 py-2 hover:bg-gray-100 border-b cursor-pointer" x-text="address.place_name"></p>
+        </template>
+      </div>
+    </div>
+    <%#= f.input :search_address, required: true, label: "Dirección de tu empresa", label_html: {class: "text-sm font-normal text-gray-600"}, input_html: {class: "py-3 px-3 bg-white border-gray-400 border appearance-none focus:border-black rounded focus:outline-none w-full mt-2 mb-4", value: ""} %>
+    <div class="w-full">
+      <span class="text-sm text-gray-600">Arrastra el marcador para especificar tu dirección exacta</span>
+      <div class="w-full h-64 rounded mt-2 bg-gray-200" id="map">
+
+      </div>
+    </div>
+    <%= f.submit data: {"disable-with": "Creando..."}, class: "bg-black text-white py-3 px-6 rounded cursor-pointer mt-8" %>
+
+  <% end %>
+  <script type="text/javascript" charset="utf-8">
+      function addressForm() {
+          return {
+              addresses: [],
+              addressHandleChange: function (e) {
+                  var value = e.target.value;
+                  if (value.length > 0) {
+                      timer = setTimeout(async () => {
+                          var records = window.getMapRecords({text: value});
+                          if (Array.isArray(records)) {
+                              this.addresses = records;
+                          }
+                      }, 300)
+                  } else {
+                      this.addresses = [];
+                  }
+              }
+          }
+      }
+  </script>
+</div>
+

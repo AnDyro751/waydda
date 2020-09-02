@@ -38,7 +38,7 @@
             <div class="w-full flex flex-wrap">
               <div class="w-full relative mb-4">
                 <div class="w-full">
-                  <%= f.input :search_address, label: "Calle", placeholder: "Torres del Toreo", input_html: {"x-on:input": "addressHandleChange($event)", value: @new_address.address} %>
+                  <%= f.input :search_address, label: "Dirección", placeholder: "Torres del Toreo", input_html: {"x-on:input": "addressHandleChange($event)", value: @new_address.address} %>
                   <span name="address[address]_error" class="text-sm font-bold text-red-600"></span>
                 </div>
                 <%= f.input :address, as: :hidden, label: "address" %>
@@ -117,17 +117,9 @@
                   document.querySelector("#address_address").value = "";
                   if (value.length > 0) {
                       timer = setTimeout(async () => {
-                          const URL = `https://api.mapbox.com/geocoding/v5/mapbox.places/${encodeURIComponent(e.target.value)}.json?access_token=pk.eyJ1Ijoic2VhcmNoLW1hY2hpbmUtdXNlci0xIiwiYSI6ImNrN2Y1Nmp4YjB3aG4zZ253YnJoY21kbzkifQ.JM5ZeqwEEm-Tonrk5wOOMw&cachebuster=1596775236930&autocomplete=true&country=mx&bbox=-102.36584333677,18.203715736351,-95.646605055518,20.200815919313&proximity=-99.630833,19.354167`;
-                          try {
-                              let response = await (
-                                  await fetch(URL, {
-                                      method: "GET"
-                                  })
-                              ).json();
-                              console.log(response.features);
-                              this.addresses = response.features
-                          } catch (e) {
-                              console.log("HA OCUURRIDO UN ERROR")
+                          var records = window.getMapRecords({text: value});
+                          if (Array.isArray(records)) {
+                              this.addresses = records;
                           }
                       }, 300)
                   } else {

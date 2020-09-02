@@ -1,0 +1,7 @@
+window.scrollTo(0, 0);
+document.querySelector("#notifications").innerHTML = "";
+<% if @place.errors.any? %>
+document.querySelector("#notifications").innerHTML = "<%= j render Notifications::Alert.new(alert: "Se han encontrado errores al crear la empresa",kind: "error") %>";
+<% end %>
+
+window.deleteFlashs();
