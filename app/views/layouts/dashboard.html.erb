@@ -6,7 +6,7 @@
   <%= csp_meta_tag %>
   <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
   <%= stylesheet_link_tag 'dashboard', media: 'all', 'data-turbolinks-track': 'reload' %>
-  <%= javascript_packs_with_chunks_tag 'application', "dashboard-bundle", 'data-turbolinks-track': 'reload' %>
+  <%= javascript_packs_with_chunks_tag 'application', 'data-turbolinks-track': 'reload' %>
 
   <link rel="preconnect" href="https://d1nrrr6y3ujrjz.cloudfront.net" crossOrigin/>
   <link rel="dns-prefetch" href="https://d1nrrr6y3ujrjz.cloudfront.net"/>
@@ -19,11 +19,18 @@
 </head>
 
 <body class="bg-white">
-<p class="notice"><%= notice %></p>
-<p class="alert"><%= alert %></p>
+
 <% unless @place.nil? %>
   <%= render "utils/Headers/dashboard" %>
 <% end %>
+<div id="notifications">
+  <% if notice.present? %>
+    <%= render Notifications::Alert.new(alert: notice, with_spacing: true, kind: "error") %>
+  <% end %>
+  <% if alert.present? %>
+    <%= render Notifications::Alert.new(alert: alert, with_spacing: true) %>
+  <% end %>
+</div>
 <div class="flex w-full justify-center">
   <div class="w-9/12 flex mx-auto flex-wrap">
     <%= yield %>

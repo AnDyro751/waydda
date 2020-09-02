@@ -14,7 +14,7 @@ class Dashboard::PlacesController < ApplicationController
 
   def my_place
     if @place.nil?
-      redirect_to new_dashboard_place_path
+      redirect_to new_dashboard_place_path, alert: "Crea una empresa para continuar"
     end
     @products = @place.products.where(:last_viewed.gte => (Date.today - 30)).paginate(page: params[:page], per_page: 20)
     @orders = Order.where(place: @place, status: "pending")
@@ -111,8 +111,7 @@ class Dashboard::PlacesController < ApplicationController
 
   def redirect_if_empty_place
     if @place.nil?
-      flash[:notice] = "Crea un negocio"
-      redirect_to new_dashboard_place_path
+      redirect_to new_dashboard_place_path, alert: "Crea una empresa para continuar"
     end
   end
 

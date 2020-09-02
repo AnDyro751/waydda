@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   root 'home#index'
+  # TODO: Agregar seguridad a esto
+  mount Split::Dashboard, at: 'split'
   # Business
   get "/business", to: "home#business", as: :home_business
   get "/pricing", to: "home#pricing", as: :price_business
