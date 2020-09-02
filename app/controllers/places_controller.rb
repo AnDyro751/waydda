@@ -37,10 +37,10 @@ class PlacesController < ApplicationController
     not_found if @place.nil?
     if current_user
       unless current_user.id == @place.user_id
-        not_found if !@place.active?
+        not_found if @place.pending?
       end
     else
-      not_found if !@place.active?
+      not_found if @place.pending?
     end
   end
 

@@ -157,13 +157,14 @@ document.addEventListener("turbolinks:load", () => {
         callback_finish: callback_finish
     });
 
-    window.deleteFlashs()
     try {
         const current_time_zone = Intl.DateTimeFormat().resolvedOptions().timeZone;
         setCookie("timezone", current_time_zone);
     } catch (e) {
 
     }
+    window.deleteFlashs()
+
 })
 
 const setCookie = (name, value) => {
