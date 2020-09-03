@@ -34,6 +34,24 @@ class Account
     end
   end
 
+  def self.update_account_hook(account_updated)
+    current_account = Account.find_by(account_id: account_updated["id"])
+    unless current_account.nil?
+      if account_updated["details_submitted"]
+        unless current_account.completed
+          puts "----------ACTUALIZANDO A COMPLETED"
+          current_account.update(completed: true)
+        end
+      else
+        if current_account.completed
+          puts "----------ACTUALIZANDO A NOOOO COMPLETED"
+          current_account.update(completed: false)
+        end
+      end
+    end
+
+  end
+
   def self.create_link(account_id)
     begin
       link = Stripe::AccountLink.create({

@@ -34,15 +34,17 @@ class Dashboard::HooksController < ApplicationController
       when 'payment_intent.succeeded'
         payment_intent = event.data.object # contains a Stripe::PaymentIntent
         puts 'PaymentIntent was successful!'
-        puts "---------#{payment_intent}"
+        # puts "---------#{payment_intent}"
         return head :ok
       when 'payment_method.attached'
         payment_method = event.data.object # contains a Stripe::PaymentMethod
         puts 'PaymentMethod was attached to a Customer!'
-        puts "---------#{payment_method}"
+        # puts "---------#{payment_method}"
         return head :ok
         # ... handle other event types
       when "account.updated"
+        account_updated = event.data.object
+        Account.update_account_hook(account_updated)
         puts "--------ACCOUNT UPDATE"
         return head :ok
       else
