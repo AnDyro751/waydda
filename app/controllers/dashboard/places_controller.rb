@@ -89,12 +89,14 @@ class Dashboard::PlacesController < ApplicationController
   end
 
 
+  # TODO: Update status
+
   def update
     if params["to_action"]
       update_status params["to_action"], @place
     else
       respond_to do |format|
-        if @place.update(place_params)
+        if @place.update(place_general_params)
           format.js
           format.html { redirect_to my_place_path, notice: 'Place was successfully updated.' }
           format.json { render 'dashboard/places/show', status: :ok, location: my_place_path(@place) }
@@ -103,6 +105,22 @@ class Dashboard::PlacesController < ApplicationController
           format.html { render :edit }
           format.json { render json: @place.errors, status: :unprocessable_entity }
         end
+      end
+    end
+  end
+
+  def update_delivery
+    respond_to do |format|
+      puts "-------#{can?(:update, @place) and @place.premium?}"
+      if can?(:update, @place) and @place.premium?
+        if @place.update(place_delivery_params)
+          format.js
+        else
+          format.js
+        end
+      else
+        puts "------------TIENE QU "
+        format.html { redirect_to dashboard_edit_my_place_path, notice: "No tienes los permisos necesarios para realizar esta acción", status: :unprocessable_entity }
       end
     end
   end
@@ -169,8 +187,11 @@ class Dashboard::PlacesController < ApplicationController
   end
 
 
-  # Only allow a list of trusted parameters through.
-  def place_params
-    params.require(:place).permit(:name, :address, :slug, :user_id, :status, :delivery_option, :delivery_cost, :delivery_extra_cost, :delivery_distance, location: [:lat, :lng])
+  def place_general_params
+    params.require(:place).permit(:name, :address, :slug)
+  end
+
+  def place_delivery_params
+    params.require(:place).permit(:delivery_option, :delivery_cost, :delivery_distance)
   end
 end

@@ -1,0 +1,8 @@
+<% if @place.errors %>
+console.log("HAY ERROREs <%= @place.errors.full_messages %>")
+<% @place.errors.each do |k,e| %>
+console.log("<%= k %> <%= e %>")
+<% end %>
+<% else %>
+console.log("NO HAY")
+<% end %>

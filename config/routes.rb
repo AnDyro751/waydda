@@ -69,6 +69,7 @@ Rails.application.routes.draw do
     get "/edit", to: "places#edit", as: "edit_my_place"
     resources :places, only: [:edit, :update, :new, :create, :index] do
       patch "/update_slug", to: "places#update_slug", as: "update_slug"
+      patch "/update_delivery", to: "places#update_delivery", as: :update_delivery
     end
 
 

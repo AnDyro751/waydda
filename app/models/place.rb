@@ -66,6 +66,18 @@ class Place
     end
   end
 
+  aasm column: :kind do
+    state :free, initial: true
+    state :premium
+
+    event :to_premium do
+      transitions from: [:free], to: :premium
+    end
+    event :to_free do
+      transitions from: [:premium, :free], to: :free
+    end
+  end
+
 
 # @param [Integer] quantity
 # @param [Boolean] plus {true: +, false: - }
@@ -101,6 +113,7 @@ class Place
 
   def add_owner_role
     self.user.add_role(:owner, self)
+    self.user.update(is_admin: true)
   end
 
 # @param [Object] user

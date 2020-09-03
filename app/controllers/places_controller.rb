@@ -21,7 +21,6 @@ class PlacesController < ApplicationController
   end
 
 
-
   private
 
 
