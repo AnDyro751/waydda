@@ -21,6 +21,7 @@ class Place
 
   field :name, type: String
   field :address, type: String
+  field :external_number, type: String
   field :slug, type: String
   field :city, type: String
   field :city_state, type: String

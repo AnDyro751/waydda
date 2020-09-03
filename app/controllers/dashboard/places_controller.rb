@@ -188,7 +188,7 @@ class Dashboard::PlacesController < ApplicationController
 
 
   def place_general_params
-    params.require(:place).permit(:name, :address, :slug)
+    params.require(:place).permit(:name, :address, :slug, :photo, :cover, :lat, :lng, :external_number)
   end
 
   def place_delivery_params

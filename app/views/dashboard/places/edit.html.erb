@@ -1,8 +1,9 @@
 <div class="w-full" id="messages"></div>
 <%= render Headers::Text.new(title: "Editar mi empresa") %>
 <div class="w-full flex flex-wrap" x-data="editMyPlace(<%= @place.delivery_option %>)">
-  <div class="w-full" >
-
+  <div class="w-full">
+    <h2 class="text-lg font-bold mb-4 text-gray-900">General</h2>
+    <%= render "dashboard/places/form", url: dashboard_place_path(@place.slug) %>
   </div>
   <% if @place.pending? %>
     <h3>Esperando la confirmación del administrador</h3>
@@ -33,7 +34,7 @@
 
         </div>
         <div class="w-full mt-4">
-          <%= f.submit value: "Guardar", class: "bg-black py-2 px-6 text-white rounded cursor-pointer", data: {"disable-with": "Actualizando..."} %>
+          <%= f.submit value: "Guardar", disabled: @place.free?, class: "disabled:opacity-75  bg-black py-2 px-6 text-white rounded cursor-pointer", data: {"disable-with": "Actualizando..."} %>
         </div>
       <% end %>
     </div>
@@ -65,3 +66,4 @@
         }
     }
 </script>
+<%= javascript_pack_tag "my_profile", 'data-turbolinks-track': "reload" %>

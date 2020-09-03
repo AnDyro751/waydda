@@ -1,18 +1,30 @@
-var old_element = document.querySelector("#messages");
-<% if @place.errors.any?  %>
-console.log("HAY ERRORES")
+window.scrollTo(0, 0);
+document.querySelector("#notifications").innerHTML = "";
+console.log("<%= @place.errors.any? %>")
+<% if @place.errors.any? %>
+document.querySelector("#notifications").innerHTML = "<%= j render Notifications::Alert.new(notice: "Se han encontrado errores al crear la empresa",kind: "error") %>";
+<% @place.errors.each do |keyE,error| %>
+//console.log("<%= keyE %>", "<%= error %>")
+<% if keyE.to_s === "address" %>
+document.querySelector("#place_search_address").classList.add("border-red-500");
+document.querySelector("[name='place[address]_error']").innerHTML = "<%= error %>";
 <% else %>
-if (old_element) {
-    old_element.innerHTML = "";
-    old_element.innerHTML = `
-<div id="js-notification" class="p-3 bg-indigo-600 cursor-pointer text-white mt-4 rounded shadow relative" >
-<span class="text-sm font-normal" >Se ha actualizado la empresa</span>
-</div>`
-    old_element.addEventListener("click", () => {
-        old_element.innerHTML = "";
-    }, false)
-    setTimeout(() => {
-        old_element.innerHTML = "";
-    }, 3500)
+var element = document.querySelector("#place_<%= keyE %>");
+if (element) {
+    element.classList.add("border-red-500");
+    var spanElement = document.querySelector('[name="place[<%=keyE %>]_error"]')
+    if (spanElement) {
+        spanElement.innerHTML = "<%= error %>";
+    } else {
+        var newNotification = document.createElement("div")
+        newNotification.innerHTML = "<%= j render Notifications::Alert.new(notice: "#{keyE} #{error}" ,kind: "error") %>";
+        document.querySelector("#notifications").appendChild(newNotification);
+    }
 }
-<%end %>
+<% end %>
+<% end %>
+<% else %>
+document.querySelector("#notifications").innerHTML = "<%= j render Notifications::Alert.new(alert: "Se ha actualizado la empresa") %>";
+<% end %>
+
+window.deleteFlashs();

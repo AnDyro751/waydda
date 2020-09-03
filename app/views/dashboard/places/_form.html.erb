@@ -1,5 +1,5 @@
 <div class="w-full" x-data="addressForm()">
-  <%= simple_form_for(@place, url: dashboard_places_path, remote: true, html: {class: "w-full flex-wrap"}) do |f| %>
+  <%= simple_form_for(@place, url: url ? url : dashboard_places_path, remote: true, html: {class: "w-full flex-wrap"}) do |f| %>
     <div class="w-full mb-4">
       <%= f.input :name, label: "Nombre de tu empresa", placeholder: "Ej. Miscelanea Hermanos Ponchos", label_html: {class: "text-sm font-normal text-gray-600"}, input_html: {"x-on:input": "handleChange($event)", class: "py-3 px-3 bg-white border-gray-400 border appearance-none focus:border-black rounded focus:outline-none w-full mt-2"} %>
       <span name="place[name]_error" class="text-sm font-bold text-red-600"></span>
@@ -9,9 +9,21 @@
     <%= f.input :lng, as: :hidden, label: "lng" %>
     <div class="w-full relative mb-4">
       <div class="w-full">
-        <%= f.input :search_address, required: true, label: "Dirección de tu empresa", placeholder: "Torres del Toreo", label_html: {class: "text-sm font-normal text-gray-600"}, input_html: {"x-on:input": "addressHandleChange($event)", value: "", class: "py-3 px-3 bg-white border-gray-400 border appearance-none focus:border-black rounded focus:outline-none w-full mt-2"} %>
+        <%= f.input :search_address,
+                    required: true,
+                    label: "Dirección de tu empresa",
+                    placeholder: "Torres del Toreo",
+                    label_html: {
+                        class: "text-sm font-normal text-gray-600"
+                    },
+                    input_html: {
+                        "x-on:input": "addressHandleChange($event)",
+                        value: @place.valid? ? @place.address : "",
+                        class: "py-3 px-3 bg-white border-gray-400 border appearance-none focus:border-black rounded focus:outline-none w-full mt-2"
+                    } %>
         <span name="place[address]_error" class="text-sm font-bold text-red-600"></span>
       </div>
+
       <div
         :class="{'hidden' : addresses.length <= 0}"
         class="absolute transform translate-y-full bottom-0 z-50 left-0 right-0 w-full shadow bg-white">
@@ -21,16 +33,21 @@
             class="px-4 py-2 hover:bg-gray-100 border-b cursor-pointer" x-text="address.place_name"></p>
         </template>
       </div>
+
+    </div>
+    <div class="w-full mb-4">
+      <%= f.input :external_number, label: "Piso / Oficina / Apto / Depto/ # Número", placeholder: @place.valid? ? @place.external_number || "Descripción de la dirección (ej. torre, apartamento)" : "Descripción de la dirección (ej. torre, apartamento)", label_html: {class: "text-sm font-normal text-gray-600"}, input_html: {"x-on:input": "handleChange($event)", class: "py-3 px-3 bg-white border-gray-400 border appearance-none focus:border-black rounded focus:outline-none w-full mt-2"} %>
+      <span name="place[external_number]_error" class="text-sm font-bold text-red-600"></span>
     </div>
     <%#= f.input :search_address, required: true, label: "Dirección de tu empresa", label_html: {class: "text-sm font-normal text-gray-600"}, input_html: {class: "py-3 px-3 bg-white border-gray-400 border appearance-none focus:border-black rounded focus:outline-none w-full mt-2 mb-4", value: ""} %>
     <div class="w-full">
-      <span class="text-sm text-gray-600">Arrastra el marcador para especificar tu dirección exacta</span>
+      <span class="text-sm text-gray-600">Arrastra el marcador para colocar tu dirección exacta</span>
       <div class="w-full h-64 rounded mt-2 bg-gray-200 focus:outline-none outline-none" id="map">
 
       </div>
     </div>
     <div class="w-full justify-end flex">
-      <%= f.submit "Crear empresa", data: {"disable-with": "Creando..."}, class: "bg-black text-white py-3 px-8 rounded cursor-pointer mt-8" %>
+      <%= f.submit @place.valid? ? "Actualizar empresa" : "Crear empresa", data: {"disable-with": @place.valid? ? "Actualizando..." : "Creando..."}, class: "bg-black text-white py-3 px-8 rounded cursor-pointer mt-8" %>
     </div>
 
   <% end %>

@@ -25,16 +25,17 @@
 <% unless @place.nil? %>
   <%= render "utils/Headers/dashboard" %>
 <% end %>
-<div id="notifications">
-  <% if notice.present? %>
-    <%= render Notifications::Alert.new(alert: notice, with_spacing: true, kind: "error") %>
-  <% end %>
-  <% if alert.present? %>
-    <%= render Notifications::Alert.new(alert: alert, with_spacing: true) %>
-  <% end %>
-</div>
+
 <div class="flex w-full justify-center">
   <div class="w-9/12 flex mx-auto flex-wrap">
+    <div id="notifications" class="w-full">
+      <% if notice.present? %>
+        <%= render Notifications::Alert.new(alert: notice, with_spacing: true, kind: "error") %>
+      <% end %>
+      <% if alert.present? %>
+        <%= render Notifications::Alert.new(alert: alert, with_spacing: true) %>
+      <% end %>
+    </div>
     <%= yield %>
     <% if Rails.env === "development" && params["console"] %>
       <% console %>
