@@ -1,40 +1,20 @@
-<div class="w-full bg-main h-xxl pt-8">
+<div class="w-full bg-secondary-light h-xxl pt-8">
   <div class="w-9/12 mx-auto text-center ">
     <h1 class="text-5xl font-bold">Precio simple sin engaños</h1>
-    <h3 class="text-lg font-normal text-gray-700 mt-4">Si no estás satisfecho, contáctanos en los primeros 14 días y te
-      devolveremos tu dinero.</h3>
+
+    <h3 class="text-lg font-normal text-gray-700 mt-4">
+      <% ab_test(:free_trial_lapse, "14", "15", "30", "7") do |free_trial| %>
+        <span>
+          Si no estás satisfecho, contáctanos en los primeros <%= free_trial %> días y te devolveremos tu dinero.
+        </span>
+      <% end %>
+    </h3>
   </div>
 </div>
 
 <div class="w-full -mt-64 flex justify-center items-start flex flex-wrap">
-  <div class="w-11/12 bg-white rounded shadow-2xl flex">
-    <div class="p-8 w-8/12 flex flex-wrap">
-      <div class="w-full flex flex-wrap">
-        <div class="w-auto flex relative">
-          <h3 class="text-3xl font-bold">Gratis</h3>
-          <% if @place.free? %>
-            <div class="absolute right-0 bottom-0 top-0 transform translate-x-full flex -mr-4 justify-center items-center">
-              <span class="font-bold text-sm bg-main-red text-white py-1 px-2 rounded-full">Actual</span></div>
-          <% end %>
-        </div>
-        <div class="w-full">
-          <h4 class="text-gray-500 mt-4 font-normal">Ideal para empresas que están creciendo y que tienen pocos
-            productos.</h4>
-        </div>
-      </div>
-      <div class="w-full flex my-8 items-center">
-        <div class="w-2/12">
-          <h4 class="font-bold text-indigo-500 uppercase text-sm">¿Qué incluye?</h4>
-        </div>
-        <div class="w-8/12 h-es bg-gray-300">
-
-        </div>
-      </div>
-    </div>
-    <div class="w-4/12 bg-main-gray">
-
-    </div>
-  </div>
-
+  <% ab_test(:order_pricing_upgrade, "free", "premium") do |pricing| %>
+    <%= render Pricing::List::Index.new(place: @place, pricing: @pricing, with_margin: true) %>
+  <% end %>
 </div>
 

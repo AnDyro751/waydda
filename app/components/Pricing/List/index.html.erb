@@ -1,0 +1,73 @@
+<% if @pricing === "premium" %>
+  <%= render Pricing::Item::Index.new(place: @place, with_margin: @with_margin, description: "Para empresas que deseen entrar al mundo de la tecnología", name: "Premium", current: @place ? @place.premium? : false) do %>
+    <%= render Pricing::ItemFeature::Index.new(text: "Recoger en tienda", available: true) %>
+    <%= render Pricing::ItemFeature::Index.new(text: "Envíos a domicilio", available: true) %>
+    <%= render Pricing::ItemFeature::Index.new(text: "Productos ilimitados", available: true) %>
+    <%= render Pricing::ItemFeature::Index.new(text: "Categorías ilimitadas", available: true) %>
+    <%= render Pricing::ItemFeature::Index.new(text: "Pagos en efectivo", available: true) %>
+    <%= render Pricing::ItemFeature::Index.new(text: "Pago con tarjeta", available: true) %>
+    <%= render Pricing::ItemFeature::Index.new(text: "Formulario de contacto", available: true, soon: true) %>
+    <%= render Pricing::ItemFeature::Index.new(text: "Catálogo QR", available: true, soon: true) %>
+    <%= render Pricing::ItemFeature::Index.new(text: "Reseñas", available: true, soon: true) %>
+    <%= render Pricing::ItemFeature::Index.new(text: "Subscripciones para productos", available: true, soon: true) %>
+    <%= render Pricing::ItemFeature::Index.new(text: "Cupones de descuento", available: true, soon: true) %>
+    <%= render Pricing::ItemFeature::Index.new(text: "Promociones", available: true, soon: true) %>
+    <%= render Pricing::ItemFeature::Index.new(text: "Tarjetas de regalo", available: true, soon: true) %>
+    <%= render Pricing::ItemFeature::Index.new(text: "Integración con Facebook Pixel", available: true, soon: true) %>
+    <%= render Pricing::ItemFeature::Index.new(text: "Google Analytics", available: true, soon: true) %>
+  <% end %>
+  <%= render Pricing::Item::Index.new(place: @place, with_margin: @with_margin, description: "Ideal para empresas en creciendo y cuenten con pocos productos.", name: "Gratis", current: @place ? @place.free? : false) do %>
+    <%= render Pricing::ItemFeature::Index.new(text: "Recoger en tienda", available: true) %>
+    <%= render Pricing::ItemFeature::Index.new(text: "15 productos", available: true) %>
+    <%= render Pricing::ItemFeature::Index.new(text: "15 categorías", available: true) %>
+    <%= render Pricing::ItemFeature::Index.new(text: "Pagos en efectivo", available: true) %>
+    <%= render Pricing::ItemFeature::Index.new(text: "Formulario de contacto", available: true, soon: true) %>
+    <%= render Pricing::ItemFeature::Index.new(text: "Catálogo QR", available: true, soon: true) %>
+    <%= render Pricing::ItemFeature::Index.new(text: "Pago con tarjeta", available: false) %>
+    <%= render Pricing::ItemFeature::Index.new(text: "Envíos a domicilio", available: false) %>
+    <%= render Pricing::ItemFeature::Index.new(text: "Reseñas", available: false, soon: true) %>
+    <%= render Pricing::ItemFeature::Index.new(text: "Subscripciones para productos", available: false, soon: true) %>
+    <%= render Pricing::ItemFeature::Index.new(text: "Cupones de descuento", available: false, soon: true) %>
+    <%= render Pricing::ItemFeature::Index.new(text: "Promociones", available: false, soon: true) %>
+    <%= render Pricing::ItemFeature::Index.new(text: "Tarjetas de regalo", available: false, soon: true) %>
+    <%= render Pricing::ItemFeature::Index.new(text: "Integración con Facebook Pixel", available: false, soon: true) %>
+    <%= render Pricing::ItemFeature::Index.new(text: "Google Analytics", available: false, soon: true) %>
+  <% end %>
+<% else %>
+  <%= render Pricing::Item::Index.new(place: @place, with_margin: @with_margin, description: "Ideal para empresas en creciendo y cuenten con pocos productos.", name: "Gratis", current: @place ? @place.free? : false) do %>
+    <%= render Pricing::ItemFeature::Index.new(text: "Recoger en tienda", available: true) %>
+    <%= render Pricing::ItemFeature::Index.new(text: "15 productos", available: true) %>
+    <%= render Pricing::ItemFeature::Index.new(text: "15 categorías", available: true) %>
+    <%= render Pricing::ItemFeature::Index.new(text: "Pagos en efectivo", available: true) %>
+    <%= render Pricing::ItemFeature::Index.new(text: "Formulario de contacto", available: true, soon: true) %>
+    <%= render Pricing::ItemFeature::Index.new(text: "Catálogo QR", available: true, soon: true) %>
+    <%= render Pricing::ItemFeature::Index.new(text: "Pago con tarjeta", available: false) %>
+    <%= render Pricing::ItemFeature::Index.new(text: "Envíos a domicilio", available: false) %>
+    <%= render Pricing::ItemFeature::Index.new(text: "Reseñas", available: false, soon: true) %>
+    <%= render Pricing::ItemFeature::Index.new(text: "Subscripciones para productos", available: false, soon: true) %>
+    <%= render Pricing::ItemFeature::Index.new(text: "Cupones de descuento", available: false, soon: true) %>
+    <%= render Pricing::ItemFeature::Index.new(text: "Promociones", available: false, soon: true) %>
+    <%= render Pricing::ItemFeature::Index.new(text: "Tarjetas de regalo", available: false, soon: true) %>
+    <%= render Pricing::ItemFeature::Index.new(text: "Integración con Facebook Pixel", available: false, soon: true) %>
+    <%= render Pricing::ItemFeature::Index.new(text: "Google Analytics", available: false, soon: true) %>
+  <% end %>
+  <%= render Pricing::Item::Index.new(place: @place, with_margin: @with_margin, description: "Para empresas que deseen entrar al mundo de la tecnología", name: "Premium", current: @place ? @place.premium? : false) do %>
+    <%= render Pricing::ItemFeature::Index.new(text: "Recoger en tienda", available: true) %>
+    <%= render Pricing::ItemFeature::Index.new(text: "Envíos a domicilio", available: true) %>
+    <%= render Pricing::ItemFeature::Index.new(text: "Productos ilimitados", available: true) %>
+    <%= render Pricing::ItemFeature::Index.new(text: "Categorías ilimitadas", available: true) %>
+    <%= render Pricing::ItemFeature::Index.new(text: "Pagos en efectivo", available: true) %>
+    <%= render Pricing::ItemFeature::Index.new(text: "Pago con tarjeta", available: true) %>
+    <%= render Pricing::ItemFeature::Index.new(text: "Formulario de contacto", available: true, soon: true) %>
+    <%= render Pricing::ItemFeature::Index.new(text: "Catálogo QR", available: true, soon: true) %>
+    <%= render Pricing::ItemFeature::Index.new(text: "Reseñas", available: true, soon: true) %>
+    <%= render Pricing::ItemFeature::Index.new(text: "Subscripciones para productos", available: true, soon: true) %>
+    <%= render Pricing::ItemFeature::Index.new(text: "Cupones de descuento", available: true, soon: true) %>
+    <%= render Pricing::ItemFeature::Index.new(text: "Promociones", available: true, soon: true) %>
+    <%= render Pricing::ItemFeature::Index.new(text: "Tarjetas de regalo", available: true, soon: true) %>
+    <%= render Pricing::ItemFeature::Index.new(text: "Integración con Facebook Pixel", available: true, soon: true) %>
+    <%= render Pricing::ItemFeature::Index.new(text: "Google Analytics", available: true, soon: true) %>
+  <% end %>
+<% end %>
+
+<!--  TODO: Cambiar los textos de esto-->

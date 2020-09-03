@@ -1,0 +1,33 @@
+<div class="w-11/12 bg-white rounded
+  <%= @with_margin ? "mt-12" : "" %> shadow-2xl flex">
+  <div class="p-8 w-8/12 flex flex-wrap">
+    <div class="w-full flex flex-wrap">
+      <div class="w-auto flex relative">
+        <h3 class="text-3xl font-bold text-left"><%= @name %></h3>
+        <% if @current %>
+          <div class="absolute right-0 bottom-0 top-0 transform translate-x-full flex -mr-4 justify-center items-center">
+            <span class="font-normal text-sm bg-main-red text-white py-1 px-2 rounded-full">Actual</span></div>
+        <% end %>
+      </div>
+      <div class="w-full">
+        <h4 class="text-gray-600 text-left mt-4 font-normal">
+          <%= @description %>
+        </h4>
+      </div>
+    </div>
+    <div class="w-full flex mt-8 items-center">
+      <div class="w-2/12">
+        <h4 class="font-bold text-indigo-700 uppercase text-sm">¿Qué incluye?</h4>
+      </div>
+      <div class="w-10/12 h-es bg-gray-300">
+      </div>
+    </div>
+    <div class="w-full flex flex-wrap">
+      <%= content %>
+    </div>
+  </div>
+
+  <div class="w-4/12 bg-main-gray">
+
+  </div>
+</div>

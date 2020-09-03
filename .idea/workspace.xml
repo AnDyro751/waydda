@@ -19,12 +19,19 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b89cb0fb-b680-4bb9-8ae0-f4b41721cfb9" name="Default Changelist" comment="feat(Business): Pequeño cambio de ui">
+    <list default="true" id="b89cb0fb-b680-4bb9-8ae0-f4b41721cfb9" name="Default Changelist" comment="feat(Business): Init simple pricing">
+      <change afterPath="$PROJECT_DIR$/app/components/Pricing/Item/index.html.erb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/components/Pricing/Item/index.rb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/components/Pricing/ItemFeature/index.html.erb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/components/Pricing/ItemFeature/index.rb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/components/Pricing/List/index.html.erb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/components/Pricing/List/index.rb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dump.rdb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/dashboard/places_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/dashboard/places_controller.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/components/Header/Business/index.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/components/Header/Business/index.html.erb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/views/dashboard/places/upgrade.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/dashboard/places/upgrade.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/home/business.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/home/business.html.erb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/views/layouts/dashboard.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/layouts/dashboard.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tailwind.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/tailwind.config.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -502,14 +509,7 @@
       <workItem from="1598748382521" duration="34374000" />
       <workItem from="1598839720453" duration="998000" />
       <workItem from="1598891533514" duration="11781000" />
-      <workItem from="1598993828472" duration="48598000" />
-    </task>
-    <task id="LOCAL-00052" summary="refactor(Cart): El carrito se ha reconstruido para usar uno por cada local que se necesite, la vista del html ya funciona">
-      <created>1598387215408</created>
-      <option name="number" value="00052" />
-      <option name="presentableId" value="LOCAL-00052" />
-      <option name="project" value="LOCAL" />
-      <updated>1598387215412</updated>
+      <workItem from="1598993828472" duration="54931000" />
     </task>
     <task id="LOCAL-00053" summary="refactor(Cart): Mostramos información de los costos en el carrito">
       <created>1598400436687</created>
@@ -847,7 +847,14 @@
       <option name="project" value="LOCAL" />
       <updated>1599107496765</updated>
     </task>
-    <option name="localTasksCounter" value="101" />
+    <task id="LOCAL-00101" summary="feat(Business): Init simple pricing">
+      <created>1599152110973</created>
+      <option name="number" value="00101" />
+      <option name="presentableId" value="LOCAL-00101" />
+      <option name="project" value="LOCAL" />
+      <updated>1599152110973</updated>
+    </task>
+    <option name="localTasksCounter" value="102" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -867,7 +874,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="feat(Address): Parece que ya se completo" />
     <MESSAGE value="feat(Address): Ya quedó ejeje" />
     <MESSAGE value="feat(Address): Actualiza y crea direcciones" />
     <MESSAGE value="feat(Address): Script no carga si lo ponemos en una página" />
@@ -892,7 +898,8 @@
     <MESSAGE value="feat(Business): Actualización de la empresa correctamente" />
     <MESSAGE value="feat(Business): Can update?" />
     <MESSAGE value="feat(Business): Pequeño cambio de ui" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat(Business): Pequeño cambio de ui" />
+    <MESSAGE value="feat(Business): Init simple pricing" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat(Business): Init simple pricing" />
   </component>
   <component name="WindowStateProjectService">
     <state x="392" y="0" key="#All_specs_in_spec:_waydda" timestamp="1598730457189">
@@ -982,12 +989,12 @@
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="628" y="298" key="com.jetbrains.plugins.remotesdk.ui.RemoteMappingsConfiguration/0.0.1366.768@0.0.1366.768" timestamp="1598729856431" />
-    <state x="390" y="117" width="585" height="624" key="find.popup" timestamp="1599149611605">
+    <state x="390" y="117" width="585" height="624" key="find.popup" timestamp="1599166580829">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="1914" y="96" width="823" height="878" key="find.popup/0.0.1366.768/1366.-69.1920.1080@1366.-69.1920.1080" timestamp="1597716285449" />
     <state x="1754" y="117" width="583" height="624" key="find.popup/0.0.1366.768/1366.0.1360.768@1366.0.1360.768" timestamp="1598981376119" />
-    <state x="390" y="117" width="585" height="624" key="find.popup/0.0.1366.768@0.0.1366.768" timestamp="1599149611605" />
+    <state x="390" y="117" width="585" height="624" key="find.popup/0.0.1366.768@0.0.1366.768" timestamp="1599166580829" />
     <state x="549" y="254" width="250" height="278" key="jetbrains.javascript.buildTools.run-task-popup" timestamp="1597946321130">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
@@ -996,11 +1003,11 @@
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="339" y="174" width="672" height="677" key="run.anything.popup/0.0.1366.768@0.0.1366.768" timestamp="1599088332819" />
-    <state x="346" y="89" width="672" height="678" key="search.everywhere.popup" timestamp="1599152066758">
+    <state x="346" y="89" width="672" height="678" key="search.everywhere.popup" timestamp="1599165914799">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="1852" y="56" width="945" height="954" key="search.everywhere.popup/0.0.1366.768/1366.-69.1920.1080@1366.-69.1920.1080" timestamp="1597715976170" />
     <state x="1710" y="89" width="672" height="678" key="search.everywhere.popup/0.0.1366.768/1366.0.1360.768@1366.0.1360.768" timestamp="1598985878395" />
-    <state x="346" y="89" width="672" height="678" key="search.everywhere.popup/0.0.1366.768@0.0.1366.768" timestamp="1599152066758" />
+    <state x="346" y="89" width="672" height="678" key="search.everywhere.popup/0.0.1366.768@0.0.1366.768" timestamp="1599165914799" />
   </component>
 </project>
