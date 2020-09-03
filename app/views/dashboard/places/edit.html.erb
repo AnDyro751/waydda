@@ -1,14 +1,24 @@
 <div class="w-full" id="messages"></div>
-<%= render Headers::Text.new(title: "Editanto mi empresa") %>
-<div class="w-full">
+<%= render Headers::Text.new(title: "Editar mi empresa") %>
+<div class="w-full" x-data="editMyPlace(<%= @place.delivery_option %>)">
   <% if @place.pending? %>
     <h3>Esperando la confirmación del administrador</h3>
   <% else %>
     <div class="w-full pb-4 border-b border-gray-400">
-      <h3 class="text-lg font-normal text-gray-900">Envíos</h3>
+      <h2 class="text-lg font-bold mb-4 text-gray-900">Envíos</h2>
       <%= simple_form_for(@place, url: dashboard_place_path(@place.slug), html: {class: "w-full flex flex-wrap"}, remote: true) do |f| %>
-        <%= f.input :delivery_option, as: :boolean, label: "¿Realizas envíos a domicilio?", label_html: {class: "text-sm font-normal text-gray-600"}, wrapper_html: {class: "w-full"} %>
-        <%= f.input :delivery_cost, as: :float, label: "Precio de envío", label_html: {class: "text-sm font-normal text-gray-600"}, wrapper_html: {class: "w-full"}, input_html: {class: 'py-3 px-3 bg-white border-gray-400 border appearance-none focus:border-black rounded focus:outline-none w-full mt-2 mb-4'} %>
+        <%= f.input :delivery_option, as: :boolean, label: "¿Realizas envíos a domicilio?", label_html: {class: "text-sm font-normal text-gray-600 w-full select-none"}, input_html: {class: "mr-4", "x-on:change": "handleCheckbox($event)"}, wrapper_html: {class: "w-full mb-4"} %>
+        <div
+          :class="{'hidden': !acceptDelivery}"
+          class="w-full flex gap-8 hidden">
+          <div class="w-6/12">
+            <%= f.input :delivery_cost, as: :float, label: "Precio de envío", label_html: {class: "text-sm font-normal text-gray-600"}, wrapper_html: {class: "w-full"}, input_html: {class: 'py-3 px-3 bg-white border-gray-400 border appearance-none focus:border-black rounded focus:outline-none w-full mt-2 mb-4'} %>
+          </div>
+          <div class="w-6/12">
+            <%= f.input :delivery_distance, as: :float, label: "Distancia máxima de entrega", label_html: {class: "text-sm font-normal text-gray-600"}, wrapper_html: {class: "w-full"}, input_html: {class: 'py-3 px-3 bg-white border-gray-400 border appearance-none focus:border-black rounded focus:outline-none w-full mt-2 mb-4'} %>
+          </div>
+
+        </div>
         <div class="w-full mt-4">
           <%= f.submit value: "Actualizar empresa", class: "bg-black py-2 px-6 text-white rounded cursor-pointer", data: {"disable-with": "Actualizando..."} %>
         </div>
@@ -30,3 +40,15 @@
     </div>
   <% end %>
 </div>
+
+<script type="text/javascript" charset="utf-8">
+    function editMyPlace(deliveryOption = false) {
+        return {
+            acceptDelivery: deliveryOption,
+            handleCheckbox: function (e) {
+                console.log(e.target.checked);
+                this.acceptDelivery = e.target.checked;
+            }
+        }
+    }
+</script>

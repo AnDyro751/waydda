@@ -20,6 +20,10 @@ class Dashboard::PlacesController < ApplicationController
   end
 
 
+  def upgrade
+
+  end
+
   def connect
     # details_submitted
   end

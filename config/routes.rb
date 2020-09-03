@@ -52,6 +52,7 @@ Rails.application.routes.draw do
   namespace :dashboard do
     # Uploads
     post "/upload/:model/:slug/:attribute", to: "image#upload", as: "upload_image"
+    get "/upgrade", to: "places#upgrade", as: :upgrade_plan
     # Stripe connect
     get "/payments/connect", to: "places#connect", as: :place_connect
     post "/payments/connect", to: "places#create_stripe_account", as: :place_create_connect

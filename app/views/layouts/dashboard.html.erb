@@ -32,9 +32,6 @@
   <% if alert.present? %>
     <%= render Notifications::Alert.new(alert: alert, with_spacing: true) %>
   <% end %>
-  <% if @place.pending? and (controller != "places" and action_name != "new") %>
-    <%= render Notifications::Alert.new(alert: "En espera de verificación", with_spacing: true, kind: "error") %>
-  <% end %>
 </div>
 <div class="flex w-full justify-center">
   <div class="w-9/12 flex mx-auto flex-wrap">
