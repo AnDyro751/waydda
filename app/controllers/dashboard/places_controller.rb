@@ -96,14 +96,18 @@ class Dashboard::PlacesController < ApplicationController
       update_status params["to_action"], @place
     else
       respond_to do |format|
-        if @place.update(place_general_params)
-          format.js
-          format.html { redirect_to my_place_path, notice: 'Place was successfully updated.' }
-          format.json { render 'dashboard/places/show', status: :ok, location: my_place_path(@place) }
+        if can? :update, @place
+          if @place.update(place_general_params)
+            format.js
+            format.html { redirect_to my_place_path, notice: 'Place was successfully updated.' }
+            format.json { render 'dashboard/places/show', status: :ok, location: my_place_path(@place) }
+          else
+            format.js
+            format.html { render :edit }
+            format.json { render json: @place.errors, status: :unprocessable_entity }
+          end
         else
-          format.js
-          format.html { render :edit }
-          format.json { render json: @place.errors, status: :unprocessable_entity }
+          format.html { redirect_to dashboard_edit_my_place_path, notice: "No tienes los permisos necesarios para realizar esta acción", status: :unprocessable_entity }
         end
       end
     end
@@ -119,7 +123,6 @@ class Dashboard::PlacesController < ApplicationController
           format.js
         end
       else
-        puts "------------TIENE QU "
         format.html { redirect_to dashboard_edit_my_place_path, notice: "No tienes los permisos necesarios para realizar esta acción", status: :unprocessable_entity }
       end
     end
