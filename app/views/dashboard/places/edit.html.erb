@@ -4,7 +4,15 @@
   <% if @place.pending? %>
     <h3>Esperando la confirmación del administrador</h3>
   <% else %>
-    <div class="w-full pb-4 border-b border-gray-400">
+    <div class="w-full pb-4 border-b border-gray-400 relative">
+      <div class="absolute w-full flex-wrap h-full right-0 bottom-0 left-0 top-0 bg-white bg-opacity-75 items-center justify-center flex">
+        <div class="w-full flex justify-center flex-wrap items-center">
+          <h2 class="text-center font-bold w-full">
+            Actualiza tu plan para ofrecer envíos a domicilio
+          </h2>
+          <%= link_to "Actualizar", dashboard_upgrade_plan_path, class: "bg-main-red font-normal text-white rounded py-3 px-6 mt-5" %>
+        </div>
+      </div>
       <h2 class="text-lg font-bold mb-4 text-gray-900">Envíos</h2>
       <%= simple_form_for(@place, url: dashboard_place_path(@place.slug), html: {class: "w-full flex flex-wrap"}, remote: true) do |f| %>
         <%= f.input :delivery_option, as: :boolean, label: "¿Realizas envíos a domicilio?", label_html: {class: "text-sm font-normal text-gray-600 w-full select-none"}, input_html: {class: "mr-4", "x-on:change": "handleCheckbox($event)"}, wrapper_html: {class: "w-full mb-4"} %>
@@ -20,7 +28,7 @@
 
         </div>
         <div class="w-full mt-4">
-          <%= f.submit value: "Actualizar empresa", class: "bg-black py-2 px-6 text-white rounded cursor-pointer", data: {"disable-with": "Actualizando..."} %>
+          <%= f.submit value: "Guardar", class: "bg-black py-2 px-6 text-white rounded cursor-pointer", data: {"disable-with": "Actualizando..."} %>
         </div>
       <% end %>
     </div>

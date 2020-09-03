@@ -19,16 +19,9 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b89cb0fb-b680-4bb9-8ae0-f4b41721cfb9" name="Default Changelist" comment="feat(Business): Mensaje de esperar un par de horas">
-      <change afterPath="$PROJECT_DIR$/app/views/dashboard/places/upgrade.html.erb" afterDir="false" />
+    <list default="true" id="b89cb0fb-b680-4bb9-8ae0-f4b41721cfb9" name="Default Changelist" comment="feat(Business): Agregamos la opción de envío a domicilio">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/components/notifications/alert.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/components/notifications/alert.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/dashboard/places_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/dashboard/places_controller.rb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/views/dashboard/places/edit.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/dashboard/places/edit.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/dashboard/places/my_place.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/dashboard/places/my_place.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/layouts/dashboard.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/layouts/dashboard.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/utils/Headers/dashboard/_items.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/utils/Headers/dashboard/_items.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/routes.rb" beforeDir="false" afterPath="$PROJECT_DIR$/config/routes.rb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -506,14 +499,7 @@
       <workItem from="1598748382521" duration="34374000" />
       <workItem from="1598839720453" duration="998000" />
       <workItem from="1598891533514" duration="11781000" />
-      <workItem from="1598993828472" duration="38297000" />
-    </task>
-    <task id="LOCAL-00046" summary="feat(Notifications): Mostramos nuevo diseño de las notificaciones">
-      <created>1598319446064</created>
-      <option name="number" value="00046" />
-      <option name="presentableId" value="LOCAL-00046" />
-      <option name="project" value="LOCAL" />
-      <updated>1598319446064</updated>
+      <workItem from="1598993828472" duration="38658000" />
     </task>
     <task id="LOCAL-00047" summary="feat: Se han corregido pequeños errores en la UI, vamos a obligar a iniciar sesión al agregar al carrito">
       <created>1598328800464</created>
@@ -851,7 +837,14 @@
       <option name="project" value="LOCAL" />
       <updated>1599098071350</updated>
     </task>
-    <option name="localTasksCounter" value="95" />
+    <task id="LOCAL-00095" summary="feat(Business): Agregamos la opción de envío a domicilio">
+      <created>1599100029156</created>
+      <option name="number" value="00095" />
+      <option name="presentableId" value="LOCAL-00095" />
+      <option name="project" value="LOCAL" />
+      <updated>1599100029156</updated>
+    </task>
+    <option name="localTasksCounter" value="96" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -871,7 +864,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="test(Place): Typo in place spec" />
     <MESSAGE value="test: Simple test" />
     <MESSAGE value="refactor(Header): Delete react - add alpine" />
     <MESSAGE value="refactor(UserProfile): Agregamos la dirección de entrega en el perfil del usuario" />
@@ -896,7 +888,8 @@
     <MESSAGE value="feat(Business): Vamos a actualizar la cuenta de connect" />
     <MESSAGE value="feat(Business): Ya se actualiza la pinche cuenta de stripe" />
     <MESSAGE value="feat(Business): Mensaje de esperar un par de horas" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat(Business): Mensaje de esperar un par de horas" />
+    <MESSAGE value="feat(Business): Agregamos la opción de envío a domicilio" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat(Business): Agregamos la opción de envío a domicilio" />
   </component>
   <component name="WindowStateProjectService">
     <state x="392" y="0" key="#All_specs_in_spec:_waydda" timestamp="1598730457189">
@@ -1000,11 +993,11 @@
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="339" y="174" width="672" height="677" key="run.anything.popup/0.0.1366.768@0.0.1366.768" timestamp="1599088332819" />
-    <state x="346" y="89" width="672" height="678" key="search.everywhere.popup" timestamp="1599099025192">
+    <state x="346" y="89" width="672" height="678" key="search.everywhere.popup" timestamp="1599100344964">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="1852" y="56" width="945" height="954" key="search.everywhere.popup/0.0.1366.768/1366.-69.1920.1080@1366.-69.1920.1080" timestamp="1597715976170" />
     <state x="1710" y="89" width="672" height="678" key="search.everywhere.popup/0.0.1366.768/1366.0.1360.768@1366.0.1360.768" timestamp="1598985878395" />
-    <state x="346" y="89" width="672" height="678" key="search.everywhere.popup/0.0.1366.768@0.0.1366.768" timestamp="1599099025192" />
+    <state x="346" y="89" width="672" height="678" key="search.everywhere.popup/0.0.1366.768@0.0.1366.768" timestamp="1599100344964" />
   </component>
 </project>
