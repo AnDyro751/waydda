@@ -21,7 +21,7 @@ class Dashboard::PlacesController < ApplicationController
 
 
   def upgrade
-
+    @full_page = true
   end
 
   def connect
