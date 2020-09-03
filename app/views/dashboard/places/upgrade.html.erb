@@ -1,20 +1,15 @@
 <div class="w-full bg-secondary-light h-xxl pt-8">
   <div class="w-9/12 mx-auto text-center ">
     <h1 class="text-5xl font-bold">Precio simple sin engaños</h1>
-
     <h3 class="text-lg font-normal text-gray-700 mt-4">
-      <% ab_test(:free_trial_lapse, "14", "15", "30", "7") do |free_trial| %>
         <span>
-          Si no estás satisfecho, contáctanos en los primeros <%= free_trial %> días y te devolveremos tu dinero.
+          Si no estás satisfecho, contáctanos en los primeros <%= @free_days %> días y te devolveremos tu dinero.
         </span>
-      <% end %>
     </h3>
   </div>
 </div>
 
 <div class="w-full -mt-64 flex justify-center items-start flex flex-wrap">
-  <% ab_test(:order_pricing_upgrade, "free", "premium") do |pricing| %>
-    <%= render Pricing::List::Index.new(place: @place, pricing: @pricing, with_margin: true) %>
-  <% end %>
+  <%= render Pricing::List::Index.new(place: @place, pricing: @premium_pricing, with_margin: true) %>
 </div>
 

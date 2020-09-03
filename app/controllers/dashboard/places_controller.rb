@@ -21,6 +21,8 @@ class Dashboard::PlacesController < ApplicationController
 
 
   def upgrade
+    @free_days = ab_test(:free_pricing_upgrade, '7', '14', '30')
+    @premium_pricing = ab_test(:premium_pricing_upgrade, '69', '129', '229')
     @full_page = true
   end
 

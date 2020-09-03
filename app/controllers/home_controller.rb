@@ -7,7 +7,8 @@ class HomeController < ApplicationController
   end
 
   def business
-
+    @free_days = ab_test(:free_pricing_upgrade, '7', '14', '30')
+    @premium_pricing = ab_test(:premium_pricing_upgrade, '69', '129', '229')
   end
 
   def pricing

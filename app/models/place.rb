@@ -38,6 +38,7 @@ class Place
   field :delivery_distance, type: Float, default: 5
   field :delivery_extra_cost, type: Float, default: 0
   field :kind, type: String, default: "free"
+  field :pricing_selected, type: String # El precio que seleccionó al registrarse
 
 # TODO: Añadir horarios de envío y recolección
 # TODO: Añadir pedido minimo

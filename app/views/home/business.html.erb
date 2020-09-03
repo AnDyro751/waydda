@@ -121,9 +121,7 @@
     </div>
   </div>
   <div class="w-full mt-12 text-left flex justify-center items-start flex flex-wrap">
-    <% ab_test(:order_pricing_business, "free", "premium") do |pricing| %>
-      <%= render Pricing::List::Index.new(place: @place, pricing: @pricing, with_margin: true) %>
-    <% end %>
+    <%= render Pricing::List::Index.new(place: @place, pricing: @premium_pricing, with_margin: true) %>
   </div>
 </div>
 
