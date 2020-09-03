@@ -20,7 +20,7 @@ class Account
                                          })
 
         user.account = user.create_account(account_id: account.id)
-        account_id = account.ud
+        account_id = account.id
         puts "---------CREANDO"
       else
         puts "---------RENOVANDO"

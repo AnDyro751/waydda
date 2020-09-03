@@ -24,7 +24,6 @@ class Dashboard::PlacesController < ApplicationController
     # details_submitted
     unless @user_account.nil?
       unless @user_account.completed
-        puts "----------HOLAAAAAAAAAAAA"
         @stripe_account = Stripe::Account.retrieve(@user_account.account_id)
         if @stripe_account.details_submitted
           @user_account.update(completed: true)

@@ -46,6 +46,9 @@ Rails.application.routes.draw do
 
   # Dashboard
   get "/dashboard", to: "dashboard/places#my_place", as: "my_place" # Index dashboard
+  # Webhooks
+  post "/hooks", to: "dashboard/hooks#hooks"
+  # mount StripeEvent::Engine, at: '/hooks'
   namespace :dashboard do
     # Uploads
     post "/upload/:model/:slug/:attribute", to: "image#upload", as: "upload_image"
