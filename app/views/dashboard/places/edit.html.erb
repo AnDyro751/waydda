@@ -1,14 +1,34 @@
 <div class="w-full" id="messages"></div>
 <%= render Headers::Text.new(title: "Editar mi empresa") %>
-<div class="w-full flex flex-wrap" x-data="editMyPlace(<%= @place.delivery_option %>)">
-  <div class="w-full">
-    <h2 class="text-lg font-bold mb-4 text-gray-900">General</h2>
-    <%= render "dashboard/places/form", url: dashboard_place_path(@place.slug) %>
+<div class="w-full gap-8 flex items-start" x-data="editMyPlace(<%= @place.delivery_option %>)">
+  <div class="w-8/12">
+    <div class="w-full flex flex-wrap">
+      <div class="w-full">
+        <h2 class="text-lg font-bold mb-4 text-gray-900">General</h2>
+        <%= render "dashboard/places/form", url: dashboard_place_path(@place.slug) %>
+      </div>
+      <% if @place.pending? %>
+        <h3>Esperando la confirmación del administrador</h3>
+      <% else %>
+        <p>
+          <%= simple_form_for(@place, url: dashboard_place_update_slug_path(@place.slug), remote: true) do |f| %>
+            <%= f.input :slug, value: @place.slug %>
+            <%= f.submit %>
+          <% end %>
+        </p>
+        <div class="mt-4">
+          <strong>Status:</strong>
+          <% if @place.status == "inactive" %>
+            <%= button_to "Activar", {to_action: "activate"}, method: :put, remote: true, class: "cursor-pointer bg-green-700 focus:outline-none text-white px-8 py-3 rounded shadow-2xl" %>
+          <% else %>
+            <%= button_to "Desactivar", {to_action: "deactivate"}, method: :put, remote: true, class: "cursor-pointer bg-red-700 focus:outline-none text-white px-8 py-3 rounded shadow-2xl" %>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
   </div>
-  <% if @place.pending? %>
-    <h3>Esperando la confirmación del administrador</h3>
-  <% else %>
-    <div class="w-full pb-4 border-b border-gray-400 relative">
+  <div class="w-4/12">
+    <div class="w-full pb-4 relative">
       <% if @place.kind === "free" %>
         <div class="absolute w-full flex-wrap h-full right-0 bottom-0 left-0 top-0 bg-white bg-opacity-75 items-center justify-center flex">
           <div class="w-full flex justify-center flex-wrap items-center">
@@ -24,36 +44,24 @@
         <%= f.input :delivery_option, as: :boolean, label: "¿Realizas envíos a domicilio?", label_html: {class: "text-sm font-normal text-gray-600 w-full select-none"}, input_html: {class: "mr-4", "x-on:change": "handleCheckbox($event)"}, wrapper_html: {class: "w-full mb-4"} %>
         <div
           :class="{'hidden': !acceptDelivery}"
-          class="w-full flex gap-8 hidden">
-          <div class="w-6/12">
+          class="w-full flex flex-wrap hidden">
+          <div class="w-full">
             <%= f.input :delivery_cost, as: :float, label: "Precio de envío", label_html: {class: "text-sm font-normal text-gray-600"}, wrapper_html: {class: "w-full"}, input_html: {class: 'py-3 px-3 bg-white border-gray-400 border appearance-none focus:border-black rounded focus:outline-none w-full mt-2 mb-4'} %>
           </div>
-          <div class="w-6/12">
+          <div class="w-full">
             <%= f.input :delivery_distance, as: :float, label: "Distancia máxima de entrega", label_html: {class: "text-sm font-normal text-gray-600"}, wrapper_html: {class: "w-full"}, input_html: {class: 'py-3 px-3 bg-white border-gray-400 border appearance-none focus:border-black rounded focus:outline-none w-full mt-2 mb-4'} %>
           </div>
 
         </div>
-        <div class="w-full mt-4">
+        <div class="w-full mt-4 flex justify-end">
           <%= f.submit value: "Guardar", disabled: @place.free?, class: "disabled:opacity-75  bg-black py-2 px-6 text-white rounded cursor-pointer", data: {"disable-with": "Actualizando..."} %>
         </div>
       <% end %>
     </div>
-    <p>
-      <%= simple_form_for(@place, url: dashboard_place_update_slug_path(@place.slug), remote: true) do |f| %>
-        <%= f.input :slug, value: @place.slug %>
-        <%= f.submit %>
-      <% end %>
-    </p>
-    <div class="mt-4">
-      <strong>Status:</strong>
-      <% if @place.status == "inactive" %>
-        <%= button_to "Activar", {to_action: "activate"}, method: :put, remote: true, class: "cursor-pointer bg-green-700 focus:outline-none text-white px-8 py-3 rounded shadow-2xl" %>
-      <% else %>
-        <%= button_to "Desactivar", {to_action: "deactivate"}, method: :put, remote: true, class: "cursor-pointer bg-red-700 focus:outline-none text-white px-8 py-3 rounded shadow-2xl" %>
-      <% end %>
-    </div>
-  <% end %>
+  </div>
+
 </div>
+
 
 <script type="text/javascript" charset="utf-8">
     function editMyPlace(deliveryOption = false) {

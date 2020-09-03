@@ -19,8 +19,9 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b89cb0fb-b680-4bb9-8ae0-f4b41721cfb9" name="Default Changelist" comment="feat(Business): Actualización de la empresa correctamente">
-      <change beforePath="$PROJECT_DIR$/app/controllers/dashboard/places_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/dashboard/places_controller.rb" afterDir="false" />
+    <list default="true" id="b89cb0fb-b680-4bb9-8ae0-f4b41721cfb9" name="Default Changelist" comment="feat(Business): Can update?">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/dashboard/places/edit.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/dashboard/places/edit.html.erb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -498,14 +499,7 @@
       <workItem from="1598748382521" duration="34374000" />
       <workItem from="1598839720453" duration="998000" />
       <workItem from="1598891533514" duration="11781000" />
-      <workItem from="1598993828472" duration="45470000" />
-    </task>
-    <task id="LOCAL-00050" summary="refactor(Cart): Bugs del carrito, buscabamos model cuando era product, relations">
-      <created>1598366759548</created>
-      <option name="number" value="00050" />
-      <option name="presentableId" value="LOCAL-00050" />
-      <option name="project" value="LOCAL" />
-      <updated>1598366759549</updated>
+      <workItem from="1598993828472" duration="45733000" />
     </task>
     <task id="LOCAL-00051" summary="refactor(Cart): Mostramos el json del carrito">
       <created>1598376826537</created>
@@ -843,7 +837,14 @@
       <option name="project" value="LOCAL" />
       <updated>1599107154178</updated>
     </task>
-    <option name="localTasksCounter" value="99" />
+    <task id="LOCAL-00099" summary="feat(Business): Can update?">
+      <created>1599107282091</created>
+      <option name="number" value="00099" />
+      <option name="presentableId" value="LOCAL-00099" />
+      <option name="project" value="LOCAL" />
+      <updated>1599107282091</updated>
+    </task>
+    <option name="localTasksCounter" value="100" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -863,7 +864,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="refactor(UserProfile): Pequeños cambios de ui a las alertas" />
     <MESSAGE value="refactor(UserProfile): Agregamos el buscador y el mapa" />
     <MESSAGE value="feat(Address): Parece que ya se completo" />
     <MESSAGE value="feat(Address): Ya quedó ejeje" />
@@ -888,7 +888,8 @@
     <MESSAGE value="feat(Business): Envíos a domicilio a las personas premium" />
     <MESSAGE value="feat(Business): Verificamos que solo si es premium puede actualizar su delivery" />
     <MESSAGE value="feat(Business): Actualización de la empresa correctamente" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat(Business): Actualización de la empresa correctamente" />
+    <MESSAGE value="feat(Business): Can update?" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat(Business): Can update?" />
   </component>
   <component name="WindowStateProjectService">
     <state x="392" y="0" key="#All_specs_in_spec:_waydda" timestamp="1598730457189">
@@ -992,11 +993,11 @@
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="339" y="174" width="672" height="677" key="run.anything.popup/0.0.1366.768@0.0.1366.768" timestamp="1599088332819" />
-    <state x="346" y="89" width="672" height="678" key="search.everywhere.popup" timestamp="1599106895469">
+    <state x="346" y="89" width="672" height="678" key="search.everywhere.popup" timestamp="1599107300286">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="1852" y="56" width="945" height="954" key="search.everywhere.popup/0.0.1366.768/1366.-69.1920.1080@1366.-69.1920.1080" timestamp="1597715976170" />
     <state x="1710" y="89" width="672" height="678" key="search.everywhere.popup/0.0.1366.768/1366.0.1360.768@1366.0.1360.768" timestamp="1598985878395" />
-    <state x="346" y="89" width="672" height="678" key="search.everywhere.popup/0.0.1366.768@0.0.1366.768" timestamp="1599106895469" />
+    <state x="346" y="89" width="672" height="678" key="search.everywhere.popup/0.0.1366.768@0.0.1366.768" timestamp="1599107300286" />
   </component>
 </project>
