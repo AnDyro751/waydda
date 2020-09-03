@@ -36,6 +36,8 @@ class Place
   field :delivery_cost, type: Float, default: 10
   field :delivery_distance, type: Float, default: 5
   field :delivery_extra_cost, type: Float, default: 0
+  field :kind, type: String, default: "free"
+
 # TODO: Añadir horarios de envío y recolección
 # TODO: Añadir pedido minimo
 # Relations
@@ -101,8 +103,8 @@ class Place
     self.user.add_role(:owner, self)
   end
 
-  # @param [Object] user
-  # @return [Object] Account link
+# @param [Object] user
+# @return [Object] Account link
   def self.create_stripe_account_link(user)
     Account.create_stripe_account(self, user)
   end

@@ -1,11 +1,19 @@
 <h1>Conecta tu empresa para recibir pagos</h1>
 
-<div class="w-full">
+<div class="w-full flex-wrap">
   <% if @user_account.nil? %>
-    <%= button_to "Empezar registro", dashboard_place_create_connect_path, method: :post, class: "bg-black cursor-pointer text-white py-3 px-8 rounded flex mt-3", remote: true, data: {"disable-with": "Cargando..."} %>
+    <div class="w-full">
+      <%= button_to "Empezar registro", dashboard_place_create_connect_path, method: :post, class: "bg-black cursor-pointer text-white py-3 px-8 rounded flex mt-3", remote: true, data: {"disable-with": "Cargando..."} %>
+    </div>
   <% else %>
     <% unless @user_account.completed %>
-      <%= button_to "Completar registro", dashboard_place_create_connect_path, method: :post, class: "bg-black cursor-pointer text-white py-3 px-8 rounded flex mt-3", remote: true, data: {"disable-with": "Cargando..."} %>
+      <div class="w-full">
+        <h2>Si ya completaste el formulario espera un par de horas en lo que verificamos tus datos para que empieces a
+          recibir pagos con tarjeta</h2>
+      </div>
+      <div class="w-full">
+        <%= button_to "Completar registro", dashboard_place_create_connect_path, method: :post, class: "bg-black cursor-pointer text-white py-3 px-8 rounded flex mt-3", remote: true, data: {"disable-with": "Cargando..."} %>
+      </div>
     <% end %>
   <% end %>
 </div>
