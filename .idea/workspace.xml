@@ -19,19 +19,15 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b89cb0fb-b680-4bb9-8ae0-f4b41721cfb9" name="Default Changelist" comment="feat(Business): Pricing AB">
-      <change afterPath="$PROJECT_DIR$/app/jobs/create_stripe_customer_job.rb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/spec/jobs/create_stripe_customer_job_spec.rb" afterDir="false" />
+    <list default="true" id="b89cb0fb-b680-4bb9-8ae0-f4b41721cfb9" name="Default Changelist" comment="feat(Business): Create job for create stripe customer">
+      <change afterPath="$PROJECT_DIR$/app/assets/stylesheets/dashboard/subscriptions.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/controllers/dashboard/subscriptions_controller.rb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/helpers/dashboard/subscriptions_helper.rb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/views/dashboard/subscriptions/new.html.erb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/spec/helpers/dashboard/subscriptions_helper_spec.rb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/spec/requests/dashboard/subscriptions_request_spec.rb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/components/Pricing/Item/index.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/components/Pricing/Item/index.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/components/Pricing/List/index.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/components/Pricing/List/index.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/application_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/application_controller.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/users/registrations_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/users/registrations_controller.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/users/sessions_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/users/sessions_controller.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/place.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/place.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/user.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/user.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/dashboard/places/my_place.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/dashboard/places/my_place.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/utils/Headers/dashboard/_items.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/utils/Headers/dashboard/_items.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/routes.rb" beforeDir="false" afterPath="$PROJECT_DIR$/config/routes.rb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dump.rdb" beforeDir="false" afterPath="$PROJECT_DIR$/dump.rdb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -510,14 +506,7 @@
       <workItem from="1598748382521" duration="34374000" />
       <workItem from="1598839720453" duration="998000" />
       <workItem from="1598891533514" duration="11781000" />
-      <workItem from="1598993828472" duration="62124000" />
-    </task>
-    <task id="LOCAL-00056" summary="refactor(Cart): Creamos token y añadimos estilos al form de la tarjeta">
-      <created>1598421386186</created>
-      <option name="number" value="00056" />
-      <option name="presentableId" value="LOCAL-00056" />
-      <option name="project" value="LOCAL" />
-      <updated>1598421386186</updated>
+      <workItem from="1598993828472" duration="62704000" />
     </task>
     <task id="LOCAL-00057" summary="refactor(Cart): Hace la petición bien">
       <created>1598462236246</created>
@@ -855,7 +844,14 @@
       <option name="project" value="LOCAL" />
       <updated>1599178726637</updated>
     </task>
-    <option name="localTasksCounter" value="105" />
+    <task id="LOCAL-00105" summary="feat(Business): Create job for create stripe customer">
+      <created>1599182573517</created>
+      <option name="number" value="00105" />
+      <option name="presentableId" value="LOCAL-00105" />
+      <option name="project" value="LOCAL" />
+      <updated>1599182573517</updated>
+    </task>
+    <option name="localTasksCounter" value="106" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -875,7 +871,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="feat(Address): Se mandó el script de carga hasta el final de la página para evitar la recarga completa" />
     <MESSAGE value="feat(Address): Actualizamos la dirección de entrega para que se pueda editar y mostrar en el header" />
     <MESSAGE value="feat(Address): Cambiamos el color de los iconos" />
     <MESSAGE value="feat(Business): Creamos el business layout para promocionar los beneficios de waydda y la página de precios" />
@@ -900,7 +895,8 @@
     <MESSAGE value="feat(Business): Upgrade elements" />
     <MESSAGE value="feat(Business): Pricing page and free days ab testing" />
     <MESSAGE value="feat(Business): Pricing AB" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat(Business): Pricing AB" />
+    <MESSAGE value="feat(Business): Create job for create stripe customer" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat(Business): Create job for create stripe customer" />
   </component>
   <component name="WindowStateProjectService">
     <state x="392" y="0" key="#All_specs_in_spec:_waydda" timestamp="1598730457189">
@@ -1008,11 +1004,11 @@
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="339" y="174" width="672" height="677" key="run.anything.popup/0.0.1366.768@0.0.1366.768" timestamp="1599088332819" />
-    <state x="346" y="89" width="672" height="678" key="search.everywhere.popup" timestamp="1599182283638">
+    <state x="346" y="89" width="672" height="678" key="search.everywhere.popup" timestamp="1599182999102">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="1852" y="56" width="945" height="954" key="search.everywhere.popup/0.0.1366.768/1366.-69.1920.1080@1366.-69.1920.1080" timestamp="1597715976170" />
     <state x="1710" y="89" width="672" height="678" key="search.everywhere.popup/0.0.1366.768/1366.0.1360.768@1366.0.1360.768" timestamp="1598985878395" />
-    <state x="346" y="89" width="672" height="678" key="search.everywhere.popup/0.0.1366.768@0.0.1366.768" timestamp="1599182283638" />
+    <state x="346" y="89" width="672" height="678" key="search.everywhere.popup/0.0.1366.768@0.0.1366.768" timestamp="1599182999102" />
   </component>
 </project>

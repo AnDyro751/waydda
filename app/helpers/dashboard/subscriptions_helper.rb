@@ -1,0 +1,2 @@
+module Dashboard::SubscriptionsHelper
+end
