@@ -5,7 +5,6 @@ class Dashboard::SubscriptionsController < ApplicationController
 
   def new
     # TODO: Verificar que el stripe_customer_id esté presente o crear un customer
-
   end
 
   def create
