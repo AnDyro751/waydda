@@ -7,8 +7,19 @@ class ApplicationController < ActionController::Base
   # before_action :set_default_locations
 
   def set_price
-    @premium_pricing = ab_test(:premium_pricing, '69', '129', '229')
-    @free_days = ab_test(:free_pricing, '7', '14', '30')
+    if user_signed_in?
+      if current_user.price_selected
+        @premium_pricing = current_user.price_selected
+        @free_days = current_user.free_days_selected
+      else
+        @premium_pricing = ab_test(:premium_pricing, '69', '129', '229')
+        @free_days = ab_test(:free_pricing, '7', '14', '30')
+        current_user.update(price_selected: @premium_pricing, free_days_selected: @free_days)
+      end
+    else
+      @premium_pricing = ab_test(:premium_pricing, '69', '129', '229')
+      @free_days = ab_test(:free_pricing, '7', '14', '30')
+    end
   end
 
   def set_language

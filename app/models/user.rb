@@ -24,7 +24,8 @@ class User
   field :timezone, type: String
   field :remember_created_at, type: DateTime
   field :is_admin, type: Boolean, default: false
-  field :pricing_selected, type: String # El precio que seleccionó al registrarse
+  field :price_selected, type: String # El precio que seleccionó al registrarse
+  field :free_days_selected, type: String # El precio que seleccionó al registrarse
   field :stripe_customer_id, type: String, default: ""
 
   # OMNIAUTH
