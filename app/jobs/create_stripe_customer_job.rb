@@ -2,7 +2,7 @@ class CreateStripeCustomerJob < ApplicationJob
   queue_as :default
 
   def perform(user)
-    Stripe.api_key = 'sk_test_nLhx5k3K0NFLM06YC7nZAQVW003TPd9B70'
+    Stripe.api_key = 'sk_test_51H9CZeBOcPJ0nbHctTzfQZhFXBnn8j05e0xqJ5RSVz5Bum72LsvmQKIecJnsoHISEg0jUWtKjERYGeCAEWiIAujP00Fae9MiKm'
 
     begin
       stripe_customer = Stripe::Customer.create({

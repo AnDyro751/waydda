@@ -7,7 +7,7 @@ async function loadNewForm() {
         document.querySelector('#new_subscription').addEventListener('ajax:beforeSend', function (event) {
             event.preventDefault();
         });
-        const stripe = await loadStripe('pk_test_2cj88edK605KUkkoRWBH67gq007NzYIttB');
+        const stripe = await loadStripe('pk_test_51H9CZeBOcPJ0nbHcn3sfLIpeMPDr4YfdEWe7ytAM7bge9lzgYQTC1uOAFopBIbeKc7i3btFTEGaHSrnBfTwmmu4o00Dz7IGOu6');
         var elements = stripe.elements();
 
         var style = {

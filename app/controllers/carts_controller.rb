@@ -1,7 +1,7 @@
 class CartsController < ApplicationController
   layout "cart"
   before_action :authenticate_user!
-  Stripe.api_key = 'sk_test_nLhx5k3K0NFLM06YC7nZAQVW003TPd9B70'
+  Stripe.api_key = 'sk_test_51H9CZeBOcPJ0nbHctTzfQZhFXBnn8j05e0xqJ5RSVz5Bum72LsvmQKIecJnsoHISEg0jUWtKjERYGeCAEWiIAujP00Fae9MiKm'
   before_action :set_place, only: [:create_charge, :success, :payment_method, :show, :add_product]
   before_action :set_current_cart, only: [:create_charge, :add_product, :payment_method, :success, :show]
   skip_before_action :verify_authenticity_token, only: [:update_item, :add_product]

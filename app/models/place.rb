@@ -25,7 +25,7 @@ class Place
   field :slug, type: String
   field :city, type: String
   field :city_state, type: String
-  field :status, type: String
+  field :status, type: String, default: "pending"
   field :lat, type: Float
   field :lng, type: Float
   field :location, type: Point

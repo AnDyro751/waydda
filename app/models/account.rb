@@ -7,7 +7,7 @@ class Account
   field :completed, type: Boolean, default: false
   # Stripe key
   # TODO: Enviar a secret
-  Stripe.api_key = 'sk_test_nLhx5k3K0NFLM06YC7nZAQVW003TPd9B70'
+  Stripe.api_key = 'sk_test_51H9CZeBOcPJ0nbHctTzfQZhFXBnn8j05e0xqJ5RSVz5Bum72LsvmQKIecJnsoHISEg0jUWtKjERYGeCAEWiIAujP00Fae9MiKm'
 
   def self.create_stripe_account(place, user)
     begin

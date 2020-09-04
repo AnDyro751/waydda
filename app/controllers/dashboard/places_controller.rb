@@ -7,7 +7,7 @@ class Dashboard::PlacesController < ApplicationController
   before_action :set_user_account, only: [:connect, :create_account_link]
   before_action :set_price, only: [:upgrade]
 
-  Stripe.api_key = 'sk_test_nLhx5k3K0NFLM06YC7nZAQVW003TPd9B70'
+  Stripe.api_key = 'sk_test_51H9CZeBOcPJ0nbHctTzfQZhFXBnn8j05e0xqJ5RSVz5Bum72LsvmQKIecJnsoHISEg0jUWtKjERYGeCAEWiIAujP00Fae9MiKm'
 
   def new
     @place = current_user.places.first
@@ -77,7 +77,7 @@ class Dashboard::PlacesController < ApplicationController
   def create
     @place = current_user.places.first
     redirect_to my_place_path, notice: "Solo puedes crear una empresa" unless @place.nil?
-    @place = Place.new(place_params)
+    @place = Place.new(place_general_params)
     @place.user = current_user
     respond_to do |format|
       if @place.save

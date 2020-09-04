@@ -10,8 +10,13 @@
 <% if params["subscription_id"] === "free" and @place.free? %>
   <h2>Tu ya cuentas con esta suscripción</h2>
   <%= link_to "¿Buscabas mejorar tu suscripción?", dashboard_new_subscription_path("premium") %>
-<% else %>
+<% end %>
 
+<% if params["subscription_id"] === "premium" and @place.premium? %>
+  <h2>Ya tienes premium</h2>
+<% end %>
+
+<% if params["subscription_id"] === "premium" and @place.free? %>
   <div class="w-full">
     <%= simple_form_for(@subscription, url: dashboard_create_subscription_path(params["subscription_id"]), remote: true) do |f| %>
       <%= f.input :kind, as: :hidden, input_html: {value: params["subscription_id"]} %>
@@ -23,24 +28,6 @@
       <%= f.submit "Empezar mi suscripción", id: "submit-input", data: {disable_with: false}, class: "bg-black shadow-lg hover:shadow-2xl text-white py-3 rounded cursor-pointer px-8" %>
     <% end %>
   </div>
-
-  <!--  <form method="post" id="payment-form" class="w-full flex flex-wrap mt-4">-->
-  <!--    <div class="w-full">-->
-  <!--      <label for="card-element" class="text-sm text-gray-600">-->
-  <!--        Tarjeta de crédito o débito-->
-  <!--      </label>-->
-  <!--      <div id="card-element" class="mt-2 bg-gray-200 p-4 rounded">-->
-  <!--      </div>-->
-
-  <!--      <div id="card-errors" role="alert"></div>-->
-  <!--    </div>-->
-
-  <!--    <div class="w-full mt-12 flex justify-end">-->
-  <!--      <button class="bg-black text-white rounded py-3 px-10">Empezar mi suscripción</button>-->
-  <!--    </div>-->
-  <!--  </form>-->
-
-  <%#= button_to "Empezar mi suscripción", dashboard_create_subscription_path(params["subscription_id"]) %>
 <% end %>
 
 

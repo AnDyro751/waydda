@@ -35,6 +35,7 @@ class Dashboard::SubscriptionsController < ApplicationController
         end
       end
       begin
+        # TODO: Actualizar la suscripción a la que le tocó
         Stripe::Subscription.create({
                                         customer: current_user.stripe_customer_id,
                                         items: [

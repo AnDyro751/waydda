@@ -3,7 +3,7 @@ document.querySelector("#notifications").innerHTML = "";
 <% if @place.errors.any? %>
 document.querySelector("#notifications").innerHTML = "<%= j render Notifications::Alert.new(alert: "Se han encontrado errores al crear la empresa",kind: "error") %>";
 <% @place.errors.each do |keyE,error| %>
-//console.log("<%= keyE %>", "<%= error %>")
+console.log("<%= keyE %>", "<%= error %>")
 <% if keyE.to_s === "address" %>
 document.querySelector("#place_search_address").classList.add("border-red-500");
 document.querySelector("[name='place[address]_error']").innerHTML = "<%= error %>";

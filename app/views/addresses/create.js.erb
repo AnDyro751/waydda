@@ -3,8 +3,7 @@ document.querySelector("#notifications").innerHTML = "";
 <% if @address.errors.any? %>
 document.querySelector("#notifications").innerHTML = "<%= j render Notifications::Alert.new(alert: "Se han encontrado errores al guardar la dirección",kind: "error") %>";
 <% @address.errors.each do |keyE,error| %>
-//console.log("<%= keyE %>", "<%= error %>")
-<% if keyE.to_s === "address" %>
+console.log("<%= keyE %>", "<%= error %>")
 document.querySelector("#address_search_<%= keyE.to_s %>").classList.add("border-red-500");
 document.querySelector("[name='address[address]_error']").innerHTML = "<%= error %>";
 <% else %>
