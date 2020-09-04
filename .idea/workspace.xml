@@ -19,17 +19,14 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b89cb0fb-b680-4bb9-8ae0-f4b41721cfb9" name="Default Changelist" comment="feat(Business): Upgrade elements">
+    <list default="true" id="b89cb0fb-b680-4bb9-8ae0-f4b41721cfb9" name="Default Changelist" comment="feat(Business): Pricing page and free days ab testing">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/components/Pricing/Item/index.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/components/Pricing/Item/index.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/components/Pricing/Item/index.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/components/Pricing/Item/index.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/components/Pricing/List/index.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/components/Pricing/List/index.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/components/Pricing/List/index.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/components/Pricing/List/index.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/components/Pricing/ItemFeature/index.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/components/Pricing/ItemFeature/index.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/application_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/application_controller.rb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/controllers/dashboard/places_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/dashboard/places_controller.rb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/controllers/home_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/home_controller.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/place.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/place.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/dashboard/places/upgrade.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/dashboard/places/upgrade.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/home/business.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/home/business.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/layouts/business.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/layouts/business.html.erb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dump.rdb" beforeDir="false" afterPath="$PROJECT_DIR$/dump.rdb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -508,14 +505,7 @@
       <workItem from="1598748382521" duration="34374000" />
       <workItem from="1598839720453" duration="998000" />
       <workItem from="1598891533514" duration="11781000" />
-      <workItem from="1598993828472" duration="57679000" />
-    </task>
-    <task id="LOCAL-00054" summary="refactor(Cart): Agregamos el sidebar a otro componente para tenerlo más estilisado">
-      <created>1598411916768</created>
-      <option name="number" value="00054" />
-      <option name="presentableId" value="LOCAL-00054" />
-      <option name="project" value="LOCAL" />
-      <updated>1598411916768</updated>
+      <workItem from="1598993828472" duration="58935000" />
     </task>
     <task id="LOCAL-00055" summary="refactor(Cart): Agregamos la opción de cambiar de método de pago y actualizamos todo el formulario sin necesidad de React">
       <created>1598420558160</created>
@@ -853,7 +843,14 @@
       <option name="project" value="LOCAL" />
       <updated>1599167566022</updated>
     </task>
-    <option name="localTasksCounter" value="103" />
+    <task id="LOCAL-00103" summary="feat(Business): Pricing page and free days ab testing">
+      <created>1599177531268</created>
+      <option name="number" value="00103" />
+      <option name="presentableId" value="LOCAL-00103" />
+      <option name="project" value="LOCAL" />
+      <updated>1599177531268</updated>
+    </task>
+    <option name="localTasksCounter" value="104" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -873,7 +870,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="feat(Address): Actualiza y crea direcciones" />
     <MESSAGE value="feat(Address): Script no carga si lo ponemos en una página" />
     <MESSAGE value="feat(Address): Se mandó el script de carga hasta el final de la página para evitar la recarga completa" />
     <MESSAGE value="feat(Address): Actualizamos la dirección de entrega para que se pueda editar y mostrar en el header" />
@@ -898,7 +894,8 @@
     <MESSAGE value="feat(Business): Pequeño cambio de ui" />
     <MESSAGE value="feat(Business): Init simple pricing" />
     <MESSAGE value="feat(Business): Upgrade elements" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat(Business): Upgrade elements" />
+    <MESSAGE value="feat(Business): Pricing page and free days ab testing" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat(Business): Pricing page and free days ab testing" />
   </component>
   <component name="WindowStateProjectService">
     <state x="392" y="0" key="#All_specs_in_spec:_waydda" timestamp="1598730457189">
@@ -917,6 +914,10 @@
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="309" y="62" key="#Inspections/0.0.1366.768@0.0.1366.768" timestamp="1598548244558" />
+    <state x="275" y="42" key="#Intentions" timestamp="1599177543046">
+      <screen x="0" y="0" width="1366" height="768" />
+    </state>
+    <state x="275" y="42" key="#Intentions/0.0.1366.768@0.0.1366.768" timestamp="1599177543046" />
     <state x="515" y="239" key="#Other_File_Types" timestamp="1597960931507">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
@@ -1002,11 +1003,11 @@
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="339" y="174" width="672" height="677" key="run.anything.popup/0.0.1366.768@0.0.1366.768" timestamp="1599088332819" />
-    <state x="346" y="89" width="672" height="678" key="search.everywhere.popup" timestamp="1599177431478">
+    <state x="346" y="89" width="672" height="678" key="search.everywhere.popup" timestamp="1599178299247">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="1852" y="56" width="945" height="954" key="search.everywhere.popup/0.0.1366.768/1366.-69.1920.1080@1366.-69.1920.1080" timestamp="1597715976170" />
     <state x="1710" y="89" width="672" height="678" key="search.everywhere.popup/0.0.1366.768/1366.0.1360.768@1366.0.1360.768" timestamp="1598985878395" />
-    <state x="346" y="89" width="672" height="678" key="search.everywhere.popup/0.0.1366.768@0.0.1366.768" timestamp="1599177431478" />
+    <state x="346" y="89" width="672" height="678" key="search.everywhere.popup/0.0.1366.768@0.0.1366.768" timestamp="1599178299247" />
   </component>
 </project>

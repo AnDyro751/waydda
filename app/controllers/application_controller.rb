@@ -6,6 +6,10 @@ class ApplicationController < ActionController::Base
   before_action :set_language
   # before_action :set_default_locations
 
+  def set_price
+    @premium_pricing = ab_test(:premium_pricing, '69', '129', '229')
+    @free_days = ab_test(:free_pricing, '7', '14', '30')
+  end
 
   def set_language
     response.headers["Content-Language"] = "es"

@@ -5,6 +5,8 @@ class Dashboard::PlacesController < ApplicationController
   before_action :valid_uniqueness_place, only: [:new, :create]
   before_action :redirect_if_empty_place, only: [:my_place, :edit, :update, :destroy]
   before_action :set_user_account, only: [:connect, :create_account_link]
+  before_action :set_price, only: [:upgrade]
+
   Stripe.api_key = 'sk_test_nLhx5k3K0NFLM06YC7nZAQVW003TPd9B70'
 
   def new
@@ -21,8 +23,6 @@ class Dashboard::PlacesController < ApplicationController
 
 
   def upgrade
-    @free_days = ab_test(:free_pricing_upgrade, '7', '14', '30')
-    @premium_pricing = ab_test(:premium_pricing_upgrade, '69', '129', '229')
     @full_page = true
   end
 

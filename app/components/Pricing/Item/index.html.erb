@@ -29,6 +29,6 @@
 
   <div class="w-4/12 bg-main-gray p-8">
     <h3 class="text-blue-900 text-xl font-medium text-center"><%= @payment_description %></h3>
-    <h2><%= @plan_pricing %></h2>
+    <h2 class="text-5xl font-bold text-center"><%= helpers.number_to_currency(@plan_pricing, format: "%u %n") %></h2>
   </div>
 </div>
