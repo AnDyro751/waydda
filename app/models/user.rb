@@ -23,6 +23,7 @@ class User
   field :photo, type: String, default: "waydda.png"
   field :timezone, type: String
   field :remember_created_at, type: DateTime
+  field :default_source, type: Hash, default: {} # Default stripe source for payments
   field :is_admin, type: Boolean, default: false
   field :price_selected, type: String # El precio que seleccionó al registrarse
   field :free_days_selected, type: String # El precio que seleccionó al registrarse
@@ -35,6 +36,7 @@ class User
 
   # Relations
   has_many :places
+  has_many :subscriptions
   has_one :account # Stripe account
   has_many :carts
   embeds_many :payment_methods # TODO: Agregar esto a stripe

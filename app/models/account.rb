@@ -75,4 +75,29 @@ class Account
     end
   end
 
+  def self.update_account(customer_id, data = {})
+    begin
+      current_account = Stripe::Customer.update(
+          customer_id, data,
+      )
+      return {success: true, account: current_account}
+    rescue => e
+      puts "ERROR AL ACTuALIAR #{e}"
+      return {success: false, account: nil}
+    end
+  end
+
+  def self.create_source(customer_id, token)
+    begin
+      source = Stripe::Customer.create_source(
+          customer_id,
+          {source: token},
+      )
+      return source
+    rescue => e
+      puts "----------#{e}---CREATE SOURCE"
+      return nil
+    end
+  end
+
 end

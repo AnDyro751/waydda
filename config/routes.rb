@@ -54,12 +54,14 @@ Rails.application.routes.draw do
     post "/upload/:model/:slug/:attribute", to: "image#upload", as: "upload_image"
     get "/upgrade", to: "places#upgrade", as: :upgrade_plan
     get "/upgrade/:subscription_id", to: "subscriptions#new", as: :new_subscription
+    post "/upgrade/:subscription_id", to: "subscriptions#create", as: :create_subscription
     # Stripe connect
     get "/payments/connect", to: "places#connect", as: :place_connect
     post "/payments/connect", to: "places#create_stripe_account", as: :place_create_connect
     post "/payments/connect/link", to: "places#create_account_link", as: :place_create_link
     # Items
     resources :items
+    resources :subscriptions, only: [:new]
     # Products
     resources :products do
       # TODO: Crud operations

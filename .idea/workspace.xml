@@ -19,10 +19,19 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b89cb0fb-b680-4bb9-8ae0-f4b41721cfb9" name="Default Changelist" comment="feat(Business): Persistimos al user">
+    <list default="true" id="b89cb0fb-b680-4bb9-8ae0-f4b41721cfb9" name="Default Changelist" comment="feat(Business): Enviamos a premium o a free dependiendo del precio">
+      <change afterPath="$PROJECT_DIR$/app/javascript/packs/dashboard/subscriptions/new.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/models/subscription.rb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/spec/factories/subscriptions.rb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/spec/models/subscription_spec.rb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/components/Pricing/Item/index.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/components/Pricing/Item/index.html.erb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/controllers/dashboard/subscriptions_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/dashboard/subscriptions_controller.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/account.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/account.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/user.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/user.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/dashboard/subscriptions/new.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/dashboard/subscriptions/new.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/layouts/dashboard.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/layouts/dashboard.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/routes.rb" beforeDir="false" afterPath="$PROJECT_DIR$/config/routes.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dump.rdb" beforeDir="false" afterPath="$PROJECT_DIR$/dump.rdb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -501,14 +510,7 @@
       <workItem from="1598839720453" duration="998000" />
       <workItem from="1598891533514" duration="11781000" />
       <workItem from="1598993828472" duration="63117000" />
-      <workItem from="1599190626704" duration="1577000" />
-    </task>
-    <task id="LOCAL-00059" summary="refactor(Cart): Mostramos la información en el mapa, solo es cuestión de mostrar el place cuando se va a ir a recoger en lugar de deliver">
-      <created>1598479250485</created>
-      <option name="number" value="00059" />
-      <option name="presentableId" value="LOCAL-00059" />
-      <option name="project" value="LOCAL" />
-      <updated>1598479250485</updated>
+      <workItem from="1599190626704" duration="6740000" />
     </task>
     <task id="LOCAL-00060" summary="refactor(Cart): Hacemos toogle de la información del carrito para la entrega del producto.&#10;Mostramos el delivery address cuando se va a envíar a domicilio y la dirección para recoger cuando se va a recoger">
       <created>1598484443702</created>
@@ -846,7 +848,14 @@
       <option name="project" value="LOCAL" />
       <updated>1599193608681</updated>
     </task>
-    <option name="localTasksCounter" value="108" />
+    <task id="LOCAL-00108" summary="feat(Business): Enviamos a premium o a free dependiendo del precio">
+      <created>1599193926334</created>
+      <option name="number" value="00108" />
+      <option name="presentableId" value="LOCAL-00108" />
+      <option name="project" value="LOCAL" />
+      <updated>1599193926334</updated>
+    </task>
+    <option name="localTasksCounter" value="109" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -866,7 +875,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="feat(Business): Creamos el business layout para promocionar los beneficios de waydda y la página de precios" />
     <MESSAGE value="feat(Business): Agregamos css para el dashboard" />
     <MESSAGE value="feat(Business): Vamos a empezar a crear la empresa" />
     <MESSAGE value="feat(Business): Create business init" />
@@ -891,7 +899,8 @@
     <MESSAGE value="feat(Business): Create job for create stripe customer" />
     <MESSAGE value="feat(Business): Init create stripe subscription" />
     <MESSAGE value="feat(Business): Persistimos al user" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat(Business): Persistimos al user" />
+    <MESSAGE value="feat(Business): Enviamos a premium o a free dependiendo del precio" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat(Business): Enviamos a premium o a free dependiendo del precio" />
   </component>
   <component name="WindowStateProjectService">
     <state x="392" y="0" key="#All_specs_in_spec:_waydda" timestamp="1598730457189">
@@ -985,12 +994,12 @@
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="628" y="298" key="com.jetbrains.plugins.remotesdk.ui.RemoteMappingsConfiguration/0.0.1366.768@0.0.1366.768" timestamp="1598729856431" />
-    <state x="390" y="117" width="585" height="624" key="find.popup" timestamp="1599193709027">
+    <state x="390" y="117" width="585" height="624" key="find.popup" timestamp="1599198830808">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="1914" y="96" width="823" height="878" key="find.popup/0.0.1366.768/1366.-69.1920.1080@1366.-69.1920.1080" timestamp="1597716285449" />
     <state x="1754" y="117" width="583" height="624" key="find.popup/0.0.1366.768/1366.0.1360.768@1366.0.1360.768" timestamp="1598981376119" />
-    <state x="390" y="117" width="585" height="624" key="find.popup/0.0.1366.768@0.0.1366.768" timestamp="1599193709027" />
+    <state x="390" y="117" width="585" height="624" key="find.popup/0.0.1366.768@0.0.1366.768" timestamp="1599198830808" />
     <state x="549" y="254" width="250" height="278" key="jetbrains.javascript.buildTools.run-task-popup" timestamp="1597946321130">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
@@ -999,11 +1008,11 @@
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="339" y="174" width="672" height="677" key="run.anything.popup/0.0.1366.768@0.0.1366.768" timestamp="1599088332819" />
-    <state x="346" y="89" width="672" height="678" key="search.everywhere.popup" timestamp="1599193748355">
+    <state x="346" y="89" width="672" height="678" key="search.everywhere.popup" timestamp="1599199065847">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="1852" y="56" width="945" height="954" key="search.everywhere.popup/0.0.1366.768/1366.-69.1920.1080@1366.-69.1920.1080" timestamp="1597715976170" />
     <state x="1710" y="89" width="672" height="678" key="search.everywhere.popup/0.0.1366.768/1366.0.1360.768@1366.0.1360.768" timestamp="1598985878395" />
-    <state x="346" y="89" width="672" height="678" key="search.everywhere.popup/0.0.1366.768@0.0.1366.768" timestamp="1599193748355" />
+    <state x="346" y="89" width="672" height="678" key="search.everywhere.popup/0.0.1366.768@0.0.1366.768" timestamp="1599199065847" />
   </component>
 </project>
