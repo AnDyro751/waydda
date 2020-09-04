@@ -8,6 +8,7 @@ class User
   devise :database_authenticatable, :registerable, :omniauthable, :rememberable, omniauth_providers: [:facebook, :google_oauth2]
   # Callbacks
   after_create :assign_default_role
+  after_create :create_stripe_customer
   # TODO: Al registrarse y si ya cuenta con un carrito se debe hacer merge
   # after_create :merge_cart
 
@@ -23,6 +24,8 @@ class User
   field :timezone, type: String
   field :remember_created_at, type: DateTime
   field :is_admin, type: Boolean, default: false
+  field :pricing_selected, type: String # El precio que seleccionó al registrarse
+  field :stripe_customer_id, type: String, default: ""
 
   # OMNIAUTH
   field :provider, type: String
@@ -85,6 +88,10 @@ class User
 
   private
 
+  def create_stripe_customer
+    CreateStripeCustomerJob.perform_later(self)
+  end
+
   # Assign User default Role
   def assign_default_role
     add_role(:customer) if roles.blank?
@@ -93,7 +100,7 @@ class User
 
   def self.new_with_session(params, session)
     super.tap do |user|
-      if data = session["devise.facebook_data"] && session["devise.facebook_data"]["extra"]["raw_info"]
+      if (data = session["devise.facebook_data"] && session["devise.facebook_data"]["extra"]["raw_info"])
         user.email = data["email"] if user.email.blank?
       end
     end

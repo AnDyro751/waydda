@@ -29,6 +29,14 @@
 
   <div class="w-4/12 bg-main-gray p-8">
     <h3 class="text-blue-900 text-xl font-medium text-center"><%= @payment_description %></h3>
-    <h2 class="text-5xl font-bold text-center"><%= helpers.number_to_currency(@plan_pricing, format: "%u %n") %></h2>
+    <h2 class="text-5xl my-4 font-bold text-center"><%= helpers.number_to_currency(@plan_pricing, format: "%u %n") %></h2>
+    <h5 class="text-xs text-gray-600 text-center">Precios en pesos mexicanos</h5>
+    <div class="w-full mt-8">
+      <% if @place %>
+        <button class="bg-black rounded py-4 px-6 w-full text-white font-normal focus:outline-none shadow-lg hover:shadow-2xl transition delay-100 duration-200">
+          Iniciar prueba gratuita
+        </button>
+      <% end %>
+    </div>
   </div>
 </div>
