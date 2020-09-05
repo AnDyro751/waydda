@@ -7,4 +7,5 @@ FactoryBot.define do
     encrypted_password { '123456' }
     photo { 'waydda.png' }
   end
+
 end

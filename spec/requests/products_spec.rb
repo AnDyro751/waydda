@@ -23,7 +23,7 @@ RSpec.describe "Products", type: :request do
         expect(response).to redirect_to(new_dashboard_place_path)
         follow_redirect!
         expect(response).to render_template(:new)
-        expect(response.body).to include("Agregar nueva empresa")
+        expect(response.body).to include("Crear empresa")
       end
     end
 
@@ -35,7 +35,7 @@ RSpec.describe "Products", type: :request do
           expect(response).to redirect_to(new_dashboard_place_path)
           follow_redirect!
           expect(response).to render_template(:new)
-          expect(response.body).to include("Agregar nueva empresa")
+          expect(response.body).to include("Crear empresa")
         end
       end
       describe "GET /products when place is created" do

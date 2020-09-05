@@ -8,7 +8,7 @@
   </h3>
 </div>
 <% if params["subscription_id"] === "free" and @place.free? %>
-  <h2>Tu ya cuentas con esta suscripción</h2>
+  <h2>Ya cuentas con esta suscripción</h2>
   <%= link_to "¿Buscabas mejorar tu suscripción?", dashboard_new_subscription_path("premium") %>
 <% end %>
 
@@ -17,6 +17,7 @@
 <% end %>
 
 <% if params["subscription_id"] === "premium" and @place.free? %>
+  <h2>Contratar premium</h2>
   <div class="w-full">
     <%= simple_form_for(@subscription, url: dashboard_create_subscription_path(params["subscription_id"]), remote: true) do |f| %>
       <%= f.input :kind, as: :hidden, input_html: {value: params["subscription_id"]} %>

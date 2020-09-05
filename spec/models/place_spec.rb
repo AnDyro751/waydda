@@ -18,9 +18,12 @@ RSpec.describe Place, type: :model do
   it { is_expected.to have_field(:delivery_cost).of_type(Float).with_default_value_of(10) }
   it { is_expected.to have_field(:delivery_distance).of_type(Float).with_default_value_of(5) }
   it { is_expected.to have_field(:delivery_extra_cost).of_type(Float).with_default_value_of(0) }
+  it { is_expected.to have_field(:kind).of_type(String).with_default_value_of("free") }
+  it { is_expected.to validate_inclusion_of(:kind).to_allow("free", "premium") }
+
+  it { is_expected.to belong_to(:user).of_type(User) }
 
   it { is_expected.to have_field(:city).of_type(String) }
-  it { is_expected.to validate_presence_of(:city) }
 
   # Relations
 
