@@ -50,14 +50,6 @@ RSpec.describe "Dashboard::Subscriptions", type: :request do
           }
       }
     end
-
-    describe "POST /dashboard/upgrade/free when place plan is free" do
-      #NOT IMPLEMENTED
-      it 'should be redirect to dashboard/upgrade/free and show alert' do
-        post dashboard_create_subscription_path("free"), params: params
-
-      end
-    end
   end
 
 end
