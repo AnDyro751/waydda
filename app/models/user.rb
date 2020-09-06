@@ -36,7 +36,7 @@ class User
 
   # Relations
   has_many :places
-  has_many :subscriptions
+  # has_many :subscriptions
   has_one :account # Stripe account
   has_many :carts
   embeds_many :payment_methods # TODO: Agregar esto a stripe

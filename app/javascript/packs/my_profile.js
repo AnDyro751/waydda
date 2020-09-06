@@ -7,7 +7,7 @@ mapboxgl.accessToken = 'pk.eyJ1Ijoic2VhcmNoLW1hY2hpbmUtdXNlci0xIiwiYSI6ImNrN2Y1N
 var metaElement = document.querySelector("meta[name=action_name]");
 if (metaElement) {
     console.log(metaElement.content);
-    if (metaElement.content === "my_profile_users" || metaElement.content === "new_places" || metaElement.content === "edit_places" ) {
+    if (metaElement.content === "my_profile_users" || metaElement.content === "new_places" || metaElement.content === "general_settings" ) {
         var lat = document.querySelector("meta[name=user_lat]")
         var model = document.querySelector("meta[name=model]") ? document.querySelector("meta[name=model]").content : null
         var lng = document.querySelector("meta[name=user_lng]")

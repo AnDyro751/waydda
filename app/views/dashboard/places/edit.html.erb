@@ -3,12 +3,34 @@
   <div class="w-4/12 flex content-start p-4 h-56 flex-wrap">
     <div class="w-full">
       <h4 class="font-medium">Empresa</h4>
-      <h5 class="font-normal text-xs text-gray-600 mt-1">Ajustes de mi empresa</h5>
+      <h5 class="font-normal text-sm text-gray-600 mt-1">Ajustes de mi empresa</h5>
+    </div>
+    <div class="w-full mt-4">
+      <%= link_to "General", dashboard_edit_general_my_place_path, class: "text-indigo-700 font-medium hover:text-gray-900" %>
+    </div>
+    <div class="w-full mt-4">
+      <%= link_to "Envíos", dashboard_edit_general_my_place_path, class: "text-indigo-700 font-medium hover:text-gray-900" %>
+    </div>
+  </div>
+
+  <div class="w-4/12 flex content-start p-4 h-56 flex-wrap">
+    <div class="w-full">
+      <h4 class="font-medium">Pagos</h4>
+      <h5 class="font-normal text-sm text-gray-600 mt-1">Administra tus métodos de cobro</h5>
     </div>
     <div class="w-full mt-4">
       <%= link_to "General", dashboard_edit_general_my_place_path, class: "text-indigo-700 font-medium hover:text-gray-900" %>
     </div>
   </div>
-  <div class="w-4/12 px-4 h-56"></div>
-  <div class="w-4/12 px-4 h-56"></div>
+
+  <div class="w-4/12 flex content-start p-4 h-56 flex-wrap">
+    <div class="w-full">
+      <h4 class="font-medium">Suscripción</h4>
+      <h5 class="font-normal text-sm text-gray-600 mt-1">Administra tu suscripción</h5>
+    </div>
+    <div class="w-full mt-4">
+      <%= link_to "Administrar", dashboard_edit_subscription_path, class: "text-indigo-700 font-medium hover:text-gray-900" %>
+    </div>
+  </div>
+
 </div>

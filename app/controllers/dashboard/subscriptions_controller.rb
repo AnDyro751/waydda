@@ -5,9 +5,12 @@ class Dashboard::SubscriptionsController < ApplicationController
   skip_before_action :verify_authenticity_token, :only => [:create]
   layout "dashboard"
 
+  def edit
+
+  end
 
   def new
-    @subscription = current_user.subscriptions.new
+    @subscription = @place.build_subscription
     # TODO: Verificar que el stripe_customer_id esté presente o crear un customer
   end
 
@@ -37,16 +40,21 @@ class Dashboard::SubscriptionsController < ApplicationController
       end
       begin
         # TODO: Actualizar la suscripción a la que le tocó
-        Stripe::Subscription.create({
-                                        customer: current_user.stripe_customer_id,
-                                        items: [
-                                            {
-                                                price: Account.get_price(free_days: @free_days.to_i, price: @premium_pricing.to_i)
-                                            },
-                                        ],
-                                    })
-        @place.to_premium!
-        format.html { redirect_to my_place_path, alert: "¡Se ha actualizado tu suscripción!" }
+        new_subscription = Stripe::Subscription.create({
+                                                           customer: current_user.stripe_customer_id,
+                                                           items: [
+                                                               {
+                                                                   price: Account.get_price(free_days: @free_days.to_i, price: @premium_pricing.to_i)
+                                                               },
+                                                           ],
+                                                       })
+        @subscription = @place.build_subscription(stripe_subscription_id: new_subscription["id"], kind: "premium")
+        if @subscription.save
+          @place.to_premium!
+          format.html { redirect_to my_place_path, alert: "¡Se ha actualizado tu suscripción!" }
+        else
+          format.html { redirect_to dashboard_upgrade_plan_path, notice: "Ha ocurrido un error al suscribirte" }
+        end
       rescue => e
         puts "Error --------#{e}------"
         # format.js

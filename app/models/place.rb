@@ -48,6 +48,7 @@ class Place
   has_many :viewers
   has_many :views
   has_many :orders # Todas las ordenes que recibe
+  has_one :subscription
 
 # Validations
   validates :name, presence: true, length: {in: 4..30}

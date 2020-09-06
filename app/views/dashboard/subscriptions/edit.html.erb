@@ -1,0 +1,37 @@
+<div class="w-full mt-4 text-gray-800 text-sm">
+  <span class=""><%= link_to "Ajustes", dashboard_edit_my_place_path, class: "hover:underline" %>
+    <span class="mx-2 select-none">></span><span class="text-indigo-700 font-medium"> Mi suscripción</span></span>
+</div>
+<%= render Headers::Text.new(title: "Mi suscripción", small: true, with_margin: true) %>
+<div class="w-full flex flex-wrap border p-4 mt-4 divide-y divide-gray-300 rounded bg-gray-100">
+  <% if @place.free? %>
+    <div class="w-full flex items-center py-4">
+      <div class="w-6/12">
+        <p class="font-normal">
+          Actualizar suscripción
+        </p>
+        <small>
+          Envíos a domicilio, pagos con tarjeta y mucho más.
+        </small>
+      </div>
+      <div class="w-6/12 flex justify-end">
+        <%= link_to "Actualizar suscripción", dashboard_new_subscription_path("premium"), class: "bg-indigo-600 shadow-lg text-sm font-normal text-white py-2 px-4 rounded" %>
+      </div>
+    </div>
+  <% end %>
+  <% if @place.premium? %>
+    <div class="w-full flex items-center py-4">
+      <div class="w-6/12">
+        <p class="font-normal">
+          Cancelar suscripción
+        </p>
+        <small>
+          Si cancelas tu suscripción ya no tendrás los beneficios del paquete premium.
+        </small>
+      </div>
+      <div class="w-6/12 flex justify-end">
+        <button class="bg-red-700 text-sm font-normal text-white py-2 px-4 rounded">Cancelar suscripción</button>
+      </div>
+    </div>
+  <% end %>
+</div>
