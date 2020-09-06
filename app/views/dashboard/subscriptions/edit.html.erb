@@ -15,7 +15,7 @@
         </small>
       </div>
       <div class="w-6/12 flex justify-end">
-        <%= link_to "Actualizar suscripción", dashboard_new_subscription_path("premium"), class: "bg-indigo-600 shadow-lg text-sm font-normal text-white py-2 px-4 rounded" %>
+        <%= link_to "Actualizar suscripción", dashboard_new_subscription_path("premium"), class: "bg-main-blue shadow-lg text-sm font-normal text-white py-2 px-4 rounded" %>
       </div>
     </div>
   <% end %>
@@ -40,4 +40,21 @@
       </div>
     </div>
   <% end %>
+  <div class="w-full flex items-center py-4">
+    <div class="w-6/12">
+      <p class="font-normal">
+        Historial y métodos de pago
+      </p>
+      <small>
+        Administra tus métodos de pago y visualiza tu historial de pagos.
+      </small>
+    </div>
+    <div class="w-6/12 flex justify-end">
+      <%= button_to "Ver más", dashboard_create_user_portal_path, method: :post,
+                    data: {
+                        "disable-with": "Cargando..."
+                    },
+                    class: "bg-main-blue hover:shadow-lg text-sm font-normal text-white py-2 px-4 rounded cursor-pointer", remote: true %>
+    </div>
+  </div>
 </div>

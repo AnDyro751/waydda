@@ -38,6 +38,7 @@ class Place
   field :delivery_distance, type: Float, default: 5
   field :delivery_extra_cost, type: Float, default: 0
   field :kind, type: String, default: "free"
+# field :stripe_subscription_id, type: String, default: ""
 
 # TODO: Añadir horarios de envío y recolección
 # TODO: Añadir pedido minimo
@@ -91,6 +92,19 @@ class Place
 
 
   private
+
+  def self.cancel_subscription(subscription_id)
+    get_subscription = Subscription.find_by(stripe_subscription_id: subscription_id)
+    return nil if get_subscription.nil?
+    current_place = get_subscription.place
+    return nil if current_place.nil?
+    puts "----------#{current_place.nil?} PLACE NIL #{subscription_id}"
+    # current_subscription = Subscription.cancel_subscription(subscription_id)
+    # puts "----------#{current_subscription} CANCEL SUBS"
+    # return nil if current_subscription === false
+    current_place.to_free!
+    current_place.subscription.destroy
+  end
 
   def self.update_attribute(attribute, id, new_value, current_user)
     place = Place.find_by(id: id)

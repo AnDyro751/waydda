@@ -9,7 +9,7 @@ class Dashboard::HooksController < ApplicationController
     begin
       sig_header = request.env['HTTP_STRIPE_SIGNATURE']
       event = Stripe::Webhook.construct_event(
-          payload, sig_header, "whsec_Jgk5j3JHXzqn22lRMWqVD4mQzHzBMz17"
+          payload, sig_header, "whsec_ALYfqVpEQJtpjKtB2VZov5a8SReYx3nm"
       )
         # puts "-----------#{event}"
     rescue JSON::ParserError => e
@@ -47,7 +47,14 @@ class Dashboard::HooksController < ApplicationController
         Account.update_account_hook(account_updated)
         puts "--------ACCOUNT UPDATE"
         return head :ok
+      when "customer.subscription.deleted"
+        subscription_updated = event.data.object
+        subscription_deleted = Place.cancel_subscription(subscription_updated["id"])
+        return head :ok if subscription_deleted
+        return not_found if subscription_deleted.nil? || subscription_deleted === false
+        return
       else
+        # return  head :ok
         puts "-------- UNEXPECTED"
         not_found
         return

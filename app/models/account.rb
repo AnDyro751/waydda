@@ -10,6 +10,20 @@ class Account
   Stripe.api_key = 'sk_test_51H9CZeBOcPJ0nbHctTzfQZhFXBnn8j05e0xqJ5RSVz5Bum72LsvmQKIecJnsoHISEg0jUWtKjERYGeCAEWiIAujP00Fae9MiKm'
 
 
+  def self.generate_billing_url(customer_id)
+    begin
+      current_portal = Stripe::BillingPortal::Session.create({
+                                                                 customer: customer_id,
+                                                                 return_url: 'http://localhost:3000/dashboard/settings',
+                                                             })
+      return current_portal["url"]
+    rescue => e
+      puts "#----#{e}"
+      return nil
+    end
+
+  end
+
   def self.get_price(free_days:, price:)
     if Rails.env === "development"
       if price == 229

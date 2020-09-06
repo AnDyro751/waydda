@@ -70,6 +70,8 @@ Rails.application.routes.draw do
     get "/settings", to: "places#edit", as: "edit_my_place"
     get "/settings/general", to: "settings#general", as: "edit_general_my_place"
     get "/settings/subscription", to: "subscriptions#edit", as: "edit_subscription"
+    post "/settings/subscription", to: "settings#create_portal", as: "create_user_portal"
+
     # Delete subscription
     delete "settings/subscription", to: "subscriptions#cancel", as: :cancel_subscription
     # Stripe connect

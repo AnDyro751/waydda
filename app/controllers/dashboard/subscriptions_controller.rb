@@ -13,9 +13,8 @@ class Dashboard::SubscriptionsController < ApplicationController
   def cancel
     respond_to do |format|
       begin
-        Stripe::Subscription.delete(@subscription.stripe_subscription_id)
-        if @place.subscription.destroy
-          @place.to_free!
+        current_subscription = Place.cancel_subscription(@subscription.stripe_subscription_id)
+        if current_subscription
           format.html { redirect_to dashboard_edit_subscription_path, alert: "Se ha cancelado tu suscripción" }
         else
           format.html { redirect_to dashboard_edit_subscription_path, notice: "Ha ocurrido un error al cancelar tu suscripción" }
@@ -65,13 +64,25 @@ class Dashboard::SubscriptionsController < ApplicationController
                                                                },
                                                            ],
                                                        })
-        @subscription = @place.build_subscription(stripe_subscription_id: new_subscription["id"], kind: "premium")
-        if @subscription.save
-          @place.to_premium!
-          format.html { redirect_to my_place_path, alert: "¡Se ha actualizado tu suscripción!" }
+        puts "-----------#{new_subscription} SUBSSSSSSSSSSSSS"
+        current_subscription = @place.subscription
+        if current_subscription
+          if current_subscription.update(kind: "premium", stripe_subscription_id: new_subscription["id"])
+            @place.to_premium!
+            format.html { redirect_to my_place_path, alert: "¡Se ha actualizado tu suscripción!" }
+          else
+            format.html { redirect_to dashboard_upgrade_plan_path, notice: "Ha ocurrido un error al suscribirte" }
+          end
         else
-          format.html { redirect_to dashboard_upgrade_plan_path, notice: "Ha ocurrido un error al suscribirte" }
+          @subscription = @place.create_subscription(stripe_subscription_id: new_subscription["id"], kind: "premium")
+          if @subscription.save
+            @place.to_premium!
+            format.html { redirect_to my_place_path, alert: "¡Se ha actualizado tu suscripción!" }
+          else
+            format.html { redirect_to dashboard_upgrade_plan_path, notice: "Ha ocurrido un error al suscribirte" }
+          end
         end
+
       rescue => e
         puts "Error --------#{e}------"
         # format.js
