@@ -16,12 +16,16 @@ module.exports = {
                 "main-red": "#f45d48",
                 "main-gray": "#F6F6F6",
                 "light-black": "#2d2d2d",
-                "secondary-light": "#f9e8e1"
+                "secondary-light": "#f9e8e1",
+                "main-teal": "#2befb2",
+                "main-blue": "#5f48f6",
+                "main-dark": "#3f444c"
             },
             textColor: {
                 main: "#f8f5f2",
                 "main-red": "#f45d48",
-                "secondary": "#f9e8e1"
+                "secondary": "#f9e8e1",
+                "main-dark": "#3f444c"
             }
         },
     },
