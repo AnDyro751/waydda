@@ -55,10 +55,7 @@ Rails.application.routes.draw do
     get "/upgrade", to: "places#upgrade", as: :upgrade_plan
     get "/upgrade/:subscription_id", to: "subscriptions#new", as: :new_subscription
     post "/upgrade/:subscription_id", to: "subscriptions#create", as: :create_subscription
-    # Stripe connect
-    get "/payments/connect", to: "places#connect", as: :place_connect
-    post "/payments/connect", to: "places#create_stripe_account", as: :place_create_connect
-    post "/payments/connect/link", to: "places#create_account_link", as: :place_create_link
+
     # Items
     resources :items
     resources :subscriptions, only: [:new]
@@ -69,7 +66,12 @@ Rails.application.routes.draw do
     end
     # Places
     get "/my-sales", to: "places#sales", as: "my_sales"
-    get "/edit", to: "places#edit", as: "edit_my_place"
+    get "/settings", to: "places#edit", as: "edit_my_place"
+    # Stripe connect
+    get "/settings/payments/connect", to: "places#connect", as: :place_connect
+    post "/settings/payments/connect", to: "places#create_stripe_account", as: :place_create_connect
+    post "/settings/payments/connect/link", to: "places#create_account_link", as: :place_create_link
+
     resources :places, only: [:edit, :update, :new, :create, :index] do
       patch "/update_slug", to: "places#update_slug", as: "update_slug"
       patch "/update_delivery", to: "places#update_delivery", as: :update_delivery
