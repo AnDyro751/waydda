@@ -17,16 +17,16 @@
   <link rel="dns-prefetch" href="https://fonts.googleapis.com"/>
   <link rel="preconnect" href="https://fonts.gstatic.com/" crossOrigin/>
   <link rel="dns-prefetch" href="https://fonts.gstatic.com/"/>
-  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;800&display=swap" as="style">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;800&display=swap">
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;800&display=swap" as="style">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;800&display=swap">
 </head>
 
 <body class="bg-white">
 <div class="w-full flex">
   <div class="w-1/5">
-<% unless @place.nil? %>
-<%= render "utils/Headers/dashboard" %>
-<% end %>
+    <% unless @place.nil? %>
+      <%= render "utils/Headers/dashboard" %>
+    <% end %>
   </div>
   <div class="w-4/5 px-6">
     <div class="flex w-full justify-center">

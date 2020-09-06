@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+
   root 'home#index'
   # TODO: Agregar seguridad a esto
   mount Split::Dashboard, at: 'split'
@@ -65,8 +66,12 @@ Rails.application.routes.draw do
       resources :aggregates
     end
     # Places
-    get "/my-sales", to: "places#sales", as: "my_sales"
     get "/settings", to: "places#edit", as: "edit_my_place"
+    # namespace :settings do
+    get "/settings/general", to: "settings#general", as: "edit_general_my_place"
+    # end
+
+    get "/my-sales", to: "places#sales", as: "my_sales"
     # Stripe connect
     get "/settings/payments/connect", to: "places#connect", as: :place_connect
     post "/settings/payments/connect", to: "places#create_stripe_account", as: :place_create_connect

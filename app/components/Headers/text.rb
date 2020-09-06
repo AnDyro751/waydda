@@ -1,7 +1,9 @@
 class Headers::Text < ViewComponent::Base
-  def initialize(title:, small: false, subtitle:)
+  # @param [TrueClass] with_margin
+  def initialize(title:, small: false, subtitle:, with_margin: true)
     @title = title
     @small = small
     @subtitle = subtitle
+    @with_margin = with_margin
   end
 end

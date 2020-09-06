@@ -19,8 +19,18 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b89cb0fb-b680-4bb9-8ae0-f4b41721cfb9" name="Default Changelist" comment="test: Cambios del ui">
+    <list default="true" id="b89cb0fb-b680-4bb9-8ae0-f4b41721cfb9" name="Default Changelist" comment="feat(Dashboard): Cambios de rutas">
+      <change afterPath="$PROJECT_DIR$/app/assets/stylesheets/dashboard/settings.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/controllers/dashboard/settings_controller.rb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/helpers/dashboard/settings_helper.rb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/spec/helpers/dashboard/settings_helper_spec.rb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/spec/requests/dashboard/settings_request_spec.rb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/spec/views/dashboard/settings/general.html.erb_spec.rb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/components/Headers/text.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/components/Headers/text.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/components/Headers/text.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/components/Headers/text.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/dashboard/places/edit.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/dashboard/places/edit.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/layouts/dashboard.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/layouts/dashboard.html.erb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/config/routes.rb" beforeDir="false" afterPath="$PROJECT_DIR$/config/routes.rb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -500,14 +510,7 @@
       <workItem from="1598839720453" duration="998000" />
       <workItem from="1598891533514" duration="11781000" />
       <workItem from="1598993828472" duration="63117000" />
-      <workItem from="1599190626704" duration="22704000" />
-    </task>
-    <task id="LOCAL-00065" summary="refactor(Cart): Pinches errores culeros">
-      <created>1598580631907</created>
-      <option name="number" value="00065" />
-      <option name="presentableId" value="LOCAL-00065" />
-      <option name="project" value="LOCAL" />
-      <updated>1598580631907</updated>
+      <workItem from="1599190626704" duration="24169000" />
     </task>
     <task id="LOCAL-00066" summary="refactor(Address): Agregamos estilos al botón cuando la dirección no está disponible">
       <created>1598637453043</created>
@@ -845,7 +848,14 @@
       <option name="project" value="LOCAL" />
       <updated>1599351577338</updated>
     </task>
-    <option name="localTasksCounter" value="114" />
+    <task id="LOCAL-00114" summary="feat(Dashboard): Cambios de rutas">
+      <created>1599351785873</created>
+      <option name="number" value="00114" />
+      <option name="presentableId" value="LOCAL-00114" />
+      <option name="project" value="LOCAL" />
+      <updated>1599351785873</updated>
+    </task>
+    <option name="localTasksCounter" value="115" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -865,7 +875,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="feat(Business): Agregamos la photo de perfil y también agregamos unas notificaciones para mostrar el estado de pendiente" />
     <MESSAGE value="feat(Business): Agremos el rol del usuario owner para el place" />
     <MESSAGE value="feat(Business): Place dashboard" />
     <MESSAGE value="feat(Business): Vamos a actualizar la cuenta de connect" />
@@ -890,7 +899,8 @@
     <MESSAGE value="test: Place and subscription test init" />
     <MESSAGE value="test: Pequeñas pruebas" />
     <MESSAGE value="test: Cambios del ui" />
-    <option name="LAST_COMMIT_MESSAGE" value="test: Cambios del ui" />
+    <MESSAGE value="feat(Dashboard): Cambios de rutas" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat(Dashboard): Cambios de rutas" />
   </component>
   <component name="WindowStateProjectService">
     <state x="392" y="0" key="#All_specs_in_spec:_waydda" timestamp="1598730457189">
@@ -1000,12 +1010,12 @@
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="339" y="174" width="672" height="677" key="run.anything.popup/0.0.1366.768@0.0.1366.768" timestamp="1599088332819" />
-    <state x="346" y="89" width="672" height="678" key="search.everywhere.popup" timestamp="1599351673253">
+    <state x="346" y="89" width="672" height="678" key="search.everywhere.popup" timestamp="1599352749528">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="1852" y="56" width="945" height="954" key="search.everywhere.popup/0.0.1366.768/1366.-69.1920.1080@1366.-69.1920.1080" timestamp="1597715976170" />
     <state x="1710" y="89" width="672" height="678" key="search.everywhere.popup/0.0.1366.768/1366.0.1360.768@1366.0.1360.768" timestamp="1598985878395" />
     <state x="1852" y="125" width="945" height="954" key="search.everywhere.popup/0.0.1366.768/1366.0.1920.1080@1366.0.1920.1080" timestamp="1599267313630" />
-    <state x="346" y="89" width="672" height="678" key="search.everywhere.popup/0.0.1366.768@0.0.1366.768" timestamp="1599351673253" />
+    <state x="346" y="89" width="672" height="678" key="search.everywhere.popup/0.0.1366.768@0.0.1366.768" timestamp="1599352749528" />
   </component>
 </project>
