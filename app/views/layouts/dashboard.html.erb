@@ -22,26 +22,32 @@
 </head>
 
 <body class="bg-white">
-
+<div class="w-full flex">
+  <div class="w-1/5">
 <% unless @place.nil? %>
-  <%= render "utils/Headers/dashboard" %>
+<%= render "utils/Headers/dashboard" %>
 <% end %>
-
-<div class="flex w-full justify-center">
-  <div class="<%= @full_page ? "w-full" : "w-9/12" %> flex mx-auto flex-wrap">
-    <div id="notifications" class="w-full">
-      <% if notice.present? %>
-        <%= render Notifications::Alert.new(alert: notice, with_spacing: true, kind: "error") %>
-      <% end %>
-      <% if alert.present? %>
-        <%= render Notifications::Alert.new(alert: alert, with_spacing: true) %>
-      <% end %>
+  </div>
+  <div class="w-4/5 px-6">
+    <div class="flex w-full justify-center">
+      <div class="w-full flex mx-auto flex-wrap">
+        <div id="notifications" class="w-full">
+          <% if notice.present? %>
+            <%= render Notifications::Alert.new(alert: notice, with_spacing: true, kind: "error") %>
+          <% end %>
+          <% if alert.present? %>
+            <%= render Notifications::Alert.new(alert: alert, with_spacing: true) %>
+          <% end %>
+        </div>
+        <%= yield %>
+        <% if Rails.env === "development" && params["console"] %>
+          <% console %>
+        <% end %>
+      </div>
     </div>
-    <%= yield %>
-    <% if Rails.env === "development" && params["console"] %>
-      <% console %>
-    <% end %>
   </div>
 </div>
+
+
 </body>
 </html>

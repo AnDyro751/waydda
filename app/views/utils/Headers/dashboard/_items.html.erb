@@ -1,11 +1,11 @@
-<ul class="w-full flex gap-4">
-  <%= active_link_to("Panel de control", my_place_path, "border-b-2 border-black", "text-sm w-auto text-gray-800 font-normal py-4 cursor-pointer") %>
-  <%= active_link_to("Mis ventas", dashboard_my_sales_path, "border-b-2 border-black", "text-sm w-auto text-gray-800 font-normal py-4 cursor-pointer") %>
-  <%= active_link_to("Productos", dashboard_products_path, "border-b-2 border-black", "text-sm w-auto text-gray-800 font-normal py-4 cursor-pointer") %>
-  <%= active_link_to("Categorías", dashboard_items_path, "border-b-2 border-black", "text-sm w-auto text-gray-800 font-normal py-4 cursor-pointer") %>
-  <%= active_link_to("Ajustes", dashboard_edit_my_place_path, "border-b-2 border-black", "text-sm w-auto text-gray-800 font-normal py-4 cursor-pointer") %>
+<ul class="w-full flex flex-wrap">
+  <%= active_link_to("Panel de control", my_place_path, "font-bold text-indigo-700", "text-sm w-full text-gray-600 hover:text-gray-900 py-3 cursor-pointer") %>
+  <%= active_link_to("Mis ventas", dashboard_my_sales_path, "font-bold text-indigo-700", "text-sm w-full text-gray-600 hover:text-gray-900 py-3 cursor-pointer") %>
+  <%= active_link_to("Productos", dashboard_products_path, "font-bold text-indigo-700", "text-sm w-full text-gray-600 hover:text-gray-900 py-3 cursor-pointer") %>
+  <%= active_link_to("Categorías", dashboard_items_path, "font-bold text-indigo-700", "text-sm w-full text-gray-600 hover:text-gray-900 py-3 cursor-pointer") %>
+  <%= active_link_to("Ajustes", dashboard_edit_my_place_path, "font-bold text-indigo-700", "text-sm w-full text-gray-600 hover:text-gray-900 py-3 cursor-pointer") %>
   <% if @place.free? %>
-    <%= link_to "¡Actualizar plan!", dashboard_upgrade_plan_path, class: "text-sm w-auto text-gray-800 text-main-red font-bold py-4 cursor-pointer" %>
+    <%= link_to "¡Actualizar plan!", dashboard_upgrade_plan_path, class: "text-sm w-full text-gray-800 text-main-red font-bold py-3 cursor-pointer" %>
   <% end %>
 </ul>
 

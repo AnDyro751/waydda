@@ -1,11 +1,13 @@
-<div class="w-full mx-auto">
-  <div class="z-20 bottom-0 mx-auto w-full mt-10 mb-10">
-    <%= link_to dashboard_upgrade_plan_path, class: "flex transition w-full duration-300 truncate cursor-pointer px-4 py-4 text-white rounded bg-indigo-600" do %>
-      <p class="font-normal text-sm">Estás en la versión gratuita.
-        <span class="font-medium">Haga click aquí para actualizar tu plan</span></p>
-    <% end %>
+<% if @place.free? %>
+  <div class="w-full mx-auto">
+    <div class="z-20 bottom-0 mx-auto w-full mt-10 mb-10">
+      <%= link_to dashboard_upgrade_plan_path, class: "flex transition w-full duration-300 truncate cursor-pointer px-4 py-4 text-white rounded bg-indigo-600" do %>
+        <p class="font-normal text-sm">Estás en la versión gratuita.
+          <span class="font-medium">Haga click aquí para actualizar tu plan</span></p>
+      <% end %>
+    </div>
   </div>
-</div>
+<% end %>
 <div class="w-full">
   <% if @place.pending? %>
     <%= render Notifications::Alert.new(alert: "En espera de verificación", with_spacing: true, kind: "error") %>

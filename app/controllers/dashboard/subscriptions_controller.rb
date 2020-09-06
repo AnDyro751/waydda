@@ -1,6 +1,7 @@
 class Dashboard::SubscriptionsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_my_place
+  before_action :set_price
   skip_before_action :verify_authenticity_token, :only => [:create]
   layout "dashboard"
 
@@ -40,7 +41,7 @@ class Dashboard::SubscriptionsController < ApplicationController
                                         customer: current_user.stripe_customer_id,
                                         items: [
                                             {
-                                                price: 'price_1HNSEGKgRp6iAMUdUuOPYSjX'
+                                                price: Account.get_price(free_days: @free_days.to_i, price: @premium_pricing.to_i)
                                             },
                                         ],
                                     })

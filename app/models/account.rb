@@ -9,6 +9,46 @@ class Account
   # TODO: Enviar a secret
   Stripe.api_key = 'sk_test_51H9CZeBOcPJ0nbHctTzfQZhFXBnn8j05e0xqJ5RSVz5Bum72LsvmQKIecJnsoHISEg0jUWtKjERYGeCAEWiIAujP00Fae9MiKm'
 
+
+  def self.get_price(free_days:, price:)
+    if Rails.env === "development"
+      if price == 229
+        if free_days === 30
+          return "price_1HNmjCBOcPJ0nbHcDOPnmdPR"
+        elsif free_days === 14
+          return "price_1HNmioBOcPJ0nbHcNEhtQXao"
+        elsif free_days === 7
+          return "price_1HNmiLBOcPJ0nbHce9Dg9vYj"
+        else
+          return nil
+        end
+      elsif price == 129
+        if free_days == 30
+          return "price_1HNmhxBOcPJ0nbHcObBcFqIu"
+        elsif free_days == 14
+          return "price_1HNmhhBOcPJ0nbHciN5H6YaT"
+        elsif free_days == 7
+          return "price_1HNmhNBOcPJ0nbHc3bf1aAeX"
+        else
+          return nil
+        end
+      elsif price == 69
+        if free_days == 30
+          return "price_1HNmgIBOcPJ0nbHcaweGnfsr"
+        elsif free_days == 14
+          return "price_1HNmgIBOcPJ0nbHcrsn0bmBC"
+        elsif free_days == 7
+          return "price_1HNmgIBOcPJ0nbHcAt2FBrs9"
+        end
+      else
+        return nil
+      end
+
+    else
+
+    end
+  end
+
   def self.create_stripe_account(place, user)
     begin
       if user.account.nil?
