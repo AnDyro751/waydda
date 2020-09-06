@@ -2,11 +2,28 @@ class Dashboard::SubscriptionsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_my_place
   before_action :set_price
+  before_action :set_subscription, only: [:cancel]
   skip_before_action :verify_authenticity_token, :only => [:create]
   layout "dashboard"
 
   def edit
 
+  end
+
+  def cancel
+    respond_to do |format|
+      begin
+        Stripe::Subscription.delete(@subscription.stripe_subscription_id)
+        if @place.subscription.destroy
+          @place.to_free!
+          format.html { redirect_to dashboard_edit_subscription_path, alert: "Se ha cancelado tu suscripción" }
+        else
+          format.html { redirect_to dashboard_edit_subscription_path, notice: "Ha ocurrido un error al cancelar tu suscripción" }
+        end
+      rescue => e
+        format.html { redirect_to dashboard_edit_subscription_path, notice: "Ha ocurrido un error al cancelar tu suscripción: #{e}" }
+      end
+    end
   end
 
   def new
@@ -60,6 +77,15 @@ class Dashboard::SubscriptionsController < ApplicationController
         # format.js
         format.html { redirect_to dashboard_upgrade_plan_path, notice: "Ha ocurrido un error al suscribirte" }
       end
+    end
+  end
+
+  private
+
+  def set_subscription
+    @subscription = @place.subscription
+    if @subscription.nil?
+      redirect_to dashboard_edit_subscription_path, notice: "Ha ocurrido un error al cancelar tu suscripción"
     end
   end
 

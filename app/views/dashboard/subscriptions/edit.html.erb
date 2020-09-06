@@ -30,7 +30,13 @@
         </small>
       </div>
       <div class="w-6/12 flex justify-end">
-        <button class="bg-red-700 text-sm font-normal text-white py-2 px-4 rounded">Cancelar suscripción</button>
+        <%= button_to "Cancelar suscripción", dashboard_cancel_subscription_path, method: :delete,
+                      data: {
+                          confirm: "¿Seguro que quieres cancelar tu suscripción? :c",
+                          "disable-with": "Cargando..."
+                      },
+                      class: "bg-red-700 text-sm font-normal text-white py-2 px-4 rounded cursor-pointer", remote: true %>
+        <!--        <button class="bg-red-700 text-sm font-normal text-white py-2 px-4 rounded">Cancelar suscripción</button>-->
       </div>
     </div>
   <% end %>

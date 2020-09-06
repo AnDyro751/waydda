@@ -19,20 +19,13 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b89cb0fb-b680-4bb9-8ae0-f4b41721cfb9" name="Default Changelist" comment="feat(Dashboard): Se movió el /edit to settings y a sus respectivos controllers">
-      <change afterPath="$PROJECT_DIR$/app/views/dashboard/subscriptions/edit.html.erb" afterDir="false" />
+    <list default="true" id="b89cb0fb-b680-4bb9-8ae0-f4b41721cfb9" name="Default Changelist" comment="feat(Dashboard): Nuev imagen del dashboard y se colocan los settings en una sola sección">
+      <change afterPath="$PROJECT_DIR$/app/views/dashboard/subscriptions/cancel.js.erb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/components/Headers/text.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/components/Headers/text.rb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/controllers/dashboard/subscriptions_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/dashboard/subscriptions_controller.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/helpers/link_helper.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/helpers/link_helper.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/javascript/packs/my_profile.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/javascript/packs/my_profile.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/place.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/place.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/subscription.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/subscription.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/user.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/user.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/dashboard/places/edit.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/dashboard/places/edit.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/utils/Headers/dashboard/_items.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/utils/Headers/dashboard/_items.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/dashboard/subscriptions/edit.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/dashboard/subscriptions/edit.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/layouts/dashboard.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/layouts/dashboard.html.erb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/config/routes.rb" beforeDir="false" afterPath="$PROJECT_DIR$/config/routes.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dump.rdb" beforeDir="false" afterPath="$PROJECT_DIR$/dump.rdb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -512,14 +505,7 @@
       <workItem from="1598891533514" duration="11781000" />
       <workItem from="1598993828472" duration="63117000" />
       <workItem from="1599190626704" duration="25065000" />
-      <workItem from="1599366275120" duration="3284000" />
-    </task>
-    <task id="LOCAL-00067" summary="test: Se agregaron test para dos modelos. Comportamientos básicos">
-      <created>1598742038533</created>
-      <option name="number" value="00067" />
-      <option name="presentableId" value="LOCAL-00067" />
-      <option name="project" value="LOCAL" />
-      <updated>1598742038534</updated>
+      <workItem from="1599366275120" duration="4308000" />
     </task>
     <task id="LOCAL-00068" summary="test(User): Comentamos lo innecesario">
       <created>1598742099543</created>
@@ -857,7 +843,14 @@
       <option name="project" value="LOCAL" />
       <updated>1599353252099</updated>
     </task>
-    <option name="localTasksCounter" value="116" />
+    <task id="LOCAL-00116" summary="feat(Dashboard): Nuev imagen del dashboard y se colocan los settings en una sola sección">
+      <created>1599369668634</created>
+      <option name="number" value="00116" />
+      <option name="presentableId" value="LOCAL-00116" />
+      <option name="project" value="LOCAL" />
+      <updated>1599369668638</updated>
+    </task>
+    <option name="localTasksCounter" value="117" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -877,7 +870,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="feat(Business): Place dashboard" />
     <MESSAGE value="feat(Business): Vamos a actualizar la cuenta de connect" />
     <MESSAGE value="feat(Business): Ya se actualiza la pinche cuenta de stripe" />
     <MESSAGE value="feat(Business): Mensaje de esperar un par de horas" />
@@ -902,7 +894,8 @@
     <MESSAGE value="test: Cambios del ui" />
     <MESSAGE value="feat(Dashboard): Cambios de rutas" />
     <MESSAGE value="feat(Dashboard): Se movió el /edit to settings y a sus respectivos controllers" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat(Dashboard): Se movió el /edit to settings y a sus respectivos controllers" />
+    <MESSAGE value="feat(Dashboard): Nuev imagen del dashboard y se colocan los settings en una sola sección" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat(Dashboard): Nuev imagen del dashboard y se colocan los settings en una sola sección" />
   </component>
   <component name="WindowStateProjectService">
     <state x="392" y="0" key="#All_specs_in_spec:_waydda" timestamp="1598730457189">
@@ -997,13 +990,13 @@
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="628" y="298" key="com.jetbrains.plugins.remotesdk.ui.RemoteMappingsConfiguration/0.0.1366.768@0.0.1366.768" timestamp="1598729856431" />
-    <state x="390" y="117" width="585" height="624" key="find.popup" timestamp="1599366854968">
+    <state x="390" y="117" width="585" height="624" key="find.popup" timestamp="1599370558581">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="1914" y="96" width="823" height="878" key="find.popup/0.0.1366.768/1366.-69.1920.1080@1366.-69.1920.1080" timestamp="1597716285449" />
     <state x="1754" y="117" width="583" height="624" key="find.popup/0.0.1366.768/1366.0.1360.768@1366.0.1360.768" timestamp="1598981376119" />
     <state x="1914" y="165" width="823" height="878" key="find.popup/0.0.1366.768/1366.0.1920.1080@1366.0.1920.1080" timestamp="1599260651210" />
-    <state x="390" y="117" width="585" height="624" key="find.popup/0.0.1366.768@0.0.1366.768" timestamp="1599366854968" />
+    <state x="390" y="117" width="585" height="624" key="find.popup/0.0.1366.768@0.0.1366.768" timestamp="1599370558581" />
     <state x="549" y="254" width="250" height="278" key="jetbrains.javascript.buildTools.run-task-popup" timestamp="1597946321130">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
@@ -1012,12 +1005,12 @@
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="339" y="174" width="672" height="677" key="run.anything.popup/0.0.1366.768@0.0.1366.768" timestamp="1599367810140" />
-    <state x="346" y="89" width="672" height="678" key="search.everywhere.popup" timestamp="1599369500112">
+    <state x="346" y="89" width="672" height="678" key="search.everywhere.popup" timestamp="1599370596755">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="1852" y="56" width="945" height="954" key="search.everywhere.popup/0.0.1366.768/1366.-69.1920.1080@1366.-69.1920.1080" timestamp="1597715976170" />
     <state x="1710" y="89" width="672" height="678" key="search.everywhere.popup/0.0.1366.768/1366.0.1360.768@1366.0.1360.768" timestamp="1598985878395" />
     <state x="1852" y="125" width="945" height="954" key="search.everywhere.popup/0.0.1366.768/1366.0.1920.1080@1366.0.1920.1080" timestamp="1599267313630" />
-    <state x="346" y="89" width="672" height="678" key="search.everywhere.popup/0.0.1366.768@0.0.1366.768" timestamp="1599369500112" />
+    <state x="346" y="89" width="672" height="678" key="search.everywhere.popup/0.0.1366.768@0.0.1366.768" timestamp="1599370596755" />
   </component>
 </project>

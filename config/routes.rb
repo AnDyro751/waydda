@@ -56,7 +56,6 @@ Rails.application.routes.draw do
     get "/upgrade", to: "places#upgrade", as: :upgrade_plan
     get "/upgrade/:subscription_id", to: "subscriptions#new", as: :new_subscription
     post "/upgrade/:subscription_id", to: "subscriptions#create", as: :create_subscription
-
     # Items
     resources :items
     resources :subscriptions, only: [:new]
@@ -71,6 +70,8 @@ Rails.application.routes.draw do
     get "/settings", to: "places#edit", as: "edit_my_place"
     get "/settings/general", to: "settings#general", as: "edit_general_my_place"
     get "/settings/subscription", to: "subscriptions#edit", as: "edit_subscription"
+    # Delete subscription
+    delete "settings/subscription", to: "subscriptions#cancel", as: :cancel_subscription
     # Stripe connect
     get "/settings/payments/connect", to: "places#connect", as: :place_connect
     post "/settings/payments/connect", to: "places#create_stripe_account", as: :place_create_connect

@@ -1,0 +1,3 @@
+<% if @error %>
+document.querySelector("#notifications").innerHTML = "<%= j render Notifications::Alert.new(alert: "Error: #{@error}",kind: "error") %>";
+<% end %>

@@ -28,7 +28,7 @@
       <%= render "utils/Headers/dashboard" %>
     <% end %>
   </div>
-  <div class="w-4/5 px-6">
+  <div class="w-4/5 <%= @full_page ? "" : "px-6" %>">
     <div class="flex w-full justify-center">
       <div class="w-full flex mx-auto flex-wrap">
         <div id="notifications" class="w-full">
