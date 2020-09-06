@@ -38,6 +38,8 @@ class Place
   field :delivery_distance, type: Float, default: 5
   field :delivery_extra_cost, type: Float, default: 0
   field :kind, type: String, default: "free"
+  field :trial_will_end, type: Boolean, default: false
+  field :in_free_trial, type: Boolean, default: true
 # field :stripe_subscription_id, type: String, default: ""
 
 # TODO: Añadir horarios de envío y recolección

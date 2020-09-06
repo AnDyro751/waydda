@@ -32,28 +32,28 @@ class Dashboard::SubscriptionsController < ApplicationController
 
   def create
     respond_to do |format|
-      if current_user.default_source.empty?
-        card_token = params["card_token"]
-        if card_token.nil?
-          puts "---------NO SE HA ENVIADO TOKEN"
-          format.html { redirect_to dashboard_upgrade_plan_path, notice: "Ha ocurrido un error al suscribirte" }
-        end
-        current_source = Account.create_source(current_user.stripe_customer_id, params["card_token"])
-        if current_source.nil?
-          format.html { redirect_to dashboard_upgrade_plan_path, notice: "Ha ocurrido un error al suscribirte" }
-        else
-          updated_account = Account.update_account(current_user.stripe_customer_id, {
-              default_source: current_source["id"]
-          })
-          puts "---------#{updated_account[:success]} UPDATED"
-          if updated_account[:success]
-            current_user.update(default_source: {id: updated_account["default_source"]})
-          else
-            format.html { redirect_to dashboard_upgrade_plan_path, notice: "Ha ocurrido un error al suscribirte" }
-          end
-          # TODO: Guardar el default token que recibimos como param
-        end
-      end
+      # if current_user.default_source.empty?
+      #   card_token = params["card_token"]
+      #   if card_token.nil?
+      #     puts "---------NO SE HA ENVIADO TOKEN"
+      #     format.html { redirect_to dashboard_upgrade_plan_path, notice: "Ha ocurrido un error al suscribirte" }
+      #   end
+      #   current_source = Account.create_source(current_user.stripe_customer_id, params["card_token"])
+      #   if current_source.nil?
+      #     format.html { redirect_to dashboard_upgrade_plan_path, notice: "Ha ocurrido un error al suscribirte" }
+      #   else
+      #     updated_account = Account.update_account(current_user.stripe_customer_id, {
+      #         default_source: current_source["id"]
+      #     })
+      #     puts "---------#{updated_account[:success]} UPDATED"
+      #     if updated_account[:success]
+      #       current_user.update(default_source: {id: updated_account["default_source"]})
+      #     else
+      #       format.html { redirect_to dashboard_upgrade_plan_path, notice: "Ha ocurrido un error al suscribirte" }
+      #     end
+      #     # TODO: Guardar el default token que recibimos como param
+      #   end
+      # end
       begin
         # TODO: Actualizar la suscripción a la que le tocó
         new_subscription = Stripe::Subscription.create({
@@ -63,12 +63,13 @@ class Dashboard::SubscriptionsController < ApplicationController
                                                                    price: Account.get_price(free_days: @free_days.to_i, price: @premium_pricing.to_i)
                                                                },
                                                            ],
+                                                           trial_from_plan: true
                                                        })
         puts "-----------#{new_subscription} SUBSSSSSSSSSSSSS"
         current_subscription = @place.subscription
         if current_subscription
           if current_subscription.update(kind: "premium", stripe_subscription_id: new_subscription["id"])
-            @place.to_premium!
+            @place.update(kind: "premium", trial_will_end: false, in_free_trial: true)
             format.html { redirect_to my_place_path, alert: "¡Se ha actualizado tu suscripción!" }
           else
             format.html { redirect_to dashboard_upgrade_plan_path, notice: "Ha ocurrido un error al suscribirte" }
@@ -76,7 +77,7 @@ class Dashboard::SubscriptionsController < ApplicationController
         else
           @subscription = @place.create_subscription(stripe_subscription_id: new_subscription["id"], kind: "premium")
           if @subscription.save
-            @place.to_premium!
+            @place.update(kind: "premium", trial_will_end: false, in_free_trial: true)
             format.html { redirect_to my_place_path, alert: "¡Se ha actualizado tu suscripción!" }
           else
             format.html { redirect_to dashboard_upgrade_plan_path, notice: "Ha ocurrido un error al suscribirte" }

@@ -16,6 +16,15 @@ class Subscription
   validates :kind, inclusion: {in: %w[free premium]}, presence: true
   validates :stripe_subscription_id, presence: true
 
+
+  def self.update_place_subscription(subscription_id, params)
+    current_subscription = Subscription.find_by(stripe_subscription_id: subscription_id)
+    return false if current_subscription.nil?
+    current_place = current_subscription.place
+    return false if current_place.nil?
+    return current_place.update(params)
+  end
+
   def self.cancel_subscription(subscription_id)
     begin
       Stripe::Subscription.delete(subscription_id.to_s)

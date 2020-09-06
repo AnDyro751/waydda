@@ -31,6 +31,11 @@ class Dashboard::HooksController < ApplicationController
       return
     else
       case event.type
+      when "customer.subscription.trial_will_end"
+        subscription = event.data.object
+        subscription_updated = Subscription.update_place_subscription(subscription["id"], {trial_will_end: true, in_free_trial: false})
+        return head :ok if subscription_updated
+        not_found if subscription_updated === false
       when 'payment_intent.succeeded'
         payment_intent = event.data.object # contains a Stripe::PaymentIntent
         puts 'PaymentIntent was successful!'
