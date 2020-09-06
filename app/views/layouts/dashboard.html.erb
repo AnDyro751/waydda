@@ -28,7 +28,14 @@
       <%= render "utils/Headers/dashboard" %>
     <% end %>
   </div>
-  <div class="w-4/5 <%= @full_page ? "" : "px-6" %>">
+
+  <div class="w-4/5 flex flex-wrap <%= @full_page ? "" : "px-6" %>">
+    <% if @place.in_free_trial %>
+      <%= button_to dashboard_create_user_portal_path, class: "py-4 w-full border-b", form_class: "w-full", data: {"disable-with": "Cargando..."}, remote: true do %>
+        <span class="bg-transparent cursor-pointer text-sm text-gray-700">Tu prueba termina en <%= time_ago_in_words(@place.subscription.trial_end.to_i) %>
+          . <span class="text-indigo-700 font-medium">Agrega un método de pago para continuar con el servicio</span></span>
+      <% end %>
+    <% end %>
     <div class="flex w-full justify-center">
       <div class="w-full flex mx-auto flex-wrap">
         <div id="notifications" class="w-full">

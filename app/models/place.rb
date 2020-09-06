@@ -104,7 +104,7 @@ class Place
     # current_subscription = Subscription.cancel_subscription(subscription_id)
     # puts "----------#{current_subscription} CANCEL SUBS"
     # return nil if current_subscription === false
-    current_place.to_free!
+    current_place.update(kind: "free", in_free_trial: false, trial_will_end: false)
     current_place.subscription.destroy
   end
 

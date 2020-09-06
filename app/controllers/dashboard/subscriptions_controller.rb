@@ -68,14 +68,14 @@ class Dashboard::SubscriptionsController < ApplicationController
         puts "-----------#{new_subscription} SUBSSSSSSSSSSSSS"
         current_subscription = @place.subscription
         if current_subscription
-          if current_subscription.update(kind: "premium", stripe_subscription_id: new_subscription["id"])
+          if current_subscription.update(kind: "premium", stripe_subscription_id: new_subscription["id"], trial_end: new_subscription["trial_end"], trial_start: new_subscription["trial_start"])
             @place.update(kind: "premium", trial_will_end: false, in_free_trial: true)
             format.html { redirect_to my_place_path, alert: "¡Se ha actualizado tu suscripción!" }
           else
             format.html { redirect_to dashboard_upgrade_plan_path, notice: "Ha ocurrido un error al suscribirte" }
           end
         else
-          @subscription = @place.create_subscription(stripe_subscription_id: new_subscription["id"], kind: "premium")
+          @subscription = @place.create_subscription(stripe_subscription_id: new_subscription["id"], kind: "premium", trial_end: new_subscription["trial_end"], trial_start: new_subscription["trial_start"])
           if @subscription.save
             @place.update(kind: "premium", trial_will_end: false, in_free_trial: true)
             format.html { redirect_to my_place_path, alert: "¡Se ha actualizado tu suscripción!" }

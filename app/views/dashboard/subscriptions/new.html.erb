@@ -21,11 +21,6 @@
   <div class="w-full">
     <%= simple_form_for(@subscription, url: dashboard_create_subscription_path(params["subscription_id"]), remote: true) do |f| %>
       <%= f.input :kind, as: :hidden, input_html: {value: params["subscription_id"]} %>
-      <%#= f.input :authenticity_token, as: :hidden, input_html: {value: form_authenticity_token} -%>
-      <!--      <div id="card-element" class="mt-2 bg-gray-200 p-4 rounded">-->
-      <!--      </div>-->
-      <!--      <div id="card-errors" role="alert"></div>-->
-
       <%= f.submit "Empezar mi suscripción", id: "submit-input", data: {disable_with: "Cargando..."}, class: "bg-black shadow-lg hover:shadow-2xl text-white py-3 rounded cursor-pointer px-8" %>
     <% end %>
   </div>
