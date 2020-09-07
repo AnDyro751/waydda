@@ -1,0 +1,40 @@
+<div class="w-full mt-4 text-gray-800 text-sm">
+  <span class=""><%= link_to "Ajustes", dashboard_edit_my_place_path, class: "hover:underline" %>
+    <span class="mx-2 select-none">></span><span class="text-indigo-700 font-medium">Zona de peligro</span></span>
+</div>
+<%= render Headers::Text.new(title: "Zona de peligro", small: true, with_margin: true) %>
+<div class="w-full flex flex-wrap border p-4 mt-4 divide-y divide-gray-300 rounded bg-gray-100">
+
+  <div class="w-full flex items-center py-4">
+    <div class="w-6/12">
+      <p class="font-normal">
+        Desactivar empresa
+      </p>
+      <small>
+        Al desactivar tu empresa ya no podrás aceptar pedidos ni se listarán tus productos.
+        <!--        Elimina todos tus productos, clientes y registros. Está acción es irreversible-->
+      </small>
+    </div>
+    <div class="w-6/12 flex justify-end">
+      <% if @place.status == "inactive" %>
+        <%= button_to "Activar",
+                      dashboard_place_path(@place.slug),
+                      params: {to_action: "activate"},
+                      method: :put,
+                      remote: true,
+                      data: {"disable-with": "Cargando..."},
+                      class: "cursor-pointer bg-main-blue focus:outline-none text-white px-4 py-2 text-sm rounded shadow-2xl"
+        %>
+      <% else %>
+        <%= button_to "Desactivar",
+                      dashboard_place_path(@place.slug),
+                      params: {to_action: "deactivate"},
+                      method: :put,
+                      remote: true,
+                      data: {"disable-with": "Cargando..."},
+                      class: "cursor-pointer bg-red-700 focus:outline-none text-white px-4 py-2 text-sm rounded shadow-2xl" %>
+      <% end %>
+    </div>
+  </div>
+</div>
+

@@ -10,26 +10,9 @@
     <div class="w-full">
       <%= render "dashboard/places/form", url: dashboard_place_path(@place.slug) %>
     </div>
-    <% if @place.pending? %>
-      <h3>Esperando la confirmación del administrador</h3>
-    <% else %>
-      <p>
-        <%= simple_form_for(@place, url: dashboard_place_update_slug_path(@place.slug), remote: true) do |f| %>
-          <%= f.input :slug, value: @place.slug %>
-          <%= f.submit %>
-        <% end %>
-      </p>
-      <div class="mt-4">
-        <strong>Status:</strong>
-        <% if @place.status == "inactive" %>
-          <%= button_to "Activar", {to_action: "activate"}, method: :put, remote: true, class: "cursor-pointer bg-green-700 focus:outline-none text-white px-8 py-3 rounded shadow-2xl" %>
-        <% else %>
-          <%= button_to "Desactivar", {to_action: "deactivate"}, method: :put, remote: true, class: "cursor-pointer bg-red-700 focus:outline-none text-white px-8 py-3 rounded shadow-2xl" %>
-        <% end %>
-      </div>
-    <% end %>
   </div>
 </div>
+
 
 
 <%= javascript_pack_tag "my_profile", 'data-turbolinks-track': "reload" %>

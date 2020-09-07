@@ -154,7 +154,8 @@ class Dashboard::PlacesController < ApplicationController
         place.deactivate! if action == "deactivate"
         format.html { redirect_to my_place_path, notice: action === "activate" ? "Se ha activado tu empresa" : "Se ha descativado tu empresa" }
       rescue => e
-        format.html { redirect_to my_place_path, alert: "Ha ocurrido un error, intenta de nuevo" }
+        puts "--------#{e}"
+        format.html { redirect_to dashboard_edit_my_place_path, notice: "Ha ocurrido un error, intenta de nuevo" }
       end
     end
   end
