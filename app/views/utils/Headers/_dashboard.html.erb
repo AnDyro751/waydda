@@ -11,7 +11,7 @@
     </div>
     <div class="w-full truncate">
       <% if @place %>
-        <% if @place.valid? %>
+        <% unless @place.new_record? %>
           <h4 class="font-bold flex items-center">
             <%= link_to place_path(@place.slug), target: "_blank" do %>
                         <span class="flex inline items-center truncate">
