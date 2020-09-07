@@ -30,11 +30,13 @@ class Dashboard::ProductsController < ApplicationController
   # POST /places.json
   def create
     @product = Product.new(product_params)
-    @product.item = @item
+    if @item
+      @product.item = @item
+    end
     @product.place = @place
     respond_to do |format|
       if @product.save
-        format.html { redirect_to dashboard_product_path(@product.slug), notice: 'Place was successfully created.' }
+        format.html { redirect_to dashboard_product_path(@product.slug), alert: 'Se ha creado el producto' }
         format.json { render :show, status: :created, location: @product }
       else
         format.html { render :new }
@@ -72,8 +74,10 @@ class Dashboard::ProductsController < ApplicationController
   private
 
   def set_item
-    @item = Item.find_by(place: @place, id: params["product"]["item_id"])
-    not_found if @item.nil?
+    if params["product"]["item_id"].present?
+      @item = Item.find_by(place: @place, id: params["product"]["item_id"])
+      not_found if @item.nil?
+    end
   end
 
   def set_product

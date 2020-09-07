@@ -1,5 +1,5 @@
 <%= render Headers::Text.new(title: "Todos los productos") do %>
-  <%= link_to "Agregar producto", new_dashboard_product_path, class: "bg-black py-3 px-6 text-white rounded hover:shadow-lg hover:bg-1 transition duration-500" %>
+  <%= link_to "Agregar producto", new_dashboard_product_path, class: "bg-main-blue py-2 px-4 text-sm font-normal text-white rounded hover:shadow-lg hover:bg-1 transition duration-500" %>
 <% end %>
 
 <% if @products.length > 0 %>

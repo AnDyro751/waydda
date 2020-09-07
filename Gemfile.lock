@@ -127,6 +127,8 @@ GEM
     diff-lcs (1.4.4)
     domain_name (0.5.20190701)
       unf (>= 0.0.5, < 1.0.0)
+    dropzonejs-rails (0.8.5)
+      rails (> 3.1)
     email_address (0.1.18)
       netaddr (>= 2.0.4, < 3)
       simpleidn
@@ -460,6 +462,7 @@ DEPENDENCIES
   database_cleaner
   database_cleaner-mongoid
   devise
+  dropzonejs-rails
   email_address
   factory_bot_rails
   faker

@@ -29,6 +29,9 @@ module.exports = {
             }
         },
     },
-    variants: {},
+    variants: {
+        display: ['responsive', 'hover', 'focus'],
+        visibility: ['responsive', 'hover', 'focus'],
+    },
     plugins: [],
 }

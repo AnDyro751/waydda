@@ -25,10 +25,16 @@ class Product
   # TODO: Agregar la cantidad publica y la privada
 
   # relations
-  belongs_to :item
+  belongs_to :item, optional: true
   belongs_to :place
-  belongs_to :cart_item, optional: true #, as: :model
+  has_and_belongs_to_many :cart_items
   embeds_many :aggregates
+
+  embeds_many :images, as: :model
+
+
+  validates :name, presence: true
+  validates :price, presence: true
 
 
   # @param [Integer] new_value
@@ -47,7 +53,9 @@ class Product
   def update_counters
     # Add Job queue
     self.place.update_products_counter(1, true)
-    self.item.update_products_counter(1, true)
+    if self.item
+      self.item.update_products_counter(1, true)
+    end
   end
 
   def assign_slug
