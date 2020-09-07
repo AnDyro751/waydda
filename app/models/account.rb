@@ -3,8 +3,11 @@ class Account
   include Mongoid::Timestamps
 
   belongs_to :user
+  belongs_to :place
   field :account_id, type: String, default: ""
   field :completed, type: Boolean, default: false
+  field :pending_verification, type: Boolean, default: false
+
   # Stripe key
   # TODO: Enviar a secret
   Stripe.api_key = 'sk_test_51H9CZeBOcPJ0nbHctTzfQZhFXBnn8j05e0xqJ5RSVz5Bum72LsvmQKIecJnsoHISEg0jUWtKjERYGeCAEWiIAujP00Fae9MiKm'
@@ -90,17 +93,23 @@ class Account
 
   def self.update_account_hook(account_updated)
     current_account = Account.find_by(account_id: account_updated["id"])
-    unless current_account.nil?
-      if account_updated["details_submitted"]
-        unless current_account.completed
-          puts "----------ACTUALIZANDO A COMPLETED"
-          current_account.update(completed: true)
-        end
+    return false if current_account.nil?
+    if account_updated["requirements"]
+      if account_updated["requirements"]["pending_verification"].length > 0
+        current_account.update(pending_verification: true)
       else
-        if current_account.completed
-          puts "----------ACTUALIZANDO A NOOOO COMPLETED"
-          current_account.update(completed: false)
-        end
+        current_account.update(pending_verification: false)
+      end
+    end
+    if account_updated["details_submitted"]
+      unless current_account.completed
+        puts "----------ACTUALIZANDO A COMPLETED"
+        return current_account.update(completed: true)
+      end
+    else
+      if current_account.completed
+        puts "----------ACTUALIZANDO A NOOOO COMPLETED"
+        return current_account.update(completed: false)
       end
     end
 
@@ -124,9 +133,19 @@ class Account
   def self.create_login_account(account_id)
     begin
       Stripe::Account.create_login_link(account_id)
-    rescue
+    rescue => e
+      puts "---------#{e}"
       return nil
     end
+  end
+
+
+  def self.update_place_account(account_id, params)
+    current_account = Account.find_by(account_id: account_id)
+    return false if current_account.nil?
+    current_user = current_account.user
+    return false if current_user.nil?
+    current_user.update(params)
   end
 
   def self.update_account(customer_id, data = {})

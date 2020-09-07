@@ -7,7 +7,7 @@ if (connectElement) {
             connectElement.innerHTML = "Cargando...";
             connectElement.disabled = true;
             var response = await (
-                (await fetch("/dashboard/payments/connect/link", {method: "POST", headers: getDefaultHeaders()})).json()
+                (await fetch("/dashboard/settings/payments/connect/link", {method: "POST", headers: getDefaultHeaders()})).json()
             )
             if (response.errors) {
                 connectElement.disabled = false;

@@ -40,7 +40,6 @@ class Place
   field :kind, type: String, default: "free"
   field :trial_will_end, type: Boolean, default: false
   field :in_free_trial, type: Boolean, default: true
-# field :stripe_subscription_id, type: String, default: ""
 
 # TODO: Añadir horarios de envío y recolección
 # TODO: Añadir pedido minimo
@@ -52,6 +51,7 @@ class Place
   has_many :views
   has_many :orders # Todas las ordenes que recibe
   has_one :subscription
+  has_one :account
 
 # Validations
   validates :name, presence: true, length: {in: 4..30}

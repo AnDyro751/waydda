@@ -49,6 +49,7 @@ Rails.application.routes.draw do
   get "/dashboard", to: "dashboard/places#my_place", as: "my_place" # Index dashboard
   # Webhooks
   post "/hooks", to: "dashboard/hooks#hooks"
+  post "/hooks_connect", to: "dashboard/hooks#connect"
   # mount StripeEvent::Engine, at: '/hooks'
   namespace :dashboard do
     # Uploads

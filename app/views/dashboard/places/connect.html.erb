@@ -1,4 +1,8 @@
-<h1>Conecta tu empresa para recibir pagos</h1>
+<div class="w-full mt-4 text-gray-800 text-sm">
+  <span class=""><%= link_to "Ajustes", dashboard_edit_my_place_path, class: "hover:underline" %>
+    <span class="mx-2 select-none">></span><span class="text-indigo-700 font-medium">Cobros</span></span>
+</div>
+<%= render Headers::Text.new(title: "Pagos", subtitle: "Acepta pagos con tarjeta", small: true, with_margin: false) %>
 
 <div class="w-full flex-wrap">
   <% if @user_account.nil? %>
@@ -17,10 +21,26 @@
     <% end %>
   <% end %>
 </div>
-<div class="w-full">
-  <button id="get-to-my-dashboard" class="disabled:cursor-not-allowed disabled:bg-gray-500 bg-black cursor-pointer text-white py-3 px-8 rounded flex mt-3">
-    Ir a mi dashboard
-  </button>
+<% if @user_account.pending_verification %>
+  <h2>Hay información que debes verificar</h2>
+<% end %>
+<div class="w-full flex flex-wrap border p-4 mt-4 divide-y divide-gray-300 rounded bg-gray-100">
+  <div class="w-full flex items-center py-4">
+    <div class="w-6/12">
+      <p class="font-normal">
+        Administrar mis datos
+      </p>
+      <small>
+        Cuenta bancaria, responsable de la empresa y más.
+      </small>
+    </div>
+    <div class="w-6/12 flex justify-end">
+      <button id="get-to-my-dashboard" class="disabled:cursor-not-allowed disabled:bg-gray-500 bg-main-blue text-sm cursor-pointer text-white py-3 px-4 rounded flex mt-3">
+        Acceder a mi panel de control
+      </button>
+    </div>
+  </div>
+
   <%#= button_to "Ir a mi dashboard", dashboard_place_create_link_path, method: :post, class: "bg-black cursor-pointer text-white py-3 px-8 rounded flex mt-3", remote: true, data: {"disable-with": "Cargando..."} %>
 </div>
 

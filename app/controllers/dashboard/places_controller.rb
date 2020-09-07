@@ -174,6 +174,9 @@ class Dashboard::PlacesController < ApplicationController
 
   def set_user_account
     @user_account = current_user.account
+    if @user_account.nil?
+      Account.create_stripe_account(nil, current_user)
+    end
   end
 
 
