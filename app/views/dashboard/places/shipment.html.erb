@@ -1,0 +1,43 @@
+<div class="w-full" x-data="editMyPlace(<%= @place.delivery_option %>)">
+  <div class="w-full pb-4 relative">
+    <% if @place.kind === "free" %>
+      <div class="absolute w-full flex-wrap h-full right-0 bottom-0 left-0 top-0 bg-white bg-opacity-75 items-center justify-center flex">
+        <div class="w-full flex justify-center flex-wrap items-center">
+          <h2 class="text-center font-bold w-full">
+            Actualiza tu plan para ofrecer envíos a domicilio
+          </h2>
+          <%= link_to "Actualizar", dashboard_upgrade_plan_path, class: "bg-main-red font-normal text-white rounded py-3 px-6 mt-5" %>
+        </div>
+      </div>
+    <% end %>
+    <h2 class="text-lg font-bold mb-4 text-gray-900">Envíos</h2>
+    <%= simple_form_for(@place, url: dashboard_place_update_delivery_path(@place.slug), html: {class: "w-full flex flex-wrap"}, remote: true) do |f| %>
+      <%= f.input :delivery_option, as: :boolean, label: "¿Realizas envíos a domicilio?", label_html: {class: "text-sm font-normal text-gray-600 w-full select-none"}, input_html: {class: "mr-4", "x-on:change": "handleCheckbox($event)"}, wrapper_html: {class: "w-full mb-4"} %>
+      <div
+        :class="{'hidden': !acceptDelivery}"
+        class="w-full flex flex-wrap hidden">
+        <div class="w-full">
+          <%= f.input :delivery_cost, as: :float, label: "Precio de envío", label_html: {class: "text-sm font-normal text-gray-600"}, wrapper_html: {class: "w-full"}, input_html: {class: 'py-3 px-3 bg-white border-gray-400 border appearance-none focus:border-black rounded focus:outline-none w-full mt-2 mb-4'} %>
+        </div>
+        <div class="w-full">
+          <%= f.input :delivery_distance, as: :float, label: "Distancia máxima de entrega", label_html: {class: "text-sm font-normal text-gray-600"}, wrapper_html: {class: "w-full"}, input_html: {class: 'py-3 px-3 bg-white border-gray-400 border appearance-none focus:border-black rounded focus:outline-none w-full mt-2 mb-4'} %>
+        </div>
+
+      </div>
+      <div class="w-full mt-4 flex justify-end">
+        <%= f.submit value: "Guardar", disabled: @place.free?, class: "disabled:opacity-75  bg-black py-2 px-6 text-white rounded cursor-pointer", data: {"disable-with": "Actualizando..."} %>
+      </div>
+    <% end %>
+  </div>
+  <script type="text/javascript" charset="utf-8">
+      function editMyPlace(deliveryOption = false) {
+          return {
+              acceptDelivery: deliveryOption,
+              handleCheckbox: function (e) {
+                  console.log(e.target.checked);
+                  this.acceptDelivery = e.target.checked;
+              }
+          }
+      }
+  </script>
+</div>

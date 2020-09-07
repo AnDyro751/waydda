@@ -2,7 +2,7 @@ window.scrollTo(0, 0);
 document.querySelector("#notifications").innerHTML = "";
 console.log("<%= @place.errors.any? %>")
 <% if @place.errors.any? %>
-document.querySelector("#notifications").innerHTML = "<%= j render Notifications::Alert.new(notice: "Se han encontrado errores al crear la empresa",kind: "error") %>";
+document.querySelector("#notifications").innerHTML = "<%= j render Notifications::Alert.new(alert: "Se han encontrado errores al crear la empresa",kind: "error") %>";
 <% @place.errors.each do |keyE,error| %>
 //console.log("<%= keyE %>", "<%= error %>")
 <% if keyE.to_s === "address" %>
@@ -17,7 +17,7 @@ if (element) {
         spanElement.innerHTML = "<%= error %>";
     } else {
         var newNotification = document.createElement("div")
-        newNotification.innerHTML = "<%= j render Notifications::Alert.new(notice: "#{keyE} #{error}" ,kind: "error") %>";
+        newNotification.innerHTML = "<%= j render Notifications::Alert.new(alert: "#{keyE} #{error}" ,kind: "error") %>";
         document.querySelector("#notifications").appendChild(newNotification);
     }
 }

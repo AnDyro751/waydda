@@ -26,5 +26,5 @@ if (element) {
 document.querySelector("#notifications").innerHTML = "<%= j render Notifications::Alert.new(alert: "Se ha guardado la dirección",kind: "success") %>";
 document.querySelector("#address_value").innerHTML = "<%= @address.address %>";
 document.querySelector("#address_value").title = "<%= @address.address %>";current_user_id: current_user.id.to_s,
-<% end %>
-window.deleteFlashs();
+    <% end %>
+    window.deleteFlashs();

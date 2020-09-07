@@ -58,6 +58,7 @@ class Place
   validates :address, presence: true, length: {in: 4..100}
   validates :status, presence: true, inclusion: {in: %w(pending active inactive)}
   validates :kind, presence: true, inclusion: {in: %w(free premium)}
+  validates :slug, uniqueness: true, length: {in: 4..20}
 # validates :city, presence: true
 
   aasm column: :status do
@@ -94,6 +95,8 @@ class Place
 
 
   private
+
+
 
   def self.cancel_subscription(subscription_id)
     get_subscription = Subscription.find_by(stripe_subscription_id: subscription_id)
