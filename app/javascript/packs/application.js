@@ -83,7 +83,7 @@ window.findRegion = function (arrayRegion) {
 
 window.addFlashMessage = function (text, error = false) {
     document.querySelector("#notifications").innerHTML = `
-                            <div class="z-20 bottom-0 mx-auto w-9/12 mt-10">
+                            <div class="z-20 bottom-0 mx-auto w-full mt-10">
                           <div id="flash-notice" class="transition w-full duration-300 truncate cursor-pointer px-4 py-4 text-white rounded ${error ? "bg-red-500" : "bg-indigo-600"}">
                             <p class="font-normal">${text}</p>
                           </div>

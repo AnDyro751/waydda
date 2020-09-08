@@ -1,7 +1,8 @@
 import Uppy from '@uppy/core'
 import XHRUpload from '@uppy/xhr-upload';
+import GetImageUrl from "../../../lib/getImageUrl";
 
-const FileInput = require('@uppy/file-input')
+// const FileInput = require('@uppy/file-input')
 const StatusBar = require('@uppy/status-bar')
 
 // import Dashboard from '@uppy/dashboard'
@@ -33,7 +34,28 @@ if (element) {
             hideUploadButton: true,
             hideAfterFinish: true
         })
-        .use(XHRUpload, {endpoint: `/dashboard/upload/product/${slug}/photo`, limit: 1});
+        .use(XHRUpload, {endpoint: `/dashboard/upload/product/${slug}/photo`, limit: 1})
+        .on('complete', (result) => {
+            console.log('Upload result:', result)
+            if (Array.isArray(result.successful)) {
+                if (result.successful.length > 0) {
+                    var current_result = result.successful[0];
+                    if (current_result.response.status === 200) {
+                        try {
+                            document.querySelector("#product_image").src = GetImageUrl({
+                                publicId: current_result.response.body.image_url,
+                                height: 150,
+                                width: 150
+                            })
+                            window.addFlashMessage("La foto del producto se a actualizado")
+                        } catch (e) {
+                            window.addFlashMessage("Ha ocurrido un error al actualizar la imagen", true)
+                        }
+
+                    }
+                }
+            }
+        });
 
     const fileInput = document.querySelector('#my-file-input')
 
@@ -60,27 +82,5 @@ if (element) {
             }
         })
     })
-    console.log("HOLA");
-    // Uppy({
-    //     debug: true,
-    //     allowMultipleUploads: false,
-    //     restrictions: {
-    //         maxFileSize: 10 * 1024 * 1024,
-    //         maxNumberOfFiles: 1,
-    //         minNumberOfFiles: 0,
-    //         allowedFileTypes: ['image/*', '.jpg', '.jpeg', '.png'],
-    //     },
-    // })
-    //     .use(Dashboard, {
-    //         trigger: '#select-files',
-    //         showProgressDetails: true,
-    //         browserBackButtonClose: true,
-    //         closeAfterFinish: true,
-    //         locale: es,
-    //         note: "Hasta 10 MB por imagen"
-    //     })
-    //     .use(XHRUpload, {endpoint: `/dashboard/upload/product/demo/image`, limit: 1})
-    //     .on('complete', (result) => {
-    //         console.log('Upload result:', result)
-    //     })
+
 }
