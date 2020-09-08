@@ -19,7 +19,8 @@ module.exports = {
                 "secondary-light": "#f9e8e1",
                 "main-teal": "#2befb2",
                 "main-blue": "#5f48f6",
-                "main-dark": "#3f444c"
+                "main-dark": "#3f444c",
+                "main-teal-dark": "#228f6d"
             },
             textColor: {
                 main: "#f8f5f2",
@@ -30,8 +31,8 @@ module.exports = {
         },
     },
     variants: {
-        display: ['responsive', 'hover', 'focus'],
-        visibility: ['responsive', 'hover', 'focus'],
+        // display: ['responsive', 'hover', 'focus'],
+        // visibility: ['responsive', 'hover', 'focus']
     },
     plugins: [],
 }

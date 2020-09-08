@@ -19,12 +19,12 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b89cb0fb-b680-4bb9-8ae0-f4b41721cfb9" name="Default Changelist" comment="feat(Dashboard): Subimos la foto del producto sin problemas">
-      <change afterPath="$PROJECT_DIR$/app/helpers/dashboard/main_helper.rb" afterDir="false" />
+    <list default="true" id="b89cb0fb-b680-4bb9-8ae0-f4b41721cfb9" name="Default Changelist" comment="feat(Dashboard): Actualizamos la foto del producto y la mostramos en el div correspondiente">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/javascript/packs/application.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/javascript/packs/application.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/javascript/packs/dashboard/products/new.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/javascript/packs/dashboard/products/new.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/dashboard/products/show.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/dashboard/products/show.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/assets/stylesheets/application.scss" beforeDir="false" afterPath="$PROJECT_DIR$/app/assets/stylesheets/application.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/helpers/dashboard/main_helper.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/helpers/dashboard/main_helper.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/dashboard/products/index.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/dashboard/products/index.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tailwind.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/tailwind.config.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -506,14 +506,10 @@
       <workItem from="1598993828472" duration="63117000" />
       <workItem from="1599190626704" duration="25065000" />
       <workItem from="1599366275120" duration="39822000" />
-      <workItem from="1599514643010" duration="4014000" />
-    </task>
-    <task id="LOCAL-00081" summary="feat(Address): Actualizamos la dirección de entrega para que se pueda editar y mostrar en el header">
-      <created>1598977344668</created>
-      <option name="number" value="00081" />
-      <option name="presentableId" value="LOCAL-00081" />
-      <option name="project" value="LOCAL" />
-      <updated>1598977344669</updated>
+      <workItem from="1599514643010" duration="4935000" />
+      <workItem from="1599537196035" duration="43000" />
+      <workItem from="1599539890751" duration="29000" />
+      <workItem from="1599540158881" duration="1766000" />
     </task>
     <task id="LOCAL-00082" summary="feat(Address): Cambiamos el color de los iconos">
       <created>1598977402709</created>
@@ -851,7 +847,14 @@
       <option name="project" value="LOCAL" />
       <updated>1599523315298</updated>
     </task>
-    <option name="localTasksCounter" value="130" />
+    <task id="LOCAL-00130" summary="feat(Dashboard): Actualizamos la foto del producto y la mostramos en el div correspondiente">
+      <created>1599529999133</created>
+      <option name="number" value="00130" />
+      <option name="presentableId" value="LOCAL-00130" />
+      <option name="project" value="LOCAL" />
+      <updated>1599529999133</updated>
+    </task>
+    <option name="localTasksCounter" value="131" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -871,7 +874,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="feat(Business): Create job for create stripe customer" />
     <MESSAGE value="feat(Business): Init create stripe subscription" />
     <MESSAGE value="feat(Business): Persistimos al user" />
     <MESSAGE value="feat(Business): Enviamos a premium o a free dependiendo del precio" />
@@ -896,7 +898,8 @@
     <MESSAGE value="feat(Dashboard): Hay un error pendejo" />
     <MESSAGE value="feat(Dashboard): Agregamos uppy para subir el archivo, aunque pienso quitarlo porque no es tan necesario" />
     <MESSAGE value="feat(Dashboard): Subimos la foto del producto sin problemas" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat(Dashboard): Subimos la foto del producto sin problemas" />
+    <MESSAGE value="feat(Dashboard): Actualizamos la foto del producto y la mostramos en el div correspondiente" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat(Dashboard): Actualizamos la foto del producto y la mostramos en el div correspondiente" />
   </component>
   <component name="WindowStateProjectService">
     <state x="392" y="0" key="#All_specs_in_spec:_waydda" timestamp="1598730457189">
@@ -968,12 +971,12 @@
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="544" y="96" key="VCS.ChangeListViewerDialog/0.0.1366.768@0.0.1366.768" timestamp="1598750646694" />
-    <state x="275" y="117" key="Vcs.Push.Dialog.v2" timestamp="1599445789476">
+    <state x="275" y="117" key="Vcs.Push.Dialog.v2" timestamp="1599532249643">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="1640" y="117" key="Vcs.Push.Dialog.v2/0.0.1366.768/1366.0.1360.768@1366.0.1360.768" timestamp="1598221582431" />
     <state x="1753" y="165" key="Vcs.Push.Dialog.v2/0.0.1366.768/1366.0.1920.1080@1366.0.1920.1080" timestamp="1599267641822" />
-    <state x="275" y="117" key="Vcs.Push.Dialog.v2/0.0.1366.768@0.0.1366.768" timestamp="1599445789476" />
+    <state x="275" y="117" key="Vcs.Push.Dialog.v2/0.0.1366.768@0.0.1366.768" timestamp="1599532249643" />
     <state x="496" y="169" key="chooseDestDirectoryDialog" timestamp="1598730651549">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
@@ -991,27 +994,27 @@
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="628" y="298" key="com.jetbrains.plugins.remotesdk.ui.RemoteMappingsConfiguration/0.0.1366.768@0.0.1366.768" timestamp="1598729856431" />
-    <state x="390" y="117" width="585" height="624" key="find.popup" timestamp="1599529917550">
+    <state x="390" y="117" width="585" height="624" key="find.popup" timestamp="1599539908977">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="1914" y="96" width="823" height="878" key="find.popup/0.0.1366.768/1366.-69.1920.1080@1366.-69.1920.1080" timestamp="1597716285449" />
     <state x="1754" y="117" width="583" height="624" key="find.popup/0.0.1366.768/1366.0.1360.768@1366.0.1360.768" timestamp="1598981376119" />
     <state x="1914" y="165" width="823" height="878" key="find.popup/0.0.1366.768/1366.0.1920.1080@1366.0.1920.1080" timestamp="1599260651210" />
-    <state x="390" y="117" width="585" height="624" key="find.popup/0.0.1366.768@0.0.1366.768" timestamp="1599529917550" />
+    <state x="390" y="117" width="585" height="624" key="find.popup/0.0.1366.768@0.0.1366.768" timestamp="1599539908977" />
     <state x="549" y="254" width="250" height="278" key="jetbrains.javascript.buildTools.run-task-popup" timestamp="1597946321130">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="549" y="254" width="250" height="278" key="jetbrains.javascript.buildTools.run-task-popup/0.0.1366.768@0.0.1366.768" timestamp="1597946321130" />
-    <state x="339" y="174" width="672" height="677" key="run.anything.popup" timestamp="1599507468525">
+    <state x="339" y="174" width="672" height="677" key="run.anything.popup" timestamp="1599541127987">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state x="339" y="174" width="672" height="677" key="run.anything.popup/0.0.1366.768@0.0.1366.768" timestamp="1599507468525" />
-    <state x="346" y="89" width="672" height="678" key="search.everywhere.popup" timestamp="1599529633052">
+    <state x="339" y="174" width="672" height="677" key="run.anything.popup/0.0.1366.768@0.0.1366.768" timestamp="1599541127987" />
+    <state x="346" y="89" width="672" height="678" key="search.everywhere.popup" timestamp="1599541089005">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="1852" y="56" width="945" height="954" key="search.everywhere.popup/0.0.1366.768/1366.-69.1920.1080@1366.-69.1920.1080" timestamp="1597715976170" />
     <state x="1710" y="89" width="672" height="678" key="search.everywhere.popup/0.0.1366.768/1366.0.1360.768@1366.0.1360.768" timestamp="1598985878395" />
     <state x="1852" y="125" width="945" height="954" key="search.everywhere.popup/0.0.1366.768/1366.0.1920.1080@1366.0.1920.1080" timestamp="1599267313630" />
-    <state x="346" y="89" width="672" height="678" key="search.everywhere.popup/0.0.1366.768@0.0.1366.768" timestamp="1599529633052" />
+    <state x="346" y="89" width="672" height="678" key="search.everywhere.popup/0.0.1366.768@0.0.1366.768" timestamp="1599541089005" />
   </component>
 </project>
