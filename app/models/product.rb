@@ -78,7 +78,7 @@ class Product
     begin
       product.update("#{attribute}": new_value)
     rescue
-      return {success: false, error: 'No se ha encontrado el recurso'}
+      return {success: false, error: 'Ha ocurrido un error al cargar la foto'}
     end
     return {success: true, error: nil}
   end

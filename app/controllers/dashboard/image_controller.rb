@@ -16,8 +16,9 @@ class Dashboard::ImageController < ApplicationController
     obj.upload_file(image_file.tempfile)
     update_response = model.update_attribute(params["attribute"], params["slug"], bucket_filename, current_user)
     if update_response[:error]
-      render json: {image_url: nil}, status: :unprocessable_entity
+      render json: {image_url: nil, error: update_response[:error]}, status: :unprocessable_entity
+    else
+      render json: {image_url: bucket_filename}, status: :ok
     end
-    render json: {image_url: bucket_filename}, status: :ok
   end
 end

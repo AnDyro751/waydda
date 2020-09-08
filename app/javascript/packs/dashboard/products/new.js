@@ -13,6 +13,7 @@ import('@uppy/status-bar/dist/style.css')
 
 var element = document.querySelector(".UppyInput-Progress");
 if (element) {
+    var slug = document.querySelector("meta[name=product_slug]") ? document.querySelector("meta[name=product_slug]").content : null
     const uppyOne = new Uppy({
         debug: true, autoProceed: true,
         restrictions: {
@@ -32,7 +33,7 @@ if (element) {
             hideUploadButton: true,
             hideAfterFinish: true
         })
-        .use(XHRUpload, {endpoint: `/dashboard/upload/product/demo/image`, limit: 1});
+        .use(XHRUpload, {endpoint: `/dashboard/upload/product/${slug}/photo`, limit: 1});
 
     const fileInput = document.querySelector('#my-file-input')
 
