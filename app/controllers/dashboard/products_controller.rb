@@ -38,7 +38,7 @@ class Dashboard::ProductsController < ApplicationController
   def update
     respond_to do |format|
       if @product.update(product_params)
-        format.html { redirect_to dashboard_product_path(@product.slug), notice: 'Place was successfully updated.' }
+        format.html { redirect_to dashboard_product_path(@product.slug), alert: 'Se ha actualizado el producto.' }
         format.json { render :show, status: :ok, location: @product.slug }
       else
         puts "#{@product.errors.full_messages}-----"

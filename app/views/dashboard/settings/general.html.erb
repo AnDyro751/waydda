@@ -1,3 +1,7 @@
+<%= content_for(:head_tags) do %>
+  <meta name="content_slug" content="<%= @place.id.to_s %>"/>
+  <meta name="content_model" content="place"/>
+<% end %>
 <div class="w-full" id="messages"></div>
 <div class="w-full mt-4 text-gray-800 text-sm">
   <span class=""><%= link_to "Ajustes", dashboard_edit_my_place_path, class: "hover:underline" %>

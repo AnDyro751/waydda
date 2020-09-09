@@ -1,5 +1,9 @@
-<h1>Actualizar product: <strong><%= @product.name %></strong> </h1>
+<%= render Headers::Text.new(title: "#{@product.name}") %>
+<h1>Variantes</h1>
+<div class="w-full">
+  <%= render "dashboard/aggregates/list", aggregates: @product.aggregates %>
+</div>
+<div class="w-full">
+  <%= render 'form', product: @product %>
+</div>
 
-<h1>Agregados</h1>
-<%= render "dashboard/aggregates/list", aggregates: @product.aggregates %>
-<%= render 'form', product: @product %>

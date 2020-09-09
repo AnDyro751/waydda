@@ -1,5 +1,6 @@
 <%= content_for(:head_tags) do %>
-  <meta name="product_slug" content="<%= @product.id.to_s %>"/>
+  <meta name="content_slug" content="<%= @product.id.to_s %>"/>
+  <meta name="content_model" content="product"/>
 <% end %>
 <div class="w-full py-8 flex gap-4 items-center justify-between">
   <div class="w-7/12">
@@ -36,9 +37,8 @@
           <img
             id="product_image"
             class="lazy h-48 rounded w-48 bg-gray-200"
-            src="<%= get_image_url(10, 10, @product.photo) %>" data-src="<%= get_image_url(200, 200, @product.photo) %>" alt="<%= @product.name %> photo">
-
-          <input type='file' class="hidden" id="my-file-input"/>
+            src="<%= get_image_url(10, 10, @product.photo, "cover") %>" data-src="<%= get_image_url(200, 200, @product.photo, "cover") %>" alt="<%= @product.name %> photo">
+          <input type='file' class="hidden" id="my-file-input" accept="image/*" />
         </label>
       </div>
       <div class="UppyInput-Progress w-full mt-8"></div>

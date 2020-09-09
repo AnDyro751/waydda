@@ -3,7 +3,7 @@ module ImageHelper
   # @param [Integer] width
   # @param [String] path
   # @return [String] image_url
-  def get_image_url(height = 50, width = 50, path = nil)
+  def get_image_url(height = 50, width = 50, path = nil, fit = "outside")
     waydda_base_url = "https://d1nrrr6y3ujrjz.cloudfront.net"
     image_request = {
         'bucket': 'waydda-qr',
@@ -12,7 +12,7 @@ module ImageHelper
             'resize': {
                 'width': width,
                 'height': height,
-                'fit': 'outside'
+                'fit': fit
             }
         }
     }

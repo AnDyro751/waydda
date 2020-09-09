@@ -14,7 +14,8 @@ import('@uppy/status-bar/dist/style.css')
 
 var element = document.querySelector(".UppyInput-Progress");
 if (element) {
-    var slug = document.querySelector("meta[name=product_slug]") ? document.querySelector("meta[name=product_slug]").content : null
+    var model = document.querySelector(`meta[name=content_model]`) ? document.querySelector("meta[name=content_model]").content : null
+    var slug = document.querySelector(`meta[name=content_slug]`) ? document.querySelector("meta[name=content_slug]").content : null
     const uppyOne = new Uppy({
         debug: true, autoProceed: true,
         restrictions: {
@@ -34,7 +35,7 @@ if (element) {
             hideUploadButton: true,
             hideAfterFinish: true
         })
-        .use(XHRUpload, {endpoint: `/dashboard/upload/product/${slug}/photo`, limit: 1})
+        .use(XHRUpload, {endpoint: `/dashboard/upload/${model}/${slug}/photo`, limit: 1})
         .on('complete', (result) => {
             console.log('Upload result:', result)
             if (Array.isArray(result.successful)) {
@@ -42,12 +43,12 @@ if (element) {
                     var current_result = result.successful[0];
                     if (current_result.response.status === 200) {
                         try {
-                            document.querySelector("#product_image").src = GetImageUrl({
+                            document.querySelector(`#${model}_image`).src = GetImageUrl({
                                 publicId: current_result.response.body.image_url,
                                 height: 150,
                                 width: 150
                             })
-                            window.addFlashMessage("La foto del producto se a actualizado")
+                            window.addFlashMessage("La foto se ha actualizado")
                         } catch (e) {
                             window.addFlashMessage("Ha ocurrido un error al actualizar la imagen", true)
                         }

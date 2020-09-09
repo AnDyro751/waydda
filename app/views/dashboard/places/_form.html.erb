@@ -1,5 +1,5 @@
 <div class="w-full flex" x-data="addressForm()">
-  <%= simple_form_for(@place, url: url ? url : dashboard_places_path, remote: true, html: {class: "w-full flex gap-8"}) do |f| %>
+  <%= simple_form_for(@place, url: url ? url : dashboard_places_path, remote: true, html: {class: "w-full flex gap-8 items-start"}) do |f| %>
     <div class="w-1/2 mb-4 flex-wrap flex">
       <div class="w-full">
         <%= f.input :name, label: "Nombre de tu empresa", placeholder: "Ej. Miscelanea Hermanos Ponchos", label_html: {class: "text-sm font-normal text-gray-600"}, input_html: {"x-on:input": "handleChange($event)", class: "py-3 px-3 bg-white border-gray-400 border appearance-none focus:border-black rounded focus:outline-none w-full mt-2"} %>
@@ -49,14 +49,35 @@
         <%= f.submit !@place.new_record? ? "Actualizar empresa" : "Crear empresa", data: {"disable-with": !@place.new_record? ? "Actualizando..." : "Creando..."}, class: "bg-main-blue text-sm text-white py-3 px-4 rounded cursor-pointer mt-8" %>
       </div>
     </div>
-    <% unless @place.new_record? %>
-      <div class="w-1/2">
+    <div class="w-1/2 flex flex-wrap">
+
+      <% unless @place.new_record? %>
+        <div class="w-full relative self-start">
+          <div class="flex w-full flex-wrap">
+            <p class="text-sm font-normal w-full text-gray-600">Logo de la empresa</p>
+            <label
+              class="h-48 rounded relative w-48 mt-2 bg-gray-200 cursor-pointer"
+            >
+              <div class="absolute flex justify-center items-center rounded bottom-0 top-0 left-0 right-0 bg-black bg-opacity-25 opacity-0 hover:opacity-100 hover:bg-opacity-75 transition duration-150">
+                <span class="text-sm text-white">Actualizar</span>
+              </div>
+              <img
+                id="place_image"
+                class="lazy h-48 rounded w-48 bg-gray-200"
+                src="<%= get_image_url(10, 10, @place.photo) %>" data-src="<%= get_image_url(200, 200, @place.photo) %>" alt="<%= @place.name %> photo">
+
+              <input type='file' class="hidden" accept="image/*" id="my-file-input"/>
+            </label>
+          </div>
+          <div class="UppyInput-Progress w-full mt-8"></div>
+
+        </div>
         <div class="w-full mb-4">
           <%= f.input :slug, label: "Url de perfil", placeholder: @place.slug, label_html: {class: "text-sm font-normal text-gray-600"}, input_html: {"x-on:input": "handleChange($event)", class: "py-3 px-3 bg-white border-gray-400 border appearance-none focus:border-black rounded focus:outline-none w-full mt-2"} %>
           <span name="place[slug]_error" class="text-sm font-bold text-red-600"></span>
         </div>
-      </div>
-    <% end %>
+      <% end %>
+    </div>
   <% end %>
   <script type="text/javascript" charset="utf-8">
       var timer;
@@ -107,3 +128,5 @@
   </script>
 </div>
 
+
+<%= javascript_packs_with_chunks_tag "dashboard/products/new", 'data-turbolinks-track': "reload" %>
