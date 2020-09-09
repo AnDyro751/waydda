@@ -7,11 +7,7 @@
   <div class="grid grid-cols-12 gap-4 w-full">
     <% @products.each do |product| %>
       <div class="col-span-6">
-        <%= render Products::Item.new(product) do %>
-          <%= link_to dashboard_product_path(product.slug) do %>
-            <%#= react_component('ResponsiveImage', props: {publicId: product.photo, alt: "product", byDefault: false, wrapperClass: "md:w-32 md:h-32 rounded", className: "rounded"}, prerender: false) %>
-          <% end %>
-        <% end %>
+        <%= render Products::Item.new(product) %>
       </div>
     <% end %>
   </div>
