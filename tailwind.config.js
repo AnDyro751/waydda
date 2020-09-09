@@ -14,12 +14,12 @@ module.exports = {
                 facebook: "#4065b4",
                 main: "#f8f5f2",
                 "main-red": "#f45d48",
-                "main-gray": "#F6F6F6",
+                "main-gray": "#eaeaea",
                 "light-black": "#2d2d2d",
                 "secondary-light": "#f9e8e1",
                 "main-teal": "#2befb2",
                 "main-blue": "#5f48f6",
-                "main-dark": "#3f444c",
+                "main-dark": "#1e2125",
                 "main-teal-dark": "#228f6d"
             },
             textColor: {

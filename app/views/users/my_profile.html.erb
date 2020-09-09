@@ -91,7 +91,6 @@
               handleChange: function (e) {
                   e.target.classList.remove("border-red-500");
                   var element = document.querySelector(`[name="${e.target.name}_error"`);
-                  console.log(e.target, element, `[name="${e.target.name}_error"`);
                   if (element) {
                       element.innerHTML = "";
                   }

@@ -5,29 +5,21 @@ class Dashboard::ProductsController < ApplicationController
   before_action :set_item, only: [:create]
   before_action :set_product, only: [:show, :edit, :update, :destroy]
 
-  # GET /places
-  # GET /places.json
   def index
     @products = @place.products.paginate(page: params[:page], per_page: 20)
   end
 
 
-  # GET /places/1
-  # GET /places/1.json
   def show
   end
 
-  # GET /places/new
   def new
     @product = @place.products.new
   end
 
-  # GET /places/1/edit
   def edit
   end
 
-  # POST /places
-  # POST /places.json
   def create
     @product = Product.new(product_params)
     if @item
@@ -37,16 +29,12 @@ class Dashboard::ProductsController < ApplicationController
     respond_to do |format|
       if @product.save
         format.html { redirect_to dashboard_product_path(@product.slug), alert: 'Se ha creado el producto' }
-        format.json { render :show, status: :created, location: @product }
       else
-        format.html { render :new }
-        format.json { render json: @product.errors, status: :unprocessable_entity }
+        format.js
       end
     end
   end
 
-  # PATCH/PUT /places/1
-  # PATCH/PUT /places/1.json
   def update
     respond_to do |format|
       if @product.update(product_params)
@@ -60,8 +48,6 @@ class Dashboard::ProductsController < ApplicationController
     end
   end
 
-  # DELETE /places/1
-  # DELETE /places/1.json
   def destroy
     @product.destroy
     respond_to do |format|

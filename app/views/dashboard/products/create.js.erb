@@ -1,0 +1,22 @@
+window.scrollTo(0, 0);
+document.querySelector("#notifications").innerHTML = "";
+<% if @product.errors.any? %>
+document.querySelector("#notifications").innerHTML = "<%= j render Notifications::Alert.new(alert: "Se han encontrado errores al crear la empresa",kind: "error") %>";
+<% @product.errors.each do |keyE,error| %>
+var element = document.querySelector("#product_<%= keyE %>");
+if (element) {
+    element.classList.add("border-red-500");
+    element.classList.add("border-2");
+    var spanElement = document.querySelector('[name="product[<%=keyE %>]_error"]')
+    if (spanElement) {
+        spanElement.innerHTML = "<%= error %>";
+    } else {
+        var newNotification = document.createElement("div")
+        newNotification.innerHTML = "<%= j render Notifications::Alert.new(alert: "#{keyE} #{error}" ,kind: "error") %>";
+        document.querySelector("#notifications").appendChild(newNotification);
+    }
+}
+<% end %>
+<% end %>
+
+window.deleteFlashs();
