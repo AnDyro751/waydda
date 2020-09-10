@@ -22,7 +22,7 @@
   <%= main_button(to: edit_dashboard_product_aggregate_path(@product.slug, @aggregate), text: "Editar variante", action: "update") %>
 <% end %>
 <div class="w-full flex flex-wrap">
-  <div class="w-full flex flex-wrap bg-gray-200 rounded divide-gray-300 divide-y">
+  <div class="w-full flex flex-wrap bg-main-gray rounded divide-gray-400 divide-y">
     <div class="w-full p-4 flex items-center">
       <h4 class="font-medium">Precio:</h4>
       <h5 class="text-gray-700 ml-2 text-sm font-normal inline"><%= number_to_currency(@aggregate.price, format: "%u %n") %></h5>

@@ -352,7 +352,7 @@ const ModalSelectMap = ({receiveHandleChange, defaultValues = {}}) => {
                     value={description}
                     label={"Piso / Oficina / Apto / Depto"}
                     placeholder={"Descripción de la dirección (ej. torre, apartamento)"}/>
-                <div className="w-full h-56 bg-gray-200">
+                <div className="w-full h-56 bg-main-gray">
                     <MapComponent
                         draggable={true}
                         onDrag={(e) => {

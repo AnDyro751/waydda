@@ -42,7 +42,7 @@
       <%#= f.input :search_address, required: true, label: "Dirección de tu empresa", label_html: {class: "text-sm font-normal text-gray-600"}, input_html: {class: "py-3 px-3 bg-white border-gray-400 border appearance-none focus:border-black rounded focus:outline-none w-full mt-2 mb-4", value: ""} %>
       <div class="w-full">
         <span class="text-sm text-gray-600">Arrastra el marcador para colocar tu dirección exacta</span>
-        <div class="w-full h-64 rounded mt-2 bg-gray-200 focus:outline-none outline-none" id="map">
+        <div class="w-full h-64 rounded mt-2 bg-main-gray focus:outline-none outline-none" id="map">
         </div>
       </div>
       <div class="w-full justify-end flex mt-4">
@@ -56,14 +56,14 @@
           <div class="flex w-full flex-wrap">
             <p class="text-sm font-normal w-full text-gray-600">Logo de la empresa</p>
             <label
-              class="h-48 rounded relative w-48 mt-2 bg-gray-200 cursor-pointer"
+              class="h-48 rounded relative w-48 mt-2 bg-main-gray cursor-pointer"
             >
               <div class="absolute flex justify-center items-center rounded bottom-0 top-0 left-0 right-0 bg-black bg-opacity-25 opacity-0 hover:opacity-100 hover:bg-opacity-75 transition duration-150">
                 <span class="text-sm text-white">Actualizar</span>
               </div>
               <img
                 id="place_image"
-                class="lazy h-48 rounded w-48 bg-gray-200"
+                class="lazy h-48 rounded w-48 bg-main-gray"
                 src="<%= get_image_url(10, 10, @place.photo) %>" data-src="<%= get_image_url(200, 200, @place.photo) %>" alt="<%= @place.name %> photo">
               <input type='file' class="hidden" accept="image/*" id="my-file-input"/>
             </label>

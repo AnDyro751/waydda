@@ -26,7 +26,7 @@ class Product
   # TODO: Agregar la cantidad publica y la privada
 
   # relations
-  belongs_to :item, optional: true
+  has_and_belongs_to_many :items
   belongs_to :place
   has_and_belongs_to_many :cart_items
   embeds_many :aggregates

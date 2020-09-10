@@ -24,6 +24,39 @@
   <% end %>
 </div>
 
+<div class="w-full mt-8 flex flex-wrap rounded bg-main-gray divide-y divide-gray-400">
+  <div class="w-full p-4 flex items-center">
+    <h4 class="font-medium">Precio:</h4>
+    <h5 class="text-gray-700 ml-2 text-sm font-normal inline"><%= number_to_currency(@product.price, format: "%u %n") %></h5>
+  </div>
+  <div class="w-full p-4 flex items-center">
+    <h4 class="font-medium">Descripción:</h4>
+    <h5 class="ml-2 text-sm font-normal inline <%= @product.description.empty? ? "italic text-gray-500" : "text-gray-700" %>"><%= @product.description.empty? ? "Sin descripción" : @product.description %></h5>
+  </div>
+  <div class="w-full p-4 flex items-center">
+    <h4 class="font-medium">Productos en stock:</h4>
+    <h5 class="text-gray-700 ml-2 text-sm font-normal inline"><%= pluralize(@product.public_stock, "unidad", plural: "unidades") %></h5>
+  </div>
+  <div class="w-full p-4 flex items-center">
+    <h4 class="font-medium">Vender sin stock:</h4>
+    <h5 class="text-gray-700 ml-2 text-sm font-normal inline"><%= @product.unlimited ? "SI" : "NO" %></h5>
+  </div>
+  <div class="w-full p-4 flex items-center">
+    <h4 class="font-medium">Creado:</h4>
+    <h5 class="ml-2 text-sm font-normal inline text-gray-700">Hace <%= time_ago_in_words(@product.created_at) %></h5>
+  </div>
+  <div class="w-full p-4 flex items-center">
+    <h4 class="font-medium">Visto por última vez:</h4>
+    <h5 class="ml-2 text-sm font-normal inline <%= @product.last_viewed.nil? ? "text-gray-500 italic" : "text-gray-700" %>">
+      <% if @product.last_viewed.nil? %>
+        Nunca
+      <% else %>
+        Hace <%= time_ago_in_words(@product.last_viewed) %>
+      <% end %>
+    </h5>
+  </div>
+</div>
+
 <div class="w-full flex mt-8 flex-wrap">
   <div class="w-full flex justify-between items-center">
     <div class="w-3/12">

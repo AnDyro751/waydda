@@ -7,7 +7,7 @@ class Item
   field :photo, type: String, default: "places/default.png"
   # relations
   belongs_to :place
-  has_many :products
+  has_and_belongs_to_many :products
 
 
   # @param [Integer] quantity
