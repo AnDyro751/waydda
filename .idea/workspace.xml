@@ -19,7 +19,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b89cb0fb-b680-4bb9-8ae0-f4b41721cfb9" name="Default Changelist" comment="feat(Dashboard): Pequeña página de la variante">
+    <list default="true" id="b89cb0fb-b680-4bb9-8ae0-f4b41721cfb9" name="Default Changelist" comment="feat(Dashboard): Link para ir al index de aggregates">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/views/dashboard/products/show.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/dashboard/products/show.html.erb" afterDir="false" />
     </list>
@@ -508,14 +508,7 @@
       <workItem from="1599539890751" duration="29000" />
       <workItem from="1599540158881" duration="9418000" />
       <workItem from="1599694138839" duration="8246000" />
-      <workItem from="1599750147633" duration="4897000" />
-    </task>
-    <task id="LOCAL-00095" summary="feat(Business): Agregamos la opción de envío a domicilio">
-      <created>1599100029156</created>
-      <option name="number" value="00095" />
-      <option name="presentableId" value="LOCAL-00095" />
-      <option name="project" value="LOCAL" />
-      <updated>1599100029156</updated>
+      <workItem from="1599750147633" duration="5483000" />
     </task>
     <task id="LOCAL-00096" summary="feat(Business): Envíos a domicilio a las personas premium">
       <created>1599100701301</created>
@@ -853,7 +846,14 @@
       <option name="project" value="LOCAL" />
       <updated>1599765964285</updated>
     </task>
-    <option name="localTasksCounter" value="144" />
+    <task id="LOCAL-00144" summary="feat(Dashboard): Link para ir al index de aggregates">
+      <created>1599766144445</created>
+      <option name="number" value="00144" />
+      <option name="presentableId" value="LOCAL-00144" />
+      <option name="project" value="LOCAL" />
+      <updated>1599766144445</updated>
+    </task>
+    <option name="localTasksCounter" value="145" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -873,7 +873,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="feat(Dashboard): Init connect" />
     <MESSAGE value="feat(Dashboard): Hacemos que se cancele la suscripción mediante un webhook" />
     <MESSAGE value="feat(Dashboard): Cancelamos y actualizamos suscripciones" />
     <MESSAGE value="feat(Dashboard): Mostramos un mensaje para decirle en cuantos días se acaba su prueba gratuita" />
@@ -898,7 +897,8 @@
     <MESSAGE value="feat(Dashboard): Agregamos los breadcumbs para la navegación" />
     <MESSAGE value="feat(Dashboard): Vamos a mostrar los datos de la variante del producto" />
     <MESSAGE value="feat(Dashboard): Pequeña página de la variante" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat(Dashboard): Pequeña página de la variante" />
+    <MESSAGE value="feat(Dashboard): Link para ir al index de aggregates" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat(Dashboard): Link para ir al index de aggregates" />
   </component>
   <component name="WindowStateProjectService">
     <state x="392" y="0" key="#All_specs_in_spec:_waydda" timestamp="1598730457189">
