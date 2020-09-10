@@ -1,5 +1,7 @@
 <% if @aggregates.length <= 0 %>
-  <%= render EmptyRecords.new(title: "Aún no has agregado ninguna variante") %>
+  <div class="w-full mt-3" >
+    <%= render EmptyRecords.new(title: "Aún no has agregado ninguna variante") %>
+  </div>
 <% else %>
   <% @aggregates.each do |aggregate| %>
     <ul class="w-full flex items-center gap-4 mb-2">

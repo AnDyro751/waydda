@@ -51,7 +51,7 @@ class Dashboard::AggregatesController < ApplicationController
   def destroy
     @aggregate.destroy
     respond_to do |format|
-      format.html { redirect_to dashboard_product_aggregates_path(@product.slug), notice: 'Producto eliminado correctamente' }
+      format.html { redirect_to dashboard_product_aggregates_path(@product.slug), alert: 'Se ha eliminado la variante' }
       format.json { head :no_content }
     end
   end

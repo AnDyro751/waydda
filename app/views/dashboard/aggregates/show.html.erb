@@ -1,5 +1,7 @@
-<h1>Mostrando aggregate</h1>
+<%= render Headers::Text.new(title: @aggregate.name, small: true, with_margin: true) do %>
+  <%#= link_to "Editar", edit_dashboard_product_aggregate_path(@product.slug, @aggregate) %>
+  <%= main_button(to: edit_dashboard_product_aggregate_path(@product.slug, @aggregate), text: "Editar variante", action: "update") %>
+<% end %>
+<%= render Headers::Text.new(title: "Área de peligro", small: true, with_margin: true) %>
 
-<h2><strong>Nombre: </strong><%= @aggregate.name %></h2>
-<%= link_to "Editar", edit_dashboard_product_aggregate_path(@product.slug, @aggregate) %>
-<%= link_to "Eliminar", dashboard_product_aggregate_path(@product.slug, @aggregate), data: {confirm: "¿Esás seguro?"}, class: "text-red-600", remote: true, method: :delete %>
+<%= link_to "Eliminar", dashboard_product_aggregate_path(@product.slug, @aggregate), data: {confirm: "¿Esás seguro?", "disable-with": "Cargando..."}, class: main_color_button(color: "danger"), remote: true, method: :delete %>
