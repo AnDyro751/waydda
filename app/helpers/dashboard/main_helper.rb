@@ -5,6 +5,8 @@ module Dashboard::MainHelper
       "#{custom_class ? custom_class : ""} bg-main-blue hover:bg-opacity-75 cursor-pointer hover:shadow-small transform shadow-main hover:top-simple hover:left-simple relative py-2 px-4 transition duration-150 font-medium text-sm border-2 text-white rounded border-black"
     elsif color === "primary"
       "#{custom_class ? custom_class : ""} bg-main-teal hover:bg-opacity-75 cursor-pointer hover:shadow-small transform shadow-main hover:top-simple hover:left-simple relative py-2 px-4 transition duration-150 font-medium text-sm border-2 text-black rounded border-black"
+    elsif color === "danger"
+      "#{custom_class ? custom_class : ""} bg-main-red hover:bg-opacity-75 cursor-pointer hover:shadow-small transform shadow-main hover:top-simple hover:left-simple relative py-2 px-4 transition duration-150 font-medium text-sm border-2 text-white rounded border-black"
     else
       "#{custom_class ? custom_class : ""} bg-main-dark hover:bg-opacity-75 cursor-pointer hover:shadow-small transform shadow-main hover:top-simple hover:left-simple relative py-2 px-4 transition duration-150 font-medium text-sm border-2 text-white rounded border-black"
     end
