@@ -19,10 +19,9 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b89cb0fb-b680-4bb9-8ae0-f4b41721cfb9" name="Default Changelist" comment="feat(Dashboard): Vamos a mostrar los datos de la variante del producto">
+    <list default="true" id="b89cb0fb-b680-4bb9-8ae0-f4b41721cfb9" name="Default Changelist" comment="feat(Dashboard): Pequeña página de la variante">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/aggregate.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/aggregate.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/dashboard/aggregates/show.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/dashboard/aggregates/show.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/dashboard/products/show.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/dashboard/products/show.html.erb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -509,14 +508,7 @@
       <workItem from="1599539890751" duration="29000" />
       <workItem from="1599540158881" duration="9418000" />
       <workItem from="1599694138839" duration="8246000" />
-      <workItem from="1599750147633" duration="4722000" />
-    </task>
-    <task id="LOCAL-00094" summary="feat(Business): Mensaje de esperar un par de horas">
-      <created>1599098071350</created>
-      <option name="number" value="00094" />
-      <option name="presentableId" value="LOCAL-00094" />
-      <option name="project" value="LOCAL" />
-      <updated>1599098071350</updated>
+      <workItem from="1599750147633" duration="4897000" />
     </task>
     <task id="LOCAL-00095" summary="feat(Business): Agregamos la opción de envío a domicilio">
       <created>1599100029156</created>
@@ -854,7 +846,14 @@
       <option name="project" value="LOCAL" />
       <updated>1599760300513</updated>
     </task>
-    <option name="localTasksCounter" value="143" />
+    <task id="LOCAL-00143" summary="feat(Dashboard): Pequeña página de la variante">
+      <created>1599765964285</created>
+      <option name="number" value="00143" />
+      <option name="presentableId" value="LOCAL-00143" />
+      <option name="project" value="LOCAL" />
+      <updated>1599765964285</updated>
+    </task>
+    <option name="localTasksCounter" value="144" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -874,7 +873,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="feat(Dashboard): Pequeños cambios en UI" />
     <MESSAGE value="feat(Dashboard): Init connect" />
     <MESSAGE value="feat(Dashboard): Hacemos que se cancele la suscripción mediante un webhook" />
     <MESSAGE value="feat(Dashboard): Cancelamos y actualizamos suscripciones" />
@@ -899,7 +897,8 @@
     <MESSAGE value="feat(Dashboard): Estilizamos un poco el form para crear la variante y su vista" />
     <MESSAGE value="feat(Dashboard): Agregamos los breadcumbs para la navegación" />
     <MESSAGE value="feat(Dashboard): Vamos a mostrar los datos de la variante del producto" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat(Dashboard): Vamos a mostrar los datos de la variante del producto" />
+    <MESSAGE value="feat(Dashboard): Pequeña página de la variante" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat(Dashboard): Pequeña página de la variante" />
   </component>
   <component name="WindowStateProjectService">
     <state x="392" y="0" key="#All_specs_in_spec:_waydda" timestamp="1598730457189">
@@ -994,13 +993,13 @@
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="628" y="298" key="com.jetbrains.plugins.remotesdk.ui.RemoteMappingsConfiguration/0.0.1366.768@0.0.1366.768" timestamp="1598729856431" />
-    <state x="390" y="117" width="585" height="624" key="find.popup" timestamp="1599765574117">
+    <state x="390" y="117" width="585" height="624" key="find.popup" timestamp="1599765999221">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="1914" y="96" width="823" height="878" key="find.popup/0.0.1366.768/1366.-69.1920.1080@1366.-69.1920.1080" timestamp="1597716285449" />
     <state x="1754" y="117" width="583" height="624" key="find.popup/0.0.1366.768/1366.0.1360.768@1366.0.1360.768" timestamp="1598981376119" />
     <state x="1914" y="165" width="823" height="878" key="find.popup/0.0.1366.768/1366.0.1920.1080@1366.0.1920.1080" timestamp="1599260651210" />
-    <state x="390" y="117" width="585" height="624" key="find.popup/0.0.1366.768@0.0.1366.768" timestamp="1599765574117" />
+    <state x="390" y="117" width="585" height="624" key="find.popup/0.0.1366.768@0.0.1366.768" timestamp="1599765999221" />
     <state x="549" y="254" width="250" height="278" key="jetbrains.javascript.buildTools.run-task-popup" timestamp="1597946321130">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
