@@ -1,5 +1,7 @@
 module.exports = {
     purge: [
+        './app/helpers/**/*.{rb}',
+        './app/helpers/*.{rb}',
         './app/views/**/*.{js,jsx,ts,tsx,html,html.erb}',
         './app/javascript/bundles/**/*.{js,jsx,ts,tsx}'
     ],

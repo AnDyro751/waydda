@@ -43,7 +43,7 @@
     </div>
   </div>
   <div class="w-full mt-4">
-    <%= render Dashboard::Aggregates::List.new(aggregates: @product.aggregates, size: "base") %>
+    <%= render Dashboard::Aggregates::List.new(aggregates: @product.aggregates, size: "base", product: @product) %>
   </div>
 </div>
 <%#= link_to "Ver aggregates", dashboard_product_aggregates_path(@product.slug) %>

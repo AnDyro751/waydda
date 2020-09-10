@@ -26,7 +26,7 @@ class Dashboard::AggregatesController < ApplicationController
     @aggregate = @product.aggregates.new(aggregate_params)
     respond_to do |format|
       if @aggregate.save
-        format.html { redirect_to dashboard_product_aggregates_path(@product.slug), notice: 'Aggregate was successfully created.' }
+        format.html { redirect_to dashboard_product_aggregates_path(@product.slug), alert: 'Se ha creado la variante.' }
         format.json { render :show, status: :created, location: @aggregate }
       else
         format.html { render :new }

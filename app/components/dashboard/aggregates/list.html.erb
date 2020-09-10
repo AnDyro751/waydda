@@ -2,13 +2,12 @@
   <%= render EmptyRecords.new(title: "Aún no has agregado ninguna variante") %>
 <% else %>
   <% @aggregates.each do |aggregate| %>
-    <div class="w-full flex items-center gap-4 mb-2">
-      <div class="w-12 h-12">
-        <img src="<%= helpers.get_image_url(80, 80, aggregate.photo) %>" alt="">
-      </div>
-      <div class="w-9/12">
-        <h4 class="<%= @size == "small" ? "text-sm" : "text-base" %> text-gray-800 truncate"><%= aggregate.name || "Sin nombre" %></h4>
-      </div>
-    </div>
+    <ul class="w-full flex items-center gap-4 mb-2">
+      <li>
+        <%= link_to dashboard_product_aggregate_path(@product.slug, aggregate.id.to_s), class: "hover:underline" do %>
+          <h4 class="<%= @size == "small" ? "text-sm" : "text-base" %> font-normal text-gray-800 truncate my-1"><%= aggregate.name || "Sin nombre" %></h4>
+        <% end %>
+      </li>
+    </ul>
   <% end %>
 <% end %>

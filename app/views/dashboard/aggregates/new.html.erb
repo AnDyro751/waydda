@@ -2,7 +2,7 @@
   <h4 class="text-gray-600 text-sm font-normal">
     <%= link_to "Volver al producto", dashboard_product_path(@product.slug) %>
   </h4>
-  <%= render Headers::Text.new(title: "Agregar variante") %>
+  <%= render Headers::Text.new(title: "Agregar variante", small: true) %>
 </div>
 <!--, input_html: {class: 'py-3 px-3 bg-white border-gray-400 border appearance-none focus:border-black rounded focus:outline-none w-full mt-2 mb-4'}}-->
 <%= simple_form_for(@aggregate, url: dashboard_product_aggregates_path, remote: true, html: {class: "w-full mb-12"}, defaults: {error_html: {class: "text-red-600 mb-2 font-bold text-sm"}}) do |f| %>
@@ -16,9 +16,9 @@
       </div>
       <div class="w-full border-b mt-4 pb-2">
         <h4 class="mb-1 font-normal">
-          Variantes
+          Variantes (<%= @product.aggregates.length %>)
         </h4>
-        <%= render Dashboard::Aggregates::List.new(aggregates: @product.aggregates, size: "small") %>
+        <%= render Dashboard::Aggregates::List.new(aggregates: @product.aggregates, size: "small", product: @product) %>
       </div>
     </div>
     <div class="w-8/12">
@@ -31,10 +31,13 @@
       <!--      TODO: Sumar al precio del produco - toggle para mostrar más información-->
       <%= f.input :description, placeholder: "Descripción de la variante", label: "Descripción", label_html: {class: "text-sm font-normal text-gray-600"}, input_html: {class: 'py-3 px-3 bg-white border-gray-400 border appearance-none focus:border-black rounded focus:outline-none w-full mt-2 mb-4'} %>
       <div class="form-error" id="description-error"></div>
-      <%= f.input :default, as: :boolean, label: "Marcar como predeterminada", label_html: {class: "text-sm font-normal text-gray-600"} %>
+      <%#= f.input :default, as: :boolean, label: "Marcar como predeterminada", label_html: {class: "text-sm font-normal text-gray-600"} %>
       <div class="form-error" id="default-error"></div>
       <div class="w-full flex justify-end">
-        <%= f.submit value: "Crear variante", class: "bg-black px-6 py-2 mt-4 text-white rounded cursor-pointer", data: {"disable-with": "Creando..."} %>
+        <%= f.submit value: "Crear variante",
+                     class: main_color_button(color: "secondary"),
+                     data: {"disable-with": "Creando..."}
+        %>
       </div>
     </div>
   </div>
