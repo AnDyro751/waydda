@@ -40,6 +40,7 @@ class Place
   field :kind, type: String, default: "free"
   field :trial_will_end, type: Boolean, default: false
   field :in_free_trial, type: Boolean, default: true
+  field :trial_used, type: Boolean, default: false
 
 # TODO: Añadir horarios de envío y recolección
 # TODO: Añadir pedido minimo
@@ -95,7 +96,6 @@ class Place
 
 
   private
-
 
 
   def self.cancel_subscription(subscription_id)

@@ -15,7 +15,7 @@
         </small>
       </div>
       <div class="w-6/12 flex justify-end">
-        <%= link_to "Actualizar suscripción", dashboard_new_subscription_path("premium"), class: "bg-main-blue shadow-lg text-sm font-normal text-white py-2 px-4 rounded" %>
+        <%= link_to "Actualizar suscripción", dashboard_new_subscription_path("premium"), class: main_color_button(color: "secondary") %>
       </div>
     </div>
   <% end %>
@@ -34,7 +34,8 @@
                       data: {
                           "disable-with": "Cargando..."
                       },
-                      class: "bg-red-700 text-sm font-normal text-white py-2 px-4 rounded cursor-pointer", remote: true %>
+                      class: main_color_button(color: "danger")
+        %>
       </div>
     </div>
   <% end %>
@@ -52,7 +53,9 @@
                     data: {
                         "disable-with": "Cargando..."
                     },
-                    class: "bg-main-blue hover:shadow-lg text-sm font-normal text-white py-2 px-4 rounded cursor-pointer", remote: true %>
+                    remote: true,
+                    class: main_color_button(color: "secondary")
+      %>
     </div>
   </div>
 </div>

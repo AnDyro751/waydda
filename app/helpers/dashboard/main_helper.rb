@@ -1,5 +1,8 @@
 module Dashboard::MainHelper
 
+  # @param [String] color
+  # @param [String] custom_class
+  # @return [String]
   def main_color_button(color: "", custom_class: nil)
     if color === "secondary"
       "#{custom_class ? custom_class : ""} bg-main-blue hover:bg-opacity-75 cursor-pointer hover:shadow-small transform shadow-main hover:top-simple hover:left-simple relative py-2 px-4 transition duration-150 font-medium text-sm border-2 text-white rounded border-black"
@@ -10,9 +13,14 @@ module Dashboard::MainHelper
     else
       "#{custom_class ? custom_class : ""} bg-main-dark hover:bg-opacity-75 cursor-pointer hover:shadow-small transform shadow-main hover:top-simple hover:left-simple relative py-2 px-4 transition duration-150 font-medium text-sm border-2 text-white rounded border-black"
     end
-
   end
 
+  # @param [String] to
+  # @param [String] custom_class
+  # @param [String] text
+  # @param [String] class_icon
+  # @param [String] action
+  # @return [ActiveSupport::SafeBuffer]
   def main_button(to:, custom_class: nil, text:, class_icon: nil, action: nil)
     link_to to, class: "#{custom_class ? custom_class : "bg-main-teal hover:bg-opacity-75 hover:shadow-small transform shadow-main hover:top-simple hover:left-simple relative py-2 px-4 transition duration-150 font-medium text-sm border-2 text-black rounded border-black"}" do
       data = "<span>

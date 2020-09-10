@@ -45,8 +45,8 @@
         <div class="w-full h-64 rounded mt-2 bg-gray-200 focus:outline-none outline-none" id="map">
         </div>
       </div>
-      <div class="w-full justify-end flex">
-        <%= f.submit !@place.new_record? ? "Actualizar empresa" : "Crear empresa", data: {"disable-with": !@place.new_record? ? "Actualizando..." : "Creando..."}, class: "bg-main-blue text-sm text-white py-3 px-4 rounded cursor-pointer mt-8" %>
+      <div class="w-full justify-end flex mt-4">
+        <%= f.submit !@place.new_record? ? "Actualizar empresa" : "Crear empresa", data: {"disable-with": !@place.new_record? ? "Actualizando..." : "Creando..."}, class: main_color_button(color: "secondary") %>
       </div>
     </div>
     <div class="w-1/2 flex flex-wrap">

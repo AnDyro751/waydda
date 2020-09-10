@@ -21,7 +21,7 @@
   <div class="w-full">
     <%= simple_form_for(@subscription, url: dashboard_create_subscription_path(params["subscription_id"]), remote: true) do |f| %>
       <%= f.input :kind, as: :hidden, input_html: {value: params["subscription_id"]} %>
-      <%= f.submit "Empezar mi suscripción", id: "submit-input", data: {disable_with: "Cargando..."}, class: "bg-black shadow-lg hover:shadow-2xl text-white py-3 rounded cursor-pointer px-8" %>
+      <%= f.submit "Empezar mi suscripción", id: "submit-input", data: {disable_with: "Cargando..."}, class: main_color_button(color: "secondary")%>
     <% end %>
   </div>
 <% end %>
