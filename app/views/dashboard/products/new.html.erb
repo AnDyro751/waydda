@@ -2,7 +2,16 @@
      x-data="newFetch()"
 >
   <%= render Headers::Text.new(title: "Crear producto", small: true) %>
-  <%= simple_form_for(@product, url: dashboard_products_path, remote: true, defaults: {input_html: {class: 'py-3 px-3 bg-main-gray appearance-none rounded focus:outline-none w-full mt-2 mb-4'}, label_html: {class: "text-sm font-normal text-gray-600"}}) do |f| %>
+  <%= simple_form_for(@product, url: dashboard_products_path, remote: true,
+                      defaults: {
+                          input_html: {
+                              class: 'py-3 px-3 bg-main-gray appearance-none rounded focus:outline-none w-full mt-2 mb-4'
+                          },
+                          label_html: {
+                              class: "text-sm font-normal text-gray-600"
+                          }
+                      }
+      ) do |f| %>
     <div class="w-full mb-12 flex gap-8">
       <div class="w-8/12 flex flex-wrap">
         <div class="w-full">

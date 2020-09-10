@@ -3,23 +3,9 @@
   <meta name="content_model" content="product"/>
 <% end %>
 <div class="w-full py-8 flex gap-4 items-center justify-between">
-  <div class="w-7/12">
-    <h1 class="text-4xl font-bold"><%= @product.name %></h1>
-    <h2 class="text-sm text-gray-600 font-normal"><%= @product.description %></h2>
-  </div>
-  <div class="w-3/12 flex justify-end">
+  <%= render Headers::Text.new(title: "#{@product.name}", subtitle: @product.description, small: true) do %>
     <%= main_button(text: "Actualizar producto", to: edit_dashboard_product_path(@product.slug), action: "update") %>
-    <%#= link_to edit_dashboard_product_path(@product.slug), class: "bg-white shadow hover:shadow-lg py-2 px-4 transition duration-150 font-normal text-sm border text-black rounded border-gray-400 border-2" do %>
-    <!--      <span>-->
-    <!--        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"-->
-    <!--             viewBox="0 0 24 24"-->
-    <!--             class="inline h-4 fill-current text-gray-800"-->
-    <!--        >    <path d="M 18 2 L 16 4 L 20 8 L 22 6 L 18 2 z M 14.5 5.5 L 5 15 C 5 15 6.005 15.005 6.5 15.5 C 6.995 15.995 6.984375 16.984375 6.984375 16.984375 C 6.984375 16.984375 8.004 17.004 8.5 17.5 C 8.996 17.996 9 19 9 19 L 18.5 9.5 L 14.5 5.5 z M 3.6699219 17 L 3 21 L 7 20.330078 L 3.6699219 17 z"></path></svg>-->
-    <!--        &#160;&#160;Actualizar producto-->
-    <!--      </span>-->
-    <%# end %>
-
-  </div>
+  <% end %>
 </div>
 <div class="w-full mt-8">
   <h3 class="text-lg mb-4 font-normal">
@@ -38,11 +24,10 @@
             id="product_image"
             class="lazy h-48 rounded w-48 bg-gray-200"
             src="<%= get_image_url(10, 10, @product.photo, "cover") %>" data-src="<%= get_image_url(200, 200, @product.photo, "cover") %>" alt="<%= @product.name %> photo">
-          <input type='file' class="hidden" id="my-file-input" accept="image/*" />
+          <input type='file' class="hidden" id="my-file-input" accept="image/*"/>
         </label>
       </div>
       <div class="UppyInput-Progress w-full mt-8"></div>
-
     </div>
   </div>
 </div>

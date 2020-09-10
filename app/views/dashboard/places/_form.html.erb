@@ -65,12 +65,10 @@
                 id="place_image"
                 class="lazy h-48 rounded w-48 bg-gray-200"
                 src="<%= get_image_url(10, 10, @place.photo) %>" data-src="<%= get_image_url(200, 200, @place.photo) %>" alt="<%= @place.name %> photo">
-
               <input type='file' class="hidden" accept="image/*" id="my-file-input"/>
             </label>
           </div>
           <div class="UppyInput-Progress w-full mt-8"></div>
-
         </div>
         <div class="w-full mb-4">
           <%= f.input :slug, label: "Url de perfil", placeholder: @place.slug, label_html: {class: "text-sm font-normal text-gray-600"}, input_html: {"x-on:input": "handleChange($event)", class: "py-3 px-3 bg-white border-gray-400 border appearance-none focus:border-black rounded focus:outline-none w-full mt-2"} %>

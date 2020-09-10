@@ -48,8 +48,9 @@ if (element) {
                                 height: 150,
                                 width: 150
                             })
-                            window.addFlashMessage("La foto se ha actualizado")
+                            window.addFlashMessage("Se ha actualizado la imagen")
                         } catch (e) {
+                            console.log("HOLA", e)
                             window.addFlashMessage("Ha ocurrido un error al actualizar la imagen", true)
                         }
 

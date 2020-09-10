@@ -1,14 +1,22 @@
-<%= simple_form_for(@product, url: dashboard_product_path(@product.slug), method: :patch, enctype: "multipart/form-data", id: "product_edit_form", remote: true) do |f| %>
-  <%= f.input :name %>
-  <%= f.input :description %>
-  <%= f.input :price %>
-  <%= f.input :public_stock, as: :integer %>
-  <%= f.input :item_id, collection: @place.items.map { |r| [r.name, r.id] }, prompt: "selecciona el item" %>
-  <%= f.submit %>
+<%= simple_form_for(
+        @product,
+        url: dashboard_product_path(@product.slug),
+        defaults: {
+            input_html: {
+                class: 'py-3 px-3 bg-main-gray appearance-none rounded focus:outline-none w-full mt-2 mb-4'
+            },
+            label_html: {
+                class: "text-sm font-normal text-gray-600"
+            }
+        },
+        remote: true
+    ) do |f| %>
+  <%= f.input :name, placeholder: @product.name, label: "Nombre del producto" %>
+  <%= f.input :description, placeholder: @product.description ? @product.description : "Descripción breve del producto", label: "Descripción del producto" %>
+  <%= f.input :price, placeholder: @product.price ? @product.price : "Precio del producto en MXN", label: "Precio del producto (MXN)" %>
+  <%= f.input :public_stock, as: :integer, placeholder: @product.public_stock ? @product.public_stock : "Productos en existencia", label: "Productos en existencia" %>
+  <%= f.input :item_id, collection: @place.items.map { |r| [r.name, r.id] }, prompt: "Elige una categoría", label: "Categoría" %>
+  <div class="w-full flex justify-end mb-12">
+    <%= f.submit "Actualizar producto", data: {"disable-with": "Cargando..."}, class: "bg-main-blue hover:bg-opacity-75 cursor-pointer hover:shadow-small transform shadow-main hover:top-simple hover:left-simple relative py-2 px-4 transition duration-150 font-medium text-sm border-2 text-white rounded border-black" %>
+  </div>
 <% end %>
-
-<%#= form_for(@product, url: dashboard_upload_image_path, html: {id: "upload_photo"}) do |f| %>
-  <%#= f.file_field :photo %>
-  <%#= f.button :submit, id: "select-files" %>
-<%# end %>
-<button id="select-files" data-model="product" data-slug="<%= @product.id.to_s %>" data-attribute="photo" >Seleccionar archivos</button>
