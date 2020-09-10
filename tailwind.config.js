@@ -27,12 +27,20 @@ module.exports = {
                 "main-red": "#f45d48",
                 "secondary": "#f9e8e1",
                 "main-dark": "#3f444c"
+            },
+            boxShadow: {
+                "small": "2px 2px 0px rgb(0, 0, 0)",
+                main: "rgb(0, 0, 0) 3px 3px 0px"
+            },
+            inset: {
+                "simple": "1px",
             }
         },
     },
     variants: {
         // display: ['responsive', 'hover', 'focus'],
         // visibility: ['responsive', 'hover', 'focus']
+        inset: ['responsive', 'hover', 'focus'],
     },
     plugins: [],
 }

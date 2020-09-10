@@ -1,7 +1,7 @@
 module Dashboard::MainHelper
 
   def main_button(to:, custom_class: nil, text:, class_icon: nil, action: nil)
-    link_to to, class: "#{custom_class ? custom_class : "bg-main-teal hover:bg-opacity-75 hover:-translate-y-1 transform main-box-shadow hover:shadow-lg py-2 px-4 transition duration-150 font-medium text-sm border-2 text-black rounded border-black"}" do
+    link_to to, class: "#{custom_class ? custom_class : "bg-main-teal hover:bg-opacity-75 hover:shadow-small transform shadow-main hover:top-simple hover:left-simple relative py-2 px-4 transition duration-150 font-medium text-sm border-2 text-black rounded border-black"}" do
       data = "<span>
             #{
       if action
