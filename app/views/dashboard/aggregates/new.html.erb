@@ -1,8 +1,25 @@
-<div class="w-full my-8">
-  <h4 class="text-gray-600 text-sm font-normal">
-    <%= link_to "Volver al producto", dashboard_product_path(@product.slug) %>
-  </h4>
-  <%= render Headers::Text.new(title: "Agregar variante",subtitle: "Nueva variante para #{@product.name}", small: true) %>
+<div class="w-full mt-4 text-gray-800 text-sm">
+  <div class=""><%= link_to "Productos", dashboard_products_path, class: "hover:underline" %>
+    <div class="mx-2 select-none inline">
+      >
+    </div>
+    <span class="hover:underline">
+      <%= link_to @product.name, dashboard_product_path(@product.slug) %>
+    </span>
+    <span class="mx-2">
+      >
+    </span>
+    <span class="hover:underline">
+      <%= link_to "Variantes", dashboard_product_aggregates_path(@product.slug) %>
+    </span>
+    <span class="mx-2">
+      >
+    </span>
+    <span class="text-indigo-700 font-medium">Nueva variante</span>
+  </div>
+</div>
+<div class="w-full">
+  <%= render Headers::Text.new(title: "Agregar variante", subtitle: "Nueva variante para #{@product.name}", small: true) %>
 </div>
 <!--, input_html: {class: 'py-3 px-3 bg-white border-gray-400 border appearance-none focus:border-black rounded focus:outline-none w-full mt-2 mb-4'}}-->
 <%= simple_form_for(@aggregate, url: dashboard_product_aggregates_path, remote: true, html: {class: "w-full mb-12"}, defaults: {error_html: {class: "text-red-600 mb-2 font-bold text-sm"}}) do |f| %>

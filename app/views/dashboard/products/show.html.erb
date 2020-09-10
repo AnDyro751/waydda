@@ -1,8 +1,16 @@
+<div class="w-full mt-4 text-gray-800 text-sm">
+  <div class=""><%= link_to "Productos", dashboard_products_path, class: "hover:underline" %>
+    <div class="mx-2 select-none inline">
+      >
+    </div>
+    <span class="text-indigo-700 font-medium"><%= @product.name %></span>
+  </div>
+</div>
 <%= content_for(:head_tags) do %>
   <meta name="content_slug" content="<%= @product.id.to_s %>"/>
   <meta name="content_model" content="product"/>
 <% end %>
-<div class="w-full py-8 flex gap-4 items-center justify-between">
+<div class="w-full flex gap-4 items-center justify-between">
   <%= render Headers::Text.new(title: "#{@product.name}", subtitle: @product.description, small: true) do %>
     <%= main_button(text: "Actualizar producto", to: edit_dashboard_product_path(@product.slug), action: "update") %>
   <% end %>

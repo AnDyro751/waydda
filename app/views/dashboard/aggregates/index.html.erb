@@ -1,12 +1,29 @@
+<div class="w-full mt-4 text-gray-800 text-sm">
+  <div class=""><%= link_to "Productos", dashboard_products_path, class: "hover:underline" %>
+    <div class="mx-2 select-none inline">
+      >
+    </div>
+    <span class="hover:underline">
+      <%= link_to @product.name, dashboard_product_path(@product.slug) %>
+    </span>
+    <span class="mx-2">
+      >
+    </span>
+    <span class="text-indigo-700 font-medium">Variantes</span>
+  </div>
+</div>
 <%= render Headers::Text.new(title: "Variantes", subtitle: "Variantes de #{@product.name}", small: true, with_margin: true) do %>
   <%= main_button(to: new_dashboard_product_aggregate_path(@product.slug, @aggregate), text: "Agregar variante", action: "add") %>
 <% end %>
 
-<% @aggregates.each do |agg| %>
-  <p>
-    Nombre: <%= link_to agg.name, dashboard_product_aggregate_path(@product.slug, agg) %>
-  </p>
-  <p>Precio: <%= agg.price %></p>
-  <%= button_to "Eliminar", dashboard_product_aggregate_path(@product.slug, agg), method: :delete, data: {confirm: "¿Estás seguro de eliminar este aggregate?"}, class: "bg-black px-6 py-3 text-white rounded cursor-pointer" %>
+<% if @aggregates.length > 0 %>
+  <% @aggregates.each do |agg| %>
+    <p>
+      Nombre: <%= link_to agg.name, dashboard_product_aggregate_path(@product.slug, agg) %>
+    </p>
+    <p>Precio: <%= agg.price %></p>
+    <%= button_to "Eliminar", dashboard_product_aggregate_path(@product.slug, agg), method: :delete, data: {confirm: "¿Estás seguro de eliminar este aggregate?"}, class: "bg-black px-6 py-3 text-white rounded cursor-pointer" %>
+  <% end %>
+<% else %>
+  <%= render EmptyRecords.new(title: "Aún no has creado variantes para #{@product.name}") %>
 <% end %>
-
