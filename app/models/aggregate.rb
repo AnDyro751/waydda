@@ -14,6 +14,8 @@ class Aggregate
   field :original_stock, type: Integer, default: 0
   field :sku, type: String, default: ""
   field :bar_code, type: String, default: ""
+  field :unlimited, type: Boolean, default: false
+
   # relations
   embedded_in :product
   # validation
