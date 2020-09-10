@@ -2,6 +2,7 @@ class Product
   include Mongoid::Document
   include Mongoid::Timestamps
   include Mongoid::Geospatial
+  include AASM
   require 'will_paginate/array'
   before_create :assign_slug
   after_create :update_counters
@@ -15,6 +16,7 @@ class Product
   field :slug, type: String
   field :last_viewed, type: DateTime
   field :unlimited, type: Boolean, default: false
+  field :status, type: String, default: "pending"
 
   # TODO: Crear un helper para agregar estos fields y sus actions
   field :photo, type: String, default: "places/default.png"
@@ -34,18 +36,29 @@ class Product
   embeds_many :images, as: :model
 
 
-  validates :name, presence: true
-  validates :price, presence: true
-
+  validates :name, presence: true, length: {in: 4..30}
+  validates :price, presence: true, numericality: {only_integer: true}
+  validates :status, presence: true, inclusion: {in: %w[active inactive]}
 
   # @param [Integer] new_value
   # @return [TrueClass, FalseClass]
   def valid_stock(new_value = nil)
-    puts "---------#{new_value}------new"
     if new_value > self.public_stock
-      return false
+      false
     else
-      return true
+      true
+    end
+  end
+
+  aasm column: :status do
+    state :active, initial: true
+    state :inactive
+
+    event :activate do
+      transitions from: [:inactive], to: :active
+    end
+    event :deactivate do
+      transitions from: [:active], to: :inactive
     end
   end
 
