@@ -12,8 +12,9 @@
         remote: true
     ) do |f| %>
   <%= f.input :name, placeholder: @product.name, label: "Nombre del producto" %>
-  <%= f.input :description, placeholder: @product.description ? @product.description : "Descripción breve del producto", label: "Descripción del producto" %>
+  <%= f.input :description, placeholder: !@product.description.empty? ? @product.description : "Descripción breve del producto", label: "Descripción del producto" %>
   <%= f.input :price, placeholder: @product.price ? @product.price : "Precio del producto en MXN", label: "Precio del producto (MXN)" %>
+  <%= f.input :unlimited, collection: [%w[SI yes], %w[NO no]], prompt: "Selecciona una opción", placeholder: "Vender sin stock", label: "Vender sin stock" %>
   <%= f.input :public_stock, as: :integer, placeholder: @product.public_stock ? @product.public_stock : "Productos en existencia", label: "Productos en existencia" %>
   <%= f.input :item_id, collection: @place.items.map { |r| [r.name, r.id] }, prompt: "Elige una categoría", label: "Categoría" %>
   <div class="w-full flex justify-end mb-12">

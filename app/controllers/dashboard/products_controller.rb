@@ -51,7 +51,7 @@ class Dashboard::ProductsController < ApplicationController
   def destroy
     @product.destroy
     respond_to do |format|
-      format.html { redirect_to dashboard_products_path, notice: 'Producto eliminado correctamente' }
+      format.html { redirect_to dashboard_products_path, alert: 'Producto eliminado correctamente' }
       format.json { head :no_content }
     end
   end

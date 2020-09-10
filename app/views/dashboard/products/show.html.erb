@@ -1,4 +1,4 @@
-<div class="w-full mt-4 text-gray-800 text-sm">
+<div class="w-full mt-4 text-gray-600 text-sm">
   <div class=""><%= link_to "Productos", dashboard_products_path, class: "hover:underline" %>
     <div class="mx-2 select-none inline">
       >
@@ -55,12 +55,7 @@
   </div>
 </div>
 <%#= link_to "Ver aggregates", dashboard_product_aggregates_path(@product.slug) %>
-<div class="w-full my-12">
-  <h3 class="text-2xl mb-1 font-normal">
-    Área de peligro
-  </h3>
-  <h5 class="text-gray-600 text-sm mb-4 w-6/12">Si eliminas el producto no podrás recuperar la información de este
-    recurso, está acción es <strong>irreversible</strong></h5>
-  <%= button_to "Eliminar producto", dashboard_product_path(@product.slug), method: :delete, data: {confirm: "¿Estás seguro?"}, class: main_color_button(color: "danger") %>
-</div>
+<%= render Headers::Text.new(title: "Área de peligro", subtitle: "Si eliminas el producto no podrás recuperar la información de este recurso, está acción es irreversible", small: true, with_margin: false) do %>
+  <%= button_to "Eliminar producto", dashboard_product_path(@product.slug), method: :delete, data: {confirm: "¿Estás seguro?", "disable-with": "Cargando..."}, class: main_color_button(color: "danger"), remote: true %>
+<% end %>
 <%= javascript_packs_with_chunks_tag "dashboard/products/new", 'data-turbolinks-track': "reload" %>

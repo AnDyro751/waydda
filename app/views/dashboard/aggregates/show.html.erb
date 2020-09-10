@@ -1,7 +1,28 @@
-<%= render Headers::Text.new(title: @aggregate.name, small: true, with_margin: true) do %>
+<div class="w-full mt-4 text-gray-600 text-sm">
+  <div class=""><%= link_to "Productos", dashboard_products_path, class: "hover:underline" %>
+    <div class="mx-2 select-none inline">
+      >
+    </div>
+    <span class="hover:underline">
+      <%= link_to @product.name, dashboard_product_path(@product.slug) %>
+    </span>
+    <span class="mx-2">
+      >
+    </span>
+    <span class="hover:underline">
+      <%= link_to "Variantes", dashboard_product_aggregates_path(@product.slug) %>
+    </span>
+    <span class="mx-2">
+      >
+    </span>
+    <span class="text-indigo-700 font-medium"><%= @aggregate.name %></span>
+  </div>
+</div>
+<%= render Headers::Text.new(title: @aggregate.name, subtitle: "Variante de #{@product.name}", small: true, with_margin: true) do %>
   <%#= link_to "Editar", edit_dashboard_product_aggregate_path(@product.slug, @aggregate) %>
   <%= main_button(to: edit_dashboard_product_aggregate_path(@product.slug, @aggregate), text: "Editar variante", action: "update") %>
 <% end %>
-<%= render Headers::Text.new(title: "Área de peligro", small: true, with_margin: true) %>
+<%= render Headers::Text.new(title: "Área de peligro", subtitle: "Si eliminas el producto no podrás recuperar la información de este recurso, está acción es irreversible", small: true, with_margin: true) do %>
+  <%= link_to "Eliminar variante", dashboard_product_aggregate_path(@product.slug, @aggregate), data: {confirm: "¿Esás seguro?", "disable-with": "Cargando..."}, class: main_color_button(color: "danger"), remote: true, method: :delete %>
+<% end %>
 
-<%= link_to "Eliminar", dashboard_product_aggregate_path(@product.slug, @aggregate), data: {confirm: "¿Esás seguro?", "disable-with": "Cargando..."}, class: main_color_button(color: "danger"), remote: true, method: :delete %>

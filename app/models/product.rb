@@ -14,6 +14,7 @@ class Product
   field :max_aggregates, type: Integer, default: 1
   field :slug, type: String
   field :last_viewed, type: DateTime
+  field :unlimited, type: Boolean, default: false
 
   # TODO: Crear un helper para agregar estos fields y sus actions
   field :photo, type: String, default: "places/default.png"
