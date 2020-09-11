@@ -1,3 +1,4 @@
-<h1>Crear nuevo item</h1>
-
-<%= render 'form', {item: @item, action: "create"} %>
+<%= render Headers::Text.new(title: "Crear categoría", small: false, with_margin: true) %>
+<div class="w-6/12" >
+  <%= render 'form', {item: @item, action: "create"} %>
+</div>

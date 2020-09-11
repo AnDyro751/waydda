@@ -1,1 +1,15 @@
-<h1>Hola jeje</h1>
+<div class="w-full mt-8 flex flex-wrap rounded bg-main-gray divide-y divide-gray-400">
+  <% @items.each do |item| %>
+    <div class="w-full p-4 flex items-center flex-wrap">
+      <div class="w-8/12 flex flex-wrap items-center" >
+        <%= link_to dashboard_item_path(item), class: "hover:underline" do %>
+          <h4 class="font-normal text-gray-800 truncate my-1"><%= item.name %></h4>
+        <% end %>
+        <h5 class="<%= !item.description ? "text-gray-500 italic" : "text-gray-600" %> w-full mt-1 text-sm font-normal inline"><%= !item.description ? "Sin descripción" : item.description %></h5>
+      </div>
+      <div class="w-4/12 flex justify-end" >
+        <%= button_to "Eliminar", dashboard_item_path(item), method: :delete, data: {confirm: "¿Estás seguro?", "disable-with": "Cargando..."}, class: helpers.main_color_button(color: "danger"), remote: true %>
+      </div>
+    </div>
+  <% end %>
+</div>

@@ -4,11 +4,8 @@
 
 <% if @items.length <= 0 %>
   <%= render EmptyRecords.new(title: "Aún no has agregado ninguna categoría") %>
-<% end %>
-<% if @items.length > 0 %>
-  <% @items.each do |item| %>
-    <%= link_to dashboard_item_path(item) do %>
-      <p><%= item.name %></p>
-    <% end %>
-  <% end %>
+
+<% else %>
+  <%#= render Headers::Text.new(title: @aggregate.name, subtitle: "Variante de #{@product.name}", small: true, with_margin: true) do %>
+    <%= render Dashboard::Items::List.new(items: @items) %>
 <% end %>

@@ -27,7 +27,11 @@
           <span name="product[price]_error" class="text-sm font-bold text-red-600"/>
         </div>
         <div class="w-full flex justify-end">
-          <%= f.button :submit, data: {"disable-with": "Cargando..."}, value: "Crear producto", class: "bg-main-blue main-box-shadow border-2 border-black transform px-4 py-3 text-sm font-normal text-white focus:outline-none transition duration-300 hover:bg-opacity-75 hover:shadow-lg cursor-pointer mt-4 rounded" %>
+          <%= f.button :submit,
+                       data: {"disable-with": "Cargando..."},
+                       value: "Crear producto",
+                       class: "bg-main-blue main-box-shadow border-2 border-black transform px-4 py-3 text-sm font-normal text-white focus:outline-none transition duration-300 hover:bg-opacity-75 hover:shadow-lg cursor-pointer mt-4 rounded"
+          %>
         </div>
       </div>
       <div class="w-4/12 flex flex-wrap self-start">
