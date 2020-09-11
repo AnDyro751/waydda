@@ -54,3 +54,12 @@ body, html {
 .main-box-shadow {
   box-shadow: rgb(0, 0, 0) 3px 3px 0px !important;
 }
+
+.main-input {
+  background: #eaeaea !important;
+  //bg-main-gray focus: outline-none
+}
+
+.main-input:focus {
+  outline: none !important;
+}

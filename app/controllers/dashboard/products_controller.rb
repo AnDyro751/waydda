@@ -39,10 +39,10 @@ class Dashboard::ProductsController < ApplicationController
     respond_to do |format|
       if @product.update(product_params)
         format.html { redirect_to dashboard_product_path(@product.slug), alert: 'Se ha actualizado el producto.' }
+        format.js
         format.json { render :show, status: :ok, location: @product.slug }
       else
-        puts "#{@product.errors.full_messages}-----"
-        format.html { render :edit }
+        format.js
         format.json { render json: @product.errors, status: :unprocessable_entity }
       end
     end
@@ -74,6 +74,6 @@ class Dashboard::ProductsController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def product_params
-    params.require(:product).permit(:name, :description, :price, :aggregates_required, :max_aggregates, :item_id, :public_stock)
+    params.require(:product).permit(:name, :description, :price, :aggregates_required, :max_aggregates, :public_stock, :unlimited, item_ids: [])
   end
 end

@@ -16,7 +16,7 @@ class Product
   field :slug, type: String
   field :last_viewed, type: DateTime
   field :unlimited, type: Boolean, default: false
-  field :status, type: String, default: "pending"
+  field :status, type: String, default: "active"
 
   # TODO: Crear un helper para agregar estos fields y sus actions
   field :photo, type: String, default: "places/default.png"
@@ -37,7 +37,7 @@ class Product
 
 
   validates :name, presence: true, length: {in: 4..30}
-  validates :price, presence: true, numericality: {only_integer: true}
+  validates :price, presence: true, numericality: {only_integer: false}
   validates :status, presence: true, inclusion: {in: %w[active inactive]}
 
   # @param [Integer] new_value

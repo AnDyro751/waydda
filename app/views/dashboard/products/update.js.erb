@@ -1,7 +1,7 @@
 window.scrollTo(0, 0);
 document.querySelector("#notifications").innerHTML = "";
 <% if @product.errors.any? %>
-document.querySelector("#notifications").innerHTML = "<%= j render Notifications::Alert.new(alert: "Se han encontrado errores al crear el producto",kind: "error") %>";
+document.querySelector("#notifications").innerHTML = "<%= j render Notifications::Alert.new(alert: "Se han encontrado errores al editar el producto",kind: "error") %>";
 <% @product.errors.each do |keyE,error| %>
 var element = document.querySelector("#product_<%= keyE %>");
 if (element) {
@@ -17,6 +17,8 @@ if (element) {
     }
 }
 <% end %>
+<% else %>
+document.querySelector("#notifications").innerHTML = "<%= j render Notifications::Alert.new(alert: "Se ha actualizado el producto") %>";
 <% end %>
 
 window.deleteFlashs();

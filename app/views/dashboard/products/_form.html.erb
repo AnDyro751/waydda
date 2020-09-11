@@ -1,23 +1,63 @@
-<%= simple_form_for(
-        @product,
-        url: dashboard_product_path(@product.slug),
-        defaults: {
-            input_html: {
-                class: 'py-3 px-3 bg-main-gray appearance-none rounded focus:outline-none w-full mt-2 mb-4'
-            },
-            label_html: {
-                class: "text-sm font-normal text-gray-600"
-            }
-        },
-        remote: true
-    ) do |f| %>
-  <%= f.input :name, placeholder: @product.name, label: "Nombre del producto" %>
-  <%= f.input :description, placeholder: !@product.description.empty? ? @product.description : "Descripción breve del producto", label: "Descripción del producto" %>
-  <%= f.input :price, placeholder: @product.price ? @product.price : "Precio del producto en MXN", label: "Precio del producto (MXN)" %>
-  <%= f.input :unlimited, collection: [%w[SI yes], %w[NO no]], prompt: "Selecciona una opción", placeholder: "Vender sin stock", label: "Vender sin stock" %>
-  <%= f.input :public_stock, as: :integer, placeholder: @product.public_stock ? @product.public_stock : "Productos en existencia", label: "Productos en existencia" %>
-  <%= f.input :item_id, collection: @place.items.map { |r| [r.name, r.id] }, prompt: "Elige una categoría", label: "Categoría" %>
-  <div class="w-full flex justify-end mb-12">
+<%= simple_form_for(@product, url: dashboard_product_path(@product.slug), remote: true) do |f| %>
+  <%= f.input :name,
+              input_html: {
+                  class: 'py-3 px-3 bg-main-gray appearance-none rounded focus:outline-none w-full mt-2 mb-4'
+              },
+              label_html: {
+                  class: "text-sm font-normal text-gray-600"
+              },
+              placeholder: @product.name, label: "Nombre del producto" %>
+  <%= f.input :description,
+              input_html: {
+                  class: 'py-3 px-3 bg-main-gray appearance-none rounded focus:outline-none w-full mt-2 mb-4'
+              },
+              label_html: {
+                  class: "text-sm font-normal text-gray-600"
+              },
+              placeholder: !@product.description.empty? ? @product.description : "Descripción breve del producto", label: "Descripción del producto" %>
+  <%= f.input :price,
+              input_html: {
+                  class: 'py-3 px-3 bg-main-gray appearance-none rounded focus:outline-none w-full mt-2 mb-4'
+              },
+              label_html: {
+                  class: "text-sm font-normal text-gray-600"
+              },
+              placeholder: @product.price ? @product.price : "Precio del producto en MXN", label: "Precio del producto (MXN)" %>
+  <%= f.input :unlimited,
+              input_html: {
+                  class: 'py-3 px-3 bg-main-gray appearance-none rounded focus:outline-none w-full mt-2 mb-4'
+              },
+              label_html: {
+                  class: "text-sm font-normal text-gray-600"
+              },
+              collection: [%w[SI yes], %w[NO no]], prompt: "Selecciona una opción", placeholder: "Vender sin stock", label: "Vender sin stock" %>
+  <%= f.input :public_stock,
+              input_html: {
+                  class: 'py-3 px-3 bg-main-gray appearance-none rounded focus:outline-none w-full mt-2 mb-4'
+              },
+              label_html: {
+                  class: "text-sm font-normal text-gray-600"
+              },
+              as: :integer, placeholder: @product.public_stock ? @product.public_stock : "Productos en existencia", label: "Productos en existencia" %>
+  <%= f.input :item_ids,
+              input_html: {
+                  class: "js-multiple hidden invisible",
+                  multiple: "multiple"
+              },
+              label_html: {
+                  class: "text-sm font-normal text-gray-600"
+              },
+              collection: @place.items, prompt: "Categorías", label: "Categorías" %>
+
+  <%#= f.input :item_id, collection: @place.items.map { |r| [r.name, r.id] }, prompt: "Elige una categoría", label: "Categoría" %>
+  <div class="w-full flex justify-end my-12">
     <%= f.submit "Actualizar producto", data: {"disable-with": "Cargando..."}, class: "bg-main-blue hover:bg-opacity-75 cursor-pointer hover:shadow-small transform shadow-main hover:top-simple hover:left-simple relative py-2 px-4 transition duration-150 font-medium text-sm border-2 text-white rounded border-black" %>
   </div>
 <% end %>
+
+
+<!--<select class="js-multiple" name="states[]" multiple="multiple">-->
+<!--  <option value="" disabled>Categorías</option>-->
+<!--  <option value="AL">Alabama</option>-->
+<!--  <option value="WY">Wyoming</option>-->
+<!--</select>-->

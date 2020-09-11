@@ -26,6 +26,10 @@
 
 <div class="w-full mt-8 flex flex-wrap rounded bg-main-gray divide-y divide-gray-400">
   <div class="w-full p-4 flex items-center">
+    <h4 class="font-medium">Estatus:</h4>
+    <h5 class="text-gray-700 ml-2 text-sm font-normal inline"><%= @product.status === "active" ? "Activo" : "Desactivado" %></h5>
+  </div>
+  <div class="w-full p-4 flex items-center">
     <h4 class="font-medium">Precio:</h4>
     <h5 class="text-gray-700 ml-2 text-sm font-normal inline"><%= number_to_currency(@product.price, format: "%u %n") %></h5>
   </div>
