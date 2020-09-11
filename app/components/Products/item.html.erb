@@ -1,7 +1,7 @@
 <div class="w-full flex gap-4 mb-6 border-b border-gray-300 pb-4">
   <div class="md:w-32 md:h-32 rounded">
     <%= link_to dashboard_product_path(@product.slug) do %>
-      <img src="<%= helpers.get_image_url(20, 20, @product.photo) %>" data-src="<%= helpers.get_image_url(200, 200, @product.photo) %>" class="lazy md:w-32 md:h-32 rounded" alt="<%= @product.name %> foto del producto">
+      <img src="<%= helpers.get_image_url(20, 20, @product.photo, "cover") %>" data-src="<%= helpers.get_image_url(150, 150, @product.photo, "cover") %>" class="lazy md:w-32 md:h-32 rounded" alt="<%= @product.name %> foto del producto">
     <% end %>
   </div>
   <div class="w-8/12 flex flex-wrap content-between">

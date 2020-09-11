@@ -8,10 +8,18 @@
   <div class="w-full flex items-center py-4">
     <div class="w-6/12">
       <p class="font-normal">
-        Desactivar empresa
+        <% if @place.active? %>
+          Desactivar empresa
+        <% else %>
+          Activar empresa
+        <% end %>
       </p>
       <small>
-        Al desactivar tu empresa ya no podrás aceptar pedidos ni se listarán tus productos.
+        <% if @place.active? %>
+          Al desactivar tu empresa ya no podrás aceptar pedidos ni se listarán tus productos.
+          <% else %>
+          Al activar tu empresa podrás aceptar pedidos y todos tus productos se listarán.
+      <% end %>
         <!--        Elimina todos tus productos, clientes y registros. Está acción es irreversible-->
       </small>
     </div>
@@ -23,7 +31,7 @@
                       method: :put,
                       remote: true,
                       data: {"disable-with": "Cargando..."},
-                      class: "cursor-pointer bg-main-blue focus:outline-none text-white px-4 py-2 text-sm rounded shadow-2xl"
+                      class: main_color_button(color: "primary")
         %>
       <% else %>
         <%= button_to "Desactivar",
@@ -32,7 +40,8 @@
                       method: :put,
                       remote: true,
                       data: {"disable-with": "Cargando..."},
-                      class: "cursor-pointer bg-red-700 focus:outline-none text-white px-4 py-2 text-sm rounded shadow-2xl" %>
+                      class: main_color_button(color: "danger")
+        %>
       <% end %>
     </div>
   </div>

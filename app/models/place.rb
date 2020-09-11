@@ -66,6 +66,7 @@ class Place
     state :pending, initial: true
     state :active
     state :inactive
+
     event :activate do
       transitions from: [:pending, :inactive], to: :active
     end
