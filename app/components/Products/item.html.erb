@@ -12,7 +12,7 @@
       <h5 class="text-gray-700 w-full text-xs truncate"><%= @product.description %></h5>
     </div>
     <div class="w-full">
-      <h6 class="text-xs md:text-sm mt-2 font-bold">
+      <h6 class="text-xs md:text-sm mt-2 font-normal text-gray-600">
         <%= link_to dashboard_product_path(@product.slug) do %>
           <%= number_to_currency(@product.price, unit: "MXN", format: "%u %n") %>
         <% end %>

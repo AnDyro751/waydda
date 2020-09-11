@@ -19,9 +19,10 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b89cb0fb-b680-4bb9-8ae0-f4b41721cfb9" name="Default Changelist" comment="feat(Dashboard): Form de js">
+    <list default="true" id="b89cb0fb-b680-4bb9-8ae0-f4b41721cfb9" name="Default Changelist" comment="feat(Dashboard): Mostramos las variantes del index">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/dashboard/aggregates/index.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/dashboard/aggregates/index.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/components/Products/item.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/components/Products/item.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/dashboard/products/index.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/dashboard/products/index.html.erb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -510,14 +511,7 @@
       <workItem from="1599694138839" duration="8246000" />
       <workItem from="1599750147633" duration="7791000" />
       <workItem from="1599780401356" duration="6837000" />
-      <workItem from="1599795403758" duration="762000" />
-    </task>
-    <task id="LOCAL-00101" summary="feat(Business): Init simple pricing">
-      <created>1599152110973</created>
-      <option name="number" value="00101" />
-      <option name="presentableId" value="LOCAL-00101" />
-      <option name="project" value="LOCAL" />
-      <updated>1599152110973</updated>
+      <workItem from="1599795403758" duration="883000" />
     </task>
     <task id="LOCAL-00102" summary="feat(Business): Upgrade elements">
       <created>1599167566022</created>
@@ -855,7 +849,14 @@
       <option name="project" value="LOCAL" />
       <updated>1599787319600</updated>
     </task>
-    <option name="localTasksCounter" value="150" />
+    <task id="LOCAL-00150" summary="feat(Dashboard): Mostramos las variantes del index">
+      <created>1599796224341</created>
+      <option name="number" value="00150" />
+      <option name="presentableId" value="LOCAL-00150" />
+      <option name="project" value="LOCAL" />
+      <updated>1599796224342</updated>
+    </task>
+    <option name="localTasksCounter" value="151" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -875,7 +876,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="feat(Dashboard): Mostramos el nombre de la empresa cuando el record ya se guardó" />
     <MESSAGE value="feat(Dashboard): Movimos el formulario de general a su debido liugar" />
     <MESSAGE value="feat(Dashboard): Hay un error pendejo" />
     <MESSAGE value="feat(Dashboard): Agregamos uppy para subir el archivo, aunque pienso quitarlo porque no es tan necesario" />
@@ -900,7 +900,8 @@
     <MESSAGE value="feat(Dashboard): Se ha agregado el status para el product" />
     <MESSAGE value="feat(Dashboard): Agregamos el form para las categorías :#" />
     <MESSAGE value="feat(Dashboard): Form de js" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat(Dashboard): Form de js" />
+    <MESSAGE value="feat(Dashboard): Mostramos las variantes del index" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat(Dashboard): Mostramos las variantes del index" />
   </component>
   <component name="WindowStateProjectService">
     <state x="392" y="0" key="#All_specs_in_spec:_waydda" timestamp="1598730457189">
@@ -995,13 +996,13 @@
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="628" y="298" key="com.jetbrains.plugins.remotesdk.ui.RemoteMappingsConfiguration/0.0.1366.768@0.0.1366.768" timestamp="1598729856431" />
-    <state x="390" y="117" width="585" height="624" key="find.popup" timestamp="1599796157967">
+    <state x="390" y="117" width="585" height="624" key="find.popup" timestamp="1599796236165">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="1914" y="96" width="823" height="878" key="find.popup/0.0.1366.768/1366.-69.1920.1080@1366.-69.1920.1080" timestamp="1597716285449" />
     <state x="1754" y="117" width="583" height="624" key="find.popup/0.0.1366.768/1366.0.1360.768@1366.0.1360.768" timestamp="1598981376119" />
     <state x="1914" y="165" width="823" height="878" key="find.popup/0.0.1366.768/1366.0.1920.1080@1366.0.1920.1080" timestamp="1599260651210" />
-    <state x="390" y="117" width="585" height="624" key="find.popup/0.0.1366.768@0.0.1366.768" timestamp="1599796157967" />
+    <state x="390" y="117" width="585" height="624" key="find.popup/0.0.1366.768@0.0.1366.768" timestamp="1599796236165" />
     <state x="549" y="254" width="250" height="278" key="jetbrains.javascript.buildTools.run-task-popup" timestamp="1597946321130">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
@@ -1010,12 +1011,12 @@
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="339" y="174" width="672" height="677" key="run.anything.popup/0.0.1366.768@0.0.1366.768" timestamp="1599696988553" />
-    <state x="346" y="89" width="672" height="678" key="search.everywhere.popup" timestamp="1599785903701">
+    <state x="346" y="89" width="672" height="678" key="search.everywhere.popup" timestamp="1599796279306">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="1852" y="56" width="945" height="954" key="search.everywhere.popup/0.0.1366.768/1366.-69.1920.1080@1366.-69.1920.1080" timestamp="1597715976170" />
     <state x="1710" y="89" width="672" height="678" key="search.everywhere.popup/0.0.1366.768/1366.0.1360.768@1366.0.1360.768" timestamp="1598985878395" />
     <state x="1852" y="125" width="945" height="954" key="search.everywhere.popup/0.0.1366.768/1366.0.1920.1080@1366.0.1920.1080" timestamp="1599267313630" />
-    <state x="346" y="89" width="672" height="678" key="search.everywhere.popup/0.0.1366.768@0.0.1366.768" timestamp="1599785903701" />
+    <state x="346" y="89" width="672" height="678" key="search.everywhere.popup/0.0.1366.768@0.0.1366.768" timestamp="1599796279306" />
   </component>
 </project>
