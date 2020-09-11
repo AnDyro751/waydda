@@ -7,5 +7,5 @@
 
 <% else %>
   <%#= render Headers::Text.new(title: @aggregate.name, subtitle: "Variante de #{@product.name}", small: true, with_margin: true) do %>
-    <%= render Dashboard::Items::List.new(items: @items) %>
+  <%= render Dashboard::Items::List.new(items: @items) %>
 <% end %>
