@@ -3,7 +3,7 @@
 <% end %>
 
 <% if @items.length <= 0 %>
-  <h3>Aún no has agregado ningún item</h3>
+  <%= render EmptyRecords.new(title: "Aún no has agregado ninguna categoría") %>
 <% end %>
 <% if @items.length > 0 %>
   <% @items.each do |item| %>
