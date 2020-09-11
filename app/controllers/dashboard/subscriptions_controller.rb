@@ -57,34 +57,60 @@ class Dashboard::SubscriptionsController < ApplicationController
       #   end
       # end
       begin
-        # TODO: Actualizar la suscripción a la que le tocó
-        new_subscription = Stripe::Subscription.create({
-                                                           customer: current_user.stripe_customer_id,
-                                                           items: [
-                                                               {
-                                                                   price: Account.get_price(free_days: @free_days.to_i, price: @premium_pricing.to_i)
-                                                               },
-                                                           ],
-                                                           trial_from_plan: true
-                                                       })
-        puts "-----------#{new_subscription} SUBSSSSSSSSSSSSS"
-        current_subscription = @place.subscription
-        if current_subscription
-          if current_subscription.update(kind: "premium", stripe_subscription_id: new_subscription["id"], trial_end: new_subscription["trial_end"], trial_start: new_subscription["trial_start"])
-            @place.update(kind: "premium", trial_will_end: false, in_free_trial: true, trial_used: true)
-            format.html { redirect_to my_place_path, alert: "¡Se ha actualizado tu suscripción!" }
-          else
+        card_token = params["card_token"]
+        if @place.trial_used and card_token.nil?
+          return format.html { redirect_to dashboard_new_subscription_path("premium"), notice: "Ya se ha utilizado la prueba gratuita." }
+
+        else
+          if card_token
+            current_source = Account.create_source(current_user.stripe_customer_id, params["card_token"])
+            if current_source.nil?
+              format.html { redirect_to dashboard_new_subscription_path("premium"), notice: "Ha ocurrido un error al suscribirte" }
+            else
+              updated_account = Account.update_account(current_user.stripe_customer_id, {
+                  default_source: current_source["id"]
+              })
+              puts "---------#{updated_account[:success]} UPDATED"
+              if updated_account[:success]
+                current_user.update(default_source: {id: updated_account["default_source"]})
+              else
+                format.html { redirect_to dashboard_upgrade_plan_path, notice: "Ha ocurrido un error al suscribirte" }
+              end
+              # TODO: Guardar el default token que recibimos como param
+            end
+          end
+          begin
+            new_subscription = Stripe::Subscription.create({
+                                                               customer: current_user.stripe_customer_id,
+                                                               items: [
+                                                                   {
+                                                                       price: Account.get_price(free_days: @free_days.to_i, price: @premium_pricing.to_i)
+                                                                   },
+                                                               ],
+                                                               trial_from_plan: @place.trial_used ? false : true
+                                                           })
+          rescue
             format.html { redirect_to dashboard_upgrade_plan_path, notice: "Ha ocurrido un error al suscribirte" }
           end
-        else
-          @subscription = @place.create_subscription(stripe_subscription_id: new_subscription["id"], kind: "premium", trial_end: new_subscription["trial_end"], trial_start: new_subscription["trial_start"])
-          if @subscription.save
-            @place.update(kind: "premium", trial_will_end: false, in_free_trial: true, trial_used: true)
-            format.html { redirect_to my_place_path, alert: "¡Se ha actualizado tu suscripción!" }
+          current_subscription = @place.subscription
+          if current_subscription
+            if current_subscription.update(kind: "premium", stripe_subscription_id: new_subscription["id"], trial_end: new_subscription["trial_end"], trial_start: new_subscription["trial_start"])
+              @place.update(kind: "premium", trial_will_end: false, in_free_trial: @place.trial_used ? false : true, trial_used: true)
+              format.html { redirect_to my_place_path, alert: "¡Se ha actualizado tu suscripción!" }
+            else
+              format.html { redirect_to dashboard_upgrade_plan_path, notice: "Ha ocurrido un error al suscribirte" }
+            end
           else
-            format.html { redirect_to dashboard_upgrade_plan_path, notice: "Ha ocurrido un error al suscribirte" }
+            @subscription = @place.create_subscription(stripe_subscription_id: new_subscription["id"], kind: "premium", trial_end: new_subscription["trial_end"], trial_start: new_subscription["trial_start"])
+            if @subscription.save
+              @place.update(kind: "premium", trial_will_end: false, in_free_trial: @place.trial_used ? false : true, trial_used: true)
+              format.html { redirect_to my_place_path, alert: "¡Se ha actualizado tu suscripción!" }
+            else
+              format.html { redirect_to dashboard_upgrade_plan_path, notice: "Ha ocurrido un error al suscribirte" }
+            end
           end
         end
+
 
       rescue => e
         puts "Error --------#{e}------"

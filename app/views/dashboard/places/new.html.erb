@@ -1,12 +1,7 @@
 <div class="w-full flex flex-wrap">
   <%= render Headers::Text.new(title: "Crear empresa") %>
-  <div class="w-full gap-12 flex items-center">
-    <div class="w-6/12">
-      <%= render "form", place: @place, url: dashboard_places_path %>
-    </div>
-    <div class="w-6/12">
-      <img class="notranslate lazy" src="<%= get_image_url(20, 20, "utils/conifer-design.png") %>" data-src="<%= get_image_url(1001, 500, "utils/conifer-design.png") %>" alt="Waydda create place">
-    </div>
+  <div class="w-full flex items-center justify-center">
+    <%= render "form", place: @place, url: dashboard_places_path %>
   </div>
 </div>
 

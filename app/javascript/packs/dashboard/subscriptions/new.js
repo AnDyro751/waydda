@@ -1,4 +1,3 @@
-console.log("HOLA")
 import {loadStripe} from '@stripe/stripe-js';
 
 async function loadNewForm() {
@@ -47,12 +46,14 @@ async function loadNewForm() {
         form.addEventListener('submit', function (event) {
             // return false;
             document.querySelector("#submit-input").disabled = false;
+            document.querySelector("#submit-input").innerHTML = "Cargando...";
             event.preventDefault();
             stripe.createToken(card).then(function (result) {
                 if (result.error) {
                     // Inform the user if there was an error.
                     var errorElement = document.getElementById('card-errors');
                     errorElement.textContent = result.error.message;
+                    document.querySelector("#submit-input").innerHTML = "Iniciar mi suscripción";
                 } else {
                     // Send the token to your server.
                     stripeTokenHandler(result.token);

@@ -1,6 +1,7 @@
 window.scrollTo(0, 0);
 document.querySelector("#notifications").innerHTML = "";
 <% if @place.errors.any? %>
+console.log("<%= @place.errors %>")
 document.querySelector("#notifications").innerHTML = "<%= j render Notifications::Alert.new(alert: "Se han encontrado errores al crear la empresa",kind: "error") %>";
 <% @place.errors.each do |keyE,error| %>
 console.log("<%= keyE %>", "<%= error %>")
