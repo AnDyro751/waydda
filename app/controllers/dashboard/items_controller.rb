@@ -7,7 +7,7 @@ class Dashboard::ItemsController < ApplicationController
   # GET /items
   # GET /items.json
   def index
-    @items = @place.items
+    @items = @place.items.paginate(page: params[:page], per_page: 25)
   end
 
   # GET /items/1

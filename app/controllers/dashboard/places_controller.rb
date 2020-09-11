@@ -118,7 +118,7 @@ class Dashboard::PlacesController < ApplicationController
 
   def update_delivery
     respond_to do |format|
-      puts "-------#{can?(:update, @place) and @place.premium?}"
+      # puts "-------#{can?(:update, @place) and @place.premium?}"
       if can?(:update, @place) and @place.premium?
         if @place.update(place_delivery_params)
           format.js
