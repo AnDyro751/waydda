@@ -17,13 +17,7 @@
 <% end %>
 
 <% if @aggregates.length > 0 %>
-  <% @aggregates.each do |agg| %>
-    <p>
-      Nombre: <%= link_to agg.name, dashboard_product_aggregate_path(@product.slug, agg) %>
-    </p>
-    <p>Precio: <%= agg.price %></p>
-    <%= button_to "Eliminar", dashboard_product_aggregate_path(@product.slug, agg), method: :delete, data: {confirm: "¿Estás seguro de eliminar este aggregate?"}, class: "bg-black px-6 py-3 text-white rounded cursor-pointer" %>
-  <% end %>
+  <%= render Dashboard::Aggregates::List.new(aggregates: @aggregates, size: "big", product: @product) %>
 <% else %>
   <%= render EmptyRecords.new(title: "Aún no has creado variantes para #{@product.name}") %>
 <% end %>
