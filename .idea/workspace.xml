@@ -19,17 +19,13 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b89cb0fb-b680-4bb9-8ae0-f4b41721cfb9" name="Default Changelist" comment="feat(Dashboard): Categories show empty records">
+    <list default="true" id="b89cb0fb-b680-4bb9-8ae0-f4b41721cfb9" name="Default Changelist" comment="feat(Dashboard): Mostramos las categorías y podemos eliminar desde la misma página">
+      <change beforePath="$PROJECT_DIR$/.idea/waydda.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/waydda.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/components/dashboard/items/list.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/components/dashboard/items/list.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/components/dashboard/items/list.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/components/dashboard/items/list.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/components/Headers/text.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/components/Headers/text.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/components/Headers/text.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/components/Headers/text.rb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/controllers/dashboard/items_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/dashboard/items_controller.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/item.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/item.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/dashboard/items/_form.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/dashboard/items/_form.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/dashboard/items/index.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/dashboard/items/index.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/dashboard/items/new.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/dashboard/items/new.html.erb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/views/dashboard/items/show.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/dashboard/items/show.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/dashboard/products/new.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/dashboard/products/new.html.erb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -520,14 +516,7 @@
       <workItem from="1599780401356" duration="6837000" />
       <workItem from="1599795403758" duration="7564000" />
       <workItem from="1599843092723" duration="4564000" />
-      <workItem from="1599860841008" duration="905000" />
-    </task>
-    <task id="LOCAL-00110" summary="feat(Business): Se han corregido errores">
-      <created>1599259951594</created>
-      <option name="number" value="00110" />
-      <option name="presentableId" value="LOCAL-00110" />
-      <option name="project" value="LOCAL" />
-      <updated>1599259951594</updated>
+      <workItem from="1599860841008" duration="2087000" />
     </task>
     <task id="LOCAL-00111" summary="test: Place and subscription test init">
       <created>1599267602767</created>
@@ -865,7 +854,14 @@
       <option name="project" value="LOCAL" />
       <updated>1599846963749</updated>
     </task>
-    <option name="localTasksCounter" value="159" />
+    <task id="LOCAL-00159" summary="feat(Dashboard): Mostramos las categorías y podemos eliminar desde la misma página">
+      <created>1599861853534</created>
+      <option name="number" value="00159" />
+      <option name="presentableId" value="LOCAL-00159" />
+      <option name="project" value="LOCAL" />
+      <updated>1599861853535</updated>
+    </task>
+    <option name="localTasksCounter" value="160" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -885,7 +881,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="feat(Dashboard): Actualizamos la foto de perfil de la empresa" />
     <MESSAGE value="feat(Dashboard): Pequeño efecto en el hover del botón" />
     <MESSAGE value="feat(Dashboard): Añadimos funcionalidad al formulario para editar el producto" />
     <MESSAGE value="feat(Dashboard): Mostramos las variantes" />
@@ -910,7 +905,8 @@
     <MESSAGE value="feat(Dashboard): Mostramos el formulario cuando ya se ha usado el free trial" />
     <MESSAGE value="feat(Dashboard): Header item" />
     <MESSAGE value="feat(Dashboard): Categories show empty records" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat(Dashboard): Categories show empty records" />
+    <MESSAGE value="feat(Dashboard): Mostramos las categorías y podemos eliminar desde la misma página" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat(Dashboard): Mostramos las categorías y podemos eliminar desde la misma página" />
   </component>
   <component name="WindowStateProjectService">
     <state x="392" y="0" key="#All_specs_in_spec:_waydda" timestamp="1598730457189">
@@ -1005,13 +1001,13 @@
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="628" y="298" key="com.jetbrains.plugins.remotesdk.ui.RemoteMappingsConfiguration/0.0.1366.768@0.0.1366.768" timestamp="1598729856431" />
-    <state x="390" y="117" width="585" height="624" key="find.popup" timestamp="1599849155632">
+    <state x="390" y="117" width="585" height="624" key="find.popup" timestamp="1599862800392">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="1914" y="96" width="823" height="878" key="find.popup/0.0.1366.768/1366.-69.1920.1080@1366.-69.1920.1080" timestamp="1597716285449" />
     <state x="1754" y="117" width="583" height="624" key="find.popup/0.0.1366.768/1366.0.1360.768@1366.0.1360.768" timestamp="1598981376119" />
     <state x="1914" y="165" width="823" height="878" key="find.popup/0.0.1366.768/1366.0.1920.1080@1366.0.1920.1080" timestamp="1599260651210" />
-    <state x="390" y="117" width="585" height="624" key="find.popup/0.0.1366.768@0.0.1366.768" timestamp="1599849155632" />
+    <state x="390" y="117" width="585" height="624" key="find.popup/0.0.1366.768@0.0.1366.768" timestamp="1599862800392" />
     <state x="549" y="254" width="250" height="278" key="jetbrains.javascript.buildTools.run-task-popup" timestamp="1597946321130">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
@@ -1020,12 +1016,12 @@
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="339" y="174" width="672" height="677" key="run.anything.popup/0.0.1366.768@0.0.1366.768" timestamp="1599696988553" />
-    <state x="346" y="89" width="672" height="678" key="search.everywhere.popup" timestamp="1599849295399">
+    <state x="346" y="89" width="672" height="678" key="search.everywhere.popup" timestamp="1599862446324">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="1852" y="56" width="945" height="954" key="search.everywhere.popup/0.0.1366.768/1366.-69.1920.1080@1366.-69.1920.1080" timestamp="1597715976170" />
     <state x="1710" y="89" width="672" height="678" key="search.everywhere.popup/0.0.1366.768/1366.0.1360.768@1366.0.1360.768" timestamp="1598985878395" />
     <state x="1852" y="125" width="945" height="954" key="search.everywhere.popup/0.0.1366.768/1366.0.1920.1080@1366.0.1920.1080" timestamp="1599267313630" />
-    <state x="346" y="89" width="672" height="678" key="search.everywhere.popup/0.0.1366.768@0.0.1366.768" timestamp="1599849295399" />
+    <state x="346" y="89" width="672" height="678" key="search.everywhere.popup/0.0.1366.768@0.0.1366.768" timestamp="1599862446324" />
   </component>
 </project>

@@ -2,10 +2,18 @@
   <div class="w-8/12">
     <% if @link %>
       <%= link_to @link, class: "hover:underline" do %>
-        <h2 class="<%= @small ? "text-3xl" : "text-4xl" %> font-bold"><%= @title %></h2>
+        <% if @font %>
+          <h2 class="<%= @font === "small" ? "text-2xl font-normal" : "font-bold text-3xl" %> "><%= @title %></h2>
+        <% else %>
+          <h2 class="<%= @small ? "text-3xl" : "text-4xl" %> font-bold"><%= @title %></h2>
+        <% end %>
       <% end %>
     <% else %>
-      <h2 class="<%= @small ? "text-3xl" : "text-4xl" %> font-bold"><%= @title %></h2>
+      <% if @font %>
+        <h2 class="<%= @font === "small" ? "text-lg font-medium" : "font-bold text-3xl" %> "><%= @title %></h2>
+      <% else %>
+        <h2 class="<%= @small ? "text-3xl" : "text-4xl" %> font-bold"><%= @title %></h2>
+      <% end %>
     <% end %>
     <% if @subtitle %>
       <h3 class="text-sm text-gray-600 font-normal mt-1">

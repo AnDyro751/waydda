@@ -1,6 +1,29 @@
-<h1>Item: <%= @item.name %> </h1>
-
-<h3>Products: <%= @item.total_products %></h3>
-<%= link_to "Editar item", edit_dashboard_item_path(@item) %>
-<%= button_to "Eliminar categoría", dashboard_item_path(@item), method: :delete, data: {confirm: "¿Estás seguro?", "disable-with": "Cargando..."}, class: main_color_button(color: "danger"), remote: true %>
+<%= render Headers::Text.new(title: @item.name, subtitle: "Creado hace #{time_ago_in_words(@item.created_at)}", small: true, with_margin: true) %>
+<div class="w-full flex flex-wrap bg-main-gray rounded divide-gray-400 divide-y">
+  <div class="w-full p-4 flex items-center">
+    <h4 class="font-medium">Nombre:</h4>
+    <h5 class="text-gray-700 ml-2 text-sm font-normal inline"><%= @item.name %></h5>
+  </div>
+  <div class="w-full p-4 flex items-center">
+    <h4 class="font-medium">Descripción:</h4>
+    <h5 class="text-gray-700 ml-2 text-sm font-normal inline"><%= @item.description %></h5>
+  </div>
+</div>
+<%= render Headers::Text.new(title: "Productos en esta categoría", small: true, with_margin: true, font: "small") %>
+<div class="w-full flex flex-wrap">
+  <% if @products.length <= 0 %>
+  <%= render EmptyRecords.new(title: "¡Vaya, no hay nada por aquí!") %>
+  <% end %>
+  <% @products.each do |product| %>
+    <div class="col-span-6">
+      <%= render Products::Item.new(product) %>
+    </div>
+  <% end %>
+  <div class="w-full flex justify-center mt-8">
+    <%= will_paginate @products %>
+  </div>
+</div>
+<%= render Headers::Text.new(title: "Eliminar categoría", subtitle: "Si eliminas la categoría no podrás recuperar la información de este recurso, está acción es irreversible.", small: true, with_margin: true) do %>
+  <%= button_to "Eliminar categoría", dashboard_item_path(@item), method: :delete, data: {confirm: "¿Estás seguro?", "disable-with": "Cargando..."}, class: main_color_button(color: "danger"), remote: true %>
+<% end %>
 

@@ -13,6 +13,7 @@ class Dashboard::ItemsController < ApplicationController
   # GET /items/1
   # GET /items/1.json
   def show
+    @products = @item.products.paginate(page: params[:page], per_page: 20)
   end
 
   # GET /items/new
