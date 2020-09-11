@@ -4,6 +4,7 @@ class Dashboard::SubscriptionsController < ApplicationController
   before_action :set_price
   before_action :set_subscription, only: [:cancel]
   skip_before_action :verify_authenticity_token, :only => [:create]
+
   layout "dashboard"
 
   def edit
@@ -26,6 +27,9 @@ class Dashboard::SubscriptionsController < ApplicationController
   end
 
   def new
+    if @place.premium? and params["subscription_id"] === "premium"
+      redirect_to dashboard_edit_subscription_path, notice: "Ya cuentas con el plan premium"
+    end
     if @place.subscription.nil?
       @subscription = @place.build_subscription
     end

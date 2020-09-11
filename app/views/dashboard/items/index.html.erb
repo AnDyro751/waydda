@@ -1,4 +1,6 @@
-<h1>Items</h1>
+<%= render Headers::Text.new(title: "Categorías", small: false, with_margin: true) do %>
+  <%= main_button(to: new_dashboard_item_path, text: "Crear categoría", action: "add") %>
+<% end %>
 
 <% if @items.length <= 0 %>
   <h3>Aún no has agregado ningún item</h3>
@@ -10,4 +12,3 @@
     <% end %>
   <% end %>
 <% end %>
-<%= link_to "Crear item", new_dashboard_item_path %>
