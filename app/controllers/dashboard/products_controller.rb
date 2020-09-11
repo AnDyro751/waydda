@@ -22,9 +22,6 @@ class Dashboard::ProductsController < ApplicationController
 
   def create
     @product = Product.new(product_params)
-    if @item
-      @product.item = @item
-    end
     @product.place = @place
     respond_to do |format|
       if @product.save

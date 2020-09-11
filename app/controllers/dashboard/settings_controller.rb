@@ -1,12 +1,15 @@
 class Dashboard::SettingsController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_my_place, only: [:general, :danger]
+  before_action :set_my_place, only: [:general, :danger, :shipping]
   layout "dashboard"
 
   def general
   end
 
   def danger
+  end
+
+  def shipping
   end
 
   def create_portal

@@ -36,8 +36,16 @@
           <span name="product[public_stock]_error" class="text-sm font-bold text-red-600"/>
         </div>
         <div class="w-full">
-          <%= f.input :item_id, collection: @place.items.map { |r| [r.name, r.id] }, prompt: "Selecciona una categoría", label: "Selecciona una categoría" %>
-          <span name="product[item_id]_error" class="text-sm font-bold text-red-600"/>
+          <%= f.input :item_ids,
+                      input_html: {
+                          class: "js-multiple hidden invisible",
+                          multiple: "multiple"
+                      },
+                      label_html: {
+                          class: "text-sm font-normal text-gray-600"
+                      },
+                      collection: @place.items, prompt: "Categorías", label: "Categorías" %>
+          <span name="product[item_ids]_error" class="text-sm font-bold text-red-600"/>
         </div>
       </div>
     </div>
@@ -59,3 +67,4 @@
   </script>
 
 </div>
+<%= javascript_packs_with_chunks_tag "dashboard/products/new", 'data-turbolinks-track': "reload" %>

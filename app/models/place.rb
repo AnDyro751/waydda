@@ -33,14 +33,16 @@ class Place
   field :cover, type: String, default: "waydda.png"
   field :total_items, type: Integer, default: 0
   field :total_products, type: Integer, default: 0
-  field :delivery_option, type: Boolean, default: false
-  field :delivery_cost, type: Float, default: 10
-  field :delivery_distance, type: Float, default: 5
-  field :delivery_extra_cost, type: Float, default: 0
   field :kind, type: String, default: "free"
   field :trial_will_end, type: Boolean, default: false
   field :in_free_trial, type: Boolean, default: true
   field :trial_used, type: Boolean, default: false
+
+# DELIVERY
+  field :delivery_option, type: Boolean, default: false
+  field :delivery_cost, type: Float, default: 10
+  field :delivery_distance, type: Float, default: 5
+  field :delivery_extra_cost, type: Float, default: 0
 
 # TODO: Añadir horarios de envío y recolección
 # TODO: Añadir pedido minimo

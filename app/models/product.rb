@@ -67,9 +67,6 @@ class Product
   def update_counters
     # Add Job queue
     self.place.update_products_counter(1, true)
-    if self.item
-      self.item.update_products_counter(1, true)
-    end
   end
 
   def assign_slug
