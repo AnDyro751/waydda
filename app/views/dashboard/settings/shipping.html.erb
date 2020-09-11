@@ -3,3 +3,9 @@
     <span class="mx-2 select-none">></span><span class="text-indigo-700 font-medium">Envíos</span></span>
 </div>
 <%= render Headers::Text.new(title: "Envíos", small: true, subtitle: "Gestiona los costos de tus envíos") %>
+
+<% if @place.free? %>
+  <%= render Notifications::Alert.new(alert: "Accede al plan premium para realizar envíos a domicilio y mucho más.", with_spacing: true, kind: "error") %>
+<% end %>
+
+<%#= simple_form_for(@place) %>

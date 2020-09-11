@@ -23,4 +23,8 @@ class Dashboard::SettingsController < ApplicationController
     end
   end
 
+
+  private
+
+
 end

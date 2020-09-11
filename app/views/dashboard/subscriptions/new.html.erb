@@ -18,10 +18,13 @@
 
 <% if params["subscription_id"] === "premium" and @place.free? %>
   <h2>Contratar premium</h2>
+  <% if @place.trial_used %>
+    <%= render Notifications::Alert.new(alert: "Ya has usado tu prueba gratuita.", with_spacing: true, kind: "error") %>
+  <% end %>
   <div class="w-full">
     <%= simple_form_for(@subscription, url: dashboard_create_subscription_path(params["subscription_id"]), remote: true) do |f| %>
       <%= f.input :kind, as: :hidden, input_html: {value: params["subscription_id"]} %>
-      <%= f.submit "Empezar mi suscripción", id: "submit-input", data: {disable_with: "Cargando..."}, class: main_color_button(color: "secondary")%>
+      <%= f.submit "Empezar mi suscripción", id: "submit-input", data: {disable_with: "Cargando..."}, class: main_color_button(color: "secondary") %>
     <% end %>
   </div>
 <% end %>

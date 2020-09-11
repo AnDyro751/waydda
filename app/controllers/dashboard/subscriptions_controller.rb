@@ -26,7 +26,9 @@ class Dashboard::SubscriptionsController < ApplicationController
   end
 
   def new
-    @subscription = @place.build_subscription
+    if @place.subscription.nil?
+      @subscription = @place.build_subscription
+    end
     # TODO: Verificar que el stripe_customer_id esté presente o crear un customer
   end
 
