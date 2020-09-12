@@ -67,25 +67,21 @@
       <% unless @place.new_record? %>
         <div class="w-full relative self-start">
           <div class="flex w-full flex-wrap">
-            <p class="text-sm font-normal w-full text-gray-600">Logo de la empresa</p>
+            <p class="text-sm font-normal w-full text-gray-600">Imagen de portada</p>
             <label
-              class="h-48 rounded relative w-48 mt-2 bg-main-gray cursor-pointer"
+              class="h-56 rounded relative w-full mt-2 bg-main-gray cursor-pointer"
             >
               <div class="absolute flex justify-center items-center rounded bottom-0 top-0 left-0 right-0 bg-black bg-opacity-25 opacity-0 hover:opacity-100 hover:bg-opacity-75 transition duration-150">
                 <span class="text-sm text-white">Actualizar</span>
               </div>
               <img
                 id="place_image"
-                class="lazy h-48 rounded w-48 bg-main-gray"
-                src="<%= get_image_url(10, 10, @place.photo) %>" data-src="<%= get_image_url(200, 200, @place.photo) %>" alt="<%= @place.name %> photo">
+                class="lazy h-56 rounded w-full bg-main-gray"
+                src="<%= get_image_url(10, 20, @place.cover, "cover") %>" data-src="<%= get_image_url(200, 400, @place.cover, "cover") %>" alt="<%= @place.name %> photo">
               <input type='file' class="hidden" accept="image/*" id="my-file-input"/>
             </label>
           </div>
           <div class="UppyInput-Progress w-full mt-8"></div>
-        </div>
-        <div class="w-full mb-4">
-          <%= f.input :slug, label: "Url de perfil", placeholder: @place.slug, label_html: {class: "text-sm font-normal text-gray-600"}, input_html: {"x-on:input": "handleChange($event)", class: "py-3 px-3 bg-white border-gray-400 border appearance-none focus:border-black rounded focus:outline-none w-full mt-2"} %>
-          <span name="place[slug]_error" class="text-sm font-bold text-red-600"></span>
         </div>
       <% end %>
     </div>

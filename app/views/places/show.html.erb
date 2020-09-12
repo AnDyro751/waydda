@@ -1,5 +1,7 @@
 <% if current_user.id == @place.user_id %>
-  <%= render Notifications::Alert.new(alert: "Está página aún no ha sido publicada. Sólo tú puedes verla", kind: "error") %>
+  <div class="w-10/12 mx-auto" >
+    <%= render Notifications::Alert.new(alert: "Está página aún no ha sido publicada. Sólo tú puedes verla", kind: "error", with_spacing: true) %>
+  </div>
 <% end %>
 
 <%= render Places::Presentation.new(delivery_option: @delivery_option, place: @place, current_cart: @current_cart) %>

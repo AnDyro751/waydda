@@ -35,6 +35,7 @@ var element = document.querySelector(".UppyInput-Progress");
 if (element) {
     var model = document.querySelector(`meta[name=content_model]`) ? document.querySelector("meta[name=content_model]").content : null
     var slug = document.querySelector(`meta[name=content_slug]`) ? document.querySelector("meta[name=content_slug]").content : null
+    var attribute = document.querySelector("meta[name=content_attribute]") ? document.querySelector("meta[name=content_attribute]").content : "photo"
     const uppyOne = new Uppy({
         debug: true, autoProceed: true,
         restrictions: {
@@ -54,7 +55,7 @@ if (element) {
             hideUploadButton: true,
             hideAfterFinish: true
         })
-        .use(XHRUpload, {endpoint: `/dashboard/upload/${model}/${slug}/photo`, limit: 1})
+        .use(XHRUpload, {endpoint: `/dashboard/upload/${model}/${slug}/${attribute}`, limit: 1})
         .on('complete', (result) => {
             console.log('Upload result:', result)
             if (Array.isArray(result.successful)) {
@@ -64,10 +65,11 @@ if (element) {
                         try {
                             document.querySelector(`#${model}_image`).src = GetImageUrl({
                                 publicId: current_result.response.body.image_url,
-                                height: 150,
-                                width: 150
+                                height: 200,
+                                width: 400
                             })
                             window.addFlashMessage("Se ha actualizado la imagen")
+                            uppyOne.reset()
                         } catch (e) {
                             console.log("HOLA", e)
                             window.addFlashMessage("Ha ocurrido un error al actualizar la imagen", true)
@@ -86,11 +88,13 @@ if (element) {
 
         files.forEach((file) => {
             try {
+
                 uppyOne.addFile({
                     source: 'file input',
                     name: file.name,
                     type: file.type,
-                    data: file
+                    data: file,
+                    id: "new_photo"
                 })
             } catch (err) {
                 if (err.isRestriction) {

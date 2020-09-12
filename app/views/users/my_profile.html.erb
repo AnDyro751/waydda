@@ -10,12 +10,9 @@
   class="w-full mx-auto flex gap-4">
   <div class="w-9/12 mx-auto flex-wrap">
     <div class="w-full items-center flex">
-      <div class="w-8/12">
-        <%= render Headers::Text.new(title: current_user.name) %>
-      </div>
-      <div class="w-4/12 flex justify-end">
-        <%= link_to "Editar perfil", edit_my_profile_path, class: "bg-black py-2 px-6 text-white rounded" %>
-      </div>
+      <%= render Headers::Text.new(title: current_user.name) do %>
+        <%= main_button(to: edit_my_profile_path, text: "Editar perfil", action: "update") %>
+      <% end %>
     </div>
     <div class="w-full flex flex-wrap items-start">
       <div class="w-full flex gap-12">
@@ -66,7 +63,10 @@
               </div>
             </div>
             <div class="w-full mt-6 flex justify-end">
-              <%= f.submit current_user.current_address ? "Actualizar dirección" : "Agregar dirección", data: {"disable-with": "Actualizando..."}, class: "bg-black text-white font-normal cursor-pointer rounded py-2 px-6" %>
+              <%= f.submit "Guardar",
+                           data:
+                               {"disable-with": "Actualizando..."},
+                           class: main_color_button(color: "secondary", size: "big") %>
             </div>
           <% end %>
         </div>
