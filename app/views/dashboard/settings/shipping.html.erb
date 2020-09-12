@@ -3,36 +3,97 @@
     <span class="mx-2 select-none">></span><span class="text-indigo-700 font-medium">Envíos</span></span>
 </div>
 <%= render Headers::Text.new(title: "Envíos", small: true, subtitle: "Gestiona los costos de tus envíos") %>
-
 <% if @place.free? %>
   <%= render Notifications::Alert.new(alert: "Accede al plan premium para realizar envíos a domicilio y mucho más.", with_spacing: true, kind: "error") %>
 <% end %>
+<% if @place.premium? %>
+  <div class="w-full flex justify-between items-start" x-data="editShipping(<%= @place.delivery_option %>)">
+    <div class="w-6/12">
+      <%= simple_form_for(@place, url: dashboard_place_update_delivery_path(@place.slug),
+                          defaults: {
+                              input_html: {
+                                  class: 'py-3 px-3 bg-main-gray appearance-none rounded focus:outline-none w-full mt-2 mb-4 resize-none',
+                                  rows: "5"
+                              },
+                              label_html: {
+                                  class: "text-sm font-normal text-gray-600"
+                              },
+                          },
+                          html: {
+                              class: "w-full"
+                          },
+                          remote: true
+          ) do |f| %>
 
-<%= simple_form_for(@place, url: dashboard_place_update_delivery_path(@place.slug),
-                    defaults: {
-                        input_html: {
-                            class: 'py-3 px-3 bg-main-gray appearance-none rounded focus:outline-none w-full mt-2 mb-4 resize-none',
-                            rows: "5"
-                        },
+        <%= f.input :delivery_option,
+                    label: "¿Ofreces envíos a domicilio?",
+                    input_html: {
+                        class: 'py-3 px-3 bg-main-gray appearance-none rounded focus:outline-none w-full mt-2 mb-4 resize-none cursor-pointer',
+                        "x-on:change": "handleChange($event)"
+                    },
+                    collection: [%w[SI true], %w[NO false]],
+                    prompt: "Selecciona una opción"
+        %>
+        <span name="place[delivery_option]_error" class="text-sm font-bold text-red-600"></span>
+        <div
+          :class="{'hidden': !acceptDelivery}"
+          class="w-full flex flex-wrap <%= @place.delivery_option ? "" : "hidden" %>">
+          <div class="w-full">
+            <%= f.input :delivery_cost, as: :float, label: "Precio de envío en pesos mexicanos",
                         label_html: {
-                            class: "text-sm font-normal text-gray-600"
+                            class: "text-sm font-normal text-gray-600",
                         },
-                    },
-                    html: {
-                        class: "w-full"
-                    },
-                    remote: true
-    ) do |f| %>
+                        input_html: {
+                            "x-on:input": "handleInputChange($event)"
 
-  <%= f.input :delivery_option,
-              label: "¿Ofreces envíos a domicilio?",
-              input_html: {
-                  class: 'py-3 px-3 bg-main-gray appearance-none rounded focus:outline-none w-full mt-2 mb-4 resize-none cursor-pointer'
-              },
-              collection: [%w[SI true], %w[NO false]],
-              prompt: "Selecciona una opción"
-  %>
-  <div class="w-full flex mt-8 justify-end">
-    <%= f.submit value: "Guardar", class: main_color_button(color: "secondary"), data: {"disable-with": "Guardando..."} %>
+                        },
+                        wrapper_html: {class: "w-full"} %>
+            <span name="place[delivery_cost]_error" class="text-sm font-bold text-red-600"></span>
+          </div>
+          <div class="w-full">
+            <%= f.input :delivery_distance, as: :float, label: "Distancia máxima de entrega en Kilómetros",
+                        label_html: {
+                            class: "text-sm font-normal text-gray-600",
+                        },
+                        input_html: {
+                            "x-on:input": "handleInputChange($event)"
+
+                        },
+                        wrapper_html: {class: "w-full"} %>
+            <span name="place[delivery_distance]_error" class="text-sm font-bold text-red-600"></span>
+          </div>
+        </div>
+        <div class="w-full flex mt-8 justify-end">
+          <%= f.submit value: "Guardar", class: main_color_button(color: "secondary"), data: {"disable-with": "Guardando..."} %>
+        </div>
+      <% end %>
+      <script type="text/javascript" charset="utf-8">
+          function editShipping(deliveryOption = false) {
+              return {
+                  acceptDelivery: deliveryOption,
+                  handleChange: function (e) {
+                      var element = document.querySelector(`[name="${e.target.name}_error"`);
+                      if (element) {
+                          element.innerHTML = "";
+                      }
+                      e.target.classList.remove("border-red-500");
+                      e.target.classList.remove("border");
+                  },
+                  handleInputChange: function (e) {
+                      var element = document.querySelector(`[name="${e.target.name}_error"`);
+                      if (element) {
+                          element.innerHTML = "";
+                      }
+                      e.target.classList.remove("border-red-500");
+                      e.target.classList.remove("border");
+                  }
+              }
+          }
+      </script>
+    </div>
+    <div class="w-5/12 bg-main-gray p-4 rounded">
+      <%= render Headers::Text.new(title: "¡Los envíos corren por tu cuenta!", small: true, subtitle: "Te encargarás de administrar los métodos de envío y los costos del mismo.") %>
+    </div>
   </div>
+
 <% end %>

@@ -1,5 +1,5 @@
 <div class="w-full flex border-b <%= @with_margin ? "mb-4" : "" %> <%= @small ? "pt-8 pb-5" : "py-12" %> items-center">
-  <div class="w-8/12">
+  <div class="<%= content ? "w-8/12" : "w-full" %>">
     <% if @link %>
       <%= link_to @link, class: "hover:underline" do %>
         <% if @font %>
@@ -21,7 +21,9 @@
       </h3>
     <% end %>
   </div>
-  <div class="w-4/12 flex justify-end">
-    <%= content %>
-  </div>
+  <% if content %>
+    <div class="w-4/12 flex justify-end">
+      <%= content %>
+    </div>
+  <% end %>
 </div>

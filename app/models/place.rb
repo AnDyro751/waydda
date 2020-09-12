@@ -62,6 +62,8 @@ class Place
   validates :status, presence: true, inclusion: {in: %w(pending active inactive)}
   validates :kind, presence: true, inclusion: {in: %w(free premium)}
   validates :slug, uniqueness: true
+  validates :delivery_cost, numericality: {greater_than_or_equal_to: 0}
+  validates :delivery_distance, numericality: {greater_than_or_equal_to: 0.3}
 # validates :city, presence: true
 
   aasm column: :status do
