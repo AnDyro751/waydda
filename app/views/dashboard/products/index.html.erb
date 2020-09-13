@@ -3,12 +3,8 @@
 <% end %>
 
 <% if @products.length > 0 %>
-  <div class="grid grid-cols-12 gap-4 w-full">
-    <% @products.each do |product| %>
-      <div class="col-span-6">
-        <%= render Products::Item.new(product) %>
-      </div>
-    <% end %>
+  <div class="flex w-full">
+    <%= render Products::List.new(products: @products, in_dashboard: true) %>
   </div>
   <div class="w-full flex justify-center mt-8">
     <%= will_paginate @products %>

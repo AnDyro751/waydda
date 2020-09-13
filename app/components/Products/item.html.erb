@@ -1,22 +1,39 @@
 <!--<div class="w-full flex gap-4 mb-6 border-b border-gray-300 pb-4">-->
 <!--  <div class="md:w-32 md:h-32 rounded">-->
-    <%#= link_to dashboard_product_path(@product.slug) do %>
+<%#= link_to dashboard_product_path(@product.slug) do %>
 <!--      <img src="<%#= helpers.get_image_url(20, 20, @product.photo, "cover") %>" data-src="<%#= helpers.get_image_url(150, 150, @product.photo, "cover") %>" class="lazy md:w-32 md:h-32 rounded" alt="<%#= @product.name %> foto del producto">-->
-    <%# end %>
+<%# end %>
 <!--  </div>-->
 <!--  <div class="w-8/12 flex flex-wrap content-between">-->
 <!--    <div class="w-full flex flex-wrap items-start self-start">-->
 <!--      <h4 class="font-bold text-lg w-full truncate">-->
-        <%#= link_to @product.name, dashboard_product_path(@product.slug) %>
+<%#= link_to @product.name, dashboard_product_path(@product.slug) %>
 <!--      </h4>-->
 <!--      <h5 class="text-gray-700 w-full text-xs truncate"><%#= @product.description %></h5>-->
 <!--    </div>-->
 <!--    <div class="w-full">-->
 <!--      <h6 class="text-xs md:text-sm mt-2 font-normal text-gray-600">-->
-        <%#= link_to dashboard_product_path(@product.slug) do %>
-          <%#= number_to_currency(@product.price, unit: "MXN", format: "%u %n") %>
-        <%# end %>
+<%#= link_to dashboard_product_path(@product.slug) do %>
+<%#= number_to_currency(@product.price, unit: "MXN", format: "%u %n") %>
+<%# end %>
 <!--      </h6>-->
 <!--    </div>-->
 <!--  </div>-->
 <!--</div>-->
+<div class="w-full flex">
+  <%= link_to @in_dashboard ? dashboard_product_path(@product.slug) : place_product_path(@place.slug, @product.slug) do %>
+    <div class="flex flex-wrap cursor-pointer w-56">
+      <div class="h-56 w-full mb-3">
+        <img
+          draggable="false"
+          class="h-56 w-56 bg-red-100 lazy"
+          data-src="<%= helpers.get_image_url(250, 250, @product.photo, "contain") %>"
+          src="<%= helpers.get_image_url(10, 10, @product.photo, "contain") %>"
+          alt="<%= @product.name %> foto de producto">
+      </div>
+      <div class="w-full">
+        <h3 class="text-sm font-medium main-truncate"><%= @product.name.truncate(50) %></h3>
+      </div>
+    </div>
+  <% end %>
+</div>

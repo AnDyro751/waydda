@@ -20,7 +20,7 @@
         <img
           id="product_image"
           class="lazy h-48 rounded w-48 bg-gray-200"
-          src="<%= get_image_url(10, 10, @product.photo) %>" data-src="<%= get_image_url(200, 200, @product.photo) %>" alt="<%= @product.name %> photo">
+          src="<%= get_image_url(10, 10, @product.photo) %>" data-src="<%= get_image_url(250, 250, @product.photo, "contain") %>" alt="<%= @product.name %> photo">
         <input type='file' class="hidden" accept="image/*" id="my-file-input"/>
       </label>
     </div>

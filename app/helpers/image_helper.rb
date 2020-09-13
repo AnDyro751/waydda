@@ -12,7 +12,21 @@ module ImageHelper
             'resize': {
                 'width': width,
                 'height': height,
-                'fit': fit
+                'fit': fit,
+                "background": {
+                    "r": 255,
+                    "g": 255,
+                    "b": 255,
+                    "alpha": 1
+                }
+            },
+            "flatten": {
+                "background": {
+                    "r": 255,
+                    "g": 255,
+                    "b": 255,
+                    "alpha": nil
+                }
             }
         }
     }

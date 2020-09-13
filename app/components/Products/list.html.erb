@@ -1,3 +1,7 @@
-<% @products.each do |product| %>
-  <%= render Products::Item.new(product: product) %>
-<% end %>
+<div class="w-full flex">
+  <% @products.each do |product| %>
+    <div class="w-3/12 gap-4">
+      <%= render Products::Item.new(product: product, in_dashboard: @in_dashboard, place: @place) %>
+    </div>
+  <% end %>
+</div>

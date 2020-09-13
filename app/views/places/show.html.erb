@@ -8,10 +8,10 @@
 
 <div class="w-10/12 mx-auto flex flex-wrap">
   <% @items.each do |item| %>
-    <div class="w-full flex flex-wrap" id="<%= item.id.to_s %>">
-      <h2 class="text-xl font-medium mb-4 w-full"><%= item.name %></h2>
-      <div class="w-full">
-        <%= render Products::List.new(products: item.recent_products) %>
+    <div class="w-full flex flex-wrap " id="<%= item.id.to_s %>">
+      <h2 class="text-sm font-medium text-gray-600 mb-8 pb-4 border-b uppercase w-full"><%= item.name %></h2>
+      <div class="w-full mb-8">
+        <%= render Products::List.new(products: item.recent_products, place: @place) %>
       </div>
     </div>
   <% end %>

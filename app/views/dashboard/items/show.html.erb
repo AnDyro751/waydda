@@ -29,7 +29,7 @@
   <% end %>
   <% @products.each do |product| %>
     <div class="col-span-6">
-      <%= render Products::Item.new(product) %>
+      <%= render Products::Item.new(product: product) %>
     </div>
   <% end %>
   <div class="w-full flex justify-center mt-8">
