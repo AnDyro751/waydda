@@ -6,20 +6,26 @@
 
 <%= render Places::Presentation.new(delivery_option: @delivery_option, place: @place, current_cart: @current_cart, items: @items) %>
 
-<% @items.each do |item| %>
-  <div class="w-full" id="<%= item.id.to_s %>">
-    <h2><%= item.name %></h2>
-  </div>
-<% end %>
+<div class="w-10/12 mx-auto flex flex-wrap">
+  <% @items.each do |item| %>
+    <div class="w-full flex flex-wrap" id="<%= item.id.to_s %>">
+      <h2 class="text-xl font-medium mb-2 w-full"><%= item.name %></h2>
+      <div class="w-full">
+        <%= render Products::List.new(products: item.recent_products) %>
+      </div>
+    </div>
+  <% end %>
+</div>
 
-<% @products.each do |product| %>
-  <div class="bg-gray-100 p-3 my-3">
-    <p>Nombre: <%= product.name %></p>
-    <p>Descripción: <%= product.description %></p>
-    <p>Aggregates <%= product.aggregates.length %></p>
-    <p>Precio: <%= number_to_currency(product.price, raise: true, format: "%u %n") %></p>
-    <%= button_to "Agregar al carrito", add_product_to_cart_path(@place.slug, product), method: :post, class: "cursor-pointer", remote: true, data: {"disable-with": "Agregando..."} %>
-  </div>
-<% end %>
+
+<%# @products.each do |product| %>
+<!--  <div class="bg-gray-100 p-3 my-3">-->
+<!--    <p>Nombre: <%#= product.name %></p>-->
+<!--    <p>Descripción: <%#= product.description %></p>-->
+<!--    <p>Aggregates <%#= product.aggregates.length %></p>-->
+<!--    <p>Precio: <%#= number_to_currency(product.price, raise: true, format: "%u %n") %></p>-->
+<%#= button_to "Agregar al carrito", add_product_to_cart_path(@place.slug, product), method: :post, class: "cursor-pointer", remote: true, data: {"disable-with": "Agregando..."} %>
+<!--  </div>-->
+<%# end %>
 <%#= will_paginate @products %>
 <%= javascript_packs_with_chunks_tag "places/show", 'data-turbolinks-track': "reload" %>

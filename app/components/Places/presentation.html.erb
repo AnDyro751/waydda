@@ -14,14 +14,14 @@
 <% end %>
 <div
   id="scroll-container"
-  class="w-10/12 mx-auto main-scroll gap-8 mt-5 flex overflow-x-auto pb-5">
+  class="w-10/12 mx-auto main-scroll gap-8 mt-5 flex overflow-x-auto pb-8">
   <% @items.each do |item| %>
     <div class="<%= helpers.main_color_button(color: "primary") %>">
       <%= item.name %>
     </div>
   <% end %>
 </div>
-<div class="w-full pb-16 justify-center flex">
+<div class="w-full mb-8 justify-center flex">
   <div class="w-10/12 mx-auto">
     <h1 class="text-4xl font-bold text-gray-900"><%= @place.name %></h1>
     <div class="w-auto gap-2 flex items-center mt-3">
