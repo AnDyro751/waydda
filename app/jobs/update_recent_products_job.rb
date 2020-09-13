@@ -11,7 +11,10 @@ class UpdateRecentProductsJob < ApplicationJob
         current_products = current_item.recent_products
         if current_products.length <= 15
           puts "------------AGREGANDO #{product.name} A RECENT PRODUCTS de #{current_item.name}"
-          current_products << product
+          other_product = current_products.find_by(id: product.id.to_s)
+          unless other_product
+            current_products << product
+          end
           # Agregamos el producto
         else
           puts "ELIMINANDO!!!!!!!!"

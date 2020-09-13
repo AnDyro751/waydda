@@ -19,21 +19,9 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b89cb0fb-b680-4bb9-8ae0-f4b41721cfb9" name="Default Changelist" comment="feat(Dashboard): Update cover photo">
-      <change afterPath="$PROJECT_DIR$/app/javascript/packs/places/show.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/jobs/update_recent_products_job.rb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/spec/jobs/update_recent_products_job_spec.rb" afterDir="false" />
+    <list default="true" id="b89cb0fb-b680-4bb9-8ae0-f4b41721cfb9" name="Default Changelist" comment="feat(Dashboard): Agregamos los productos recientes para mostrarlos">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/assets/stylesheets/addresses.scss" beforeDir="false" afterPath="$PROJECT_DIR$/app/assets/stylesheets/addresses.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/components/Places/presentation.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/components/Places/presentation.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/components/Places/presentation.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/components/Places/presentation.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/dashboard/places_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/dashboard/places_controller.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/dashboard/products_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/dashboard/products_controller.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/places_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/places_controller.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/item.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/item.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/product.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/product.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/dashboard/products/new.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/dashboard/products/new.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/places/show.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/places/show.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/jobs/update_recent_products_job.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/jobs/update_recent_products_job.rb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -524,14 +512,7 @@
       <workItem from="1599780401356" duration="6837000" />
       <workItem from="1599795403758" duration="7564000" />
       <workItem from="1599843092723" duration="4564000" />
-      <workItem from="1599860841008" duration="24922000" />
-    </task>
-    <task id="LOCAL-00116" summary="feat(Dashboard): Nuev imagen del dashboard y se colocan los settings en una sola sección">
-      <created>1599369668634</created>
-      <option name="number" value="00116" />
-      <option name="presentableId" value="LOCAL-00116" />
-      <option name="project" value="LOCAL" />
-      <updated>1599369668638</updated>
+      <workItem from="1599860841008" duration="25037000" />
     </task>
     <task id="LOCAL-00117" summary="feat(Dashboard): Actualizamos suscripción y cancelamos la suscripción del place :)">
       <created>1599370659444</created>
@@ -869,7 +850,14 @@
       <option name="project" value="LOCAL" />
       <updated>1599928492969</updated>
     </task>
-    <option name="localTasksCounter" value="165" />
+    <task id="LOCAL-00165" summary="feat(Dashboard): Agregamos los productos recientes para mostrarlos">
+      <created>1599961178403</created>
+      <option name="number" value="00165" />
+      <option name="presentableId" value="LOCAL-00165" />
+      <option name="project" value="LOCAL" />
+      <updated>1599961178403</updated>
+    </task>
+    <option name="localTasksCounter" value="166" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -889,7 +877,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="feat(Dashboard): Estilizamos un poco el form para crear la variante y su vista" />
     <MESSAGE value="feat(Dashboard): Agregamos los breadcumbs para la navegación" />
     <MESSAGE value="feat(Dashboard): Vamos a mostrar los datos de la variante del producto" />
     <MESSAGE value="feat(Dashboard): Pequeña página de la variante" />
@@ -914,7 +901,8 @@
     <MESSAGE value="feat(Dashboard): Iniciamos el formulario de envios a domicilio" />
     <MESSAGE value="feat(Dashboard): Formulario de envíos a domicilio completado. A comer quesadillas!!!!" />
     <MESSAGE value="feat(Dashboard): Update cover photo" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat(Dashboard): Update cover photo" />
+    <MESSAGE value="feat(Dashboard): Agregamos los productos recientes para mostrarlos" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat(Dashboard): Agregamos los productos recientes para mostrarlos" />
   </component>
   <component name="WindowStateProjectService">
     <state x="392" y="0" key="#All_specs_in_spec:_waydda" timestamp="1598730457189">
