@@ -2,9 +2,9 @@ window.scrollTo(0, 0);
 document.querySelector("#notifications").innerHTML = "";
 console.log("<%= @place.errors.any? %>")
 <% if @place.errors.any? %>
-document.querySelector("#notifications").innerHTML = "<%= j render Notifications::Alert.new(alert: "Se han encontrado errores al crear la empresa",kind: "error") %>";
+document.querySelector("#notifications").innerHTML = "<%= j render Notifications::Alert.new(alert: "Se han encontrado errores al actualizar la empresa",kind: "error",with_spacing:true) %>";
 <% @place.errors.each do |keyE,error| %>
-//console.log("<%= keyE %>", "<%= error %>")
+console.log("<%= keyE %>", "<%= error %>")
 <% if keyE.to_s === "address" %>
 document.querySelector("#place_search_address").classList.add("border-red-500");
 document.querySelector("[name='place[address]_error']").innerHTML = "<%= error %>";
@@ -17,14 +17,14 @@ if (element) {
         spanElement.innerHTML = "<%= error %>";
     } else {
         var newNotification = document.createElement("div")
-        newNotification.innerHTML = "<%= j render Notifications::Alert.new(alert: "#{keyE} #{error}" ,kind: "error") %>";
+        newNotification.innerHTML = "<%= j render Notifications::Alert.new(alert: "#{keyE} #{error}" ,kind: "error",with_spacing:true) %>";
         document.querySelector("#notifications").appendChild(newNotification);
     }
 }
 <% end %>
 <% end %>
 <% else %>
-document.querySelector("#notifications").innerHTML = "<%= j render Notifications::Alert.new(alert: "Se ha actualizado la empresa") %>";
+document.querySelector("#notifications").innerHTML = "<%= j render Notifications::Alert.new(alert: "Se ha actualizado la empresa",with_spacing:true) %>";
 <% end %>
 
 window.deleteFlashs();

@@ -37,7 +37,8 @@ class Place
   field :trial_will_end, type: Boolean, default: false
   field :in_free_trial, type: Boolean, default: true
   field :trial_used, type: Boolean, default: false
-
+  field :category, type: String
+  field :other_category, type: String
 # DELIVERY
   field :delivery_option, type: Boolean, default: false
   field :delivery_cost, type: Float, default: 10
@@ -60,6 +61,8 @@ class Place
   validates :name, presence: true, length: {in: 4..30}
   validates :address, presence: true, length: {in: 4..100}
   validates :status, presence: true, inclusion: {in: %w(pending active inactive)}
+  validates :category, inclusion: {in: %w(groceries food services other)}, allow_blank: true
+  validates :other_category, length: {in: 0..40}, allow_blank: true
   validates :kind, presence: true, inclusion: {in: %w(free premium)}
   validates :slug, uniqueness: true
   validates :delivery_cost, numericality: {greater_than_or_equal_to: 0}
@@ -102,6 +105,10 @@ class Place
 
   private
 
+
+  def self.current_categories
+    [%w[Abarrotes groceries], %w[Alimentos food], %w[Servicios services], %w[Otros other]]
+  end
 
   def self.cancel_subscription(subscription_id)
     get_subscription = Subscription.find_by(stripe_subscription_id: subscription_id)
