@@ -2,7 +2,9 @@ class Product
   include Mongoid::Document
   include Mongoid::Timestamps
   include Mongoid::Geospatial
+  include GlobalID::Identification
   include AASM
+
   require 'will_paginate/array'
   before_create :assign_slug
   after_create :update_counters
@@ -28,8 +30,8 @@ class Product
   # TODO: Agregar la cantidad publica y la privada
 
   # relations
-  has_and_belongs_to_many :items
   belongs_to :place
+  has_and_belongs_to_many :items
   has_and_belongs_to_many :cart_items
   embeds_many :aggregates
 
@@ -63,6 +65,13 @@ class Product
   end
 
   private
+
+  def self.update_recent_products(item_ids:, product:, action: "create")
+    item_ids = item_ids.select { |item| item.length > 0 }
+    item_ids.each do |item_id|
+      UpdateRecentProductsJob.perform_later(item_id: item_id, product: product, action: action)
+    end
+  end
 
   def update_counters
     # Add Job queue

@@ -94,12 +94,13 @@ class Dashboard::PlacesController < ApplicationController
   # TODO: Update status
 
   def update
+    # puts "--------#{@place.item_ids_changed?}"
+
     if params["to_action"]
       update_status params["to_action"], @place
     else
       respond_to do |format|
         if can? :update, @place
-          params["place"]["slug"] = params["place"]["slug"].parameterize
           if @place.update(place_general_params)
             format.js
             format.html { redirect_to my_place_path, notice: 'Place was successfully updated.' }

@@ -23,7 +23,7 @@
           <span name="product[description]_error" class="text-sm font-bold text-red-600"/>
         </div>
         <div class="w-full">
-          <%= f.input :price, placeholder: "Precio del producto en pesos mexicanos", label: "Precio MXN", input_html: {"x-on:input": "handleChange($event)"} %>
+          <%= f.input :price, as: :float, placeholder: "Precio del producto en pesos mexicanos", label: "Precio MXN", input_html: {"x-on:input": "handleChange($event)"} %>
           <span name="product[price]_error" class="text-sm font-bold text-red-600"/>
         </div>
         <div class="w-full flex justify-end">

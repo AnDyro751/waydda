@@ -19,19 +19,21 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b89cb0fb-b680-4bb9-8ae0-f4b41721cfb9" name="Default Changelist" comment="feat(Dashboard): Formulario de envíos a domicilio completado. A comer quesadillas!!!!">
+    <list default="true" id="b89cb0fb-b680-4bb9-8ae0-f4b41721cfb9" name="Default Changelist" comment="feat(Dashboard): Update cover photo">
+      <change afterPath="$PROJECT_DIR$/app/javascript/packs/places/show.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/jobs/update_recent_products_job.rb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/spec/jobs/update_recent_products_job_spec.rb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/components/Places/menu.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/components/Places/menu.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/assets/stylesheets/addresses.scss" beforeDir="false" afterPath="$PROJECT_DIR$/app/assets/stylesheets/addresses.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/components/Places/presentation.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/components/Places/presentation.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/components/Places/presentation.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/components/Places/presentation.rb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/controllers/dashboard/places_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/dashboard/places_controller.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/delivery_options_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/delivery_options_controller.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/helpers/dashboard/main_helper.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/helpers/dashboard/main_helper.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/javascript/packs/dashboard/products/new.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/javascript/packs/dashboard/products/new.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/dashboard/places/_form.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/dashboard/places/_form.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/dashboard/settings/general.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/dashboard/settings/general.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/layouts/application.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/layouts/application.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/dashboard/products_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/dashboard/products_controller.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/places_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/places_controller.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/item.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/item.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/product.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/product.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/dashboard/products/new.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/dashboard/products/new.html.erb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/views/places/show.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/places/show.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/users/my_profile.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/users/my_profile.html.erb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -522,14 +524,7 @@
       <workItem from="1599780401356" duration="6837000" />
       <workItem from="1599795403758" duration="7564000" />
       <workItem from="1599843092723" duration="4564000" />
-      <workItem from="1599860841008" duration="11875000" />
-    </task>
-    <task id="LOCAL-00115" summary="feat(Dashboard): Se movió el /edit to settings y a sus respectivos controllers">
-      <created>1599353252099</created>
-      <option name="number" value="00115" />
-      <option name="presentableId" value="LOCAL-00115" />
-      <option name="project" value="LOCAL" />
-      <updated>1599353252099</updated>
+      <workItem from="1599860841008" duration="24922000" />
     </task>
     <task id="LOCAL-00116" summary="feat(Dashboard): Nuev imagen del dashboard y se colocan los settings en una sola sección">
       <created>1599369668634</created>
@@ -867,7 +862,14 @@
       <option name="project" value="LOCAL" />
       <updated>1599878826238</updated>
     </task>
-    <option name="localTasksCounter" value="164" />
+    <task id="LOCAL-00164" summary="feat(Dashboard): Update cover photo">
+      <created>1599928492969</created>
+      <option name="number" value="00164" />
+      <option name="presentableId" value="LOCAL-00164" />
+      <option name="project" value="LOCAL" />
+      <updated>1599928492969</updated>
+    </task>
+    <option name="localTasksCounter" value="165" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -887,7 +889,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="feat(Dashboard): AL momento de que el usuario ya tomó el periodo de prueba ya vamos a mostrar el form para crear la suscripción" />
     <MESSAGE value="feat(Dashboard): Estilizamos un poco el form para crear la variante y su vista" />
     <MESSAGE value="feat(Dashboard): Agregamos los breadcumbs para la navegación" />
     <MESSAGE value="feat(Dashboard): Vamos a mostrar los datos de la variante del producto" />
@@ -912,7 +913,8 @@
     <MESSAGE value="feat(Dashboard): Mostramos los breadcumbs" />
     <MESSAGE value="feat(Dashboard): Iniciamos el formulario de envios a domicilio" />
     <MESSAGE value="feat(Dashboard): Formulario de envíos a domicilio completado. A comer quesadillas!!!!" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat(Dashboard): Formulario de envíos a domicilio completado. A comer quesadillas!!!!" />
+    <MESSAGE value="feat(Dashboard): Update cover photo" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat(Dashboard): Update cover photo" />
   </component>
   <component name="WindowStateProjectService">
     <state x="392" y="0" key="#All_specs_in_spec:_waydda" timestamp="1598730457189">
@@ -1007,13 +1009,13 @@
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="628" y="298" key="com.jetbrains.plugins.remotesdk.ui.RemoteMappingsConfiguration/0.0.1366.768@0.0.1366.768" timestamp="1598729856431" />
-    <state x="390" y="117" width="585" height="624" key="find.popup" timestamp="1599926288536">
+    <state x="390" y="117" width="585" height="624" key="find.popup" timestamp="1599959086874">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="1914" y="96" width="823" height="878" key="find.popup/0.0.1366.768/1366.-69.1920.1080@1366.-69.1920.1080" timestamp="1597716285449" />
     <state x="1754" y="117" width="583" height="624" key="find.popup/0.0.1366.768/1366.0.1360.768@1366.0.1360.768" timestamp="1598981376119" />
     <state x="1914" y="165" width="823" height="878" key="find.popup/0.0.1366.768/1366.0.1920.1080@1366.0.1920.1080" timestamp="1599260651210" />
-    <state x="390" y="117" width="585" height="624" key="find.popup/0.0.1366.768@0.0.1366.768" timestamp="1599926288536" />
+    <state x="390" y="117" width="585" height="624" key="find.popup/0.0.1366.768@0.0.1366.768" timestamp="1599959086874" />
     <state x="549" y="254" width="250" height="278" key="jetbrains.javascript.buildTools.run-task-popup" timestamp="1597946321130">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
@@ -1022,12 +1024,12 @@
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="339" y="174" width="672" height="677" key="run.anything.popup/0.0.1366.768@0.0.1366.768" timestamp="1599927133187" />
-    <state x="346" y="89" width="672" height="678" key="search.everywhere.popup" timestamp="1599926291210">
+    <state x="346" y="89" width="672" height="678" key="search.everywhere.popup" timestamp="1599958256732">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="1852" y="56" width="945" height="954" key="search.everywhere.popup/0.0.1366.768/1366.-69.1920.1080@1366.-69.1920.1080" timestamp="1597715976170" />
     <state x="1710" y="89" width="672" height="678" key="search.everywhere.popup/0.0.1366.768/1366.0.1360.768@1366.0.1360.768" timestamp="1598985878395" />
     <state x="1852" y="125" width="945" height="954" key="search.everywhere.popup/0.0.1366.768/1366.0.1920.1080@1366.0.1920.1080" timestamp="1599267313630" />
-    <state x="346" y="89" width="672" height="678" key="search.everywhere.popup/0.0.1366.768@0.0.1366.768" timestamp="1599926291210" />
+    <state x="346" y="89" width="672" height="678" key="search.everywhere.popup/0.0.1366.768@0.0.1366.768" timestamp="1599958256732" />
   </component>
 </project>

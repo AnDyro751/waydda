@@ -8,6 +8,14 @@
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0)
 }
 
+.main-scroll::-webkit-scrollbar {
+  display: none;
+}
+
+.main-scroll {
+  scrollbar-width: none;
+}
+
 .mapboxgl-canvas {
   position: absolute;
   left: 0;

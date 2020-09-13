@@ -17,7 +17,9 @@ class PlacesController < ApplicationController
   # GET /places/1
   # GET /places/1.json
   def show
-    @products = @place.products.paginate(page: params[:page], per_page: 30)
+    @products = []
+    # @place.products.paginate(page: params[:page], per_page: 30)
+    @items = @place.items.includes(:recent_products)
   end
 
 

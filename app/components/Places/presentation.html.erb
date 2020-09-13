@@ -4,9 +4,18 @@
 <% content_for :content do %>
   <div class="h-64 bg-gray-300 w-full bg-center bg-cover bg-no-repeat"
        style='background: url(<%= helpers.get_image_url(500, 1000, @place.cover) %>);background-repeat: no-repeat;background-size: cover;background-position: center;'>
-    <div class="absolute h-full w-full top-0 bottom-0 left-0 right-0 bg-opacity-50 bg-black"></div>
+    <!--    <div class="absolute h-full w-full top-0 bottom-0 left-0 right-0 bg-opacity-50 bg-black"></div>-->
   </div>
 <% end %>
+<div
+  id="scroll-container"
+  class="w-10/12 mx-auto main-scroll gap-8 mt-5 flex overflow-x-auto pb-5">
+  <% @items.each do |item| %>
+    <div class="<%= helpers.main_color_button(color: "primary") %>">
+      <%= item.name %>
+    </div>
+  <% end %>
+</div>
 <div class="w-full pb-16 justify-center flex">
   <div class="w-10/12 mx-auto">
     <h1 class="text-4xl font-bold text-gray-900"><%= @place.name %></h1>
@@ -14,11 +23,11 @@
       <div class="w-auto">
         <img
           load="lazy"
-          class="h-5 opacity-50"
+          class="h-5 opacity-75"
           src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABmJLR0QA/wD/AP+gvaeTAAABqklEQVRoge3ZMWsUQRiH8V+SImARUnhgYroQUAQrm4Ck0UK/gZ8ggWC00EoLwQ8gWASEFAp2FtaCooitEDAQhQQCEsWQxsKkiZ4WtweHucvd7M7diJkH3nL+7/vsws7uDplMJpOSoYrrx3ENcxjGKp5jo2Ju35nFE+zjd5taxR3MlMhdwaeiHmEyysQaV/s6Pmg/dKfqJtMtdxtTVQa/gMfYCxy8m8xsQO7TMoMPYRn1CINXrd0yAjcCm7zB2aJu4h1+RZQIZj2wwXSbjEks4W0EmWAOIjc4hcVCZiAC/WxwK1b+URtZ6FAhm+IJjadP5fxUAtHyhwND/jmyQGqyQGqyQGqyQGqyQGqyQGqyQGpiCoxEzOqZmAKXImZFIfSb9Tvu4Uwf8uuDEGittULmXIfsk4F5nwct0FrruI/zRe4IHgZmPCgj8COiRLO+4FvgmvcYKyPwuscGW7iLBbzCz0iyW7iN0TLDw0Wd/84daBxkXHH4SVarIHNUbiku42NLg02Nqz3R4/oa5vGyi0zzLkY7zPib0xHCmzIvsIOveIar/oM3gkwmc1z5AzWXmPF9iwImAAAAAElFTkSuQmCC"/>
       </div>
       <div class="w-auto">
-        <h5 class="text-base text-gray-600 font-normal"><%= @place.address %></h5>
+        <h5 class="text-base text-gray-700 font-normal"><%= @place.address %></h5>
       </div>
     </div>
   </div>
