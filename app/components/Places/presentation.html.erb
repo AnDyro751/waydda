@@ -3,8 +3,13 @@
 <% end %>
 <% content_for :content do %>
   <div class="h-64 bg-gray-300 w-full bg-center bg-cover bg-no-repeat"
-       style='background: url(<%= helpers.get_image_url(500, 1000, @place.cover) %>);background-repeat: no-repeat;background-size: cover;background-position: center;'>
-    <!--    <div class="absolute h-full w-full top-0 bottom-0 left-0 right-0 bg-opacity-50 bg-black"></div>-->
+  >
+    <img
+      src="<%= helpers.get_image_url(10, 20, @place.cover, "cover") %>"
+      data-src="<%= helpers.get_image_url(250, 1000, @place.cover, "cover") %>"
+      class="lazy h-full w-full"
+      draggable="false"
+      alt="<%= @place.cover %> cover photo">
   </div>
 <% end %>
 <div
