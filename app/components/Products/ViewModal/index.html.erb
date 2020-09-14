@@ -1,0 +1,13 @@
+<div class="w-full flex">
+  <div class="w-7/12">
+    <img
+      class="lazy h-full w-full"
+      src="<%= helpers.get_image_url(10, 10, @product.photo, "contain") %>"
+      alt="<%= @product.name %> foto de producto"
+      data-src="<%= helpers.get_image_url(500, 500, @product.photo, "contain") %>"
+    >
+  </div>
+  <div class="w-5/12">
+
+  </div>
+</div>

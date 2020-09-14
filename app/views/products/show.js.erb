@@ -1,8 +1,14 @@
 if (window.vanillaModal) {
-    console.log("ABRIR MODAL");
-    console.log("<%= request.original_url %>")
-    history.replaceState({}, "<%= @product.name %>", "<%= request.original_url %>");
-    window.current_modal.open("#modal");
+    var element = document.querySelector("#modal");
+    if (element) {
+        console.log("ABRIR MODAL");
+        console.log("<%= request.original_url %>")
+        history.replaceState({}, "", "<%= request.original_url %>");
+        console.log("<%= @product.name %>")
+        window.current_modal.open("#modal");
+        document.querySelector(".modal-content").innerHTML = "<%= j render Products::ViewModal::Index.new(product: @product) %>";
+    }
+
 }
 //var modal = new VanillaModal();
 //modal.open();

@@ -145,7 +145,7 @@ document.addEventListener("turbolinks:load", () => {
         logElementEvent("🔥 CANCEL", element);
     };
 
-    new LazyLoad({
+    window.customLazyLoad = new LazyLoad({
         // Assign the callbacks defined above
         elements_selector: ".lazy",
         callback_enter: callback_enter,

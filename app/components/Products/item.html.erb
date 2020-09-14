@@ -20,7 +20,7 @@
 <!--    </div>-->
 <!--  </div>-->
 <!--</div>-->
-<div class="w-full flex">
+<div class="w-full flex" data-modal-open>
   <%= link_to @in_dashboard ? dashboard_product_path(@product.slug) : place_product_path(@place.slug, @product.slug), remote: !@in_dashboard do %>
     <div class="modal-open flex flex-wrap cursor-pointer w-56">
       <div class="h-56 w-full mb-5">

@@ -7,7 +7,11 @@ if (window.vanillaModal) {
     window.current_modal = new window.vanillaModal({
         onBeforeClose: function () {
             console.log("BEOFRE");
-            history.replaceState({}, "Waydda", current_location);
+            history.replaceState({}, "", current_location);
+        },
+        onClose: ()=>{
+            document.querySelector("#modal").innerHTML = "";
+            document.querySelector(".modal-content").innerHTML = "";
         }
     });
 }
