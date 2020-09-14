@@ -8524,6 +8524,11 @@ vanilla-lazyload@^17.1.2:
   resolved "https://registry.yarnpkg.com/vanilla-lazyload/-/vanilla-lazyload-17.1.2.tgz#29030e21b2417b950bdab5d7cea0154aeda7c22d"
   integrity sha512-WC5350/UlY3c9MEBDxKdWuvwgyPwUmVgUwqiYFmdjmUCTEdCnuW3RFQzQXu9fO1q5c545OYCPPs24Yma9rI/Mg==
 
+vanilla-modal@^1.6.5:
+  version "1.6.5"
+  resolved "https://registry.yarnpkg.com/vanilla-modal/-/vanilla-modal-1.6.5.tgz#44958dab9c606170923ec3dd7d22795581a0fdb1"
+  integrity sha512-QPCn1MTmtVrqy7KaUFymwReoO4x6gD0V25hq+tC8ASzGXfznLuytY9YnudxjLOBwsccYRh0hjdhtIwBN4iv7ag==
+
 vary@~1.1.2:
   version "1.1.2"
   resolved "https://registry.yarnpkg.com/vary/-/vary-1.1.2.tgz#2299f02c6ded30d4a5961b0b9f74524a18f634fc"

@@ -12,12 +12,18 @@ class ProductsController < ApplicationController
 
   # GET /places/1.json
   def show
+    respond_to do |format|
+      format.js
+    end
   end
 
   private
 
   def set_product
-    @product = @place.products.find_by(slug: params["slug"]) || not_found
+    @product = @place.products.find_by(slug: params["id"])
+    if @product.nil?
+      not_found
+    end
   end
 
   def update_view
@@ -27,7 +33,7 @@ class ProductsController < ApplicationController
 
   # Use callbacks to share common setup or constraints between actions.
   def set_place
-    @place = Place.find(params[:id])
+    @place = Place.find_by(slug: params[:place_id])
     not_found if @place.nil?
   end
 
