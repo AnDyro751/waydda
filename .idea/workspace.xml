@@ -19,14 +19,13 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b89cb0fb-b680-4bb9-8ae0-f4b41721cfb9" name="Default Changelist" comment="feat(Place): Mostramos los productos, agregamos su descripción y unidad de medida">
+    <list default="true" id="b89cb0fb-b680-4bb9-8ae0-f4b41721cfb9" name="Default Changelist" comment="feat(Place): Iniciamos el proceso del modal">
+      <change afterPath="$PROJECT_DIR$/app/views/products/show.js.erb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/components/Products/item.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/components/Products/item.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/products_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/products_controller.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/assets/stylesheets/addresses.scss" beforeDir="false" afterPath="$PROJECT_DIR$/app/assets/stylesheets/addresses.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/javascript/packs/places/show.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/javascript/packs/places/show.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/views/places/show.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/places/show.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/babel.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/babel.config.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -67,7 +66,7 @@
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="DefaultRubyCreateTestTemplate" value="Ruby File" />
-    <property name="Ruby.ViewRefParam.DefaultExtension" value="html.erb" />
+    <property name="Ruby.ViewRefParam.DefaultExtension" value="js.erb" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
@@ -518,14 +517,7 @@
       <workItem from="1599795403758" duration="7564000" />
       <workItem from="1599843092723" duration="4564000" />
       <workItem from="1599860841008" duration="25681000" />
-      <workItem from="1600023079601" duration="11994000" />
-    </task>
-    <task id="LOCAL-00123" summary="feat(Dashboard): Mostramos un mensaje para los settings de connect">
-      <created>1599445130332</created>
-      <option name="number" value="00123" />
-      <option name="presentableId" value="LOCAL-00123" />
-      <option name="project" value="LOCAL" />
-      <updated>1599445130332</updated>
+      <workItem from="1600023079601" duration="14568000" />
     </task>
     <task id="LOCAL-00124" summary="feat(Dashboard): Mostramos las opciones especificas para cada tipo de empresa">
       <created>1599445767949</created>
@@ -863,7 +855,14 @@
       <option name="project" value="LOCAL" />
       <updated>1600041934736</updated>
     </task>
-    <option name="localTasksCounter" value="172" />
+    <task id="LOCAL-00172" summary="feat(Place): Iniciamos el proceso del modal">
+      <created>1600044427445</created>
+      <option name="number" value="00172" />
+      <option name="presentableId" value="LOCAL-00172" />
+      <option name="project" value="LOCAL" />
+      <updated>1600044427445</updated>
+    </task>
+    <option name="localTasksCounter" value="173" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -883,7 +882,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="feat(Dashboard): Se ha agregado el status para el product" />
     <MESSAGE value="feat(Dashboard): Agregamos el form para las categorías :#" />
     <MESSAGE value="feat(Dashboard): Form de js" />
     <MESSAGE value="feat(Dashboard): Mostramos las variantes del index" />
@@ -908,7 +906,8 @@
     <MESSAGE value="feat(Place): Add category in place" />
     <MESSAGE value="feat(Place): Mostramos la versión principal de los productos." />
     <MESSAGE value="feat(Place): Mostramos los productos, agregamos su descripción y unidad de medida" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat(Place): Mostramos los productos, agregamos su descripción y unidad de medida" />
+    <MESSAGE value="feat(Place): Iniciamos el proceso del modal" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat(Place): Iniciamos el proceso del modal" />
   </component>
   <component name="WindowStateProjectService">
     <state x="392" y="0" key="#All_specs_in_spec:_waydda" timestamp="1598730457189">
@@ -976,6 +975,10 @@
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="381" y="46" width="916" height="708" key="SettingsEditor/0.0.1366.768@0.0.1366.768" timestamp="1599260048157" />
+    <state width="498" height="446" key="SwitcherDM" timestamp="1600056322387">
+      <screen x="0" y="0" width="1366" height="768" />
+    </state>
+    <state width="498" height="446" key="SwitcherDM/0.0.1366.768@0.0.1366.768" timestamp="1600056322387" />
     <state x="544" y="96" key="VCS.ChangeListViewerDialog" timestamp="1598750646694">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
@@ -1018,12 +1021,12 @@
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="339" y="174" width="672" height="677" key="run.anything.popup/0.0.1366.768@0.0.1366.768" timestamp="1599927133187" />
-    <state x="346" y="89" width="672" height="678" key="search.everywhere.popup" timestamp="1600043068280">
+    <state x="346" y="89" width="672" height="678" key="search.everywhere.popup" timestamp="1600056793599">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="1852" y="56" width="945" height="954" key="search.everywhere.popup/0.0.1366.768/1366.-69.1920.1080@1366.-69.1920.1080" timestamp="1597715976170" />
     <state x="1710" y="89" width="672" height="678" key="search.everywhere.popup/0.0.1366.768/1366.0.1360.768@1366.0.1360.768" timestamp="1598985878395" />
     <state x="1852" y="125" width="945" height="954" key="search.everywhere.popup/0.0.1366.768/1366.0.1920.1080@1366.0.1920.1080" timestamp="1599267313630" />
-    <state x="346" y="89" width="672" height="678" key="search.everywhere.popup/0.0.1366.768@0.0.1366.768" timestamp="1600043068280" />
+    <state x="346" y="89" width="672" height="678" key="search.everywhere.popup/0.0.1366.768@0.0.1366.768" timestamp="1600056793599" />
   </component>
 </project>

@@ -1,6 +1,16 @@
 var ele = document.getElementById("scroll-container");
 import VanillaModal from 'vanilla-modal';
 
+window.vanillaModal = VanillaModal;
+if (window.vanillaModal) {
+    var current_location = location.href;
+    window.current_modal = new window.vanillaModal({
+        onBeforeClose: function () {
+            console.log("BEOFRE");
+            history.replaceState({}, "Waydda", current_location);
+        }
+    });
+}
 if (ele) {
     ele.style.cursor = 'grab';
 
@@ -42,11 +52,4 @@ if (ele) {
     ele.addEventListener('mousedown', mouseDownHandler);
 
     console.log("JOLA")
-}
-
-var modalElement = document.querySelector(".modal-open");
-if (modalElement) {
-    const modal = new VanillaModal({
-        open: '.modal-open'
-    });
 }
