@@ -7,6 +7,7 @@ if (window.vanillaModal) {
         console.log("<%= @product.name %>")
         window.current_modal.open("#modal");
         document.querySelector(".modal-content").innerHTML = "<%= j render Products::ViewModal::Index.new(product: @product) %>";
+        window.customLazyLoad.update();
     }
 
 }
