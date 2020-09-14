@@ -8,8 +8,11 @@
               },
               placeholder: @product.name, label: "Nombre del producto" %>
   <%= f.input :description,
+              as: :text,
               input_html: {
-                  class: 'py-3 px-3 bg-main-gray appearance-none rounded focus:outline-none w-full mt-2 mb-4'
+                  class: 'py-3 px-3 bg-main-gray appearance-none rounded focus:outline-none w-full mt-2 mb-4',
+                  rows: "5"
+
               },
               label_html: {
                   class: "text-sm font-normal text-gray-600"
@@ -23,14 +26,31 @@
                   class: "text-sm font-normal text-gray-600"
               },
               placeholder: @product.price ? @product.price : "Precio del producto en MXN", label: "Precio del producto (MXN)" %>
-  <%= f.input :unlimited,
-              input_html: {
-                  class: 'py-3 px-3 bg-main-gray appearance-none rounded focus:outline-none w-full mt-2 mb-4'
-              },
-              label_html: {
-                  class: "text-sm font-normal text-gray-600"
-              },
-              collection: [%w[SI yes], %w[NO no]], prompt: "Selecciona una opción", label: "Vender sin stock" %>
+  <div class="w-full flex gap-4">
+    <div class="w-6/12">
+      <%= f.input :quantity,
+                  input_html: {
+                      class: 'py-3 px-3 bg-main-gray appearance-none rounded focus:outline-none w-full mt-2 mb-4'
+                  },
+                  label_html: {
+                      class: "text-sm font-normal text-gray-600"
+                  },
+                  placeholder: @product.quantity ? @product.quantity : "Medida de volumen",
+                  label: "Medida de volumen" %>
+    </div>
+    <div class="w-6/12">
+      <%= f.input :quantity_measure,
+                  input_html: {
+                      class: 'py-3 px-3 bg-main-gray appearance-none rounded focus:outline-none w-full mt-2 mb-4'
+                  },
+                  label_html: {
+                      class: "text-sm font-normal text-gray-600"
+                  },
+                  collection: Product.current_measures,
+                  prompt: "Selecciona una unidad",
+                  label: "Unidad del volumen" %>
+    </div>
+  </div>
   <%= f.input :public_stock,
               input_html: {
                   class: 'py-3 px-3 bg-main-gray appearance-none rounded focus:outline-none w-full mt-2 mb-4'
@@ -39,6 +59,14 @@
                   class: "text-sm font-normal text-gray-600"
               },
               as: :integer, placeholder: @product.public_stock ? @product.public_stock : "Productos en existencia", label: "Productos en existencia" %>
+  <%= f.input :unlimited,
+              input_html: {
+                  class: 'py-3 px-3 bg-main-gray appearance-none rounded focus:outline-none w-full mt-2 mb-4'
+              },
+              label_html: {
+                  class: "text-sm font-normal text-gray-600"
+              },
+              collection: [%w[SI yes], %w[NO no]], prompt: "Selecciona una opción", label: "Vender sin stock" %>
   <%= f.input :item_ids,
               input_html: {
                   class: "js-multiple hidden invisible",

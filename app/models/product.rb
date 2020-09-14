@@ -19,14 +19,14 @@ class Product
   field :last_viewed, type: DateTime
   field :unlimited, type: Boolean, default: false
   field :status, type: String, default: "active"
-
   # TODO: Crear un helper para agregar estos fields y sus actions
   field :photo, type: String, default: "places/default.png"
   field :public_stock, type: Integer, default: 0
   field :original_stock, type: Integer, default: 0
   field :sku, type: String, default: ""
   field :bar_code, type: String, default: ""
-
+  field :quantity, type: String
+  field :quantity_measure, type: String
   # TODO: Agregar la cantidad publica y la privada
 
   # relations
@@ -41,6 +41,18 @@ class Product
   validates :name, presence: true, length: {in: 4..30}
   validates :price, presence: true, numericality: {only_integer: false}
   validates :status, presence: true, inclusion: {in: %w[active inactive]}
+  validates :quantity, numericality: {greater_than_or_equal_to: 1}, allow_blank: true
+  validates :quantity_measure, inclusion: {in: %w[kg grm oz ml l m2 m3 v pzas]}, allow_blank: true
+  validates :price, numericality: {greater_than_or_equal_to: 1}
+  validate :quantity_validations
+
+  def quantity_validations
+    if quantity.present?
+      unless quantity_measure.present?
+        errors.add(:quantity_measure, "selecciona una unidad de medida")
+      end
+    end
+  end
 
   # @param [Integer] new_value
   # @return [TrueClass, FalseClass]
@@ -64,7 +76,33 @@ class Product
     end
   end
 
+  def get_quantity_measure
+    case self.quantity_measure
+    when "kg"
+      ActionController::Base.helpers.pluralize(self.quantity, 'kilogramo', "kilogramos")
+    when "grm"
+      ActionController::Base.helpers.pluralize(self.quantity, 'gramo', "gramos")
+    when "oz"
+      ActionController::Base.helpers.pluralize(self.quantity, 'onza', "onzas")
+    when "ml"
+      ActionController::Base.helpers.pluralize(self.quantity, 'mililitro', "mililitros")
+    when "m2"
+      ActionController::Base.helpers.pluralize(self.quantity, 'metro cuadrado', "metros cuadrados")
+    when "m3"
+      ActionController::Base.helpers.pluralize(self.quantity, 'metro cúbico', "metros cúbicos")
+    when "pzas"
+      ActionController::Base.helpers.pluralize(self.quantity, 'pieza', "piezas")
+    else
+      "error"
+    end
+  end
+
   private
+
+  def self.current_measures
+    # kg grm oz ml l m2 m3
+    [["Kilogramo", "kg"], ["Gramos", "grm"], ["Onzas", "oz"], ["Mililitros", "ml"], ["Litros", "l"], ["Metros Cuadrados", "m2"], ["Metros Cúbicos", "m3"], ["Unidades/ Piezas", "pzas"]]
+  end
 
   def self.update_recent_products(item_ids:, product:, action: "create")
     item_ids = item_ids.select { |item| item.length > 0 }

@@ -89,6 +89,6 @@ class Dashboard::ProductsController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def product_params
-    params.require(:product).permit(:name, :description, :price, :aggregates_required, :max_aggregates, :public_stock, :unlimited, item_ids: [])
+    params.require(:product).permit(:name, :description, :price, :aggregates_required, :max_aggregates, :public_stock, :unlimited, :quantity, :quantity_measure, item_ids: [])
   end
 end

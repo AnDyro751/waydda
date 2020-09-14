@@ -23,7 +23,7 @@
 <div class="w-full flex">
   <%= link_to @in_dashboard ? dashboard_product_path(@product.slug) : place_product_path(@place.slug, @product.slug) do %>
     <div class="flex flex-wrap cursor-pointer w-56">
-      <div class="h-56 w-full mb-3">
+      <div class="h-56 w-full mb-5">
         <img
           draggable="false"
           class="h-56 w-56 bg-red-100 lazy"
@@ -32,7 +32,14 @@
           alt="<%= @product.name %> foto de producto">
       </div>
       <div class="w-full">
-        <h3 class="text-sm font-medium main-truncate"><%= @product.name.truncate(50) %></h3>
+        <h2 class="text-base font-bold font-medium main-truncate"><%= helpers.number_to_currency(@product.price, format: "%u %n") %></h2>
+        <h3 class="text-sm font-medium main-truncate mt-2"><%= @product.name.truncate(50) %></h3>
+        <% if @product.quantity.nil? %>
+          <h5 class="text-sm text-gray-600 mt-2 main-truncate invisible">no quantity</h5>
+        <% else %>
+          <h5 class="text-sm text-gray-600 mt-2 main-truncate"><%= @product.get_quantity_measure %></h5>
+        <% end %>
+        <h5 class="text-xs text-gray-600 mt-1 main-truncate"><%= @product.description.truncate(50) %></h5>
       </div>
     </div>
   <% end %>
