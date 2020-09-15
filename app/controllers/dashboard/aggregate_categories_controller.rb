@@ -19,7 +19,7 @@ class Dashboard::AggregateCategoriesController < ApplicationController
     @aggregate_category = @product.aggregate_categories.new(aggregate_category_params)
     respond_to do |format|
       if @aggregate_category.save
-        format.html { redirect_to dashboard_product_aggregate_category_path(@aggregate_category) }
+        format.html { redirect_to dashboard_product_aggregate_category_path(@product.slug, @aggregate_category) }
       else
         format.js
       end

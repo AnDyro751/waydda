@@ -9,7 +9,7 @@ class AggregateCategory
   field :description, type: String
 
   embeds_many :aggregates
-
+  embedded_in :product
   validates :name, presence: true, length: {in: 2..20}
 
 end
