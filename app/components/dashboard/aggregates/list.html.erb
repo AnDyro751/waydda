@@ -5,18 +5,12 @@
 <% else %>
   <% @aggregates.each do |aggregate| %>
     <ul class="w-full flex flex-wrap items-center mb-2 <%= @size != "small" ? "bg-main-gray divide-y divide-gray-400 rounded" : "" %>">
-      <li class="p-4 w-full" >
-        <%= link_to dashboard_product_aggregate_path(@product.slug, aggregate.id.to_s), class: "hover:underline" do %>
+      <li class="p-4 w-full">
+        <%= link_to dashboard_product_aggregate_path(@product.slug, aggregate.id.to_s), class: "hover:underline relative" do %>
           <h4 class="<%= @size == "small" ? "text-sm" : "text-base" %> font-normal text-gray-800 truncate my-1"><%= aggregate.name || "Sin nombre" %></h4>
-        <% end %>
-        <% if @size != "small" %>
-          <h5 class="text-sm text-gray-600"><%= aggregate.description %></h5>
-          <h5 class="text-sm text-gray-600 font-medium mt-1"><%= number_to_currency(aggregate.price, format: "%u %n") %></h5>
-        <% end %>
-      </li>
-      <li class="p-4 w-full" >
-        <%= link_to dashboard_product_aggregate_path(@product.slug, aggregate.id.to_s), class: "hover:underline" do %>
-          <h4 class="<%= @size == "small" ? "text-sm" : "text-base" %> font-normal text-gray-800 truncate my-1"><%= aggregate.name || "Sin nombre" %></h4>
+          <% if aggregate.default %>
+            <div class="absolute right-0 top-0 bottom-0 flex justify-center">Hola</div>
+          <% end %>
         <% end %>
         <% if @size != "small" %>
           <h5 class="text-sm text-gray-600"><%= aggregate.description %></h5>

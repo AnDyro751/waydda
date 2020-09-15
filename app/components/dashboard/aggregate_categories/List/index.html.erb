@@ -1,0 +1,11 @@
+<div class="w-full rounded bg-main-gray divide-x divide-gray-300">
+  <% if @product.aggregate_categories.length <= 0 %>
+    <%= render EmptyRecords.new(title: "Aún no has agregado ninguna variante") %>
+  <% else %>
+    <% @product.aggregate_categories.each do |aggregate_category| %>
+      <div class="p-4 flex">
+        <h4><%= aggregate_category.name %></h4>
+      </div>
+    <% end %>
+  <% end %>
+</div>

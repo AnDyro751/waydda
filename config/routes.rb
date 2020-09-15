@@ -63,7 +63,9 @@ Rails.application.routes.draw do
     # Products
     resources :products do
       # TODO: Crud operations
-      resources :aggregates
+      resources :aggregate_categories do
+        resources :aggregates
+      end
     end
     # Places
     get "/my-sales", to: "places#sales", as: "my_sales"

@@ -1,0 +1,2 @@
+module Dashboard::AggregateCategoriesHelper
+end
