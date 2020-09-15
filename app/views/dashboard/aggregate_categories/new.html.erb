@@ -45,7 +45,10 @@
       <%= f.input :multiple_selection,
                   collection: [%w[SI true], %w[NO false]],
                   label: "Selección múltiple",
-                  prompt: "Selecciona una opción"
+                  prompt: "Selecciona una opción",
+                  input_html: {
+                      "x-on:change": "handleMultipleSelect($event)"
+                  }
       %>
       <div class="w-full flex justify-end">
         <%= f.submit "Crear variante", data: {"disable-with": "Creando..."}, class: main_color_button(color: "secondary") %>
@@ -57,42 +60,61 @@
       </div>
       <div class="rounded border p-4 flex w-full">
         <div class="w-full flex flex-wrap">
-          <div class="w-full flex items-center">
-            <div class="w-8/12">
+          <div class="w-full flex flex-wrap border-b mb-4 pb-2">
+            <div class="w-full flex items-center">
+              <div class="w-8/12">
+                <div
+                  :class="{'hidden': name.length <= 0}"
+                  class="hidden h-6"
+                >
+                  <h3 class="uppercase text-sm font-medium truncate" x-text="name"/>
+                </div>
+                <div class="h-6 w-full bg-gray-300 animate-pulse rounded"
+                     :class="{'hidden': name.length > 0}"
+                >
+                </div>
+              </div>
               <div
-                :class="{'hidden': name.length <= 0}"
-                class="hidden h-6"
-              >
-                <h3 class="uppercase text-sm font-medium truncate" x-text="name"/>
-              </div>
-              <div class="h-6 w-full bg-gray-300 animate-pulse rounded"
-                   :class="{'hidden': name.length > 0}"
-              >
+                :class="{'hidden': !required }"
+                x-show="required"
+                class="w-4/12 flex justify-end hidden">
+                <h4 class="uppercase text-sm text-gray-500 font-normal">Obligatorio</h4>
               </div>
             </div>
-            <div
-              :class="{'hidden': !required }"
-              x-show="required"
-              class="w-4/12 flex justify-end hidden">
-              <h4 class="uppercase text-sm text-gray-500 font-normal">Obligatorio</h4>
+            <div class="w-8/12 mt-1 mb-2">
+              <div
+                :class="{'hidden': description.length <= 0}"
+                class="hidden h-full"
+              >
+                <h4 class="text-xs text-gray-600 truncate" x-text="description"/>
+              </div>
             </div>
           </div>
-          <div class="w-8/12 mt-1">
-            <div
-              :class="{'hidden': description.length <= 0}"
-              class="hidden h-full"
-            >
-              <h4 class="text-xs text-gray-600 truncate" x-text="description"/>
-            </div>
-          </div>
-          <label class="w-full mt-4 flex gap-4">
-            <div class="w-auto">
-              <input type="radio" class="main-radio focus:outline-none text-black h-5 w-5"/>
-            </div>
-            <div class="w-10/12">
-              <span class="text-sm font-medium">Lorem ipsum doler</span>
-            </div>
-          </label>
+          <% 1..5.times do %>
+            <label class="w-full my-3 flex gap-4 items-center">
+              <template x-if="!multiple_selection">
+                <input
+                  type="radio"
+                  name="previewRadio"
+                  :class="{'hidden': multiple_selection}"
+                  x-show="!multiple_selection"
+                  class="main-radio focus:outline-none hidden text-black h-5 w-5"
+                  />
+              </template>
+              <template x-if="multiple_selection">
+                <input
+                  type="checkbox"
+                  name="previewCheckbox"
+                  :class="{'hidden': !multiple_selection}"
+                  x-show="multiple_selection"
+                  class="main-checkbox rounded focus:outline-none hidden text-black h-5 w-5"
+                  />
+              </template>
+              <div class="w-10/12">
+                <span class="text-sm font-normal">Lorem ipsum doler</span>
+              </div>
+            </label>
+          <% end %>
         </div>
       </div>
     </div>
@@ -105,8 +127,10 @@
               required: false,
               multiple_selection: false,
               handleChange: function (e) {
-                  console.log(e.target.value);
                   this.required = (e.target.value === "true");
+              },
+              handleMultipleSelect: function (e) {
+                  this.multiple_selection = (e.target.value === "true");
               }
           }
       }

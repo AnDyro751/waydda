@@ -38,7 +38,7 @@ class Dashboard::AggregateCategoriesController < ApplicationController
   end
 
   def aggregate_category_params
-    params.require(:aggregate_category).permit(:name, :required, :max_aggregates, :min_aggregates, :description)
+    params.require(:aggregate_category).permit(:name, :required, :multiple_selection, :description)
   end
 
 end
