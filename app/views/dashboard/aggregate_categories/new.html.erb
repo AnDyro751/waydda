@@ -1,32 +1,50 @@
 <%= render Headers::Text.new(title: "Crear variante", subtitle: "Nueva variante de #{@product.name}", small: true) %>
+<%= simple_form_for(@aggregate_category,
+                    url: dashboard_product_aggregate_categories_path,
+                    remote: true,
+                    html: {
+                        class: "w-full flex gap-8 items-start mb-12"
+                    },
+                    defaults: {
+                        input_html: {
+                            class: 'py-3 px-3 bg-main-gray appearance-none rounded focus:outline-none w-full mt-2 mb-4 resize-none'
+                        },
+                        label_html: {
+                            class: "text-sm font-normal text-gray-600"
+                        }
+                    }
+    ) do |f| %>
+  <div class="w-6/12">
+    <%= f.input :name,
+                label: "Nombre de tu variante",
+                placeholder: "Nombre de tu variante"
+    %>
+    <%= f.input :description,
+                label: "Breve descripción de esta variante",
+                placeholder: "Describe la variante"
+    %>
+    <%= f.input :required,
+                label: "¿Es obligatorio seleccionar una sub-variante?",
+                collection: [%w[SI true], %w[NO false]],
+                prompt: "Selecciona una opción"
+    %>
 
-<%= simple_form_for(@aggregate_category, url: dashboard_product_aggregate_categories_path, remote: true) do |f| %>
-  <%= f.input :name,
-              label: "Nombre de tu variante",
-              placeholder: "Nombre de tu variante"
-  %>
-  <%= f.input :description,
-              label: "Breve descripción de esta variante",
-              placeholder: "Describe la variante"
-  %>
-
-  <%= f.input :required,
-              label: "¿Es obligatorio seleccionar una sub-variante?",
-              collection: [%w[SI true], %w[NO false]],
-              prompt: "Selecciona una opción"
-  %>
-
-  <%= f.input :max_aggregates,
-              as: :integer,
-              label: "Cantidad máxima de sub-variantes a seleccionar",
-              placeholder: "Cantidad máxima de sub-variantes a seleccionar"
-  %>
-  <%= f.input :max_aggregates,
-              as: :integer,
-              label: "Cantidad minima de sub-variantes a seleccionar",
-              placeholder: "Cantidad minima de sub-variantes a seleccionar"
-  %>
-
-  <%= f.submit "Crear variante", data: {"disable-with": "Creando..."} %>
+    <%= f.input :max_aggregates,
+                as: :integer,
+                label: "Cantidad máxima de sub-variantes a seleccionar",
+                placeholder: "Cantidad máxima de sub-variantes a seleccionar"
+    %>
+    <%= f.input :max_aggregates,
+                as: :integer,
+                label: "Cantidad minima de sub-variantes a seleccionar",
+                placeholder: "Cantidad minima de sub-variantes a seleccionar"
+    %>
+    <div class="w-full flex justify-end">
+      <%= f.submit "Crear variante", data: {"disable-with": "Creando..."}, class: main_color_button(color: "secondary") %>
+    </div>
+  </div>
+  <div class="w-6/12">
+    Mostrar una vista previa de la variante
+  </div>
 
 <% end %>
