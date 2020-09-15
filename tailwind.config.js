@@ -29,7 +29,9 @@ module.exports = {
                 main: "#f8f5f2",
                 "main-red": "#d43c27",
                 "secondary": "#f9e8e1",
-                "main-dark": "#3f444c"
+                "main-dark": "#3f444c",
+                "main-teal": "#2befb2",
+                "main-blue": "#5f48f6",
             },
             boxShadow: {
                 "small": "2px 2px 0px rgb(0, 0, 0)",
@@ -45,6 +47,7 @@ module.exports = {
         // display: ['responsive', 'hover', 'focus'],
         // visibility: ['responsive', 'hover', 'focus']
         inset: ['responsive', 'hover', 'focus'],
+        backgroundColor: ['responsive', 'hover', 'focus', 'checked'],
     },
     plugins: [],
 }

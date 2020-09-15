@@ -19,10 +19,11 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b89cb0fb-b680-4bb9-8ae0-f4b41721cfb9" name="Default Changelist" comment="feat(Place): Pequeña vista previa completada">
+    <list default="true" id="b89cb0fb-b680-4bb9-8ae0-f4b41721cfb9" name="Default Changelist" comment="feat(Place): Cambiamos la opción para que en lugar de tener un minimo y un máximo de items a seleccionar, solo debe seleccionar una opción para dejar agregar uno o más aggregates">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/aggregate_category.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/aggregate_category.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/assets/stylesheets/addresses.scss" beforeDir="false" afterPath="$PROJECT_DIR$/app/assets/stylesheets/addresses.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/views/dashboard/aggregate_categories/new.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/dashboard/aggregate_categories/new.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tailwind.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/tailwind.config.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -517,14 +518,7 @@
       <workItem from="1600023079601" duration="19080000" />
       <workItem from="1600130846482" duration="2536000" />
       <workItem from="1600154339043" duration="7989000" />
-      <workItem from="1600189966071" duration="6023000" />
-    </task>
-    <task id="LOCAL-00135" summary="feat(Dashboard): Pequeño efecto en el hover del botón">
-      <created>1599696268241</created>
-      <option name="number" value="00135" />
-      <option name="presentableId" value="LOCAL-00135" />
-      <option name="project" value="LOCAL" />
-      <updated>1599696268242</updated>
+      <workItem from="1600189966071" duration="8135000" />
     </task>
     <task id="LOCAL-00136" summary="feat(Dashboard): Añadimos funcionalidad al formulario para editar el producto">
       <created>1599698936481</created>
@@ -862,7 +856,14 @@
       <option name="project" value="LOCAL" />
       <updated>1600194980111</updated>
     </task>
-    <option name="localTasksCounter" value="184" />
+    <task id="LOCAL-00184" summary="feat(Place): Cambiamos la opción para que en lugar de tener un minimo y un máximo de items a seleccionar, solo debe seleccionar una opción para dejar agregar uno o más aggregates">
+      <created>1600196845678</created>
+      <option name="number" value="00184" />
+      <option name="presentableId" value="LOCAL-00184" />
+      <option name="project" value="LOCAL" />
+      <updated>1600196845678</updated>
+    </task>
+    <option name="localTasksCounter" value="185" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -882,7 +883,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="feat(Dashboard): Mostramos las categorías y podemos eliminar desde la misma página" />
     <MESSAGE value="feat(Dashboard): Mostramos los productos y paginamos los resultados de los mismos en la categoría" />
     <MESSAGE value="feat(Dashboard): Mostramos los breadcumbs" />
     <MESSAGE value="feat(Dashboard): Iniciamos el formulario de envios a domicilio" />
@@ -907,7 +907,8 @@
     <MESSAGE value="feat(Place): Creamos y guardamos los aggregate_category.rb" />
     <MESSAGE value="feat(Place): Añadimos los estilos pequeños al formulario" />
     <MESSAGE value="feat(Place): Pequeña vista previa completada" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat(Place): Pequeña vista previa completada" />
+    <MESSAGE value="feat(Place): Cambiamos la opción para que en lugar de tener un minimo y un máximo de items a seleccionar, solo debe seleccionar una opción para dejar agregar uno o más aggregates" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat(Place): Cambiamos la opción para que en lugar de tener un minimo y un máximo de items a seleccionar, solo debe seleccionar una opción para dejar agregar uno o más aggregates" />
   </component>
   <component name="WindowStateProjectService">
     <state x="392" y="0" key="#All_specs_in_spec:_waydda" timestamp="1598730457189">
@@ -946,10 +947,10 @@
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="404" y="186" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1366.768@0.0.1366.768" timestamp="1599454959940" />
-    <state x="255" y="251" key="FileChooserDialogImpl" timestamp="1598733276444">
+    <state x="255" y="248" key="FileChooserDialogImpl" timestamp="1600204670357">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state x="255" y="251" key="FileChooserDialogImpl/0.0.1366.768@0.0.1366.768" timestamp="1598733276444" />
+    <state x="255" y="248" key="FileChooserDialogImpl/0.0.1366.768@0.0.1366.768" timestamp="1600204670357" />
     <state width="1323" height="188" key="GridCell.Tab.0.bottom" timestamp="1598742120387">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
@@ -1021,12 +1022,12 @@
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="339" y="174" width="672" height="677" key="run.anything.popup/0.0.1366.768@0.0.1366.768" timestamp="1599927133187" />
-    <state x="346" y="89" width="672" height="678" key="search.everywhere.popup" timestamp="1600196623373">
+    <state x="346" y="89" width="672" height="678" key="search.everywhere.popup" timestamp="1600204935205">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="1852" y="56" width="945" height="954" key="search.everywhere.popup/0.0.1366.768/1366.-69.1920.1080@1366.-69.1920.1080" timestamp="1597715976170" />
     <state x="1710" y="89" width="672" height="678" key="search.everywhere.popup/0.0.1366.768/1366.0.1360.768@1366.0.1360.768" timestamp="1598985878395" />
     <state x="1852" y="125" width="945" height="954" key="search.everywhere.popup/0.0.1366.768/1366.0.1920.1080@1366.0.1920.1080" timestamp="1599267313630" />
-    <state x="346" y="89" width="672" height="678" key="search.everywhere.popup/0.0.1366.768@0.0.1366.768" timestamp="1600196623373" />
+    <state x="346" y="89" width="672" height="678" key="search.everywhere.popup/0.0.1366.768@0.0.1366.768" timestamp="1600204935205" />
   </component>
 </project>
