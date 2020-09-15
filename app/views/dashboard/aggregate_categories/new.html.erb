@@ -1,3 +1,17 @@
+<div class="w-full mt-4 text-gray-600 text-sm">
+  <div class=""><%= link_to "Productos", dashboard_products_path, class: "hover:underline" %>
+    <div class="mx-2 select-none inline">
+      >
+    </div>
+    <span class="">
+      <%= link_to @product.name, dashboard_product_path(@product.slug), class: "hover:underline" %>
+    </span>
+    <div class="mx-2 select-none inline">
+      >
+    </div>
+    <span class="text-indigo-700 font-medium">Crear variante</span>
+  </div>
+</div>
 <%= render Headers::Text.new(title: "Crear variante", subtitle: "Nueva variante de #{@product.name}", small: true) %>
 <div
   class="w-full"
@@ -7,7 +21,7 @@
                       url: dashboard_product_aggregate_categories_path,
                       remote: true,
                       html: {
-                          class: "w-full flex gap-8 items-start mb-12"
+                          class: "w-full flex gap-12 items-start mb-12"
                       },
                       defaults: {
                           input_html: {
@@ -18,7 +32,7 @@
                           }
                       }
       ) do |f| %>
-    <div class="w-6/12">
+    <div class="w-7/12">
       <%= f.input :name,
                   label: "Nombre de tu variante",
                   placeholder: "Nombre de tu variante",
@@ -38,7 +52,7 @@
                   collection: [%w[SI true], %w[NO false]],
                   prompt: "Selecciona una opción",
                   input_html: {
-                      "x-on:change": "handleChange($event)"
+                      "x-on:change": "handleRequired($event)"
                   }
       %>
 
@@ -50,11 +64,11 @@
                       "x-on:change": "handleMultipleSelect($event)"
                   }
       %>
-      <div class="w-full flex justify-end">
+      <div class="w-full flex justify-end mt-8">
         <%= f.submit "Crear variante", data: {"disable-with": "Creando..."}, class: main_color_button(color: "secondary") %>
       </div>
     </div>
-    <div class="w-6/12 flex flex-wrap">
+    <div class="w-5/12 flex flex-wrap">
       <div class="w-full mb-4">
         <h2 class="text-lg font-medium uppercase">vista previa</h2>
       </div>
@@ -127,6 +141,10 @@
               required: false,
               multiple_selection: false,
               handleChange: function (e) {
+                  e.target.classList.remove("border-2");
+                  e.target.classList.remove("border-red-500");
+              },
+              handleRequired: function (e) {
                   this.required = (e.target.value === "true");
               },
               handleMultipleSelect: function (e) {
