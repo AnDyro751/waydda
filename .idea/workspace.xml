@@ -19,7 +19,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b89cb0fb-b680-4bb9-8ae0-f4b41721cfb9" name="Default Changelist" comment="feat(Place): Creamos y guardamos los aggregate_category.rb">
+    <list default="true" id="b89cb0fb-b680-4bb9-8ae0-f4b41721cfb9" name="Default Changelist" comment="feat(Place): Añadimos los estilos pequeños al formulario">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/views/dashboard/aggregate_categories/new.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/dashboard/aggregate_categories/new.html.erb" afterDir="false" />
     </list>
@@ -515,14 +515,8 @@
       <workItem from="1599860841008" duration="25681000" />
       <workItem from="1600023079601" duration="19080000" />
       <workItem from="1600130846482" duration="2536000" />
-      <workItem from="1600154339043" duration="6785000" />
-    </task>
-    <task id="LOCAL-00133" summary="feat(Dashboard): Mostramos la imagen del producto">
-      <created>1599677484416</created>
-      <option name="number" value="00133" />
-      <option name="presentableId" value="LOCAL-00133" />
-      <option name="project" value="LOCAL" />
-      <updated>1599677484416</updated>
+      <workItem from="1600154339043" duration="7989000" />
+      <workItem from="1600189966071" duration="4610000" />
     </task>
     <task id="LOCAL-00134" summary="feat(Dashboard): Actualizamos la foto de perfil de la empresa">
       <created>1599684185213</created>
@@ -860,7 +854,14 @@
       <option name="project" value="LOCAL" />
       <updated>1600142349701</updated>
     </task>
-    <option name="localTasksCounter" value="182" />
+    <task id="LOCAL-00182" summary="feat(Place): Añadimos los estilos pequeños al formulario">
+      <created>1600143508293</created>
+      <option name="number" value="00182" />
+      <option name="presentableId" value="LOCAL-00182" />
+      <option name="project" value="LOCAL" />
+      <updated>1600143508293</updated>
+    </task>
+    <option name="localTasksCounter" value="183" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -880,7 +881,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="feat(Dashboard): Header item" />
     <MESSAGE value="feat(Dashboard): Categories show empty records" />
     <MESSAGE value="feat(Dashboard): Mostramos las categorías y podemos eliminar desde la misma página" />
     <MESSAGE value="feat(Dashboard): Mostramos los productos y paginamos los resultados de los mismos en la categoría" />
@@ -905,7 +905,8 @@
     <MESSAGE value="feat(Place): Añadimos las acciones necesarias para el crud de las categorías" />
     <MESSAGE value="feat(Place): Pequeño formulario para agregar el category" />
     <MESSAGE value="feat(Place): Creamos y guardamos los aggregate_category.rb" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat(Place): Creamos y guardamos los aggregate_category.rb" />
+    <MESSAGE value="feat(Place): Añadimos los estilos pequeños al formulario" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat(Place): Añadimos los estilos pequeños al formulario" />
   </component>
   <component name="WindowStateProjectService">
     <state x="392" y="0" key="#All_specs_in_spec:_waydda" timestamp="1598730457189">
@@ -981,12 +982,12 @@
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="544" y="96" key="VCS.ChangeListViewerDialog/0.0.1366.768@0.0.1366.768" timestamp="1598750646694" />
-    <state x="275" y="117" key="Vcs.Push.Dialog.v2" timestamp="1600159229959">
+    <state x="275" y="117" key="Vcs.Push.Dialog.v2" timestamp="1600191122410">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="1640" y="117" key="Vcs.Push.Dialog.v2/0.0.1366.768/1366.0.1360.768@1366.0.1360.768" timestamp="1598221582431" />
     <state x="1753" y="165" key="Vcs.Push.Dialog.v2/0.0.1366.768/1366.0.1920.1080@1366.0.1920.1080" timestamp="1599267641822" />
-    <state x="275" y="117" key="Vcs.Push.Dialog.v2/0.0.1366.768@0.0.1366.768" timestamp="1600159229959" />
+    <state x="275" y="117" key="Vcs.Push.Dialog.v2/0.0.1366.768@0.0.1366.768" timestamp="1600191122410" />
     <state x="496" y="169" key="chooseDestDirectoryDialog" timestamp="1598730651549">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
@@ -1004,13 +1005,13 @@
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="628" y="298" key="com.jetbrains.plugins.remotesdk.ui.RemoteMappingsConfiguration/0.0.1366.768@0.0.1366.768" timestamp="1598729856431" />
-    <state x="390" y="117" width="585" height="624" key="find.popup" timestamp="1600143051097">
+    <state x="390" y="117" width="585" height="624" key="find.popup" timestamp="1600190911756">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="1914" y="96" width="823" height="878" key="find.popup/0.0.1366.768/1366.-69.1920.1080@1366.-69.1920.1080" timestamp="1597716285449" />
     <state x="1754" y="117" width="583" height="624" key="find.popup/0.0.1366.768/1366.0.1360.768@1366.0.1360.768" timestamp="1598981376119" />
     <state x="1914" y="165" width="823" height="878" key="find.popup/0.0.1366.768/1366.0.1920.1080@1366.0.1920.1080" timestamp="1599260651210" />
-    <state x="390" y="117" width="585" height="624" key="find.popup/0.0.1366.768@0.0.1366.768" timestamp="1600143051097" />
+    <state x="390" y="117" width="585" height="624" key="find.popup/0.0.1366.768@0.0.1366.768" timestamp="1600190911756" />
     <state x="549" y="254" width="250" height="278" key="jetbrains.javascript.buildTools.run-task-popup" timestamp="1597946321130">
       <screen x="0" y="0" width="1366" height="768" />
     </state>

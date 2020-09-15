@@ -1,50 +1,99 @@
 <%= render Headers::Text.new(title: "Crear variante", subtitle: "Nueva variante de #{@product.name}", small: true) %>
-<%= simple_form_for(@aggregate_category,
-                    url: dashboard_product_aggregate_categories_path,
-                    remote: true,
-                    html: {
-                        class: "w-full flex gap-8 items-start mb-12"
-                    },
-                    defaults: {
-                        input_html: {
-                            class: 'py-3 px-3 bg-main-gray appearance-none rounded focus:outline-none w-full mt-2 mb-4 resize-none'
-                        },
-                        label_html: {
-                            class: "text-sm font-normal text-gray-600"
-                        }
-                    }
-    ) do |f| %>
-  <div class="w-6/12">
-    <%= f.input :name,
-                label: "Nombre de tu variante",
-                placeholder: "Nombre de tu variante"
-    %>
-    <%= f.input :description,
-                label: "Breve descripción de esta variante",
-                placeholder: "Describe la variante"
-    %>
-    <%= f.input :required,
-                label: "¿Es obligatorio seleccionar una sub-variante?",
-                collection: [%w[SI true], %w[NO false]],
-                prompt: "Selecciona una opción"
-    %>
+<div
+  class="w-full"
+  x-data="dashboardNewAggregate()"
+>
+  <%= simple_form_for(@aggregate_category,
+                      url: dashboard_product_aggregate_categories_path,
+                      remote: true,
+                      html: {
+                          class: "w-full flex gap-8 items-start mb-12"
+                      },
+                      defaults: {
+                          input_html: {
+                              class: 'py-3 px-3 bg-main-gray appearance-none rounded focus:outline-none w-full mt-2 mb-4 resize-none',
+                          },
+                          label_html: {
+                              class: "text-sm font-normal text-gray-600"
+                          }
+                      }
+      ) do |f| %>
+    <div class="w-6/12">
+      <%= f.input :name,
+                  label: "Nombre de tu variante",
+                  placeholder: "Nombre de tu variante",
+                  input_html: {
+                      "x-model": "name"
+                  }
+      %>
+      <%= f.input :description,
+                  label: "Breve descripción de esta variante",
+                  placeholder: "Describe la variante",
+                  input_html: {
+                      "x-model": "description"
+                  }
+      %>
+      <%= f.input :required,
+                  label: "¿Es obligatorio seleccionar una sub-variante?",
+                  collection: [%w[SI true], %w[NO false]],
+                  prompt: "Selecciona una opción"
+      %>
 
-    <%= f.input :max_aggregates,
-                as: :integer,
-                label: "Cantidad máxima de sub-variantes a seleccionar",
-                placeholder: "Cantidad máxima de sub-variantes a seleccionar"
-    %>
-    <%= f.input :max_aggregates,
-                as: :integer,
-                label: "Cantidad minima de sub-variantes a seleccionar",
-                placeholder: "Cantidad minima de sub-variantes a seleccionar"
-    %>
-    <div class="w-full flex justify-end">
-      <%= f.submit "Crear variante", data: {"disable-with": "Creando..."}, class: main_color_button(color: "secondary") %>
+      <%= f.input :max_aggregates,
+                  as: :integer,
+                  label: "Cantidad máxima de sub-variantes a seleccionar",
+                  placeholder: "Cantidad máxima de sub-variantes a seleccionar"
+      %>
+      <%= f.input :max_aggregates,
+                  as: :integer,
+                  label: "Cantidad minima de sub-variantes a seleccionar",
+                  placeholder: "Cantidad minima de sub-variantes a seleccionar"
+      %>
+      <div class="w-full flex justify-end">
+        <%= f.submit "Crear variante", data: {"disable-with": "Creando..."}, class: main_color_button(color: "secondary") %>
+      </div>
     </div>
-  </div>
-  <div class="w-6/12">
-    Mostrar una vista previa de la variante
-  </div>
-
-<% end %>
+    <div class="w-6/12 flex flex-wrap">
+      <div class="w-full mb-4">
+        <h2 class="text-lg font-medium uppercase">vista previa</h2>
+      </div>
+      <div class="rounded border p-4 flex w-full">
+        <div class="w-full flex flex-wrap">
+          <div class="w-full flex items-center">
+            <div class="w-8/12">
+              <div
+                :class="{'hidden': name.length <= 0}"
+                class="hidden h-6"
+              >
+                <h3 class="uppercase text-sm font-medium truncate" x-text="name"/>
+              </div>
+              <div class="h-6 w-full bg-gray-300 animate-pulse rounded"
+                   :class="{'hidden': name.length > 0}"
+              >
+              </div>
+            </div>
+            <div class="w-4/12 flex justify-end">
+              <h4 class="uppercase text-sm text-gray-500 font-normal">Obligatorio</h4>
+            </div>
+          </div>
+          <div class="w-8/12 mt-1">
+            <div
+              :class="{'hidden': description.length <= 0}"
+              class="hidden h-full"
+            >
+              <h4 class="text-xs text-gray-600 truncate" x-text="description"></h4>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
+  <script type="text/javascript" charset="utf-8">
+      function dashboardNewAggregate() {
+          return {
+              name: "",
+              description: ""
+          }
+      }
+  </script>
+</div>
