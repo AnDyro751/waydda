@@ -23,7 +23,8 @@ module.exports = {
                 "main-teal": "#2befb2",
                 "main-blue": "#5f48f6",
                 "main-dark": "#1e2125",
-                "main-teal-dark": "#228f6d"
+                "main-teal-dark": "#228f6d",
+                "gray-50": "#f9fafb"
             },
             textColor: {
                 main: "#f8f5f2",

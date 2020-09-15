@@ -5,7 +5,7 @@ class AggregateCategory
   field :name, type: String
   field :required, type: Boolean, default: false
   field :multiple_selection, type: Boolean, default: false
-  field :description, type: String
+  field :description, type: String, default: ""
 
   embeds_many :aggregates
   embedded_in :product
