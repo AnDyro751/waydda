@@ -3,9 +3,8 @@ class AggregateCategory
   include Mongoid::Timestamps
 
   field :name, type: String
-  field :required, type: Boolean
-  field :max_aggregates, type: Integer
-  field :min_aggregates, type: Integer
+  field :required, type: Boolean, default: false
+  field :multiple_selection, type: Boolean, default: false
   field :description, type: String
 
   embeds_many :aggregates

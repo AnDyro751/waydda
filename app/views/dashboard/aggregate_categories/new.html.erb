@@ -36,18 +36,16 @@
       <%= f.input :required,
                   label: "¿Es obligatorio seleccionar una sub-variante?",
                   collection: [%w[SI true], %w[NO false]],
-                  prompt: "Selecciona una opción"
+                  prompt: "Selecciona una opción",
+                  input_html: {
+                      "x-on:change": "handleChange($event)"
+                  }
       %>
 
-      <%= f.input :max_aggregates,
-                  as: :integer,
-                  label: "Cantidad máxima de sub-variantes a seleccionar",
-                  placeholder: "Cantidad máxima de sub-variantes a seleccionar"
-      %>
-      <%= f.input :max_aggregates,
-                  as: :integer,
-                  label: "Cantidad minima de sub-variantes a seleccionar",
-                  placeholder: "Cantidad minima de sub-variantes a seleccionar"
+      <%= f.input :multiple_selection,
+                  collection: [%w[SI true], %w[NO false]],
+                  label: "Selección múltiple",
+                  prompt: "Selecciona una opción"
       %>
       <div class="w-full flex justify-end">
         <%= f.submit "Crear variante", data: {"disable-with": "Creando..."}, class: main_color_button(color: "secondary") %>
@@ -72,7 +70,10 @@
               >
               </div>
             </div>
-            <div class="w-4/12 flex justify-end">
+            <div
+              :class="{'hidden': !required }"
+              x-show="required"
+              class="w-4/12 flex justify-end hidden">
               <h4 class="uppercase text-sm text-gray-500 font-normal">Obligatorio</h4>
             </div>
           </div>
@@ -81,7 +82,7 @@
               :class="{'hidden': description.length <= 0}"
               class="hidden h-full"
             >
-              <h4 class="text-xs text-gray-600 truncate" x-text="description"></h4>
+              <h4 class="text-xs text-gray-600 truncate" x-text="description"/>
             </div>
           </div>
         </div>
@@ -92,7 +93,13 @@
       function dashboardNewAggregate() {
           return {
               name: "",
-              description: ""
+              description: "",
+              required: false,
+              multiple_selection: false,
+              handleChange: function (e) {
+                  console.log(e.target.value);
+                  this.required = (e.target.value === "true");
+              }
           }
       }
   </script>
