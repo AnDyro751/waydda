@@ -4,16 +4,8 @@
 <% if @products.length <= 0 %>
   <%= render(EmptyRecords.new(title: "Aún no hay productos para mostrar")) %>
 <% else %>
-  <div class="grid grid-cols-12 grap-4 w-full mt-4">
-    <% @products.each do |product| %>
-      <div class="col-span-6">
-        <%= render Products::Item.new(product: product) do %>
-          <%= link_to dashboard_product_path(product.slug) do %>
-            <%= react_component('ResponsiveImage', props: {publicId: product.photo, alt: "product", byDefault: false, wrapperClass: "md:w-32 md:h-32 rounded", className: "rounded"}, prerender: false) %>
-          <% end %>
-        <% end %>
-      </div>
-      </div>
-    <% end %>
+  <div class="flex w-full mt-4">
+    <%= render Products::List.new(products: @products, in_dashboard: true) %>
+  </div>
 <% end %>
 
