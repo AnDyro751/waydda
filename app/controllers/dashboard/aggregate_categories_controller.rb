@@ -6,13 +6,24 @@ class Dashboard::AggregateCategoriesController < ApplicationController
   before_action :set_aggregate_category, only: [:show, :update, :edit, :destroy]
 
   def new
+    @aggregate_category = @product.aggregate_categories.new
   end
 
   def edit
   end
 
   def show
+  end
 
+  def create
+    @aggregate_category = @product.aggregate_categories.new(aggregate_category_params)
+    respond_to do |format|
+      if @aggregate_category.save
+        format.html { redirect_to dashboard_product_aggregate_category_path(@aggregate_category) }
+      else
+        format.js
+      end
+    end
   end
 
   private
@@ -24,6 +35,10 @@ class Dashboard::AggregateCategoriesController < ApplicationController
 
   def set_aggregate_category
     (@aggregate_category = @product.aggregate_categories.find_by(id: params["id"])) or not_found
+  end
+
+  def aggregate_category_params
+    params.require(:aggregate_category).permit(:name, :required, :max_aggregates, :min_aggregates, :description)
   end
 
 end

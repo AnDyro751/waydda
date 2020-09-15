@@ -1,0 +1,5 @@
+//TODO: Mostrar los errores al crear la categoria
+
+<% if @aggregate_category.errors.any? %>
+console.log("<%= @aggregate_category.errors.full_messages %>")
+<% end %>

@@ -19,10 +19,12 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b89cb0fb-b680-4bb9-8ae0-f4b41721cfb9" name="Default Changelist" comment="feat(Place): Agregamos una nueva categoría para las variantes">
-      <change afterPath="$PROJECT_DIR$/app/views/dashboard/aggregate_categories/show.html.erb" afterDir="false" />
+    <list default="true" id="b89cb0fb-b680-4bb9-8ae0-f4b41721cfb9" name="Default Changelist" comment="feat(Place): Añadimos las acciones necesarias para el crud de las categorías">
+      <change afterPath="$PROJECT_DIR$/app/views/dashboard/aggregate_categories/create.js.erb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/components/Products/ViewModal/index.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/components/Products/ViewModal/index.html.erb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/controllers/dashboard/aggregate_categories_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/dashboard/aggregate_categories_controller.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/dashboard/aggregate_categories/new.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/dashboard/aggregate_categories/new.html.erb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -63,7 +65,7 @@
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="DefaultRubyCreateTestTemplate" value="Ruby File" />
-    <property name="Ruby.ViewRefParam.DefaultExtension" value="html.erb" />
+    <property name="Ruby.ViewRefParam.DefaultExtension" value="js.erb" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
@@ -516,14 +518,7 @@
       <workItem from="1599860841008" duration="25681000" />
       <workItem from="1600023079601" duration="19080000" />
       <workItem from="1600130846482" duration="2536000" />
-      <workItem from="1600154339043" duration="4214000" />
-    </task>
-    <task id="LOCAL-00130" summary="feat(Dashboard): Actualizamos la foto del producto y la mostramos en el div correspondiente">
-      <created>1599529999133</created>
-      <option name="number" value="00130" />
-      <option name="presentableId" value="LOCAL-00130" />
-      <option name="project" value="LOCAL" />
-      <updated>1599529999133</updated>
+      <workItem from="1600154339043" duration="5190000" />
     </task>
     <task id="LOCAL-00131" summary="feat(Dashboard): Cambiamos el main color">
       <created>1599543045650</created>
@@ -861,7 +856,14 @@
       <option name="project" value="LOCAL" />
       <updated>1600158487360</updated>
     </task>
-    <option name="localTasksCounter" value="179" />
+    <task id="LOCAL-00179" summary="feat(Place): Añadimos las acciones necesarias para el crud de las categorías">
+      <created>1600158885742</created>
+      <option name="number" value="00179" />
+      <option name="presentableId" value="LOCAL-00179" />
+      <option name="project" value="LOCAL" />
+      <updated>1600158885742</updated>
+    </task>
+    <option name="localTasksCounter" value="180" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -881,7 +883,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="feat(Dashboard): Mostramos un mensaje cuando ya se ha usado la versión gratuita de la suscripción" />
     <MESSAGE value="feat(Dashboard): Al parecer todo funciona, se ha agregado el formulario para que se use la tarjeta" />
     <MESSAGE value="feat(Dashboard): Mostramos el formulario cuando ya se ha usado el free trial" />
     <MESSAGE value="feat(Dashboard): Header item" />
@@ -906,7 +907,8 @@
     <MESSAGE value="feat(Place): Errores en los productos más vistos" />
     <MESSAGE value="feat(Place): Mostramos parte del modal del producto" />
     <MESSAGE value="feat(Place): Agregamos una nueva categoría para las variantes" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat(Place): Agregamos una nueva categoría para las variantes" />
+    <MESSAGE value="feat(Place): Añadimos las acciones necesarias para el crud de las categorías" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat(Place): Añadimos las acciones necesarias para el crud de las categorías" />
   </component>
   <component name="WindowStateProjectService">
     <state x="392" y="0" key="#All_specs_in_spec:_waydda" timestamp="1598730457189">
@@ -982,20 +984,20 @@
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="544" y="96" key="VCS.ChangeListViewerDialog/0.0.1366.768@0.0.1366.768" timestamp="1598750646694" />
-    <state x="275" y="117" key="Vcs.Push.Dialog.v2" timestamp="1600057304575">
+    <state x="275" y="117" key="Vcs.Push.Dialog.v2" timestamp="1600159229959">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="1640" y="117" key="Vcs.Push.Dialog.v2/0.0.1366.768/1366.0.1360.768@1366.0.1360.768" timestamp="1598221582431" />
     <state x="1753" y="165" key="Vcs.Push.Dialog.v2/0.0.1366.768/1366.0.1920.1080@1366.0.1920.1080" timestamp="1599267641822" />
-    <state x="275" y="117" key="Vcs.Push.Dialog.v2/0.0.1366.768@0.0.1366.768" timestamp="1600057304575" />
+    <state x="275" y="117" key="Vcs.Push.Dialog.v2/0.0.1366.768@0.0.1366.768" timestamp="1600159229959" />
     <state x="496" y="169" key="chooseDestDirectoryDialog" timestamp="1598730651549">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="496" y="169" key="chooseDestDirectoryDialog/0.0.1366.768@0.0.1366.768" timestamp="1598730651549" />
-    <state x="289" y="0" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1599577059614">
+    <state x="289" y="0" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1600158861402">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state x="289" y="0" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.0.1366.768@0.0.1366.768" timestamp="1599577059614" />
+    <state x="289" y="0" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.0.1366.768@0.0.1366.768" timestamp="1600158861402" />
     <state x="1916" y="328" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1598664942468">
       <screen x="1366" y="0" width="1360" height="768" />
     </state>
@@ -1005,13 +1007,13 @@
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="628" y="298" key="com.jetbrains.plugins.remotesdk.ui.RemoteMappingsConfiguration/0.0.1366.768@0.0.1366.768" timestamp="1598729856431" />
-    <state x="390" y="117" width="585" height="624" key="find.popup" timestamp="1600158142333">
+    <state x="390" y="117" width="585" height="624" key="find.popup" timestamp="1600141563689">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="1914" y="96" width="823" height="878" key="find.popup/0.0.1366.768/1366.-69.1920.1080@1366.-69.1920.1080" timestamp="1597716285449" />
     <state x="1754" y="117" width="583" height="624" key="find.popup/0.0.1366.768/1366.0.1360.768@1366.0.1360.768" timestamp="1598981376119" />
     <state x="1914" y="165" width="823" height="878" key="find.popup/0.0.1366.768/1366.0.1920.1080@1366.0.1920.1080" timestamp="1599260651210" />
-    <state x="390" y="117" width="585" height="624" key="find.popup/0.0.1366.768@0.0.1366.768" timestamp="1600158142333" />
+    <state x="390" y="117" width="585" height="624" key="find.popup/0.0.1366.768@0.0.1366.768" timestamp="1600141563689" />
     <state x="549" y="254" width="250" height="278" key="jetbrains.javascript.buildTools.run-task-popup" timestamp="1597946321130">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
@@ -1020,12 +1022,12 @@
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="339" y="174" width="672" height="677" key="run.anything.popup/0.0.1366.768@0.0.1366.768" timestamp="1599927133187" />
-    <state x="346" y="89" width="672" height="678" key="search.everywhere.popup" timestamp="1600158495246">
+    <state x="346" y="89" width="672" height="678" key="search.everywhere.popup" timestamp="1600159185541">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="1852" y="56" width="945" height="954" key="search.everywhere.popup/0.0.1366.768/1366.-69.1920.1080@1366.-69.1920.1080" timestamp="1597715976170" />
     <state x="1710" y="89" width="672" height="678" key="search.everywhere.popup/0.0.1366.768/1366.0.1360.768@1366.0.1360.768" timestamp="1598985878395" />
     <state x="1852" y="125" width="945" height="954" key="search.everywhere.popup/0.0.1366.768/1366.0.1920.1080@1366.0.1920.1080" timestamp="1599267313630" />
-    <state x="346" y="89" width="672" height="678" key="search.everywhere.popup/0.0.1366.768@0.0.1366.768" timestamp="1600158495246" />
+    <state x="346" y="89" width="672" height="678" key="search.everywhere.popup/0.0.1366.768@0.0.1366.768" timestamp="1600159185541" />
   </component>
 </project>

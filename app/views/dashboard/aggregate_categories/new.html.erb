@@ -1,2 +1,30 @@
-<h1>Dashboard::AggregateCategories#new</h1>
-<p>Find me in app/views/dashboard/aggregate_categories/new.html.erb</p>
+<%= render Headers::Text.new(title: "Crear variante", subtitle: "Nueva variante de #{@product.name}", small: true) %>
+
+<%= simple_form_for(@aggregate_category, url: dashboard_product_aggregate_categories_path, remote: true) do |f| %>
+  <%= f.input :name,
+              label: "Nombre de tu variante",
+              placeholder: "Nombre de tu variante"
+  %>
+  <%= f.input :description,
+              label: "Breve descripción de esta variante",
+              placeholder: "Describe la variante"
+  %>
+
+  <%= f.input :required,
+              label: "¿Es obligatorio seleccionar una sub-variante?",
+              collection: [%w[SI true], %w[NO false]],
+              prompt: "Selecciona una opción"
+  %>
+
+  <%= f.input :max_aggregates,
+              as: :integer,
+              label: "Cantidad máxima de sub-variantes a seleccionar",
+              placeholder: "Cantidad máxima de sub-variantes a seleccionar"
+  %>
+  <%= f.input :max_aggregates,
+              as: :integer,
+              label: "Cantidad minima de sub-variantes a seleccionar",
+              placeholder: "Cantidad minima de sub-variantes a seleccionar"
+  %>
+
+<% end %>
