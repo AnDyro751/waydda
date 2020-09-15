@@ -19,37 +19,10 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b89cb0fb-b680-4bb9-8ae0-f4b41721cfb9" name="Default Changelist" comment="feat(Place):Actualizamos el lazyload para que reciba los cambios del modal y que las imagenes puedan cargar sin ningún problema">
-      <change afterPath="$PROJECT_DIR$/app/assets/stylesheets/dashboard/aggregate_categories.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/components/Products/Variants/List/index.html.erb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/components/Products/Variants/List/index.rb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/components/dashboard/aggregate_categories/List/index.html.erb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/components/dashboard/aggregate_categories/List/index.rb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/controllers/dashboard/aggregate_categories_controller.rb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/helpers/dashboard/aggregate_categories_helper.rb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/models/aggregate_category.rb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/views/dashboard/aggregate_categories/edit.html.erb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/views/dashboard/aggregate_categories/new.html.erb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/spec/factories/aggregate_categories.rb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/spec/helpers/dashboard/aggregate_categories_helper_spec.rb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/spec/models/aggregate_category_spec.rb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/spec/requests/dashboard/aggregate_categories_request_spec.rb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/spec/views/dashboard/aggregate_categories/edit.html.erb_spec.rb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/spec/views/dashboard/aggregate_categories/new.html.erb_spec.rb" afterDir="false" />
+    <list default="true" id="b89cb0fb-b680-4bb9-8ae0-f4b41721cfb9" name="Default Changelist" comment="feat(Place): Agregamos una nueva categoría para las variantes">
+      <change afterPath="$PROJECT_DIR$/app/views/dashboard/aggregate_categories/show.html.erb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/assets/stylesheets/addresses.scss" beforeDir="false" afterPath="$PROJECT_DIR$/app/assets/stylesheets/addresses.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/components/Products/ViewModal/index.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/components/Products/ViewModal/index.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/components/dashboard/aggregates/list.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/components/dashboard/aggregates/list.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/javascript/packs/places/show.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/javascript/packs/places/show.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/aggregate.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/aggregate.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/product.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/product.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/dashboard/products/_more_viewed.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/dashboard/products/_more_viewed.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/dashboard/products/show.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/dashboard/products/show.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/places/show.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/places/show.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/products/show.js.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/products/show.js.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/routes.rb" beforeDir="false" afterPath="$PROJECT_DIR$/config/routes.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dump.rdb" beforeDir="false" afterPath="$PROJECT_DIR$/dump.rdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tailwind.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/tailwind.config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/dashboard/aggregate_categories_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/dashboard/aggregate_categories_controller.rb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -90,7 +63,7 @@
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="DefaultRubyCreateTestTemplate" value="Ruby File" />
-    <property name="Ruby.ViewRefParam.DefaultExtension" value="js.erb" />
+    <property name="Ruby.ViewRefParam.DefaultExtension" value="html.erb" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
@@ -543,28 +516,7 @@
       <workItem from="1599860841008" duration="25681000" />
       <workItem from="1600023079601" duration="19080000" />
       <workItem from="1600130846482" duration="2536000" />
-      <workItem from="1600154339043" duration="3749000" />
-    </task>
-    <task id="LOCAL-00127" summary="feat(Dashboard): Hay un error pendejo">
-      <created>1599455681788</created>
-      <option name="number" value="00127" />
-      <option name="presentableId" value="LOCAL-00127" />
-      <option name="project" value="LOCAL" />
-      <updated>1599455681788</updated>
-    </task>
-    <task id="LOCAL-00128" summary="feat(Dashboard): Agregamos uppy para subir el archivo, aunque pienso quitarlo porque no es tan necesario">
-      <created>1599512605173</created>
-      <option name="number" value="00128" />
-      <option name="presentableId" value="LOCAL-00128" />
-      <option name="project" value="LOCAL" />
-      <updated>1599512605173</updated>
-    </task>
-    <task id="LOCAL-00129" summary="feat(Dashboard): Subimos la foto del producto sin problemas">
-      <created>1599523315298</created>
-      <option name="number" value="00129" />
-      <option name="presentableId" value="LOCAL-00129" />
-      <option name="project" value="LOCAL" />
-      <updated>1599523315298</updated>
+      <workItem from="1600154339043" duration="4214000" />
     </task>
     <task id="LOCAL-00130" summary="feat(Dashboard): Actualizamos la foto del producto y la mostramos en el div correspondiente">
       <created>1599529999133</created>
@@ -888,7 +840,28 @@
       <option name="project" value="LOCAL" />
       <updated>1600123390799</updated>
     </task>
-    <option name="localTasksCounter" value="176" />
+    <task id="LOCAL-00176" summary="feat(Place): Errores en los productos más vistos">
+      <created>1600158381880</created>
+      <option name="number" value="00176" />
+      <option name="presentableId" value="LOCAL-00176" />
+      <option name="project" value="LOCAL" />
+      <updated>1600158381881</updated>
+    </task>
+    <task id="LOCAL-00177" summary="feat(Place): Mostramos parte del modal del producto">
+      <created>1600158415036</created>
+      <option name="number" value="00177" />
+      <option name="presentableId" value="LOCAL-00177" />
+      <option name="project" value="LOCAL" />
+      <updated>1600158415036</updated>
+    </task>
+    <task id="LOCAL-00178" summary="feat(Place): Agregamos una nueva categoría para las variantes">
+      <created>1600158487360</created>
+      <option name="number" value="00178" />
+      <option name="presentableId" value="LOCAL-00178" />
+      <option name="project" value="LOCAL" />
+      <updated>1600158487360</updated>
+    </task>
+    <option name="localTasksCounter" value="179" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -908,9 +881,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="feat(Dashboard): Mostramos la descripción del producto en el index y tamaño de la fuente en el precio" />
-    <MESSAGE value="feat(Dashboard): Activamos la empresa y la desactivamos" />
-    <MESSAGE value="feat(Dashboard): Pequeño bug al crear el producto, ya se ha solucionado" />
     <MESSAGE value="feat(Dashboard): Mostramos un mensaje cuando ya se ha usado la versión gratuita de la suscripción" />
     <MESSAGE value="feat(Dashboard): Al parecer todo funciona, se ha agregado el formulario para que se use la tarjeta" />
     <MESSAGE value="feat(Dashboard): Mostramos el formulario cuando ya se ha usado el free trial" />
@@ -933,7 +903,10 @@
     <MESSAGE value="feat(Place): Abrirmos y cerramos el modal sin ningún problema, genial" />
     <MESSAGE value="feat(Place):Modal close, nos daba un error, así que borramos todo su contenido en el trigger" />
     <MESSAGE value="feat(Place):Actualizamos el lazyload para que reciba los cambios del modal y que las imagenes puedan cargar sin ningún problema" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat(Place):Actualizamos el lazyload para que reciba los cambios del modal y que las imagenes puedan cargar sin ningún problema" />
+    <MESSAGE value="feat(Place): Errores en los productos más vistos" />
+    <MESSAGE value="feat(Place): Mostramos parte del modal del producto" />
+    <MESSAGE value="feat(Place): Agregamos una nueva categoría para las variantes" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat(Place): Agregamos una nueva categoría para las variantes" />
   </component>
   <component name="WindowStateProjectService">
     <state x="392" y="0" key="#All_specs_in_spec:_waydda" timestamp="1598730457189">
@@ -1047,12 +1020,12 @@
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="339" y="174" width="672" height="677" key="run.anything.popup/0.0.1366.768@0.0.1366.768" timestamp="1599927133187" />
-    <state x="346" y="89" width="672" height="678" key="search.everywhere.popup" timestamp="1600158345971">
+    <state x="346" y="89" width="672" height="678" key="search.everywhere.popup" timestamp="1600158495246">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="1852" y="56" width="945" height="954" key="search.everywhere.popup/0.0.1366.768/1366.-69.1920.1080@1366.-69.1920.1080" timestamp="1597715976170" />
     <state x="1710" y="89" width="672" height="678" key="search.everywhere.popup/0.0.1366.768/1366.0.1360.768@1366.0.1360.768" timestamp="1598985878395" />
     <state x="1852" y="125" width="945" height="954" key="search.everywhere.popup/0.0.1366.768/1366.0.1920.1080@1366.0.1920.1080" timestamp="1599267313630" />
-    <state x="346" y="89" width="672" height="678" key="search.everywhere.popup/0.0.1366.768@0.0.1366.768" timestamp="1600158345971" />
+    <state x="346" y="89" width="672" height="678" key="search.everywhere.popup/0.0.1366.768@0.0.1366.768" timestamp="1600158495246" />
   </component>
 </project>
