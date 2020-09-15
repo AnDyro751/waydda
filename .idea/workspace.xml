@@ -19,10 +19,37 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b89cb0fb-b680-4bb9-8ae0-f4b41721cfb9" name="Default Changelist" comment="feat(Place):Modal close, nos daba un error, así que borramos todo su contenido en el trigger">
+    <list default="true" id="b89cb0fb-b680-4bb9-8ae0-f4b41721cfb9" name="Default Changelist" comment="feat(Place):Actualizamos el lazyload para que reciba los cambios del modal y que las imagenes puedan cargar sin ningún problema">
+      <change afterPath="$PROJECT_DIR$/app/assets/stylesheets/dashboard/aggregate_categories.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/components/Products/Variants/List/index.html.erb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/components/Products/Variants/List/index.rb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/components/dashboard/aggregate_categories/List/index.html.erb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/components/dashboard/aggregate_categories/List/index.rb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/controllers/dashboard/aggregate_categories_controller.rb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/helpers/dashboard/aggregate_categories_helper.rb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/models/aggregate_category.rb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/views/dashboard/aggregate_categories/edit.html.erb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/views/dashboard/aggregate_categories/new.html.erb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/spec/factories/aggregate_categories.rb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/spec/helpers/dashboard/aggregate_categories_helper_spec.rb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/spec/models/aggregate_category_spec.rb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/spec/requests/dashboard/aggregate_categories_request_spec.rb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/spec/views/dashboard/aggregate_categories/edit.html.erb_spec.rb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/spec/views/dashboard/aggregate_categories/new.html.erb_spec.rb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/assets/stylesheets/addresses.scss" beforeDir="false" afterPath="$PROJECT_DIR$/app/assets/stylesheets/addresses.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/components/Products/ViewModal/index.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/components/Products/ViewModal/index.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/components/dashboard/aggregates/list.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/components/dashboard/aggregates/list.html.erb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/javascript/packs/places/show.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/javascript/packs/places/show.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/aggregate.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/aggregate.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/product.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/product.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/dashboard/products/_more_viewed.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/dashboard/products/_more_viewed.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/dashboard/products/show.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/dashboard/products/show.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/places/show.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/places/show.html.erb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/views/products/show.js.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/products/show.js.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/routes.rb" beforeDir="false" afterPath="$PROJECT_DIR$/config/routes.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dump.rdb" beforeDir="false" afterPath="$PROJECT_DIR$/dump.rdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tailwind.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/tailwind.config.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -514,14 +541,9 @@
       <workItem from="1599795403758" duration="7564000" />
       <workItem from="1599843092723" duration="4564000" />
       <workItem from="1599860841008" duration="25681000" />
-      <workItem from="1600023079601" duration="18355000" />
-    </task>
-    <task id="LOCAL-00126" summary="feat(Dashboard): Movimos el formulario de general a su debido liugar">
-      <created>1599453946582</created>
-      <option name="number" value="00126" />
-      <option name="presentableId" value="LOCAL-00126" />
-      <option name="project" value="LOCAL" />
-      <updated>1599453946582</updated>
+      <workItem from="1600023079601" duration="19080000" />
+      <workItem from="1600130846482" duration="2536000" />
+      <workItem from="1600154339043" duration="3749000" />
     </task>
     <task id="LOCAL-00127" summary="feat(Dashboard): Hay un error pendejo">
       <created>1599455681788</created>
@@ -859,7 +881,14 @@
       <option name="project" value="LOCAL" />
       <updated>1600123142581</updated>
     </task>
-    <option name="localTasksCounter" value="175" />
+    <task id="LOCAL-00175" summary="feat(Place):Actualizamos el lazyload para que reciba los cambios del modal y que las imagenes puedan cargar sin ningún problema">
+      <created>1600123390799</created>
+      <option name="number" value="00175" />
+      <option name="presentableId" value="LOCAL-00175" />
+      <option name="project" value="LOCAL" />
+      <updated>1600123390799</updated>
+    </task>
+    <option name="localTasksCounter" value="176" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -879,7 +908,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="feat(Dashboard): Mostramos las variantes del index" />
     <MESSAGE value="feat(Dashboard): Mostramos la descripción del producto en el index y tamaño de la fuente en el precio" />
     <MESSAGE value="feat(Dashboard): Activamos la empresa y la desactivamos" />
     <MESSAGE value="feat(Dashboard): Pequeño bug al crear el producto, ya se ha solucionado" />
@@ -904,7 +932,8 @@
     <MESSAGE value="feat(Place): Iniciamos el proceso del modal" />
     <MESSAGE value="feat(Place): Abrirmos y cerramos el modal sin ningún problema, genial" />
     <MESSAGE value="feat(Place):Modal close, nos daba un error, así que borramos todo su contenido en el trigger" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat(Place):Modal close, nos daba un error, así que borramos todo su contenido en el trigger" />
+    <MESSAGE value="feat(Place):Actualizamos el lazyload para que reciba los cambios del modal y que las imagenes puedan cargar sin ningún problema" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat(Place):Actualizamos el lazyload para que reciba los cambios del modal y que las imagenes puedan cargar sin ningún problema" />
   </component>
   <component name="WindowStateProjectService">
     <state x="392" y="0" key="#All_specs_in_spec:_waydda" timestamp="1598730457189">
@@ -1003,13 +1032,13 @@
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="628" y="298" key="com.jetbrains.plugins.remotesdk.ui.RemoteMappingsConfiguration/0.0.1366.768@0.0.1366.768" timestamp="1598729856431" />
-    <state x="390" y="117" width="585" height="624" key="find.popup" timestamp="1600121356343">
+    <state x="390" y="117" width="585" height="624" key="find.popup" timestamp="1600158142333">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="1914" y="96" width="823" height="878" key="find.popup/0.0.1366.768/1366.-69.1920.1080@1366.-69.1920.1080" timestamp="1597716285449" />
     <state x="1754" y="117" width="583" height="624" key="find.popup/0.0.1366.768/1366.0.1360.768@1366.0.1360.768" timestamp="1598981376119" />
     <state x="1914" y="165" width="823" height="878" key="find.popup/0.0.1366.768/1366.0.1920.1080@1366.0.1920.1080" timestamp="1599260651210" />
-    <state x="390" y="117" width="585" height="624" key="find.popup/0.0.1366.768@0.0.1366.768" timestamp="1600121356343" />
+    <state x="390" y="117" width="585" height="624" key="find.popup/0.0.1366.768@0.0.1366.768" timestamp="1600158142333" />
     <state x="549" y="254" width="250" height="278" key="jetbrains.javascript.buildTools.run-task-popup" timestamp="1597946321130">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
@@ -1018,12 +1047,12 @@
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="339" y="174" width="672" height="677" key="run.anything.popup/0.0.1366.768@0.0.1366.768" timestamp="1599927133187" />
-    <state x="346" y="89" width="672" height="678" key="search.everywhere.popup" timestamp="1600123229867">
+    <state x="346" y="89" width="672" height="678" key="search.everywhere.popup" timestamp="1600158345971">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="1852" y="56" width="945" height="954" key="search.everywhere.popup/0.0.1366.768/1366.-69.1920.1080@1366.-69.1920.1080" timestamp="1597715976170" />
     <state x="1710" y="89" width="672" height="678" key="search.everywhere.popup/0.0.1366.768/1366.0.1360.768@1366.0.1360.768" timestamp="1598985878395" />
     <state x="1852" y="125" width="945" height="954" key="search.everywhere.popup/0.0.1366.768/1366.0.1920.1080@1366.0.1920.1080" timestamp="1599267313630" />
-    <state x="346" y="89" width="672" height="678" key="search.everywhere.popup/0.0.1366.768@0.0.1366.768" timestamp="1600123229867" />
+    <state x="346" y="89" width="672" height="678" key="search.everywhere.popup/0.0.1366.768@0.0.1366.768" timestamp="1600158345971" />
   </component>
 </project>

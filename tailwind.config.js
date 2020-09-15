@@ -10,7 +10,8 @@ module.exports = {
             height: {
                 "es": "0.125em",
                 xl: "22em",
-                xxl: "28em"
+                xxl: "28em",
+                xxxl: "35em"
             },
             backgroundColor: {
                 facebook: "#4065b4",
@@ -32,7 +33,8 @@ module.exports = {
             },
             boxShadow: {
                 "small": "2px 2px 0px rgb(0, 0, 0)",
-                main: "rgb(0, 0, 0) 3px 3px 0px"
+                main: "rgb(0, 0, 0) 3px 3px 0px",
+                "product-modal": "rgba(45, 49, 56, 0.08) -15px 0px 10px -10px"
             },
             inset: {
                 "simple": "1px",

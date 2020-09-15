@@ -33,7 +33,7 @@ class Product
   belongs_to :place
   has_and_belongs_to_many :items
   has_and_belongs_to_many :cart_items
-  embeds_many :aggregates
+  embeds_many :aggregate_categories
 
   embeds_many :images, as: :model
 

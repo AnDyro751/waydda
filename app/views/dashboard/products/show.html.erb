@@ -69,12 +69,12 @@
       </h3>
     </div>
     <div class="w-9/12 flex justify-end items-center">
-      <%= link_to "Ver todas", dashboard_product_aggregates_path(@product.slug), class: "font-bold mr-6 hover:underline" %>
-      <%= main_button(text: "Agregar variante", to: new_dashboard_product_aggregate_path(@product.slug), action: "add") %>
+      <%= link_to "Ver todas", dashboard_product_aggregate_categories_path(@product.slug), class: "font-bold mr-6 hover:underline" %>
+      <%= main_button(text: "Agregar variante", to: new_dashboard_product_aggregate_category_path(@product.slug), action: "add") %>
     </div>
   </div>
   <div class="w-full mt-4">
-    <%= render Dashboard::Aggregates::List.new(aggregates: @product.aggregates, size: "base", product: @product) %>
+    <%= render Dashboard::AggregateCategories::List::Index.new(product: @product) %>
   </div>
 </div>
 <%#= link_to "Ver aggregates", dashboard_product_aggregates_path(@product.slug) %>
