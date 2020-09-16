@@ -19,9 +19,13 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b89cb0fb-b680-4bb9-8ae0-f4b41721cfb9" name="Default Changelist" comment="feat(Place): Agregamos el link para visitar el aggregate y crear sub variantes">
+    <list default="true" id="b89cb0fb-b680-4bb9-8ae0-f4b41721cfb9" name="Default Changelist" comment="feat(Place): Cambiamos el nombre de aggregates a variants">
+      <change afterPath="$PROJECT_DIR$/app/components/dashboard/List/index.html.erb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/components/dashboard/List/index.rb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/routes.rb" beforeDir="false" afterPath="$PROJECT_DIR$/config/routes.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/dashboard/aggregate_categories_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/dashboard/aggregate_categories_controller.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/dashboard/aggregate_categories/new.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/dashboard/aggregate_categories/new.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/dashboard/aggregate_categories/show.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/dashboard/aggregate_categories/show.html.erb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -517,14 +521,7 @@
       <workItem from="1600130846482" duration="2536000" />
       <workItem from="1600154339043" duration="7989000" />
       <workItem from="1600189966071" duration="13640000" />
-      <workItem from="1600218182215" duration="3849000" />
-    </task>
-    <task id="LOCAL-00143" summary="feat(Dashboard): Pequeña página de la variante">
-      <created>1599765964285</created>
-      <option name="number" value="00143" />
-      <option name="presentableId" value="LOCAL-00143" />
-      <option name="project" value="LOCAL" />
-      <updated>1599765964285</updated>
+      <workItem from="1600218182215" duration="6791000" />
     </task>
     <task id="LOCAL-00144" summary="feat(Dashboard): Link para ir al index de aggregates">
       <created>1599766144445</created>
@@ -862,7 +859,14 @@
       <option name="project" value="LOCAL" />
       <updated>1600224215258</updated>
     </task>
-    <option name="localTasksCounter" value="192" />
+    <task id="LOCAL-00192" summary="feat(Place): Cambiamos el nombre de aggregates a variants">
+      <created>1600224353806</created>
+      <option name="number" value="00192" />
+      <option name="presentableId" value="LOCAL-00192" />
+      <option name="project" value="LOCAL" />
+      <updated>1600224353806</updated>
+    </task>
+    <option name="localTasksCounter" value="193" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -882,7 +886,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="feat(Dashboard): Cambiamos la imagen del cover, en lugar de un background ahora es una etiqueta img" />
     <MESSAGE value="feat(Place): Listamos los productos de los items" />
     <MESSAGE value="feat(Place): Add category in place" />
     <MESSAGE value="feat(Place): Mostramos la versión principal de los productos." />
@@ -907,7 +910,8 @@
     <MESSAGE value="feat(Place): Arreglamos un pequeño bug de la vista de nueva variante de producto" />
     <MESSAGE value="feat(Place): Listamos variantes" />
     <MESSAGE value="feat(Place): Agregamos el link para visitar el aggregate y crear sub variantes" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat(Place): Agregamos el link para visitar el aggregate y crear sub variantes" />
+    <MESSAGE value="feat(Place): Cambiamos el nombre de aggregates a variants" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat(Place): Cambiamos el nombre de aggregates a variants" />
   </component>
   <component name="WindowStateProjectService">
     <state x="392" y="0" key="#All_specs_in_spec:_waydda" timestamp="1598730457189">
@@ -1006,27 +1010,27 @@
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="628" y="298" key="com.jetbrains.plugins.remotesdk.ui.RemoteMappingsConfiguration/0.0.1366.768@0.0.1366.768" timestamp="1598729856431" />
-    <state x="390" y="117" width="585" height="624" key="find.popup" timestamp="1600222843038">
+    <state x="390" y="117" width="585" height="624" key="find.popup" timestamp="1600226798367">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="1914" y="96" width="823" height="878" key="find.popup/0.0.1366.768/1366.-69.1920.1080@1366.-69.1920.1080" timestamp="1597716285449" />
     <state x="1754" y="117" width="583" height="624" key="find.popup/0.0.1366.768/1366.0.1360.768@1366.0.1360.768" timestamp="1598981376119" />
     <state x="1914" y="165" width="823" height="878" key="find.popup/0.0.1366.768/1366.0.1920.1080@1366.0.1920.1080" timestamp="1599260651210" />
-    <state x="390" y="117" width="585" height="624" key="find.popup/0.0.1366.768@0.0.1366.768" timestamp="1600222843038" />
+    <state x="390" y="117" width="585" height="624" key="find.popup/0.0.1366.768@0.0.1366.768" timestamp="1600226798367" />
     <state x="549" y="254" width="250" height="278" key="jetbrains.javascript.buildTools.run-task-popup" timestamp="1597946321130">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="549" y="254" width="250" height="278" key="jetbrains.javascript.buildTools.run-task-popup/0.0.1366.768@0.0.1366.768" timestamp="1597946321130" />
-    <state x="339" y="174" width="672" height="677" key="run.anything.popup" timestamp="1599927133187">
+    <state x="339" y="174" width="672" height="677" key="run.anything.popup" timestamp="1600224451085">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state x="339" y="174" width="672" height="677" key="run.anything.popup/0.0.1366.768@0.0.1366.768" timestamp="1599927133187" />
-    <state x="346" y="89" width="672" height="678" key="search.everywhere.popup" timestamp="1600224242430">
+    <state x="339" y="174" width="672" height="677" key="run.anything.popup/0.0.1366.768@0.0.1366.768" timestamp="1600224451085" />
+    <state x="346" y="89" width="672" height="678" key="search.everywhere.popup" timestamp="1600227191205">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="1852" y="56" width="945" height="954" key="search.everywhere.popup/0.0.1366.768/1366.-69.1920.1080@1366.-69.1920.1080" timestamp="1597715976170" />
     <state x="1710" y="89" width="672" height="678" key="search.everywhere.popup/0.0.1366.768/1366.0.1360.768@1366.0.1360.768" timestamp="1598985878395" />
     <state x="1852" y="125" width="945" height="954" key="search.everywhere.popup/0.0.1366.768/1366.0.1920.1080@1366.0.1920.1080" timestamp="1599267313630" />
-    <state x="346" y="89" width="672" height="678" key="search.everywhere.popup/0.0.1366.768@0.0.1366.768" timestamp="1600224242430" />
+    <state x="346" y="89" width="672" height="678" key="search.everywhere.popup/0.0.1366.768@0.0.1366.768" timestamp="1600227191205" />
   </component>
 </project>

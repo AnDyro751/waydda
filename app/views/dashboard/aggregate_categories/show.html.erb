@@ -1,0 +1,51 @@
+<div class="w-full mt-4 text-gray-600 text-sm">
+  <div class=""><%= link_to "Productos", dashboard_products_path, class: "hover:underline" %>
+    <div class="mx-2 select-none inline">
+      >
+    </div>
+    <span class="">
+      <%= link_to @product.name, dashboard_product_path(@product.slug), class: "hover:underline" %>
+    </span>
+    <div class="mx-2 select-none inline">
+      >
+    </div>
+    <span class="">
+      <%= link_to "Variantes", dashboard_product_aggregate_categories_path(@product.slug), class: "hover:underline" %>
+    </span>
+    <div class="mx-2 select-none inline">
+      >
+    </div>
+    <span class="text-indigo-700 font-medium"><%= @aggregate_category.name %></span>
+  </div>
+</div>
+<%= render Headers::Text.new(title: @aggregate_category.name, small: true, with_margin: true, subtitle: "#{pluralize(@aggregate_category.aggregates.length, "subvariante", "subvariantes")}") do %>
+  <%= main_button(to: edit_dashboard_product_aggregate_category_path(@product.slug, @aggregate_category), text: "Editar variante", action: "update") %>
+<% end %>
+
+<%= render Dashboard::List::Index.new(
+    title: "Detalles",
+    items: [
+        {title: "Nombre", value: @aggregate_category.name},
+        {title: "Descripción", value: @aggregate_category.description},
+        {title: "Requerido", value: @aggregate_category.required, boolean: true},
+        {title: "Selección múltiple", value: @aggregate_category.multiple_selection, boolean: true},
+
+    ]
+) %>
+<%= render Headers::Text.new(title: "Subvariante", small: true, with_margin: true, font: "small") do %>
+  <%= main_button(to: edit_dashboard_product_aggregate_category_path(@product.slug, @aggregate_category), text: "Añadir subvariante", action: "add") %>
+<% end %>
+
+
+<%= render Headers::Text.new(title: "Área de peligro", subtitle: "Si eliminas la variante no podrás recuperar la información de este recurso, está acción es irreversible", small: true, with_margin: true) do %>
+  <%= link_to "Elminar variante",
+              dashboard_product_aggregate_category_path(@product.slug, @aggregate_category),
+              method: :delete,
+              remote: true,
+              class: main_color_button(color: "danger"),
+              data: {
+                  "disable-with": "Cargando...",
+                  "confirm": "¿Seguro que quieres eliminar esta variante?"
+              }
+  %>
+<% end %>

@@ -30,6 +30,13 @@ class Dashboard::AggregateCategoriesController < ApplicationController
     end
   end
 
+  def destroy
+    @aggregate_category.destroy
+    respond_to do |format|
+      format.html { redirect_to dashboard_product_aggregate_categories_path(@product.slug), alert: "Se ha eliminado la variante" }
+    end
+  end
+
   private
 
   def set_product

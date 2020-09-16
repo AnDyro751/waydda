@@ -21,7 +21,7 @@
                       url: dashboard_product_aggregate_categories_path,
                       remote: true,
                       html: {
-                          class: "w-full flex gap-12 items-start mb-12"
+                          class: "w-full flex flex-wrap items-start mb-12 justify-between"
                       },
                       defaults: {
                           input_html: {
@@ -32,7 +32,7 @@
                           }
                       }
       ) do |f| %>
-    <div class="w-7/12">
+    <div class="w-6/12">
       <%= f.input :name,
                   label: "Nombre de tu variante",
                   placeholder: "Nombre de tu variante",
@@ -48,7 +48,7 @@
                   }
       %>
       <%= f.input :required,
-                  label: "¿Es obligatorio seleccionar una sub-variante?",
+                  label: "¿Es obligatorio seleccionar una subvariante?",
                   collection: [%w[SI true], %w[NO false]],
                   prompt: "Selecciona una opción",
                   input_html: {
