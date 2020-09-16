@@ -63,7 +63,7 @@ Rails.application.routes.draw do
     # Products
     resources :products do
       # TODO: Crud operations
-      resources :aggregate_categories do
+      resources :aggregate_categories, :path => 'variants' do
         resources :aggregates
       end
     end
