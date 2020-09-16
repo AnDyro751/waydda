@@ -13,11 +13,12 @@ class Aggregate
 
   # relations
   embedded_in :aggregate_category
+
   # validation
   # TODO: Add validations
   validates :name, presence: true, length: {in: 2..40}
   validates :price, presence: true
-  validates :default, inclusion: {in: %w[true false]}
+  # validates :default, inclusion: {in: %w[true false]}
 
   private
 

@@ -13,6 +13,7 @@ class Dashboard::AggregateCategoriesController < ApplicationController
   end
 
   def show
+    @aggregate_category.aggregates.build
   end
 
   def index
@@ -26,6 +27,16 @@ class Dashboard::AggregateCategoriesController < ApplicationController
         format.html { redirect_to dashboard_product_aggregate_category_path(@product.slug, @aggregate_category) }
       else
         format.js
+      end
+    end
+  end
+
+  def update
+    respond_to do |format|
+      if @aggregate_category.update(aggregate_category_params)
+        format.html { redirect_to dashboard_product_aggregate_category_path(@product.slug, @aggregate_category), alert: "Se ha actualizado la variante" }
+      else
+        format.html { redirect_to dashboard_product_aggregate_category_path(@product.slug, @aggregate_category), notice: "Ha ocurrido un error al actualizar la variante" }
       end
     end
   end
@@ -49,7 +60,7 @@ class Dashboard::AggregateCategoriesController < ApplicationController
   end
 
   def aggregate_category_params
-    params.require(:aggregate_category).permit(:name, :required, :multiple_selection, :description)
+    params.require(:aggregate_category).permit(:name, :required, :multiple_selection, :description, aggregates_attributes: [:name])
   end
 
 end

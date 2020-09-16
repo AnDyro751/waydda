@@ -22,8 +22,8 @@ module Dashboard::MainHelper
   # @param [String] class_icon
   # @param [String] action
   # @return [ActiveSupport::SafeBuffer]
-  def main_button(to:, custom_class: nil, text:, class_icon: nil, action: nil)
-    link_to to, class: "#{custom_class ? custom_class : "bg-main-teal hover:bg-opacity-75 hover:shadow-small transform shadow-main hover:top-simple hover:left-simple relative py-2 px-4 transition duration-150 font-medium text-sm border-2 text-black rounded border-black"}" do
+  def main_button(to:, custom_class: nil, text:, class_icon: nil, action: nil, custom_click: nil)
+    link_to to, class: "#{custom_class ? custom_class : "bg-main-teal hover:bg-opacity-75 hover:shadow-small transform shadow-main hover:top-simple hover:left-simple relative py-2 px-4 transition duration-150 font-medium text-sm border-2 text-black rounded border-black"}", "@click": "#{custom_click ? custom_click : nil}" do
       data = "<span>
             #{
       if action

@@ -1067,6 +1067,11 @@
     postcss "7.0.32"
     purgecss "^2.3.0"
 
+"@kollegorna/cocoon-vanilla-js@^1.0.6":
+  version "1.0.6"
+  resolved "https://registry.yarnpkg.com/@kollegorna/cocoon-vanilla-js/-/cocoon-vanilla-js-1.0.6.tgz#37a54550936a57d8dcdb99e63340d379bb99589d"
+  integrity sha512-DeGUU6GKdpE1QBz6FS35u4E5JPYcwiP8ZsrmUquhjCKNXNbQ7EKhBwprF9DyUpZ2NYGVgkwYof8b4iAPx0X9bg==
+
 "@mapbox/geojson-rewind@^0.5.0":
   version "0.5.0"
   resolved "https://registry.yarnpkg.com/@mapbox/geojson-rewind/-/geojson-rewind-0.5.0.tgz#91f0ad56008c120caa19414b644d741249f4f560"

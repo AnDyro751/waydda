@@ -1,16 +1,16 @@
-<% if @aggregates.length <= 0 %>
+<% if @aggregates.select { |a| !a.new_record? }.length <= 0 %>
   <div class="w-full mt-3">
-    <%= render EmptyRecords.new(title: "Aún no has agregado ninguna variante") %>
+    <%= render EmptyRecords.new(title: "Aún no has agregado ninguna subvariante") %>
   </div>
 <% else %>
-  <% @aggregates.each do |aggregate| %>
+  <% @aggregates.select { |a| !a.new_record? }.each do |aggregate| %>
     <ul class="w-full flex flex-wrap items-center mb-2 <%= @size != "small" ? "bg-main-gray divide-y divide-gray-400 rounded" : "" %>">
       <li class="p-4 w-full">
-        <%= link_to dashboard_product_aggregate_path(@product.slug, aggregate.id.to_s), class: "hover:underline relative" do %>
-          <h4 class="<%= @size == "small" ? "text-sm" : "text-base" %> font-normal text-gray-800 truncate my-1"><%= aggregate.name || "Sin nombre" %></h4>
-          <% if aggregate.default %>
-            <div class="absolute right-0 top-0 bottom-0 flex justify-center">Hola</div>
-          <% end %>
+        <%#= link_to dashboard_product_aggregate_categories_path(@product.slug, aggregate.id.to_s), class: "hover:underline relative" do %>
+        <h4 class="<%= @size == "small" ? "text-sm" : "text-base" %> font-normal text-gray-800 truncate my-1"><%= aggregate.name || "Sin nombre" %></h4>
+        <% if aggregate.default %>
+          <div class="absolute right-0 top-0 bottom-0 flex justify-center">Hola</div>
+          <%# end %>
         <% end %>
         <% if @size != "small" %>
           <h5 class="text-sm text-gray-600"><%= aggregate.description %></h5>
