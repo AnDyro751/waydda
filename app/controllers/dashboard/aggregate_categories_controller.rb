@@ -15,6 +15,10 @@ class Dashboard::AggregateCategoriesController < ApplicationController
   def show
   end
 
+  def index
+    @aggregate_categories = @product.aggregate_categories
+  end
+
   def create
     @aggregate_category = @product.aggregate_categories.new(aggregate_category_params)
     respond_to do |format|

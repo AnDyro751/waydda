@@ -19,12 +19,13 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b89cb0fb-b680-4bb9-8ae0-f4b41721cfb9" name="Default Changelist" comment="feat(Place): Agregamos los breadcubms">
+    <list default="true" id="b89cb0fb-b680-4bb9-8ae0-f4b41721cfb9" name="Default Changelist" comment="feat(Place): Arreglamos un pequeño bug de la vista de nueva variante de producto">
+      <change afterPath="$PROJECT_DIR$/app/views/dashboard/aggregate_categories/index.html.erb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/components/Headers/text.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/components/Headers/text.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/components/Headers/text.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/components/Headers/text.rb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/components/dashboard/aggregate_categories/List/index.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/components/dashboard/aggregate_categories/List/index.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/aggregate_category.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/aggregate_category.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/dashboard/products/show.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/dashboard/products/show.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tailwind.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/tailwind.config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/dashboard/aggregate_categories_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/dashboard/aggregate_categories_controller.rb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -65,7 +66,7 @@
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="DefaultRubyCreateTestTemplate" value="Ruby File" />
-    <property name="Ruby.ViewRefParam.DefaultExtension" value="js.erb" />
+    <property name="Ruby.ViewRefParam.DefaultExtension" value="html.erb" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
@@ -519,21 +520,8 @@
       <workItem from="1600023079601" duration="19080000" />
       <workItem from="1600130846482" duration="2536000" />
       <workItem from="1600154339043" duration="7989000" />
-      <workItem from="1600189966071" duration="13616000" />
-    </task>
-    <task id="LOCAL-00139" summary="feat(Dashboard): AL momento de que el usuario ya tomó el periodo de prueba ya vamos a mostrar el form para crear la suscripción">
-      <created>1599703081606</created>
-      <option name="number" value="00139" />
-      <option name="presentableId" value="LOCAL-00139" />
-      <option name="project" value="LOCAL" />
-      <updated>1599703081606</updated>
-    </task>
-    <task id="LOCAL-00140" summary="feat(Dashboard): Estilizamos un poco el form para crear la variante y su vista">
-      <created>1599750913860</created>
-      <option name="number" value="00140" />
-      <option name="presentableId" value="LOCAL-00140" />
-      <option name="project" value="LOCAL" />
-      <updated>1599750913861</updated>
+      <workItem from="1600189966071" duration="13640000" />
+      <workItem from="1600218182215" duration="2920000" />
     </task>
     <task id="LOCAL-00141" summary="feat(Dashboard): Agregamos los breadcumbs para la navegación">
       <created>1599751648854</created>
@@ -864,7 +852,21 @@
       <option name="project" value="LOCAL" />
       <updated>1600210373825</updated>
     </task>
-    <option name="localTasksCounter" value="188" />
+    <task id="LOCAL-00188" summary="feat(Place): Agregamos un nuevo diseño">
+      <created>1600214098015</created>
+      <option name="number" value="00188" />
+      <option name="presentableId" value="LOCAL-00188" />
+      <option name="project" value="LOCAL" />
+      <updated>1600214098015</updated>
+    </task>
+    <task id="LOCAL-00189" summary="feat(Place): Arreglamos un pequeño bug de la vista de nueva variante de producto">
+      <created>1600223237149</created>
+      <option name="number" value="00189" />
+      <option name="presentableId" value="LOCAL-00189" />
+      <option name="project" value="LOCAL" />
+      <updated>1600223237150</updated>
+    </task>
+    <option name="localTasksCounter" value="190" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -884,8 +886,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="feat(Dashboard): Formulario de envíos a domicilio completado. A comer quesadillas!!!!" />
-    <MESSAGE value="feat(Dashboard): Update cover photo" />
     <MESSAGE value="feat(Dashboard): Agregamos los productos recientes para mostrarlos" />
     <MESSAGE value="feat(Dashboard): Validamos que el producto no se haya metido antes, de lo contrario solo omitimos" />
     <MESSAGE value="feat(Dashboard): Cambiamos la imagen del cover, en lugar de un background ahora es una etiqueta img" />
@@ -909,7 +909,9 @@
     <MESSAGE value="feat(Place): Cambiamos el estilo del checkbox" />
     <MESSAGE value="feat(Place): Creamos la vista previa y se completa" />
     <MESSAGE value="feat(Place): Agregamos los breadcubms" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat(Place): Agregamos los breadcubms" />
+    <MESSAGE value="feat(Place): Agregamos un nuevo diseño" />
+    <MESSAGE value="feat(Place): Arreglamos un pequeño bug de la vista de nueva variante de producto" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat(Place): Arreglamos un pequeño bug de la vista de nueva variante de producto" />
   </component>
   <component name="WindowStateProjectService">
     <state x="392" y="0" key="#All_specs_in_spec:_waydda" timestamp="1598730457189">
@@ -1008,13 +1010,13 @@
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="628" y="298" key="com.jetbrains.plugins.remotesdk.ui.RemoteMappingsConfiguration/0.0.1366.768@0.0.1366.768" timestamp="1598729856431" />
-    <state x="390" y="117" width="585" height="624" key="find.popup" timestamp="1600210473104">
+    <state x="390" y="117" width="585" height="624" key="find.popup" timestamp="1600222843038">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="1914" y="96" width="823" height="878" key="find.popup/0.0.1366.768/1366.-69.1920.1080@1366.-69.1920.1080" timestamp="1597716285449" />
     <state x="1754" y="117" width="583" height="624" key="find.popup/0.0.1366.768/1366.0.1360.768@1366.0.1360.768" timestamp="1598981376119" />
     <state x="1914" y="165" width="823" height="878" key="find.popup/0.0.1366.768/1366.0.1920.1080@1366.0.1920.1080" timestamp="1599260651210" />
-    <state x="390" y="117" width="585" height="624" key="find.popup/0.0.1366.768@0.0.1366.768" timestamp="1600210473104" />
+    <state x="390" y="117" width="585" height="624" key="find.popup/0.0.1366.768@0.0.1366.768" timestamp="1600222843038" />
     <state x="549" y="254" width="250" height="278" key="jetbrains.javascript.buildTools.run-task-popup" timestamp="1597946321130">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
@@ -1023,12 +1025,12 @@
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="339" y="174" width="672" height="677" key="run.anything.popup/0.0.1366.768@0.0.1366.768" timestamp="1599927133187" />
-    <state x="346" y="89" width="672" height="678" key="search.everywhere.popup" timestamp="1600212674051">
+    <state x="346" y="89" width="672" height="678" key="search.everywhere.popup" timestamp="1600222789861">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="1852" y="56" width="945" height="954" key="search.everywhere.popup/0.0.1366.768/1366.-69.1920.1080@1366.-69.1920.1080" timestamp="1597715976170" />
     <state x="1710" y="89" width="672" height="678" key="search.everywhere.popup/0.0.1366.768/1366.0.1360.768@1366.0.1360.768" timestamp="1598985878395" />
     <state x="1852" y="125" width="945" height="954" key="search.everywhere.popup/0.0.1366.768/1366.0.1920.1080@1366.0.1920.1080" timestamp="1599267313630" />
-    <state x="346" y="89" width="672" height="678" key="search.everywhere.popup/0.0.1366.768@0.0.1366.768" timestamp="1600212674051" />
+    <state x="346" y="89" width="672" height="678" key="search.everywhere.popup/0.0.1366.768@0.0.1366.768" timestamp="1600222789861" />
   </component>
 </project>
