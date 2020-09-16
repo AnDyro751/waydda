@@ -19,13 +19,10 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b89cb0fb-b680-4bb9-8ae0-f4b41721cfb9" name="Default Changelist" comment="feat(Place): Arreglamos un pequeño bug de la vista de nueva variante de producto">
-      <change afterPath="$PROJECT_DIR$/app/views/dashboard/aggregate_categories/index.html.erb" afterDir="false" />
+    <list default="true" id="b89cb0fb-b680-4bb9-8ae0-f4b41721cfb9" name="Default Changelist" comment="feat(Place): Listamos variantes">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/components/Headers/text.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/components/Headers/text.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/components/Headers/text.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/components/Headers/text.rb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/components/dashboard/aggregate_categories/List/index.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/components/dashboard/aggregate_categories/List/index.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/dashboard/aggregate_categories_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/dashboard/aggregate_categories_controller.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/dashboard/aggregate_categories/index.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/dashboard/aggregate_categories/index.html.erb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -521,14 +518,7 @@
       <workItem from="1600130846482" duration="2536000" />
       <workItem from="1600154339043" duration="7989000" />
       <workItem from="1600189966071" duration="13640000" />
-      <workItem from="1600218182215" duration="2920000" />
-    </task>
-    <task id="LOCAL-00141" summary="feat(Dashboard): Agregamos los breadcumbs para la navegación">
-      <created>1599751648854</created>
-      <option name="number" value="00141" />
-      <option name="presentableId" value="LOCAL-00141" />
-      <option name="project" value="LOCAL" />
-      <updated>1599751648854</updated>
+      <workItem from="1600218182215" duration="3716000" />
     </task>
     <task id="LOCAL-00142" summary="feat(Dashboard): Vamos a mostrar los datos de la variante del producto">
       <created>1599760300513</created>
@@ -866,7 +856,14 @@
       <option name="project" value="LOCAL" />
       <updated>1600223237150</updated>
     </task>
-    <option name="localTasksCounter" value="190" />
+    <task id="LOCAL-00190" summary="feat(Place): Listamos variantes">
+      <created>1600223278182</created>
+      <option name="number" value="00190" />
+      <option name="presentableId" value="LOCAL-00190" />
+      <option name="project" value="LOCAL" />
+      <updated>1600223278182</updated>
+    </task>
+    <option name="localTasksCounter" value="191" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -886,7 +883,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="feat(Dashboard): Agregamos los productos recientes para mostrarlos" />
     <MESSAGE value="feat(Dashboard): Validamos que el producto no se haya metido antes, de lo contrario solo omitimos" />
     <MESSAGE value="feat(Dashboard): Cambiamos la imagen del cover, en lugar de un background ahora es una etiqueta img" />
     <MESSAGE value="feat(Place): Listamos los productos de los items" />
@@ -911,7 +907,8 @@
     <MESSAGE value="feat(Place): Agregamos los breadcubms" />
     <MESSAGE value="feat(Place): Agregamos un nuevo diseño" />
     <MESSAGE value="feat(Place): Arreglamos un pequeño bug de la vista de nueva variante de producto" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat(Place): Arreglamos un pequeño bug de la vista de nueva variante de producto" />
+    <MESSAGE value="feat(Place): Listamos variantes" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat(Place): Listamos variantes" />
   </component>
   <component name="WindowStateProjectService">
     <state x="392" y="0" key="#All_specs_in_spec:_waydda" timestamp="1598730457189">
@@ -1025,12 +1022,12 @@
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="339" y="174" width="672" height="677" key="run.anything.popup/0.0.1366.768@0.0.1366.768" timestamp="1599927133187" />
-    <state x="346" y="89" width="672" height="678" key="search.everywhere.popup" timestamp="1600222789861">
+    <state x="346" y="89" width="672" height="678" key="search.everywhere.popup" timestamp="1600224111707">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="1852" y="56" width="945" height="954" key="search.everywhere.popup/0.0.1366.768/1366.-69.1920.1080@1366.-69.1920.1080" timestamp="1597715976170" />
     <state x="1710" y="89" width="672" height="678" key="search.everywhere.popup/0.0.1366.768/1366.0.1360.768@1366.0.1360.768" timestamp="1598985878395" />
     <state x="1852" y="125" width="945" height="954" key="search.everywhere.popup/0.0.1366.768/1366.0.1920.1080@1366.0.1920.1080" timestamp="1599267313630" />
-    <state x="346" y="89" width="672" height="678" key="search.everywhere.popup/0.0.1366.768@0.0.1366.768" timestamp="1600222789861" />
+    <state x="346" y="89" width="672" height="678" key="search.everywhere.popup/0.0.1366.768@0.0.1366.768" timestamp="1600224111707" />
   </component>
 </project>

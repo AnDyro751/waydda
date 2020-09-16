@@ -15,28 +15,30 @@
     </div>
     <div class="w-full flex flex-wrap divide-y divide-gray-300">
       <% @product.aggregate_categories.each_with_index do |aggregate_category, i| %>
-        <div class="w-full flex p-3">
-          <div class="w-1/4">
-            <span class="font-medium text-sm truncate"><%= aggregate_category.name %></span>
+        <%= link_to dashboard_product_aggregate_category_path(@product.slug, aggregate_category), class: "w-full flex hover:bg-gray-200" do %>
+          <div class="w-full flex p-3">
+            <div class="w-1/4">
+              <span class="font-medium text-sm truncate"><%= aggregate_category.name %></span>
+            </div>
+            <div class="w-2/4">
+              <span class="text-sm truncate <%= aggregate_category.description.empty? ? "text-gray-500" : "" %>"><%= aggregate_category.description.empty? ? "—" : aggregate_category.description %></span>
+            </div>
+            <div class="w-1/4">
+              <% if aggregate_category.required %>
+                <img
+                  class="h-5 w-5"
+                  draggable="false"
+                  alt="svgImg"
+                  src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHg9IjBweCIgeT0iMHB4Igp3aWR0aD0iNjQiIGhlaWdodD0iNjQiCnZpZXdCb3g9IjAgMCA1MTIgNTEyIgpzdHlsZT0iIGZpbGw6IzAwMDAwMDsiPjxwYXRoIGZpbGw9IiMzMkJFQTYiIGQ9Ik01MDQuMSwyNTZDNTA0LjEsMTE5LDM5Myw3LjksMjU2LDcuOUMxMTksNy45LDcuOSwxMTksNy45LDI1NkM3LjksMzkzLDExOSw1MDQuMSwyNTYsNTA0LjFDMzkzLDUwNC4xLDUwNC4xLDM5Myw1MDQuMSwyNTZ6Ij48L3BhdGg+PHBhdGggZmlsbD0iI0ZGRiIgZD0iTTM5Mi42LDE3Mi45Yy01LjgtMTUuMS0xNy43LTEyLjctMzAuNi0xMC4xYy03LjcsMS42LTQyLDExLjYtOTYuMSw2OC44Yy0yMi41LDIzLjctMzcuMyw0Mi42LTQ3LjEsNTdjLTYtNy4zLTEyLjgtMTUuMi0yMC0yMi4zQzE3Ni43LDI0NC4yLDE1MiwyMjksMTUxLDIyOC40Yy0xMC4zLTYuMy0yMy44LTMuMS0zMC4yLDcuM2MtNi4zLDEwLjMtMy4xLDIzLjgsNy4yLDMwLjJjMC4yLDAuMSwyMS40LDEzLjIsMzkuNiwzMS41YzE4LjYsMTguNiwzNS41LDQzLjgsMzUuNyw0NC4xYzQuMSw2LjIsMTEsOS44LDE4LjMsOS44YzEuMiwwLDIuNS0wLjEsMy44LTAuM2M4LjYtMS41LDE1LjQtNy45LDE3LjUtMTYuM2MwLjEtMC4yLDguOC0yNC4zLDU0LjctNzIuN2MzNy0zOS4xLDYxLjctNTEuNSw3MC4zLTU0LjljMC4xLDAsMC4xLDAsMC4zLDBjMCwwLDAuMy0wLjEsMC44LTAuNGMxLjUtMC42LDIuMy0wLjgsMi4zLTAuOGMtMC40LDAuMS0wLjYsMC4xLTAuNiwwLjFsMC0wLjFjNC0xLjcsMTEuNC00LjksMTEuNS01QzM5My4zLDE5Ni4xLDM5NywxODQuMSwzOTIuNiwxNzIuOXoiPjwvcGF0aD48L3N2Zz4="/>
+              <% else %>
+                <img
+                  class="h-5 w-5"
+                  draggable="false"
+                  alt="svgImg" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHg9IjBweCIgeT0iMHB4Igp3aWR0aD0iNjQiIGhlaWdodD0iNjQiCnZpZXdCb3g9IjAgMCA1MTIgNTEyIgpzdHlsZT0iIGZpbGw6IzAwMDAwMDsiPjxwYXRoIGZpbGw9IiNFMDRGNUYiIGQ9Ik01MDQuMSwyNTZDNTA0LjEsMTE5LDM5Myw3LjksMjU2LDcuOUMxMTksNy45LDcuOSwxMTksNy45LDI1NkM3LjksMzkzLDExOSw1MDQuMSwyNTYsNTA0LjFDMzkzLDUwNC4xLDUwNC4xLDM5Myw1MDQuMSwyNTZ6Ij48L3BhdGg+PHBhdGggZmlsbD0iI0ZGRiIgZD0iTTI4NSwyNTZsNzIuNS04NC4yYzcuOS05LjIsNi45LTIzLTIuMy0zMWMtOS4yLTcuOS0yMy02LjktMzAuOSwyLjNMMjU2LDIyMi40bC02OC4yLTc5LjJjLTcuOS05LjItMjEuOC0xMC4yLTMxLTIuM2MtOS4yLDcuOS0xMC4yLDIxLjgtMi4zLDMxTDIyNywyNTZsLTcyLjUsODQuMmMtNy45LDkuMi02LjksMjMsMi4zLDMxYzQuMSwzLjYsOS4yLDUuMywxNC4zLDUuM2M2LjIsMCwxMi4zLTIuNiwxNi42LTcuNmw2OC4yLTc5LjJsNjguMiw3OS4yYzQuMyw1LDEwLjUsNy42LDE2LjYsNy42YzUuMSwwLDEwLjItMS43LDE0LjMtNS4zYzkuMi03LjksMTAuMi0yMS44LDIuMy0zMUwyODUsMjU2eiI+PC9wYXRoPjwvc3ZnPg=="/>
+              <% end %>
+            </div>
           </div>
-          <div class="w-2/4">
-            <span class="text-sm truncate <%= aggregate_category.description.empty? ? "text-gray-500" : "" %>"><%= aggregate_category.description.empty? ? "—" : aggregate_category.description %></span>
-          </div>
-          <div class="w-1/4">
-            <% if aggregate_category.required %>
-              <img
-                class="h-5 w-5"
-                draggable="false"
-                alt="svgImg"
-                src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHg9IjBweCIgeT0iMHB4Igp3aWR0aD0iNjQiIGhlaWdodD0iNjQiCnZpZXdCb3g9IjAgMCA1MTIgNTEyIgpzdHlsZT0iIGZpbGw6IzAwMDAwMDsiPjxwYXRoIGZpbGw9IiMzMkJFQTYiIGQ9Ik01MDQuMSwyNTZDNTA0LjEsMTE5LDM5Myw3LjksMjU2LDcuOUMxMTksNy45LDcuOSwxMTksNy45LDI1NkM3LjksMzkzLDExOSw1MDQuMSwyNTYsNTA0LjFDMzkzLDUwNC4xLDUwNC4xLDM5Myw1MDQuMSwyNTZ6Ij48L3BhdGg+PHBhdGggZmlsbD0iI0ZGRiIgZD0iTTM5Mi42LDE3Mi45Yy01LjgtMTUuMS0xNy43LTEyLjctMzAuNi0xMC4xYy03LjcsMS42LTQyLDExLjYtOTYuMSw2OC44Yy0yMi41LDIzLjctMzcuMyw0Mi42LTQ3LjEsNTdjLTYtNy4zLTEyLjgtMTUuMi0yMC0yMi4zQzE3Ni43LDI0NC4yLDE1MiwyMjksMTUxLDIyOC40Yy0xMC4zLTYuMy0yMy44LTMuMS0zMC4yLDcuM2MtNi4zLDEwLjMtMy4xLDIzLjgsNy4yLDMwLjJjMC4yLDAuMSwyMS40LDEzLjIsMzkuNiwzMS41YzE4LjYsMTguNiwzNS41LDQzLjgsMzUuNyw0NC4xYzQuMSw2LjIsMTEsOS44LDE4LjMsOS44YzEuMiwwLDIuNS0wLjEsMy44LTAuM2M4LjYtMS41LDE1LjQtNy45LDE3LjUtMTYuM2MwLjEtMC4yLDguOC0yNC4zLDU0LjctNzIuN2MzNy0zOS4xLDYxLjctNTEuNSw3MC4zLTU0LjljMC4xLDAsMC4xLDAsMC4zLDBjMCwwLDAuMy0wLjEsMC44LTAuNGMxLjUtMC42LDIuMy0wLjgsMi4zLTAuOGMtMC40LDAuMS0wLjYsMC4xLTAuNiwwLjFsMC0wLjFjNC0xLjcsMTEuNC00LjksMTEuNS01QzM5My4zLDE5Ni4xLDM5NywxODQuMSwzOTIuNiwxNzIuOXoiPjwvcGF0aD48L3N2Zz4="/>
-            <% else %>
-              <img
-                class="h-5 w-5"
-                draggable="false"
-                alt="svgImg" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHg9IjBweCIgeT0iMHB4Igp3aWR0aD0iNjQiIGhlaWdodD0iNjQiCnZpZXdCb3g9IjAgMCA1MTIgNTEyIgpzdHlsZT0iIGZpbGw6IzAwMDAwMDsiPjxwYXRoIGZpbGw9IiNFMDRGNUYiIGQ9Ik01MDQuMSwyNTZDNTA0LjEsMTE5LDM5Myw3LjksMjU2LDcuOUMxMTksNy45LDcuOSwxMTksNy45LDI1NkM3LjksMzkzLDExOSw1MDQuMSwyNTYsNTA0LjFDMzkzLDUwNC4xLDUwNC4xLDM5Myw1MDQuMSwyNTZ6Ij48L3BhdGg+PHBhdGggZmlsbD0iI0ZGRiIgZD0iTTI4NSwyNTZsNzIuNS04NC4yYzcuOS05LjIsNi45LTIzLTIuMy0zMWMtOS4yLTcuOS0yMy02LjktMzAuOSwyLjNMMjU2LDIyMi40bC02OC4yLTc5LjJjLTcuOS05LjItMjEuOC0xMC4yLTMxLTIuM2MtOS4yLDcuOS0xMC4yLDIxLjgtMi4zLDMxTDIyNywyNTZsLTcyLjUsODQuMmMtNy45LDkuMi02LjksMjMsMi4zLDMxYzQuMSwzLjYsOS4yLDUuMywxNC4zLDUuM2M2LjIsMCwxMi4zLTIuNiwxNi42LTcuNmw2OC4yLTc5LjJsNjguMiw3OS4yYzQuMyw1LDEwLjUsNy42LDE2LjYsNy42YzUuMSwwLDEwLjItMS43LDE0LjMtNS4zYzkuMi03LjksMTAuMi0yMS44LDIuMy0zMUwyODUsMjU2eiI+PC9wYXRoPjwvc3ZnPg=="/>
-            <% end %>
-          </div>
-        </div>
+        <% end %>
       <% end %>
     </div>
   <% end %>

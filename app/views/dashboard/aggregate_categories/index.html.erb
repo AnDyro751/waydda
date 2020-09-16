@@ -14,4 +14,6 @@
   <%= main_button(text: "Agregar variante", to: new_dashboard_product_aggregate_category_path(@product.slug), action: "add") %>
 <% end %>
 
-<%= render Dashboard::AggregateCategories::List::Index.new(product: @product) %>
+<div class="w-full border-l border-r rounded border-b" >
+  <%= render Dashboard::AggregateCategories::List::Index.new(product: @product) %>
+</div>
