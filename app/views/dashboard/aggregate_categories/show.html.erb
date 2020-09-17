@@ -31,30 +31,15 @@
         {title: "Selección múltiple", value: @aggregate_category.multiple_selection, boolean: true},
     ]
 ) %>
-<%= simple_form_for(@aggregate_category,
-                    url: dashboard_product_aggregate_category_path(@product.slug, @aggregate_category),
-                    html: {
-                        class: "w-full border mt-4 rounded",
-                    }
-    ) do |f| %>
-  <%= render Headers::Text.new(title: "Subvariantes", small: true, with_margin: true, font: "small", padding_class: "p-4") do %>
+<div class="w-full border mt-4 rounded">
+  <%= render Headers::Text.new(title: "Subvariantes", small: true, with_margin: false, with_border: false, font: "small", padding_class: "p-4") do %>
     <%#= link_to_add_association "Añadir subvariante", f, :aggregates, 'data-association-insertion-node' => ".aggregates .aggregates-container", class: main_color_button(color: "primary"), 'data-turbolinks': false %>
     <%= link_to "Añadir subvariante", new_dashboard_product_aggregate_category_aggregate_path(@product.slug, @aggregate_category), remote: true, class: main_color_button(color: "primary") %>
     <%#= main_button(to: "#", text: "Añadir subvariante", custom_click: "handleClick($event)", action: "add") %>
   <% end %>
   <div
     class="w-full flex flex-wrap">
-    <div id="add-aggregate" class="w-full px-3">
-      <div class="aggregates w-full flex flex-wrap" id="aggregates">
-        <div class="aggregates-container"></div>
-        <%= f.simple_fields_for :aggregates, Aggregate.new do |agg| %>
-          <%= render "dashboard/aggregate_categories/aggregate_fields", f: agg %>
-        <% end %>
-      </div>
-    </div>
-    <div class="w-full flex justify-end my-5 px-3">
-      <%= f.submit "Añadir subvariante", class: main_color_button(color: "secondary") %>
-    </div>
+
     <div class="w-full">
       <%= render Dashboard::Aggregates::List.new(
           aggregates: @aggregate_category.aggregates.select { |a| !a.new_record? },
@@ -64,7 +49,7 @@
       %>
     </div>
   </div>
-<% end %>
+</div>
 
 
 <%= render Headers::Text.new(title: "Área de peligro", subtitle: "Si eliminas la variante no podrás recuperar la información de este recurso, está acción es irreversible", small: true, with_margin: true) do %>
