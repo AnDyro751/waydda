@@ -53,10 +53,19 @@ class Dashboard::AggregatesController < ApplicationController
   end
 
   def destroy
-    @aggregate.destroy
+    @aggregate_id = @aggregate.id.to_s
+
     respond_to do |format|
-      format.html { redirect_to dashboard_product_aggregates_path(@product.slug), alert: 'Se ha eliminado la variante' }
-      format.json { head :no_content }
+      begin
+        @aggregate.destroy
+        @error = false
+        format.js
+      rescue
+        @error = true
+        format.js
+      end
+      # format.html { redirect_to dashboard_product_aggregates_path(@product.slug), alert: 'Se ha eliminado la variante' }
+      # format.json { head :no_content }
     end
   end
 

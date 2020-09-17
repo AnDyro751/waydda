@@ -39,7 +39,7 @@
               <% end %>
             </div>
             <div class="w-auto flex justify-center items-center">
-              <%= link_to edit_dashboard_product_aggregate_category_aggregate_path(@product.slug, @aggregate_category, aggregate), remote: true, class: "w-8 h-8 hover:bg-red-400 rounded text-gray-700 hover:text-white flex items-center justify-center" do %>
+              <%= link_to dashboard_product_aggregate_category_aggregate_path(@product.slug, @aggregate_category, aggregate), method: :delete, data: {confirm: "¿Seguro que quieres eliminar esta variante?"}, remote: true, class: "w-8 h-8 hover:bg-red-400 rounded text-gray-700 hover:text-white flex items-center justify-center" do %>
 
                 <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
                      class="w-4 h-4  fill-current"

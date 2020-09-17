@@ -43,7 +43,7 @@
   <% end %>
   <div
     class="w-full flex flex-wrap">
-    <div id="add-aggregate" class="w-full">
+    <div id="add-aggregate" class="w-full px-3">
       <div class="aggregates w-full flex flex-wrap" id="aggregates">
         <div class="aggregates-container"></div>
         <%= f.simple_fields_for :aggregates, Aggregate.new do |agg| %>
@@ -51,8 +51,8 @@
         <% end %>
       </div>
     </div>
-    <div class="w-full flex justify-end mt-5">
-      <%= f.submit "Actualizar subvariantes", class: main_color_button(color: "secondary") %>
+    <div class="w-full flex justify-end my-5 px-3">
+      <%= f.submit "Añadir subvariante", class: main_color_button(color: "secondary") %>
     </div>
     <div class="w-full">
       <%= render Dashboard::Aggregates::List.new(
