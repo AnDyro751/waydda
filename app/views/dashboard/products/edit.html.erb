@@ -2,7 +2,9 @@
   <meta name="content_slug" content="<%= @product.id.to_s %>"/>
   <meta name="content_model" content="product"/>
 <% end %>
-<%= render Headers::Text.new(title: "#{@product.name}", subtitle: @product.description, link: dashboard_product_path(@product.slug), small: true) %>
+<%= render Headers::Text.new(title: "#{@product.name}", subtitle: @product.description, link: dashboard_product_path(@product.slug), small: true) do %>
+  <%= button_to "Desactivar", "#", class: main_color_button(color: "secondary") %>
+<% end %>
 
 <div class="w-full flex gap-6">
   <div class="w-8/12">
