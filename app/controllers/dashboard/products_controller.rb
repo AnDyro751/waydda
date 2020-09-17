@@ -3,7 +3,7 @@ class Dashboard::ProductsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_my_place
   before_action :set_item, only: [:create]
-  before_action :set_product, only: [:show, :edit, :update, :destroy]
+  before_action :set_product, only: [:show, :edit, :update, :update_status, :destroy]
 
   def index
     @products = @place.products.paginate(page: params[:page], per_page: 20)
@@ -63,6 +63,24 @@ class Dashboard::ProductsController < ApplicationController
     end
   end
 
+  def update_status
+    respond_to do |format|
+      begin
+        if params["to_status"] === "activate"
+          @product.activate!
+        elsif params["to_status"] === "deactivate"
+          @product.deactivate!
+        else
+          format.html { redirect_to edit_dashboard_product_path(@product.slug), notice: "Ha ocurrido un error al actualizar el producto" }
+        end
+        format.html { redirect_to edit_dashboard_product_path(@product.slug), alert: "Se ha actualizado el producto" }
+      rescue => e
+        puts "-----#{e}"
+        format.html { redirect_to edit_dashboard_product_path(@product.slug), notice: "Ha ocurrido un error al actualizar el producto" }
+      end
+    end
+  end
+
   def destroy
     @product.destroy
     respond_to do |format|
@@ -82,7 +100,7 @@ class Dashboard::ProductsController < ApplicationController
   end
 
   def set_product
-    @product = Product.find_by(slug: params["id"])
+    @product = Product.find_by(slug: params["id"] || params["product_id"])
     not_found if @product.nil?
   end
 
