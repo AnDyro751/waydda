@@ -1,0 +1,12 @@
+//window.scrollTo(0, 0);
+document.querySelector("#modal-notifications").innerHTML = "";
+<% if @aggregate.errors.any? %>
+document.querySelector("#modal-notifications").innerHTML = "<%= j render Notifications::Alert.new(alert: "Se han encontrado errores al actualizar la subvariante",kind: "error") %>";
+<% else %>
+//aggregate_<%#= aggregate.id %>_price
+document.querySelector("#aggregate_<%= @aggregate.id.to_s %>_name").innerHTML = "<%= @aggregate.name %>";
+document.querySelector("#aggregate_<%= @aggregate.id.to_s %>_price").innerHTML = "<%= number_to_currency(@aggregate.price, format: "%u %n") %>";
+window.current_modal.close();
+<% end %>
+
+//window.deleteFlashs("#modal-errors", "#modal-notifications");

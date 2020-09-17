@@ -106,12 +106,13 @@ window.getMapRecords = async function ({text, limit = 5}) {
         return null;
     }
 }
-window.deleteFlashs = function deleteFlashNotice() {
-    var class_element = document.querySelector("#flash-notice");
+window.deleteFlashs = function deleteFlashNotice(custom_element = "#flash-notice", wrapper_element = "#notifications") {
+    var class_element = document.querySelector(custom_element ? custom_element : "#flash-notice");
     console.log(class_element)
     if (class_element) {
         class_element.addEventListener("click", () => {
-            var flashElement = document.querySelector("#notifications").innerHTML = ""
+            console.log("HOLA")
+            var flashElement = document.querySelector(wrapper_element ? wrapper_element : "#notifications").innerHTML = ""
         }, false)
     }
 }
