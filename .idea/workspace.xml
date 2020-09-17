@@ -19,9 +19,9 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b89cb0fb-b680-4bb9-8ae0-f4b41721cfb9" name="Default Changelist" comment="feat(Place): Creamos una nueva subvariante y todos sus procesos sin problemas, eliminamos, editamos y creamos 3:">
+    <list default="true" id="b89cb0fb-b680-4bb9-8ae0-f4b41721cfb9" name="Default Changelist" comment="feat(Place): Eliminamos el formulario anterior para agregar los forms anidados">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/dashboard/aggregate_categories/show.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/dashboard/aggregate_categories/show.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/javascript/packs/dashboard/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/javascript/packs/dashboard/index.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -517,14 +517,7 @@
       <workItem from="1600130846482" duration="2536000" />
       <workItem from="1600154339043" duration="7989000" />
       <workItem from="1600189966071" duration="13640000" />
-      <workItem from="1600218182215" duration="42678000" />
-    </task>
-    <task id="LOCAL-00154" summary="feat(Dashboard): Mostramos un mensaje cuando ya se ha usado la versión gratuita de la suscripción">
-      <created>1599798647857</created>
-      <option name="number" value="00154" />
-      <option name="presentableId" value="LOCAL-00154" />
-      <option name="project" value="LOCAL" />
-      <updated>1599798647857</updated>
+      <workItem from="1600218182215" duration="42753000" />
     </task>
     <task id="LOCAL-00155" summary="feat(Dashboard): Al parecer todo funciona, se ha agregado el formulario para que se use la tarjeta">
       <created>1599800845506</created>
@@ -862,7 +855,14 @@
       <option name="project" value="LOCAL" />
       <updated>1600371838796</updated>
     </task>
-    <option name="localTasksCounter" value="203" />
+    <task id="LOCAL-00203" summary="feat(Place): Eliminamos el formulario anterior para agregar los forms anidados">
+      <created>1600378302100</created>
+      <option name="number" value="00203" />
+      <option name="presentableId" value="LOCAL-00203" />
+      <option name="project" value="LOCAL" />
+      <updated>1600378302100</updated>
+    </task>
+    <option name="localTasksCounter" value="204" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -882,7 +882,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="feat(Place): Agregamos una nueva categoría para las variantes" />
     <MESSAGE value="feat(Place): Añadimos las acciones necesarias para el crud de las categorías" />
     <MESSAGE value="feat(Place): Pequeño formulario para agregar el category" />
     <MESSAGE value="feat(Place): Creamos y guardamos los aggregate_category.rb" />
@@ -907,7 +906,8 @@
     <MESSAGE value="feat(Place): Agregamos los iconos para editar y eliminar los productos" />
     <MESSAGE value="feat(Place): Eliminamos la variante de la db" />
     <MESSAGE value="feat(Place): Creamos una nueva subvariante y todos sus procesos sin problemas, eliminamos, editamos y creamos 3:" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat(Place): Creamos una nueva subvariante y todos sus procesos sin problemas, eliminamos, editamos y creamos 3:" />
+    <MESSAGE value="feat(Place): Eliminamos el formulario anterior para agregar los forms anidados" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat(Place): Eliminamos el formulario anterior para agregar los forms anidados" />
   </component>
   <component name="WindowStateProjectService">
     <state x="392" y="0" key="#All_specs_in_spec:_waydda" timestamp="1598730457189">
@@ -1021,12 +1021,12 @@
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="339" y="174" width="672" height="677" key="run.anything.popup/0.0.1366.768@0.0.1366.768" timestamp="1600370541201" />
-    <state x="346" y="89" width="672" height="678" key="search.everywhere.popup" timestamp="1600378239467">
+    <state x="346" y="89" width="672" height="678" key="search.everywhere.popup" timestamp="1600378305458">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="1852" y="56" width="945" height="954" key="search.everywhere.popup/0.0.1366.768/1366.-69.1920.1080@1366.-69.1920.1080" timestamp="1597715976170" />
     <state x="1710" y="89" width="672" height="678" key="search.everywhere.popup/0.0.1366.768/1366.0.1360.768@1366.0.1360.768" timestamp="1598985878395" />
     <state x="1852" y="125" width="945" height="954" key="search.everywhere.popup/0.0.1366.768/1366.0.1920.1080@1366.0.1920.1080" timestamp="1599267313630" />
-    <state x="346" y="89" width="672" height="678" key="search.everywhere.popup/0.0.1366.768@0.0.1366.768" timestamp="1600378239467" />
+    <state x="346" y="89" width="672" height="678" key="search.everywhere.popup/0.0.1366.768@0.0.1366.768" timestamp="1600378305458" />
   </component>
 </project>
