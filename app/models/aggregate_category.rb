@@ -7,7 +7,7 @@ class AggregateCategory
   field :description, type: String, default: ""
 
   embeds_many :aggregates
-  accepts_nested_attributes_for :aggregates, allow_destroy: true
+  accepts_nested_attributes_for :aggregates, allow_destroy: true, :reject_if => :all_blank
 
   embedded_in :product
   validates :name, presence: true, length: {in: 2..20}

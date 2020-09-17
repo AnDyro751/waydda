@@ -1,8 +1,64 @@
-<div class="form-group">
-  <%= f.input :name %>
-  <%= f.input :price, as: :float %>
+<div class="w-full flex gap-4 nested-fields items-center">
+  <div class="w-4/12 flex mt-2 mb-4 flex flex-wrap">
+    <label for="price" class="text-sm font-normal text-gray-600 mb-2">
+      <abbr title="required">*</abbr>
+      Price
+    </label>
+    <div class="w-full">
+      <%= f.input :name,
+                  input_html: {
+                      class: "form-input block w-full py-3 px-3 w-full sm:text-sm sm:leading-5 bg-main-gray appearance-none rounded focus:outline-none w-full resize-none"
+                  },
+                  label: false,
+                  wrapper_html: {
+                      class: "w-full"
+                  },
+                  placeholder: "Nombre de la subvariante"
+      %>
+    </div>
+
+  </div>
+  <div class="w-4/12 flex flex-wrap relative mt-2 mb-4">
+    <label for="price" class="text-sm font-normal text-gray-600 mb-2">
+      <abbr title="required">*</abbr>
+      Price
+    </label>
+    <div class="w-full relative">
+      <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+      <span class="text-gray-500 sm:text-sm sm:leading-5">
+        $
+      </span>
+      </div>
+      <div class="absolute inset-y-0 right-0 flex items-center">
+        <div aria-label="Currency" class="flex items-center justify-center h-full py-0 pl-2 pr-4 border-transparent bg-transparent text-gray-500 sm:text-sm sm:leading-5">
+          <span>MXN</span>
+        </div>
+      </div>
+      <%= f.input :price,
+                  label: false,
+                  # label_html: {
+                  #     class: "text-sm font-normal text-gray-600"
+                  # },
+                  as: :float,
+                  input_html: {
+                      class: "form-input block w-full py-3 pl-8 pr-12 sm:text-sm sm:leading-5 bg-main-gray appearance-none rounded focus:outline-none w-full resize-none"
+                  },
+                  wrapper_html: {
+                      class: "w-full"
+                  },
+                  placeholder: "0.00"
+      %>
+    </div>
+
+
+    <!--      <input id="price" class="form-input block w-full pl-7 pr-12 sm:text-sm sm:leading-5" placeholder="0.00">-->
+
+  </div>
+  <div class="w-2/12">
+    <%= link_to_remove_association "Eliminar", f, class: main_color_button(color: "danger") %>
+  </div>
+  <%#= f.input :_destroy, as: :hidden, value: "" %>
   <!--    <small><%#= link_to "Remove", "#", data: {action: "click->nested-form#remove_association"} %></small>-->
 </div>
 
-<%#= f.hidden_field :_destroy %>
 

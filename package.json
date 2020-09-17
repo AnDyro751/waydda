@@ -42,7 +42,7 @@
     "react_ujs": "^2.6.1",
     "select2": "^4.0.13",
     "semantic-ui-react": "^1.2.1",
-    "tailwindcss": "^1.6.2",
+    "tailwindcss": "^1.8.10",
     "turbolinks": "^5.2.0",
     "vanilla-lazyload": "^17.1.2",
     "vanilla-modal": "^1.6.5"

@@ -41,6 +41,9 @@ module.exports = {
             },
             inset: {
                 "simple": "1px",
+            },
+            padding: {
+                "7": "1.75em"
             }
         },
     },

@@ -38,3 +38,6 @@ en:
   status:
     pending: "Pending"
     active: "Active"
+  cocoon:
+    defaults:
+      add: "Agregar"

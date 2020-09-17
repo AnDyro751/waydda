@@ -13,6 +13,7 @@ class Aggregate
 
   # relations
   embedded_in :aggregate_category
+  accepts_nested_attributes_for :aggregate_category, allow_destroy: true, :reject_if => :all_blank
 
   # validation
   # TODO: Add validations
