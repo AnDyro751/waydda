@@ -19,10 +19,14 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b89cb0fb-b680-4bb9-8ae0-f4b41721cfb9" name="Default Changelist" comment="feat(Place): Actualizamos el estado del producto">
+    <list default="true" id="b89cb0fb-b680-4bb9-8ae0-f4b41721cfb9" name="Default Changelist" comment="feat(Place): Actualizamos el color de las notificaciones">
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/components/notifications/alert.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/components/notifications/alert.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/helpers/dashboard/main_helper.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/helpers/dashboard/main_helper.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/components/Products/Variants/List/index.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/components/Products/Variants/List/index.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/components/Products/Variants/List/index.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/components/Products/Variants/List/index.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/components/Products/ViewModal/index.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/components/Products/ViewModal/index.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/aggregate.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/aggregate.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/dashboard/aggregate_categories/new.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/dashboard/aggregate_categories/new.html.erb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -518,14 +522,7 @@
       <workItem from="1600130846482" duration="2536000" />
       <workItem from="1600154339043" duration="7989000" />
       <workItem from="1600189966071" duration="13640000" />
-      <workItem from="1600218182215" duration="46050000" />
-    </task>
-    <task id="LOCAL-00159" summary="feat(Dashboard): Mostramos las categorías y podemos eliminar desde la misma página">
-      <created>1599861853534</created>
-      <option name="number" value="00159" />
-      <option name="presentableId" value="LOCAL-00159" />
-      <option name="project" value="LOCAL" />
-      <updated>1599861853535</updated>
+      <workItem from="1600218182215" duration="48344000" />
     </task>
     <task id="LOCAL-00160" summary="feat(Dashboard): Mostramos los productos y paginamos los resultados de los mismos en la categoría">
       <created>1599863052682</created>
@@ -863,7 +860,14 @@
       <option name="project" value="LOCAL" />
       <updated>1600382176643</updated>
     </task>
-    <option name="localTasksCounter" value="208" />
+    <task id="LOCAL-00208" summary="feat(Place): Actualizamos el color de las notificaciones">
+      <created>1600382437919</created>
+      <option name="number" value="00208" />
+      <option name="presentableId" value="LOCAL-00208" />
+      <option name="project" value="LOCAL" />
+      <updated>1600382437919</updated>
+    </task>
+    <option name="localTasksCounter" value="209" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -883,7 +887,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="feat(Place): Pequeña vista previa completada" />
     <MESSAGE value="feat(Place): Cambiamos la opción para que en lugar de tener un minimo y un máximo de items a seleccionar, solo debe seleccionar una opción para dejar agregar uno o más aggregates" />
     <MESSAGE value="feat(Place): Cambiamos el estilo del checkbox" />
     <MESSAGE value="feat(Place): Creamos la vista previa y se completa" />
@@ -908,7 +911,8 @@
     <MESSAGE value="feat(Place): Mostramos las opciones de los aggregates en su lista y eliminamos las funciones para eliminar el scroll cuando hay modal" />
     <MESSAGE value="feat(Place): Agregamos un botón para desactivar el producto si es necesario, cuando esté desactivado, no se mostrará ni en los carritos ni en los listados" />
     <MESSAGE value="feat(Place): Actualizamos el estado del producto" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat(Place): Actualizamos el estado del producto" />
+    <MESSAGE value="feat(Place): Actualizamos el color de las notificaciones" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat(Place): Actualizamos el color de las notificaciones" />
   </component>
   <component name="WindowStateProjectService">
     <state x="392" y="0" key="#All_specs_in_spec:_waydda" timestamp="1598730457189">
@@ -1007,13 +1011,13 @@
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="628" y="298" key="com.jetbrains.plugins.remotesdk.ui.RemoteMappingsConfiguration/0.0.1366.768@0.0.1366.768" timestamp="1598729856431" />
-    <state x="390" y="117" width="585" height="624" key="find.popup" timestamp="1600379503340">
+    <state x="390" y="117" width="585" height="624" key="find.popup" timestamp="1600385358126">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="1914" y="96" width="823" height="878" key="find.popup/0.0.1366.768/1366.-69.1920.1080@1366.-69.1920.1080" timestamp="1597716285449" />
     <state x="1754" y="117" width="583" height="624" key="find.popup/0.0.1366.768/1366.0.1360.768@1366.0.1360.768" timestamp="1598981376119" />
     <state x="1914" y="165" width="823" height="878" key="find.popup/0.0.1366.768/1366.0.1920.1080@1366.0.1920.1080" timestamp="1599260651210" />
-    <state x="390" y="117" width="585" height="624" key="find.popup/0.0.1366.768@0.0.1366.768" timestamp="1600379503340" />
+    <state x="390" y="117" width="585" height="624" key="find.popup/0.0.1366.768@0.0.1366.768" timestamp="1600385358126" />
     <state x="549" y="254" width="250" height="278" key="jetbrains.javascript.buildTools.run-task-popup" timestamp="1597946321130">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
@@ -1022,12 +1026,12 @@
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="339" y="174" width="672" height="677" key="run.anything.popup/0.0.1366.768@0.0.1366.768" timestamp="1600370541201" />
-    <state x="346" y="89" width="672" height="678" key="search.everywhere.popup" timestamp="1600382226066">
+    <state x="346" y="89" width="672" height="678" key="search.everywhere.popup" timestamp="1600385636356">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="1852" y="56" width="945" height="954" key="search.everywhere.popup/0.0.1366.768/1366.-69.1920.1080@1366.-69.1920.1080" timestamp="1597715976170" />
     <state x="1710" y="89" width="672" height="678" key="search.everywhere.popup/0.0.1366.768/1366.0.1360.768@1366.0.1360.768" timestamp="1598985878395" />
     <state x="1852" y="125" width="945" height="954" key="search.everywhere.popup/0.0.1366.768/1366.0.1920.1080@1366.0.1920.1080" timestamp="1599267313630" />
-    <state x="346" y="89" width="672" height="678" key="search.everywhere.popup/0.0.1366.768@0.0.1366.768" timestamp="1600382226066" />
+    <state x="346" y="89" width="672" height="678" key="search.everywhere.popup/0.0.1366.768@0.0.1366.768" timestamp="1600385636356" />
   </component>
 </project>

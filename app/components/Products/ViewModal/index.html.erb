@@ -10,19 +10,9 @@
   <div class="w-5/12 shadow-product-modal px-4 py-8">
     <div class="w-full flex-wrap">
       <h1 class="text-xl font-medium"><%= @product.name %></h1>
-      <h2 class="mt-2 text-gray-600 text-sm font-light"><%= @product.description %></h2>
+      <h2 class="mt-2 text-gray-600 text-sm font-light mb-8"><%= @product.description %></h2>
       <% if @product.aggregate_categories.length > 0 %>
-        <div class="w-full mt-12 flex pb-4 border-b">
-          <div class="w-6/12">
-            <h3 class="uppercase text-sm font-medium">Selecciona una variante</h3>
-          </div>
-          <div class="w-6/12 flex justify-end">
-            <h3 class="uppercase text-sm text-gray-500 font-normal">Obligatorio</h3>
-          </div>
-        </div>
-        <div class="w-full mt-8">
-          <h4><%= @product.aggregate_categories.length %></h4>
-        </div>
+        <%= render Products::Variants::List::Index.new(product: @product) %>
       <% end %>
     </div>
   </div>

@@ -7,7 +7,7 @@ class Aggregate
 
   # fields
   field :name, type: String
-  field :price, type: Float
+  field :price, type: Float, default: 0
   field :description, type: String
   field :default, type: Boolean, default: false
   field :add_to_price_product, type: Boolean, default: true
@@ -19,7 +19,6 @@ class Aggregate
   # validation
   # TODO: Add validations
   validates :name, presence: true, length: {in: 2..40}
-  validates :price, presence: true
   # validates :default, inclusion: {in: %w[true false]}
 
   private
