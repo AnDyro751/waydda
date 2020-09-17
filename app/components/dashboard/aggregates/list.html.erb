@@ -16,41 +16,9 @@
         <span class="text-xs text-gray-700 font-normal uppercase">Acciones</span>
       </div>
     </div>
-    <div class="w-full flex flex-wrap divide-y divide-gray-300">
-      <% @aggregates.each_with_index do |aggregate, i| %>
-        <div class="w-full flex p-3 px-4 hover:bg-gray-200 gap-4" id="aggregate_<%= aggregate.id %>">
-          <div class="w-2/5">
-            <span class="font-medium text-sm truncate" id="aggregate_<%= aggregate.id %>_name"><%= aggregate.name %></span>
-          </div>
-          <div class="w-1/5">
-            <span class="text-sm truncate" id="aggregate_<%= aggregate.id %>_price"><%= helpers.number_to_currency(aggregate.price, format: "%u %n") %></span>
-          </div>
-          <div class="w-1/5">
-            <span class="text-sm truncate"><%= helpers.time_ago_in_words(aggregate.created_at) %></span>
-          </div>
-          <div class="w-1/5 flex gap-8">
-            <div class="w-auto flex justify-center items-center">
-              <%= link_to edit_dashboard_product_aggregate_category_aggregate_path(@product.slug, @aggregate_category, aggregate), remote: true, class: "w-8 h-8 hover:bg-main-blue rounded hover:text-white text-gray-700 flex items-center justify-center" do %>
-                <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
-                     class="w-4 h-4 fill-current"
-                     viewBox="0 0 24 24">
-                  <path d="M 19.171875 2 C 18.448125 2 17.724375 2.275625 17.171875 2.828125 L 16 4 L 20 8 L 21.171875 6.828125 C 22.275875 5.724125 22.275875 3.933125 21.171875 2.828125 C 20.619375 2.275625 19.895625 2 19.171875 2 z M 14.5 5.5 L 5 15 C 5 15 6.005 15.005 6.5 15.5 C 6.995 15.995 6.984375 16.984375 6.984375 16.984375 C 6.984375 16.984375 8.004 17.004 8.5 17.5 C 8.996 17.996 9 19 9 19 L 18.5 9.5 L 14.5 5.5 z M 3.6699219 17 L 3.0136719 20.503906 C 2.9606719 20.789906 3.2100938 21.039328 3.4960938 20.986328 L 7 20.330078 L 3.6699219 17 z"></path>
-                </svg>
-              <% end %>
-            </div>
-            <div class="w-auto flex justify-center items-center">
-              <%= link_to dashboard_product_aggregate_category_aggregate_path(@product.slug, @aggregate_category, aggregate), method: :delete, data: {confirm: "¿Seguro que quieres eliminar esta variante?"}, remote: true, class: "w-8 h-8 hover:bg-red-400 rounded text-gray-700 hover:text-white flex items-center justify-center" do %>
-
-                <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
-                     class="w-4 h-4  fill-current"
-                     viewBox="0 0 24 24"
-                >
-                  <path d="M 10 2 L 9 3 L 5 3 C 4.4 3 4 3.4 4 4 C 4 4.6 4.4 5 5 5 L 7 5 L 17 5 L 19 5 C 19.6 5 20 4.6 20 4 C 20 3.4 19.6 3 19 3 L 15 3 L 14 2 L 10 2 z M 5 7 L 5 20 C 5 21.1 5.9 22 7 22 L 17 22 C 18.1 22 19 21.1 19 20 L 19 7 L 5 7 z M 9 9 C 9.6 9 10 9.4 10 10 L 10 19 C 10 19.6 9.6 20 9 20 C 8.4 20 8 19.6 8 19 L 8 10 C 8 9.4 8.4 9 9 9 z M 15 9 C 15.6 9 16 9.4 16 10 L 16 19 C 16 19.6 15.6 20 15 20 C 14.4 20 14 19.6 14 19 L 14 10 C 14 9.4 14.4 9 15 9 z"></path>
-                </svg>
-              <% end %>
-            </div>
-          </div>
-        </div>
+    <div class="w-full flex flex-wrap divide-y divide-gray-300" id="aggregates-list">
+      <% @aggregates.each do |aggregate| %>
+        <%= render Dashboard::Aggregates::Item.new(aggregate: aggregate, aggregate_category: @aggregate_category, product: @product) %>
       <% end %>
       <%# end %>
     </div>

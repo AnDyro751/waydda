@@ -38,7 +38,8 @@
                     }
     ) do |f| %>
   <%= render Headers::Text.new(title: "Subvariantes", small: true, with_margin: true, font: "small", padding_class: "p-4") do %>
-    <%= link_to_add_association "Añadir subvariante", f, :aggregates, 'data-association-insertion-node' => ".aggregates .aggregates-container", class: main_color_button(color: "primary"), 'data-turbolinks': false %>
+    <%#= link_to_add_association "Añadir subvariante", f, :aggregates, 'data-association-insertion-node' => ".aggregates .aggregates-container", class: main_color_button(color: "primary"), 'data-turbolinks': false %>
+    <%= link_to "Añadir subvariante", new_dashboard_product_aggregate_category_aggregate_path(@product.slug, @aggregate_category), remote: true, class: main_color_button(color: "primary") %>
     <%#= main_button(to: "#", text: "Añadir subvariante", custom_click: "handleClick($event)", action: "add") %>
   <% end %>
   <div
@@ -83,7 +84,7 @@
 </div>
 <div class="modal">
   <div class="modal-inner w-4/12 h-xxxl rounded">
-<!--    <span data-modal-close>&times;</span>-->
+    <!--    <span data-modal-close>&times;</span>-->
     <div class="modal-content h-full flex modal-content" id="modal-content"></div>
   </div>
 </div>
