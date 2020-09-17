@@ -14,7 +14,9 @@ class Dashboard::AggregatesController < ApplicationController
   end
 
   def edit
-
+    respond_to do |format|
+      format.js
+    end
   end
 
   def index
@@ -63,8 +65,12 @@ class Dashboard::AggregatesController < ApplicationController
   end
 
   def set_aggregate
-    @aggregate = @product.aggregates.find_by(id: params["id"])
-    not_found if @aggregate.nil?
+    @aggregate_category = @product.aggregate_categories.find(params["aggregate_category_id"])
+    puts "--------------#{params["aggregate_category_id"]}"
+    not_found if @aggregate_category.nil?
+    # puts "------#{@aggregate_category.attributes}----------"
+    # @aggregate = @aggregate_category.find_by(id: params["id"])
+    # not_found if @aggregate.nil?
   end
 
   def set_product

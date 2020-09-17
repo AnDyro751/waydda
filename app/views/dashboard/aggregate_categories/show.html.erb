@@ -55,7 +55,12 @@
       <%= f.submit "Actualizar subvariantes", class: main_color_button(color: "secondary") %>
     </div>
     <div class="w-full">
-      <%= render Dashboard::Aggregates::List.new(aggregates: @aggregate_category.aggregates.select { |a| !a.new_record? }) %>
+      <%= render Dashboard::Aggregates::List.new(
+          aggregates: @aggregate_category.aggregates.select { |a| !a.new_record? },
+          product: @product,
+          aggregate_category: @aggregate_category
+      )
+      %>
     </div>
   </div>
 <% end %>
@@ -73,3 +78,12 @@
               }
   %>
 <% end %>
+
+<div id="modal">
+</div>
+<div class="modal">
+  <div class="modal-inner w-4/12 h-xxxl">
+    <span data-modal-close>&times;</span>
+    <div class="modal-content h-full flex modal-content" id="modal-content"></div>
+  </div>
+</div>
