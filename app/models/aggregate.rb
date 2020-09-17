@@ -2,7 +2,8 @@ class Aggregate
   include Mongoid::Document
   include Mongoid::Timestamps
 
-  before_save :change_others_defaults
+  before_validation :assign_created_at, on: :create
+  # before_save :change_others_defaults
 
   # fields
   field :name, type: String
@@ -27,6 +28,12 @@ class Aggregate
     if self.default
       self.product.aggregates.where(:id.nin => [self.id], default: true)
     end
+  end
+
+
+  def assign_created_at
+    self.created_at = Time.now
+    self.updated_at = Time.now
   end
 
 

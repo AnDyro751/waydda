@@ -1,22 +1,32 @@
-<% if @aggregates.select { |a| !a.new_record? }.length <= 0 %>
-  <div class="w-full mt-3">
-    <%= render EmptyRecords.new(title: "Aún no has agregado ninguna subvariante") %>
-  </div>
-<% else %>
-  <% @aggregates.select { |a| !a.new_record? }.each do |aggregate| %>
-    <ul class="w-full flex flex-wrap items-center mb-2 <%= @size != "small" ? "bg-main-gray divide-y divide-gray-400 rounded" : "" %>">
-      <li class="p-4 w-full">
-        <%#= link_to dashboard_product_aggregate_categories_path(@product.slug, aggregate.id.to_s), class: "hover:underline relative" do %>
-        <h4 class="<%= @size == "small" ? "text-sm" : "text-base" %> font-normal text-gray-800 truncate my-1"><%= aggregate.name || "Sin nombre" %></h4>
-        <% if aggregate.default %>
-          <div class="absolute right-0 top-0 bottom-0 flex justify-center">Hola</div>
-          <%# end %>
-        <% end %>
-        <% if @size != "small" %>
-          <h5 class="text-sm text-gray-600"><%= aggregate.description %></h5>
-          <h5 class="text-sm text-gray-600 font-medium mt-1"><%= number_to_currency(aggregate.price, format: "%u %n") %></h5>
-        <% end %>
-      </li>
-    </ul>
+<div class="w-full rounded flex-wrap">
+  <% if @aggregates.length <= 0 %>
+    <%= render EmptyRecords.new(title: "Aún no has agregado ninguna variante") %>
+  <% else %>
+    <div class="w-full flex px-4 py-2 border-b border-t">
+      <div class="w-2/4">
+        <span class="text-xs text-gray-700 font-normal uppercase">Nombre</span>
+      </div>
+      <div class="w-1/4">
+        <span class="text-xs text-gray-700 font-normal uppercase">Precio</span>
+      </div>
+      <div class="w-1/4">
+        <span class="text-xs text-gray-700 font-normal uppercase">Creado</span>
+      </div>
+    </div>
+    <div class="w-full flex flex-wrap divide-y divide-gray-300">
+      <% @aggregates.each_with_index do |aggregate, i| %>
+        <div class="w-full flex p-3 px-4">
+          <div class="w-2/4">
+            <span class="font-medium text-sm truncate"><%= aggregate.name %></span>
+          </div>
+          <div class="w-1/4">
+            <span class="text-sm truncate"><%= helpers.number_to_currency(aggregate.price, format: "%u %n") %></span>
+          </div>
+          <div class="w-1/4">
+            <span class="text-sm truncate"><%= helpers.time_ago_in_words(aggregate.created_at) %></span>
+          </div>
+        </div>
+      <% end %>
+    </div>
   <% end %>
-<% end %>
+</div>

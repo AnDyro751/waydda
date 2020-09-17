@@ -1,8 +1,7 @@
 class Dashboard::Aggregates::List < ViewComponent::Base
   # @param [ArrayField] aggregates
-  def initialize(aggregates:, size: "small", product:)
+  def initialize(aggregates:, size: "small")
     @aggregates = aggregates
     @size = size
-    @product = product
   end
 end

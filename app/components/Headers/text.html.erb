@@ -1,16 +1,22 @@
-<div class="w-full flex <%= @with_border ? "border-b" : "" %> <%= @with_margin ? "mb-4" : "" %> <%= @small ? "pt-8 pb-5" : "py-12" %> items-center">
+<div class="w-full flex <%= @with_border ? "border-b" : "" %> <%= @with_margin ? "mb-4" : "" %> <%= if @padding_class
+                                                                                                      @padding_class
+                                                                                                    else
+                                                                                                      @small ? "pt-8 pb-5" : "py-12"
+                                                                                                    end %> items-center">
   <div class="<%= content ? "w-8/12" : "w-full" %>">
     <% if @link %>
       <%= link_to @link, class: "hover:underline" do %>
         <% if @font %>
-          <h2 class="<%= @font === "small" ? "text-2xl font-normal" : "font-bold text-3xl" %> "><%= @title %></h2>
+          <h2 class="<%= @font === "small" ? "font-bold text-lg" : "font-bold text-3xl" %> "><%= @title %></h2>
         <% else %>
           <h2 class="<%= @small ? "text-3xl" : "text-4xl" %> font-bold"><%= @title %></h2>
         <% end %>
       <% end %>
     <% else %>
+
       <% if @font %>
-        <h2 class="<%= @font === "small" ? "text-lg font-medium" : "font-bold text-3xl" %> "><%= @title %></h2>
+<!--        <h3 class="font-bold text-lg"><%#= @title %></h3>-->
+        <h2 class="<%= @font === "small" ? "font-bold text-lg" : "font-bold text-3xl" %> "><%= @title %></h2>
       <% else %>
         <h2 class="<%= @small ? "text-3xl" : "text-4xl" %> font-bold"><%= @title %></h2>
       <% end %>
