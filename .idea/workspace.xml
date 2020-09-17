@@ -19,11 +19,10 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b89cb0fb-b680-4bb9-8ae0-f4b41721cfb9" name="Default Changelist" comment="feat(Place): Agregamos un botón para desactivar el producto si es necesario, cuando esté desactivado, no se mostrará ni en los carritos ni en los listados">
+    <list default="true" id="b89cb0fb-b680-4bb9-8ae0-f4b41721cfb9" name="Default Changelist" comment="feat(Place): Actualizamos el estado del producto">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/dashboard/products_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/dashboard/products_controller.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/dashboard/products/edit.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/dashboard/products/edit.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/routes.rb" beforeDir="false" afterPath="$PROJECT_DIR$/config/routes.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/components/notifications/alert.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/components/notifications/alert.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/helpers/dashboard/main_helper.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/helpers/dashboard/main_helper.rb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -519,14 +518,7 @@
       <workItem from="1600130846482" duration="2536000" />
       <workItem from="1600154339043" duration="7989000" />
       <workItem from="1600189966071" duration="13640000" />
-      <workItem from="1600218182215" duration="45785000" />
-    </task>
-    <task id="LOCAL-00158" summary="feat(Dashboard): Categories show empty records">
-      <created>1599846963748</created>
-      <option name="number" value="00158" />
-      <option name="presentableId" value="LOCAL-00158" />
-      <option name="project" value="LOCAL" />
-      <updated>1599846963749</updated>
+      <workItem from="1600218182215" duration="46050000" />
     </task>
     <task id="LOCAL-00159" summary="feat(Dashboard): Mostramos las categorías y podemos eliminar desde la misma página">
       <created>1599861853534</created>
@@ -864,7 +856,14 @@
       <option name="project" value="LOCAL" />
       <updated>1600379966970</updated>
     </task>
-    <option name="localTasksCounter" value="207" />
+    <task id="LOCAL-00207" summary="feat(Place): Actualizamos el estado del producto">
+      <created>1600382176643</created>
+      <option name="number" value="00207" />
+      <option name="presentableId" value="LOCAL-00207" />
+      <option name="project" value="LOCAL" />
+      <updated>1600382176643</updated>
+    </task>
+    <option name="localTasksCounter" value="208" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -884,7 +883,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="feat(Place): Añadimos los estilos pequeños al formulario" />
     <MESSAGE value="feat(Place): Pequeña vista previa completada" />
     <MESSAGE value="feat(Place): Cambiamos la opción para que en lugar de tener un minimo y un máximo de items a seleccionar, solo debe seleccionar una opción para dejar agregar uno o más aggregates" />
     <MESSAGE value="feat(Place): Cambiamos el estilo del checkbox" />
@@ -909,7 +907,8 @@
     <MESSAGE value="feat(Place): Eliminamos cooncon de el index.js" />
     <MESSAGE value="feat(Place): Mostramos las opciones de los aggregates en su lista y eliminamos las funciones para eliminar el scroll cuando hay modal" />
     <MESSAGE value="feat(Place): Agregamos un botón para desactivar el producto si es necesario, cuando esté desactivado, no se mostrará ni en los carritos ni en los listados" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat(Place): Agregamos un botón para desactivar el producto si es necesario, cuando esté desactivado, no se mostrará ni en los carritos ni en los listados" />
+    <MESSAGE value="feat(Place): Actualizamos el estado del producto" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat(Place): Actualizamos el estado del producto" />
   </component>
   <component name="WindowStateProjectService">
     <state x="392" y="0" key="#All_specs_in_spec:_waydda" timestamp="1598730457189">
@@ -1023,12 +1022,12 @@
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="339" y="174" width="672" height="677" key="run.anything.popup/0.0.1366.768@0.0.1366.768" timestamp="1600370541201" />
-    <state x="346" y="89" width="672" height="678" key="search.everywhere.popup" timestamp="1600382121404">
+    <state x="346" y="89" width="672" height="678" key="search.everywhere.popup" timestamp="1600382226066">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="1852" y="56" width="945" height="954" key="search.everywhere.popup/0.0.1366.768/1366.-69.1920.1080@1366.-69.1920.1080" timestamp="1597715976170" />
     <state x="1710" y="89" width="672" height="678" key="search.everywhere.popup/0.0.1366.768/1366.0.1360.768@1366.0.1360.768" timestamp="1598985878395" />
     <state x="1852" y="125" width="945" height="954" key="search.everywhere.popup/0.0.1366.768/1366.0.1920.1080@1366.0.1920.1080" timestamp="1599267313630" />
-    <state x="346" y="89" width="672" height="678" key="search.everywhere.popup/0.0.1366.768@0.0.1366.768" timestamp="1600382121404" />
+    <state x="346" y="89" width="672" height="678" key="search.everywhere.popup/0.0.1366.768@0.0.1366.768" timestamp="1600382226066" />
   </component>
 </project>
