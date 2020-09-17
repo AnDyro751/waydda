@@ -36,6 +36,7 @@ class Dashboard::AggregateCategoriesController < ApplicationController
       if @aggregate_category.update(aggregate_category_params)
         format.html { redirect_to dashboard_product_aggregate_category_path(@product.slug, @aggregate_category), alert: "Se ha actualizado la variante" }
       else
+        puts "-------#{@aggregate_category.errors.full_messages}"
         format.html { redirect_to dashboard_product_aggregate_category_path(@product.slug, @aggregate_category), notice: "Ha ocurrido un error al actualizar la variante" }
       end
     end
@@ -60,7 +61,7 @@ class Dashboard::AggregateCategoriesController < ApplicationController
   end
 
   def aggregate_category_params
-    params.require(:aggregate_category).permit(:name, :required, :multiple_selection, :description, aggregates_attributes: [:name])
+    params.require(:aggregate_category).permit(:name, :required, :multiple_selection, :description, aggregates_attributes: [:name, :id, :price, :_destroy])
   end
 
 end

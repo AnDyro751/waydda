@@ -18,7 +18,7 @@
     <span class="text-indigo-700 font-medium"><%= @aggregate_category.name %></span>
   </div>
 </div>
-<%= render Headers::Text.new(title: @aggregate_category.name, small: true, with_margin: true, subtitle: "#{pluralize(@aggregate_category.aggregates.length, "subvariante", "subvariantes")}") do %>
+<%= render Headers::Text.new(title: @aggregate_category.name, small: true, with_margin: true, subtitle: "#{pluralize(@aggregate_category.aggregates.select { |a| !a.new_record? }.length, "subvariante", "subvariantes")}") do %>
   <%= main_button(to: edit_dashboard_product_aggregate_category_path(@product.slug, @aggregate_category), text: "Editar variante", action: "update") %>
 <% end %>
 
@@ -39,11 +39,11 @@
   class="w-full flex flex-wrap"
 >
 
-  <div data-target="nested-form.template">
+  <div>
     <%= simple_form_for(@aggregate_category, url: dashboard_product_aggregate_category_path(@product.slug, @aggregate_category)) do |f| %>
       <div id="add-aggregate">
         <%= link_to_add_association f, :aggregates, 'data-association-insertion-node' => ".aggregates .aggregates-container", 'data-turbolinks': false %>
-        <div class="aggregates">
+        <div class="aggregates" id="aggregates">
           <%= f.simple_fields_for :aggregates do |agg| %>
             <%#= agg.input :name %>
             <%= render "dashboard/aggregate_categories/aggregate_fields", f: agg %>
@@ -84,4 +84,4 @@
               }
   %>
 <% end %>
-<%= javascript_pack_tag "dashboard/aggregates/index", 'data-turbolinks-track': 'reload' %>
+<%#= javascript_pack_tag "dashboard/aggregates/index", 'data-turbolinks-track': 'reload' %>
