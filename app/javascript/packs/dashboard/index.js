@@ -10,7 +10,6 @@ document.addEventListener("turbolinks:load", () => {
             window.current_modal = new window.vanillaModal({
                 onBeforeClose: function () {
                     history.replaceState({}, "", current_location);
-                    document.querySelector("body").classList.toggle("overflow-y-hidden");
                 },
                 onClose: () => {
                     document.querySelector("#modal").innerHTML = "";

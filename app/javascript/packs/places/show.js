@@ -8,7 +8,6 @@ if (window.vanillaModal) {
         onBeforeClose: function () {
             console.log("BEOFRE");
             history.replaceState({}, "", current_location);
-            document.querySelector("body").classList.toggle("overflow-y-hidden");
         },
         onClose: ()=>{
             document.querySelector("#modal").innerHTML = "";

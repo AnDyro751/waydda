@@ -4,6 +4,5 @@ if (window.vanillaModal) {
         console.log("ABRIR MODAL");
         window.current_modal.open("#modal");
         document.querySelector(".modal-content").innerHTML = "<%= j render Dashboard::Aggregates::Form.new(aggregate: @aggregate, product: @product,aggregate_category: @aggregate_category) %>";
-        document.querySelector("body").classList.toggle("overflow-y-hidden");
     }
 }
