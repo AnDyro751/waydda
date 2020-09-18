@@ -47,6 +47,31 @@ class Cart
     return remove_item(self, current_item, product, quantity, user_logged_in) unless plus
   end
 
+  #
+  # add_item function
+  #
+  # @note
+  # Agrega un producto al carrito
+  # Verifica que el carrito exista
+  # Verifica que el place exista
+  # Varifica que el place se encuentre activo
+  # Verifica que el producto exista
+  # Verifica que el producto esté activo
+  # Verifica que el producto cuente con stock necesario
+  # -> Si no cuenta con stock
+  # -> -> Verificar si se puede vender incluso sin stock
+  # -> Si cuenta con stock
+  # Verificar que todas las variantes requeridas se hayan rellenado
+  # Verificar los valores correctos de las variantes
+  #
+  #
+  # @param [Object] current_cart
+  # @param [Object] current_item
+  # @param [Object] product
+  # @param [Integer] quantity
+  # @param [Object] user_logged_in
+  # @return [Hash{Symbol->FalseClass}, Hash{Symbol->TrueClass or Integer}]
+
   def add_item(current_cart, current_item, product, quantity = 1, user_logged_in)
     new_quantity = current_item.quantity + quantity unless current_item.nil?
     new_quantity = quantity if current_item.nil?
