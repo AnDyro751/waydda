@@ -58,7 +58,7 @@ class Place
   has_one :account
 
 # Validations
-  validates :name, presence: true, length: {in: 4..30}
+  validates :name, presence: true, length: {in: 4..40}
   validates :address, presence: true, length: {in: 4..100}
   validates :status, presence: true, inclusion: {in: %w(pending active inactive)}
   validates :category, inclusion: {in: %w(groceries food services other)}, allow_blank: true
@@ -102,6 +102,14 @@ class Place
     self.update(total_products: oper)
   end
 
+
+  def valid_sale?
+    unless self.nil?
+      logger.warn "Place is not active" unless self.active?
+      self.active?
+    end
+    false
+  end
 
   private
 

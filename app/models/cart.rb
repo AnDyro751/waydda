@@ -43,8 +43,8 @@ class Cart
     product = Product.find_by(id: product_id)
     return [false, nil] if product.nil?
     current_item = self.cart_items.find_by(product_id: product_id)
-    return add_item(self, current_item, product, quantity, user_logged_in) if plus
-    return remove_item(self, current_item, product, quantity, user_logged_in) unless plus
+    # return add_item(self, current_item, product, quantity, user_logged_in) if plus
+    # return remove_item(self, current_item, product, quantity, user_logged_in) unless plus
   end
 
   #
@@ -71,29 +71,47 @@ class Cart
   # @param [Integer] quantity
   # @param [Object] user_logged_in
   # @return [Hash{Symbol->FalseClass}, Hash{Symbol->TrueClass or Integer}]
+  #
 
-  def add_item(current_cart, current_item, product, quantity = 1, user_logged_in)
-    new_quantity = current_item.quantity + quantity unless current_item.nil?
-    new_quantity = quantity if current_item.nil?
-    new_cart_quantity = current_cart.quantity + quantity
-    return {success: false, total_items_counter: nil, total_items_cart: nil} unless product.valid_stock(new_quantity)
-    if current_item.nil?
-      begin
-        current_cart.cart_items.create!(product: product, quantity: new_quantity, added_in: user_logged_in)
-        current_cart.update(quantity: new_cart_quantity)
-        return {success: true, total_items_counter: new_quantity, total_items_cart: current_cart.quantity}
-      rescue
-        return {success: false, total_items_counter: nil, total_items_cart: nil}
-      end
-    else
-      if current_item.update(quantity: new_quantity)
-        current_cart.update(quantity: new_cart_quantity)
-        return {success: true, total_items_counter: current_item.quantity, total_items_cart: current_cart.quantity}
-      else
-        return {success: false, total_items_counter: nil, total_items_cart: nil}
-      end
+  def add_item(product:, place:, quantity:, aggregates: [])
+    if valid_sale?(product: product, place: place, aggregates: aggregates, quantity: quantity)
+
     end
+    logger.warn "Cart have invalid sale"
+    false
   end
+
+  # @param [Object] product
+  # @param [Object] place
+  # @param [Array] aggregates
+  # @param [Object] quantity
+  # @return [TrueClass, FalseClass]
+  def valid_sale?(product:, place:, aggregates: [], quantity:)
+    place.valid_sale? and product.valid_sale?(quantity: quantity) and product.valid_aggregates_sale?(aggregates: aggregates)
+  end
+
+  # def add_item(current_cart, current_item, product, quantity = 1, user_logged_in)
+  #   new_quantity = current_item.quantity + quantity unless current_item.nil?
+  #   new_quantity = quantity if current_item.nil?
+  #   new_cart_quantity = current_cart.quantity + quantity
+  #   return {success: false, total_items_counter: nil, total_items_cart: nil} unless product.valid_stock(new_quantity)
+  #   if current_item.nil?
+  #     begin
+  #       current_cart.cart_items.create!(product: product, quantity: new_quantity, added_in: user_logged_in)
+  #       current_cart.update(quantity: new_cart_quantity)
+  #       return {success: true, total_items_counter: new_quantity, total_items_cart: current_cart.quantity}
+  #     rescue
+  #       return {success: false, total_items_counter: nil, total_items_cart: nil}
+  #     end
+  #   else
+  #     if current_item.update(quantity: new_quantity)
+  #       current_cart.update(quantity: new_cart_quantity)
+  #       return {success: true, total_items_counter: current_item.quantity, total_items_cart: current_cart.quantity}
+  #     else
+  #       return {success: false, total_items_counter: nil, total_items_cart: nil}
+  #     end
+  #   end
+  # end
 
   def remove_item(current_cart, current_item, product, quantity, user_logged_in)
     return {success: false, total_items_counter: nil, total_items_cart: nil} if current_item.nil?

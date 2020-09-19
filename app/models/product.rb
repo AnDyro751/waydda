@@ -54,6 +54,7 @@ class Product
     end
   end
 
+
   # @param [Integer] new_value
   # @return [TrueClass, FalseClass]
   def valid_stock(new_value = nil)
@@ -95,6 +96,39 @@ class Product
     else
       "error"
     end
+  end
+
+  # @return [TrueClass]
+  def valid_sale?(quantity:)
+    unless self.nil?
+      if self.active?
+        if (self.public_stock - quantity) >= 0
+          true
+        else
+          logger.warn "Product is not unlimited" unless self.unlimited
+          return self.unlimited
+        end
+      end
+      logger.warn "Product is not active"
+      false
+    end
+    logger.warn "Product is not active"
+    false
+  end
+
+
+  # @param [Array] aggregates
+  # @return [TrueClass, FalseClass]
+  def valid_aggregates_sale?(aggregates: [])
+    # TODO: Validate aggregates
+    # Buscamos los aggregados que tengan como true el field required
+    # Creamos un array con los ids de los requeridos
+    # el @param aggregates nos debe mandar un array con los ids seleccionados en la vist
+    # Restamos todos los ids que nos mandaron con los ids que deben estar aggregados
+    # Si hay algún id restante debemos retornar false
+    # De lo contrario retornamos el true
+    # Si manda un id incorrecto de todos modos van a existir ids que no se restaron
+    #
   end
 
   private
