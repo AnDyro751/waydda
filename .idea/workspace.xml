@@ -19,10 +19,10 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b89cb0fb-b680-4bb9-8ae0-f4b41721cfb9" name="Default Changelist" comment="feat(Place): Mostramos todas las variantes del producto en el modal">
-      <change afterPath="$PROJECT_DIR$/spec/models/cart.rb" afterDir="false" />
+    <list default="true" id="b89cb0fb-b680-4bb9-8ae0-f4b41721cfb9" name="Default Changelist" comment="feat(Place): Iniciaremos a agregar el producto al carrito">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/models/cart.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/cart.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spec/models/cart.rb" beforeDir="false" afterPath="$PROJECT_DIR$/spec/models/cart.rb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,6 +40,11 @@
     <option name="ENVIRONMENT" value="development" />
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="JsbtTreeLayoutManager">
@@ -81,7 +86,7 @@
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="yarn" />
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="settings.editor.selected.configurable" value="editing.templates" />
     <property name="terminalCustomCommandExecutionTurnOff" value="false" />
     <property name="ts.external.directory.path" value="D:\Program Files\RubyMine 2020.1.2\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
   </component>
@@ -518,14 +523,7 @@
       <workItem from="1600130846482" duration="2536000" />
       <workItem from="1600154339043" duration="7989000" />
       <workItem from="1600189966071" duration="13640000" />
-      <workItem from="1600218182215" duration="54851000" />
-    </task>
-    <task id="LOCAL-00161" summary="feat(Dashboard): Mostramos los breadcumbs">
-      <created>1599863561384</created>
-      <option name="number" value="00161" />
-      <option name="presentableId" value="LOCAL-00161" />
-      <option name="project" value="LOCAL" />
-      <updated>1599863561385</updated>
+      <workItem from="1600218182215" duration="55876000" />
     </task>
     <task id="LOCAL-00162" summary="feat(Dashboard): Iniciamos el formulario de envios a domicilio">
       <created>1599866533874</created>
@@ -863,7 +861,14 @@
       <option name="project" value="LOCAL" />
       <updated>1600386024737</updated>
     </task>
-    <option name="localTasksCounter" value="210" />
+    <task id="LOCAL-00210" summary="feat(Place): Iniciaremos a agregar el producto al carrito">
+      <created>1600473000982</created>
+      <option name="number" value="00210" />
+      <option name="presentableId" value="LOCAL-00210" />
+      <option name="project" value="LOCAL" />
+      <updated>1600473000982</updated>
+    </task>
+    <option name="localTasksCounter" value="211" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -883,7 +888,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="feat(Place): Cambiamos el estilo del checkbox" />
     <MESSAGE value="feat(Place): Creamos la vista previa y se completa" />
     <MESSAGE value="feat(Place): Agregamos los breadcubms" />
     <MESSAGE value="feat(Place): Agregamos un nuevo diseño" />
@@ -908,7 +912,8 @@
     <MESSAGE value="feat(Place): Actualizamos el estado del producto" />
     <MESSAGE value="feat(Place): Actualizamos el color de las notificaciones" />
     <MESSAGE value="feat(Place): Mostramos todas las variantes del producto en el modal" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat(Place): Mostramos todas las variantes del producto en el modal" />
+    <MESSAGE value="feat(Place): Iniciaremos a agregar el producto al carrito" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat(Place): Iniciaremos a agregar el producto al carrito" />
   </component>
   <component name="WindowStateProjectService">
     <state x="392" y="0" key="#All_specs_in_spec:_waydda" timestamp="1598730457189">
@@ -972,10 +977,10 @@
     </state>
     <state x="2094" y="191" key="RollbackChangesDialog/0.0.1366.768/1366.-69.1920.1080@1366.-69.1920.1080" timestamp="1597697150509" />
     <state x="518" y="173" key="RollbackChangesDialog/0.0.1366.768@0.0.1366.768" timestamp="1598294478879" />
-    <state x="358" y="60" width="916" height="708" key="SettingsEditor" timestamp="1600472334275">
+    <state x="142" y="0" width="916" height="708" key="SettingsEditor" timestamp="1600473685930">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state x="358" y="60" width="916" height="708" key="SettingsEditor/0.0.1366.768@0.0.1366.768" timestamp="1600472334275" />
+    <state x="142" y="0" width="916" height="708" key="SettingsEditor/0.0.1366.768@0.0.1366.768" timestamp="1600473685930" />
     <state width="498" height="446" key="SwitcherDM" timestamp="1600056322387">
       <screen x="0" y="0" width="1366" height="768" />
     </state>

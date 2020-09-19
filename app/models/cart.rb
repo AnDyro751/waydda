@@ -6,13 +6,13 @@ class Cart
   include GlobalID::Identification
 
   field :quantity, type: Integer, default: 0
-  field :payment_type, type: String, default: "card"
+  field :payment_type, type: String, default: "cash"
   field :status, type: String, default: "pending"
 
   has_many :cart_items
   embeds_one :delivery_option
-  embeds_many :addresses, as: :model
   embeds_one :checkout
+  embeds_many :addresses, as: :model
   belongs_to :place
   belongs_to :user, optional: true
 
