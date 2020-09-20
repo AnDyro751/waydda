@@ -29,7 +29,7 @@ class Aggregate
         if aggc.kind_of?(Hash)
           if aggc["id"].present? || aggc[:id].present?
             current_aggregate_id = aggc["id"] || aggc[:id]
-            if required
+            if required # TODO: Validar cuando las subvariantes no sean requeridas también
               if aggc["subvariants"].present? || aggc[:subvariants].present?
                 current_subvariants = aggc["subvariants"] || aggc[:subvariants]
                 current_aggc = AggregateCategory.get_record(id: current_aggregate_id, items: aggregates)

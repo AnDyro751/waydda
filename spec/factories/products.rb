@@ -3,7 +3,7 @@ FactoryBot.define do
     sequence(:name) { |n| "Product #{n}" }
     description { Faker::Lorem.sentence }
     price { 50 }
-    status { "pending" }
+    status { "active" }
     slug { "demo-product-slug" }
     # association :place, factory: :place
   end

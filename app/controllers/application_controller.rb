@@ -6,6 +6,11 @@ class ApplicationController < ActionController::Base
   before_action :set_language
   # before_action :set_default_locations
 
+  def add_log(message)
+    puts "Logger info: ----- #{message}"
+  end
+
+
   def set_price
     if user_signed_in?
       if current_user.price_selected

@@ -17,7 +17,7 @@ class Product
   field :max_aggregates, type: Integer, default: 1
   field :slug, type: String
   field :last_viewed, type: DateTime
-  field :unlimited, type: Boolean, default: false
+  field :unlimited, type: Boolean, default: true
   field :status, type: String, default: "active"
   # TODO: Crear un helper para agregar estos fields y sus actions
   field :photo, type: String, default: "places/default.png"
@@ -100,19 +100,21 @@ class Product
 
   # @return [TrueClass]
   def valid_sale?(quantity:)
+    return false if quantity <= 0
     unless self.nil?
+      logger.warn "Status-#{self.status} - #{self.active?}"
       if self.active?
         if (self.public_stock - quantity) >= 0
-          true
+          return true
         else
-          logger.warn "Product is not unlimited" unless self.unlimited
+          logger.warn "Product is not unlimited #{self.public_stock - quantity}" unless self.unlimited
           return self.unlimited
         end
       end
       logger.warn "Product is not active"
-      false
+      return false
     end
-    logger.warn "Product is not active"
+    logger.warn "Product is nil"
     false
   end
 

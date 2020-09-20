@@ -19,9 +19,14 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b89cb0fb-b680-4bb9-8ae0-f4b41721cfb9" name="Default Changelist" comment="feat(Place): Validamos que la longitud de los elementos que se hayan enviado sean los correctos">
+    <list default="true" id="b89cb0fb-b680-4bb9-8ae0-f4b41721cfb9" name="Default Changelist" comment="feat(Place): Al parecer ya buscamos si todo es correcto con el producto y sus aggregates 3:, falta testear de varias maneras">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/application_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/application_controller.rb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/models/aggregate.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/aggregate.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/aggregate_category.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/aggregate_category.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/product.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/product.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spec/factories/products.rb" beforeDir="false" afterPath="$PROJECT_DIR$/spec/factories/products.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spec/models/product_spec.rb" beforeDir="false" afterPath="$PROJECT_DIR$/spec/models/product_spec.rb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -522,14 +527,7 @@
       <workItem from="1600130846482" duration="2536000" />
       <workItem from="1600154339043" duration="7989000" />
       <workItem from="1600189966071" duration="13640000" />
-      <workItem from="1600218182215" duration="93469000" />
-    </task>
-    <task id="LOCAL-00167" summary="feat(Dashboard): Cambiamos la imagen del cover, en lugar de un background ahora es una etiqueta img">
-      <created>1600028177650</created>
-      <option name="number" value="00167" />
-      <option name="presentableId" value="LOCAL-00167" />
-      <option name="project" value="LOCAL" />
-      <updated>1600028177650</updated>
+      <workItem from="1600218182215" duration="98020000" />
     </task>
     <task id="LOCAL-00168" summary="feat(Place): Listamos los productos de los items">
       <created>1600028813287</created>
@@ -867,7 +865,14 @@
       <option name="project" value="LOCAL" />
       <updated>1600621065103</updated>
     </task>
-    <option name="localTasksCounter" value="216" />
+    <task id="LOCAL-00216" summary="feat(Place): Al parecer ya buscamos si todo es correcto con el producto y sus aggregates 3:, falta testear de varias maneras">
+      <created>1600632599090</created>
+      <option name="number" value="00216" />
+      <option name="presentableId" value="LOCAL-00216" />
+      <option name="project" value="LOCAL" />
+      <updated>1600632599090</updated>
+    </task>
+    <option name="localTasksCounter" value="217" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -887,7 +892,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="feat(Place): Agregamos el link para visitar el aggregate y crear sub variantes" />
     <MESSAGE value="feat(Place): Cambiamos el nombre de aggregates a variants" />
     <MESSAGE value="feat(Place): Vamos a añadir las subvariantes, ya listamos y mostramos las subvariantes" />
     <MESSAGE value="feat(Place): Los formularios necesitan accepts_nested_attributes_for en el modelo que tiene el has many relations 3:" />
@@ -912,7 +916,8 @@
     <MESSAGE value="feat(Place): Hasta el momento validamos que los aggregate_category.rb se manden, falta validar que los aggregate.rb que se manden estén completos" />
     <MESSAGE value="feat(Place): Lo que necesitamos hacer ahora es verificar que el aggregate que se mande sea de opción múltiple o de una sola selección" />
     <MESSAGE value="feat(Place): Validamos que la longitud de los elementos que se hayan enviado sean los correctos" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat(Place): Validamos que la longitud de los elementos que se hayan enviado sean los correctos" />
+    <MESSAGE value="feat(Place): Al parecer ya buscamos si todo es correcto con el producto y sus aggregates 3:, falta testear de varias maneras" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat(Place): Al parecer ya buscamos si todo es correcto con el producto y sus aggregates 3:, falta testear de varias maneras" />
   </component>
   <component name="WindowStateProjectService">
     <state x="392" y="0" key="#All_specs_in_spec:_waydda" timestamp="1598730457189">
@@ -1026,12 +1031,12 @@
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="339" y="174" width="672" height="677" key="run.anything.popup/0.0.1366.768@0.0.1366.768" timestamp="1600370541201" />
-    <state x="346" y="89" width="672" height="678" key="search.everywhere.popup" timestamp="1600631716448">
+    <state x="346" y="89" width="672" height="678" key="search.everywhere.popup" timestamp="1600635539058">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="1852" y="56" width="945" height="954" key="search.everywhere.popup/0.0.1366.768/1366.-69.1920.1080@1366.-69.1920.1080" timestamp="1597715976170" />
     <state x="1710" y="89" width="672" height="678" key="search.everywhere.popup/0.0.1366.768/1366.0.1360.768@1366.0.1360.768" timestamp="1598985878395" />
     <state x="1852" y="125" width="945" height="954" key="search.everywhere.popup/0.0.1366.768/1366.0.1920.1080@1366.0.1920.1080" timestamp="1599267313630" />
-    <state x="346" y="89" width="672" height="678" key="search.everywhere.popup/0.0.1366.768@0.0.1366.768" timestamp="1600631716448" />
+    <state x="346" y="89" width="672" height="678" key="search.everywhere.popup/0.0.1366.768@0.0.1366.768" timestamp="1600635539058" />
   </component>
 </project>
