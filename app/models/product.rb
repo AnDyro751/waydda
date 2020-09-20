@@ -119,7 +119,40 @@ class Product
 
   # @param [Array] aggregates
   # @return [TrueClass, FalseClass]
+  # @param aggregate example
+  #
+  # aggregates: [{id: "12345", subvariants:["12", "123"]}]
+  # Donde el id de cada elemento es un AggregateCategory y la subvariante es un array de
+  # los aggregates que el padre contiene.
+  # Es decir que los ids, 12 y 123 debes estar dentro de los ids que tiene el AggregateCategory padre
+  # De lo contrario mandamos un error
+  #
   def valid_aggregates_sale?(aggregates: [])
+
+    current_aggregate_categories = self.aggregate_categories
+    logger.warn "#LN 135 - #{current_aggregate_categories}"
+
+    current_aggregates_required = AggregateCategory.get_required(items: current_aggregate_categories)
+    logger.warn "#LN 135 - #{current_aggregates_required}"
+
+    valid_aggregates_categories = AggregateCategory.get_all_valid(items: aggregates, all: current_aggregates_required)
+    logger.warn "#LN 138 - #{valid_aggregates_categories}"
+
+    # required_aggregate_category_ids = AggregateCategory.get_ids(items: current_aggregates_required)
+
+    receive_aggregates_ids = Aggregate.get_valid_ids_in_aggregates(ids: Aggregate.get_ids(items: aggregates), aggregates: AggregateCategory.get_ids(items: current_aggregates_required))
+    logger.warn "#LN 143 - #{receive_aggregates_ids}"
+    # valid_aggregates_ids = AggregateCategory.get_all_valid(items: receive_aggregates_ids, all: required_aggregate_category_ids)
+
+    if (valid_aggregates_categories - receive_aggregates_ids).length == 0
+      logger.warn "No hay ninguún aggregate category fake"
+      # aggregate_ids = AggregateCategory.get_aggregate_ids(aggregate_categories: required_aggregate_category_ids)
+      return true
+    end
+    logger.warn "Los aggregates son invalidos"
+    false
+
+    # (aggregate_ids - aggregates) == 0
     # TODO: Validate aggregates
     # Buscamos los aggregados que tengan como true el field required
     # Creamos un array con los ids de los requeridos

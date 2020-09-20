@@ -21,17 +21,12 @@
   <component name="ChangeListManager">
     <list default="true" id="b89cb0fb-b680-4bb9-8ae0-f4b41721cfb9" name="Default Changelist" comment="feat(Place): Realizamos un pequeño test para el carrito, aún falta agregar un producto pero ya estamos validando los aggregates">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/cart.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/cart.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/cart_item.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/cart_item.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/place.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/place.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/users/sessions_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/users/sessions_controller.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/aggregate.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/aggregate.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/aggregate_category.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/aggregate_category.rb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/models/product.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/product.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/environments/development.rb" beforeDir="false" afterPath="$PROJECT_DIR$/config/environments/development.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/environments/test.rb" beforeDir="false" afterPath="$PROJECT_DIR$/config/environments/test.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spec/factories/cart_items.rb" beforeDir="false" afterPath="$PROJECT_DIR$/spec/factories/cart_items.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spec/factories/carts.rb" beforeDir="false" afterPath="$PROJECT_DIR$/spec/factories/carts.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spec/factories/places.rb" beforeDir="false" afterPath="$PROJECT_DIR$/spec/factories/places.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spec/factories/products.rb" beforeDir="false" afterPath="$PROJECT_DIR$/spec/factories/products.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spec/models/cart.rb" beforeDir="false" afterPath="$PROJECT_DIR$/spec/models/cart.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/user.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/user.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/devise/shared/_error_messages.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/devise/shared/_error_messages.html.erb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -532,14 +527,7 @@
       <workItem from="1600130846482" duration="2536000" />
       <workItem from="1600154339043" duration="7989000" />
       <workItem from="1600189966071" duration="13640000" />
-      <workItem from="1600218182215" duration="69730000" />
-    </task>
-    <task id="LOCAL-00163" summary="feat(Dashboard): Formulario de envíos a domicilio completado. A comer quesadillas!!!!">
-      <created>1599878826238</created>
-      <option name="number" value="00163" />
-      <option name="presentableId" value="LOCAL-00163" />
-      <option name="project" value="LOCAL" />
-      <updated>1599878826238</updated>
+      <workItem from="1600218182215" duration="84410000" />
     </task>
     <task id="LOCAL-00164" summary="feat(Dashboard): Update cover photo">
       <created>1599928492969</created>
@@ -877,7 +865,14 @@
       <option name="project" value="LOCAL" />
       <updated>1600473754242</updated>
     </task>
-    <option name="localTasksCounter" value="212" />
+    <task id="LOCAL-00212" summary="feat(Place): Realizamos un pequeño test para el carrito, aún falta agregar un producto pero ya estamos validando los aggregates">
+      <created>1600543856043</created>
+      <option name="number" value="00212" />
+      <option name="presentableId" value="LOCAL-00212" />
+      <option name="project" value="LOCAL" />
+      <updated>1600543856043</updated>
+    </task>
+    <option name="localTasksCounter" value="213" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -986,10 +981,10 @@
     </state>
     <state x="2094" y="191" key="RollbackChangesDialog/0.0.1366.768/1366.-69.1920.1080@1366.-69.1920.1080" timestamp="1597697150509" />
     <state x="518" y="173" key="RollbackChangesDialog/0.0.1366.768@0.0.1366.768" timestamp="1598294478879" />
-    <state x="142" y="0" width="916" height="708" key="SettingsEditor" timestamp="1600473685930">
+    <state x="142" y="0" width="916" height="708" key="SettingsEditor" timestamp="1600555653457">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state x="142" y="0" width="916" height="708" key="SettingsEditor/0.0.1366.768@0.0.1366.768" timestamp="1600473685930" />
+    <state x="142" y="0" width="916" height="708" key="SettingsEditor/0.0.1366.768@0.0.1366.768" timestamp="1600555653457" />
     <state width="498" height="446" key="SwitcherDM" timestamp="1600056322387">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
@@ -1021,13 +1016,13 @@
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="628" y="298" key="com.jetbrains.plugins.remotesdk.ui.RemoteMappingsConfiguration/0.0.1366.768@0.0.1366.768" timestamp="1598729856431" />
-    <state x="390" y="117" width="585" height="624" key="find.popup" timestamp="1600542878121">
+    <state x="390" y="117" width="585" height="624" key="find.popup" timestamp="1600560695013">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="1914" y="96" width="823" height="878" key="find.popup/0.0.1366.768/1366.-69.1920.1080@1366.-69.1920.1080" timestamp="1597716285449" />
     <state x="1754" y="117" width="583" height="624" key="find.popup/0.0.1366.768/1366.0.1360.768@1366.0.1360.768" timestamp="1598981376119" />
     <state x="1914" y="165" width="823" height="878" key="find.popup/0.0.1366.768/1366.0.1920.1080@1366.0.1920.1080" timestamp="1599260651210" />
-    <state x="390" y="117" width="585" height="624" key="find.popup/0.0.1366.768@0.0.1366.768" timestamp="1600542878121" />
+    <state x="390" y="117" width="585" height="624" key="find.popup/0.0.1366.768@0.0.1366.768" timestamp="1600560695013" />
     <state x="549" y="254" width="250" height="278" key="jetbrains.javascript.buildTools.run-task-popup" timestamp="1597946321130">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
@@ -1036,12 +1031,12 @@
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="339" y="174" width="672" height="677" key="run.anything.popup/0.0.1366.768@0.0.1366.768" timestamp="1600370541201" />
-    <state x="346" y="89" width="672" height="678" key="search.everywhere.popup" timestamp="1600543218520">
+    <state x="346" y="89" width="672" height="678" key="search.everywhere.popup" timestamp="1600563731684">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="1852" y="56" width="945" height="954" key="search.everywhere.popup/0.0.1366.768/1366.-69.1920.1080@1366.-69.1920.1080" timestamp="1597715976170" />
     <state x="1710" y="89" width="672" height="678" key="search.everywhere.popup/0.0.1366.768/1366.0.1360.768@1366.0.1360.768" timestamp="1598985878395" />
     <state x="1852" y="125" width="945" height="954" key="search.everywhere.popup/0.0.1366.768/1366.0.1920.1080@1366.0.1920.1080" timestamp="1599267313630" />
-    <state x="346" y="89" width="672" height="678" key="search.everywhere.popup/0.0.1366.768@0.0.1366.768" timestamp="1600543218520" />
+    <state x="346" y="89" width="672" height="678" key="search.everywhere.popup/0.0.1366.768@0.0.1366.768" timestamp="1600563731684" />
   </component>
 </project>

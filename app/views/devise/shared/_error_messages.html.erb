@@ -4,11 +4,17 @@
       <%= I18n.t("errors.messages.not_saved",
                  count: resource.errors.count,
                  resource: resource.class.model_name.human.downcase)
-       %>
+      %>
     </h2>
     <ul>
+      <% if resource.errors.any? %>
+        <% resource.errors.each do |key, error| %>
+          <li><%= error %></li>
+          <%= key  %>
+        <% end %>
+      <% end %>
       <% resource.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
+              <li><%= message %></li>
       <% end %>
     </ul>
   </div>

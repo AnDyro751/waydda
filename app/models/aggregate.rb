@@ -21,6 +21,37 @@ class Aggregate
   validates :name, presence: true, length: {in: 2..40}
   # validates :default, inclusion: {in: %w[true false]}
 
+  # @param [Object] items
+  def self.get_ids(items:)
+    new_items = []
+    if items.kind_of?(Array)
+      items.map do |aggc|
+        if aggc.kind_of?(Hash)
+          if aggc["id"].present? || aggc[:id].present?
+            logger.warn "IDS #{aggc["id"] || aggc[:id]}"
+            current_aggc = aggc["id"] || aggc[:id]
+            new_items << current_aggc
+          else
+            logger.warn "El children no contiene un id"
+            return []
+          end
+        else
+          logger.warn "El children no es un Hash"
+          return []
+        end
+      end
+    else
+      logger.warn "El parent no es un array"
+    end
+    return new_items
+  end
+
+  # @param [ArrayField] ids
+  # @return [ArrayField]
+  def self.get_valid_ids_in_aggregates(ids: [], aggregates: [])
+    ids.select { |id| aggregates.include?(id) }
+  end
+
   private
 
   def change_others_defaults
