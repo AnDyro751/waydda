@@ -140,7 +140,7 @@ class Product
 
     # required_aggregate_category_ids = AggregateCategory.get_ids(items: current_aggregates_required)
 
-    receive_aggregates_ids = Aggregate.get_valid_ids_in_aggregates(ids: AggregateCategory.get_ids(items: Aggregate.valid_elements(items: aggregates)), aggregates: AggregateCategory.get_ids(items: current_aggregates_required))
+    receive_aggregates_ids = Aggregate.get_valid_ids_in_aggregates(ids: AggregateCategory.get_ids(items: Aggregate.valid_elements(items: aggregates, aggregates: current_aggregates_required)), aggregates: AggregateCategory.get_ids(items: current_aggregates_required))
     logger.warn "#LN 143 - #{receive_aggregates_ids}"
     # valid_aggregates_ids = AggregateCategory.get_all_valid(items: receive_aggregates_ids, all: required_aggregate_category_ids)
 

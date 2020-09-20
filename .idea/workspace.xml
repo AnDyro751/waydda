@@ -19,15 +19,11 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b89cb0fb-b680-4bb9-8ae0-f4b41721cfb9" name="Default Changelist" comment="feat(Place): Hasta el momento validamos que los aggregate_category.rb se manden, falta validar que los aggregate.rb que se manden estén completos">
-      <change afterPath="$PROJECT_DIR$/spec/models/product_spec.rb" afterDir="false" />
+    <list default="true" id="b89cb0fb-b680-4bb9-8ae0-f4b41721cfb9" name="Default Changelist" comment="feat(Place): Lo que necesitamos hacer ahora es verificar que el aggregate que se mande sea de opción múltiple o de una sola selección">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/models/aggregate.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/aggregate.rb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/models/aggregate_category.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/aggregate_category.rb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/models/product.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/product.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spec/factories/aggregate_categories.rb" beforeDir="false" afterPath="$PROJECT_DIR$/spec/factories/aggregate_categories.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spec/factories/aggregates.rb" beforeDir="false" afterPath="$PROJECT_DIR$/spec/factories/aggregates.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spec/factories/products.rb" beforeDir="false" afterPath="$PROJECT_DIR$/spec/factories/products.rb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -528,14 +524,7 @@
       <workItem from="1600130846482" duration="2536000" />
       <workItem from="1600154339043" duration="7989000" />
       <workItem from="1600189966071" duration="13640000" />
-      <workItem from="1600218182215" duration="88171000" />
-    </task>
-    <task id="LOCAL-00165" summary="feat(Dashboard): Agregamos los productos recientes para mostrarlos">
-      <created>1599961178403</created>
-      <option name="number" value="00165" />
-      <option name="presentableId" value="LOCAL-00165" />
-      <option name="project" value="LOCAL" />
-      <updated>1599961178403</updated>
+      <workItem from="1600218182215" duration="89077000" />
     </task>
     <task id="LOCAL-00166" summary="feat(Dashboard): Validamos que el producto no se haya metido antes, de lo contrario solo omitimos">
       <created>1599961258263</created>
@@ -873,7 +862,14 @@
       <option name="project" value="LOCAL" />
       <updated>1600565804635</updated>
     </task>
-    <option name="localTasksCounter" value="214" />
+    <task id="LOCAL-00214" summary="feat(Place): Lo que necesitamos hacer ahora es verificar que el aggregate que se mande sea de opción múltiple o de una sola selección">
+      <created>1600620185505</created>
+      <option name="number" value="00214" />
+      <option name="presentableId" value="LOCAL-00214" />
+      <option name="project" value="LOCAL" />
+      <updated>1600620185505</updated>
+    </task>
+    <option name="localTasksCounter" value="215" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -893,7 +889,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="feat(Place): Arreglamos un pequeño bug de la vista de nueva variante de producto" />
     <MESSAGE value="feat(Place): Listamos variantes" />
     <MESSAGE value="feat(Place): Agregamos el link para visitar el aggregate y crear sub variantes" />
     <MESSAGE value="feat(Place): Cambiamos el nombre de aggregates a variants" />
@@ -918,7 +913,8 @@
     <MESSAGE value="feat(Place): Realizamos pruebas de validación en inclusión sencillas" />
     <MESSAGE value="feat(Place): Realizamos un pequeño test para el carrito, aún falta agregar un producto pero ya estamos validando los aggregates" />
     <MESSAGE value="feat(Place): Hasta el momento validamos que los aggregate_category.rb se manden, falta validar que los aggregate.rb que se manden estén completos" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat(Place): Hasta el momento validamos que los aggregate_category.rb se manden, falta validar que los aggregate.rb que se manden estén completos" />
+    <MESSAGE value="feat(Place): Lo que necesitamos hacer ahora es verificar que el aggregate que se mande sea de opción múltiple o de una sola selección" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat(Place): Lo que necesitamos hacer ahora es verificar que el aggregate que se mande sea de opción múltiple o de una sola selección" />
   </component>
   <component name="WindowStateProjectService">
     <state x="392" y="0" key="#All_specs_in_spec:_waydda" timestamp="1598730457189">

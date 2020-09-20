@@ -40,6 +40,23 @@ class AggregateCategory
     new_aggregates
   end
 
+
+  def self.valid_items_sale?(items:, current_aggregate:)
+    if current_aggregate.multiple_selection and items.length >= 1
+      return true
+    end
+    if !current_aggregate.multiple_selection and items.length > 1
+      logger.warn "Se mandaron más de un elemento cuando solo se debío mandar uno"
+      return false
+    else
+      return true
+    end
+  end
+
+  def self.get_record(id:, items:)
+    items.to_a.find { |it| it.id.to_s == id }
+  end
+
   def self.get_records_by_ids(ids:, product:)
     new_records = []
     # aggregate_ids = AggregateCategory.get_ids(items: product.aggregate_categories)

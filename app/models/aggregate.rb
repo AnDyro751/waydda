@@ -22,15 +22,25 @@ class Aggregate
   # validates :default, inclusion: {in: %w[true false]}
 
   # @param [Object] items
-  def self.valid_elements(items:, required: true)
+  def self.valid_elements(items:, required: true, aggregates:)
     new_items = []
     if items.kind_of?(Array)
       items.map do |aggc|
         if aggc.kind_of?(Hash)
           if aggc["id"].present? || aggc[:id].present?
+            current_aggregate_id = aggc["id"] || aggc[:id]
             if required
               if aggc["subvariants"].present? || aggc[:subvariants].present?
                 current_subvariants = aggc["subvariants"] || aggc[:subvariants]
+                current_aggc = AggregateCategory.get_record(id: current_aggregate_id, items: aggregates)
+                logger.warn "El current id no es válido" if current_aggc.nil?
+                return [] if current_aggc.nil?
+                if AggregateCategory.valid_items_sale?(items: current_subvariants, current_aggregate: current_aggc)
+
+                else
+                  logger.warn "Los items no son válidos"
+                  return []
+                end
                 logger.warn "Subvariantes -#{current_subvariants}"
               else
                 logger.warn "El children no contiene subvariantes seleccionadas #{aggc[:subvariants]}-----#{aggc["subvariants"]}"
