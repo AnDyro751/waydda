@@ -25,11 +25,28 @@ class AggregateCategory
   # @param [ArrayField] items
   # @return [ArrayField]
   def self.get_ids(items:)
-    items.map { |aggc| aggc.id.to_s }
+    items.map { |aggc| aggc.kind_of?(Hash) ? aggc[:id] || aggc["id"] : aggc.id.to_s }
   end
 
-  def self.get_aggregate_ids(aggregate_categories:)
-    aggregate_categories.each { |aggc| aggc.aggregates.map { |agg| agg.id.to_s } }
+  # @param [ArrayField] aggregate_categories
+  # @return [ArrayField]
+  def self.get_all_aggregates(aggregate_categories:)
+    new_aggregates = []
+    aggregate_categories.each do |aggc|
+      aggc.aggregates.each do |agg|
+        new_aggregates << agg
+      end
+    end
+    new_aggregates
   end
+
+  def self.get_records_by_ids(ids:, product:)
+    new_records = []
+    # aggregate_ids = AggregateCategory.get_ids(items: product.aggregate_categories)
+
+    product.aggregate_categories.select { |aggc| aggc }
+
+  end
+
 
 end

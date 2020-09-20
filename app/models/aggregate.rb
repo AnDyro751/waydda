@@ -22,15 +22,22 @@ class Aggregate
   # validates :default, inclusion: {in: %w[true false]}
 
   # @param [Object] items
-  def self.get_ids(items:)
+  def self.valid_elements(items:, required: true)
     new_items = []
     if items.kind_of?(Array)
       items.map do |aggc|
         if aggc.kind_of?(Hash)
           if aggc["id"].present? || aggc[:id].present?
-            logger.warn "IDS #{aggc["id"] || aggc[:id]}"
-            current_aggc = aggc["id"] || aggc[:id]
-            new_items << current_aggc
+            if required
+              if aggc["subvariants"].present? || aggc[:subvariants].present?
+                current_subvariants = aggc["subvariants"] || aggc[:subvariants]
+                logger.warn "Subvariantes -#{current_subvariants}"
+              else
+                logger.warn "El children no contiene subvariantes seleccionadas #{aggc[:subvariants]}-----#{aggc["subvariants"]}"
+                return []
+              end
+            end
+            new_items << aggc
           else
             logger.warn "El children no contiene un id"
             return []
@@ -43,6 +50,7 @@ class Aggregate
     else
       logger.warn "El parent no es un array"
     end
+    logger.warn "NEW ITEMS #{new_items}"
     return new_items
   end
 

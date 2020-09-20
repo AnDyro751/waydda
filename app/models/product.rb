@@ -140,13 +140,14 @@ class Product
 
     # required_aggregate_category_ids = AggregateCategory.get_ids(items: current_aggregates_required)
 
-    receive_aggregates_ids = Aggregate.get_valid_ids_in_aggregates(ids: Aggregate.get_ids(items: aggregates), aggregates: AggregateCategory.get_ids(items: current_aggregates_required))
+    receive_aggregates_ids = Aggregate.get_valid_ids_in_aggregates(ids: AggregateCategory.get_ids(items: Aggregate.valid_elements(items: aggregates)), aggregates: AggregateCategory.get_ids(items: current_aggregates_required))
     logger.warn "#LN 143 - #{receive_aggregates_ids}"
     # valid_aggregates_ids = AggregateCategory.get_all_valid(items: receive_aggregates_ids, all: required_aggregate_category_ids)
 
     if (valid_aggregates_categories - receive_aggregates_ids).length == 0
       logger.warn "No hay ninguún aggregate category fake"
-      # aggregate_ids = AggregateCategory.get_aggregate_ids(aggregate_categories: required_aggregate_category_ids)
+      current_aggregates = AggregateCategory.get_all_aggregates(aggregate_categories: current_aggregates_required)
+      logger.warn "Aggregate ids #{receive_aggregates_ids}-------#{current_aggregates}"
       return true
     end
     logger.warn "Los aggregates son invalidos"
