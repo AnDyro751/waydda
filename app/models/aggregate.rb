@@ -36,7 +36,13 @@ class Aggregate
                 logger.warn "El current id no es válido" if current_aggc.nil?
                 return [] if current_aggc.nil?
                 if AggregateCategory.valid_items_sale?(items: current_subvariants, current_aggregate: current_aggc)
-
+                  current_subvariants.each do |sb|
+                    if Aggregate.include_in_aggregate_category?(id: sb, aggregate_category: current_aggc)
+                    else
+                      logger.warn "Los aggregates no están incluidos en los params"
+                      return []
+                    end
+                  end
                 else
                   logger.warn "Los items no son válidos"
                   return []
@@ -63,6 +69,16 @@ class Aggregate
     logger.warn "NEW ITEMS #{new_items}"
     return new_items
   end
+
+
+  def self.include_in_aggregate_category?(id:, aggregate_category:)
+    in_category = false
+    aggregate_category.aggregates.each { |agg| in_category = true if agg.id.to_s == id.to_s }
+    logger.warn "Aggregate Category? #{!in_category.nil?}-#{id}"
+    in_category
+  end
+
+  # Product.last.valid_aggregates_sale?(aggregates: [{id: "5f617f0beefc4101148764a7", subvariants: ["5f63d5e2eefc411d25c1e4f1"]},{id: "5f6187f5eefc4101148764a9", subvariants: ['5f626063eefc411d0455e0dc']}])
 
   # @param [ArrayField] ids
   # @return [ArrayField]
