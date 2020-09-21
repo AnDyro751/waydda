@@ -2,31 +2,25 @@
   <% if @aggregates.length <= 0 %>
     <%= render EmptyRecords.new(title: "Aún no has agregado ninguna variante") %>
   <% else %>
-    <div class="w-full flex px-4 py-2 border-b border-t">
-      <div class="w-2/4">
+    <div class="w-full flex px-4 gap-4 py-2 border-b border-t">
+      <div class="w-2/5">
         <span class="text-xs text-gray-700 font-normal uppercase">Nombre</span>
       </div>
-      <div class="w-1/4">
+      <div class="w-1/5">
         <span class="text-xs text-gray-700 font-normal uppercase">Precio</span>
       </div>
-      <div class="w-1/4">
+      <div class="w-1/5">
         <span class="text-xs text-gray-700 font-normal uppercase">Creado</span>
       </div>
+      <div class="w-1/5">
+        <span class="text-xs text-gray-700 font-normal uppercase">Acciones</span>
+      </div>
     </div>
-    <div class="w-full flex flex-wrap divide-y divide-gray-300">
-      <% @aggregates.each_with_index do |aggregate, i| %>
-        <%= link_to edit_dashboard_product_aggregate_category_aggregate_path(@product.slug, @aggregate_category, aggregate), id: aggregate.id, class: "w-full flex p-3 px-4", remote: true do %>
-          <div class="w-2/4">
-            <span class="font-medium text-sm truncate" id="aggregate_<%= aggregate.id %>_name"><%= aggregate.name %></span>
-          </div>
-          <div class="w-1/4">
-            <span class="text-sm truncate" id="aggregate_<%= aggregate.id %>_price"><%= helpers.number_to_currency(aggregate.price, format: "%u %n") %></span>
-          </div>
-          <div class="w-1/4">
-            <span class="text-sm truncate"><%= helpers.time_ago_in_words(aggregate.created_at) %></span>
-          </div>
-        <% end %>
+    <div class="w-full flex flex-wrap divide-y divide-gray-300" id="aggregates-list">
+      <% @aggregates.each do |aggregate| %>
+        <%= render Dashboard::Aggregates::Item.new(aggregate: aggregate, aggregate_category: @aggregate_category, product: @product) %>
       <% end %>
+      <%# end %>
     </div>
   <% end %>
 </div>

@@ -46,10 +46,12 @@ class User
   # Validations
   validates :name, presence: true, format: {with: /\A[a-zA-ZáéíóúñÁÉÍÓÚÑ\s]+\z/}, length: {in: 3..30}
   validates :lastName, presence: false, format: {with: /\A[a-zA-ZáéíóúñÁÉÍÓÚÑ\s]+\z/}, length: {in: 3..30}, allow_nil: true
-  validates :email, presence: true, uniqueness: {case_sensitive: false}
+  validates :email, presence: true, uniqueness: {case_sensitive: false, message: "%{value} ya ha sido usado"}
+  # validates :name, uniqueness: { scope: :year,
+  #                                message: "should happen once per year" }
   validate :valid_email
   validates :phone, uniqueness: {case_sensitive: false}, allow_nil: true, phone: {possible: true, types: :mobile, countries: :mx}
-
+  validates :encrypted_password, presence: true
 
   def valid_email
     if email.present?

@@ -19,18 +19,49 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b89cb0fb-b680-4bb9-8ae0-f4b41721cfb9" name="Default Changelist" comment="feat(Place): Mostramos el modal para actualizar la subvariante 3:">
-      <change afterPath="$PROJECT_DIR$/app/views/dashboard/aggregates/update.js.erb" afterDir="false" />
+    <list default="true" id="b89cb0fb-b680-4bb9-8ae0-f4b41721cfb9" name="Default Changelist" comment="feat(Place):AL parecer unas validaciones sencillas ya funcionan">
+      <change afterPath="$PROJECT_DIR$/coverage/.last_run.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/coverage/.resultset.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/coverage/.resultset.json.lock" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/coverage/assets/0.12.2/DataTables-1.10.20/images/sort_asc.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/coverage/assets/0.12.2/DataTables-1.10.20/images/sort_asc_disabled.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/coverage/assets/0.12.2/DataTables-1.10.20/images/sort_both.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/coverage/assets/0.12.2/DataTables-1.10.20/images/sort_desc.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/coverage/assets/0.12.2/DataTables-1.10.20/images/sort_desc_disabled.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/coverage/assets/0.12.2/application.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/coverage/assets/0.12.2/application.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/coverage/assets/0.12.2/colorbox/border.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/coverage/assets/0.12.2/colorbox/controls.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/coverage/assets/0.12.2/colorbox/loading.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/coverage/assets/0.12.2/colorbox/loading_background.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/coverage/assets/0.12.2/favicon_green.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/coverage/assets/0.12.2/favicon_red.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/coverage/assets/0.12.2/favicon_yellow.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/coverage/assets/0.12.2/images/ui-bg_flat_0_aaaaaa_40x100.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/coverage/assets/0.12.2/images/ui-bg_flat_75_ffffff_40x100.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/coverage/assets/0.12.2/images/ui-bg_glass_55_fbf9ee_1x400.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/coverage/assets/0.12.2/images/ui-bg_glass_65_ffffff_1x400.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/coverage/assets/0.12.2/images/ui-bg_glass_75_dadada_1x400.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/coverage/assets/0.12.2/images/ui-bg_glass_75_e6e6e6_1x400.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/coverage/assets/0.12.2/images/ui-bg_glass_95_fef1ec_1x400.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/coverage/assets/0.12.2/images/ui-bg_highlight-soft_75_cccccc_1x100.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/coverage/assets/0.12.2/images/ui-icons_222222_256x240.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/coverage/assets/0.12.2/images/ui-icons_2e83ff_256x240.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/coverage/assets/0.12.2/images/ui-icons_454545_256x240.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/coverage/assets/0.12.2/images/ui-icons_888888_256x240.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/coverage/assets/0.12.2/images/ui-icons_cd0a0a_256x240.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/coverage/assets/0.12.2/loading.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/coverage/assets/0.12.2/magnify.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/coverage/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/assets/stylesheets/addresses.scss" beforeDir="false" afterPath="$PROJECT_DIR$/app/assets/stylesheets/addresses.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/components/dashboard/aggregates/form.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/components/dashboard/aggregates/form.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/components/dashboard/aggregates/form.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/components/dashboard/aggregates/form.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/components/dashboard/aggregates/list.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/components/dashboard/aggregates/list.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/dashboard/aggregates_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/dashboard/aggregates_controller.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/javascript/packs/application.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/javascript/packs/application.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/dashboard/aggregate_categories/show.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/dashboard/aggregate_categories/show.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/dashboard/aggregates/edit.js.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/dashboard/aggregates/edit.js.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/places/show.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/places/show.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Gemfile" beforeDir="false" afterPath="$PROJECT_DIR$/Gemfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Gemfile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/Gemfile.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/aggregate.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/aggregate.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/aggregate_category.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/aggregate_category.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/product.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/product.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spec/factories/aggregate_categories.rb" beforeDir="false" afterPath="$PROJECT_DIR$/spec/factories/aggregate_categories.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spec/models/product_spec.rb" beforeDir="false" afterPath="$PROJECT_DIR$/spec/models/product_spec.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spec/rails_helper.rb" beforeDir="false" afterPath="$PROJECT_DIR$/spec/rails_helper.rb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,6 +79,11 @@
     <option name="ENVIRONMENT" value="development" />
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="JsbtTreeLayoutManager">
@@ -89,7 +125,7 @@
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="yarn" />
-    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
+    <property name="settings.editor.selected.configurable" value="editing.templates" />
     <property name="terminalCustomCommandExecutionTurnOff" value="false" />
     <property name="ts.external.directory.path" value="D:\Program Files\RubyMine 2020.1.2\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
   </component>
@@ -526,140 +562,7 @@
       <workItem from="1600130846482" duration="2536000" />
       <workItem from="1600154339043" duration="7989000" />
       <workItem from="1600189966071" duration="13640000" />
-      <workItem from="1600218182215" duration="35743000" />
-    </task>
-    <task id="LOCAL-00150" summary="feat(Dashboard): Mostramos las variantes del index">
-      <created>1599796224341</created>
-      <option name="number" value="00150" />
-      <option name="presentableId" value="LOCAL-00150" />
-      <option name="project" value="LOCAL" />
-      <updated>1599796224342</updated>
-    </task>
-    <task id="LOCAL-00151" summary="feat(Dashboard): Mostramos la descripción del producto en el index y tamaño de la fuente en el precio">
-      <created>1599796390722</created>
-      <option name="number" value="00151" />
-      <option name="presentableId" value="LOCAL-00151" />
-      <option name="project" value="LOCAL" />
-      <updated>1599796390722</updated>
-    </task>
-    <task id="LOCAL-00152" summary="feat(Dashboard): Activamos la empresa y la desactivamos">
-      <created>1599796910078</created>
-      <option name="number" value="00152" />
-      <option name="presentableId" value="LOCAL-00152" />
-      <option name="project" value="LOCAL" />
-      <updated>1599796910078</updated>
-    </task>
-    <task id="LOCAL-00153" summary="feat(Dashboard): Pequeño bug al crear el producto, ya se ha solucionado">
-      <created>1599797726620</created>
-      <option name="number" value="00153" />
-      <option name="presentableId" value="LOCAL-00153" />
-      <option name="project" value="LOCAL" />
-      <updated>1599797726620</updated>
-    </task>
-    <task id="LOCAL-00154" summary="feat(Dashboard): Mostramos un mensaje cuando ya se ha usado la versión gratuita de la suscripción">
-      <created>1599798647857</created>
-      <option name="number" value="00154" />
-      <option name="presentableId" value="LOCAL-00154" />
-      <option name="project" value="LOCAL" />
-      <updated>1599798647857</updated>
-    </task>
-    <task id="LOCAL-00155" summary="feat(Dashboard): Al parecer todo funciona, se ha agregado el formulario para que se use la tarjeta">
-      <created>1599800845506</created>
-      <option name="number" value="00155" />
-      <option name="presentableId" value="LOCAL-00155" />
-      <option name="project" value="LOCAL" />
-      <updated>1599800845506</updated>
-    </task>
-    <task id="LOCAL-00156" summary="feat(Dashboard): Mostramos el formulario cuando ya se ha usado el free trial">
-      <created>1599801053298</created>
-      <option name="number" value="00156" />
-      <option name="presentableId" value="LOCAL-00156" />
-      <option name="project" value="LOCAL" />
-      <updated>1599801053298</updated>
-    </task>
-    <task id="LOCAL-00157" summary="feat(Dashboard): Header item">
-      <created>1599846908994</created>
-      <option name="number" value="00157" />
-      <option name="presentableId" value="LOCAL-00157" />
-      <option name="project" value="LOCAL" />
-      <updated>1599846908995</updated>
-    </task>
-    <task id="LOCAL-00158" summary="feat(Dashboard): Categories show empty records">
-      <created>1599846963748</created>
-      <option name="number" value="00158" />
-      <option name="presentableId" value="LOCAL-00158" />
-      <option name="project" value="LOCAL" />
-      <updated>1599846963749</updated>
-    </task>
-    <task id="LOCAL-00159" summary="feat(Dashboard): Mostramos las categorías y podemos eliminar desde la misma página">
-      <created>1599861853534</created>
-      <option name="number" value="00159" />
-      <option name="presentableId" value="LOCAL-00159" />
-      <option name="project" value="LOCAL" />
-      <updated>1599861853535</updated>
-    </task>
-    <task id="LOCAL-00160" summary="feat(Dashboard): Mostramos los productos y paginamos los resultados de los mismos en la categoría">
-      <created>1599863052682</created>
-      <option name="number" value="00160" />
-      <option name="presentableId" value="LOCAL-00160" />
-      <option name="project" value="LOCAL" />
-      <updated>1599863052682</updated>
-    </task>
-    <task id="LOCAL-00161" summary="feat(Dashboard): Mostramos los breadcumbs">
-      <created>1599863561384</created>
-      <option name="number" value="00161" />
-      <option name="presentableId" value="LOCAL-00161" />
-      <option name="project" value="LOCAL" />
-      <updated>1599863561385</updated>
-    </task>
-    <task id="LOCAL-00162" summary="feat(Dashboard): Iniciamos el formulario de envios a domicilio">
-      <created>1599866533874</created>
-      <option name="number" value="00162" />
-      <option name="presentableId" value="LOCAL-00162" />
-      <option name="project" value="LOCAL" />
-      <updated>1599866533874</updated>
-    </task>
-    <task id="LOCAL-00163" summary="feat(Dashboard): Formulario de envíos a domicilio completado. A comer quesadillas!!!!">
-      <created>1599878826238</created>
-      <option name="number" value="00163" />
-      <option name="presentableId" value="LOCAL-00163" />
-      <option name="project" value="LOCAL" />
-      <updated>1599878826238</updated>
-    </task>
-    <task id="LOCAL-00164" summary="feat(Dashboard): Update cover photo">
-      <created>1599928492969</created>
-      <option name="number" value="00164" />
-      <option name="presentableId" value="LOCAL-00164" />
-      <option name="project" value="LOCAL" />
-      <updated>1599928492969</updated>
-    </task>
-    <task id="LOCAL-00165" summary="feat(Dashboard): Agregamos los productos recientes para mostrarlos">
-      <created>1599961178403</created>
-      <option name="number" value="00165" />
-      <option name="presentableId" value="LOCAL-00165" />
-      <option name="project" value="LOCAL" />
-      <updated>1599961178403</updated>
-    </task>
-    <task id="LOCAL-00166" summary="feat(Dashboard): Validamos que el producto no se haya metido antes, de lo contrario solo omitimos">
-      <created>1599961258263</created>
-      <option name="number" value="00166" />
-      <option name="presentableId" value="LOCAL-00166" />
-      <option name="project" value="LOCAL" />
-      <updated>1599961258263</updated>
-    </task>
-    <task id="LOCAL-00167" summary="feat(Dashboard): Cambiamos la imagen del cover, en lugar de un background ahora es una etiqueta img">
-      <created>1600028177650</created>
-      <option name="number" value="00167" />
-      <option name="presentableId" value="LOCAL-00167" />
-      <option name="project" value="LOCAL" />
-      <updated>1600028177650</updated>
-    </task>
-    <task id="LOCAL-00168" summary="feat(Place): Listamos los productos de los items">
-      <created>1600028813287</created>
-      <option name="number" value="00168" />
-      <option name="presentableId" value="LOCAL-00168" />
-      <option name="project" value="LOCAL" />
-      <updated>1600028813287</updated>
+      <workItem from="1600218182215" duration="110316000" />
     </task>
     <task id="LOCAL-00169" summary="feat(Place): Add category in place">
       <created>1600030111596</created>
@@ -871,7 +774,140 @@
       <option name="project" value="LOCAL" />
       <updated>1600315596199</updated>
     </task>
-    <option name="localTasksCounter" value="199" />
+    <task id="LOCAL-00199" summary="feat(Place): Actualizamos las suvbariantes, añadimos su nuevos valores a sus respectivos fields">
+      <created>1600318961968</created>
+      <option name="number" value="00199" />
+      <option name="presentableId" value="LOCAL-00199" />
+      <option name="project" value="LOCAL" />
+      <updated>1600318961968</updated>
+    </task>
+    <task id="LOCAL-00200" summary="feat(Place): Agregamos los iconos para editar y eliminar los productos">
+      <created>1600369458688</created>
+      <option name="number" value="00200" />
+      <option name="presentableId" value="LOCAL-00200" />
+      <option name="project" value="LOCAL" />
+      <updated>1600369458690</updated>
+    </task>
+    <task id="LOCAL-00201" summary="feat(Place): Eliminamos la variante de la db">
+      <created>1600370284710</created>
+      <option name="number" value="00201" />
+      <option name="presentableId" value="LOCAL-00201" />
+      <option name="project" value="LOCAL" />
+      <updated>1600370284710</updated>
+    </task>
+    <task id="LOCAL-00202" summary="feat(Place): Creamos una nueva subvariante y todos sus procesos sin problemas, eliminamos, editamos y creamos 3:">
+      <created>1600371838796</created>
+      <option name="number" value="00202" />
+      <option name="presentableId" value="LOCAL-00202" />
+      <option name="project" value="LOCAL" />
+      <updated>1600371838796</updated>
+    </task>
+    <task id="LOCAL-00203" summary="feat(Place): Eliminamos el formulario anterior para agregar los forms anidados">
+      <created>1600378302100</created>
+      <option name="number" value="00203" />
+      <option name="presentableId" value="LOCAL-00203" />
+      <option name="project" value="LOCAL" />
+      <updated>1600378302100</updated>
+    </task>
+    <task id="LOCAL-00204" summary="feat(Place): Eliminamos cooncon de el index.js">
+      <created>1600378373546</created>
+      <option name="number" value="00204" />
+      <option name="presentableId" value="LOCAL-00204" />
+      <option name="project" value="LOCAL" />
+      <updated>1600378373546</updated>
+    </task>
+    <task id="LOCAL-00205" summary="feat(Place): Mostramos las opciones de los aggregates en su lista y eliminamos las funciones para eliminar el scroll cuando hay modal">
+      <created>1600379308673</created>
+      <option name="number" value="00205" />
+      <option name="presentableId" value="LOCAL-00205" />
+      <option name="project" value="LOCAL" />
+      <updated>1600379308673</updated>
+    </task>
+    <task id="LOCAL-00206" summary="feat(Place): Agregamos un botón para desactivar el producto si es necesario, cuando esté desactivado, no se mostrará ni en los carritos ni en los listados">
+      <created>1600379966969</created>
+      <option name="number" value="00206" />
+      <option name="presentableId" value="LOCAL-00206" />
+      <option name="project" value="LOCAL" />
+      <updated>1600379966970</updated>
+    </task>
+    <task id="LOCAL-00207" summary="feat(Place): Actualizamos el estado del producto">
+      <created>1600382176643</created>
+      <option name="number" value="00207" />
+      <option name="presentableId" value="LOCAL-00207" />
+      <option name="project" value="LOCAL" />
+      <updated>1600382176643</updated>
+    </task>
+    <task id="LOCAL-00208" summary="feat(Place): Actualizamos el color de las notificaciones">
+      <created>1600382437919</created>
+      <option name="number" value="00208" />
+      <option name="presentableId" value="LOCAL-00208" />
+      <option name="project" value="LOCAL" />
+      <updated>1600382437919</updated>
+    </task>
+    <task id="LOCAL-00209" summary="feat(Place): Mostramos todas las variantes del producto en el modal">
+      <created>1600386024737</created>
+      <option name="number" value="00209" />
+      <option name="presentableId" value="LOCAL-00209" />
+      <option name="project" value="LOCAL" />
+      <updated>1600386024737</updated>
+    </task>
+    <task id="LOCAL-00210" summary="feat(Place): Iniciaremos a agregar el producto al carrito">
+      <created>1600473000982</created>
+      <option name="number" value="00210" />
+      <option name="presentableId" value="LOCAL-00210" />
+      <option name="project" value="LOCAL" />
+      <updated>1600473000982</updated>
+    </task>
+    <task id="LOCAL-00211" summary="feat(Place): Realizamos pruebas de validación en inclusión sencillas">
+      <created>1600473754242</created>
+      <option name="number" value="00211" />
+      <option name="presentableId" value="LOCAL-00211" />
+      <option name="project" value="LOCAL" />
+      <updated>1600473754242</updated>
+    </task>
+    <task id="LOCAL-00212" summary="feat(Place): Realizamos un pequeño test para el carrito, aún falta agregar un producto pero ya estamos validando los aggregates">
+      <created>1600543856043</created>
+      <option name="number" value="00212" />
+      <option name="presentableId" value="LOCAL-00212" />
+      <option name="project" value="LOCAL" />
+      <updated>1600543856043</updated>
+    </task>
+    <task id="LOCAL-00213" summary="feat(Place): Hasta el momento validamos que los aggregate_category.rb se manden, falta validar que los aggregate.rb que se manden estén completos">
+      <created>1600565804635</created>
+      <option name="number" value="00213" />
+      <option name="presentableId" value="LOCAL-00213" />
+      <option name="project" value="LOCAL" />
+      <updated>1600565804635</updated>
+    </task>
+    <task id="LOCAL-00214" summary="feat(Place): Lo que necesitamos hacer ahora es verificar que el aggregate que se mande sea de opción múltiple o de una sola selección">
+      <created>1600620185505</created>
+      <option name="number" value="00214" />
+      <option name="presentableId" value="LOCAL-00214" />
+      <option name="project" value="LOCAL" />
+      <updated>1600620185505</updated>
+    </task>
+    <task id="LOCAL-00215" summary="feat(Place): Validamos que la longitud de los elementos que se hayan enviado sean los correctos">
+      <created>1600621065103</created>
+      <option name="number" value="00215" />
+      <option name="presentableId" value="LOCAL-00215" />
+      <option name="project" value="LOCAL" />
+      <updated>1600621065103</updated>
+    </task>
+    <task id="LOCAL-00216" summary="feat(Place): Al parecer ya buscamos si todo es correcto con el producto y sus aggregates 3:, falta testear de varias maneras">
+      <created>1600632599090</created>
+      <option name="number" value="00216" />
+      <option name="presentableId" value="LOCAL-00216" />
+      <option name="project" value="LOCAL" />
+      <updated>1600632599090</updated>
+    </task>
+    <task id="LOCAL-00217" summary="feat(Place): Las validaciones del valid_sale creo que ya funcionan">
+      <created>1600646031050</created>
+      <option name="number" value="00217" />
+      <option name="presentableId" value="LOCAL-00217" />
+      <option name="project" value="LOCAL" />
+      <updated>1600646031050</updated>
+    </task>
+    <option name="localTasksCounter" value="218" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -891,32 +927,32 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="feat(Place):Modal close, nos daba un error, así que borramos todo su contenido en el trigger" />
-    <MESSAGE value="feat(Place):Actualizamos el lazyload para que reciba los cambios del modal y que las imagenes puedan cargar sin ningún problema" />
-    <MESSAGE value="feat(Place): Errores en los productos más vistos" />
-    <MESSAGE value="feat(Place): Mostramos parte del modal del producto" />
-    <MESSAGE value="feat(Place): Agregamos una nueva categoría para las variantes" />
-    <MESSAGE value="feat(Place): Añadimos las acciones necesarias para el crud de las categorías" />
-    <MESSAGE value="feat(Place): Pequeño formulario para agregar el category" />
-    <MESSAGE value="feat(Place): Creamos y guardamos los aggregate_category.rb" />
-    <MESSAGE value="feat(Place): Añadimos los estilos pequeños al formulario" />
-    <MESSAGE value="feat(Place): Pequeña vista previa completada" />
-    <MESSAGE value="feat(Place): Cambiamos la opción para que en lugar de tener un minimo y un máximo de items a seleccionar, solo debe seleccionar una opción para dejar agregar uno o más aggregates" />
-    <MESSAGE value="feat(Place): Cambiamos el estilo del checkbox" />
-    <MESSAGE value="feat(Place): Creamos la vista previa y se completa" />
-    <MESSAGE value="feat(Place): Agregamos los breadcubms" />
-    <MESSAGE value="feat(Place): Agregamos un nuevo diseño" />
-    <MESSAGE value="feat(Place): Arreglamos un pequeño bug de la vista de nueva variante de producto" />
-    <MESSAGE value="feat(Place): Listamos variantes" />
-    <MESSAGE value="feat(Place): Agregamos el link para visitar el aggregate y crear sub variantes" />
-    <MESSAGE value="feat(Place): Cambiamos el nombre de aggregates a variants" />
-    <MESSAGE value="feat(Place): Vamos a añadir las subvariantes, ya listamos y mostramos las subvariantes" />
     <MESSAGE value="feat(Place): Los formularios necesitan accepts_nested_attributes_for en el modelo que tiene el has many relations 3:" />
     <MESSAGE value="feat(Place): Ya se crea el formulario anidado y se muestran los anteriores 3:" />
     <MESSAGE value="feat(Place): Agregamos el botón para añadir la subvariante y las eliminamos sin problemas" />
     <MESSAGE value="feat(Place): Mostramos las subvariantes, falta editarlas, con un modal puede funcionar :3&#10;Eso espero" />
     <MESSAGE value="feat(Place): Mostramos el modal para actualizar la subvariante 3:" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat(Place): Mostramos el modal para actualizar la subvariante 3:" />
+    <MESSAGE value="feat(Place): Actualizamos las suvbariantes, añadimos su nuevos valores a sus respectivos fields" />
+    <MESSAGE value="feat(Place): Agregamos los iconos para editar y eliminar los productos" />
+    <MESSAGE value="feat(Place): Eliminamos la variante de la db" />
+    <MESSAGE value="feat(Place): Creamos una nueva subvariante y todos sus procesos sin problemas, eliminamos, editamos y creamos 3:" />
+    <MESSAGE value="feat(Place): Eliminamos el formulario anterior para agregar los forms anidados" />
+    <MESSAGE value="feat(Place): Eliminamos cooncon de el index.js" />
+    <MESSAGE value="feat(Place): Mostramos las opciones de los aggregates en su lista y eliminamos las funciones para eliminar el scroll cuando hay modal" />
+    <MESSAGE value="feat(Place): Agregamos un botón para desactivar el producto si es necesario, cuando esté desactivado, no se mostrará ni en los carritos ni en los listados" />
+    <MESSAGE value="feat(Place): Actualizamos el estado del producto" />
+    <MESSAGE value="feat(Place): Actualizamos el color de las notificaciones" />
+    <MESSAGE value="feat(Place): Mostramos todas las variantes del producto en el modal" />
+    <MESSAGE value="feat(Place): Iniciaremos a agregar el producto al carrito" />
+    <MESSAGE value="feat(Place): Realizamos pruebas de validación en inclusión sencillas" />
+    <MESSAGE value="feat(Place): Realizamos un pequeño test para el carrito, aún falta agregar un producto pero ya estamos validando los aggregates" />
+    <MESSAGE value="feat(Place): Hasta el momento validamos que los aggregate_category.rb se manden, falta validar que los aggregate.rb que se manden estén completos" />
+    <MESSAGE value="feat(Place): Lo que necesitamos hacer ahora es verificar que el aggregate que se mande sea de opción múltiple o de una sola selección" />
+    <MESSAGE value="feat(Place): Validamos que la longitud de los elementos que se hayan enviado sean los correctos" />
+    <MESSAGE value="feat(Place): Al parecer ya buscamos si todo es correcto con el producto y sus aggregates 3:, falta testear de varias maneras" />
+    <MESSAGE value="feat(Place): Las validaciones del valid_sale creo que ya funcionan" />
+    <MESSAGE value="feat(Place):AL parecer unas validaciones sencillas ya funcionan" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat(Place):AL parecer unas validaciones sencillas ya funcionan" />
   </component>
   <component name="WindowStateProjectService">
     <state x="392" y="0" key="#All_specs_in_spec:_waydda" timestamp="1598730457189">
@@ -980,10 +1016,10 @@
     </state>
     <state x="2094" y="191" key="RollbackChangesDialog/0.0.1366.768/1366.-69.1920.1080@1366.-69.1920.1080" timestamp="1597697150509" />
     <state x="518" y="173" key="RollbackChangesDialog/0.0.1366.768@0.0.1366.768" timestamp="1598294478879" />
-    <state x="381" y="46" width="916" height="708" key="SettingsEditor" timestamp="1599260048157">
+    <state x="142" y="0" width="916" height="708" key="SettingsEditor" timestamp="1600555653457">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state x="381" y="46" width="916" height="708" key="SettingsEditor/0.0.1366.768@0.0.1366.768" timestamp="1599260048157" />
+    <state x="142" y="0" width="916" height="708" key="SettingsEditor/0.0.1366.768@0.0.1366.768" timestamp="1600555653457" />
     <state width="498" height="446" key="SwitcherDM" timestamp="1600056322387">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
@@ -992,20 +1028,20 @@
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="544" y="96" key="VCS.ChangeListViewerDialog/0.0.1366.768@0.0.1366.768" timestamp="1598750646694" />
-    <state x="275" y="117" key="Vcs.Push.Dialog.v2" timestamp="1600227326084">
+    <state x="275" y="117" key="Vcs.Push.Dialog.v2" timestamp="1600386336796">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="1640" y="117" key="Vcs.Push.Dialog.v2/0.0.1366.768/1366.0.1360.768@1366.0.1360.768" timestamp="1598221582431" />
     <state x="1753" y="165" key="Vcs.Push.Dialog.v2/0.0.1366.768/1366.0.1920.1080@1366.0.1920.1080" timestamp="1599267641822" />
-    <state x="275" y="117" key="Vcs.Push.Dialog.v2/0.0.1366.768@0.0.1366.768" timestamp="1600227326084" />
+    <state x="275" y="117" key="Vcs.Push.Dialog.v2/0.0.1366.768@0.0.1366.768" timestamp="1600386336796" />
     <state x="496" y="169" key="chooseDestDirectoryDialog" timestamp="1598730651549">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="496" y="169" key="chooseDestDirectoryDialog/0.0.1366.768@0.0.1366.768" timestamp="1598730651549" />
-    <state x="289" y="0" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1600158861402">
+    <state x="289" y="0" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1600618429425">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state x="289" y="0" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.0.1366.768@0.0.1366.768" timestamp="1600158861402" />
+    <state x="289" y="0" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.0.1366.768@0.0.1366.768" timestamp="1600618429425" />
     <state x="1916" y="328" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1598664942468">
       <screen x="1366" y="0" width="1360" height="768" />
     </state>
@@ -1015,27 +1051,27 @@
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="628" y="298" key="com.jetbrains.plugins.remotesdk.ui.RemoteMappingsConfiguration/0.0.1366.768@0.0.1366.768" timestamp="1598729856431" />
-    <state x="390" y="117" width="585" height="624" key="find.popup" timestamp="1600318788402">
+    <state x="390" y="117" width="585" height="624" key="find.popup" timestamp="1600655141184">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="1914" y="96" width="823" height="878" key="find.popup/0.0.1366.768/1366.-69.1920.1080@1366.-69.1920.1080" timestamp="1597716285449" />
     <state x="1754" y="117" width="583" height="624" key="find.popup/0.0.1366.768/1366.0.1360.768@1366.0.1360.768" timestamp="1598981376119" />
     <state x="1914" y="165" width="823" height="878" key="find.popup/0.0.1366.768/1366.0.1920.1080@1366.0.1920.1080" timestamp="1599260651210" />
-    <state x="390" y="117" width="585" height="624" key="find.popup/0.0.1366.768@0.0.1366.768" timestamp="1600318788402" />
+    <state x="390" y="117" width="585" height="624" key="find.popup/0.0.1366.768@0.0.1366.768" timestamp="1600655141184" />
     <state x="549" y="254" width="250" height="278" key="jetbrains.javascript.buildTools.run-task-popup" timestamp="1597946321130">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="549" y="254" width="250" height="278" key="jetbrains.javascript.buildTools.run-task-popup/0.0.1366.768@0.0.1366.768" timestamp="1597946321130" />
-    <state x="339" y="174" width="672" height="677" key="run.anything.popup" timestamp="1600224451085">
+    <state x="339" y="174" width="672" height="677" key="run.anything.popup" timestamp="1600370541201">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state x="339" y="174" width="672" height="677" key="run.anything.popup/0.0.1366.768@0.0.1366.768" timestamp="1600224451085" />
-    <state x="346" y="89" width="672" height="678" key="search.everywhere.popup" timestamp="1600318657208">
+    <state x="339" y="174" width="672" height="677" key="run.anything.popup/0.0.1366.768@0.0.1366.768" timestamp="1600370541201" />
+    <state x="346" y="89" width="672" height="678" key="search.everywhere.popup" timestamp="1600656193969">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="1852" y="56" width="945" height="954" key="search.everywhere.popup/0.0.1366.768/1366.-69.1920.1080@1366.-69.1920.1080" timestamp="1597715976170" />
     <state x="1710" y="89" width="672" height="678" key="search.everywhere.popup/0.0.1366.768/1366.0.1360.768@1366.0.1360.768" timestamp="1598985878395" />
     <state x="1852" y="125" width="945" height="954" key="search.everywhere.popup/0.0.1366.768/1366.0.1920.1080@1366.0.1920.1080" timestamp="1599267313630" />
-    <state x="346" y="89" width="672" height="678" key="search.everywhere.popup/0.0.1366.768@0.0.1366.768" timestamp="1600318657208" />
+    <state x="346" y="89" width="672" height="678" key="search.everywhere.popup/0.0.1366.768@0.0.1366.768" timestamp="1600656193969" />
   </component>
 </project>

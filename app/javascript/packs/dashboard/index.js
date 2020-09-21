@@ -1,4 +1,3 @@
-import "@kollegorna/cocoon-vanilla-js";
 import VanillaModal from 'vanilla-modal';
 
 window.vanillaModal = VanillaModal;
@@ -10,9 +9,7 @@ document.addEventListener("turbolinks:load", () => {
             var current_location = location.href;
             window.current_modal = new window.vanillaModal({
                 onBeforeClose: function () {
-                    console.log("BEOFRE");
                     history.replaceState({}, "", current_location);
-                    document.querySelector("body").classList.toggle("overflow-y-hidden");
                 },
                 onClose: () => {
                     document.querySelector("#modal").innerHTML = "";

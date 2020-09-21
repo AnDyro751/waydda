@@ -1,5 +1,5 @@
 <%= simple_form_for(@aggregate,
-                    url: dashboard_product_aggregate_category_aggregate_path(@product.slug, @aggregate_category, @aggregate),
+                    url: @aggregate.new_record? ? dashboard_product_aggregate_category_aggregates_path(@product.slug, @aggregate_category) : dashboard_product_aggregate_category_aggregate_path(@product.slug, @aggregate_category, @aggregate),
                     remote: true,
                     html: {
                         class: "w-full flex flex-wrap"
@@ -7,7 +7,8 @@
     ) do |f| %>
   <div class="w-full flex-wrap items-center">
     <div class="w-full p-3 border-b">
-      <h3 class="text-lg font-bold">Editar subvariante</h3>
+      <h3 class="text-lg font-bold">
+        <%= @aggregate.new_record? ? "Crear subvariante" : "Editar subvariante" %></h3>
     </div>
     <div class="w-full px-3" id="modal-notifications">
     </div>

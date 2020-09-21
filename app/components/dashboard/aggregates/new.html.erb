@@ -1,0 +1,75 @@
+<%= simple_form_for(@aggregate,
+                    url: dashboard_product_aggregate_category_aggregate_path(@product.slug, @aggregate_category, @aggregate),
+                    remote: true,
+                    html: {
+                        class: "w-full flex flex-wrap"
+                    }
+    ) do |f| %>
+  <div class="w-full flex-wrap items-center">
+    <div class="w-full p-3 border-b">
+      <h3 class="text-lg font-bold">Editar subvariante</h3>
+    </div>
+    <div class="w-full px-3" id="modal-notifications">
+    </div>
+    <div class="w-full px-3 my-4">
+      <label for="price" class="text-sm font-normal text-gray-600 mb-2">
+        <abbr title="required">*</abbr>
+        Nombre
+      </label>
+      <%= f.input :name,
+                  input_html: {
+                      class: "form-input block mt-2 w-full py-3 px-3 w-full sm:text-sm sm:leading-5 bg-main-gray appearance-none rounded focus:outline-none w-full resize-none"
+                  },
+                  label: false,
+                  wrapper_html: {
+                      class: "w-full"
+                  },
+                  placeholder: "Nombre de la subvariante"
+      %>
+    </div>
+    <div class="w-full px-3 mb-4">
+      <label for="price" class="text-sm font-normal text-gray-600 mb-2">
+        <abbr title="required">*</abbr>
+        Precio
+      </label>
+      <div class="w-full relative">
+        <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+      <span class="text-gray-500 sm:text-sm sm:leading-5">
+        $
+      </span>
+        </div>
+        <div class="absolute inset-y-0 right-0 flex items-center">
+          <div aria-label="Currency" class="flex items-center justify-center h-full py-0 pl-2 pr-4 border-transparent bg-transparent text-gray-500 sm:text-sm sm:leading-5">
+            <span>MXN</span>
+          </div>
+        </div>
+        <%= f.input :price,
+                    label: false,
+                    # label_html: {
+                    #     class: "text-sm font-normal text-gray-600"
+                    # },
+                    as: :float,
+                    input_html: {
+                        class: "form-input mt-2 block w-full py-3 pl-8 pr-12 sm:text-sm sm:leading-5 bg-main-gray appearance-none rounded focus:outline-none w-full resize-none"
+                    },
+                    wrapper_html: {
+                        class: "w-full"
+                    },
+                    placeholder: "0.00"
+        %>
+      </div>
+    </div>
+
+  </div>
+  <div class="w-full self-end flex items-center p-3 py-4 border-t">
+    <div class="w-6/12">
+      <span class="text-gray-700 cursor-pointer hover:underline px-1 text-sm" data-modal-close>Cancelar</span>
+      <!--      <div class="" ></div>-->
+    </div>
+    <div class="w-6/12 flex justify-end">
+      <%= f.submit "Guardar", class: helpers.main_color_button(color: "secondary"), data: {"disable-with": "Cargando..."} %>
+    </div>
+  </div>
+<% end %>
+
+

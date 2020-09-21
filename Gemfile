@@ -81,6 +81,8 @@ group :test do
   gem 'faker'
   gem 'mongoid-rspec'
   gem 'rails-controller-testing'
+  gem 'shoulda-matchers', '~> 4.0'
+  gem 'simplecov', require: false
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

@@ -17,7 +17,7 @@ class Product
   field :max_aggregates, type: Integer, default: 1
   field :slug, type: String
   field :last_viewed, type: DateTime
-  field :unlimited, type: Boolean, default: false
+  field :unlimited, type: Boolean, default: true
   field :status, type: String, default: "active"
   # TODO: Crear un helper para agregar estos fields y sus actions
   field :photo, type: String, default: "places/default.png"
@@ -53,6 +53,7 @@ class Product
       end
     end
   end
+
 
   # @param [Integer] new_value
   # @return [TrueClass, FalseClass]
@@ -95,6 +96,79 @@ class Product
     else
       "error"
     end
+  end
+
+  # @return [TrueClass]
+  def valid_sale?(quantity:)
+    return false if quantity <= 0
+    unless self.nil?
+      logger.warn "Status-#{self.status} - #{self.active?}"
+      if self.active?
+        if (self.public_stock - quantity) >= 0
+          return true
+        else
+          logger.warn "Product is not unlimited #{self.public_stock - quantity}" unless self.unlimited
+          return self.unlimited
+        end
+      end
+      logger.warn "Product is not active"
+      return false
+    end
+    logger.warn "Product is nil"
+    false
+  end
+
+
+  # @param [Array] aggregates
+  # @return [TrueClass, FalseClass]
+  # @param aggregate example
+  #
+  # aggregates: [{id: "12345", subvariants:["12", "123"]}]
+  # Donde el id de cada elemento es un AggregateCategory y la subvariante es un array de
+  # los aggregates que el padre contiene.
+  # Es decir que los ids, 12 y 123 debes estar dentro de los ids que tiene el AggregateCategory padre
+  # De lo contrario mandamos un error
+  #
+  def valid_aggregates_sale?(aggregates: [])
+
+    logger.warn "-Aggregates #{aggregates} "
+    current_aggregate_categories = self.aggregate_categories
+    logger.warn "#LN 135 - #{current_aggregate_categories}"
+
+    # current_aggregates_required = AggregateCategory.get_required(items: current_aggregate_categories)
+    # logger.warn "#LN 135 - #{current_aggregates_required}"
+
+    valid_aggregates_categories = AggregateCategory.get_all_valid(items: aggregates, all: current_aggregate_categories)
+    logger.warn "#LN 138 - #{valid_aggregates_categories}"
+
+    # required_aggregate_category_ids = AggregateCategory.get_ids(items: current_aggregate_categories)
+    valid_elements = Aggregate.valid_elements(items: aggregates, aggregates: current_aggregate_categories)
+    logger.warn "Valid elements ---- #{valid_elements}"
+    aggregate_categories_ids = AggregateCategory.get_ids(items: valid_elements)
+    logger.warn "Aggregate categories ids ---- #{aggregate_categories_ids}"
+    receive_aggregates_ids = Aggregate.get_valid_ids_in_aggregates(ids: aggregate_categories_ids, aggregates: AggregateCategory.get_ids(items: current_aggregate_categories))
+    logger.warn "#LN 143 - #{receive_aggregates_ids}"
+    # valid_aggregates_ids = AggregateCategory.get_all_valid(items: receive_aggregates_ids, all: required_aggregate_category_ids)
+
+    if (valid_aggregates_categories - receive_aggregates_ids).length == 0
+      logger.warn "No hay ninguún aggregate category fake"
+      current_aggregates = AggregateCategory.get_all_aggregates(aggregate_categories: current_aggregate_categories)
+      logger.warn "Aggregate ids #{receive_aggregates_ids}-------#{current_aggregates}"
+      return true
+    end
+    logger.warn "Los aggregates son invalidos #{valid_aggregates_categories}-#{receive_aggregates_ids}."
+    false
+
+    # (aggregate_ids - aggregates) == 0
+    # TODO: Validate aggregates
+    # Buscamos los aggregados que tengan como true el field required
+    # Creamos un array con los ids de los requeridos
+    # el @param aggregates nos debe mandar un array con los ids seleccionados en la vist
+    # Restamos todos los ids que nos mandaron con los ids que deben estar aggregados
+    # Si hay algún id restante debemos retornar false
+    # De lo contrario retornamos el true
+    # Si manda un id incorrecto de todos modos van a existir ids que no se restaron
+    #
   end
 
   private

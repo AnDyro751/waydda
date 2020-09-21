@@ -1,14 +1,10 @@
-var old_elements = document.querySelectorAll('[data-error="notice"]');
-old_elements.forEach((node) => {
-    node.parentNode.removeChild(node);
-})
-<% unless @aggregate.errors.empty? %>
+//window.scrollTo(0, 0);
+document.querySelector("#modal-notifications").innerHTML = "";
+<% if @aggregate.errors.any? %>
+document.querySelector("#modal-notifications").innerHTML = "<%= j render Notifications::Alert.new(alert: "Se han encontrado errores al crear la subvariante",kind: "error") %>";
+<% else %>
+document.querySelector("#aggregates-list").innerHTML += "<%= j render Dashboard::Aggregates::Item.new(aggregate: @aggregate, aggregate_category: @aggregate_category, product: @product)  %>";
+window.current_modal.close();
+<% end %>
 
-<% @aggregate.errors.messages.each do |key,value| %>
-console.log("<%= key %>")
-var element = document.querySelector("#<%=key%>-error");
-if (element) {
-    element.innerHTML = '<div data-error="notice" class="error-notice text-red-600 text-sm mb-2 font-bold"><%= value.first %></div>'
-}
-<% end %>
-<% end %>
+//window.deleteFlashs("#modal-errors", "#modal-notifications");

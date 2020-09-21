@@ -5,4 +5,8 @@ class CartItem
   field :added_in, type: Boolean, default: false
   has_and_belongs_to_many :products
   belongs_to :cart
+
+  validates_associated :cart
+  validates :products, presence: true
+
 end

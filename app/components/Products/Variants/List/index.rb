@@ -1,4 +1,4 @@
-class Products::Variants::Index < ViewComponent::Base
+class Products::Variants::List::Index < ViewComponent::Base
   # @param [Object] product
   def initialize(product:)
     @product = product

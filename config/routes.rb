@@ -63,6 +63,7 @@ Rails.application.routes.draw do
     # Products
     resources :products do
       # TODO: Crud operations
+      post "/update_status", to: "products#update_status", as: :update_status
       resources :aggregate_categories, :path => 'variants' do
         resources :aggregates
       end

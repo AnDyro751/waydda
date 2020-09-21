@@ -8,6 +8,8 @@ require 'rspec/rails'
 require 'factory_bot_rails'
 require 'database_cleaner'
 require 'capybara/rails'
+require 'simplecov'
+SimpleCov.start
 # require 'mongoid-rspec'
 # Add additional requires below this line. Rails is not loaded until this point!
 
@@ -25,6 +27,13 @@ require 'capybara/rails'
 # require only the support files necessary.
 #
 # Dir[Rails.root.join('spec', 'support', '**', '*.rb')].sort.each { |f| require f }
+
+Shoulda::Matchers.configure do |config|
+  config.integrate do |with|
+    with.test_framework :rspec
+    with.library :rails
+  end
+end
 
 RSpec.configure do |config|
   # Remove this line to enable support for ActiveRecord

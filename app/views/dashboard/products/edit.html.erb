@@ -2,7 +2,18 @@
   <meta name="content_slug" content="<%= @product.id.to_s %>"/>
   <meta name="content_model" content="product"/>
 <% end %>
-<%= render Headers::Text.new(title: "#{@product.name}", subtitle: @product.description, link: dashboard_product_path(@product.slug), small: true) %>
+<%= render Headers::Text.new(title: "#{@product.name}", subtitle: @product.description, link: dashboard_product_path(@product.slug), small: true) do %>
+  <%= button_to @product.active? ? "Desactivar" : "Activar", dashboard_product_update_status_path(@product.slug),
+                remote: true,
+                params: {
+                    "to_status": "#{@product.active? ? "deactivate" : "activate"}"
+                },
+                data: {
+                    confirm: "¿Seguro que quieres realizar está acción?",
+                    "disable-with": "Cargando..."
+                },
+                class: main_color_button(color: @product.active? ? "danger" : "secondary", size: "big") %>
+<% end %>
 
 <div class="w-full flex gap-6">
   <div class="w-8/12">

@@ -20,7 +20,7 @@
     </div>
   </div>
   <%= render Headers::Text.new(title: "#{@product.name}", subtitle: @product.description, small: true) do %>
-    <%= main_button(text: "Actualizar producto", to: edit_dashboard_product_path(@product.slug), action: "update") %>
+    <%= main_button(text: "Editar producto", to: edit_dashboard_product_path(@product.slug), action: "update") %>
   <% end %>
 </div>
 
