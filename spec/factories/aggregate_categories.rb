@@ -4,6 +4,5 @@ FactoryBot.define do
     name { "Name del aggregate" }
     description { "MyString" }
     multiple_selection { true }
-    aggregates { [association(:aggregate)] }
   end
 end

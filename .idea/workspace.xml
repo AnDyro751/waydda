@@ -19,14 +19,49 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b89cb0fb-b680-4bb9-8ae0-f4b41721cfb9" name="Default Changelist" comment="feat(Place): Al parecer ya buscamos si todo es correcto con el producto y sus aggregates 3:, falta testear de varias maneras">
+    <list default="true" id="b89cb0fb-b680-4bb9-8ae0-f4b41721cfb9" name="Default Changelist" comment="feat(Place):AL parecer unas validaciones sencillas ya funcionan">
+      <change afterPath="$PROJECT_DIR$/coverage/.last_run.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/coverage/.resultset.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/coverage/.resultset.json.lock" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/coverage/assets/0.12.2/DataTables-1.10.20/images/sort_asc.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/coverage/assets/0.12.2/DataTables-1.10.20/images/sort_asc_disabled.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/coverage/assets/0.12.2/DataTables-1.10.20/images/sort_both.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/coverage/assets/0.12.2/DataTables-1.10.20/images/sort_desc.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/coverage/assets/0.12.2/DataTables-1.10.20/images/sort_desc_disabled.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/coverage/assets/0.12.2/application.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/coverage/assets/0.12.2/application.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/coverage/assets/0.12.2/colorbox/border.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/coverage/assets/0.12.2/colorbox/controls.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/coverage/assets/0.12.2/colorbox/loading.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/coverage/assets/0.12.2/colorbox/loading_background.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/coverage/assets/0.12.2/favicon_green.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/coverage/assets/0.12.2/favicon_red.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/coverage/assets/0.12.2/favicon_yellow.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/coverage/assets/0.12.2/images/ui-bg_flat_0_aaaaaa_40x100.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/coverage/assets/0.12.2/images/ui-bg_flat_75_ffffff_40x100.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/coverage/assets/0.12.2/images/ui-bg_glass_55_fbf9ee_1x400.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/coverage/assets/0.12.2/images/ui-bg_glass_65_ffffff_1x400.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/coverage/assets/0.12.2/images/ui-bg_glass_75_dadada_1x400.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/coverage/assets/0.12.2/images/ui-bg_glass_75_e6e6e6_1x400.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/coverage/assets/0.12.2/images/ui-bg_glass_95_fef1ec_1x400.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/coverage/assets/0.12.2/images/ui-bg_highlight-soft_75_cccccc_1x100.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/coverage/assets/0.12.2/images/ui-icons_222222_256x240.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/coverage/assets/0.12.2/images/ui-icons_2e83ff_256x240.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/coverage/assets/0.12.2/images/ui-icons_454545_256x240.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/coverage/assets/0.12.2/images/ui-icons_888888_256x240.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/coverage/assets/0.12.2/images/ui-icons_cd0a0a_256x240.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/coverage/assets/0.12.2/loading.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/coverage/assets/0.12.2/magnify.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/coverage/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/application_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/application_controller.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Gemfile" beforeDir="false" afterPath="$PROJECT_DIR$/Gemfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Gemfile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/Gemfile.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/models/aggregate.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/aggregate.rb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/models/aggregate_category.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/aggregate_category.rb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/models/product.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/product.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spec/factories/products.rb" beforeDir="false" afterPath="$PROJECT_DIR$/spec/factories/products.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spec/factories/aggregate_categories.rb" beforeDir="false" afterPath="$PROJECT_DIR$/spec/factories/aggregate_categories.rb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/spec/models/product_spec.rb" beforeDir="false" afterPath="$PROJECT_DIR$/spec/models/product_spec.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spec/rails_helper.rb" beforeDir="false" afterPath="$PROJECT_DIR$/spec/rails_helper.rb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -527,14 +562,7 @@
       <workItem from="1600130846482" duration="2536000" />
       <workItem from="1600154339043" duration="7989000" />
       <workItem from="1600189966071" duration="13640000" />
-      <workItem from="1600218182215" duration="98020000" />
-    </task>
-    <task id="LOCAL-00168" summary="feat(Place): Listamos los productos de los items">
-      <created>1600028813287</created>
-      <option name="number" value="00168" />
-      <option name="presentableId" value="LOCAL-00168" />
-      <option name="project" value="LOCAL" />
-      <updated>1600028813287</updated>
+      <workItem from="1600218182215" duration="110316000" />
     </task>
     <task id="LOCAL-00169" summary="feat(Place): Add category in place">
       <created>1600030111596</created>
@@ -872,7 +900,14 @@
       <option name="project" value="LOCAL" />
       <updated>1600632599090</updated>
     </task>
-    <option name="localTasksCounter" value="217" />
+    <task id="LOCAL-00217" summary="feat(Place): Las validaciones del valid_sale creo que ya funcionan">
+      <created>1600646031050</created>
+      <option name="number" value="00217" />
+      <option name="presentableId" value="LOCAL-00217" />
+      <option name="project" value="LOCAL" />
+      <updated>1600646031050</updated>
+    </task>
+    <option name="localTasksCounter" value="218" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -892,8 +927,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="feat(Place): Cambiamos el nombre de aggregates a variants" />
-    <MESSAGE value="feat(Place): Vamos a añadir las subvariantes, ya listamos y mostramos las subvariantes" />
     <MESSAGE value="feat(Place): Los formularios necesitan accepts_nested_attributes_for en el modelo que tiene el has many relations 3:" />
     <MESSAGE value="feat(Place): Ya se crea el formulario anidado y se muestran los anteriores 3:" />
     <MESSAGE value="feat(Place): Agregamos el botón para añadir la subvariante y las eliminamos sin problemas" />
@@ -917,7 +950,9 @@
     <MESSAGE value="feat(Place): Lo que necesitamos hacer ahora es verificar que el aggregate que se mande sea de opción múltiple o de una sola selección" />
     <MESSAGE value="feat(Place): Validamos que la longitud de los elementos que se hayan enviado sean los correctos" />
     <MESSAGE value="feat(Place): Al parecer ya buscamos si todo es correcto con el producto y sus aggregates 3:, falta testear de varias maneras" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat(Place): Al parecer ya buscamos si todo es correcto con el producto y sus aggregates 3:, falta testear de varias maneras" />
+    <MESSAGE value="feat(Place): Las validaciones del valid_sale creo que ya funcionan" />
+    <MESSAGE value="feat(Place):AL parecer unas validaciones sencillas ya funcionan" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat(Place):AL parecer unas validaciones sencillas ya funcionan" />
   </component>
   <component name="WindowStateProjectService">
     <state x="392" y="0" key="#All_specs_in_spec:_waydda" timestamp="1598730457189">
@@ -1016,13 +1051,13 @@
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="628" y="298" key="com.jetbrains.plugins.remotesdk.ui.RemoteMappingsConfiguration/0.0.1366.768@0.0.1366.768" timestamp="1598729856431" />
-    <state x="390" y="117" width="585" height="624" key="find.popup" timestamp="1600617760198">
+    <state x="390" y="117" width="585" height="624" key="find.popup" timestamp="1600655141184">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="1914" y="96" width="823" height="878" key="find.popup/0.0.1366.768/1366.-69.1920.1080@1366.-69.1920.1080" timestamp="1597716285449" />
     <state x="1754" y="117" width="583" height="624" key="find.popup/0.0.1366.768/1366.0.1360.768@1366.0.1360.768" timestamp="1598981376119" />
     <state x="1914" y="165" width="823" height="878" key="find.popup/0.0.1366.768/1366.0.1920.1080@1366.0.1920.1080" timestamp="1599260651210" />
-    <state x="390" y="117" width="585" height="624" key="find.popup/0.0.1366.768@0.0.1366.768" timestamp="1600617760198" />
+    <state x="390" y="117" width="585" height="624" key="find.popup/0.0.1366.768@0.0.1366.768" timestamp="1600655141184" />
     <state x="549" y="254" width="250" height="278" key="jetbrains.javascript.buildTools.run-task-popup" timestamp="1597946321130">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
@@ -1031,12 +1066,12 @@
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="339" y="174" width="672" height="677" key="run.anything.popup/0.0.1366.768@0.0.1366.768" timestamp="1600370541201" />
-    <state x="346" y="89" width="672" height="678" key="search.everywhere.popup" timestamp="1600635539058">
+    <state x="346" y="89" width="672" height="678" key="search.everywhere.popup" timestamp="1600656193969">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="1852" y="56" width="945" height="954" key="search.everywhere.popup/0.0.1366.768/1366.-69.1920.1080@1366.-69.1920.1080" timestamp="1597715976170" />
     <state x="1710" y="89" width="672" height="678" key="search.everywhere.popup/0.0.1366.768/1366.0.1360.768@1366.0.1360.768" timestamp="1598985878395" />
     <state x="1852" y="125" width="945" height="954" key="search.everywhere.popup/0.0.1366.768/1366.0.1920.1080@1366.0.1920.1080" timestamp="1599267313630" />
-    <state x="346" y="89" width="672" height="678" key="search.everywhere.popup/0.0.1366.768@0.0.1366.768" timestamp="1600635539058" />
+    <state x="346" y="89" width="672" height="678" key="search.everywhere.popup/0.0.1366.768@0.0.1366.768" timestamp="1600656193969" />
   </component>
 </project>

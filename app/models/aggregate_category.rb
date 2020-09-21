@@ -54,7 +54,12 @@ class AggregateCategory
   end
 
   def self.get_record(id:, items:)
-    items.to_a.find { |it| it.id.to_s == id }
+    current_record = nil
+    items.to_a.each do |it|
+      logger.warn "----ITEM #{it.id.to_s} --- #{id}"
+      current_record = it if it.id.to_s == id
+    end
+    current_record
   end
 
   def self.get_records_by_ids(ids:, product:)

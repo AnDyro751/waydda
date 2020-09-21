@@ -131,28 +131,32 @@ class Product
   #
   def valid_aggregates_sale?(aggregates: [])
 
+    logger.warn "-Aggregates #{aggregates} "
     current_aggregate_categories = self.aggregate_categories
     logger.warn "#LN 135 - #{current_aggregate_categories}"
 
-    current_aggregates_required = AggregateCategory.get_required(items: current_aggregate_categories)
-    logger.warn "#LN 135 - #{current_aggregates_required}"
+    # current_aggregates_required = AggregateCategory.get_required(items: current_aggregate_categories)
+    # logger.warn "#LN 135 - #{current_aggregates_required}"
 
-    valid_aggregates_categories = AggregateCategory.get_all_valid(items: aggregates, all: current_aggregates_required)
+    valid_aggregates_categories = AggregateCategory.get_all_valid(items: aggregates, all: current_aggregate_categories)
     logger.warn "#LN 138 - #{valid_aggregates_categories}"
 
-    # required_aggregate_category_ids = AggregateCategory.get_ids(items: current_aggregates_required)
-
-    receive_aggregates_ids = Aggregate.get_valid_ids_in_aggregates(ids: AggregateCategory.get_ids(items: Aggregate.valid_elements(items: aggregates, aggregates: current_aggregates_required)), aggregates: AggregateCategory.get_ids(items: current_aggregates_required))
+    # required_aggregate_category_ids = AggregateCategory.get_ids(items: current_aggregate_categories)
+    valid_elements = Aggregate.valid_elements(items: aggregates, aggregates: current_aggregate_categories)
+    logger.warn "Valid elements ---- #{valid_elements}"
+    aggregate_categories_ids = AggregateCategory.get_ids(items: valid_elements)
+    logger.warn "Aggregate categories ids ---- #{aggregate_categories_ids}"
+    receive_aggregates_ids = Aggregate.get_valid_ids_in_aggregates(ids: aggregate_categories_ids, aggregates: AggregateCategory.get_ids(items: current_aggregate_categories))
     logger.warn "#LN 143 - #{receive_aggregates_ids}"
     # valid_aggregates_ids = AggregateCategory.get_all_valid(items: receive_aggregates_ids, all: required_aggregate_category_ids)
 
     if (valid_aggregates_categories - receive_aggregates_ids).length == 0
       logger.warn "No hay ninguún aggregate category fake"
-      current_aggregates = AggregateCategory.get_all_aggregates(aggregate_categories: current_aggregates_required)
+      current_aggregates = AggregateCategory.get_all_aggregates(aggregate_categories: current_aggregate_categories)
       logger.warn "Aggregate ids #{receive_aggregates_ids}-------#{current_aggregates}"
       return true
     end
-    logger.warn "Los aggregates son invalidos"
+    logger.warn "Los aggregates son invalidos #{valid_aggregates_categories}-#{receive_aggregates_ids}."
     false
 
     # (aggregate_ids - aggregates) == 0

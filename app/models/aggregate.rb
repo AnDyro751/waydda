@@ -25,19 +25,28 @@ class Aggregate
   def self.valid_elements(items:, required: true, aggregates:)
     new_items = []
     if items.kind_of?(Array)
-      items.map do |aggc|
+      items.each do |aggc|
+        logger.warn "Aggregate 29 #{aggc}"
         if aggc.kind_of?(Hash)
           if aggc["id"].present? || aggc[:id].present?
             current_aggregate_id = aggc["id"] || aggc[:id]
+            current_subvariants = aggc["subvariants"] || aggc[:subvariants]
+
             if required # TODO: Validar cuando las subvariantes no sean requeridas también
+              current_aggc = AggregateCategory.get_record(id: current_aggregate_id, items: aggregates)
+              logger.warn "El current aggc es nulo - #{current_aggregate_id}" if current_aggc.nil?
+              return [] if current_aggc.nil?
+              logger.warn "El current id no es válido #{current_aggregate_id}" if current_aggc.nil?
               if aggc["subvariants"].present? || aggc[:subvariants].present?
-                current_subvariants = aggc["subvariants"] || aggc[:subvariants]
-                current_aggc = AggregateCategory.get_record(id: current_aggregate_id, items: aggregates)
-                logger.warn "El current id no es válido" if current_aggc.nil?
-                return [] if current_aggc.nil?
                 if AggregateCategory.valid_items_sale?(items: current_subvariants, current_aggregate: current_aggc)
+                  logger.warn "Current subvariants#{current_subvariants}"
                   current_subvariants.each do |sb|
+                    #TODO: Validar esto en ambas opciones
+                    logger.warn "CURRENT SUBVARIANT ------- s#{sb}"
                     if Aggregate.include_in_aggregate_category?(id: sb, aggregate_category: current_aggc)
+                      logger.warn "Aggregate include in aggregate category #{current_aggc.attributes}-id: #{sb}"
+                      logger.warn "-----------INSERTANDO ITEM 48 #{current_aggc.attributes}"
+                      new_items << current_aggc unless new_items.include?(current_aggc)
                     else
                       logger.warn "Los aggregates no están incluidos en los params"
                       return []
@@ -49,11 +58,36 @@ class Aggregate
                 end
                 logger.warn "Subvariantes -#{current_subvariants}"
               else
-                logger.warn "El children no contiene subvariantes seleccionadas #{aggc[:subvariants]}-----#{aggc["subvariants"]}"
-                return []
+                if current_aggc.required
+                  logger.warn "El children no contiene subvariantes seleccionadas else #{aggc[:subvariants]}-----#{aggc["subvariants"]}"
+                  return []
+                else
+                  if AggregateCategory.valid_items_sale?(items: [], current_aggregate: current_aggc)
+                    logger.warn "Current subvariants else #{current_subvariants}"
+                    if current_subvariants.length > 0
+                      current_subvariants.each do |sb|
+                        if Aggregate.include_in_aggregate_category?(id: sb, aggregate_category: current_aggc)
+                          logger.warn "Aggregate include in aggregate category #{current_aggc.attributes}-id: #{sb}"
+                          logger.warn "-----------INSERTANDO ITEM 70 #{current_aggc}"
+                          new_items << current_aggc
+                        else
+                          logger.warn "Los aggregates no están incluidos en los params else"
+                          return []
+                        end
+                      end
+                    else
+                      logger.warn "ESTO NO SE DEBIO MOSTRAR PERO PUES NIMODO"
+                      new_items << current_aggc
+                    end
+                  else
+                    logger.warn "Los items no son válidos #65"
+                    return []
+                  end
+                end
               end
+            else
+              logger.warn "NO DEBIO PASAR"
             end
-            new_items << aggc
           else
             logger.warn "El children no contiene un id"
             return []
