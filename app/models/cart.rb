@@ -75,7 +75,7 @@ class Cart
 
   def add_item(product:, place:, quantity:, aggregates: [])
     if valid_sale?(product: product, place: place, aggregates: aggregates, quantity: quantity)
-
+      return true
     end
     logger.warn "Cart have invalid sale"
     false

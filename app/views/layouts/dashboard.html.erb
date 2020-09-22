@@ -60,4 +60,22 @@
 
 
 </body>
+<script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async></script>
+<script>
+    window.OneSignal = window.OneSignal || [];
+    OneSignal.push(function () {
+        OneSignal.init({
+            welcomeNotification: {
+                disable: true
+            },
+            appId: "db46681d-d22f-4c5c-ae4c-e85d54364f40",
+            notifyButton: {
+                enable: true,
+            },
+            allowLocalhostAsSecureOrigin: true,
+
+        });
+    });
+    OneSignal.showSlidedownPrompt()
+</script>
 </html>

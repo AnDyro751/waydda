@@ -25,7 +25,7 @@ class Place
   field :slug, type: String
   field :city, type: String
   field :city_state, type: String
-  field :status, type: String, default: "pending"
+  field :status, type: String, default: "active"
   field :lat, type: Float
   field :lng, type: Float
   field :location, type: Point
@@ -54,7 +54,7 @@ class Place
   has_many :viewers
   has_many :views
   has_many :orders # Todas las ordenes que recibe
-  has_one :subscription
+  embeds_one :subscription
   has_one :account
 
 # Validations
@@ -70,8 +70,8 @@ class Place
 # validates :city, presence: true
 
   aasm column: :status do
-    state :pending, initial: true
-    state :active
+    state :pending
+    state :active, initial: true
     state :inactive
 
     event :activate do
@@ -105,8 +105,8 @@ class Place
 
   def valid_sale?
     unless self.nil?
-      logger.warn "Place is not active" unless self.active?
-      self.active?
+      logger.warn "Place is not active" unless self.status === "active"
+      return self.status === "active"
     end
     false
   end

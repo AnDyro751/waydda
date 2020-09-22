@@ -62,12 +62,56 @@ RSpec.describe Cart, type: :model do
     end
 
     describe "Add product to cart" do
-      # before(:each) { cart.save }
-      # before(:each) { cart_item.save }
-      it 'should be add product to cart' do
-        expect(cart.save).to eq(true)
-        expect(cart.add_item(product: product, place: place, quantity: 1, aggregates: [])).to eq(false)
+
+      let(:aggregate_categories_1) { FactoryBot.create(:aggregate_category, product: product) }
+      let(:aggregate_categories_2) { FactoryBot.create(:aggregate_category, product: product) }
+      let(:aggregate_categories_3_not_required) { FactoryBot.create(:aggregate_category, product: product, required: false) }
+
+      before(:each) {
+        product.aggregate_categories << aggregate_categories_1
+        product.aggregate_categories << aggregate_categories_2
+        product.aggregate_categories << aggregate_categories_3_not_required
+      }
+
+      before(:each) {
+        aggregate_categories_1.aggregates << FactoryBot.create(:aggregate, aggregate_category: aggregate_categories_1, name: "Demo 1")
+        aggregate_categories_1.aggregates << FactoryBot.create(:aggregate, aggregate_category: aggregate_categories_1, name: "Demo 2")
+        aggregate_categories_2.aggregates << FactoryBot.create(:aggregate, aggregate_category: aggregate_categories_2)
+        aggregate_categories_2.aggregates << FactoryBot.create(:aggregate, aggregate_category: aggregate_categories_2)
+      }
+
+      let(:valid_params) {
+        [
+            {
+                id: aggregate_categories_1.id.to_s,
+                subvariants: AggregateCategory.get_ids(items: aggregate_categories_1.aggregates)
+            },
+            {
+                id: aggregate_categories_2.id.to_s,
+                subvariants: AggregateCategory.get_ids(items: aggregate_categories_2.aggregates)
+            },
+            {
+                id: aggregate_categories_3_not_required.id.to_s,
+                subvariants: AggregateCategory.get_ids(items: aggregate_categories_3_not_required.aggregates)
+            }
+        ]
+      }
+
+      it { expect(persisted_cart.save).to eq(true) }
+
+      it 'should be return false in add product to add cart function' do
+        expect(persisted_cart.add_item(product: product, place: place, quantity: 1, aggregates: [])).to eq(false)
       end
+
+      it 'should be return true in add product to add cart function' do
+        expect(persisted_cart.add_item(product: product, place: place, quantity: 1, aggregates: valid_params)).to eq(true)
+      end
+
+      it 'should be return false in add product to add cart function because product is inactive' do
+        product.update(status: "inactive")
+        expect(persisted_cart.add_item(product: product.reload, place: place, quantity: 1, aggregates: valid_params)).to eq(false)
+      end
+
     end
 
   end

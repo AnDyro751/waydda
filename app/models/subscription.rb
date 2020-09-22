@@ -1,7 +1,7 @@
 class Subscription
   include Mongoid::Document
   include Mongoid::Timestamps
-  belongs_to :place
+  embedded_in :place
   Stripe.api_key = 'sk_test_51H9CZeBOcPJ0nbHctTzfQZhFXBnn8j05e0xqJ5RSVz5Bum72LsvmQKIecJnsoHISEg0jUWtKjERYGeCAEWiIAujP00Fae9MiKm'
 
   # belongs_to :user

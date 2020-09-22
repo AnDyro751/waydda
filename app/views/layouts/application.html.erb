@@ -7,7 +7,7 @@
   <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
   <%= javascript_packs_with_chunks_tag "application", 'data-turbolinks-track': "reload" %>
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <meta name="action_name" content="<%= action_name %>_<%= controller_name %>" />
+  <meta name="action_name" content="<%= action_name %>_<%= controller_name %>"/>
   <link rel="preconnect" href="https://d1nrrr6y3ujrjz.cloudfront.net" crossOrigin/>
   <link rel="dns-prefetch" href="https://d1nrrr6y3ujrjz.cloudfront.net"/>
   <link rel="preconnect" href="https://fonts.googleapis.com" crossOrigin/>
@@ -44,4 +44,25 @@
   <%#= console %>
 <% end %>
 </body>
+<script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async></script>
+<script>
+    window.OneSignal = window.OneSignal || [];
+    OneSignal.push(function () {
+        OneSignal.init({
+            welcomeNotification: {
+                title: "Waydda",
+                message: "Gracias por suscribirte "
+            },
+            appId: "db46681d-d22f-4c5c-ae4c-e85d54364f40",
+            notifyButton: {
+                enable: true,
+            },
+            allowLocalhostAsSecureOrigin: true
+        });
+
+
+    });
+</script>
+<%#= javascript_pack_tag "onesignal/index.js", 'data-turbolinks-track': "reload" %>
+
 </html>
