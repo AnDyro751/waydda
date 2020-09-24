@@ -4,9 +4,9 @@
       <div class="w-8/12">
         <h3 class="uppercase text-sm font-medium truncate"><%= variant.name %></h3>
         <%# unless @product.description.empty? %>
-<!--          <h4 class="text-xs text-gray-600 truncate mt-1">-->
-            <%#= variant.description %>
-<!--          </h4>-->
+        <!--          <h4 class="text-xs text-gray-600 truncate mt-1">-->
+        <%#= variant.description %>
+        <!--          </h4>-->
         <%# end %>
       </div>
       <div class="w-4/12 flex justify-end">
@@ -18,13 +18,15 @@
     <div class="w-full mt-2">
       <% variant.aggregates.each do |aggregate| %>
         <% if variant.multiple_selection %>
-          <label class="w-full my-6 flex gap-4 items-center cursor-pointer">
-            <input
-              type="checkbox"
-              name="checkboxAggregate"
-              class="main-checkbox rounded focus:outline-none text-black h-5 w-5 cursor-pointer"
-              />
-            <div class="w-7/12">
+          <label class="w-full my-6 flex items-center cursor-pointer">
+            <div class="w-1/12 mr-4">
+              <input
+                type="checkbox"
+                name="checkboxAggregate"
+                class="main-checkbox rounded focus:outline-none text-black h-5 w-5 cursor-pointer"
+                />
+            </div>
+            <div class="w-7/12 mr-3 truncate">
               <span class="text-sm font-normal"><%= aggregate.name %></span>
             </div>
             <% if aggregate.price > 0 %>
@@ -34,13 +36,15 @@
             <% end %>
           </label>
         <% else %>
-          <label class="w-full my-6 flex gap-4 items-center cursor-pointer">
-            <input
-              type="radio"
-              name="radioAggregate"
-              class="main-radio focus:outline-none text-black h-5 w-5 cursor-pointer"
-              />
-            <div class="w-7/12">
+          <label class="w-full my-6 flex items-center cursor-pointer">
+            <div class="w-1/12 mr-4 ">
+              <input
+                type="radio"
+                name="radioAggregate"
+                class="main-radio focus:outline-none text-black h-5 w-5 cursor-pointer"
+                />
+            </div>
+            <div class="w-7/12 truncate mr-3">
               <span class="text-sm font-normal"><%= aggregate.name %></span>
             </div>
             <% if aggregate.price > 0 %>
