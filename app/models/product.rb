@@ -100,6 +100,7 @@ class Product
 
   # @return [TrueClass]
   def valid_sale?(quantity:)
+    logger.warn "La cantidad no puede ser menor o igual a 0" if quantity <= 0
     return false if quantity <= 0
     unless self.nil?
       logger.warn "Status-#{self.status} - #{self.active?}"

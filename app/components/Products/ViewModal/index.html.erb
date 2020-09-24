@@ -1,19 +1,26 @@
-<div class="w-full flex">
-  <div class="w-7/12 px-4 py-8 flex self-center">
+<div class="w-full flex overflow-y-auto justify-end">
+  <div class="w-7/12 px-4 py-8 h-full flex self-center fixed top-0 left-0">
     <img
-      class="lazy mx-auto h-xxl bg-gray-300"
+      class="lazy mx-auto my-auto h-xxl bg-gray-300"
       src="<%= helpers.get_image_url(10, 10, @product.photo, "contain") %>"
       alt="<%= @product.name %> foto de producto"
       data-src="<%= helpers.get_image_url(500, 500, @product.photo, "contain") %>"
     >
   </div>
-  <div class="w-5/12 shadow-product-modal px-4 py-8">
-    <div class="w-full flex-wrap">
+  <div class="w-5/12 shadow-product-modal py-8 h-full relative overflow-hidden">
+    <div class="w-full flex-wrap relative overflow-y-auto h-full pb-24 px-4">
       <h1 class="text-xl font-medium"><%= @product.name %></h1>
       <h2 class="mt-2 text-gray-600 text-sm font-light mb-8"><%= @product.description %></h2>
       <% if @product.aggregate_categories.length > 0 %>
         <%= render Products::Variants::List::Index.new(product: @product) %>
       <% end %>
     </div>
+
+    <div class="w-full absolute bottom-0 left-0 right-0 p-4 bg-main-gray border-t border-gray-400">
+      <button class="<%= helpers.main_color_button(color: "primary", size: "big", padding: "big") %> w-full">
+        Agregar al carrito
+      </button>
+    </div>
+
   </div>
 </div>

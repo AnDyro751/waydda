@@ -117,7 +117,23 @@ window.deleteFlashs = function deleteFlashNotice(custom_element = "#flash-notice
     }
 }
 
+function oneSignalStart() {
+    window.OneSignal = window.OneSignal || [];
+    OneSignal.push(function () {
+        console.log("HOLA ONE")
+        OneSignal.init({
+            appId: "db46681d-d22f-4c5c-ae4c-e85d54364f40",
+            notifyButton: {
+                enable: true,
+            },
+            subdomainName: "waydda",
+        });
+    });
+}
+
 document.addEventListener("turbolinks:load", () => {
+    // oneSignalStart()
+    //
     function logElementEvent(eventName, element) {
         console.log(Date.now(), eventName, element.getAttribute("data-src"));
     }

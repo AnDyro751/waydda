@@ -3,11 +3,11 @@
     <div class="w-full mt-4 mb-6 flex pb-4 border-b">
       <div class="w-8/12">
         <h3 class="uppercase text-sm font-medium truncate"><%= variant.name %></h3>
-        <% unless @product.description.empty? %>
-          <h4 class="text-xs text-gray-600 truncate mt-1">
-            <%= variant.description %>
-          </h4>
-        <% end %>
+        <%# unless @product.description.empty? %>
+<!--          <h4 class="text-xs text-gray-600 truncate mt-1">-->
+            <%#= variant.description %>
+<!--          </h4>-->
+        <%# end %>
       </div>
       <div class="w-4/12 flex justify-end">
         <% if variant.required %>
@@ -18,7 +18,7 @@
     <div class="w-full mt-2">
       <% variant.aggregates.each do |aggregate| %>
         <% if variant.multiple_selection %>
-          <label class="w-full my-4 flex gap-4 items-center">
+          <label class="w-full my-6 flex gap-4 items-center cursor-pointer">
             <input
               type="checkbox"
               name="checkboxAggregate"
@@ -34,7 +34,7 @@
             <% end %>
           </label>
         <% else %>
-          <label class="w-full my-4 flex gap-4 items-center">
+          <label class="w-full my-6 flex gap-4 items-center cursor-pointer">
             <input
               type="radio"
               name="radioAggregate"
