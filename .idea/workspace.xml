@@ -19,11 +19,18 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b89cb0fb-b680-4bb9-8ae0-f4b41721cfb9" name="Default Changelist" comment="">
+    <list default="true" id="b89cb0fb-b680-4bb9-8ae0-f4b41721cfb9" name="Default Changelist" comment="feat(Place): Eliminamos los gaps del modal de show product">
+      <change afterPath="$PROJECT_DIR$/.idea/dictionaries/angel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/components/Places/presentation.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/components/Places/presentation.html.erb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/components/Products/Variants/List/index.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/components/Products/Variants/List/index.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/components/Products/Variants/List/index.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/components/Products/Variants/List/index.rb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/components/Products/ViewModal/index.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/components/Products/ViewModal/index.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/components/Products/ViewModal/index.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/components/Products/ViewModal/index.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/carts_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/carts_controller.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/cart.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/cart.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/carts/add_product.js.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/carts/add_product.js.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/products/show.js.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/products/show.js.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/routes.rb" beforeDir="false" afterPath="$PROJECT_DIR$/config/routes.rb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -683,14 +690,7 @@
       <workItem from="1600916999510" duration="974000" />
       <workItem from="1600960318005" duration="32000" />
       <workItem from="1600976689222" duration="1488000" />
-      <workItem from="1600978524047" duration="186000" />
-    </task>
-    <task id="LOCAL-00171" summary="feat(Place): Mostramos los productos, agregamos su descripción y unidad de medida">
-      <created>1600041934735</created>
-      <option name="number" value="00171" />
-      <option name="presentableId" value="LOCAL-00171" />
-      <option name="project" value="LOCAL" />
-      <updated>1600041934736</updated>
+      <workItem from="1600978524047" duration="8183000" />
     </task>
     <task id="LOCAL-00172" summary="feat(Place): Iniciamos el proceso del modal">
       <created>1600044427445</created>
@@ -1028,7 +1028,14 @@
       <option name="project" value="LOCAL" />
       <updated>1600917484390</updated>
     </task>
-    <option name="localTasksCounter" value="220" />
+    <task id="LOCAL-00220" summary="feat(Place): Eliminamos los gaps del modal de show product">
+      <created>1600978744391</created>
+      <option name="number" value="00220" />
+      <option name="presentableId" value="LOCAL-00220" />
+      <option name="project" value="LOCAL" />
+      <updated>1600978744392</updated>
+    </task>
+    <option name="localTasksCounter" value="221" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -1049,7 +1056,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="feat(Place): Ya se crea el formulario anidado y se muestran los anteriores 3:" />
     <MESSAGE value="feat(Place): Agregamos el botón para añadir la subvariante y las eliminamos sin problemas" />
     <MESSAGE value="feat(Place): Mostramos las subvariantes, falta editarlas, con un modal puede funcionar :3&#10;Eso espero" />
     <MESSAGE value="feat(Place): Mostramos el modal para actualizar la subvariante 3:" />
@@ -1074,7 +1080,8 @@
     <MESSAGE value="feat(Place): Las validaciones del valid_sale creo que ya funcionan" />
     <MESSAGE value="feat(Place):AL parecer unas validaciones sencillas ya funcionan" />
     <MESSAGE value="feat(Place): Corregimos un pequeño error de diseño con los gaps" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat(Place): Corregimos un pequeño error de diseño con los gaps" />
+    <MESSAGE value="feat(Place): Eliminamos los gaps del modal de show product" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat(Place): Eliminamos los gaps del modal de show product" />
   </component>
   <component name="WindowStateProjectService">
     <state x="392" y="0" key="#All_specs_in_spec:_waydda" timestamp="1598730457189">
@@ -1113,10 +1120,10 @@
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="404" y="186" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1366.768@0.0.1366.768" timestamp="1599454959940" />
-    <state x="261" y="0" width="834" height="763" key="CommitChangelistDialog2" timestamp="1600917483789">
+    <state x="261" y="0" width="834" height="763" key="CommitChangelistDialog2" timestamp="1600989218087">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state x="261" y="0" width="834" height="763" key="CommitChangelistDialog2/0.0.1366.768@0.0.1366.768" timestamp="1600917483789" />
+    <state x="261" y="0" width="834" height="763" key="CommitChangelistDialog2/0.0.1366.768@0.0.1366.768" timestamp="1600989218087" />
     <state x="255" y="248" key="FileChooserDialogImpl" timestamp="1600204670357">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
@@ -1142,10 +1149,10 @@
     </state>
     <state x="2094" y="191" key="RollbackChangesDialog/0.0.1366.768/1366.-69.1920.1080@1366.-69.1920.1080" timestamp="1597697150509" />
     <state x="518" y="173" key="RollbackChangesDialog/0.0.1366.768@0.0.1366.768" timestamp="1598294478879" />
-    <state x="142" y="0" width="916" height="730" key="SettingsEditor" timestamp="1600978689934">
+    <state x="142" y="0" width="916" height="730" key="SettingsEditor" timestamp="1600982363936">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state x="142" y="0" width="916" height="730" key="SettingsEditor/0.0.1366.768@0.0.1366.768" timestamp="1600978689934" />
+    <state x="142" y="0" width="916" height="730" key="SettingsEditor/0.0.1366.768@0.0.1366.768" timestamp="1600982363936" />
     <state width="498" height="446" key="SwitcherDM" timestamp="1600056322387">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
@@ -1164,10 +1171,10 @@
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="496" y="169" key="chooseDestDirectoryDialog/0.0.1366.768@0.0.1366.768" timestamp="1598730651549" />
-    <state x="289" y="0" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1600618429425">
+    <state x="289" y="0" width="683" height="763" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1600988872318">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state x="289" y="0" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.0.1366.768@0.0.1366.768" timestamp="1600618429425" />
+    <state x="289" y="0" width="683" height="763" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.0.1366.768@0.0.1366.768" timestamp="1600988872318" />
     <state x="552" y="328" width="405" height="160" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1600915992326">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
@@ -1178,13 +1185,13 @@
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="628" y="298" key="com.jetbrains.plugins.remotesdk.ui.RemoteMappingsConfiguration/0.0.1366.768@0.0.1366.768" timestamp="1598729856431" />
-    <state x="390" y="117" width="647" height="624" key="find.popup" timestamp="1600978694150">
+    <state x="390" y="117" width="647" height="624" key="find.popup" timestamp="1600986584743">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="1914" y="96" width="823" height="878" key="find.popup/0.0.1366.768/1366.-69.1920.1080@1366.-69.1920.1080" timestamp="1597716285449" />
     <state x="1754" y="117" width="583" height="624" key="find.popup/0.0.1366.768/1366.0.1360.768@1366.0.1360.768" timestamp="1598981376119" />
     <state x="1914" y="165" width="823" height="878" key="find.popup/0.0.1366.768/1366.0.1920.1080@1366.0.1920.1080" timestamp="1599260651210" />
-    <state x="390" y="117" width="647" height="624" key="find.popup/0.0.1366.768@0.0.1366.768" timestamp="1600978694150" />
+    <state x="390" y="117" width="647" height="624" key="find.popup/0.0.1366.768@0.0.1366.768" timestamp="1600986584743" />
     <state x="549" y="254" width="250" height="278" key="jetbrains.javascript.buildTools.run-task-popup" timestamp="1597946321130">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
@@ -1193,13 +1200,13 @@
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="339" y="174" width="672" height="677" key="run.anything.popup/0.0.1366.768@0.0.1366.768" timestamp="1600370541201" />
-    <state x="346" y="89" width="672" height="678" key="search.everywhere.popup" timestamp="1600978692025">
+    <state x="346" y="89" width="672" height="678" key="search.everywhere.popup" timestamp="1600989141327">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="1852" y="56" width="945" height="954" key="search.everywhere.popup/0.0.1366.768/1366.-69.1920.1080@1366.-69.1920.1080" timestamp="1597715976170" />
     <state x="1710" y="89" width="672" height="678" key="search.everywhere.popup/0.0.1366.768/1366.0.1360.768@1366.0.1360.768" timestamp="1598985878395" />
     <state x="1852" y="125" width="945" height="954" key="search.everywhere.popup/0.0.1366.768/1366.0.1920.1080@1366.0.1920.1080" timestamp="1599267313630" />
-    <state x="346" y="89" width="672" height="678" key="search.everywhere.popup/0.0.1366.768@0.0.1366.768" timestamp="1600978692025" />
+    <state x="346" y="89" width="672" height="678" key="search.everywhere.popup/0.0.1366.768@0.0.1366.768" timestamp="1600989141327" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/waydda@Rails.rcov" NAME="Rails Coverage Results" MODIFIED="1600915770485" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="waydda" />

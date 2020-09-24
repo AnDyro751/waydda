@@ -86,6 +86,7 @@ class Cart
   # @param [Array] aggregates
   # @param [Object] quantity
   # @return [TrueClass, FalseClass]
+  # params["checkbox_ids"].each {|k, v| new_params << {id: k, subvariants: v}} DEMO
   def valid_sale?(product:, place:, aggregates: [], quantity:)
     place.valid_sale? and product.valid_sale?(quantity: quantity) and product.valid_aggregates_sale?(aggregates: aggregates)
   end
@@ -112,6 +113,25 @@ class Cart
   #     end
   #   end
   # end
+  #
+  #
+
+  # @param [Object] params
+  # @return [Array] new_params
+  def self.seralize_params(params:)
+    new_params = []
+    begin
+      params["radio_ids"].each do |k, v|
+        new_params << {id: k, subvariants: [v]} if v.kind_of?(String)
+      end
+      params["checkbox_ids"].each do |k, v|
+        new_params << {id: k, subvariants: v} if v.kind_of?(Array)
+      end
+    rescue
+      return []
+    end
+    return new_params
+  end
 
   def remove_item(current_cart, current_item, product, quantity, user_logged_in)
     return {success: false, total_items_counter: nil, total_items_cart: nil} if current_item.nil?

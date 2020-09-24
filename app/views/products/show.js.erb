@@ -6,7 +6,7 @@ if (window.vanillaModal) {
         history.replaceState({}, "", "<%= request.original_url %>");
         console.log("<%= @product.name %>")
         window.current_modal.open("#modal");
-        document.querySelector(".modal-content").innerHTML = "<%= j render Products::ViewModal::Index.new(product: @product) %>";
+        document.querySelector(".modal-content").innerHTML = "<%= j render Products::ViewModal::Index.new(product: @product, place: @place) %>";
         window.customLazyLoad.update();
     }
 }

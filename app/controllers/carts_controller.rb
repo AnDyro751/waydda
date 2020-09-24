@@ -4,7 +4,8 @@ class CartsController < ApplicationController
   Stripe.api_key = 'sk_test_51H9CZeBOcPJ0nbHctTzfQZhFXBnn8j05e0xqJ5RSVz5Bum72LsvmQKIecJnsoHISEg0jUWtKjERYGeCAEWiIAujP00Fae9MiKm'
   before_action :set_place, only: [:create_charge, :success, :payment_method, :show, :add_product]
   before_action :set_current_cart, only: [:create_charge, :add_product, :payment_method, :success, :show]
-  skip_before_action :verify_authenticity_token, only: [:update_item, :add_product]
+  before_action :set_product, only: [:add_product]
+  # skip_before_action :verify_authenticity_token, only: [:update_item, :add_product]
 
 
   def delivery_option
@@ -117,28 +118,14 @@ class CartsController < ApplicationController
   end
 
   def add_product
-    #Agregar producto
-    # Al current user le buscamos un carrito con el place actual
-    # Si lo encontramos retornamos
-    # De lo contrario creamos un carrito con el place actual y retornamos
-    # Buscamos si el carrito tiene un item como el que estamos añadiendo
-    # Si lo tiene aumentamos a uno
-    # De lo contrario creamos un item nuevo
-
     respond_to do |format|
-      if @current_cart.nil?
-        place = Place.find_by(id: params["place_id"])
-        if place.nil?
-          return format.html { redirect_to root_path, alert: "El contenido ya no se encuentra disponible", status: :not_found }
-        end
-        @current_cart = current_user.carts.create(place: place, status: "pending")
-      end
-      response = @current_cart.update_item(params["product_id"], 1, true)
-      if response[:success]
+      @error = false
+      if @current_cart.add_item(product: @product, place: @place, quantity: 1, aggregates: Cart.seralize_params(params: params))
         format.js
       else
-        puts "#{response}----#{response["success"]}-------#{response[:success]}"
-        format.html { redirect_to root_path, alert: "Ha ocurrido un error a agregar el producto", status: :unprocessable_entity }
+        @error = true
+        format.js
+        # format.html { redirect_to root_path, alert: "Ha ocurrido un error a agregar el producto", status: :unprocessable_entity }
       end
     end
   end
@@ -161,6 +148,10 @@ class CartsController < ApplicationController
     if params["place_id"].present?
       @place = Place.find_by('$or' => [{id: params["place_id"]}, {slug: params["place_id"]}]) || not_found
     end
+  end
+
+  def set_product
+    @product = @place.products.find_by(slug: params["product_id"]) or not_found
   end
 
 
