@@ -124,7 +124,7 @@ class CartsController < ApplicationController
         if @current_cart.add_item(product: @product, place: @place, quantity: 1, aggregates: Cart.seralize_params(params: params))
           format.js
         else
-          @error = "Ha ocurrido un error"
+          # @error = "Ha ocurrido un error"
           format.js
           #   # format.html { redirect_to root_path, alert: "Ha ocurrido un error a agregar el producto", status: :unprocessable_entity }
         end

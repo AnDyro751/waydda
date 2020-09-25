@@ -1,6 +1,11 @@
 //TODO:  Estilizar la notificación
 <% if @error.nil? %>
 window.addToastify("primary", "Producto agregado al carrito")
+if (window.current_modal) {
+    if (window.current_modal.isOpen) {
+        window.current_modal.close();
+    }
+}
 <% else %>
 console.log("Ha ocurrido un error al agregar el producto al carrito")
 window.addToastify("danger", text = "<%= @error %>")

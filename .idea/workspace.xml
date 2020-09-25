@@ -20,7 +20,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b89cb0fb-b680-4bb9-8ae0-f4b41721cfb9" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/controllers/carts_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/carts_controller.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/carts/add_product.js.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/carts/add_product.js.erb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -682,14 +684,8 @@
       <workItem from="1600976689222" duration="1488000" />
       <workItem from="1600978524047" duration="8183000" />
       <workItem from="1600994541332" duration="115000" />
-      <workItem from="1600994724752" duration="4819000" />
-    </task>
-    <task id="LOCAL-00174" summary="feat(Place):Modal close, nos daba un error, así que borramos todo su contenido en el trigger">
-      <created>1600123142581</created>
-      <option name="number" value="00174" />
-      <option name="presentableId" value="LOCAL-00174" />
-      <option name="project" value="LOCAL" />
-      <updated>1600123142581</updated>
+      <workItem from="1600994724752" duration="4956000" />
+      <workItem from="1601004463161" duration="679000" />
     </task>
     <task id="LOCAL-00175" summary="feat(Place):Actualizamos el lazyload para que reciba los cambios del modal y que las imagenes puedan cargar sin ningún problema">
       <created>1600123390799</created>
@@ -1027,7 +1023,14 @@
       <option name="project" value="LOCAL" />
       <updated>1600999504351</updated>
     </task>
-    <option name="localTasksCounter" value="223" />
+    <task id="LOCAL-00223" summary="feat(Place): Mostramos los mensajes necesarios para saber si enviaron los aggregates">
+      <created>1600999568497</created>
+      <option name="number" value="00223" />
+      <option name="presentableId" value="LOCAL-00223" />
+      <option name="project" value="LOCAL" />
+      <updated>1600999568497</updated>
+    </task>
+    <option name="localTasksCounter" value="224" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -1112,10 +1115,10 @@
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="404" y="186" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1366.768@0.0.1366.768" timestamp="1599454959940" />
-    <state x="261" y="0" width="834" height="763" key="CommitChangelistDialog2" timestamp="1600999504178">
+    <state x="261" y="0" width="834" height="763" key="CommitChangelistDialog2" timestamp="1601005225296">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state x="261" y="0" width="834" height="763" key="CommitChangelistDialog2/0.0.1366.768@0.0.1366.768" timestamp="1600999504178" />
+    <state x="261" y="0" width="834" height="763" key="CommitChangelistDialog2/0.0.1366.768@0.0.1366.768" timestamp="1601005225296" />
     <state x="255" y="248" key="FileChooserDialogImpl" timestamp="1600204670357">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
@@ -1177,13 +1180,13 @@
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="628" y="298" key="com.jetbrains.plugins.remotesdk.ui.RemoteMappingsConfiguration/0.0.1366.768@0.0.1366.768" timestamp="1598729856431" />
-    <state x="390" y="117" width="647" height="624" key="find.popup" timestamp="1600998201816">
+    <state x="390" y="117" width="647" height="624" key="find.popup" timestamp="1601005238274">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="1914" y="96" width="823" height="878" key="find.popup/0.0.1366.768/1366.-69.1920.1080@1366.-69.1920.1080" timestamp="1597716285449" />
     <state x="1754" y="117" width="583" height="624" key="find.popup/0.0.1366.768/1366.0.1360.768@1366.0.1360.768" timestamp="1598981376119" />
     <state x="1914" y="165" width="823" height="878" key="find.popup/0.0.1366.768/1366.0.1920.1080@1366.0.1920.1080" timestamp="1599260651210" />
-    <state x="390" y="117" width="647" height="624" key="find.popup/0.0.1366.768@0.0.1366.768" timestamp="1600998201816" />
+    <state x="390" y="117" width="647" height="624" key="find.popup/0.0.1366.768@0.0.1366.768" timestamp="1601005238274" />
     <state x="549" y="254" width="250" height="278" key="jetbrains.javascript.buildTools.run-task-popup" timestamp="1597946321130">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
@@ -1192,13 +1195,13 @@
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="339" y="174" width="672" height="677" key="run.anything.popup/0.0.1366.768@0.0.1366.768" timestamp="1600370541201" />
-    <state x="346" y="89" width="672" height="678" key="search.everywhere.popup" timestamp="1600998206339">
+    <state x="346" y="89" width="672" height="678" key="search.everywhere.popup" timestamp="1601005027293">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="1852" y="56" width="945" height="954" key="search.everywhere.popup/0.0.1366.768/1366.-69.1920.1080@1366.-69.1920.1080" timestamp="1597715976170" />
     <state x="1710" y="89" width="672" height="678" key="search.everywhere.popup/0.0.1366.768/1366.0.1360.768@1366.0.1360.768" timestamp="1598985878395" />
     <state x="1852" y="125" width="945" height="954" key="search.everywhere.popup/0.0.1366.768/1366.0.1920.1080@1366.0.1920.1080" timestamp="1599267313630" />
-    <state x="346" y="89" width="672" height="678" key="search.everywhere.popup/0.0.1366.768@0.0.1366.768" timestamp="1600998206339" />
+    <state x="346" y="89" width="672" height="678" key="search.everywhere.popup/0.0.1366.768@0.0.1366.768" timestamp="1601005027293" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/waydda@Rails.rcov" NAME="Rails Coverage Results" MODIFIED="1600915770485" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="waydda" />
