@@ -1,10 +1,9 @@
-
-
 <% if @cart_items.length <= 0 %>
   <div class="text-center mt-12 w-full">
     <img
-      class="h-xl mx-auto mb-12"
-      src="<%= get_image_url(400, 400, "utils/flame-777.png") %>"
+      class="h-xl mx-auto mb-12 lazy"
+      src="<%= get_image_url(10, 10, "utils/flame-777.png") %>"
+      data-src="<%= get_image_url(400, 400, "utils/flame-777.png") %>"
       alt="Waydda Empty Cart"
       />
     <h4 class="text-center text-lg text-gray-700">Aún no tienes productos en tu carrito</h4>

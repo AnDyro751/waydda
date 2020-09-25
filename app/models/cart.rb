@@ -87,8 +87,9 @@ class Cart
   # @return [TrueClass, FalseClass]
   def create_or_update_cart_item(product:)
     begin
-      current_cart_item = self.cart_items.find_by(:product_ids.in => [product.id])
+      current_cart_item = self.cart_items.find_by(product: product)
       if current_cart_item.nil?
+        logger.warn "CURRENT CART ITEM ES NULO"
         self.create_cart_item(product: product)
       else
         return current_cart_item.update_quantity(quantity: 1)
@@ -103,7 +104,7 @@ class Cart
   # @param [Object] product
   # @return [TrueClass]
   def create_cart_item(product:)
-    new_cart_item = self.cart_items.new(products: [product])
+    new_cart_item = self.cart_items.new(product: product)
     if new_cart_item.save
       new_cart_quantity = self.quantity + 1
       return self.update(quantity: new_cart_quantity)

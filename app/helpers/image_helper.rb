@@ -19,14 +19,6 @@ module ImageHelper
                     "b": 255,
                     "alpha": 1
                 }
-            },
-            "flatten": {
-                "background": {
-                    "r": 255,
-                    "g": 255,
-                    "b": 255,
-                    "alpha": nil
-                }
             }
         }
     }

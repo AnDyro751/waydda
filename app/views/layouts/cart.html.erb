@@ -5,8 +5,7 @@
   <%= csrf_meta_tags %>
   <%= csp_meta_tag %>
   <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-  <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-  <%= javascript_pack_tag 'carts-show-bundle', 'data-turbolinks-track': 'reload', :defer => "defer" %>
+  <%= javascript_packs_with_chunks_tag 'carts-show-bundle', "application", 'data-turbolinks-track': 'reload', :defer => "defer" %>
 
   <meta name="place_image_url" content="<%= get_image_url(50, 50, @place.photo) %>"/>
   <meta name="place_lat" content="<%= @place.lat %>"/>

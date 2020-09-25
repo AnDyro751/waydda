@@ -26,7 +26,7 @@ class CartsController < ApplicationController
     respond_to do |format|
       if params["place_id"].present?
         @place = Place.find_by(slug: params["place_id"]) || not_found
-        @cart_items = CartItem.where(cart: @current_cart).includes(:product).to_a
+        @cart_items = CartItem.where(cart: @current_cart, :product_id.nin => ["", nil]).includes(:product).to_a
         @cart_items.each do |ci|
           ci["product_record"] = ci.product
         end
@@ -46,7 +46,8 @@ class CartsController < ApplicationController
         end
         @total = @total + Cart.get_total(@cart_items)
       end
-      format.html { render :show }
+      format.html
+      # format.html { render :show }
       format.json { render "carts/show" }
     end
   end

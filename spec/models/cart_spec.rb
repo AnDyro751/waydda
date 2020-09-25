@@ -50,15 +50,10 @@ RSpec.describe Cart, type: :model do
       it { expect(cart_item.save).to eq(false) }
 
       it 'should be save cart_item' do
-        cart_item.products << product
+        cart_item.product = product
         expect(cart_item.save).to eq(true)
       end
 
-      it 'should be get 1 record in products relationship' do
-        cart_item.products << product
-        cart_item.save
-        expect(cart_item.products.size).to eq(1)
-      end
     end
 
     describe "Add product to cart" do
@@ -139,6 +134,7 @@ RSpec.describe Cart, type: :model do
         persisted_cart.create_or_update_cart_item(product: product)
         expect(persisted_cart.reload.cart_items.last.quantity).to be(1)
       end
+
 
       it 'expect 2 items in cart_item quantity' do
         persisted_cart.create_or_update_cart_item(product: product)

@@ -3,11 +3,11 @@ class CartItem
   include Mongoid::Timestamps
   field :quantity, type: Integer, default: 1
   field :added_in, type: Boolean, default: false
-  has_and_belongs_to_many :products
+  belongs_to :product
   belongs_to :cart
 
   validates_associated :cart
-  validates :products, presence: true
+  validates :product, presence: true
 
   def update_quantity(quantity:)
     new_quantity = self.quantity + 1
