@@ -8,6 +8,8 @@ require("turbolinks").start()
 require("channels")
 require('alpinejs')
 import LazyLoad from "vanilla-lazyload";
+import Toastify from 'toastify-js'
+import "toastify-js/src/toastify.css"
 // Uncomment to copy all static images under ../images to the output folder and reference
 // them with the image_pack_tag helper in views (e.g <%= image_pack_tag 'rails.png' %>)
 // or the `imagePath` JavaScript helper below.
@@ -131,9 +133,48 @@ function oneSignalStart() {
     });
 }
 
+
+function getColor(color) {
+    switch (color) {
+        case "primary":
+            return "#5f48f6"
+            break;
+        case "secondary":
+            return "#2befb2";
+            break;
+        case "danger":
+            return "#d43c27";
+            break;
+        default:
+            return "#2befb2";
+            break;
+    }
+}
+
+window.addToastify = function addToastify(color = "primary", text = "") {
+
+    var dismissableToast = window.Toastify({
+        text: text,
+        duration: 5000,
+        close: true,
+        gravity: "bottom", // `top` or `bottom`
+        position: 'center', // `left`, `center` or `right`
+        backgroundColor: getColor(color),
+        stopOnFocus: true, // Prevents dismissing of toast on hover
+        onClick: function () {
+            if (dismissableToast) {
+                dismissableToast.hideToast();
+            }
+        }, // Callback after click
+        className: "w-full flex px-4 rounded font-medium text-sm py-3 border-2 border-black shadow-main"
+    }).showToast();
+}
+
 document.addEventListener("turbolinks:load", () => {
     // oneSignalStart()
     //
+    window.Toastify = Toastify;
+
     function logElementEvent(eventName, element) {
         console.log(Date.now(), eventName, element.getAttribute("data-src"));
     }
