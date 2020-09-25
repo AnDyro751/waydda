@@ -101,6 +101,7 @@ class Product
   # @return [TrueClass]
   def valid_sale?(quantity:)
     logger.warn "La cantidad no puede ser menor o igual a 0" if quantity <= 0
+    raise "Este producto no está disponible" if quantity <= 0
     return false if quantity <= 0
     unless self.nil?
       logger.warn "Status-#{self.status} - #{self.active?}"
@@ -109,12 +110,15 @@ class Product
           return true
         else
           logger.warn "Product is not unlimited #{self.public_stock - quantity}" unless self.unlimited
+          raise "Este producto no está disponible" unless self.unlimited
           return self.unlimited
         end
       end
+      raise "Este producto no está disponible"
       logger.warn "Product is not active"
       return false
     end
+    raise "Este producto no está disponible"
     logger.warn "Product is nil"
     false
   end
@@ -158,6 +162,7 @@ class Product
       return true
     end
     logger.warn "Los aggregates son invalidos #{valid_aggregates_categories}-#{receive_aggregates_ids}."
+    raise "Selecciona los elementos que son obligatorios"
     false
 
     # (aggregate_ids - aggregates) == 0

@@ -74,6 +74,8 @@ class Cart
   #
 
   def add_item(product:, place:, quantity:, aggregates: [])
+    # raise Exception.new('something bad happened!')
+    # raise ActionController::RoutingError.new('Not Found')
     if valid_sale?(product: product, place: place, aggregates: aggregates, quantity: quantity)
       return true
     end
@@ -88,6 +90,7 @@ class Cart
   # @return [TrueClass, FalseClass]
   # params["checkbox_ids"].each {|k, v| new_params << {id: k, subvariants: v}} DEMO
   def valid_sale?(product:, place:, aggregates: [], quantity:)
+    # raise ActionController::RoutingError.new('Not Found')
     place.valid_sale? and product.valid_sale?(quantity: quantity) and product.valid_aggregates_sale?(aggregates: aggregates)
   end
 

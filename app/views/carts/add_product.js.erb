@@ -1,9 +1,9 @@
 //TODO:  Estilizar la notificación
-<% if @error %>
-console.log("Ha ocurrido un error al agregar el producto al carrito")
-window.addToastify("danger", text = "Ha ocurrido un error al agregar el producto")
-<% else %>
+<% if @error.nil? %>
 window.addToastify("primary", "Producto agregado al carrito")
+<% else %>
+console.log("Ha ocurrido un error al agregar el producto al carrito")
+window.addToastify("danger", text = "<%= @error %>")
 <% end %>
 //var old_element = document.querySelector("#notifications");
 //if (old_element) {

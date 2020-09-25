@@ -106,8 +106,10 @@ class Place
   def valid_sale?
     unless self.nil?
       logger.warn "Place is not active" unless self.status === "active"
+      raise "Esta empresa no está disponible" unless self.status === "active"
       return self.status === "active"
     end
+    raise "Esta empresa no está disponible"
     false
   end
 
