@@ -75,27 +75,27 @@ class Cart
 
   def add_item(product:, place:, quantity:, aggregates: [])
     if valid_sale?(product: product, place: place, aggregates: aggregates, quantity: quantity)
-      self.create_or_update_cart_item(product: product)
-      return true
+      return self.create_or_update_cart_item(product: product, aggregates: aggregates)
     end
     logger.warn "Cart have invalid sale"
-    false
+    return false
   end
 
   # @note Crea o actualiza la instancia del carrito
   # @param [Object] product
   # @return [TrueClass, FalseClass]
-  def create_or_update_cart_item(product:)
+  def create_or_update_cart_item(product:, aggregates:)
     begin
-      current_cart_item = self.cart_items.find_by(product: product)
+      current_cart_item = self.cart_items.find_by(product: product, aggregates: aggregates)
       if current_cart_item.nil?
         logger.warn "CURRENT CART ITEM ES NULO"
-        self.create_cart_item(product: product)
+        self.create_cart_item(product: product, aggregates: aggregates)
       else
         return current_cart_item.update_quantity(quantity: 1)
       end
     rescue => e
       logger.warn "Error al crear o actualizar item #{e}"
+      raise "Ha ocurrido un error al agregar el producto"
       return false
     end
   end
@@ -103,8 +103,8 @@ class Cart
   # @note Crea el cart item de la instancia del carrito
   # @param [Object] product
   # @return [TrueClass]
-  def create_cart_item(product:)
-    new_cart_item = self.cart_items.new(product: product)
+  def create_cart_item(product:, aggregates:)
+    new_cart_item = self.cart_items.new(product: product, aggregates: aggregates)
     if new_cart_item.save
       new_cart_quantity = self.quantity + 1
       return self.update(quantity: new_cart_quantity)

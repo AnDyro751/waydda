@@ -3,6 +3,8 @@ class CartItem
   include Mongoid::Timestamps
   field :quantity, type: Integer, default: 1
   field :added_in, type: Boolean, default: false
+  field :aggregates, type: Array, default: []
+
   belongs_to :product
   belongs_to :cart
 
