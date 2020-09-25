@@ -20,12 +20,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b89cb0fb-b680-4bb9-8ae0-f4b41721cfb9" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/controllers/carts_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/carts_controller.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/cart.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/cart.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/place.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/place.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/product.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/product.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/carts/add_product.js.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/carts/add_product.js.erb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -687,14 +682,7 @@
       <workItem from="1600976689222" duration="1488000" />
       <workItem from="1600978524047" duration="8183000" />
       <workItem from="1600994541332" duration="115000" />
-      <workItem from="1600994724752" duration="4742000" />
-    </task>
-    <task id="LOCAL-00173" summary="feat(Place): Abrirmos y cerramos el modal sin ningún problema, genial">
-      <created>1600057290775</created>
-      <option name="number" value="00173" />
-      <option name="presentableId" value="LOCAL-00173" />
-      <option name="project" value="LOCAL" />
-      <updated>1600057290775</updated>
+      <workItem from="1600994724752" duration="4819000" />
     </task>
     <task id="LOCAL-00174" summary="feat(Place):Modal close, nos daba un error, así que borramos todo su contenido en el trigger">
       <created>1600123142581</created>
@@ -1032,7 +1020,14 @@
       <option name="project" value="LOCAL" />
       <updated>1600997024940</updated>
     </task>
-    <option name="localTasksCounter" value="222" />
+    <task id="LOCAL-00222" summary="feat(Place): Mostramos los mensajes necesarios para saber si enviaron los aggregates">
+      <created>1600999504351</created>
+      <option name="number" value="00222" />
+      <option name="presentableId" value="LOCAL-00222" />
+      <option name="project" value="LOCAL" />
+      <updated>1600999504351</updated>
+    </task>
+    <option name="localTasksCounter" value="223" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -1053,7 +1048,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="feat(Place): Mostramos las subvariantes, falta editarlas, con un modal puede funcionar :3&#10;Eso espero" />
     <MESSAGE value="feat(Place): Mostramos el modal para actualizar la subvariante 3:" />
     <MESSAGE value="feat(Place): Actualizamos las suvbariantes, añadimos su nuevos valores a sus respectivos fields" />
     <MESSAGE value="feat(Place): Agregamos los iconos para editar y eliminar los productos" />
@@ -1078,7 +1072,8 @@
     <MESSAGE value="feat(Place): Corregimos un pequeño error de diseño con los gaps" />
     <MESSAGE value="feat(Place): Eliminamos los gaps del modal de show product" />
     <MESSAGE value="feat(Place): Agregamos los toast para poder mostrar los errores" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat(Place): Agregamos los toast para poder mostrar los errores" />
+    <MESSAGE value="feat(Place): Mostramos los mensajes necesarios para saber si enviaron los aggregates" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat(Place): Mostramos los mensajes necesarios para saber si enviaron los aggregates" />
   </component>
   <component name="WindowStateProjectService">
     <state x="392" y="0" key="#All_specs_in_spec:_waydda" timestamp="1598730457189">
@@ -1117,10 +1112,10 @@
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="404" y="186" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1366.768@0.0.1366.768" timestamp="1599454959940" />
-    <state x="261" y="0" width="834" height="763" key="CommitChangelistDialog2" timestamp="1600997024495">
+    <state x="261" y="0" width="834" height="763" key="CommitChangelistDialog2" timestamp="1600999504178">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state x="261" y="0" width="834" height="763" key="CommitChangelistDialog2/0.0.1366.768@0.0.1366.768" timestamp="1600997024495" />
+    <state x="261" y="0" width="834" height="763" key="CommitChangelistDialog2/0.0.1366.768@0.0.1366.768" timestamp="1600999504178" />
     <state x="255" y="248" key="FileChooserDialogImpl" timestamp="1600204670357">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
