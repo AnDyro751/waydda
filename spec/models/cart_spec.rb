@@ -110,38 +110,57 @@ RSpec.describe Cart, type: :model do
       it { expect(persisted_cart.cart_items.size).to be(0) }
 
       it 'crete_or_update_cart_item should be return true' do
-        expect(persisted_cart.create_or_update_cart_item(product: product)).to be(true)
+        expect(persisted_cart.create_or_update_cart_item(product: product, aggregates: [])).to be(true)
       end
 
       it 'expect one cart item' do
-        persisted_cart.create_or_update_cart_item(product: product)
+        persisted_cart.create_or_update_cart_item(product: product, aggregates: [])
         expect(persisted_cart.reload.cart_items.size).to be(1)
       end
 
       it 'expect 1 items in cart quantity' do
-        persisted_cart.create_or_update_cart_item(product: product)
+        persisted_cart.create_or_update_cart_item(product: product, aggregates: [])
         expect(persisted_cart.reload.quantity).to be(1)
       end
 
       it 'expect 2 items in cart quantity' do
-        persisted_cart.create_or_update_cart_item(product: product)
-        persisted_cart.create_or_update_cart_item(product: product)
+        persisted_cart.create_or_update_cart_item(product: product, aggregates: [])
+        persisted_cart.create_or_update_cart_item(product: product, aggregates: [])
         expect(persisted_cart.reload.quantity).to be(2)
       end
 
 
       it 'expect 1 items in cart_item quantity' do
-        persisted_cart.create_or_update_cart_item(product: product)
+        persisted_cart.create_or_update_cart_item(product: product, aggregates: [])
         expect(persisted_cart.reload.cart_items.last.quantity).to be(1)
       end
 
 
       it 'expect 2 items in cart_item quantity' do
-        persisted_cart.create_or_update_cart_item(product: product)
-        persisted_cart.create_or_update_cart_item(product: product)
+        persisted_cart.create_or_update_cart_item(product: product, aggregates: [])
+        persisted_cart.create_or_update_cart_item(product: product, aggregates: [])
         expect(persisted_cart.reload.cart_items.last.quantity).to be(2)
       end
 
+      it 'should be return true when cart_item is updated and -1 and force update is true' do
+        persisted_cart.create_or_update_cart_item(product: product, aggregates: [])
+        persisted_cart.reload.cart_items.last.update_quantity(quantity: 1, force: true, add: false)
+        expect(persisted_cart.reload.cart_items.last.quantity).to be(1)
+      end
+
+      it 'should be 1 when cart_item is updated and force is false' do
+        persisted_cart.create_or_update_cart_item(product: product, aggregates: [])
+        persisted_cart.create_or_update_cart_item(product: product, aggregates: [])
+        persisted_cart.reload.cart_items.last.update_quantity(quantity: 1, force: false, add: false)
+        expect(persisted_cart.reload.cart_items.last.quantity).to be(1)
+      end
+
+
+      it 'should be return raise error when the quantity update is greather to public stock' do
+        persisted_cart.create_or_update_cart_item(product: product, aggregates: [])
+        persisted_cart.create_or_update_cart_item(product: product, aggregates: [])
+        expect { persisted_cart.reload.cart_items.last.update_quantity(quantity: 51, force: false, add: false) }.to raise_error(RuntimeError)
+      end
 
     end
 

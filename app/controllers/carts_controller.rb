@@ -5,7 +5,8 @@ class CartsController < ApplicationController
   before_action :set_place, only: [:create_charge, :success, :payment_method, :show, :add_product, :update_item]
   before_action :set_current_cart, only: [:create_charge, :add_product, :payment_method, :success, :show, :update_item]
   before_action :set_product, only: [:add_product]
-  before_action :set_cart_items, only: [:show, :update_item]
+  before_action :set_current_cart_item, only: [:update_item]
+  before_action :set_cart_items, only: [:show]
   skip_before_action :verify_authenticity_token, only: [:update_item]
 
 
@@ -15,10 +16,10 @@ class CartsController < ApplicationController
 
   def payment_method
     respond_to do |format|
-      if @current_cart.update(payment_type: params["to_state"])
-        format.js {}
+      if @current_cart.update(payment_type: params["cart"]["payment_type"])
+        format.js
       else
-        format.html { redirect_to root_path, status: :unprocessable_entity, alert: "Ha ocurrido un error al actualizar el carrito" }
+        format.html { redirect_to place_my_cart_path(@place.slug), status: :unprocessable_entity, notice: "Ha ocurrido un error al actualizar el carrito" }
       end
     end
   end
@@ -123,7 +124,21 @@ class CartsController < ApplicationController
 
   def update_item
     respond_to do |format|
-      format.js
+      begin
+        if @cart_item.update_quantity(quantity: params["cart_item"]["quantity"].to_i, force: true)
+          set_cart_items
+          if @cart_items.length <= 0
+            format.html { redirect_to place_my_cart_path(@place.slug), alert: "No hay productos en tu carrio" }
+          else
+            format.js
+          end
+        else
+          format.html { redirect_to place_my_cart_path(@place.slug), notice: "Ha ocurrido un error al actualizar el carrito" }
+        end
+      rescue => e
+        logger.warn "ERROR AL ACTUALIZAR EL CARRITO --- #{e}"
+        format.html { redirect_to place_my_cart_path(@place.slug), notice: "Ha ocurrido un error al actualizar el carrito" }
+      end
     end
   end
 
@@ -170,6 +185,10 @@ class CartsController < ApplicationController
       end
       @total = @total + Cart.get_total(@cart_items)
     end
+  end
+
+  def set_current_cart_item
+    @cart_item = CartItem.find_by(id: params["cart_item_id"]) || not_found
   end
 
 

@@ -1,6 +1,6 @@
 <div class="w-9/12 flex-wrap flex mx-auto mt-8 mb-24">
-  <div class="w-full flex gap-8 items-start">
-    <div class="w-8/12 flex flex-wrap">
+  <div class="w-full flex items-start">
+    <div class="w-8/12 mr-12 flex flex-wrap">
       <div class="w-full flex">
         <% if @place.delivery_option %>
           <div class="w-auto mr-4">
@@ -107,15 +107,26 @@
           <!--          <div clas ></div>-->
         </div>
         <div class="w-8/12 flex items-center gap-4 justify-end">
-          <div class="w-auto">
-            <span id="payment-selected" class="font-bold select-none"><%= @current_cart.payment_type === "card" ? "Tarjeta de crédito/débito" : "Efectivo" %></span>
-          </div>
+          <!--          <div class="w-auto">-->
+          <!--            <span id="payment-selected" class="font-bold select-none"><%#= @current_cart.payment_type === "card" ? "Tarjeta de crédito/débito" : "Efectivo" %></span>-->
+          <!--          </div>-->
           <div class="w-auto" id="select-payment-method">
-            <%= button_to "Cambiar", place_update_payment_method_path(@place.id), data: {"disable-with": "Actualizando..."},
-                          params: {to_state: @current_cart.payment_type === "card" ? "cash" : "card"},
-                          remote: true,
-                          method: :put,
-                          class: helpers.main_color_button(color: "primary") %>
+            <%= simple_form_for(@current_cart, method: :put, url: place_update_payment_method_path(@place.id), remote: true) do |f| %>
+              <div class="relative">
+                <%= f.input :payment_type, collection: [["Tarjeta de Débito/Crédito", "card"], %w[Efectivo cash]],
+                            input_html: {
+                                "onchange": "Rails.fire(this.form, 'submit')",
+                                class: "block appearance-none w-full bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none"
+                            },
+                            label: false, prompt: "Selecciona un método de pago" %>
+                <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
+                  <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                    <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/>
+                  </svg>
+                </div>
+              </div>
+            <% end %>
+
           </div>
 
 
@@ -123,10 +134,10 @@
         <div
           id="payment-with-cash"
           class="w-full mt-12 flex justify-end <%= @current_cart.payment_type === "card" ? "hidden" : "" %>">
-          <%= button_to "Hacer pedido", place_create_charge_path(@place), data: {"disable-with": "Finalizando pedido..."},
+          <%= button_to "Realizar pedido", place_create_charge_path(@place), data: {"disable-with": "Finalizando pedido..."},
                         params: {payment_type: "cash"},
                         remote: true,
-                        class: helpers.main_color_button(color: "secondary")
+                        class: helpers.main_color_button(color: "primary")
           %>
         </div>
 
@@ -144,7 +155,7 @@
           </div>
 
           <div class="w-full mt-12 flex justify-end">
-            <button class="<%= helpers.main_color_button(color: "secondary") %>">Hacer pedido</button>
+            <button class="<%= helpers.main_color_button(color: "primary") %>">Realizar pedido</button>
           </div>
         </form>
       </div>

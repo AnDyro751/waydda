@@ -1,0 +1,38 @@
+<div class="w-full flex items-start flex-wrap" id="cart-total">
+  <div class="w-full flex items-center mt-4 justify-between">
+    <div class="w-7/12">
+      <p class="text-gray-600">Costo de los productos:</p>
+    </div>
+    <div class="w-4/12 flex justify-end">
+        <span class="font-bold text-sm">
+          <%=number_to_currency(@total)%>
+        </span>
+    </div>
+  </div>
+
+  <div class="w-full items-center flex justify-between mt-4 pb-4">
+    <div class="w-7/12">
+      <p class="text-gray-600">Envío:</p>
+    </div>
+    <div class="w-4/12 flex justify-end">
+        <span id="shipment-cost" class="text-sm font-bold"><%= number_to_currency(if @current_cart.delivery_option
+                                                                                    @current_cart.delivery_option.kind === "delivery" ? @place.delivery_cost : 0
+                                                                                  else
+                                                                                    0
+                                                                                  end) %></span>
+    </div>
+  </div>
+
+  <div class="w-full flex items-center pt-8 border-t border-gray-400 justify-between">
+    <div class="w-7/12">
+      <p class="font-bold">Total:</p>
+    </div>
+    <div class="w-4/12 flex justify-end">
+        <span class="font-bold text-sm" id="total-cost"><%= number_to_currency(if @current_cart.delivery_option
+                                                                                 @current_cart.delivery_option.kind === "delivery" ? (@total + @place.delivery_cost) : @total
+                                                                               else
+                                                                                 @total
+                                                                               end) %></span>
+    </div>
+  </div>
+</div>
