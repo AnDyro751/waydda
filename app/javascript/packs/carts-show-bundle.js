@@ -30,9 +30,11 @@ function setMap() {
     var marker = new mapboxgl.Marker(el)
         .setLngLat([document.querySelector("[name='place_lng']").content, document.querySelector("[name='place_lat']").content])
         .addTo(map);
-    new mapboxgl.Marker(elHouse)
-        .setLngLat([document.querySelector("[name='address_lng']").content, document.querySelector("[name='address_lat']").content])
-        .addTo(map);
+    if (document.querySelector("[name='address_lng']")) {
+        new mapboxgl.Marker(elHouse)
+            .setLngLat([document.querySelector("[name='address_lng']").content, document.querySelector("[name='address_lat']").content])
+            .addTo(map);
+    }
 
 }
 
