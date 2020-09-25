@@ -177,6 +177,15 @@ class Product
     #
   end
 
+
+  def get_truncate(quantity = 1)
+    if quantity >= 100
+      return 20
+    else
+      return quantity
+    end
+  end
+
   private
 
   def self.current_measures

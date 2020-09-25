@@ -3,45 +3,67 @@
     <div class="w-8/12 flex flex-wrap">
       <div class="w-full flex">
         <% if @place.delivery_option %>
-          <div class="w-4/12">
-            <%= button_to "Envío a domicilio",
-                          place_delivery_options_path(@place.slug, @current_cart),
+          <div class="w-auto mr-4">
+            <%= button_to place_delivery_options_path(@place.slug, @current_cart),
                           remote: true,
                           data: {"disable-with": "Actualizando..."},
                           params: {to_state: "delivery", size: "big"},
                           method: :put,
                           id: "delivery-button",
-                          class: "hover:border-black w-full focus:outline-none py-3 px-4 border font-normal border-transparent text-center cursor-pointer #{
+                          class: "rounded-full w-full focus:outline-none py-3 px-4 font-normal text-center cursor-pointer #{
                           if @current_cart.delivery_option
                             @current_cart.delivery_option.kind === "delivery" ? "bg-black text-white" : "bg-white text-black"
                           else
                             "bg-black text-white"
-                          end}" %>
+                          end}" do %>
+              <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                   viewBox="0 0 24 24"
+                   class="fill-current h-4 w-4 inline mr-3"
+              >
+                <path d="M 13 4 A 1.0001 1.0001 0 1 0 13 6 L 14.382812 6 L 14.585938 6.4082031 C 13.99343 6.7445296 13.471723 7.2355007 12.990234 7.6972656 C 12.322234 8.3372656 11.634 9 11 9 C 10.173 9 9.7850312 8.716125 9.0820312 8.203125 C 7.9010312 7.340125 6.3167813 6.1835312 2.0507812 6.0195312 C 1.4817813 5.9985313 1 6.4505313 1 7.0195312 C 1 7.5535312 1.4269375 7.9975781 1.9609375 8.0175781 C 2.3381023 8.0315472 2.6853211 8.0543586 3.0136719 8.0839844 L 4.2695312 10 L 3 10 A 1.0001 1.0001 0 1 0 3 12 L 5.578125 12 L 8.5585938 16.548828 A 1.0001 1.0001 0 0 0 9.3964844 17 L 17 17 C 17 18.64501 18.35499 20 20 20 C 21.64501 20 23 18.64501 23 17 C 23 15.560616 21.962944 14.342391 20.601562 14.060547 L 18.765625 11 L 22 11 C 22.388 11 22.740297 10.774828 22.904297 10.423828 C 23.069297 10.072828 23.017531 9.657375 22.769531 9.359375 C 22.660862 9.2299168 20.213714 6.3504525 16.634766 6.0332031 L 15.894531 4.5527344 A 1.0001 1.0001 0 0 0 15 4 L 13 4 z M 16.949219 11.857422 L 18.496094 14.435547 C 18.235251 14.592456 17.990901 14.774956 17.787109 15 L 16.046875 15 C 16.180166 13.596519 16.576476 12.569859 16.949219 11.857422 z M 4 14 C 2.3549904 14 1 15.35499 1 17 C 1 18.64501 2.3549904 20 4 20 C 5.6450096 20 7 18.64501 7 17 C 7 15.35499 5.6450096 14 4 14 z M 4 16 C 4.5641294 16 5 16.435871 5 17 C 5 17.564129 4.5641294 18 4 18 C 3.4358706 18 3 17.564129 3 17 C 3 16.435871 3.4358706 16 4 16 z M 19.894531 16.019531 A 1.0001 1.0001 0 0 0 20.119141 16.023438 C 20.621114 16.082696 21 16.478489 21 17 C 21 17.564129 20.564129 18 20 18 C 19.435871 18 19 17.564129 19 17 C 19 16.473517 19.385303 16.072545 19.894531 16.019531 z"></path>
+              </svg>
+              Entrega a domicilio
+
+            <% end %>
           </div>
         <% end %>
-        <div class="w-4/12">
+        <div class="w-auto">
 
           <% if @place.delivery_option %>
-            <%= button_to "Recoger en tienda",
-                          place_delivery_options_path(@place.slug, @current_cart),
+            <%= button_to place_delivery_options_path(@place.slug, @current_cart),
                           data: {"disable-with": "Actualizando..."},
                           remote: true,
                           id: "pickup-button",
                           params: {to_state: "pickup", size: "big"},
                           method: :put,
-                          class: "hover:border-black w-full focus:outline-none border border-transparent py-3 px-4 font-normal text-center cursor-pointer #{
+                          class: "w-full rounded-full focus:outline-none py-3 px-4 font-normal text-center cursor-pointer #{
                           if @place.delivery_option
                             if @current_cart.delivery_option
-                              @current_cart.delivery_option.kind === "pickup" ? "bg-black text-white" : "bg-white text-black"
+                              @current_cart.delivery_option.kind === "pickup" ? "bg-black text-white" : "bg-main-gray text-black"
                             else
                               "bg-black text-white"
                             end
                           else
                             "bg-black text-white"
                           end
-                          }" %>
+                          }" do %>
+              <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                   viewBox="0 0 24 24"
+                   class="fill-current text-black h-4 w-4 inline mr-3"
+              >
+                <path d="M 13.5 0 C 12.121094 0 11 1.121094 11 2.5 C 11 3.878906 12.121094 5 13.5 5 C 14.878906 5 16 3.878906 16 2.5 C 16 1.121094 14.878906 0 13.5 0 Z M 11.0625 5.9375 C 10.976563 5.949219 10.894531 5.96875 10.8125 6 C 10.726563 6.019531 10.640625 6.050781 10.5625 6.09375 L 6.5625 8.09375 C 6.398438 8.167969 6.257813 8.289063 6.15625 8.4375 L 4.15625 11.4375 C 3.84375 11.902344 3.972656 12.53125 4.4375 12.84375 C 4.902344 13.15625 5.53125 13.027344 5.84375 12.5625 L 7.6875 9.78125 L 9.96875 8.625 C 9.933594 8.816406 9.90625 9 9.90625 9 C 9.605469 10.5 9.199219 12.398438 9 13 C 8.699219 14.398438 9.6875 15.1875 9.6875 15.1875 L 13.15625 18.65625 L 15.0625 23.375 C 15.269531 23.894531 15.855469 24.144531 16.375 23.9375 C 16.894531 23.730469 17.144531 23.144531 16.9375 22.625 L 14.9375 17.625 C 14.90625 17.546875 14.863281 17.472656 14.8125 17.40625 L 14.0625 16.40625 L 12.5 13.90625 L 13.21875 10.40625 L 13.75 11.84375 C 13.84375 12.09375 14.035156 12.296875 14.28125 12.40625 L 17.59375 13.90625 C 17.925781 14.105469 18.339844 14.09375 18.660156 13.882813 C 18.980469 13.667969 19.152344 13.289063 19.097656 12.90625 C 19.042969 12.527344 18.773438 12.207031 18.40625 12.09375 L 15.46875 10.75 L 13.9375 6.65625 C 13.792969 6.261719 13.417969 6 13 6 L 11.4375 6 C 11.316406 5.957031 11.191406 5.933594 11.0625 5.9375 Z M 8.6875 15.40625 L 8.03125 18.59375 L 5.1875 22.40625 C 4.859375 22.855469 4.957031 23.484375 5.40625 23.8125 C 5.855469 24.140625 6.484375 24.042969 6.8125 23.59375 L 9.65625 19.78125 C 9.699219 19.75 9.714844 19.695313 9.75 19.65625 L 9.8125 19.59375 C 9.835938 19.574219 9.855469 19.554688 9.875 19.53125 C 9.878906 19.523438 9.871094 19.507813 9.875 19.5 C 9.886719 19.480469 9.898438 19.457031 9.90625 19.4375 C 9.949219 19.359375 9.980469 19.273438 10 19.1875 L 10.6875 17.5 L 9.09375 15.90625 C 8.992188 15.804688 8.789063 15.605469 8.6875 15.40625 Z"></path>
+              </svg>
+              Recoger en tienda
+
+            <% end %>
           <% else %>
-            <div class="hover:border-black w-full focus:outline-none py-3 px-4 font-normal text-center bg-black text-white">
+            <div class="w-full focus:outline-none py-3 px-4 font-normal text-center bg-black text-white">
+              <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                   width="24" height="24"
+                   viewBox="0 0 24 24"
+                   style=" fill:#000000;">
+                <path d="M 13.5 0 C 12.121094 0 11 1.121094 11 2.5 C 11 3.878906 12.121094 5 13.5 5 C 14.878906 5 16 3.878906 16 2.5 C 16 1.121094 14.878906 0 13.5 0 Z M 11.0625 5.9375 C 10.976563 5.949219 10.894531 5.96875 10.8125 6 C 10.726563 6.019531 10.640625 6.050781 10.5625 6.09375 L 6.5625 8.09375 C 6.398438 8.167969 6.257813 8.289063 6.15625 8.4375 L 4.15625 11.4375 C 3.84375 11.902344 3.972656 12.53125 4.4375 12.84375 C 4.902344 13.15625 5.53125 13.027344 5.84375 12.5625 L 7.6875 9.78125 L 9.96875 8.625 C 9.933594 8.816406 9.90625 9 9.90625 9 C 9.605469 10.5 9.199219 12.398438 9 13 C 8.699219 14.398438 9.6875 15.1875 9.6875 15.1875 L 13.15625 18.65625 L 15.0625 23.375 C 15.269531 23.894531 15.855469 24.144531 16.375 23.9375 C 16.894531 23.730469 17.144531 23.144531 16.9375 22.625 L 14.9375 17.625 C 14.90625 17.546875 14.863281 17.472656 14.8125 17.40625 L 14.0625 16.40625 L 12.5 13.90625 L 13.21875 10.40625 L 13.75 11.84375 C 13.84375 12.09375 14.035156 12.296875 14.28125 12.40625 L 17.59375 13.90625 C 17.925781 14.105469 18.339844 14.09375 18.660156 13.882813 C 18.980469 13.667969 19.152344 13.289063 19.097656 12.90625 C 19.042969 12.527344 18.773438 12.207031 18.40625 12.09375 L 15.46875 10.75 L 13.9375 6.65625 C 13.792969 6.261719 13.417969 6 13 6 L 11.4375 6 C 11.316406 5.957031 11.191406 5.933594 11.0625 5.9375 Z M 8.6875 15.40625 L 8.03125 18.59375 L 5.1875 22.40625 C 4.859375 22.855469 4.957031 23.484375 5.40625 23.8125 C 5.855469 24.140625 6.484375 24.042969 6.8125 23.59375 L 9.65625 19.78125 C 9.699219 19.75 9.714844 19.695313 9.75 19.65625 L 9.8125 19.59375 C 9.835938 19.574219 9.855469 19.554688 9.875 19.53125 C 9.878906 19.523438 9.871094 19.507813 9.875 19.5 C 9.886719 19.480469 9.898438 19.457031 9.90625 19.4375 C 9.949219 19.359375 9.980469 19.273438 10 19.1875 L 10.6875 17.5 L 9.09375 15.90625 C 8.992188 15.804688 8.789063 15.605469 8.6875 15.40625 Z"></path>
+              </svg>
               Recoger en tienda
             </div>
           <% end %>
@@ -76,15 +98,10 @@
             class="text-2xl font-bold mt-8"><%= @place.address %></h2>
         </div>
       <% end %>
-      <div class="w-full py-6 px-4 mt-10 bg-white rounded flex flex-wrap">
-        <h3 class="font-bold text-sm mb-8">
-          Productos en el carrito
-        </h3>
-        <% @cart_items.each do |ci| %>
-          <%= render Carts::Item.new(cart_item: ci) %>
-        <% end %>
+      <div class="w-full mt-10 bg-white rounded flex flex-wrap shadow" id="cart-show-products">
+        <%= render Carts::ListItems.new(cart_items: @cart_items, place: @place) %>
       </div>
-      <div class="w-full px-4 py-6 flex flex-wrap items-center mt-8 bg-white rounded">
+      <div class="w-full px-4 py-6 flex flex-wrap items-center mt-8 bg-white rounded shadow">
         <div class="w-4/12">
           <h3 class="font-bold text-sm">Método de pago</h3>
           <!--          <div clas ></div>-->
@@ -94,7 +111,11 @@
             <span id="payment-selected" class="font-bold select-none"><%= @current_cart.payment_type === "card" ? "Tarjeta de crédito/débito" : "Efectivo" %></span>
           </div>
           <div class="w-auto" id="select-payment-method">
-            <%= button_to "Cambiar", place_update_payment_method_path(@place.id), data: {"disable-with": "Actualizando..."}, params: {to_state: @current_cart.payment_type === "card" ? "cash" : "card"}, remote: true, method: :put, class: "bg-green-700 py-2 px-6 text-white rounded-lg cursor-pointer focus:outline-none" %>
+            <%= button_to "Cambiar", place_update_payment_method_path(@place.id), data: {"disable-with": "Actualizando..."},
+                          params: {to_state: @current_cart.payment_type === "card" ? "cash" : "card"},
+                          remote: true,
+                          method: :put,
+                          class: helpers.main_color_button(color: "primary") %>
           </div>
 
 
@@ -102,7 +123,11 @@
         <div
           id="payment-with-cash"
           class="w-full mt-12 flex justify-end <%= @current_cart.payment_type === "card" ? "hidden" : "" %>">
-          <%= button_to "Hacer pedido", place_create_charge_path(@place), data: {"disable-with": "Finalizando pedido..."}, params: {payment_type: "cash"}, remote: true, class: "bg-black cursor-pointer text-white rounded py-3 px-10" %>
+          <%= button_to "Hacer pedido", place_create_charge_path(@place), data: {"disable-with": "Finalizando pedido..."},
+                        params: {payment_type: "cash"},
+                        remote: true,
+                        class: helpers.main_color_button(color: "secondary")
+          %>
         </div>
 
         <form action="/charge" method="post" id="payment-form" class="w-full flex flex-wrap mt-4 <%= @current_cart.payment_type === "card" ? "" : "hidden" %>">
@@ -119,7 +144,7 @@
           </div>
 
           <div class="w-full mt-12 flex justify-end">
-            <button class="bg-black text-white rounded py-3 px-10">Hacer pedido</button>
+            <button class="<%= helpers.main_color_button(color: "secondary") %>">Hacer pedido</button>
           </div>
         </form>
       </div>

@@ -39,7 +39,7 @@ function setMap() {
 }
 
 document.addEventListener("turbolinks:load", async () => {
-    if (document.querySelector("#address-map")) {
+    if (document.querySelector("#address-map-demo")) {
         setMap()
         const stripe = await loadStripe('pk_test_51H9CZeBOcPJ0nbHcn3sfLIpeMPDr4YfdEWe7ytAM7bge9lzgYQTC1uOAFopBIbeKc7i3btFTEGaHSrnBfTwmmu4o00Dz7IGOu6');
         var elements = stripe.elements();

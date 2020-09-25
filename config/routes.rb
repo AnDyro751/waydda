@@ -41,6 +41,7 @@ Rails.application.routes.draw do
     resources :products do
       post "/cart/add_item", to: "carts#add_product", as: "add_to_cart"
     end
+    patch "/cart/:cart_item_id/update_item", to: "carts#update_item", as: "update_cart_item"
     get "/cart", to: "carts#show", as: "my_cart"
     post "/cart", to: "carts#create_charge", as: "create_charge"
     get "/:cart_id/success", to: "carts#success", as: "success_checkout"

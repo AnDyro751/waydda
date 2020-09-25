@@ -1,18 +1,33 @@
-<div class="w-full mb-4 flex items-center">
-  <div class="w-8/12 truncate">
-    <h5 class="font-normal text-sm truncate">
+<div class="w-full my-4 flex items-center">
+  <div class="w-8/12 truncate mr-4">
+    <h5 class="font-normal truncate">
       <%= @cart_item.product.name %>
     </h5>
-    <h6 class="mt-1 text-xs text-gray-600 truncate">
+    <h6 class="mt-1 text-sm text-gray-600 truncate">
       <%= @cart_item.product.description %>
     </h6>
   </div>
-  <div class="w-4/12 flex items-center gap-4">
-    <div class="w-6/12 text-center flex justify-center">
-      <p class="border border-gray-400 h-8 w-8 rounded flex justify-center items-center" ><%= @cart_item.quantity %></p>
+  <div class="w-4/12 flex items-center">
+    <div class="w-6/12 mr-4 text-center flex justify-center truncate">
+      <%= simple_form_for(@cart_item, remote: true, url: place_update_cart_item_path(@place.slug, @cart_item)) do |f| %>
+        <%= f.input :quantity, collection: (1..@cart_item.product.get_truncate(@cart_item.product.public_stock)), input_html: {
+            onchange: 'Rails.fire(this.form, "submit")'
+        }, label: false %>
+        <!--        <select class="truncate">-->
+        <!--          <option value="delete">Eliminar</option>-->
+        <%# (1..@cart_item.product.get_truncate(@cart_item.product.public_stock)).each do |a| %>
+        <!--            <option-->
+        <%#= @cart_item.quantity === a ? "selected" : "" %>
+        <!--              value="<%#= a %>">-->
+        <%#= a %>
+        <!--            </option>-->
+        <%# end %>
+        <!--        </select>-->
+      <% end %>
+      <!--      <p class="border border-gray-400 h-8 w-8 rounded flex justify-center items-center truncate"></p>-->
     </div>
-    <div class="w-6/12 text-center">
-      <span class="text-xs text-gray-600" >
+    <div class="w-6/12 text-center truncate">
+      <span class="text-xs text-gray-600">
         <%= number_to_currency(@cart_item.quantity * @cart_item.product.price) %>
       </span>
     </div>

@@ -2,10 +2,11 @@ class CartsController < ApplicationController
   layout "cart"
   before_action :authenticate_user!
   Stripe.api_key = 'sk_test_51H9CZeBOcPJ0nbHctTzfQZhFXBnn8j05e0xqJ5RSVz5Bum72LsvmQKIecJnsoHISEg0jUWtKjERYGeCAEWiIAujP00Fae9MiKm'
-  before_action :set_place, only: [:create_charge, :success, :payment_method, :show, :add_product]
-  before_action :set_current_cart, only: [:create_charge, :add_product, :payment_method, :success, :show]
+  before_action :set_place, only: [:create_charge, :success, :payment_method, :show, :add_product, :update_item]
+  before_action :set_current_cart, only: [:create_charge, :add_product, :payment_method, :success, :show, :update_item]
   before_action :set_product, only: [:add_product]
-  # skip_before_action :verify_authenticity_token, only: [:update_item, :add_product]
+  before_action :set_cart_items, only: [:show, :update_item]
+  skip_before_action :verify_authenticity_token, only: [:update_item]
 
 
   def delivery_option
@@ -24,28 +25,7 @@ class CartsController < ApplicationController
 
   def show
     respond_to do |format|
-      if params["place_id"].present?
-        @place = Place.find_by(slug: params["place_id"]) || not_found
-        @cart_items = CartItem.where(cart: @current_cart, :product_id.nin => ["", nil]).includes(:product).to_a
-        @cart_items.each do |ci|
-          ci["product_record"] = ci.product
-        end
-        @total = Cart.get_total(@cart_items)
-      else
-        cart_items_ids = []
-        @carts = current_user.carts.where(status: "pending", :quantity.gt => 0).includes(:place).to_a.each do |ct|
-          cart_items_ids = cart_items_ids + ct.cart_item_ids
-        end
-        @total = 0
-        @cart_items = CartItem.where(:_id.in => cart_items_ids).includes(:product).to_a.each do |ci|
-          ci["product_record"] = ci.product.attributes.slice(:name, :description, :price, :photo)
-        end
-        @carts.each do |ct|
-          ct["place_record"] = ct.place
-          ct["items"] = @cart_items.select { |ci| ci.cart_id.to_s == ct.id.to_s }
-        end
-        @total = @total + Cart.get_total(@cart_items)
-      end
+
       format.html
       # format.html { render :show }
       format.json { render "carts/show" }
@@ -143,8 +123,7 @@ class CartsController < ApplicationController
 
   def update_item
     respond_to do |format|
-      default_response = @current_cart.update_item(params["item_id"], params["item"]["quantity"], params["item"]["plus"], user_signed_in?)
-      format.json { render json: default_response }
+      format.js
     end
   end
 
@@ -157,15 +136,39 @@ class CartsController < ApplicationController
   end
 
   def set_product
-    @product = @place.products.find_by(slug: params["product_id"]) or not_found
+    (@product = @place.products.find_by(slug: params["product_id"])) or not_found
   end
-
 
   def set_current_cart
     if params["cart_id"].present?
-      @current_cart = current_user.carts.find_by(id: params["cart_id"], status: "pending")
+      @current_cart = current_user.carts.find_by(id: params["cart_id"], status: "pending") || not_found
     else
-      @current_cart = current_user.carts.find_by(place: @place, status: "pending")
+      @current_cart = current_user.carts.find_by(place: @place, status: "pending") || not_found
+    end
+  end
+
+  def set_cart_items
+    if params["place_id"].present?
+      @place = Place.find_by(slug: params["place_id"]) || not_found
+      @cart_items = CartItem.where(cart: @current_cart, :product_id.nin => ["", nil]).includes(:product).to_a
+      @cart_items.each do |ci|
+        ci["product_record"] = ci.product
+      end
+      @total = Cart.get_total(@cart_items)
+    else
+      cart_items_ids = []
+      @carts = current_user.carts.where(status: "pending", :quantity.gt => 0).includes(:place).to_a.each do |ct|
+        cart_items_ids = cart_items_ids + ct.cart_item_ids
+      end
+      @total = 0
+      @cart_items = CartItem.where(:_id.in => cart_items_ids).includes(:product).to_a.each do |ci|
+        ci["product_record"] = ci.product.attributes.slice(:name, :description, :price, :photo)
+      end
+      @carts.each do |ct|
+        ct["place_record"] = ct.place
+        ct["items"] = @cart_items.select { |ci| ci.cart_id.to_s == ct.id.to_s }
+      end
+      @total = @total + Cart.get_total(@cart_items)
     end
   end
 
