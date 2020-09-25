@@ -74,13 +74,44 @@ class Cart
   #
 
   def add_item(product:, place:, quantity:, aggregates: [])
-    # raise Exception.new('something bad happened!')
-    # raise ActionController::RoutingError.new('Not Found')
     if valid_sale?(product: product, place: place, aggregates: aggregates, quantity: quantity)
+      self.create_or_update_cart_item(product: product)
       return true
     end
     logger.warn "Cart have invalid sale"
     false
+  end
+
+  # @note Crea o actualiza la instancia del carrito
+  # @param [Object] product
+  # @return [TrueClass, FalseClass]
+  def create_or_update_cart_item(product:)
+    begin
+      current_cart_item = self.cart_items.find_by(:product_ids.in => [product.id])
+      if current_cart_item.nil?
+        self.create_cart_item(product: product)
+      else
+        return current_cart_item.update_quantity(quantity: 1)
+      end
+    rescue => e
+      logger.warn "Error al crear o actualizar item #{e}"
+      return false
+    end
+  end
+
+  # @note Crea el cart item de la instancia del carrito
+  # @param [Object] product
+  # @return [TrueClass]
+  def create_cart_item(product:)
+    new_cart_item = self.cart_items.new(products: [product])
+    if new_cart_item.save
+      new_cart_quantity = self.quantity + 1
+      return self.update(quantity: new_cart_quantity)
+    else
+      logger.warn "Error creando el line item"
+      raise "Ha ocurrido un error"
+      return false
+    end
   end
 
   # @param [Object] product

@@ -99,18 +99,53 @@ RSpec.describe Cart, type: :model do
 
       it { expect(persisted_cart.save).to eq(true) }
 
-      it 'should be return false in add product to add cart function' do
-        expect(persisted_cart.add_item(product: product, place: place, quantity: 1, aggregates: [])).to eq(false)
+      it 'should be return raise in add product to add cart function' do
+        expect { persisted_cart.add_item(product: product, place: place, quantity: 1, aggregates: []) }.to raise_error(RuntimeError)
       end
 
       it 'should be return true in add product to add cart function' do
         expect(persisted_cart.add_item(product: product, place: place, quantity: 1, aggregates: valid_params)).to eq(true)
       end
 
-      it 'should be return false in add product to add cart function because product is inactive' do
+      it 'should be return raise in add product to add cart function because product is inactive' do
         product.update(status: "inactive")
-        expect(persisted_cart.add_item(product: product.reload, place: place, quantity: 1, aggregates: valid_params)).to eq(false)
+        expect { persisted_cart.add_item(product: product.reload, place: place, quantity: 1, aggregates: valid_params) }.to raise_error
       end
+
+      it { expect(persisted_cart.cart_items.size).to be(0) }
+
+      it 'crete_or_update_cart_item should be return true' do
+        expect(persisted_cart.create_or_update_cart_item(product: product)).to be(true)
+      end
+
+      it 'expect one cart item' do
+        persisted_cart.create_or_update_cart_item(product: product)
+        expect(persisted_cart.reload.cart_items.size).to be(1)
+      end
+
+      it 'expect 1 items in cart quantity' do
+        persisted_cart.create_or_update_cart_item(product: product)
+        expect(persisted_cart.reload.quantity).to be(1)
+      end
+
+      it 'expect 2 items in cart quantity' do
+        persisted_cart.create_or_update_cart_item(product: product)
+        persisted_cart.create_or_update_cart_item(product: product)
+        expect(persisted_cart.reload.quantity).to be(2)
+      end
+
+
+      it 'expect 1 items in cart_item quantity' do
+        persisted_cart.create_or_update_cart_item(product: product)
+        expect(persisted_cart.reload.cart_items.last.quantity).to be(1)
+      end
+
+      it 'expect 2 items in cart_item quantity' do
+        persisted_cart.create_or_update_cart_item(product: product)
+        persisted_cart.create_or_update_cart_item(product: product)
+        expect(persisted_cart.reload.cart_items.last.quantity).to be(2)
+      end
+
 
     end
 

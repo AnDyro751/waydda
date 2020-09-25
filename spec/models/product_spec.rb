@@ -118,6 +118,8 @@ RSpec.describe Product, type: :model do
           expect(valid_product.valid_aggregates_sale?(aggregates: valid_params)).to eq(true)
         end
 
+
+
       end
 
     end
