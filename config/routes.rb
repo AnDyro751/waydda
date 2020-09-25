@@ -35,7 +35,7 @@ Rails.application.routes.draw do
   get "/cart", to: "carts#show", as: "my_public_cart"
 
   #Public places
-  resources :places, only: [:show, :index] do
+  resources :places, only: [:show, :index], path: "place", path_prefix: "@" do
     get "/catalog", to: "places#catalog", as: :catalog
     put '/:cart_id/delivery-options', to: "delivery_options#update", as: "delivery_options"
     resources :products do

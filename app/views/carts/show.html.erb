@@ -6,7 +6,7 @@
       data-src="<%= get_image_url(400, 400, "utils/flame-777.png") %>"
       alt="Waydda Empty Cart"
       />
-    <h4 class="text-center text-lg text-gray-700">Aún no tienes productos en tu carrito</h4>
+    <h4 class="text-center font-normal text-lg text-gray-800">Aún no tienes productos en tu carrito</h4>
   </div>
 <% else %>
   <%= render Carts::Form.new(cart_items: @cart_items, place: @place, current_cart: @current_cart, total: @total, current_user: current_user, current_address: @current_address) %>
