@@ -3,6 +3,10 @@ class UsersController < ApplicationController
 
   def my_profile
     @new_address = current_user.current_address || current_user.addresses.new
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
 

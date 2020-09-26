@@ -1,3 +1,20 @@
-<div class="w-full">
-  <%= render Headers::Text.new(title: "Edita los detalles de la entrega", small: true, padding_class: "py-6 px-4", font: "small", with_margin: false, padding_class: "", with_border: false) %>
+<div class="w-full border border-black shadow-main rounded">
+  <%= render Headers::Text.new(title: "Edita los detalles de la entrega", small: true, padding_class: "py-6 px-4", font: "small", with_margin: false, padding_class: "px-4 py-6", with_border: true) do %>
+    <% if helpers.current_user.current_address %>
+      <%= link_to "Editar", my_profile_path, remote: true, class: helpers.main_color_button(color: "primary") %>
+    <% end %>
+  <% end %>
+
+  <div id="address-data">
+    <% if helpers.current_user.current_address %>
+      <h3 class="font-normal text-gray-800 truncate"><%= helpers.current_user.current_address.address %></h3>
+      <h4 class="text-sm text-gray-700 truncate"><%= helpers.current_user.current_address.description %></h4>
+    <% else %>
+      <div class="w-full my-8 px-4">
+        <%= link_to "Agregar dirección de entrega", my_profile_path, class: "#{helpers.main_color_button(color: "primary")}" %>
+        <!--      <button class="<%#= helpers.main_color_button(color: "primary") %>">Agregar dirección de entrega</button>-->
+      </div>
+    <% end %>
+  </div>
+
 </div>

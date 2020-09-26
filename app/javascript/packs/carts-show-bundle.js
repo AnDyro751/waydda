@@ -1,5 +1,6 @@
 import {loadStripe} from '@stripe/stripe-js';
 import mapboxgl from 'mapbox-gl';
+import VanillaModal from 'vanilla-modal';
 
 function setMap() {
     mapboxgl.accessToken = 'pk.eyJ1IjoiYW5keXJvaG0iLCJhIjoiY2p6NmRldzJjMGsyMzNpbjJ0YjZjZjV5NSJ9.SeHsvxUe4-pszVk0B4gRAQ';
@@ -39,6 +40,23 @@ function setMap() {
 }
 
 document.addEventListener("turbolinks:load", async () => {
+
+
+    window.vanillaModal = VanillaModal;
+    if (window.vanillaModal) {
+        var current_location = location.href;
+        window.current_modal = new window.vanillaModal({
+            onBeforeClose: function () {
+                console.log("BEOFRE");
+                history.replaceState({}, "", current_location);
+            },
+            onClose: ()=>{
+                document.querySelector("#modal").innerHTML = "";
+                document.querySelector("#modal-content").innerHTML = "";
+            }
+        });
+    }
+
     if (document.querySelector("#address-map-demo")) {
         setMap()
         const stripe = await loadStripe('pk_test_51H9CZeBOcPJ0nbHcn3sfLIpeMPDr4YfdEWe7ytAM7bge9lzgYQTC1uOAFopBIbeKc7i3btFTEGaHSrnBfTwmmu4o00Dz7IGOu6');

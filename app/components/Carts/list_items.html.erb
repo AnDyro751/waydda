@@ -1,4 +1,4 @@
-<%= render Headers::Text.new(title: "Productos en el carrito", small: true, padding_class: "py-6 px-4", font: "small", with_margin: false, with_border: true) %>
+<%= render Headers::Text.new(title: "Productos en el carrito (#{@cart_items.length})", small: true, padding_class: "py-6 px-4", font: "small", with_margin: false, with_border: true) %>
 <div class="w-full divide-y divide-gray-300">
   <% @cart_items.each do |ci| %>
     <div class="w-full">

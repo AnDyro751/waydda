@@ -23,8 +23,8 @@ if (element) {
 <% end %>
 <% end %>
 <% else %>
-document.querySelector("#notifications").innerHTML = "<%= j render Notifications::Alert.new(alert: "Se ha guardado la dirección",kind: "success") %>";
+window.addToastify("primary", "Dirección guardada")
 document.querySelector("#address_value").innerHTML = "<%= @address.address %>";
-document.querySelector("#address_value").title = "<%= @address.address %>";current_user_id: current_user.id.to_s,
-    <% end %>
-    window.deleteFlashs();
+document.querySelector("#address_value").title = "<%= @address.address %>";
+<% end %>
+window.deleteFlashs();

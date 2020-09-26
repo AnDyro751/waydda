@@ -22,7 +22,7 @@ class Address
   field :current, type: Boolean, default: false
   field :lat, type: Float
   field :lng, type: Float
-
+  field :instructions, type: String
 
   embedded_in :model, polymorphic: true
 

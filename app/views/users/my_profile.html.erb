@@ -6,7 +6,6 @@
 <% end %>
 
 <div
-  x-data="address()"
   class="w-full mx-auto flex gap-4">
   <div class="w-9/12 mx-auto flex-wrap">
     <div class="w-full items-center flex">
@@ -20,55 +19,7 @@
           <h2 class="font-bold mb-4 text-lg">
             Dirección de entrega
           </h2>
-          <%= simple_form_for(@new_address,
-                              defaults: {
-                                  input_html: {
-                                      class: "py-3 px-3 bg-white border-gray-400 border appearance-none focus:border-black rounded focus:outline-none w-full mt-2"
-                                  },
-                                  label_html: {
-                                      class: "text-sm font-normal text-gray-600"
-                                  }
-                              },
-                              html: {class: "w-full", autocomplete: 'off'},
-                              remote: true
-              ) do |f| %>
-            <div class="w-full flex flex-wrap">
-              <div class="w-full relative mb-4">
-                <div class="w-full">
-                  <%= f.input :search_address, label: "Dirección", placeholder: "Torres del Toreo", input_html: {"x-on:input": "addressHandleChange($event)", value: @new_address.address} %>
-                  <span name="address[address]_error" class="text-sm font-bold text-red-600"></span>
-                </div>
-                <%= f.input :address, as: :hidden, label: "address" %>
-                <%= f.input :lat, as: :hidden, label: "lat" %>
-                <%= f.input :lng, as: :hidden, label: "lng" %>
-                <div
-                  :class="{'hidden' : addresses.length <= 0}"
-                  class="absolute transform translate-y-full bottom-0 left-0 right-0 w-full shadow bg-white">
-                  <template x-for="address in addresses" :key="address.id">
-                    <p
-                      @click="selectAddress({address: address.place_name, center: JSON.stringify(address.center)})"
-                      class="px-4 py-2 hover:bg-gray-100 border-b cursor-pointer" x-text="address.place_name"></p>
-                  </template>
-                </div>
-              </div>
-              <div class="w-full mb-4">
-                <%= f.input :description, label: "Piso / Oficina / Apto / Depto", placeholder: "Descripción de la dirección (ej. torre, apartamento)", input_html: {"x-on:input": "handleChange($event)"}, required: false %>
-                <span name="address[description]_error" class="text-sm font-bold text-red-600"></span>
-              </div>
-            </div>
-            <div class="w-full flex flex-grow">
-              <div class="w-full mb-4">
-                <%= f.input :internal_number, label: "Número interno", placeholder: "15 B" %>
-                <span id="internal_number_error" class="text-sm font-bold text-red-600"></span>
-              </div>
-            </div>
-            <div class="w-full mt-6 flex justify-end">
-              <%= f.submit "Guardar",
-                           data:
-                               {"disable-with": "Actualizando..."},
-                           class: main_color_button(color: "secondary", size: "big") %>
-            </div>
-          <% end %>
+          <%= render Address::Form.new(address: @new_address) %>
         </div>
         <div class="w-6/12">
           <h2 class="font-bold mb-4 text-lg">
@@ -82,51 +33,6 @@
       <%= link_to "Cerrar sesión", destroy_user_session_path, method: :delete %>
     </div>
   </div>
-  <script type="text/javascript" charset="utf-8">
-      var timer;
 
-      function address() {
-          return {
-              addresses: [],
-              handleChange: function (e) {
-                  e.target.classList.remove("border-red-500");
-                  var element = document.querySelector(`[name="${e.target.name}_error"`);
-                  if (element) {
-                      element.innerHTML = "";
-                  }
-              },
-              selectAddress: function (e) {
-                  this.addresses = [];
-                  var coordinates = JSON.parse(e.center);
-
-                  document.querySelector("#address_search_address").value = e.address;
-                  document.querySelector("#address_address").value = e.address;
-                  document.querySelector("#address_lng").value = coordinates[0];
-                  document.querySelector("#address_lat").value = coordinates[1];
-                  window.current_map.setCenter(coordinates);
-                  window.current_marker.setLngLat(coordinates);
-              },
-              addressHandleChange: function (e) {
-                  var element = document.querySelector('[name="address[address]_error"]');
-                  element.innerHTML = "";
-                  e.target.classList.remove("border-red-500")
-                  clearTimeout(timer);
-                  let value = e.target.value;
-                  document.querySelector("#address_address").value = "";
-                  if (value.length > 0) {
-                      timer = setTimeout(async () => {
-                          var records = window.getMapRecords({text: value});
-                          if (Array.isArray(records)) {
-                              this.addresses = records;
-                          }
-                      }, 300)
-                  } else {
-                      this.addresses = []
-                  }
-              }
-          }
-      }
-
-  </script>
 </div>
 <%= javascript_pack_tag "my_profile", 'data-turbolinks-track': "reload" %>
