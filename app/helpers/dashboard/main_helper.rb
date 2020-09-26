@@ -5,13 +5,13 @@ module Dashboard::MainHelper
   # @return [String]
   def main_color_button(color: "", custom_class: nil, size: "small", padding: "small")
     if color === "secondary"
-      "#{custom_class ? custom_class : ""} bg-main-blue #{size != "small" ? "px-6" : "px-4" } hover:bg-opacity-75 cursor-pointer hover:shadow-small transform shadow-main hover:top-simple hover:left-simple relative #{padding === "small" ? "py-2 text-sm" : "py-3"} transition duration-150 font-medium border-2 text-white rounded border-black"
+      "#{custom_class ? custom_class : ""} bg-main-blue #{size != "small" ? "px-6" : "px-4" } hover:bg-opacity-75 cursor-pointer transform shadow-main relative #{padding === "small" ? "py-2 text-sm" : "py-3"} transition duration-150 font-medium border-2 text-white rounded border-black"
     elsif color === "primary"
-      "#{custom_class ? custom_class : ""} bg-main-teal #{size != "small" ? "px-6" : "px-4" } hover:bg-opacity-75 cursor-pointer hover:shadow-small transform shadow-main hover:top-simple hover:left-simple relative #{padding === "small" ? "py-2 text-sm" : "py-3"} transition duration-150 font-medium border-2 text-black rounded border-black"
+      "#{custom_class ? custom_class : ""} bg-main-teal #{size != "small" ? "px-6" : "px-4" } hover:bg-opacity-75 cursor-pointer transform shadow-main relative #{padding === "small" ? "py-2 text-sm" : "py-3"} transition duration-150 font-medium border-2 text-black rounded border-black"
     elsif color === "danger"
-      "#{custom_class ? custom_class : ""} bg-main-red #{size != "small" ? "px-6" : "px-4" } hover:bg-opacity-75 cursor-pointer hover:shadow-small transform shadow-main hover:top-simple hover:left-simple relative #{padding === "small" ? "py-2 text-sm" : "py-3"} transition duration-150 font-medium border-2 text-white rounded border-black"
+      "#{custom_class ? custom_class : ""} bg-main-red #{size != "small" ? "px-6" : "px-4" } hover:bg-opacity-75 cursor-pointer transform shadow-main relative #{padding === "small" ? "py-2 text-sm" : "py-3"} transition duration-150 font-medium border-2 text-white rounded border-black"
     else
-      "#{custom_class ? custom_class : ""} bg-main-dark #{size != "small" ? "px-6" : "px-4" } hover:bg-opacity-75 cursor-pointer hover:shadow-small transform shadow-main hover:top-simple hover:left-simple relative #{padding === "small" ? "py-2 text-sm" : "py-3"} transition duration-150 font-medium border-2 text-white rounded border-black"
+      "#{custom_class ? custom_class : ""} bg-main-dark #{size != "small" ? "px-6" : "px-4" } hover:bg-opacity-75 cursor-pointer transform shadow-main relative #{padding === "small" ? "py-2 text-sm" : "py-3"} transition duration-150 font-medium border-2 text-white rounded border-black"
     end
   end
 
@@ -23,7 +23,7 @@ module Dashboard::MainHelper
   # @param [String] action
   # @return [ActiveSupport::SafeBuffer]
   def main_button(to:, custom_class: nil, text:, class_icon: nil, action: nil, custom_click: nil)
-    link_to to, class: "#{custom_class ? custom_class : "bg-main-teal hover:bg-opacity-75 hover:shadow-small transform shadow-main hover:top-simple hover:left-simple relative py-2 px-4 transition duration-150 font-medium text-sm border-2 text-black rounded border-black"}", "@click": "#{custom_click ? custom_click : nil}" do
+    link_to to, class: "#{custom_class ? custom_class : "bg-main-teal hover:bg-opacity-75 transform shadow-main  relative py-2 px-4 transition duration-150 font-medium text-sm border-2 text-black rounded border-black"}", "@click": "#{custom_click ? custom_click : nil}" do
       data = "<span>
             #{
       if action

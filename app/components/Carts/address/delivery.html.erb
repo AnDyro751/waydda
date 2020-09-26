@@ -15,7 +15,7 @@
     <% else %>
       <% if helpers.current_user.current_address %>
         <h3 class="font-normal text-gray-800 truncate"><%= helpers.current_user.current_address.address %></h3>
-        <h4 class="text-sm text-gray-700 truncate"><%= helpers.current_user.current_address.description %></h4>
+        <h4 class="text-sm text-gray-700 truncate mt-1"><%= helpers.current_user.current_address.description %></h4>
       <% else %>
         <div class="w-full">
           <%= link_to "Agregar dirección de entrega", place_my_cart_path(cart_action: "edit"), class: "#{helpers.main_color_button(color: "primary")}" %>

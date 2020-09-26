@@ -41,7 +41,7 @@ class Place
   field :other_category, type: String
 # DELIVERY
   field :delivery_option, type: Boolean, default: false
-  field :delivery_cost, type: Float, default: 10
+  field :delivery_cost, type: Float, default: 20
   field :delivery_distance, type: Float, default: 5
   field :delivery_extra_cost, type: Float, default: 0
 
