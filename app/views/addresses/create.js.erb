@@ -1,27 +1,31 @@
 window.scrollTo(0, 0);
 document.querySelector("#notifications").innerHTML = "";
 <% if @address.errors.any? %>
-  document.querySelector("#notifications").innerHTML = "<%= j render Notifications::Alert.new(alert: "Se han encontrado errores al guardar la dirección",kind: "error") %>";
-  <% @address.errors.each do |keyE,error| %>
-    console.log("<%= keyE %>", "<%= error %>")
-    document.querySelector("#address_search_<%= keyE.to_s %>").classList.add("border-red-500");
-    document.querySelector("[name='address[address]_error']").innerHTML = "<%= error %>";
-  <% end %>
-  var element = document.querySelector("#address_<%= keyE %>");
-  if (element) {
-      element.classList.add("border-red-500");
-      var spanElement = document.querySelector('[name="address[<%=keyE %>]_error"]')
-      if (spanElement) {
-          spanElement.innerHTML = "<%= error %>";
-      } else {
-          var newNotification = document.createElement("div")
-          newNotification.innerHTML = "<%= j render Notifications::Alert.new(alert: "#{keyE} #{error}" ,kind: "error") %>";
-          document.querySelector("#notifications").appendChild(newNotification);
-      }
-  }
+document.querySelector("#notifications").innerHTML = "<%= j render Notifications::Alert.new(alert: "Se han encontrado errores al guardar la dirección",kind: "error") %>";
+<% @address.errors.each do |keyE,error| %>
+console.log("<%= keyE %>", "<%= error %>")
+document.querySelector("#address_search_<%= keyE.to_s %>").classList.add("border-red-500");
+document.querySelector("[name='address[address]_error']").innerHTML = "<%= error %>";
+<% end %>
+var element = document.querySelector("#address_<%= keyE %>");
+if (element) {
+    element.classList.add("border-red-500");
+    var spanElement = document.querySelector('[name="address[<%=keyE %>]_error"]')
+    if (spanElement) {
+        spanElement.innerHTML = "<%= error %>";
+    } else {
+        var newNotification = document.createElement("div")
+        newNotification.innerHTML = "<%= j render Notifications::Alert.new(alert: "#{keyE} #{error}" ,kind: "error") %>";
+        document.querySelector("#notifications").appendChild(newNotification);
+    }
+}
 <% else %>
 window.addToastify("primary", "Dirección guardada")
-document.querySelector("#address_value").innerHTML = "<%= @address.address %>";
-document.querySelector("#address_value").title = "<%= @address.address %>";
+if (document.querySelector("#address_value")) {
+    document.querySelector("#address_value").innerHTML = "<%= @address.address %>";
+    document.querySelector("#address_value").title = "<%= @address.address %>";
+} else {
+    Turbolinks.visit(location.pathname)
+}
 <% end %>
 window.deleteFlashs();

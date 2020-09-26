@@ -24,7 +24,11 @@ if (element) {
 <% end %>
 <% else %>
 window.addToastify("primary", "Dirección guardada")
-document.querySelector("#address_value").innerHTML = "<%= @address.address %>";
-document.querySelector("#address_value").title = "<%= @address.address %>";
+if (document.querySelector("#address_value")) {
+    document.querySelector("#address_value").innerHTML = "<%= @address.address %>";
+    document.querySelector("#address_value").title = "<%= @address.address %>";
+} else {
+    Turbolinks.visit(location.pathname)
+}
 <% end %>
 window.deleteFlashs();
