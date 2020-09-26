@@ -203,6 +203,6 @@ class Dashboard::PlacesController < ApplicationController
   end
 
   def place_delivery_params
-    params.require(:place).permit(:delivery_option, :delivery_cost, :delivery_distance)
+    params.require(:place).permit(:delivery_option, :delivery_cost, :delivery_distance, :pickup_time)
   end
 end

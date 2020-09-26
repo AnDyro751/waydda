@@ -39,6 +39,18 @@
           :class="{'hidden': !acceptDelivery}"
           class="w-full flex flex-wrap <%= @place.delivery_option ? "" : "hidden" %>">
           <div class="w-full">
+            <%= f.input :pickup_time, collection: Place.get_pickup_times, prompt: "Selecciona una opción", label: "Tiempo estimado para la recolección",
+                        label_html: {
+                            class: "text-sm font-normal text-gray-600",
+                        },
+                        input_html: {
+                            "x-on:input": "handleInputChange($event)"
+
+                        },
+                        wrapper_html: {class: "w-full"} %>
+            <span name="place[pickup_time]_error" class="text-sm font-bold text-red-600"></span>
+          </div>
+          <div class="w-full">
             <%= f.input :delivery_cost, as: :float, label: "Precio de envío en pesos mexicanos",
                         label_html: {
                             class: "text-sm font-normal text-gray-600",

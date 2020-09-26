@@ -39,6 +39,7 @@ class Place
   field :trial_used, type: Boolean, default: false
   field :category, type: String
   field :other_category, type: String
+  field :pickup_time, type: String, default: "0"
 # DELIVERY
   field :delivery_option, type: Boolean, default: false
   field :delivery_cost, type: Float, default: 20
@@ -61,6 +62,7 @@ class Place
   validates :name, presence: true, length: {in: 4..40}
   validates :address, presence: true, length: {in: 4..100}
   validates :status, presence: true, inclusion: {in: %w(pending active inactive)}
+  validates :pickup_time, inclusion: {in: %w(0 1 2 3)}
   validates :category, inclusion: {in: %w(groceries food services other)}, allow_blank: true
   validates :other_category, length: {in: 0..40}, allow_blank: true
   validates :kind, presence: true, inclusion: {in: %w(free premium)}
@@ -68,6 +70,7 @@ class Place
   validates :delivery_cost, numericality: {greater_than_or_equal_to: 0}
   validates :delivery_distance, numericality: {greater_than_or_equal_to: 0.3}
 # validates :city, presence: true
+
 
   aasm column: :status do
     state :pending
@@ -112,6 +115,15 @@ class Place
     raise "Esta empresa no está disponible"
     false
   end
+
+  def self.get_pickup_times
+    [["10 - 15 minutos", "0"], ["15 - 30 minutos", "1"], ["30 - 45 minutos", "2"], ["Más de una hora", "3"]]
+  end
+
+  def get_pickup_time
+    Place.get_pickup_times.find { |a| a[1] === self.pickup_time }[0]
+  end
+
 
   private
 
