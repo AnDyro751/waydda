@@ -72,6 +72,8 @@
               return {
                   acceptDelivery: deliveryOption,
                   handleChange: function (e) {
+                      var isTrue = (e.target.value === "true")
+                      this.acceptDelivery = isTrue;
                       var element = document.querySelector(`[name="${e.target.name}_error"`);
                       if (element) {
                           element.innerHTML = "";

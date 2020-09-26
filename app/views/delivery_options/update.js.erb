@@ -18,7 +18,7 @@ document.querySelector("#pickup-button").classList.add("text-black");
 document.querySelector("#pickup-button").classList.add("bg-main-gray");
 
 
-//document.querySelector("#delivery-address").classList.remove("hidden");
+document.querySelector("#cart-address").classList.remove("hidden");
 document.querySelector("#pickup-address").classList.add("hidden");
 
 <% else %>
@@ -33,7 +33,7 @@ document.querySelector("#delivery-button").classList.add("text-black");
 document.querySelector("#delivery-button").classList.remove("text-white");
 document.querySelector("#delivery-button").classList.add("bg-main-gray");
 
-//document.querySelector("#delivery-address").classList.add("hidden");
+document.querySelector("#cart-address").classList.add("hidden");
 document.querySelector("#pickup-address").classList.remove("hidden");
 <% end %>
 //TODO: Hacer toogle de los botones

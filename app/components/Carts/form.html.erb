@@ -72,17 +72,18 @@
 
 
       <% if @current_cart.delivery_option %>
-        <div class="w-full mt-10 px-4 py-6 rounded bg-white <%= if @current_cart.delivery_option
-                                                                  @current_cart.delivery_option.kind === "pickup" ? "" : "hidden"
-                                                                else
-                                                                  ""
-                                                                end %>" id="pickup-address">
-          <h3 class="font-bold text-sm">
-            Recoger pedido en:
-          </h3>
-          <h2
-            title="<%= @place.address %>"
-            class="text-2xl font-bold mt-8"><%= @place.address %></h2>
+        <div class="w-full mt-10 <%= if @current_cart.delivery_option
+                                 @current_cart.delivery_option.kind === "pickup" ? "" : "hidden"
+                               else
+                                 ""
+                               end %>" id="pickup-address">
+          <%= render(Carts::Address::Pickup.new(place: @place)) %>
+          <!--          <h3 class="font-bold text-sm">-->
+          <!--            Recoger pedido en:-->
+          <!--          </h3>-->
+          <!--          <h2-->
+          <!--            title="<%#= @place.address %>"-->
+          <!--            class="text-2xl font-bold mt-8"><%#= @place.address %></h2>-->
         </div>
       <% end %>
       <div class="w-full mt-10" id="cart-address">
