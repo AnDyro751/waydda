@@ -179,7 +179,7 @@ class Product
 
 
   def get_truncate(quantity = 1)
-    if quantity >= 100
+    if quantity >= 51
       return 20
     else
       return quantity

@@ -98,66 +98,70 @@
             class="text-2xl font-bold mt-8"><%= @place.address %></h2>
         </div>
       <% end %>
-      <div class="w-full mt-10 bg-white rounded flex flex-wrap shadow" id="cart-show-products">
+      <div class="w-full mt-10" id="cart-address">
+        <%= render(Carts::Address::Delivery.new(place: @place)) %>
+      </div>
+      <div class="w-full border-black border shadow-main mt-10 bg-white rounded flex flex-wrap" id="cart-show-products">
         <%= render Carts::ListItems.new(cart_items: @cart_items, place: @place) %>
       </div>
-      <div class="w-full px-4 py-6 flex flex-wrap items-center mt-8 bg-white rounded shadow">
-        <div class="w-4/12">
-          <h3 class="font-bold text-sm">Método de pago</h3>
-          <!--          <div clas ></div>-->
-        </div>
-        <div class="w-8/12 flex items-center gap-4 justify-end">
-          <!--          <div class="w-auto">-->
-          <!--            <span id="payment-selected" class="font-bold select-none"><%#= @current_cart.payment_type === "card" ? "Tarjeta de crédito/débito" : "Efectivo" %></span>-->
-          <!--          </div>-->
-          <div class="w-auto" id="select-payment-method">
-            <%= simple_form_for(@current_cart, method: :put, url: place_update_payment_method_path(@place.id), remote: true) do |f| %>
-              <div class="relative">
-                <%= f.input :payment_type, collection: [["Tarjeta de Débito/Crédito", "card"], %w[Efectivo cash]],
-                            input_html: {
-                                "onchange": "Rails.fire(this.form, 'submit')",
-                                class: "block appearance-none w-full bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none"
-                            },
-                            label: false, prompt: "Selecciona un método de pago" %>
-                <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
-                  <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
-                    <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/>
-                  </svg>
+      <div class="w-full flex flex-wrap items-center mt-8 border-black border shadow-main rounded">
+        <div class="w-full flex border-b px-4">
+          <div class="w-4/12 mr-4">
+            <%= render Headers::Text.new(title: "Método de pago", small: true, padding_class: "py-6", font: "small", with_margin: false, with_border: false) %>
+          </div>
+          <div class="w-8/12 flex items-center gap-4 justify-end">
+            <!--          <div class="w-auto">-->
+            <!--            <span id="payment-selected" class="font-bold select-none"><%#= @current_cart.payment_type === "card" ? "Tarjeta de crédito/débito" : "Efectivo" %></span>-->
+            <!--          </div>-->
+            <div class="w-auto" id="select-payment-method">
+              <%= simple_form_for(@current_cart, method: :put, url: place_update_payment_method_path(@place.id), remote: true) do |f| %>
+                <div class="relative">
+                  <%= f.input :payment_type, collection: [["Tarjeta de Débito/Crédito", "card"], %w[Efectivo cash]],
+                              input_html: {
+                                  "onchange": "Rails.fire(this.form, 'submit')",
+                                  class: "block appearance-none w-full bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none"
+                              },
+                              label: false, prompt: "Selecciona un método de pago" %>
+                  <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
+                    <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                      <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/>
+                    </svg>
+                  </div>
                 </div>
-              </div>
-            <% end %>
+              <% end %>
 
+            </div>
+          </div>
+        </div>
+        <div class="w-full flex flex-wrap px-4">
+          <div
+            id="payment-with-cash"
+            class="w-full my-8 flex justify-end <%= @current_cart.payment_type === "card" ? "hidden" : "" %>">
+            <%= button_to "Realizar pedido", place_create_charge_path(@place), data: {"disable-with": "Finalizando pedido..."},
+                          params: {payment_type: "cash"},
+                          remote: true,
+                          class: helpers.main_color_button(color: "primary")
+            %>
           </div>
 
+          <form action="/charge" method="post" id="payment-form" class="w-full flex flex-wrap mt-4 <%= @current_cart.payment_type === "card" ? "" : "hidden" %>">
+            <div class="w-full">
+              <label for="card-element" class="text-sm text-gray-600">
+                Tarjeta de crédito o débito
+              </label>
+              <div id="card-element" class="mt-2 bg-main-gray p-4 rounded">
+                <!-- a stripe element will be inserted here. -->
+              </div>
 
-        </div>
-        <div
-          id="payment-with-cash"
-          class="w-full mt-12 flex justify-end <%= @current_cart.payment_type === "card" ? "hidden" : "" %>">
-          <%= button_to "Realizar pedido", place_create_charge_path(@place), data: {"disable-with": "Finalizando pedido..."},
-                        params: {payment_type: "cash"},
-                        remote: true,
-                        class: helpers.main_color_button(color: "primary")
-          %>
-        </div>
-
-        <form action="/charge" method="post" id="payment-form" class="w-full flex flex-wrap mt-4 <%= @current_cart.payment_type === "card" ? "" : "hidden" %>">
-          <div class="w-full">
-            <label for="card-element" class="text-sm text-gray-600">
-              Tarjeta de crédito o débito
-            </label>
-            <div id="card-element" class="mt-2 bg-main-gray p-4 rounded">
-              <!-- a stripe element will be inserted here. -->
+              <!-- used to display form errors. -->
+              <div id="card-errors" role="alert"></div>
             </div>
 
-            <!-- used to display form errors. -->
-            <div id="card-errors" role="alert"></div>
-          </div>
-
-          <div class="w-full mt-12 flex justify-end">
-            <button class="<%= helpers.main_color_button(color: "primary") %>">Realizar pedido</button>
-          </div>
-        </form>
+            <div class="w-full my-8 flex justify-end">
+              <button class="<%= helpers.main_color_button(color: "primary") %>">Realizar pedido</button>
+            </div>
+          </form>
+        </div>
       </div>
 
 

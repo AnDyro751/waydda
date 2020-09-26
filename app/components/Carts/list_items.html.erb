@@ -1,11 +1,8 @@
-  <%= render Headers::Text.new(title: "Productos en el carrito", small: true, padding_class: "py-6 px-4", font: "small", with_margin: false) %>
-  <!--        <h3 class="font-bold text-sm mb-8">-->
-  <!--          Productos en el carrito-->
-  <!--        </h3>-->
-  <div class="w-full divide-y divide-gray-300">
-    <% @cart_items.each do |ci| %>
-      <div class="px-4 w-full">
-        <%= render Carts::Item.new(cart_item: ci, place: @place) %>
-      </div>
-    <% end %>
-  </div>
+<%= render Headers::Text.new(title: "Productos en el carrito", small: true, padding_class: "py-6 px-4", font: "small", with_margin: false, with_border: true) %>
+<div class="w-full divide-y divide-gray-300">
+  <% @cart_items.each do |ci| %>
+    <div class="w-full">
+      <%= render Carts::Item.new(cart_item: ci, place: @place) %>
+    </div>
+  <% end %>
+</div>

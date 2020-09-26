@@ -163,6 +163,5 @@ RSpec.describe Cart, type: :model do
       end
 
     end
-
   end
 end
