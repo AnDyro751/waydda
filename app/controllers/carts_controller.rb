@@ -3,10 +3,11 @@ class CartsController < ApplicationController
   before_action :authenticate_user!
   Stripe.api_key = 'sk_test_51H9CZeBOcPJ0nbHctTzfQZhFXBnn8j05e0xqJ5RSVz5Bum72LsvmQKIecJnsoHISEg0jUWtKjERYGeCAEWiIAujP00Fae9MiKm'
   before_action :set_place, only: [:create_charge, :success, :payment_method, :show, :add_product, :update_item]
-  before_action :set_current_cart, only: [:create_charge, :add_product, :payment_method, :success, :show, :update_item]
+  before_action :set_current_cart, only: [:create_charge, :add_product, :payment_method, :show, :update_item]
   before_action :set_product, only: [:add_product]
   before_action :set_current_cart_item, only: [:update_item]
   before_action :set_cart_items, only: [:show]
+  before_action :set_current_address, only: [:create_charge]
   skip_before_action :verify_authenticity_token, only: [:update_item]
 
 
@@ -25,42 +26,36 @@ class CartsController < ApplicationController
   end
 
   def show
-    respond_to do |format|
-      @address = current_user.current_address || current_user.addresses.new
-      format.html
-      # format.html { render :show }
-      format.json { render "carts/show" }
-    end
+    # respond_to do |format|
+    @address = current_user.current_address || current_user.addresses.new
+    # format.html
+    # format.html { render :show }
+    # format.json { render "carts/show" }
+    # end
   end
 
 
   def success
-    not_found if @current_cart.nil?
+    @current_cart = current_user.carts.find_by(place: @place) || not_found
   end
 
 
   def create_charge
-    if params["payment_type"] === "cash"
-      new_order = @place.orders.new(send_to: {name: "#{current_user.name} #{current_user.lastName}", email: current_user.email}, address: @current_address, cart_id: @current_cart.id.to_s)
-      respond_to do |format|
-        if new_order.save
-          if @current_cart.to_success!
-            # TODO: Redireccionar al lugar del success
-            format.html { redirect_to root_path, status: :created, alert: "Gracias por tu pedido" }
+    respond_to do |format|
+      if @current_cart.payment_type === "cash"
+        begin
+          if @current_cart.create_new_cash_order(place: @place, address: @current_address, current_user: current_user)
+            format.html { redirect_to place_success_checkout_path(@place.slug, @current_cart), alert: "Tu compra se ha realizado" }
           else
-            # TODO: Eliminar estos mensajes !!!
-            @order.delete
-            format.html { redirect_to place_my_cart_path(@place.slug), status: :unprocessable_entity, alert: "!!!Ha ocurrido un error al procesar el pago!!! #{@order.errors.full_messages}" }
+            format.html { redirect_to place_my_cart_path(@place.slug), alert: "Ha ocurrido un error al procesar el pago" }
           end
-        else
-          puts "-----#{@order.errors.full_messages} -#{current_user}"
-          format.html { redirect_to place_my_cart_path(@place.slug), status: :unprocessable_entity, alert: "!!!Ha ocurrido un error al procesar el pago!!! #{@order.errors.full_messages}" }
+        rescue => e
+          logger.warn "ERROR AL CREAR EL CARGO #{e}"
+          format.html { redirect_to place_my_cart_path(@place.slug), alert: "Ha ocurrido un error al procesar el pago" }
         end
-      end
-    else
-      @items = @current_cart.cart_items.includes(:product).to_a
-      @total = Cart.get_total(@items)
-      respond_to do |format|
+      else
+        @items = @current_cart.cart_items.includes(:product).to_a
+        @total = Cart.get_total(@items)
         if @current_address.nil?
           format.json { render json: {errors: "Ingresa una dirección de entrega"}, status: :unprocessable_entity }
         end
@@ -84,7 +79,6 @@ class CartsController < ApplicationController
           # Agregar otro carrito al user
           # Nueva sesión del carrito
 
-          CreateOrderJob.perform_later(@current_address.attributes, current_user.attributes, @current_cart.attributes) # Mandar el job para agregar la orden
           new_cart = Cart.create(user: current_user)
           current_user.cart = new_cart
           session[:cart_id] = new_cart.id.to_s
@@ -95,6 +89,7 @@ class CartsController < ApplicationController
           puts "-------#{e}"
           format.json { render json: {errors: "Ha ocurrido un error al crear el cargo"}, status: :unprocessable_entity }
         end
+
       end
     end
   end
@@ -158,7 +153,7 @@ class CartsController < ApplicationController
     if params["cart_id"].present?
       @current_cart = current_user.carts.find_by(id: params["cart_id"], status: "pending") || not_found
     else
-      @current_cart = current_user.carts.find_by(place: @place, status: "pending") || not_found
+      @current_cart = current_user.carts.find_or_create_by(place: @place, status: "pending") || not_found
     end
   end
 

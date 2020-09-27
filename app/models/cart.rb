@@ -126,30 +126,6 @@ class Cart
     place.valid_sale? and product.valid_sale?(quantity: quantity) and product.valid_aggregates_sale?(aggregates: aggregates)
   end
 
-  # def add_item(current_cart, current_item, product, quantity = 1, user_logged_in)
-  #   new_quantity = current_item.quantity + quantity unless current_item.nil?
-  #   new_quantity = quantity if current_item.nil?
-  #   new_cart_quantity = current_cart.quantity + quantity
-  #   return {success: false, total_items_counter: nil, total_items_cart: nil} unless product.valid_stock(new_quantity)
-  #   if current_item.nil?
-  #     begin
-  #       current_cart.cart_items.create!(product: product, quantity: new_quantity, added_in: user_logged_in)
-  #       current_cart.update(quantity: new_cart_quantity)
-  #       return {success: true, total_items_counter: new_quantity, total_items_cart: current_cart.quantity}
-  #     rescue
-  #       return {success: false, total_items_counter: nil, total_items_cart: nil}
-  #     end
-  #   else
-  #     if current_item.update(quantity: new_quantity)
-  #       current_cart.update(quantity: new_cart_quantity)
-  #       return {success: true, total_items_counter: current_item.quantity, total_items_cart: current_cart.quantity}
-  #     else
-  #       return {success: false, total_items_counter: nil, total_items_cart: nil}
-  #     end
-  #   end
-  # end
-  #
-  #
 
   # @param [Object] params
   # @return [Array] new_params
@@ -192,8 +168,21 @@ class Cart
       rescue
         return {success: true, total_items_counter: nil, total_items_cart: nil}
       end
-
     end
+  end
+
+  def create_new_cash_order(place:, address:, current_user:)
+    begin
+      if Order.create_cash_order(cart: self, place: place, address: address, current_user: current_user)
+        return self.update(status: "success")
+      else
+        raise "Ha ocurrido un error al crear la orden"
+      end
+    rescue => e
+      raise "#{e.message}" if e.message
+      raise "Ha ocurrido un error al crear la orden" unless e.message
+    end
+    return false
   end
 
 

@@ -38,9 +38,28 @@ class Order
   end
 
 
+  # @param [Object] cart
+  # @param [Object] place
+  # @param [Object] address
+  # @param [Object] current_user
+  # @return [TrueClass]
+  def self.create_cash_order(cart:, place:, address:, current_user:)
+    if cart.payment_type === "cash"
+      new_order = place.orders.new(send_to: {name: "#{current_user.name} #{current_user.lastName}", email: current_user.email}, address: address, cart: cart)
+      if new_order.save
+        return true
+      else
+        raise "Ha ocurrido al crear la orden"
+      end
+    end
+    raise "Ha ocurrido un error al pagar con efectivo"
+    return false
+  end
+
   private
 
   def create_order_callback
-    CreateOrderJob.perform_later(self)
+    # TODO: Crear el job para agregar los items y luego mandar a action cable
+    # CreateOrderJob.perform_later(@current_address.attributes, current_user.attributes, @current_cart.attributes) # Mandar el job para agregar la orden
   end
 end
