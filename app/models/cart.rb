@@ -173,7 +173,7 @@ class Cart
 
   def create_new_cash_order(place:, address:, current_user:)
     begin
-      if Order.create_cash_order(cart: self, place: place, address: address, current_user: current_user)
+      if Order.create_new_order(cart: self, place: place, address: address, current_user: current_user)
         return self.update(status: "success")
       else
         raise "Ha ocurrido un error al crear la orden"
@@ -185,5 +185,29 @@ class Cart
     return false
   end
 
+  def create_new_card_order(place:, address:, current_user:, total:, token_id:)
+
+    begin
+      logger.warn "TOKEN ID NO ESTÁ PRESENTE" unless token_id.present?
+      raise "Ha ocurrido un error al procesar el cargo - el token es nulo - #{token_id}" unless token_id.present?
+      return false unless token_id.present?
+      Stripe::Charge.create({
+                                amount: (total * 100).to_i,
+                                currency: 'mxn',
+                                source: token_id,
+                                description: "Compra en #{place.name} - Waydda México",
+                            })
+      if Order.create_new_order(cart: self, place: place, address: address, current_user: current_user)
+        return self.update(status: "success")
+      else
+        logger.warn "ERROR EN CREATE NEW_ORDER"
+        raise "Ha ocurrido un error al procesar el cargo - no se ha creado la orden"
+      end
+    rescue => e
+      logger.warn "-------#{e}"
+      raise "Ha ocurrido un error al procesar el pago - Stripe error"
+      # format.json { render json: {errors: "Ha ocurrido un error al crear el cargo"}, status: :unprocessable_entity }
+    end
+  end
 
 end

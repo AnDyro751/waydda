@@ -50,7 +50,7 @@ document.addEventListener("turbolinks:load", async () => {
                 console.log("BEOFRE");
                 history.replaceState({}, "", current_location);
             },
-            onClose: ()=>{
+            onClose: () => {
                 document.querySelector("#modal").innerHTML = "";
                 document.querySelector("#modal-content").innerHTML = "";
             }
@@ -98,25 +98,32 @@ document.addEventListener("turbolinks:load", async () => {
 
 // Handle form submission.
         var form = document.getElementById('payment-form');
-        form.addEventListener('submit', function (event) {
-            console.log("HOLA");
-            event.preventDefault();
-
+        var button = document.querySelector("#submit-button");
+        form.addEventListener("ajax:beforeSend", function (e) {
+            console.log("STOP");
+            button.disabled = true;
+            button.value = "Cargando...";
+            e.preventDefault();
+            return false;
+        });
+        form.addEventListener("submit", () => {
             stripe.createToken(card).then(function (result) {
                 if (result.error) {
                     // Inform the user if there was an error.
                     var errorElement = document.getElementById('card-errors');
                     errorElement.textContent = result.error.message;
+                    button.disabled = false;
+                    button.value = "Realizar pedido";
                 } else {
                     // Send the token to your server.
                     stripeTokenHandler(result.token);
                     console.log(result);
                 }
             });
-        });
+        })
     }
 
-})
+});
 
 // Submit the form with the token ID.
 function stripeTokenHandler(token) {
@@ -129,5 +136,7 @@ function stripeTokenHandler(token) {
     form.appendChild(hiddenInput);
 
     // Submit the form
-    // form.submit();
+    // Rails.fire(form, "submit");
+
+    form.submit();
 }

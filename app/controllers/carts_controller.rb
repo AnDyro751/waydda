@@ -8,7 +8,7 @@ class CartsController < ApplicationController
   before_action :set_current_cart_item, only: [:update_item]
   before_action :set_cart_items, only: [:show]
   before_action :set_current_address, only: [:create_charge]
-  skip_before_action :verify_authenticity_token, only: [:update_item]
+  skip_before_action :verify_authenticity_token, only: [:update_item, :create_charge]
 
 
   def delivery_option
@@ -56,38 +56,15 @@ class CartsController < ApplicationController
       else
         @items = @current_cart.cart_items.includes(:product).to_a
         @total = Cart.get_total(@items)
-        if @current_address.nil?
-          format.json { render json: {errors: "Ingresa una dirección de entrega"}, status: :unprocessable_entity }
-        end
-        if @total <= 0
-          format.json { render json: {errors: "El carrito está vacío"}, status: :unprocessable_entity }
-        end
-        if params["token_id"].nil?
-          format.json { render json: {errors: "Ha ocurrido un error al crear el cargo"}, status: :unprocessable_entity }
-        end
         begin
-          Stripe::Charge.create({
-                                    amount: (@total * 100).to_i,
-                                    currency: 'mxn',
-                                    source: params["token_id"],
-                                    description: "Waydda México",
-                                })
-          #TODO: Actualizar carrito al aceptar el pago
-          # Validar la dirección de entrega
-          # Mandar el job con los datos del user y el address
-          # Eliminar el carrito del user
-          # Agregar otro carrito al user
-          # Nueva sesión del carrito
-
-          new_cart = Cart.create(user: current_user)
-          current_user.cart = new_cart
-          session[:cart_id] = new_cart.id.to_s
-          @current_cart = new_cart
-
-          format.json { render json: {errors: nil, success: true}, status: :created }
+          if @current_cart.create_new_card_order(place: @place, address: @current_address, current_user: current_user, total: @total, token_id: params["stripeToken"])
+            format.html { redirect_to place_success_checkout_path(@place.slug, @current_cart), alert: "Tu compra se ha realizado" }
+          else
+            format.html { redirect_to place_my_cart_path(@place.slug), notice: "Ha ocurrido un error al procesar el cargo" }
+          end
         rescue => e
-          puts "-------#{e}"
-          format.json { render json: {errors: "Ha ocurrido un error al crear el cargo"}, status: :unprocessable_entity }
+          logger.warn "HA OCURRIDO UN ERROR AL CREAR EL CARGO #{e.message}"
+          format.html { redirect_to place_my_cart_path(@place.slug), notice: "#{e.message}" }
         end
 
       end
@@ -159,7 +136,6 @@ class CartsController < ApplicationController
 
   def set_cart_items
     if params["place_id"].present?
-      @place = Place.find_by(slug: params["place_id"]) || not_found
       @cart_items = CartItem.where(cart: @current_cart, :product_id.nin => ["", nil]).includes(:product).to_a
       @cart_items.each do |ci|
         ci["product_record"] = ci.product

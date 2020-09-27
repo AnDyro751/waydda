@@ -43,14 +43,12 @@ class Order
   # @param [Object] address
   # @param [Object] current_user
   # @return [TrueClass]
-  def self.create_cash_order(cart:, place:, address:, current_user:)
-    if cart.payment_type === "cash"
-      new_order = place.orders.new(send_to: {name: "#{current_user.name} #{current_user.lastName}", email: current_user.email}, address: address, cart: cart)
-      if new_order.save
-        return true
-      else
-        raise "Ha ocurrido al crear la orden"
-      end
+  def self.create_new_order(cart:, place:, address:, current_user:)
+    new_order = place.orders.new(send_to: {name: "#{current_user.name} #{current_user.lastName}", email: current_user.email}, address: address, cart: cart)
+    if new_order.save
+      return true
+    else
+      raise "Ha ocurrido al crear la orden"
     end
     raise "Ha ocurrido un error al pagar con efectivo"
     return false
