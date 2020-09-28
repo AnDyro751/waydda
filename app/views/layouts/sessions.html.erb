@@ -22,7 +22,7 @@
   <div class="col-span-8 col-start-3 relative">
     <div id="notifications" class="absolute top-0 z-20 w-full">
       <% if notice.present? %>
-        <%= render Notifications::Alert.new(alert: notice) %>
+        <%= render Notifications::Alert.new(alert: notice, kind: "error") %>
       <% end %>
       <% if alert.present? %>
         <%= render Notifications::Alert.new(alert: alert) %>
