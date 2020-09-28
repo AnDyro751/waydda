@@ -1,5 +1,13 @@
 module Dashboard::MainHelper
 
+  def label_color_class
+    "text-sm text-gray-600 font-norma"
+  end
+
+  def input_color_class(padding: "small")
+    "bg-main-gray rounded outline:none focus:outline-none px-4 py-3 w-full focus:bg-white border-2 border-transparent focus:border-gray-300"
+  end
+
   # @param [String] color
   # @param [String] custom_class
   # @return [String]

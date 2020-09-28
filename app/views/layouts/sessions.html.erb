@@ -18,9 +18,9 @@
 </head>
 
 <body>
-<div class="grid grid-cols-12">
-  <div class="col-span-8 col-start-3 relative">
-    <div id="notifications" class="absolute top-0 z-20 w-full">
+<div class="w-full flex flex-wrap">
+  <div class="w-8/12 mx-auto relative">
+    <div id="notifications" class="w-full">
       <% if notice.present? %>
         <%= render Notifications::Alert.new(alert: notice, kind: "error") %>
       <% end %>
@@ -29,7 +29,7 @@
       <% end %>
     </div>
   </div>
-  <div class="col-span-12">
+  <div class="w-full">
 
     <%= yield %>
   </div>

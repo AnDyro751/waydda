@@ -59,9 +59,11 @@ class User
     if phone.present?
       unless Phonelib.valid?("+52#{phone}")
         errors.add(:phone, "invalid syntax")
+        return false
       end
     else
       errors.add(:phone, "Can't be blank")
+      return false
     end
   end
 
@@ -100,10 +102,10 @@ class User
     else
       phone_code = last_phone
       unless (DateTime.now - 5.minutes) >= phone_code.created_at
-        raise "Debes esperar 5 minutos para pedir otro código de verificación"
+        raise "Usa el último código de activación que se envío a #{self.phone}"
       end
     end
-    SendWhatsAppMessageJob.perform_now(message: User.text_code_message(code: phone_code.verification_code), phone: self.phone)
+      # SendWhatsAppMessageJob.perform_now(message: User.text_code_message(code: phone_code.verification_code), phone: self.phone)
   end
 
   def get_last_phone_code

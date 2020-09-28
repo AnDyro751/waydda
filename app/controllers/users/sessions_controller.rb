@@ -13,22 +13,28 @@ class Users::SessionsController < Devise::SessionsController
   def create
     respond_to do |format|
       if params["user"]["phone"].present?
+        unless Phonelib.valid?("+52#{params["user"]["phone"]}")
+          @error = "Número de teléfono incorrecto"
+          return format.js
+        end
         @user = User.find_by(phone: "#{params["user"]["phone"]}")
 
         if @user.nil?
           puts "------------USER ES NIL"
           @user = User.new(phone: "#{params["user"]["phone"]}")
-          puts "---------#{@user.errors.full_messages}"
+          # puts "---------#{@user.errors.full_messages}"
           @user.save
         else
           unless params["user"]["verification_code"].present?
             begin
               @user.create_and_send_verification_code
+              @show_input = true
             rescue => e
-              puts "------------#{e}"
-              return redirect_to new_user_session_path, notice: "#{e}"
+              puts "------------!!--#{e}"
+              @error = e
+              @show_input = true
+              return format.js
               return false
-                # format.html { redirect_to new_user_session_path, notice: "#{e}" }
             end
           end
         end
@@ -36,19 +42,18 @@ class Users::SessionsController < Devise::SessionsController
           @last_verification_code = @user.get_last_phone_code
           puts "NO HAY CPODIGO DE VERIFICACIONE" if @last_verification_code.nil?
           if params["user"]["verification_code"] === @last_verification_code.verification_code
-            puts "-------DICE QUE NO"
-            # sign_in @user
+            @last_verification_code.update(status: "used")
             format.html { sign_in_and_redirect @user, notice: "Bienvenido de nuevo" }
-            # format.html { redirect_to root_path, alert: "Bienvenido de nuevo" }
           else
-            puts "-------DICE QUE NO 2"
-            format.html { redirect_to new_user_session_path, notice: "El código de verificación es incorrecto" }
+            @error = "El código de verificación es incorrecto"
+            format.js
           end
         else
           format.js
         end
       else
-        format.html { redirect_to new_user_session_path, notice: "Ingresa un número de teléfono" }
+        @error = "Ingresa un número de teléfono"
+        format.js
       end
     end
     # super
