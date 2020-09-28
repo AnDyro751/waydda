@@ -1,5 +1,5 @@
 <div class="z-20 bottom-0 mx-auto w-full mt-10 <%= @with_spacing ? "mb-10" : "" %>">
-  <div id="flash-notice" class="<%= helpers.main_color_button(color: @kind === "success" ? "secondary" : "danger", padding: "big") %>">
+  <div id="flash-notice" class="border bg-opacity-25 px-4 py-3 rounded cursor-pointer <%= @kind == "error" ? "bg-red-200 border-red-300 text-main-red" : "bg-blue-200 border-blue-300" %>">
     <!--  "<%#= @kind === "success" ? "bg-indigo-600" : "bg-red-500" %>">-->
     <p class="font-normal"><%= @alert %></p>
   </div>

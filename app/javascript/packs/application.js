@@ -119,24 +119,12 @@ window.deleteFlashs = function deleteFlashNotice(custom_element = "#flash-notice
             var flashElement = document.querySelector(wrapper_element ? wrapper_element : "#notifications").innerHTML = ""
         }, false)
         setTimeout(() => {
-            // document.querySelector("#notifications").innerHTML = "";
+            document.querySelector("#notifications").innerHTML = "";
         }, 10000)
     }
 }
 
-function oneSignalStart() {
-    window.OneSignal = window.OneSignal || [];
-    OneSignal.push(function () {
-        console.log("HOLA ONE")
-        OneSignal.init({
-            appId: "db46681d-d22f-4c5c-ae4c-e85d54364f40",
-            notifyButton: {
-                enable: true,
-            },
-            subdomainName: "waydda",
-        });
-    });
-}
+
 
 
 function getColor(color) {
@@ -176,8 +164,6 @@ window.addToastify = function addToastify(color = "primary", text = "") {
 }
 
 document.addEventListener("turbolinks:load", () => {
-    // oneSignalStart()
-    //
     window.Toastify = Toastify;
 
     function logElementEvent(eventName, element) {

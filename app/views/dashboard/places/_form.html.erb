@@ -1,31 +1,34 @@
 <div class="w-full flex" x-data="addressForm()">
-  <%= simple_form_for(@place, url: url ? url : dashboard_places_path, remote: true, html: {class: "w-full flex gap-8 items-start"}) do |f| %>
-    <div class="w-1/2 mb-4 flex-wrap flex">
-      <div class="w-full">
+  <%= simple_form_for(@place, url: url ? url : dashboard_places_path, remote: true, html: {class: "w-full flex items-start flex-wrap p-8 rounded border-2 shadow"}) do |f| %>
+    <div class="w-full flex-wrap flex">
+      <div class="w-full mb-6">
         <%= f.input :name, label: "Nombre de tu empresa", placeholder: "Ej. Miscelanea Hermanos Ponchos",
-                    label_html: {class: "text-sm font-normal text-gray-600"},
+                    label_html: {
+                        class: label_color_class(size: "big")
+                    },
                     input_html: {
                         "x-on:input": "handleChange($event)",
-                        class: "py-3 px-3 bg-main-gray mb-4 border appearance-none focus:border-black rounded focus:outline-none w-full mt-2"}
+                        class: "#{input_color_class} mt-3"
+                    }
         %>
         <span name="place[name]_error" class="text-sm font-bold text-red-600"></span>
       </div>
       <%= f.input :address, as: :hidden, label: "address" %>
       <%= f.input :lat, as: :hidden, label: "lat" %>
       <%= f.input :lng, as: :hidden, label: "lng" %>
-      <div class="w-full mb-4 relative">
+      <div class="w-full mb-6 relative">
         <div class="w-full">
           <%= f.input :search_address,
                       required: true,
                       label: "Dirección de tu empresa",
                       placeholder: "Torres del Toreo",
                       label_html: {
-                          class: "text-sm font-normal text-gray-600"
+                          class: label_color_class(size: "big")
                       },
                       input_html: {
                           "x-on:input": "addressHandleChange($event)",
                           value: !@place.new_record? ? @place.address : "",
-                          class: "py-3 px-3 bg-main-gray border appearance-none focus:border-black rounded focus:outline-none w-full mt-2"
+                          class: "#{input_color_class} mt-3"
                       } %>
           <span name="place[address]_error" class="text-sm font-bold text-red-600"></span>
           <div
@@ -40,31 +43,31 @@
         </div>
 
       </div>
-      <div class="w-full mb-4">
+      <div class="w-full mb-6">
         <%= f.input :external_number,
-                    label: "Piso / Oficina / Apto / Depto/ # Número", placeholder: !@place.new_record? ? @place.external_number || "Descripción de la dirección (ej. torre, apartamento)" : "Descripción de la dirección (ej. torre, apartamento)",
+                    label: "Piso / Oficina / Apto / Depto/ # Número",
+                    placeholder: !@place.new_record? ? @place.external_number || "Descripción de la dirección (ej. torre, apartamento)" : "Descripción de la dirección (ej. torre, apartamento)",
                     label_html: {
-                        class: "text-sm font-normal text-gray-600"
+                        class: label_color_class(size: "big")
                     },
                     input_html: {
                         "x-on:input": "handleChange($event)",
-                        class: "py-3 px-3 bg-main-gray border appearance-none focus:border-black rounded focus:outline-none w-full mt-2"
+                        class: "#{input_color_class} mt-3"
+                        # "py-3 px-3 bg-main-gray border appearance-none focus:border-black rounded focus:outline-none w-full mt-2"
                     }
         %>
         <span name="place[external_number]_error" class="text-sm font-bold text-red-600"></span>
       </div>
 
       <%#= f.input :search_address, required: true, label: "Dirección de tu empresa", label_html: {class: "text-sm font-normal text-gray-600"}, input_html: {class: "py-3 px-3 bg-white border-gray-400 border appearance-none focus:border-black rounded focus:outline-none w-full mt-2 mb-4", value: ""} %>
-      <div class="w-full">
-        <span class="text-sm text-gray-600">Arrastra el marcador para colocar tu dirección exacta</span>
-        <div class="w-full h-64 rounded mt-2 bg-main-gray focus:outline-none outline-none" id="map">
+      <div class="w-full mb-6">
+        <span class="<%= label_color_class(size: "big") %>">Arrastra el marcador para colocar tu dirección exacta</span>
+        <div class="w-full h-xxl rounded mt-4 bg-main-gray focus:outline-none outline-none" id="map">
         </div>
       </div>
-      <div class="w-full justify-end flex mt-4">
-        <%= f.submit !@place.new_record? ? "Actualizar empresa" : "Crear empresa", data: {"disable-with": !@place.new_record? ? "Actualizando..." : "Creando..."}, class: main_color_button(color: "secondary") %>
-      </div>
+
     </div>
-    <div class="w-1/2 flex flex-wrap">
+    <div class="w-full flex flex-wrap">
       <% unless @place.new_record? %>
         <div class="w-full relative self-start">
           <div class="flex w-full flex-wrap">
@@ -89,16 +92,19 @@
         <%= f.input :category,
                     label: "Categoría de tu empresa",
                     label_html: {
-                        class: "text-sm font-normal text-gray-600"
+                        class: label_color_class(size: "big")
                     },
                     collection: Place.current_categories(),
                     prompt: "Selecciona una categoría",
                     input_html: {
                         "x-on:change": "handleChange($event)",
-                        class: "py-3 px-3 bg-main-gray mb-4 border appearance-none focus:border-black rounded focus:outline-none w-full mt-2"
+                        class: "#{input_color_class} mt-3"
                     }
         %>
         <span name="place[category]_error" class="text-sm font-bold text-red-600"></span>
+      </div>
+      <div class="w-full justify-start flex mt-4">
+        <%= f.submit !@place.new_record? ? "Actualizar empresa" : "Crear empresa", data: {"disable-with": !@place.new_record? ? "Actualizando..." : "Creando..."}, class: main_color_button(color: "secondary", padding: "big") %>
       </div>
     </div>
   <% end %>

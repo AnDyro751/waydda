@@ -1,7 +1,13 @@
 module Dashboard::MainHelper
 
-  def label_color_class
-    "text-sm text-gray-600 font-norma"
+  def current_active_class(page, classnames)
+    if current_page?(page)
+      return classnames
+    end
+  end
+
+  def label_color_class(size: "small")
+    "#{size === "big" ? "text-base font-medium text-gray-900" : "font-normal text-sm text-gray-600 "}"
   end
 
   def input_color_class(padding: "small")
@@ -11,15 +17,15 @@ module Dashboard::MainHelper
   # @param [String] color
   # @param [String] custom_class
   # @return [String]
-  def main_color_button(color: "", custom_class: nil, size: "small", padding: "small")
+  def main_color_button(color: "", custom_class: nil, size: "small", padding: "small", with_shadow: false)
     if color === "secondary"
-      "#{custom_class ? custom_class : ""} bg-main-blue #{size != "small" ? "px-6" : "px-4" } hover:bg-opacity-75 cursor-pointer transform shadow-main relative #{padding === "small" ? "py-2 text-sm" : "py-3"} transition duration-150 font-medium border-2 text-white rounded border-black"
+      "#{custom_class ? custom_class : ""} bg-main-blue #{size != "small" ? "px-6" : "px-4" } hover:bg-opacity-75 cursor-pointer transform relative #{padding === "small" ? "py-2 text-sm" : "py-3"} transition duration-150 font-medium #{with_shadow ? "shadow-main border-2" : ""}  text-white rounded border-black"
     elsif color === "primary"
-      "#{custom_class ? custom_class : ""} bg-main-teal #{size != "small" ? "px-6" : "px-4" } hover:bg-opacity-75 cursor-pointer transform shadow-main relative #{padding === "small" ? "py-2 text-sm" : "py-3"} transition duration-150 font-medium border-2 text-black rounded border-black"
+      "#{custom_class ? custom_class : ""} bg-main-teal #{size != "small" ? "px-6" : "px-4" } hover:bg-opacity-75 cursor-pointer transform relative #{padding === "small" ? "py-2 text-sm" : "py-3"} transition duration-150 font-medium #{with_shadow ? "shadow-main border-2" : ""}  text-black rounded border-black"
     elsif color === "danger"
-      "#{custom_class ? custom_class : ""} bg-main-red #{size != "small" ? "px-6" : "px-4" } hover:bg-opacity-75 cursor-pointer transform shadow-main relative #{padding === "small" ? "py-2 text-sm" : "py-3"} transition duration-150 font-medium border-2 text-white rounded border-black"
+      "#{custom_class ? custom_class : ""} bg-main-red #{size != "small" ? "px-6" : "px-4" } hover:bg-opacity-75 cursor-pointer transform  relative #{padding === "small" ? "py-2 text-sm" : "py-3"} transition duration-150 font-medium #{with_shadow ? "shadow-main border-2" : ""}  text-white rounded border-black"
     else
-      "#{custom_class ? custom_class : ""} bg-main-dark #{size != "small" ? "px-6" : "px-4" } hover:bg-opacity-75 cursor-pointer transform shadow-main relative #{padding === "small" ? "py-2 text-sm" : "py-3"} transition duration-150 font-medium border-2 text-white rounded border-black"
+      "#{custom_class ? custom_class : ""} bg-main-dark #{size != "small" ? "px-6" : "px-4" } hover:bg-opacity-75 cursor-pointer transform  relative #{padding === "small" ? "py-2 text-sm" : "py-3"} transition duration-150 font-medium #{with_shadow ? "shadow-main border-2" : ""}  text-white rounded border-black"
     end
   end
 
