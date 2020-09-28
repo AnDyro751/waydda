@@ -1,9 +1,9 @@
-<%if @delivery_option.errors.any? %>
+<%if @current_cart.errors.any? %>
 //TODO: Mostrar errores
 console.log("ERRORES")
 <% else %>
 <% if @big %>
-<% if @delivery_option.kind === "delivery" %>
+<% if @current_cart.delivery_kind === "delivery" %>
 // Remove styles
 //Button
 document.querySelector("#total-cost").innerHTML = "<%= number_to_currency(@total + @place.delivery_cost) %>"
@@ -38,7 +38,7 @@ document.querySelector("#pickup-address").classList.remove("hidden");
 <% end %>
 //TODO: Hacer toogle de los botones
 <% else %>
-<% if @delivery_option.kind === "delivery" %>
+<% if @current_cart.delivery_kind === "delivery" %>
 document.querySelector("#menu-pickup").classList.remove("border-b-2");
 document.querySelector("#menu-pickup").classList.remove("border-green-600");
 document.querySelector("#menu-delivery").className += " border-b-2 border-green-600";

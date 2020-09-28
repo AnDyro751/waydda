@@ -8,6 +8,7 @@ class Cart
   field :quantity, type: Integer, default: 0
   field :payment_type, type: String, default: "cash"
   field :status, type: String, default: "pending"
+  field :delivery_kind, type: String, default: "pickup"
 
   has_many :cart_items
   embeds_one :delivery_option
@@ -25,6 +26,14 @@ class Cart
     state :success
     event :to_success do
       transitions from: [:pending], to: :success
+    end
+  end
+
+  def get_valid_delivery
+    if self.place.kind === "premium"
+      return %w(delivery pickup)
+    else
+      return ["pickup"]
     end
   end
 
