@@ -27,7 +27,11 @@
       </div>
       <div class="w-full">
         <%#= render "devise/shared/form" %>
-        <%= render "devise/shared/links" %>
+        <%#= render "devise/shared/links" %>
+        <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+          <%= f.input :phone %>
+          <%= f.submit "Iniciar sesión" %>
+        <% end %>
       </div>
       <div class="w-full text-center">
         <p class="text-gray-500"><small>Al registrarte aceptas los términos y condiciones del servicio</small></p>

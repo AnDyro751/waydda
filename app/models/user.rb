@@ -1,7 +1,7 @@
 class User
   include Mongoid::Document
   include Mongoid::Timestamps
-  include ActiveModel::SecurePassword
+  # include ActiveModel::SecurePassword
   include AASM
   include GlobalID::Identification
 
@@ -17,7 +17,6 @@ class User
   field :lastName, type: String
   field :email, type: String
   field :requiredActions, type: Array
-  field :phone, type: String
   field :encrypted_password, type: String
   field :status, type: String
   field :photo, type: String, default: "waydda.png"
@@ -28,6 +27,8 @@ class User
   field :price_selected, type: String # El precio que seleccionó al registrarse
   field :free_days_selected, type: String # El precio que seleccionó al registrarse
   field :stripe_customer_id, type: String, default: ""
+
+  field :phone, type: String
 
   # OMNIAUTH
   field :provider, type: String
@@ -44,14 +45,14 @@ class User
   #has_many :qr
 
   # Validations
-  validates :name, presence: true, format: {with: /\A[a-zA-ZáéíóúñÁÉÍÓÚÑ\s]+\z/}, length: {in: 3..30}
-  validates :lastName, presence: false, format: {with: /\A[a-zA-ZáéíóúñÁÉÍÓÚÑ\s]+\z/}, length: {in: 3..30}, allow_nil: true
-  validates :email, presence: true, uniqueness: {case_sensitive: false, message: "%{value} ya ha sido usado"}
+  # validates :name, presence: true, format: {with: /\A[a-zA-ZáéíóúñÁÉÍÓÚÑ\s]+\z/}, length: {in: 3..30}
+  # validates :lastName, presence: false, format: {with: /\A[a-zA-ZáéíóúñÁÉÍÓÚÑ\s]+\z/}, length: {in: 3..30}, allow_nil: true
+  # validates :email, presence: true, uniqueness: {case_sensitive: false, message: "%{value} ya ha sido usado"}
   # validates :name, uniqueness: { scope: :year,
   #                                message: "should happen once per year" }
-  validate :valid_email
-  validates :phone, uniqueness: {case_sensitive: false}, allow_nil: true, phone: {possible: true, types: :mobile, countries: :mx}
-  validates :encrypted_password, presence: true
+  # validate :valid_email
+  validates :phone, uniqueness: {case_sensitive: false}, allow_nil: false, phone: {possible: true, types: [:mobile, :voip], countries: :mx}
+  # validates :encrypted_password, presence: true
 
   def valid_email
     if email.present?
