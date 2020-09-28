@@ -20,16 +20,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b89cb0fb-b680-4bb9-8ae0-f4b41721cfb9" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/jobs/send_whats_app_message_job.rb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/models/phone_code.rb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/spec/factories/phone_codes.rb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/spec/jobs/send_whats_app_message_job_spec.rb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/spec/models/phone_code_spec.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/controllers/users/sessions_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/users/sessions_controller.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/user.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/user.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/devise/sessions/new.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/devise/sessions/new.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/layouts/sessions.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/layouts/sessions.html.erb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -766,14 +757,7 @@
       <workItem from="1601176111929" duration="1119000" />
       <workItem from="1601216030257" duration="7866000" />
       <workItem from="1601242195348" duration="13341000" />
-      <workItem from="1601303337255" duration="7301000" />
-    </task>
-    <task id="LOCAL-00195" summary="feat(Place): Ya se crea el formulario anidado y se muestran los anteriores 3:">
-      <created>1600301219169</created>
-      <option name="number" value="00195" />
-      <option name="presentableId" value="LOCAL-00195" />
-      <option name="project" value="LOCAL" />
-      <updated>1600301219169</updated>
+      <workItem from="1601303337255" duration="7383000" />
     </task>
     <task id="LOCAL-00196" summary="feat(Place): Agregamos el botón para añadir la subvariante y las eliminamos sin problemas">
       <created>1600305242954</created>
@@ -1111,7 +1095,14 @@
       <option name="project" value="LOCAL" />
       <updated>1601308858502</updated>
     </task>
-    <option name="localTasksCounter" value="244" />
+    <task id="LOCAL-00244" summary="feat(Cart): Pequeño form de inicio de sesón">
+      <created>1601311604284</created>
+      <option name="number" value="00244" />
+      <option name="presentableId" value="LOCAL-00244" />
+      <option name="project" value="LOCAL" />
+      <updated>1601311604284</updated>
+    </task>
+    <option name="localTasksCounter" value="245" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -1132,7 +1123,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="feat(Place): Las validaciones del valid_sale creo que ya funcionan" />
     <MESSAGE value="feat(Place):AL parecer unas validaciones sencillas ya funcionan" />
     <MESSAGE value="feat(Place): Corregimos un pequeño error de diseño con los gaps" />
     <MESSAGE value="feat(Place): Eliminamos los gaps del modal de show product" />
@@ -1157,7 +1147,8 @@
     <MESSAGE value="feat(Cart): Validamos el envio a domicilio para el place" />
     <MESSAGE value="feat(Cart): Creamos un pequeño inicio de sesión para logearse con el mobil" />
     <MESSAGE value="feat(Cart): Enviamos el mensaje de whatsapp con el código" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat(Cart): Enviamos el mensaje de whatsapp con el código" />
+    <MESSAGE value="feat(Cart): Pequeño form de inicio de sesón" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat(Cart): Pequeño form de inicio de sesón" />
   </component>
   <component name="WindowStateProjectService">
     <state x="392" y="0" key="#All_specs_in_spec:_waydda" timestamp="1598730457189">
@@ -1196,10 +1187,10 @@
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="404" y="186" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1366.768@0.0.1366.768" timestamp="1599454959940" />
-    <state x="261" y="0" width="834" height="683" key="CommitChangelistDialog2" timestamp="1601308858309">
+    <state x="261" y="0" width="834" height="683" key="CommitChangelistDialog2" timestamp="1601311604119">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state x="261" y="0" width="834" height="683" key="CommitChangelistDialog2/0.0.1366.768@0.0.1366.768" timestamp="1601308858309" />
+    <state x="261" y="0" width="834" height="683" key="CommitChangelistDialog2/0.0.1366.768@0.0.1366.768" timestamp="1601311604119" />
     <state x="255" y="248" key="FileChooserDialogImpl" timestamp="1600204670357">
       <screen x="0" y="0" width="1366" height="768" />
     </state>

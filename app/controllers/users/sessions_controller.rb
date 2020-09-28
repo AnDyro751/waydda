@@ -20,7 +20,9 @@ class Users::SessionsController < Devise::SessionsController
       puts "---------#{@user.errors.full_messages}"
       @user.save
     else
-      @user.create_and_send_verification_code
+      unless params["user"]["verification_code"].present?
+        @user.create_and_send_verification_code
+      end
     end
     if params["user"]["verification_code"].present?
       @last_verification_code = @user.phone_codes.order(created_at: "desc").limit(1).to_a.first
