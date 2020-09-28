@@ -4,7 +4,7 @@ class Dashboard::PlacesController < ApplicationController
   before_action :set_my_place, except: [:new, :create] #, except: [:new, :create]
   before_action :valid_uniqueness_place, only: [:new, :create]
   before_action :redirect_if_empty_place, only: [:my_place, :edit, :update, :destroy]
-  before_action :set_user_account, only: [:connect, :create_account_link]
+  before_action :set_user_account, only: [:connect, :create_account_link, :create_stripe_account]
   before_action :set_price, only: [:upgrade]
 
   Stripe.api_key = 'sk_test_51H9CZeBOcPJ0nbHctTzfQZhFXBnn8j05e0xqJ5RSVz5Bum72LsvmQKIecJnsoHISEg0jUWtKjERYGeCAEWiIAujP00Fae9MiKm'
@@ -48,11 +48,12 @@ class Dashboard::PlacesController < ApplicationController
 
   def create_stripe_account
     respond_to do |format|
-      @connect = Place.create_stripe_account_link(current_user)
-      unless @connect.nil?
-        format.js
+      # @connect = Place.create_stripe_account_link(current_user)
+      @connect = Account.create_link(@user_account.account_id, @user_account.completed)
+      if @connect.nil?
+        format.html { redirect_to dashboard_place_connect_path, notice: "Ha ocurrido un error al generar la configuración 2" }
       else
-        format.html { redirect_to dashboard_place_connect_path, notice: "Ha ocurrido un error al generar la configuración", status: :unprocessable_entity }
+        format.js
       end
     end
   end
@@ -178,7 +179,9 @@ class Dashboard::PlacesController < ApplicationController
   def set_user_account
     @user_account = current_user.account
     if @user_account.nil?
-      Account.create_stripe_account(nil, current_user)
+      @user_account = Account.create_stripe_account(@place, current_user)
+      puts "----------USER ACCOUNT ES NULo---------#{@user_account}"
+
     end
   end
 

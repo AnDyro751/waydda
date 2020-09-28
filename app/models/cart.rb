@@ -32,7 +32,9 @@ class Cart
     total = 0
     old_items.each do |i|
       unless i.product.nil?
-        total = total + (i.product.price * i.quantity)
+        new_product_price = i.get_aggregates_and_product_price(product: i.product)
+        puts "------------_#{new_product_price}"
+        total = total + (new_product_price * i.quantity)
       end
     end
     total
@@ -196,6 +198,7 @@ class Cart
                                 currency: 'mxn',
                                 source: token_id,
                                 description: "Compra en #{place.name} - Waydda México",
+                                on_behalf_of: place.account.account_id
                             })
       if Order.create_new_order(cart: self, place: place, address: address, current_user: current_user)
         return self.update(status: "success")

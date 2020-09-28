@@ -125,6 +125,50 @@ class Place
   end
 
 
+  def valid_payment_methods
+    if self.kind === "premium"
+      if self.account.nil?
+        return cash_array
+      else
+        if self.account.completed
+          return complete_array
+        else
+          return cash_array
+        end
+      end
+    else
+      cash_array
+    end
+  end
+
+  def complete_array
+    [["Tarjeta de Débito/Crédito", "card"], %w[Efectivo cash]]
+  end
+
+  def cash_array
+    [%w[Efectivo cash]]
+  end
+
+  def can_accept_payment_method?(payment_method:)
+    if payment_method === "card"
+      if self.kind === "premium"
+        if self.account.nil?
+          return false
+        else
+          if self.account.completed
+            return true
+          else
+            return false
+          end
+        end
+      else
+        return false
+      end
+    else
+      return true
+    end
+  end
+
   private
 
 

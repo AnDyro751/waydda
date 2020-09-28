@@ -32,7 +32,7 @@ Rails.application.configure do
   config.action_controller.asset_host = 'https://d2s1etkbzrrbc0.cloudfront.net'
   #
   config.hosts << "waydda.herokuapp.com"
-  config.hosts << "dd450e6e40a0.ngrok.io"
+  config.hosts << "https://dfbbcaad1dda.ngrok.io"
   config.hosts << "localhost"
   # config.hosts << "https://waydda.herokuapp.com"
   # Specifies the header that your server uses for sending files.

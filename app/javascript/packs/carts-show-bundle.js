@@ -59,68 +59,73 @@ document.addEventListener("turbolinks:load", async () => {
 
     if (document.querySelector("#address-map")) {
         setMap()
-        const stripe = await loadStripe('pk_test_51H9CZeBOcPJ0nbHcn3sfLIpeMPDr4YfdEWe7ytAM7bge9lzgYQTC1uOAFopBIbeKc7i3btFTEGaHSrnBfTwmmu4o00Dz7IGOu6');
-        var elements = stripe.elements();
+        window.stripeCards = async function () {
+            const stripe = await loadStripe('pk_test_51H9CZeBOcPJ0nbHcn3sfLIpeMPDr4YfdEWe7ytAM7bge9lzgYQTC1uOAFopBIbeKc7i3btFTEGaHSrnBfTwmmu4o00Dz7IGOu6');
+            var elements = stripe.elements();
 
 // Custom styling can be passed to options when creating an Element.
 // (Note that this demo uses a wider set of styles than the guide below.)
-        var style = {
-            base: {
-                color: '#32325d',
-                fontFamily: '"Helvetica Neue", Helvetica, sans-serif',
-                fontSmoothing: 'antialiased',
-                fontSize: '16px',
-                '::placeholder': {
-                    color: '#aab7c4'
+            var style = {
+                base: {
+                    color: '#32325d',
+                    fontFamily: '"Helvetica Neue", Helvetica, sans-serif',
+                    fontSmoothing: 'antialiased',
+                    fontSize: '16px',
+                    '::placeholder': {
+                        color: '#aab7c4'
+                    }
+                },
+                invalid: {
+                    color: '#fa755a',
+                    iconColor: '#fa755a'
                 }
-            },
-            invalid: {
-                color: '#fa755a',
-                iconColor: '#fa755a'
-            }
-        };
+            };
 
 // Create an instance of the card Element.
-        var card = elements.create('card', {style: style});
+            var card = elements.create('card', {style: style});
 
 // Add an instance of the card Element into the `card-element` <div>.
-        card.mount('#card-element');
+            card.mount('#card-element');
 
 // Handle real-time validation errors from the card Element.
-        card.on('change', function (event) {
-            var displayError = document.getElementById('card-errors');
-            if (event.error) {
-                displayError.textContent = event.error.message;
-            } else {
-                displayError.textContent = '';
-            }
-        });
-
-// Handle form submission.
-        var form = document.getElementById('payment-form');
-        var button = document.querySelector("#submit-button");
-        form.addEventListener("ajax:beforeSend", function (e) {
-            console.log("STOP");
-            button.disabled = true;
-            button.value = "Cargando...";
-            e.preventDefault();
-            return false;
-        });
-        form.addEventListener("submit", () => {
-            stripe.createToken(card).then(function (result) {
-                if (result.error) {
-                    // Inform the user if there was an error.
-                    var errorElement = document.getElementById('card-errors');
-                    errorElement.textContent = result.error.message;
-                    button.disabled = false;
-                    button.value = "Realizar pedido";
+            card.on('change', function (event) {
+                var displayError = document.getElementById('card-errors');
+                if (event.error) {
+                    displayError.textContent = event.error.message;
                 } else {
-                    // Send the token to your server.
-                    stripeTokenHandler(result.token);
-                    console.log(result);
+                    displayError.textContent = '';
                 }
             });
-        })
+
+// Handle form submission.
+            var form = document.getElementById('payment-form');
+            var button = document.querySelector("#submit-button");
+            form.addEventListener("ajax:beforeSend", function (e) {
+                console.log("STOP");
+                button.disabled = true;
+                button.value = "Cargando...";
+                e.preventDefault();
+                return false;
+            });
+            form.addEventListener("submit", () => {
+                stripe.createToken(card).then(function (result) {
+                    if (result.error) {
+                        // Inform the user if there was an error.
+                        var errorElement = document.getElementById('card-errors');
+                        errorElement.textContent = result.error.message;
+                        button.disabled = false;
+                        button.value = "Realizar pedido";
+                    } else {
+                        // Send the token to your server.
+                        stripeTokenHandler(result.token);
+                        console.log(result);
+                    }
+                });
+            })
+        }
+        if (document.querySelector("#payment-form")) {
+            window.stripeCards()
+        }
     }
 
 });

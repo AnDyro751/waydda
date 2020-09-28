@@ -1,6 +1,6 @@
 import getDefaultHeaders from "../../lib/getDefaultHeaders";
 
-var connectElement = document.querySelector(".get-to-my-dashboard");
+var connectElement = document.querySelector("#get-to-my-dashboard");
 if (connectElement) {
     connectElement.addEventListener("click", async () => {
         try {

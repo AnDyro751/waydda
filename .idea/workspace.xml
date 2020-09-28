@@ -20,13 +20,30 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b89cb0fb-b680-4bb9-8ae0-f4b41721cfb9" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/app/components/Carts/payment_methods/card.html.erb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/components/Carts/payment_methods/card.rb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/components/Carts/payment_methods/cash.html.erb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/components/Carts/payment_methods/cash.rb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/javascript/packs/carts/new.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/components/Carts/form.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/components/Carts/form.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/components/Carts/item.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/components/Carts/item.html.erb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/controllers/carts_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/carts_controller.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/dashboard/places_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/dashboard/places_controller.rb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/javascript/packs/carts-show-bundle.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/javascript/packs/carts-show-bundle.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/javascript/packs/places/connect.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/javascript/packs/places/connect.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/account.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/account.rb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/models/cart.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/cart.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/order.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/order.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/layouts/cart.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/layouts/cart.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/cart_item.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/cart_item.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/place.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/place.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/carts/payment_method.js.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/carts/payment_method.js.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/dashboard/items/show.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/dashboard/items/show.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/dashboard/places/connect.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/dashboard/places/connect.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/dashboard/places/create_account_link.js.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/dashboard/places/create_account_link.js.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/dashboard/places/create_stripe_account.js.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/dashboard/places/create_stripe_account.js.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/utils/Headers/dashboard/_items.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/utils/Headers/dashboard/_items.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/environments/development.rb" beforeDir="false" afterPath="$PROJECT_DIR$/config/environments/development.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/environments/production.rb" beforeDir="false" afterPath="$PROJECT_DIR$/config/environments/production.rb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -761,14 +778,8 @@
       <workItem from="1601143424685" duration="2038000" />
       <workItem from="1601167314387" duration="3431000" />
       <workItem from="1601176111929" duration="1119000" />
-      <workItem from="1601216030257" duration="4284000" />
-    </task>
-    <task id="LOCAL-00189" summary="feat(Place): Arreglamos un pequeño bug de la vista de nueva variante de producto">
-      <created>1600223237149</created>
-      <option name="number" value="00189" />
-      <option name="presentableId" value="LOCAL-00189" />
-      <option name="project" value="LOCAL" />
-      <updated>1600223237150</updated>
+      <workItem from="1601216030257" duration="7866000" />
+      <workItem from="1601242195348" duration="13341000" />
     </task>
     <task id="LOCAL-00190" summary="feat(Place): Listamos variantes">
       <created>1600223278182</created>
@@ -1106,7 +1117,14 @@
       <option name="project" value="LOCAL" />
       <updated>1601172930537</updated>
     </task>
-    <option name="localTasksCounter" value="238" />
+    <task id="LOCAL-00238" summary="feat(Cart): Ya realizamos los cobros con tarjeta, solo falta añadir los mensajes correctos para los errores y el success">
+      <created>1601221796971</created>
+      <option name="number" value="00238" />
+      <option name="presentableId" value="LOCAL-00238" />
+      <option name="project" value="LOCAL" />
+      <updated>1601221796971</updated>
+    </task>
+    <option name="localTasksCounter" value="239" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -1127,7 +1145,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="feat(Place): Realizamos pruebas de validación en inclusión sencillas" />
     <MESSAGE value="feat(Place): Realizamos un pequeño test para el carrito, aún falta agregar un producto pero ya estamos validando los aggregates" />
     <MESSAGE value="feat(Place): Hasta el momento validamos que los aggregate_category.rb se manden, falta validar que los aggregate.rb que se manden estén completos" />
     <MESSAGE value="feat(Place): Lo que necesitamos hacer ahora es verificar que el aggregate que se mande sea de opción múltiple o de una sola selección" />
@@ -1152,7 +1169,8 @@
     <MESSAGE value="feat(Cart): Corregimos un pequeño error con las delivery options" />
     <MESSAGE value="feat(Dashboard): Pequeño error en el select de shipping.html.erb" />
     <MESSAGE value="feat(Cart): Creamos el checkout para los pagos en efectivo, funciona sin problemas, se solucionaron pequeños problemas de ui" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat(Cart): Creamos el checkout para los pagos en efectivo, funciona sin problemas, se solucionaron pequeños problemas de ui" />
+    <MESSAGE value="feat(Cart): Ya realizamos los cobros con tarjeta, solo falta añadir los mensajes correctos para los errores y el success" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat(Cart): Ya realizamos los cobros con tarjeta, solo falta añadir los mensajes correctos para los errores y el success" />
   </component>
   <component name="WindowStateProjectService">
     <state x="392" y="0" key="#All_specs_in_spec:_waydda" timestamp="1598730457189">
@@ -1191,10 +1209,10 @@
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="404" y="186" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1366.768@0.0.1366.768" timestamp="1599454959940" />
-    <state x="261" y="0" width="834" height="763" key="CommitChangelistDialog2" timestamp="1601172929845">
+    <state x="261" y="0" width="834" height="683" key="CommitChangelistDialog2" timestamp="1601221796390">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state x="261" y="0" width="834" height="763" key="CommitChangelistDialog2/0.0.1366.768@0.0.1366.768" timestamp="1601172929845" />
+    <state x="261" y="0" width="834" height="683" key="CommitChangelistDialog2/0.0.1366.768@0.0.1366.768" timestamp="1601221796390" />
     <state x="255" y="248" key="FileChooserDialogImpl" timestamp="1600204670357">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
@@ -1220,10 +1238,10 @@
     </state>
     <state x="2094" y="191" key="RollbackChangesDialog/0.0.1366.768/1366.-69.1920.1080@1366.-69.1920.1080" timestamp="1597697150509" />
     <state x="518" y="173" key="RollbackChangesDialog/0.0.1366.768@0.0.1366.768" timestamp="1598294478879" />
-    <state x="142" y="0" width="916" height="730" key="SettingsEditor" timestamp="1601096027205">
+    <state x="142" y="0" width="916" height="730" key="SettingsEditor" timestamp="1601245490704">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state x="142" y="0" width="916" height="730" key="SettingsEditor/0.0.1366.768@0.0.1366.768" timestamp="1601096027205" />
+    <state x="142" y="0" width="916" height="730" key="SettingsEditor/0.0.1366.768@0.0.1366.768" timestamp="1601245490704" />
     <state width="498" height="446" key="SwitcherDM" timestamp="1600056322387">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
@@ -1256,13 +1274,13 @@
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="628" y="298" key="com.jetbrains.plugins.remotesdk.ui.RemoteMappingsConfiguration/0.0.1366.768@0.0.1366.768" timestamp="1598729856431" />
-    <state x="390" y="117" width="647" height="624" key="find.popup" timestamp="1601220061381">
+    <state x="390" y="117" width="647" height="624" key="find.popup" timestamp="1601258102384">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="1914" y="96" width="823" height="878" key="find.popup/0.0.1366.768/1366.-69.1920.1080@1366.-69.1920.1080" timestamp="1597716285449" />
     <state x="1754" y="117" width="583" height="624" key="find.popup/0.0.1366.768/1366.0.1360.768@1366.0.1360.768" timestamp="1598981376119" />
     <state x="1914" y="165" width="823" height="878" key="find.popup/0.0.1366.768/1366.0.1920.1080@1366.0.1920.1080" timestamp="1599260651210" />
-    <state x="390" y="117" width="647" height="624" key="find.popup/0.0.1366.768@0.0.1366.768" timestamp="1601220061381" />
+    <state x="390" y="117" width="647" height="624" key="find.popup/0.0.1366.768@0.0.1366.768" timestamp="1601258102384" />
     <state x="549" y="254" width="250" height="278" key="jetbrains.javascript.buildTools.run-task-popup" timestamp="1597946321130">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
@@ -1271,13 +1289,13 @@
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="339" y="174" width="672" height="677" key="run.anything.popup/0.0.1366.768@0.0.1366.768" timestamp="1600370541201" />
-    <state x="346" y="89" width="672" height="678" key="search.everywhere.popup" timestamp="1601219759251">
+    <state x="346" y="89" width="672" height="678" key="search.everywhere.popup" timestamp="1601258839156">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="1852" y="56" width="945" height="954" key="search.everywhere.popup/0.0.1366.768/1366.-69.1920.1080@1366.-69.1920.1080" timestamp="1597715976170" />
     <state x="1710" y="89" width="672" height="678" key="search.everywhere.popup/0.0.1366.768/1366.0.1360.768@1366.0.1360.768" timestamp="1598985878395" />
     <state x="1852" y="125" width="945" height="954" key="search.everywhere.popup/0.0.1366.768/1366.0.1920.1080@1366.0.1920.1080" timestamp="1599267313630" />
-    <state x="346" y="89" width="672" height="678" key="search.everywhere.popup/0.0.1366.768@0.0.1366.768" timestamp="1601219759251" />
+    <state x="346" y="89" width="672" height="678" key="search.everywhere.popup/0.0.1366.768@0.0.1366.768" timestamp="1601258839156" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/waydda@Cart__Create_cart_Add_produ___.rcov" NAME="Cart# Create cart Add produ... Coverage Results" MODIFIED="1601005601072" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="waydda" />

@@ -1,0 +1,9 @@
+<div
+  id="payment-with-cash"
+  class="w-full my-8 flex justify-end">
+  <%= button_to "Realizar pedido", place_create_charge_path(@place), data: {"disable-with": "Finalizando pedido..."},
+                params: {payment_type: "cash"},
+                remote: true,
+                class: helpers.main_color_button(color: "primary")
+  %>
+</div>

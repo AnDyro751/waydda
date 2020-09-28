@@ -19,69 +19,73 @@
       </div>
       <div class="w-6/12 flex justify-end">
         <% if @place.premium? %>
-          <%= button_to "Empezar registro", dashboard_place_create_connect_path, method: :post, class: "bg-black cursor-pointer text-white py-3 px-8 rounded flex mt-3", remote: true, data: {"disable-with": "Cargando..."} %>
-        <% end %>
-      </div>
-    </div>
-  <% end %>
-  <!--  </div>-->
-
-  <% if @user_account.completed %>
-    <div class="w-full flex items-center py-4">
-      <div class="w-6/12">
-        <p class="font-normal">
-          Administrar mis datos
-        </p>
-        <small>
-          Cuenta bancaria, responsable de la empresa y más.
-        </small>
-      </div>
-      <div class="w-6/12 flex justify-end">
-        <% if @place.premium? %>
-          <button class="get-to-my-dashboard disabled:cursor-not-allowed disabled:bg-gray-500 bg-main-blue text-sm cursor-pointer text-white py-3 px-4 rounded flex mt-3">
-            Acceder a mi panel de control
-          </button>
+          <%= button_to "Empezar registro", dashboard_place_create_connect_path, method: :post, class: main_color_button(color: "primary"), remote: true, data: {"disable-with": "Cargando..."} %>
         <% end %>
       </div>
     </div>
   <% else %>
-    <div class="w-full flex items-center py-4">
-      <div class="w-6/12">
-        <p class="font-normal">
-          Completar mis datos
-        </p>
-        <small>
-          Cuenta bancaria, responsable de la empresa y más.
-        </small>
+    <% if @user_account.completed %>
+      <div class="w-full flex items-center py-4">
+        <div class="w-6/12">
+          <p class="font-normal">
+            Administrar mis datos
+          </p>
+          <small>
+            Cuenta bancaria, responsable de la empresa y más.
+          </small>
+        </div>
+        <div class="w-6/12 flex justify-end">
+          <% if @place.premium? %>
+            <button class="<%= main_color_button(color: "primary") %>" id="get-to-my-dashboard">
+              Acceder a mi panel de control
+            </button>
+          <% end %>
+        </div>
       </div>
-      <div class="w-6/12 flex justify-end">
-        <% if @place.premium? %>
-          <button class="get-to-my-dashboard disabled:cursor-not-allowed disabled:bg-gray-500 bg-main-blue text-sm cursor-pointer text-white py-3 px-4 rounded flex mt-3">
-            Acceder a mi panel de control
-          </button>
-        <% end %>
+    <% else %>
+      <div class="w-full flex items-center py-4">
+        <div class="w-6/12">
+          <p class="font-normal">
+            Completar mis datos
+          </p>
+          <small>
+            Cuenta bancaria, responsable de la empresa y más.
+          </small>
+        </div>
+        <div class="w-6/12 flex justify-end">
+          <% if @place.premium? %>
+            <%= button_to "Completar mis datos", dashboard_place_create_connect_path, method: :post, class: main_color_button(color: "primary"), remote: true, data: {"disable-with": "Cargando..."} %>
+
+            <!--            <button class="get-to-my-dashboard disabled:cursor-not-allowed disabled:bg-gray-500 bg-main-blue text-sm cursor-pointer text-white py-3 px-4 rounded flex mt-3">-->
+            <!--              Completar mis datos-->
+            <!--            </button>-->
+          <% end %>
+        </div>
       </div>
-    </div>
+    <% end %>
+    <% if @user_account.pending_verification %>
+      <div class="w-full flex items-center py-4">
+        <div class="w-6/12">
+          <p class="font-normal">
+            Hay información que debes verificar
+          </p>
+          <small>
+            Cuenta bancaria, responsable de la empresa y más.
+          </small>
+        </div>
+        <div class="w-6/12 flex justify-end">
+          <% if @place.premium? %>
+            <button class="<%= main_color_button(color: "primary") %>" id="get-to-my-dashboard">
+              Acceder a mi panel de control
+            </button>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
   <% end %>
-  <% if @user_account.pending_verification %>
-    <div class="w-full flex items-center py-4">
-      <div class="w-6/12">
-        <p class="font-normal">
-          Hay información que debes verificar
-        </p>
-        <small>
-          Cuenta bancaria, responsable de la empresa y más.
-        </small>
-      </div>
-      <div class="w-6/12 flex justify-end">
-        <% if @place.premium? %>
-          <button class="get-to-my-dashboard disabled:cursor-not-allowed disabled:bg-gray-500 bg-main-blue text-sm cursor-pointer text-white py-3 px-4 rounded flex mt-3">
-            Acceder a mi panel de control
-          </button>
-        <% end %>
-      </div>
-    </div>
-  <% end %>
+  <!--  </div>-->
+
+
 </div>
 
 <%= javascript_pack_tag "places/connect", 'data-turbolinks-track': 'reload' %>

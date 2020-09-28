@@ -35,7 +35,7 @@
     </div>
     <div class="w-6/12 text-center truncate">
       <span class="text-xs text-gray-600">
-        <%= number_to_currency(@cart_item.quantity * @cart_item.product.price) %>
+        <%= number_to_currency(@cart_item.quantity * @cart_item.get_aggregates_and_product_price(product: @cart_item.product)) %>
       </span>
     </div>
   </div>

@@ -110,7 +110,7 @@
             <div class="w-auto" id="select-payment-method">
               <%= simple_form_for(@current_cart, method: :put, url: place_update_payment_method_path(@place.id), remote: true) do |f| %>
                 <div class="relative">
-                  <%= f.input :payment_type, collection: [["Tarjeta de Débito/Crédito", "card"], %w[Efectivo cash]],
+                  <%= f.input :payment_type, collection: @place.valid_payment_methods,
                               input_html: {
                                   "onchange": "Rails.fire(this.form, 'submit')",
                                   class: "block appearance-none w-full bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none"
@@ -127,35 +127,17 @@
             </div>
           </div>
         </div>
-        <div class="w-full flex flex-wrap px-4">
-          <div
-            id="payment-with-cash"
-            class="w-full my-8 flex justify-end <%= @current_cart.payment_type === "card" ? "hidden" : "" %>">
-            <%= button_to "Realizar pedido", place_create_charge_path(@place), data: {"disable-with": "Finalizando pedido..."},
-                          params: {payment_type: "cash"},
-                          remote: true,
-                          class: helpers.main_color_button(color: "primary")
-            %>
-          </div>
+        <div class="w-full flex flex-wrap px-4" id="cart-current-payment">
 
-          <%= simple_form_for(@place, url: place_create_charge_path(@place.slug), method: :post, remote: true, html: {id: "payment-form", class: "w-full flex flex-wrap mt-4 #{@current_cart.payment_type === 'card' ? '' : 'hidden' }"}) do |f| %>
-            <div class="w-full">
-              <label for="card-element" class="text-sm text-gray-600">
-                Tarjeta de crédito o débito
-              </label>
-              <div id="card-element" class="mt-2 bg-main-gray p-4 rounded">
-                <!-- a stripe element will be inserted here. -->
-              </div>
-
-              <!-- used to display form errors. -->
-              <div id="card-errors" role="alert"></div>
-            </div>
-
-            <div class="w-full my-8 flex justify-end">
-              <%= f.submit "Realizar pedido",id: "submit-button", class: "#{helpers.main_color_button(color: "primary")}", data: {disable_with: "Cargando..."} %>
-              <!--              <button class="<%#= helpers.main_color_button(color: "primary") %>">Realizar pedido</button>-->
-            </div>
+          <% if @current_cart.payment_type === "cash" or !@place.can_accept_payment_method?(payment_method: "card") %>
+            <%= render Carts::PaymentMethods::Cash.new(place: @place) %>
           <% end %>
+
+
+          <% if @current_cart.payment_type === 'card' and @place.can_accept_payment_method?(payment_method: "card") %>
+            <%= render Carts::PaymentMethods::Card.new(place: @place) %>
+          <% end %>
+
           <!--          <form action="<%#= place_create_charge_path(@place.slug) %>" method="post" id="payment-form" class="w-full flex flex-wrap mt-4 <%#= @current_cart.payment_type === "card" ? "" : "hidden" %>">-->
           <!--            <div class="w-full">-->
           <!--              <label for="card-element" class="text-sm text-gray-600">-->

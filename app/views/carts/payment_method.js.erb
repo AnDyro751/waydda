@@ -1,10 +1,6 @@
-var element = document.querySelector("#select-payment-method select")
-if (element) {
-    if (element.value === "card") {
-        document.querySelector("#payment-with-cash").classList.add("hidden");
-        document.querySelector("#payment-form").classList.remove("hidden")
-    } else {
-        document.querySelector("#payment-with-cash").classList.remove("hidden");
-        document.querySelector("#payment-form").classList.add("hidden")
-    }
-}
+<% if @new_payment_method === "card" %>
+document.querySelector("#cart-current-payment").innerHTML = "<%= j render Carts::PaymentMethods::Cash.new(place: @place) %>"
+<% else %>
+document.querySelector("#cart-current-payment").innerHTML = "<%= j render Carts::PaymentMethods::Card.new(place: @place) %>"
+window.stripeCards()
+<% end %>

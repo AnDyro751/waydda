@@ -18,6 +18,7 @@ class CartsController < ApplicationController
   def payment_method
     respond_to do |format|
       if @current_cart.update(payment_type: params["cart"]["payment_type"])
+        @new_payment_method = params["cart"]["payment_type"] === "cash" ? "card" : "cash"
         format.js
       else
         format.html { redirect_to place_my_cart_path(@place.slug), status: :unprocessable_entity, notice: "Ha ocurrido un error al actualizar el carrito" }
@@ -51,22 +52,25 @@ class CartsController < ApplicationController
           end
         rescue => e
           logger.warn "ERROR AL CREAR EL CARGO #{e}"
-          format.html { redirect_to place_my_cart_path(@place.slug), alert: "Ha ocurrido un error al procesar el pago" }
+          format.html { redirect_to place_my_cart_path(@place.slug), notice: "Ha ocurrido un error al procesar el pago" }
         end
       else
-        @items = @current_cart.cart_items.includes(:product).to_a
-        @total = Cart.get_total(@items)
-        begin
-          if @current_cart.create_new_card_order(place: @place, address: @current_address, current_user: current_user, total: @total, token_id: params["stripeToken"])
-            format.html { redirect_to place_success_checkout_path(@place.slug, @current_cart), alert: "Tu compra se ha realizado" }
-          else
-            format.html { redirect_to place_my_cart_path(@place.slug), notice: "Ha ocurrido un error al procesar el cargo" }
+        if @place.can_accept_payment_method?(payment_method: "card")
+          begin
+            @items = @current_cart.cart_items.includes(:product).to_a
+            @total = Cart.get_total(@items)
+            if @current_cart.create_new_card_order(place: @place, address: @current_address, current_user: current_user, total: @total, token_id: params["stripeToken"])
+              format.html { redirect_to place_success_checkout_path(@place.slug, @current_cart), alert: "Tu compra se ha realizado" }
+            else
+              format.html { redirect_to place_my_cart_path(@place.slug), notice: "Ha ocurrido un error al procesar el cargo" }
+            end
+          rescue => e
+            logger.warn "HA OCURRIDO UN ERROR AL CREAR EL CARGO #{e.message}"
+            format.html { redirect_to place_my_cart_path(@place.slug), notice: "#{e.message}" }
           end
-        rescue => e
-          logger.warn "HA OCURRIDO UN ERROR AL CREAR EL CARGO #{e.message}"
-          format.html { redirect_to place_my_cart_path(@place.slug), notice: "#{e.message}" }
+        else
+          format.html { redirect_to place_my_cart_path(@place.slug), notice: "El método de pago seleccionado no está disponible" }
         end
-
       end
     end
   end

@@ -69,6 +69,7 @@ class Account
   def self.create_stripe_account(place, user)
     begin
       if user.account.nil?
+        puts "-----------ES VACIO"
         account = Stripe::Account.create({
                                              country: 'MX',
                                              type: 'express',
@@ -76,20 +77,25 @@ class Account
                                              requested_capabilities: %w[card_payments transfers],
                                          })
 
-        user.account = user.create_account(account_id: account.id)
-        account_id = account.id
+        new_account = user.build_account(account_id: account.id, created_at: DateTime.now, place: place)
+        account_save = new_account.save
+        return nil unless account_save
         puts "---------CREANDO"
+        return new_account
       else
         puts "---------RENOVANDO"
-        account_id = user.account.account_id
+        return user.account
       end
-      account_link = Account.create_link(account_id)
-      return account_link
     rescue => e
       puts "-----------#{e}------1"
       return nil
     end
   end
+
+  # def self.create_account_link(account_id:)
+  #   account_link = Account.create_link(account_id)
+  # return account_link
+  # end
 
   def self.update_account_hook(account_updated)
     current_account = Account.find_by(account_id: account_updated["id"])
@@ -115,13 +121,13 @@ class Account
 
   end
 
-  def self.create_link(account_id)
+  def self.create_link(account_id, update = false)
     begin
       link = Stripe::AccountLink.create({
                                             account: account_id,
-                                            refresh_url: 'http://localhost:3000/dashboard/payments/connect',
-                                            return_url: 'http://localhost:3000/dashboard/payments/connect',
-                                            type: 'account_onboarding',
+                                            refresh_url: 'http://localhost:3000/dashboard/settings/payments/connect',
+                                            return_url: 'http://localhost:3000/dashboard/settings/payments/connect',
+                                            type: update ? "account_update" : 'account_onboarding',
                                         })
       return link
     rescue => e
