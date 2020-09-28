@@ -12,10 +12,10 @@ class Users::SessionsController < Devise::SessionsController
   # POST /resource/sign_in
   def create
     redirect_to new_user_session_path, notice: "Ingresa un número de teléfono" unless params["user"]["phone"].present?
-    @user = User.find_by(phone: "+52#{params["user"]["phone"]}")
+    @user = User.find_by(phone: "#{params["user"]["phone"]}")
     if @user.nil?
       puts "------------USER ES NIL"
-      @user = User.new(phone: "+52#{params["user"]["phone"]}")
+      @user = User.new(phone: "#{params["user"]["phone"]}")
       puts "---------#{@user.errors.full_messages}"
       @user.save
     end

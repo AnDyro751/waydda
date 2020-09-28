@@ -33,6 +33,7 @@ gem 'email_address'
 gem 'mongoid-geospatial'
 gem 'rack-cors'
 gem 'rqrcode'
+gem 'twilio-ruby'
 gem 'devise'
 gem 'simple_form'
 gem "aws-sdk-s3", "~> 1.14"

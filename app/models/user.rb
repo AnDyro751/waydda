@@ -50,17 +50,17 @@ class User
   # validates :email, presence: true, uniqueness: {case_sensitive: false, message: "%{value} ya ha sido usado"}
   # validates :name, uniqueness: { scope: :year,
   #                                message: "should happen once per year" }
-  # validate :valid_email
-  validates :phone, uniqueness: {case_sensitive: false}, allow_nil: false, phone: {possible: true, types: [:mobile, :voip], countries: :mx}
+  validate :valid_phone
+  # validates :phone, uniqueness: {case_sensitive: false}, allow_nil: false, phone: {possible: true, types: [:mobile, :voip], countries: :mx}
   # validates :encrypted_password, presence: true
 
-  def valid_email
-    if email.present?
-      unless EmailAddress.valid? email, host_validation: :syntax
-        errors.add(:email, "invalid syntax")
+  def valid_phone
+    if phone.present?
+      unless Phonelib.valid?("+52#{phone}")
+        errors.add(:phone, "invalid syntax")
       end
     else
-      errors.add(:email, "Can't be blank")
+      errors.add(:phone, "Can't be blank")
     end
   end
 
@@ -85,6 +85,24 @@ class User
   # return token for client to identify user
   def generate_token
     #Token.generate_token(self.id)
+  end
+
+
+  def send_whatsapp_message(message: "Tu código de verificación de waydda es: 12342")
+    account_sid = 'AC8d9e9b1bf0fb4d44fa7fbfc14ebdbe5d'
+    auth_token = 'd710c52aed85cfb45d30e8c2b7bc5f95'
+    @client = Twilio::REST::Client.new(account_sid, auth_token)
+    begin
+      message = @client.messages.create(
+          body: message,
+          from: 'whatsapp:+14155238886',
+          to: "whatsapp:+521#{self.phone}"
+      )
+      return true
+    rescue => e
+      logger.warn "ERROR AL ENVIAR WHATSAPP #{e}"
+      return false
+    end
   end
 
 
