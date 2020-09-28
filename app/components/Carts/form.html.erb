@@ -2,7 +2,7 @@
   <div class="w-full flex items-start">
     <div class="w-8/12 mr-12 flex flex-wrap">
       <div class="w-full flex">
-        <% if @place.delivery_option %>
+        <% if @place.can_delivery? %>
           <div class="w-auto mr-4">
             <%= button_to place_delivery_options_path(@place.slug, @current_cart),
                           remote: true,
@@ -29,7 +29,7 @@
         <% end %>
         <div class="w-auto">
 
-          <% if @place.delivery_option %>
+          <% if @place.can_delivery? %>
             <%= button_to place_delivery_options_path(@place.slug, @current_cart),
                           data: {"disable-with": "Actualizando..."},
                           remote: true,
