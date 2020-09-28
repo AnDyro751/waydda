@@ -89,16 +89,25 @@ class User
   end
 
 
-
-
-
   def current_address
     self.addresses.find_by(current: true) || nil
   end
 
   def create_and_send_verification_code
-    phone_code = self.create_verification_code
+    last_phone = get_last_phone_code
+    if last_phone.nil?
+      phone_code = self.create_verification_code
+    else
+      phone_code = last_phone
+      unless (DateTime.now - 5.minutes) >= phone_code.created_at
+        raise "Debes esperar 5 minutos para pedir otro código de verificación"
+      end
+    end
     SendWhatsAppMessageJob.perform_now(message: User.text_code_message(code: phone_code.verification_code), phone: self.phone)
+  end
+
+  def get_last_phone_code
+    self.phone_codes.where(status: "unused", :created_at.gte => (DateTime.now - 5.minutes)).order(created_at: "desc").limit(1).to_a.first
   end
 
   def self.text_code_message(code:)
@@ -120,7 +129,6 @@ class User
     add_role(:customer) if roles.blank?
     self.create_and_send_verification_code
   end
-
 
 
   def self.new_with_session(params, session)

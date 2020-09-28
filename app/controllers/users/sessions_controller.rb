@@ -22,11 +22,18 @@ class Users::SessionsController < Devise::SessionsController
           @user.save
         else
           unless params["user"]["verification_code"].present?
-            @user.create_and_send_verification_code
+            begin
+              @user.create_and_send_verification_code
+            rescue => e
+              puts "------------#{e}"
+              return redirect_to new_user_session_path, notice: "#{e}"
+              return false
+                # format.html { redirect_to new_user_session_path, notice: "#{e}" }
+            end
           end
         end
         if params["user"]["verification_code"].present?
-          @last_verification_code = @user.phone_codes.order(created_at: "desc").limit(1).to_a.first
+          @last_verification_code = @user.get_last_phone_code
           puts "NO HAY CPODIGO DE VERIFICACIONE" if @last_verification_code.nil?
           if params["user"]["verification_code"] === @last_verification_code.verification_code
             puts "-------DICE QUE NO"

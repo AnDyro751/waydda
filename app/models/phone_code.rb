@@ -3,7 +3,10 @@ class PhoneCode
   include Mongoid::Timestamps
   field :verification_code, type: String
   field :exp_date, type: String
+  field :status, type: String, default: "unused"
+
   belongs_to :user
+
 
 
   def self.generate_random_number
