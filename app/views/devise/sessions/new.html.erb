@@ -23,13 +23,15 @@
     <div class="w-full flex flex-wrap bg-white p-10 form-sessions rounded">
       <div class="w-full px-4">
         <h1 class="text-4xl font-bold mb-3 text-gray-900 text-center">¡Hola, bienvenido de nuevo!</h1>
-        <h2 class="text-2xl font-normal text-gray-600 text-center my-6">¿Cómo deseas iniciar?</h2>
+        <h2 class="text-2xl font-normal text-gray-600 text-center my-6">Inicia sesón</h2>
       </div>
       <div class="w-full">
         <%#= render "devise/shared/form" %>
         <%#= render "devise/shared/links" %>
         <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+          <%#= render "devise/shared/error_messages", resource: resource %>
           <%= f.input :phone %>
+          <%= f.input :verification_code, input_html: {value: ""} %>
           <%= f.submit "Iniciar sesión" %>
         <% end %>
       </div>

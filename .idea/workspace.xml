@@ -20,12 +20,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b89cb0fb-b680-4bb9-8ae0-f4b41721cfb9" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/waydda.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/waydda.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/jobs/send_whats_app_message_job.rb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/models/phone_code.rb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/spec/factories/phone_codes.rb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/spec/jobs/send_whats_app_message_job_spec.rb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/spec/models/phone_code_spec.rb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Gemfile" beforeDir="false" afterPath="$PROJECT_DIR$/Gemfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Gemfile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/Gemfile.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/controllers/users/sessions_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/users/sessions_controller.rb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/models/user.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/user.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/devise/sessions/new.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/devise/sessions/new.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/layouts/sessions.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/layouts/sessions.html.erb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -762,14 +766,7 @@
       <workItem from="1601176111929" duration="1119000" />
       <workItem from="1601216030257" duration="7866000" />
       <workItem from="1601242195348" duration="13341000" />
-      <workItem from="1601303337255" duration="4551000" />
-    </task>
-    <task id="LOCAL-00194" summary="feat(Place): Los formularios necesitan accepts_nested_attributes_for en el modelo que tiene el has many relations 3:">
-      <created>1600288758451</created>
-      <option name="number" value="00194" />
-      <option name="presentableId" value="LOCAL-00194" />
-      <option name="project" value="LOCAL" />
-      <updated>1600288758451</updated>
+      <workItem from="1601303337255" duration="7301000" />
     </task>
     <task id="LOCAL-00195" summary="feat(Place): Ya se crea el formulario anidado y se muestran los anteriores 3:">
       <created>1600301219169</created>
@@ -1107,7 +1104,14 @@
       <option name="project" value="LOCAL" />
       <updated>1601308124911</updated>
     </task>
-    <option name="localTasksCounter" value="243" />
+    <task id="LOCAL-00243" summary="feat(Cart): Enviamos el mensaje de whatsapp con el código">
+      <created>1601308858502</created>
+      <option name="number" value="00243" />
+      <option name="presentableId" value="LOCAL-00243" />
+      <option name="project" value="LOCAL" />
+      <updated>1601308858502</updated>
+    </task>
+    <option name="localTasksCounter" value="244" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -1128,7 +1132,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="feat(Place): Al parecer ya buscamos si todo es correcto con el producto y sus aggregates 3:, falta testear de varias maneras" />
     <MESSAGE value="feat(Place): Las validaciones del valid_sale creo que ya funcionan" />
     <MESSAGE value="feat(Place):AL parecer unas validaciones sencillas ya funcionan" />
     <MESSAGE value="feat(Place): Corregimos un pequeño error de diseño con los gaps" />
@@ -1153,7 +1156,8 @@
     <MESSAGE value="feat(Cart): Otros pequeños problemas en el carrito al hacer switch de los métodos de envio" />
     <MESSAGE value="feat(Cart): Validamos el envio a domicilio para el place" />
     <MESSAGE value="feat(Cart): Creamos un pequeño inicio de sesión para logearse con el mobil" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat(Cart): Creamos un pequeño inicio de sesión para logearse con el mobil" />
+    <MESSAGE value="feat(Cart): Enviamos el mensaje de whatsapp con el código" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat(Cart): Enviamos el mensaje de whatsapp con el código" />
   </component>
   <component name="WindowStateProjectService">
     <state x="392" y="0" key="#All_specs_in_spec:_waydda" timestamp="1598730457189">
@@ -1192,10 +1196,10 @@
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="404" y="186" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1366.768@0.0.1366.768" timestamp="1599454959940" />
-    <state x="261" y="0" width="834" height="683" key="CommitChangelistDialog2" timestamp="1601308124722">
+    <state x="261" y="0" width="834" height="683" key="CommitChangelistDialog2" timestamp="1601308858309">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state x="261" y="0" width="834" height="683" key="CommitChangelistDialog2/0.0.1366.768@0.0.1366.768" timestamp="1601308124722" />
+    <state x="261" y="0" width="834" height="683" key="CommitChangelistDialog2/0.0.1366.768@0.0.1366.768" timestamp="1601308858309" />
     <state x="255" y="248" key="FileChooserDialogImpl" timestamp="1600204670357">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
@@ -1257,13 +1261,13 @@
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="628" y="298" key="com.jetbrains.plugins.remotesdk.ui.RemoteMappingsConfiguration/0.0.1366.768@0.0.1366.768" timestamp="1598729856431" />
-    <state x="390" y="117" width="647" height="624" key="find.popup" timestamp="1601307407429">
+    <state x="390" y="117" width="647" height="624" key="find.popup" timestamp="1601311126287">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="1914" y="96" width="823" height="878" key="find.popup/0.0.1366.768/1366.-69.1920.1080@1366.-69.1920.1080" timestamp="1597716285449" />
     <state x="1754" y="117" width="583" height="624" key="find.popup/0.0.1366.768/1366.0.1360.768@1366.0.1360.768" timestamp="1598981376119" />
     <state x="1914" y="165" width="823" height="878" key="find.popup/0.0.1366.768/1366.0.1920.1080@1366.0.1920.1080" timestamp="1599260651210" />
-    <state x="390" y="117" width="647" height="624" key="find.popup/0.0.1366.768@0.0.1366.768" timestamp="1601307407429" />
+    <state x="390" y="117" width="647" height="624" key="find.popup/0.0.1366.768@0.0.1366.768" timestamp="1601311126287" />
     <state x="549" y="254" width="250" height="278" key="jetbrains.javascript.buildTools.run-task-popup" timestamp="1597946321130">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
@@ -1272,13 +1276,13 @@
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="339" y="174" width="672" height="677" key="run.anything.popup/0.0.1366.768@0.0.1366.768" timestamp="1600370541201" />
-    <state x="346" y="89" width="672" height="678" key="search.everywhere.popup" timestamp="1601308525829">
+    <state x="346" y="89" width="672" height="678" key="search.everywhere.popup" timestamp="1601311387876">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="1852" y="56" width="945" height="954" key="search.everywhere.popup/0.0.1366.768/1366.-69.1920.1080@1366.-69.1920.1080" timestamp="1597715976170" />
     <state x="1710" y="89" width="672" height="678" key="search.everywhere.popup/0.0.1366.768/1366.0.1360.768@1366.0.1360.768" timestamp="1598985878395" />
     <state x="1852" y="125" width="945" height="954" key="search.everywhere.popup/0.0.1366.768/1366.0.1920.1080@1366.0.1920.1080" timestamp="1599267313630" />
-    <state x="346" y="89" width="672" height="678" key="search.everywhere.popup/0.0.1366.768@0.0.1366.768" timestamp="1601308525829" />
+    <state x="346" y="89" width="672" height="678" key="search.everywhere.popup/0.0.1366.768@0.0.1366.768" timestamp="1601311387876" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/waydda@Cart__Create_cart_Add_produ___.rcov" NAME="Cart# Create cart Add produ... Coverage Results" MODIFIED="1601005601072" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="waydda" />

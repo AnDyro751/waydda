@@ -40,6 +40,7 @@ class User
   # has_many :subscriptions
   has_one :account # Stripe account
   has_many :carts
+  has_many :phone_codes
   embeds_many :payment_methods # TODO: Agregar esto a stripe
   embeds_many :addresses, as: :model
   #has_many :qr
@@ -88,26 +89,24 @@ class User
   end
 
 
-  def send_whatsapp_message(message: "Tu código de verificación de waydda es: 12342")
-    account_sid = 'AC8d9e9b1bf0fb4d44fa7fbfc14ebdbe5d'
-    auth_token = 'd710c52aed85cfb45d30e8c2b7bc5f95'
-    @client = Twilio::REST::Client.new(account_sid, auth_token)
-    begin
-      message = @client.messages.create(
-          body: message,
-          from: 'whatsapp:+14155238886',
-          to: "whatsapp:+521#{self.phone}"
-      )
-      return true
-    rescue => e
-      logger.warn "ERROR AL ENVIAR WHATSAPP #{e}"
-      return false
-    end
-  end
+
 
 
   def current_address
     self.addresses.find_by(current: true) || nil
+  end
+
+  def create_and_send_verification_code
+    phone_code = self.create_verification_code
+    SendWhatsAppMessageJob.perform_now(message: User.text_code_message(code: phone_code.verification_code), phone: self.phone)
+  end
+
+  def self.text_code_message(code:)
+    "Tu código de verificación de waydda es: #{code}"
+  end
+
+  def create_verification_code
+    self.phone_codes.create(verification_code: PhoneCode.generate_random_number)
   end
 
   private
@@ -119,7 +118,9 @@ class User
   # Assign User default Role
   def assign_default_role
     add_role(:customer) if roles.blank?
+    self.create_and_send_verification_code
   end
+
 
 
   def self.new_with_session(params, session)

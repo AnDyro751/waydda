@@ -13,13 +13,24 @@ class Users::SessionsController < Devise::SessionsController
   def create
     redirect_to new_user_session_path, notice: "Ingresa un número de teléfono" unless params["user"]["phone"].present?
     @user = User.find_by(phone: "#{params["user"]["phone"]}")
+
     if @user.nil?
       puts "------------USER ES NIL"
       @user = User.new(phone: "#{params["user"]["phone"]}")
       puts "---------#{@user.errors.full_messages}"
       @user.save
+    else
+      @user.create_and_send_verification_code
     end
-    sign_in_and_redirect @user, :event => :authentication
+    if params["user"]["verification_code"].present?
+      @last_verification_code = @user.phone_codes.order(created_at: "desc").limit(1).to_a.first
+      puts "NO HAY CPODIGO DE VERIFICACIONE" if @last_verification_code.nil?
+      if params["user"]["verification_code"] === @last_verification_code.verification_code
+        sign_in_and_redirect @user, :event => :authentication
+      else
+        redirect_to new_user_session_path, notice: "El código de verificación es incorrecto"
+      end
+    end
 
     # super
   end
