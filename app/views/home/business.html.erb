@@ -11,7 +11,7 @@
           consumidores <span class="text-teal-600">locales</span> y <span class="text-teal-600">nacionales</span></h1>
       </div>
       <div class="w-full mt-8 flex justify-center">
-        <%= link_to "Empezar", new_dashboard_place_path, class: "font-medium bg-main-red text-white rounded py-3 px-6 hover:bg-red-600 transition duration-150" %>
+        <%= link_to "Empezar", new_dashboard_place_path({continue: user_signed_in? ? nil : new_dashboard_place_path}), class: "font-medium bg-main-red text-white rounded py-3 px-6 hover:bg-red-600 transition duration-150" %>
       </div>
       <div class="w-full flex justify-center">
         <img alt="Business page" src="<%= get_image_url(20, 20, "utils/cyborg-19.png") %>" class="lazy h-xxl" data-src="<%= get_image_url(1000, 800, "utils/cyborg-19.png") %>">

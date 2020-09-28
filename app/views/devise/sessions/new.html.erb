@@ -28,10 +28,12 @@
       <div class="w-full">
         <%#= render "devise/shared/form" %>
         <%#= render "devise/shared/links" %>
-        <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+        <%= simple_form_for(resource, as: resource_name, remote: true, url: session_path(resource_name)) do |f| %>
           <%#= render "devise/shared/error_messages", resource: resource %>
           <%= f.input :phone %>
-          <%= f.input :verification_code, input_html: {value: ""} %>
+          <div class="hidden" id="verification-code">
+            <%= f.input :verification_code, input_html: {value: ""} %>
+          </div>
           <%= f.submit "Iniciar sesión" %>
         <% end %>
       </div>

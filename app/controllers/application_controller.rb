@@ -4,10 +4,27 @@ class ApplicationController < ActionController::Base
   before_action :set_current_address
   before_action :set_time_zone
   before_action :set_language
+  before_action :set_continue
   # before_action :set_default_locations
 
   def add_log(message)
     puts "Logger info: ----- #{message}"
+  end
+
+  def set_continue
+    if params[:continue]
+      session[:continue] = params[:continue]
+    end
+  end
+
+  def after_sign_in_path_for(resource)
+    if session[:continue]
+      navigation = session[:continue]
+      session[:continue] = nil
+      navigation
+    else
+      root_path
+    end
   end
 
 
