@@ -14,6 +14,7 @@ class Cart
   field :uuid, type: String
 
   has_many :cart_items
+  has_one :order
   embeds_one :delivery_option
   embeds_one :checkout
   embeds_many :addresses, as: :model
@@ -231,7 +232,7 @@ class Cart
   # @note Callback - before_create
   # Asigna el uuid para después mostrarlo en el carrito
   def assign_uuid
-    self.uuid = SecureRandom.hex(6)
+    self.uuid = SecureRandom.rand.to_s.split(".")[1].slice(0, 8)
   end
 
 end

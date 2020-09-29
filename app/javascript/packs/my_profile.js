@@ -2,7 +2,7 @@ import mapboxgl from 'mapbox-gl';
 
 window.mapbox = mapboxgl;
 
-mapboxgl.accessToken = 'pk.eyJ1Ijoic2VhcmNoLW1hY2hpbmUtdXNlci0xIiwiYSI6ImNrN2Y1Nmp4YjB3aG4zZ253YnJoY21kbzkifQ.JM5ZeqwEEm-Tonrk5wOOMw';
+mapboxgl.accessToken = 'pk.eyJ1Ijoid2F5ZGRhIiwiYSI6ImNrOXp0ZnllMDBlOHQzbHcxeTVranl1MzQifQ.N3Kcp4xfFVpJz3byWcrIcg';
 
 var metaElement = document.querySelector("meta[name=action_name]");
 if (metaElement) {
@@ -29,7 +29,7 @@ if (metaElement) {
             document.querySelector(`#${model ? model : "address"}_lng`).value = "";
             document.querySelector(`#${model ? model : "address"}_lat`).value = "";
             window.current_map.setCenter([lngLat.lng, lngLat.lat]);
-            const URL = `https://api.mapbox.com/geocoding/v5/mapbox.places/${encodeURIComponent(`${lngLat.lng},${lngLat.lat}`)}.json?access_token=pk.eyJ1Ijoic2VhcmNoLW1hY2hpbmUtdXNlci0xIiwiYSI6ImNrN2Y1Nmp4YjB3aG4zZ253YnJoY21kbzkifQ.JM5ZeqwEEm-Tonrk5wOOMw&cachebuster=1596775236930&autocomplete=true&country=mx&bbox=-102.36584333677,18.203715736351,-95.646605055518,20.200815919313&proximity=-99.630833,19.354167&limit=1`;
+            const URL = `https://api.mapbox.com/geocoding/v5/mapbox.places/${encodeURIComponent(`${lngLat.lng},${lngLat.lat}`)}.json?access_token=eyJ1Ijoic2VhcmNoLW1hY2hpbmUtdXNlci0xIiwiYSI6ImNrN2Y1Nmp4YjB3aG4zZ253YnJoY21kbzkifQ&cachebuster=1596775236930&autocomplete=true&country=mx&bbox=-102.36584333677,18.203715736351,-95.646605055518,20.200815919313&proximity=-99.630833,19.354167&limit=1`;
             try {
                 let response = await (
                     await fetch(URL, {

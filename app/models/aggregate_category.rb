@@ -1,6 +1,7 @@
 class AggregateCategory
   include Mongoid::Document
   include Mongoid::Timestamps
+  include GlobalID::Identification
 
   field :name, type: String
   field :required, type: Boolean, default: false
@@ -27,6 +28,40 @@ class AggregateCategory
   def self.get_ids(items:)
     items.map { |aggc| aggc.kind_of?(Hash) ? aggc[:id] || aggc["id"] : aggc.id.to_s }
   end
+
+
+  def self.get_all_aggregate_categories_and_aggregates(aggregates:, product:)
+    all_aggregates = []
+    aggregate_categories_ids = []
+    aggregate_category_subvariant_ids = []
+    aggregates.each do |aggid|
+      aggregate_categories_ids << aggid["id"]
+      aggregate_category_subvariant_ids += aggid["subvariants"]
+    end
+    aggregate_category_subvariant_ids.uniq!
+
+    current_aggregate_categories = AggregateCategory.get_by_ids(ids: aggregate_categories_ids, items: product.aggregate_categories)
+    current_aggregate_categories.each do |aggc|
+      new_subvariants = []
+      aggc.aggregates.each do |sub|
+        if aggregate_category_subvariant_ids.include?(sub.id.to_s)
+          new_subvariants << sub.attributes.slice(:name, :price, :description, :_id)
+        end
+      end
+      all_aggregates << {aggregate_category: aggc.attributes.slice(:name, :description, :_id), subvariants: new_subvariants}
+    end
+    return all_aggregates
+  end
+
+  def self.get_by_ids(ids:, items:)
+    all_ids = []
+    items.each do |aggc|
+      if ids.include?(aggc.id.to_s)
+        all_ids << aggc
+      end
+    end
+  end
+
 
   # @param [ArrayField] aggregate_categories
   # @return [ArrayField]

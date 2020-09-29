@@ -9,11 +9,12 @@ class Order
   # Fields
   field :status, type: String, default: "pending" # Estado por defecto
   field :send_to, type: Hash
+  # field :products, type: Array, default: []
   # Relations
   belongs_to :place
   belongs_to :cart
   # Embeds
-  embeds_many :products
+  has_many :order_items
   embeds_one :address
   # embeds_one :cart
 
@@ -58,6 +59,6 @@ class Order
 
   def create_order_callback
     # TODO: Crear el job para agregar los items y luego mandar a action cable
-    # CreateOrderJob.perform_later(@current_address.attributes, current_user.attributes, @current_cart.attributes) # Mandar el job para agregar la orden
+    CreateOrderJob.perform_later(self) # Mandar el job para agregar la orden
   end
 end

@@ -12,8 +12,6 @@ class ApplicationController < ActionController::Base
 
   def current_or_guest_user
     if current_user
-      puts "----------------SI HAY USUARIO"
-      puts "----------------#{session[:guest_user_id]}-------------#{current_user.id}"
       if session[:guest_user_id] && session[:guest_user_id] != current_user.id.to_s
         # logging_in(guest_user, current_user)
         # reload guest_user to prevent caching problems before  destruction

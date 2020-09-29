@@ -9,7 +9,7 @@ class Address
   Mapbox.access_token = "pk.eyJ1IjoiYW5keXJvaG0iLCJhIjoiY2p6NmRldzJjMGsyMzNpbjJ0YjZjZjV5NSJ9.SeHsvxUe4-pszVk0B4gRAQ"
 
   # before_validation :assign_data
-  before_validation :update_old_records
+  # before_validation :update_old_records
   after_destroy :verify_last_default
 
   field :address, type: String

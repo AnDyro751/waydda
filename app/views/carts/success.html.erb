@@ -1,17 +1,48 @@
-<div class="items-center mt-12 flex justify-center flex-wrap">
-  <div class="w-full text-center">
-    <img
-      class="h-64 mx-auto mb-12 lazy"
-      src="<%= get_image_url(10, 20, "utils/kingdom-9.png") %>"
-      data-src="<%= get_image_url(400, 800, "utils/kingdom-9.png") %>" alt="Success cart waydda">
-    <h1 class="text-4xl font-bold">Tu pedido se ha realizado con exito</h1>
-    <h2 class="text-lg font-normal text-gray-600 mt-3"><span class="text-black font-bold"><%= @place.name %></span> se
-      comunicará contigo en un instante</h2>
-    <h4 class="text-xs text-gray-500 mt-3">
-      Se ha enviado el comprobante a tu correo electrónico
-    </h4>
-  </div>
-  <div class="w-full mt-12 flex justify-center">
-    <%= link_to "Volver al inicio", root_path, class: main_color_button(color: "primary", size: "big", padding: "big") %>
+<div class="w-9/12 flex mx-auto flex-wrap">
+  <h1 class="text-2xl py-8 font-medium w-full">Ticket No: <span class="font-bold"><%= @current_cart.uuid %></span></h1>
+  <div class="w-full mt-4 flex">
+    <div class="w-8/12 mr-8">
+      <% if @current_cart.delivery_kind === "pickup" %>
+        <%= render Carts::Address::Pickup.new(place: @current_cart.place) %>
+      <% else %>
+        <%= render Carts::Address::Delivery.new(place: @current_cart.place, address: @current_cart.order.address, editable: false) %>
+      <% end %>
+      <div class="w-full border-black border shadow-main mt-10 bg-white rounded flex flex-wrap" id="cart-show-products">
+        <%#= render Carts::ListItems.new(cart_items: @cart_items, place: @place) %>
+        <% @current_cart.order.order_items.each do |order_item| %>
+          <div class="w-full my-4 px-4 flex items-center">
+            <div class="w-8/12 truncate mr-4">
+              <h5 class="font-normal truncate">
+                <%= order_item.product.name %>
+              </h5>
+              <h6 class="mt-1 text-sm text-gray-600 truncate">
+                <%= order_item.product.description %>
+              </h6>
+            </div>
+            <div class="w-4/12 flex items-center">
+              <div class="w-6/12 text-center truncate">
+                <span class="text-xs text-gray-600">
+                  <%= number_to_currency(order_item.quantity * CartItem.get_aggregates_and_product_price(product: order_item.product, aggregates: order_item.aggregates)) %>
+                </span>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+
+    <div class="w-4/12">
+      <% if @current_cart.delivery_kind == "pickup" %>
+        <img
+          class="lazy h-64 w-full shadow rounded"
+          src="https://api.mapbox.com/styles/v1/mapbox/streets-v11/static/pin-s-l+000(<%= @place.lng %>,<%= @place.lat %>)/<%= @place.lng %>,<%= @place.lat %>,16/500x400?access_token=pk.eyJ1Ijoid2F5ZGRhIiwiYSI6ImNrOXp0ZnllMDBlOHQzbHcxeTVranl1MzQifQ.N3Kcp4xfFVpJz3byWcrIcg"
+          alt="">
+      <% else %>
+        <img
+          class="lazy h-64 w-full shadow rounded"
+          src="https://api.mapbox.com/styles/v1/mapbox/streets-v11/static/pin-s-l+000(<%= @current_cart.order.address.lng %>,<%= @current_cart.order.address.lat %>)/<%= @current_cart.order.address.lng %>,<%= @current_cart.order.address.lat %>,16/500x400?access_token=pk.eyJ1Ijoid2F5ZGRhIiwiYSI6ImNrOXp0ZnllMDBlOHQzbHcxeTVranl1MzQifQ.N3Kcp4xfFVpJz3byWcrIcg"
+          alt="">
+      <% end %>
+    </div>
   </div>
 </div>

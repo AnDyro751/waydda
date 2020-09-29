@@ -1,6 +1,8 @@
 class Aggregate
   include Mongoid::Document
   include Mongoid::Timestamps
+  include GlobalID::Identification
+
 
   before_validation :assign_created_at, on: :create
   # before_save :change_others_defaults

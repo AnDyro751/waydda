@@ -1,6 +1,8 @@
 class CartItem
   include Mongoid::Document
   include Mongoid::Timestamps
+  include GlobalID::Identification
+
   field :quantity, type: Integer, default: 1
   field :added_in, type: Boolean, default: false
   field :aggregates, type: Array, default: []
@@ -20,6 +22,28 @@ class CartItem
       current_aggregates = []
       self.aggregates.each do |agg|
         agg["subvariants"].each { |sb| current_aggregates << sb }
+      end
+      all_aggregates.each do |agg|
+        if current_aggregates.include? agg.id.to_s
+          new_price = new_price + agg.price
+        end
+      end
+    end
+    return new_price
+  end
+
+  def self.get_aggregates_and_product_price(product:, aggregates:)
+    if aggregates.length <= 0
+      puts "NO HAY AGGREGATES"
+      return product.price
+    else
+      new_price = product.price
+      all_aggregates = AggregateCategory.get_all_aggregates(aggregate_categories: product.aggregate_categories)
+      current_aggregates = []
+      puts "-------#{aggregates}"
+      aggregates.each do |agg|
+        puts "----------#{agg}"
+        agg["subvariants"].each { |sb| current_aggregates << sb["_id"].to_s }
       end
       all_aggregates.each do |agg|
         if current_aggregates.include? agg.id.to_s
