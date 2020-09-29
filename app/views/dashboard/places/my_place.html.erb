@@ -1,7 +1,7 @@
 <% if @place.free? %>
   <div class="w-full mx-auto">
     <div class="z-20 bottom-0 mx-auto w-full mt-10 mb-10">
-      <%= link_to dashboard_upgrade_plan_path, class: "flex transition w-full duration-300 truncate cursor-pointer px-4 py-4 text-white rounded bg-indigo-600" do %>
+      <%= link_to dashboard_upgrade_plan_path, class: "flex transition w-full duration-300 truncate border bg-opacity-25 px-4 py-3 rounded cursor-pointer bg-blue-200 border-blue-300" do %>
         <p class="font-normal text-sm">Estás en la versión gratuita.
           <span class="font-medium">Haz click aquí para actualizar tu plan</span></p>
       <% end %>

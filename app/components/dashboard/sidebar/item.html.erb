@@ -1,0 +1,6 @@
+<%= link_to @to, class: "w-full mb-4 px-3 py-3 text-gray-800 rounded-lg hover:bg-main-gray #{helpers.current_active_class(@to, "bg-main-blue bg-opacity-25 hover:bg-main-blue hover:bg-opacity-25 text-blue-800")}" do %>
+  <div class="flex items-center w-full">
+    <%= content %>
+    <span class="font-medium"><%= @text %></span>
+  </div>
+<% end %>

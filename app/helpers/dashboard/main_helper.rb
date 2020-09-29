@@ -25,7 +25,7 @@ module Dashboard::MainHelper
     elsif color === "danger"
       "#{custom_class ? custom_class : ""} bg-main-red #{size != "small" ? "px-6" : "px-4" } hover:bg-opacity-75 cursor-pointer transform  relative #{padding === "small" ? "py-2 text-sm" : "py-3"} transition duration-150 font-medium #{with_shadow ? "shadow-main border-2" : ""}  text-white rounded border-black"
     else
-      "#{custom_class ? custom_class : ""} bg-main-dark #{size != "small" ? "px-6" : "px-4" } hover:bg-opacity-75 cursor-pointer transform  relative #{padding === "small" ? "py-2 text-sm" : "py-3"} transition duration-150 font-medium #{with_shadow ? "shadow-main border-2" : ""}  text-white rounded border-black"
+      "#{custom_class ? custom_class : ""} bg-main-gray #{size != "small" ? "px-6" : "px-4" } hover:bg-opacity-75 cursor-pointer transform  relative #{padding === "small" ? "py-2 text-sm" : "py-3"} transition duration-150 font-medium #{with_shadow ? "shadow-main border-2" : ""}  text-black rounded border-black"
     end
   end
 
@@ -36,8 +36,8 @@ module Dashboard::MainHelper
   # @param [String] class_icon
   # @param [String] action
   # @return [ActiveSupport::SafeBuffer]
-  def main_button(to:, custom_class: nil, text:, class_icon: nil, action: nil, custom_click: nil)
-    link_to to, class: "#{custom_class ? custom_class : "bg-main-teal hover:bg-opacity-75 transform shadow-main  relative py-2 px-4 transition duration-150 font-medium text-sm border-2 text-black rounded border-black"}", "@click": "#{custom_click ? custom_click : nil}" do
+  def main_button(to:, custom_class: nil, text:, class_icon: nil, action: nil, custom_click: nil, with_shadow: false, color_button: "")
+    link_to to, class: main_color_button(color: color_button, size: "big", padding: "big", with_shadow: with_shadow), "@click": "#{custom_click ? custom_click : nil}" do
       data = "<span>
             #{
       if action
