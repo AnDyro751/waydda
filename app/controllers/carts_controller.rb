@@ -60,7 +60,7 @@ class CartsController < ApplicationController
             @items = @current_cart.cart_items.includes(:product).to_a
             @total = Cart.get_total(@items)
             if @current_cart.create_new_card_order(place: @place, address: @current_address, current_user: current_user, total: @total, token_id: params["stripeToken"])
-              format.html { redirect_to place_success_checkout_path(@place.slug, @current_cart), alert: "Tu compra se ha realizado" }
+              format.html { redirect_to place_success_checkout_path(@place.slug, @current_cart), alert: "Tu pedido se ha realizado con exito" }
             else
               format.html { redirect_to place_my_cart_path(@place.slug), notice: "Ha ocurrido un error al procesar el cargo" }
             end

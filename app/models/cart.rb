@@ -5,10 +5,13 @@ class Cart
   include AASM
   include GlobalID::Identification
 
+  before_create :assign_uuid
+
   field :quantity, type: Integer, default: 0
   field :payment_type, type: String, default: "cash"
   field :status, type: String, default: "pending"
   field :delivery_kind, type: String, default: "pickup"
+  field :uuid, type: String
 
   has_many :cart_items
   embeds_one :delivery_option
@@ -220,6 +223,15 @@ class Cart
       raise "Ha ocurrido un error al procesar el pago - Stripe error"
       # format.json { render json: {errors: "Ha ocurrido un error al crear el cargo"}, status: :unprocessable_entity }
     end
+  end
+
+
+  private
+
+  # @note Callback - before_create
+  # Asigna el uuid para después mostrarlo en el carrito
+  def assign_uuid
+    self.uuid = SecureRandom.hex(6)
   end
 
 end
