@@ -1,84 +1,119 @@
-<%= simple_form_for(@product, url: dashboard_product_path(@product.slug), remote: true) do |f| %>
-  <%= f.input :name,
-              input_html: {
-                  class: 'py-3 px-3 bg-main-gray appearance-none rounded focus:outline-none w-full mt-2 mb-4'
-              },
-              label_html: {
-                  class: "text-sm font-normal text-gray-600"
-              },
-              placeholder: @product.name, label: "Nombre del producto" %>
-  <%= f.input :description,
-              as: :text,
-              input_html: {
-                  class: 'py-3 px-3 bg-main-gray appearance-none rounded focus:outline-none w-full mt-2 mb-4',
-                  rows: "5"
+<div class="w-full flex flex-wrap"
+     x-data="newFetch()"
+>
+  <%= simple_form_for(@product, url: @product.new_record ? dashboard_products_path : dashboard_product_path(@product.slug), remote: true,
+                      defaults: {
+                          input_html: {
+                              class: "#{input_color_class} mt-2",
+                              autocomplete: "off"
+                          },
+                          wrapper_html: {
+                              class: "mt-2 mb-4"
+                          },
+                          label_html: {
+                              class: "#{label_color_class(size: "big")}"
+                          }
+                      },
+                      html: {
+                          class: "w-full p-8 rounded border-2 shadow"
+                      }
+      ) do |f| %>
+    <div class="w-full mb-12 flex flex-wrap">
+      <div class="w-full flex flex-wrap">
+        <div class="w-full">
+          <%= f.input :name, placeholder: "Nombre del producto", label: "Nombre del producto", input_html: {"x-on:input": "handleChange($event)"} %>
+          <span name="product[name]_error" class="text-sm font-bold text-red-600"/>
+        </div>
+        <div class="w-full">
+          <%= f.input :description, placeholder: "Descripción breve del producto", label: "Descripción", input_html: {"x-on:input": "handleChange($event)"} %>
+          <span name="product[description]_error" class="text-sm font-bold text-red-600"/>
+        </div>
+        <div class="w-full flex">
+          <div class="w-7/12 mr-2 relative mt-2">
+            <label for="product_price" class="<%= label_color_class(size: "big") %>">
+              <abbr title="required">*</abbr>
+              Precio MXN
+            </label>
+            <div class="w-full relative">
+              <%= f.input :price, as: :float, label: false, placeholder: "Precio del producto en pesos mexicanos", input_html: {"x-on:input": "handleChange($event)", class: "#{input_color_class} pl-16"} %>
+              <div class="absolute top-0 bottom-0 left-0 h-full w-12 bg-main-gray-dark rounded-l flex justify-center items-center font-medium">$</div>
+            </div>
+            <span name="product[price]_error" class="text-sm font-bold text-red-600"/>
+          </div>
+          <div class="w-5/12 ml-2">
+            <div class="w-full">
+              <%= f.input :public_stock, placeholder: "Productos en stock", label: "Productos en stock", input_html: {"x-on:input": "handleChange($event)"} %>
+              <span name="product[public_stock]_error" class="text-sm font-bold text-red-600"/>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="w-full flex flex-wrap self-start">
 
-              },
-              label_html: {
-                  class: "text-sm font-normal text-gray-600"
-              },
-              placeholder: !@product.description.empty? ? @product.description : "Descripción breve del producto", label: "Descripción del producto" %>
-  <%= f.input :price,
-              input_html: {
-                  class: 'py-3 px-3 bg-main-gray appearance-none rounded focus:outline-none w-full mt-2 mb-4'
-              },
-              label_html: {
-                  class: "text-sm font-normal text-gray-600"
-              },
-              placeholder: @product.price ? @product.price : "Precio del producto en MXN", label: "Precio del producto (MXN)" %>
-  <div class="w-full flex gap-4">
-    <div class="w-6/12">
-      <%= f.input :quantity,
-                  input_html: {
-                      class: 'py-3 px-3 bg-main-gray appearance-none rounded focus:outline-none w-full mt-2 mb-4'
-                  },
-                  label_html: {
-                      class: "text-sm font-normal text-gray-600"
-                  },
-                  placeholder: @product.quantity ? @product.quantity : "Medida de volumen",
-                  label: "Medida de volumen" %>
+
+        <div class="w-full flex">
+          <div class="w-7/12 mr-2">
+            <%= f.input :quantity,
+                        placeholder: @product.quantity ? @product.quantity : "Medida de volumen",
+                        label: "Medida de volumen" %>
+            <span name="product[quantity]_error" class="text-sm font-bold text-red-600"/>
+          </div>
+          <div class="w-5/12 ml-2">
+            <%= f.input :quantity_measure,
+                        collection: Product.current_measures,
+                        prompt: "Selecciona una unidad",
+                        label: "Unidad del volumen"
+            %>
+            <span name="product[quantity_measure]_error" class="text-sm font-bold text-red-600"/>
+          </div>
+        </div>
+
+        <div class="w-full">
+          <div class="w-full">
+            <%= f.input :unlimited,
+                        collection: [%w[SI yes], %w[NO no]], prompt: "Selecciona una opción", label: "Vender sin stock"
+            %>
+            <span name="product[unlimited]_error" class="text-sm font-bold text-red-600"/>
+          </div>
+        </div>
+
+        <div class="w-full">
+          <%= f.input :item_ids,
+                      input_html: {
+                          class: "js-multiple hidden invisible py-3",
+                          multiple: "multiple"
+                      },
+                      label_html: {
+                          class: label_color_class(size: "big")
+                      },
+                      collection: @place.items, prompt: "Categorías", label: "Categorías" %>
+          <span name="product[item_ids]_error" class="text-sm font-bold text-red-600"/>
+        </div>
+
+      </div>
+      <div class="w-full flex justify-start">
+        <%= f.button :submit,
+                     data: {"disable-with": @product.new_record ? "Creando producto..." : "Actualizar producto"},
+                     value: @product.new_record ? "Crear producto" : "Actualizar producto",
+                     class: "#{main_color_button(size: "big", padding: "big", color: "dark")} mt-8"
+        %>
+      </div>
     </div>
-    <div class="w-6/12">
-      <%= f.input :quantity_measure,
-                  input_html: {
-                      class: 'py-3 px-3 bg-main-gray appearance-none rounded focus:outline-none w-full mt-2 mb-4'
-                  },
-                  label_html: {
-                      class: "text-sm font-normal text-gray-600"
-                  },
-                  collection: Product.current_measures,
-                  prompt: "Selecciona una unidad",
-                  label: "Unidad del volumen" %>
-    </div>
-  </div>
-  <%= f.input :public_stock,
-              input_html: {
-                  class: 'py-3 px-3 bg-main-gray appearance-none rounded focus:outline-none w-full mt-2 mb-4'
-              },
-              label_html: {
-                  class: "text-sm font-normal text-gray-600"
-              },
-              as: :integer, placeholder: @product.public_stock ? @product.public_stock : "Productos en existencia", label: "Productos en existencia" %>
-  <%= f.input :unlimited,
-              input_html: {
-                  class: 'py-3 px-3 bg-main-gray appearance-none rounded focus:outline-none w-full mt-2 mb-4'
-              },
-              label_html: {
-                  class: "text-sm font-normal text-gray-600"
-              },
-              collection: [%w[SI yes], %w[NO no]], prompt: "Selecciona una opción", label: "Vender sin stock" %>
-  <%= f.input :item_ids,
-              input_html: {
-                  class: "js-multiple hidden invisible",
-                  multiple: "multiple"
-              },
-              label_html: {
-                  class: "text-sm font-normal text-gray-600"
-              },
-              collection: @place.items, prompt: "Categorías", label: "Categorías" %>
 
-  <div class="w-full flex justify-end my-12">
-    <%= f.submit "Guardar", data: {"disable-with": "Cargando..."}, class: "bg-main-blue hover:bg-opacity-75 cursor-pointer hover:shadow-small transform shadow-main hover:top-simple hover:left-simple relative py-2 px-4 transition duration-150 font-medium text-sm border-2 text-white rounded border-black" %>
-  </div>
-<% end %>
+  <% end %>
+  <script type="text/javascript" charset="utf-8">
+      function newFetch() {
+          return {
+              handleChange: function (e) {
+                  e.target.classList.remove("border-red-500");
+                  var element = document.querySelector(`[name="${e.target.name}_error"`);
+                  if (element) {
+                      element.innerHTML = "";
+                  }
+              }
+          }
+      }
+  </script>
 
+</div>
+<%= javascript_packs_with_chunks_tag "dashboard/products/new", 'data-turbolinks-track': "reload" %>

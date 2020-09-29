@@ -190,7 +190,7 @@ class Product
 
   def self.current_measures
     # kg grm oz ml l m2 m3
-    [["Kilogramo", "kg"], ["Gramos", "grm"], ["Onzas", "oz"], ["Mililitros", "ml"], ["Litros", "l"], ["Metros Cuadrados", "m2"], ["Metros Cúbicos", "m3"], ["Unidades/ Piezas", "pzas"]]
+    [["Kilogramos", "kg"], ["Gramos", "grm"], ["Onzas", "oz"], ["Mililitros", "ml"], ["Litros", "l"], ["Metros Cuadrados", "m2"], ["Metros Cúbicos", "m3"], ["Unidades/ Piezas", "pzas"]]
   end
 
   def self.update_recent_products(item_ids:, product:, action: "create")

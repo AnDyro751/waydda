@@ -15,11 +15,8 @@
                 class: main_color_button(color: @product.active? ? "danger" : "secondary", size: "big") %>
 <% end %>
 
-<div class="w-full flex gap-6">
-  <div class="w-8/12">
-    <%= render 'form', product: @product %>
-  </div>
-  <div class="w-4/12">
+<div class="w-full flex flex-wrap">
+  <div class="w-full">
     <div class="flex w-full flex-wrap">
       <p class="text-sm font-normal w-full text-gray-600">Foto del producto</p>
       <label
@@ -36,6 +33,9 @@
       </label>
     </div>
     <div class="UppyInput-Progress w-full mt-8"></div>
+  </div>
+  <div class="w-full">
+    <%= render 'form', product: @product %>
   </div>
 </div>
 
