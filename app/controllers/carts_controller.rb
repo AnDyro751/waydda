@@ -1,6 +1,6 @@
 class CartsController < ApplicationController
   layout "cart"
-  before_action :authenticate_user!
+  before_action :authenticate_user!, except: [:add_product]
   Stripe.api_key = 'sk_test_51H9CZeBOcPJ0nbHctTzfQZhFXBnn8j05e0xqJ5RSVz5Bum72LsvmQKIecJnsoHISEg0jUWtKjERYGeCAEWiIAujP00Fae9MiKm'
   before_action :set_place, only: [:create_charge, :success, :payment_method, :show, :add_product, :update_item]
   before_action :set_current_cart, only: [:create_charge, :add_product, :payment_method, :show, :update_item]
@@ -132,9 +132,9 @@ class CartsController < ApplicationController
 
   def set_current_cart
     if params["cart_id"].present?
-      @current_cart = current_user.carts.find_by(id: params["cart_id"], status: "pending") || not_found
+      @current_cart = current_or_guest_user.carts.find_by(id: params["cart_id"], status: "pending") || not_found
     else
-      @current_cart = current_user.carts.find_or_create_by(place: @place, status: "pending") || not_found
+      @current_cart = current_or_guest_user.carts.find_or_create_by(place: @place, status: "pending") || not_found
     end
   end
 
@@ -147,7 +147,7 @@ class CartsController < ApplicationController
       @total = Cart.get_total(@cart_items)
     else
       cart_items_ids = []
-      @carts = current_user.carts.where(status: "pending", :quantity.gt => 0).includes(:place).to_a.each do |ct|
+      @carts = current_or_guest_user.carts.where(status: "pending", :quantity.gt => 0).includes(:place).to_a.each do |ct|
         cart_items_ids = cart_items_ids + ct.cart_item_ids
       end
       @total = 0

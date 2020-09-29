@@ -169,6 +169,12 @@ class Place
     end
   end
 
+
+  def can_delivery?
+    self.kind === "premium" and self.delivery_option
+  end
+
+
   private
 
 
@@ -203,9 +209,6 @@ class Place
     return {success: true, error: nil}
   end
 
-  def can_delivery?
-    self.kind === "premium" and self.delivery_option
-  end
 
   def assign_slug
     loop do

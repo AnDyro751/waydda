@@ -5,7 +5,51 @@ class ApplicationController < ActionController::Base
   before_action :set_time_zone
   before_action :set_language
   before_action :set_continue
+  before_action :current_or_guest_user
+  protect_from_forgery
   # before_action :set_default_locations
+
+
+  def current_or_guest_user
+    if current_user
+      puts "----------------SI HAY USUARIO"
+      puts "----------------#{session[:guest_user_id]}-------------#{current_user.id}"
+      if session[:guest_user_id] && session[:guest_user_id] != current_user.id.to_s
+        # logging_in(guest_user, current_user)
+        # reload guest_user to prevent caching problems before  destruction
+        guest_user(with_retry = false).try(:reload).try(:destroy)
+        session[:guest_user_id] = nil
+      end
+      current_user
+    else
+      guest_user
+    end
+  end
+
+  helper_method :current_or_guest_user
+
+
+  def guest_user(with_retry = true)
+    # Cache the value the first time it's gotten.
+    @cached_guest_user ||= User.find(session[:guest_user_id] ||= create_guest_user.id.to_s)
+
+  rescue ActiveRecord::RecordNotFound # if session[:guest_user_id] invalid
+    session[:guest_user_id] = nil
+    guest_user if with_retry
+  end
+
+
+
+  def create_guest_user
+    u = User.new(:name => "guest", :email => "guest_#{Time.now.to_i}#{rand(100)}@example.com")
+    u.save(validate: false)
+    puts "-------------_#{u.persisted?}"
+    session[:guest_user_id] = u.id.to_s
+    u
+  end
+
+  helper_method :create_guest_user
+
 
   def add_log(message)
     puts "Logger info: ----- #{message}"
@@ -18,6 +62,10 @@ class ApplicationController < ActionController::Base
   end
 
   def after_sign_in_path_for(resource)
+    puts "-------------SIGN IN PATH FOR"
+    # current_or_guest_user
+    MergeUserCartsJob.perform_later(guest_user, current_user)
+    session[:guest_user_id] = nil
     if session[:continue]
       navigation = session[:continue]
       session[:continue] = nil

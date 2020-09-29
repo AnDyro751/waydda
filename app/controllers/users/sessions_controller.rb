@@ -41,9 +41,13 @@ class Users::SessionsController < Devise::SessionsController
         if params["user"]["verification_code"].present?
           @last_verification_code = @user.get_last_phone_code
           puts "NO HAY CPODIGO DE VERIFICACIONE" if @last_verification_code.nil?
+          if @last_verification_code.nil?
+            @last_verification_code = @user.create_and_send_verification_code
+          end
           if params["user"]["verification_code"] === @last_verification_code.verification_code
             @last_verification_code.update(status: "used")
             format.html { sign_in_and_redirect @user, notice: "Bienvenido de nuevo" }
+
           else
             @error = "El código de verificación es incorrecto"
             format.js

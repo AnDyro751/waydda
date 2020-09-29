@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   # search
   get "/search", to: "searchs#show", as: "search"
   # users
-  devise_for :users, :controllers => {:omniauth_callbacks => "users/omniauth_callbacks", sessions: "users/sessions"}
+  devise_for :users, :controllers => {sessions: "users/sessions"}
   devise_scope :user do
     get 'acceder', to: 'users/sessions#new' #, as: :new_user_session
   end

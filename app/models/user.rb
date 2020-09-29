@@ -5,7 +5,7 @@ class User
   include AASM
   include GlobalID::Identification
 
-  devise :database_authenticatable, :registerable, :omniauthable, :rememberable, omniauth_providers: [:facebook, :google_oauth2]
+  devise :database_authenticatable, :registerable, :rememberable
   # Callbacks
   after_create :assign_default_role
   after_create :create_stripe_customer
@@ -85,6 +85,28 @@ class User
   end
 
 
+  def self.logging_in(g_user, c_user)
+    puts "-------------CREANDO"
+    g_user.carts.each do |gc|
+      puts "-------------CREANDO 11"
+      current_cart = c_user.carts.find_by(place: gc.place, status: "pending")
+      if current_cart.nil?
+        puts "---------EL USER NO TIENE CARRITO DE --- #{gc.place.name}"
+        new_cart = c_user.carts.create(place: gc.place, status: "pending")
+        gc.cart_items.each do |ci|
+          puts "----------AGREGANDO NEW ITEM"
+          new_cart.add_item(product: ci.product, place: gc.place, quantity: ci.quantity, aggregates: ci.aggregates)
+        end
+      else
+        gc.cart_items.each do |ci|
+          puts "----------AGREGANDO ITEM VIEJO A NUEVO"
+          current_cart.add_item(product: ci.product, place: gc.place, quantity: ci.quantity, aggregates: ci.aggregates)
+        end
+      end
+    end
+  end
+
+
   # return token for client to identify user
   def generate_token
     #Token.generate_token(self.id)
@@ -105,7 +127,8 @@ class User
         raise "Usa el último código de activación que se envío a #{self.phone}"
       end
     end
-      # SendWhatsAppMessageJob.perform_now(message: User.text_code_message(code: phone_code.verification_code), phone: self.phone)
+    SendWhatsAppMessageJob.perform_now(message: User.text_code_message(code: phone_code.verification_code), phone: self.phone)
+    return phone_code
   end
 
   def get_last_phone_code
