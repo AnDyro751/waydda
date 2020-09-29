@@ -5,15 +5,22 @@
   <%= simple_form_for(@product, url: dashboard_products_path, remote: true,
                       defaults: {
                           input_html: {
-                              class: 'py-3 px-3 bg-main-gray appearance-none rounded focus:outline-none w-full mt-2 mb-4'
+                              class: "#{input_color_class} mt-2",
+                              autocomplete: "off"
+                          },
+                          wrapper_html: {
+                              class: "mt-2 mb-4"
                           },
                           label_html: {
-                              class: "text-sm font-normal text-gray-600"
+                              class: "#{label_color_class(size: "big")}"
                           }
+                      },
+                      html: {
+                          class: "w-full p-8 rounded border-2 shadow"
                       }
       ) do |f| %>
-    <div class="w-full mb-12 flex gap-8">
-      <div class="w-8/12 flex flex-wrap">
+    <div class="w-full mb-12 flex flex-wrap">
+      <div class="w-full flex flex-wrap">
         <div class="w-full">
           <%= f.input :name, placeholder: "Nombre del producto", label: "Nombre del producto", input_html: {"x-on:input": "handleChange($event)"} %>
           <span name="product[name]_error" class="text-sm font-bold text-red-600"/>
@@ -22,19 +29,19 @@
           <%= f.input :description, placeholder: "Descripción breve del producto", label: "Descripción", input_html: {"x-on:input": "handleChange($event)"} %>
           <span name="product[description]_error" class="text-sm font-bold text-red-600"/>
         </div>
-        <div class="w-full">
-          <%= f.input :price, as: :float, placeholder: "Precio del producto en pesos mexicanos", label: "Precio MXN", input_html: {"x-on:input": "handleChange($event)"} %>
+        <div class="w-full relative mt-2">
+          <label for="product_price" class="<%= label_color_class(size: "big") %>">
+            <abbr title="required">*</abbr>
+            Precio MXN
+          </label>
+          <div class="w-full relative">
+            <%= f.input :price, as: :float, label: false, placeholder: "Precio del producto en pesos mexicanos", input_html: {"x-on:input": "handleChange($event)", class: "#{input_color_class} pl-16"} %>
+            <div class="absolute top-0 bottom-0 left-0 h-full w-12 bg-main-gray-dark rounded-l flex justify-center items-center font-medium">$</div>
+          </div>
           <span name="product[price]_error" class="text-sm font-bold text-red-600"/>
         </div>
-        <div class="w-full flex justify-end">
-          <%= f.button :submit,
-                       data: {"disable-with": "Cargando..."},
-                       value: "Crear producto",
-                       class: "bg-main-blue main-box-shadow border-2 border-black transform px-4 py-3 text-sm font-normal text-white focus:outline-none transition duration-300 hover:bg-opacity-75 hover:shadow-lg cursor-pointer mt-4 rounded"
-          %>
-        </div>
       </div>
-      <div class="w-4/12 flex flex-wrap self-start">
+      <div class="w-full flex flex-wrap self-start">
         <div class="w-full">
           <%= f.input :public_stock, placeholder: "Productos en stock", label: "Productos en stock", input_html: {"x-on:input": "handleChange($event)"} %>
           <span name="product[public_stock]_error" class="text-sm font-bold text-red-600"/>
@@ -46,11 +53,18 @@
                           multiple: "multiple"
                       },
                       label_html: {
-                          class: "text-sm font-normal text-gray-600"
+                          class: label_color_class(size: "big")
                       },
                       collection: @place.items, prompt: "Categorías", label: "Categorías" %>
           <span name="product[item_ids]_error" class="text-sm font-bold text-red-600"/>
         </div>
+      </div>
+      <div class="w-full flex justify-start">
+        <%= f.button :submit,
+                     data: {"disable-with": "Cargando..."},
+                     value: "Creando producto...",
+                     class: "#{main_color_button(size: "big", padding: "big", color: "dark")} mt-8"
+        %>
       </div>
     </div>
 
@@ -59,7 +73,6 @@
       function newFetch() {
           return {
               handleChange: function (e) {
-                  e.target.classList.remove("border-2");
                   e.target.classList.remove("border-red-500");
                   var element = document.querySelector(`[name="${e.target.name}_error"`);
                   if (element) {

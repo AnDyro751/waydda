@@ -24,10 +24,3 @@ a[rel~="prev"] {
     padding: 0 .4em;
 }
 
-input:-webkit-autofill,
-input:-webkit-autofill:hover,
-input:-webkit-autofill:focus,
-input:-webkit-autofill:active {
-    border-color: #F6F6F6;
-    -webkit-box-shadow: 0 0 0 30px #F6F6F6 inset !important;
-}
