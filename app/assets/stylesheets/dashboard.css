@@ -3,19 +3,23 @@
 }
 
 .breadcrumbs {
+    font-weight: normal;
     color: #a4b6cc;
 }
-
-.breadcrumbs a:hover {
-    color: #333333;
+.breadcrumbs div{
+    display: inline;
+}
+.breadcrumbs div a:hover {
     border-radius: 3px;
     background: #eeeeee;
+    cursor: pointer;
 }
-
-.breadcrumbs a {
-    padding: .2em .6em;
-    font-weight: normal;
+.breadcrumbs div{
     color: #333333;
+}
+.breadcrumbs div a {
+    color: #333333;
+    padding: .2em .6em;
 }
 
 ::selection {
