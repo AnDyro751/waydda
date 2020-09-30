@@ -8,10 +8,11 @@
         <%= render Carts::Address::Delivery.new(place: @current_cart.place, address: @current_cart.order.address, editable: false) %>
       <% end %>
       <div class="w-full border-black border shadow-main mt-10 bg-white rounded flex flex-wrap" id="cart-show-products">
+        <%= render Headers::Text.new(title: "Productos adquiridos", small: true, padding_class: "py-6 px-4", font: "small", with_margin: false, with_border: true) %>
         <%#= render Carts::ListItems.new(cart_items: @cart_items, place: @place) %>
         <% @current_cart.order.order_items.each do |order_item| %>
           <div class="w-full my-4 px-4 flex items-center">
-            <div class="w-8/12 truncate mr-4">
+            <div class="w-9/12 truncate mr-4">
               <h5 class="font-normal truncate">
                 <%= order_item.product.name %>
               </h5>
@@ -19,15 +20,21 @@
                 <%= order_item.product.description %>
               </h6>
             </div>
-            <div class="w-4/12 flex items-center">
-              <div class="w-6/12 text-center truncate">
-                <span class="text-xs text-gray-600">
+            <div class="w-3/12 flex items-center justify-end">
+                <span class="text-sm font-medium">
                   <%= number_to_currency(order_item.quantity * CartItem.get_aggregates_and_product_price(product: order_item.product, aggregates: order_item.aggregates)) %>
                 </span>
-              </div>
             </div>
           </div>
         <% end %>
+        <div class="w-full border-t border-gray-400 px-4 py-6 flex">
+          <div class="w-8/12">
+            <h4 class="font-bold">Total:</h4>
+          </div>
+          <div class="w-4/12 flex justify-end">
+            <h5 class="font-medium"><%= number_to_currency(@current_cart.order.total_order) %></h5>
+          </div>
+        </div>
       </div>
     </div>
 

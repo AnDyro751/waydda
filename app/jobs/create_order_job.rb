@@ -15,8 +15,15 @@ class CreateOrderJob < ApplicationJob
       # Cart item tiene los aggregates que podemos buscar
       product = ci.product.attributes
       new_aggregates = AggregateCategory.get_all_aggregate_categories_and_aggregates(aggregates: ci.aggregates, product: ci.product)
+      # total = 0
+
+      # new_aggregates.each do |agg|
+      #   agg[:subvariants].each do |sb|
+      #     total = total + sb["price"]
+      #   end
+      # end
+      # total = total + ci.product.price
       begin
-        puts "-------------------INSERTANDO ORDER ITEM"
         this_order.order_items << this_order.order_items.create(product: ci.product, aggregates: new_aggregates, quantity: ci.quantity)
       rescue => e
         puts "------------------_#{e}"

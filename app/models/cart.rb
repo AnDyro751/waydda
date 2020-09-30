@@ -186,9 +186,9 @@ class Cart
     end
   end
 
-  def create_new_cash_order(place:, address:, current_user:)
+  def create_new_cash_order(place:, address:, current_user:, total:)
     begin
-      if Order.create_new_order(cart: self, place: place, address: address, current_user: current_user)
+      if Order.create_new_order(cart: self, place: place, address: address, current_user: current_user, total: total)
         return self.update(status: "success")
       else
         raise "Ha ocurrido un error al crear la orden"
@@ -213,7 +213,7 @@ class Cart
                                 description: "Compra en #{place.name} - Waydda México",
                                 on_behalf_of: place.account.account_id
                             })
-      if Order.create_new_order(cart: self, place: place, address: address, current_user: current_user)
+      if Order.create_new_order(cart: self, place: place, address: address, current_user: current_user, total: total)
         return self.update(status: "success")
       else
         logger.warn "ERROR EN CREATE NEW_ORDER"

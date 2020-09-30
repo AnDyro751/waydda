@@ -9,7 +9,7 @@ class Order
   # Fields
   field :status, type: String, default: "pending" # Estado por defecto
   field :send_to, type: Hash
-  # field :products, type: Array, default: []
+  field :total_order, type: Float, default: 0.0
   # Relations
   belongs_to :place
   belongs_to :cart
@@ -17,6 +17,8 @@ class Order
   has_many :order_items
   embeds_one :address
   # embeds_one :cart
+
+  validates :total_order, numericality: {greater_than_or_equal_to: 1}
 
 
   # AASM STATES
@@ -44,8 +46,8 @@ class Order
   # @param [Object] address
   # @param [Object] current_user
   # @return [TrueClass]
-  def self.create_new_order(cart:, place:, address:, current_user:)
-    new_order = place.orders.new(send_to: {name: "#{current_user.name} #{current_user.lastName}", email: current_user.email}, address: address, cart: cart)
+  def self.create_new_order(cart:, place:, address:, current_user:, total:)
+    new_order = place.orders.new(send_to: {name: "#{current_user.name} #{current_user.lastName}", email: current_user.email}, total_order: total, address: address, cart: cart)
     if new_order.save
       return true
     else
