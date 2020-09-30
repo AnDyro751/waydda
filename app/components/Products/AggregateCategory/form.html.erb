@@ -1,0 +1,30 @@
+<div class="w-full flex flex-wrap">
+  <div class="w-full">
+    <div class="w-full">
+      <%= @f.input :name, label: "Nombre de la variante", placeholder: "Ej: Tamaño, Color" %>
+      <span name="product[unlimited]_error" class="text-sm font-bold text-red-600"/>
+    </div>
+  </div>
+
+  <div class="w-full">
+    <h2>Subvariante</h2>
+    <% @f.simple_fields_for :aggregates, Aggregate.new do |agg| %>
+      <div class="w-full">
+        <div class="w-full">
+          <%= agg.input :price, label: "Precio" %>
+          <span name="product[price]_error" class="text-sm font-bold text-red-600"/>
+        </div>
+      </div>
+      <div class="w-full">
+        <div class="w-full">
+          <%= agg.input :unlimited,
+                        collection: [%w[SI true], %w[NO false]],
+                        label: "Continuar vendiendo sin stock",
+                        prompt: "Selecciona una opción"
+          %>
+          <span name="product[unlimited]_error" class="text-sm font-bold text-red-600"/>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

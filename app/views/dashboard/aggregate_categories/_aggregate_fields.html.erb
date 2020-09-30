@@ -34,36 +34,23 @@
           <span>MXN</span>
         </div>
       </div>
-      <%= f.input :price,
-                  label: false,
-                  # label_html: {
-                  #     class: "text-sm font-normal text-gray-600"
-                  # },
-                  as: :float,
-                  input_html: {
-                      class: "form-input block w-full py-3 pl-8 pr-12 sm:text-sm sm:leading-5 bg-main-gray appearance-none rounded focus:outline-none w-full resize-none"
-                  },
-                  wrapper_html: {
-                      class: "w-full"
-                  },
-                  placeholder: "0.00"
-      %>
+
     </div>
 
 
     <!--      <input id="price" class="form-input block w-full pl-7 pr-12 sm:text-sm sm:leading-5" placeholder="0.00">-->
 
   </div>
-  <div class="w-1/12 flex justify-end">
-    <%= link_to_remove_association f, class: "w-8 h-8 hover:bg-red-400 rounded text-gray-700 hover:text-white flex items-center justify-center" do %>
-      <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
-           class="w-4 h-4  fill-current"
-           viewBox="0 0 24 24"
-      >
-        <path d="M 10 2 L 9 3 L 5 3 C 4.4 3 4 3.4 4 4 C 4 4.6 4.4 5 5 5 L 7 5 L 17 5 L 19 5 C 19.6 5 20 4.6 20 4 C 20 3.4 19.6 3 19 3 L 15 3 L 14 2 L 10 2 z M 5 7 L 5 20 C 5 21.1 5.9 22 7 22 L 17 22 C 18.1 22 19 21.1 19 20 L 19 7 L 5 7 z M 9 9 C 9.6 9 10 9.4 10 10 L 10 19 C 10 19.6 9.6 20 9 20 C 8.4 20 8 19.6 8 19 L 8 10 C 8 9.4 8.4 9 9 9 z M 15 9 C 15.6 9 16 9.4 16 10 L 16 19 C 16 19.6 15.6 20 15 20 C 14.4 20 14 19.6 14 19 L 14 10 C 14 9.4 14.4 9 15 9 z"></path>
-      </svg>
-    <% end %>
-  </div>
+<!--  <div class="w-1/12 flex justify-end">-->
+  <%#= link_to_remove_association f, class: "w-8 h-8 hover:bg-red-400 rounded text-gray-700 hover:text-white flex items-center justify-center" do %>
+  <!--      <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"-->
+  <!--           class="w-4 h-4  fill-current"-->
+  <!--           viewBox="0 0 24 24"-->
+  <!--      >-->
+  <!--        <path d="M 10 2 L 9 3 L 5 3 C 4.4 3 4 3.4 4 4 C 4 4.6 4.4 5 5 5 L 7 5 L 17 5 L 19 5 C 19.6 5 20 4.6 20 4 C 20 3.4 19.6 3 19 3 L 15 3 L 14 2 L 10 2 z M 5 7 L 5 20 C 5 21.1 5.9 22 7 22 L 17 22 C 18.1 22 19 21.1 19 20 L 19 7 L 5 7 z M 9 9 C 9.6 9 10 9.4 10 10 L 10 19 C 10 19.6 9.6 20 9 20 C 8.4 20 8 19.6 8 19 L 8 10 C 8 9.4 8.4 9 9 9 z M 15 9 C 15.6 9 16 9.4 16 10 L 16 19 C 16 19.6 15.6 20 15 20 C 14.4 20 14 19.6 14 19 L 14 10 C 14 9.4 14.4 9 15 9 z"></path>-->
+  <!--      </svg>-->
+  <%# end %>
+  <!--  </div>-->
 
   <%#= f.input :_destroy, as: :hidden, value: "" %>
   <!--    <small><%#= link_to "Remove", "#", data: {action: "click->nested-form#remove_association"} %></small>-->

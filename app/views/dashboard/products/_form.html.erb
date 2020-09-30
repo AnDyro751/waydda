@@ -4,7 +4,7 @@
   <%= simple_form_for(@product, url: @product.new_record ? dashboard_products_path : dashboard_product_path(@product.slug), remote: true,
                       defaults: {
                           input_html: {
-                              class: "#{input_color_class} mt-2",
+                              class: "#{input_color_class} mt-2 resize-none",
                               autocomplete: "off"
                           },
                           wrapper_html: {
@@ -15,46 +15,62 @@
                           }
                       },
                       html: {
-                          class: "w-full p-8 rounded border-2 shadow"
+                          class: "w-full "
                       }
       ) do |f| %>
+
     <div class="w-full mb-12 flex flex-wrap">
-      <div class="w-full flex flex-wrap">
-        <div class="w-full">
+      <div class="w-full flex flex-wrap py-8 rounded border-2 shadow mb-4">
+        <%= render Headers::Text.new(title: "Información básica", small: true, font: "small", padding_class: "px-8 pb-8") %>
+        <div class="w-full px-8">
           <%= f.input :name, placeholder: "Nombre del producto", label: "Nombre del producto", input_html: {"x-on:input": "handleChange($event)"} %>
           <span name="product[name]_error" class="text-sm font-bold text-red-600"/>
         </div>
-        <div class="w-full">
-          <%= f.input :description, placeholder: "Descripción breve del producto", label: "Descripción", input_html: {"x-on:input": "handleChange($event)"} %>
+        <div class="w-full px-8">
+          <%= f.input :description, as: :text, placeholder: "Descripción breve del producto", label: "Descripción", input_html: {"x-on:input": "handleChange($event)", "rows": "5"} %>
           <span name="product[description]_error" class="text-sm font-bold text-red-600"/>
         </div>
-        <div class="w-full flex">
-          <div class="w-7/12 mr-2 relative mt-2">
-            <label for="product_price" class="<%= label_color_class(size: "big") %>">
-              <abbr title="required">*</abbr>
-              Precio MXN
-            </label>
-            <div class="w-full relative">
-              <%= f.input :price, as: :float, label: false, placeholder: "Precio del producto en pesos mexicanos", input_html: {"x-on:input": "handleChange($event)", class: "#{input_color_class} pl-16"} %>
-              <div class="absolute top-0 bottom-0 left-0 h-full w-12 bg-main-gray-dark rounded-l flex justify-center items-center font-medium">$</div>
-            </div>
-            <span name="product[price]_error" class="text-sm font-bold text-red-600"/>
-          </div>
-          <div class="w-5/12 ml-2">
-            <div class="w-full">
-              <%= f.input :public_stock, placeholder: "Productos en stock", label: "Productos en stock", input_html: {"x-on:input": "handleChange($event)"} %>
-              <span name="product[public_stock]_error" class="text-sm font-bold text-red-600"/>
-            </div>
-          </div>
+        <div class="w-full px-8">
+          <%= f.input :price, as: :float, placeholder: "Precio del producto", label: "Precio", input_html: {"x-on:input": "handleChange($event)"} %>
+          <span name="product[price]_error" class="text-sm font-bold text-red-600"/>
         </div>
       </div>
-      <div class="w-full flex flex-wrap self-start">
+      <div class="w-full flex flex-wrap self-start rounded border-2 py-8 shadow mb-4">
+        <%= render Headers::Text.new(title: "Inventario", small: true, font: "small", padding_class: "px-8 pb-8") %>
+        <div class="w-full px-8 flex">
+          <div class="w-7/12 mr-2">
+            <%= f.input :public_stock,
+                        placeholder: "Productos en stock",
+                        label: "Cantidad disponible" %>
+            <span name="product[public_stock]_error" class="text-sm font-bold text-red-600"/>
+          </div>
+          <div class="w-5/12 ml-2">
+            <%= f.input :unlimited,
+                        collection: [%w[SI true], %w[NO false]],
+                        label: "Continuar vendiendo sin stock",
+                        prompt: "Selecciona una opción"
+            %>
+            <span name="product[public_stock]_error" class="text-sm font-bold text-red-600"/>
+          </div>
+        </div>
 
+        <div class="w-full px-8 flex">
+          <div class="w-7/12 mr-2">
+            <%= f.input :sku,
+                        placeholder: "Código de referencia",
+                        label: "Cantidad disponible" %>
+            <span name="product[public_stock]_error" class="text-sm font-bold text-red-600"/>
+          </div>
 
-        <div class="w-full flex">
+        </div>
+      </div>
+
+      <div class="w-full flex rounded border-2 py-8 shadow mb-4 flex-wrap">
+        <%= render Headers::Text.new(title: "Medidas de volumen", small: true, font: "small", padding_class: "px-8 pb-8") %>
+        <div class="w-full flex px-8">
           <div class="w-7/12 mr-2">
             <%= f.input :quantity,
-                        placeholder: @product.quantity ? @product.quantity : "Medida de volumen",
+                        placeholder: "Medida de volumen",
                         label: "Medida de volumen" %>
             <span name="product[quantity]_error" class="text-sm font-bold text-red-600"/>
           </div>
@@ -67,17 +83,20 @@
             <span name="product[quantity_measure]_error" class="text-sm font-bold text-red-600"/>
           </div>
         </div>
+      </div>
 
-        <div class="w-full">
-          <div class="w-full">
-            <%= f.input :unlimited,
-                        collection: [%w[SI yes], %w[NO no]], prompt: "Selecciona una opción", label: "Vender sin stock"
-            %>
-            <span name="product[unlimited]_error" class="text-sm font-bold text-red-600"/>
-          </div>
-        </div>
+      <!--      <div class="w-full flex rounded border-2 py-8 shadow mb-4 flex-wrap">-->
+      <%#= render Headers::Text.new(title: "Variantes", small: true, font: "small", padding_class: "px-8 pb-8") %>
+      <!--        <div class="w-full px-8">-->
+      <%#= f.simple_fields_for :aggregate_categorieas, AggregateCategory.new do |aggf| %>
+      <%#= render Products::AggregateCategory::Form.new(f: aggf) %>
+      <%# end %>
+      <!--        </div>-->
+      <!--      </div>-->
 
-        <div class="w-full">
+      <div class="w-full flex flex-wrap rounded border-2 py-8 shadow mb-4 ">
+        <%= render Headers::Text.new(title: "Categorías", small: true, font: "small", padding_class: "px-8 pb-8") %>
+        <div class="w-full px-8">
           <%= f.input :item_ids,
                       input_html: {
                           class: "js-multiple hidden invisible py-3",
@@ -86,11 +105,11 @@
                       label_html: {
                           class: label_color_class(size: "big")
                       },
-                      collection: @place.items, prompt: "Categorías", label: "Categorías" %>
+                      collection: @place.items, prompt: "Categorías", label: "Selecciona una categoría" %>
           <span name="product[item_ids]_error" class="text-sm font-bold text-red-600"/>
         </div>
-
       </div>
+
       <div class="w-full flex justify-start">
         <%= f.button :submit,
                      data: {"disable-with": @product.new_record ? "Creando producto..." : "Actualizar producto"},

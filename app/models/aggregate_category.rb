@@ -4,12 +4,12 @@ class AggregateCategory
   include GlobalID::Identification
 
   field :name, type: String
+  field :description, type: String
   field :required, type: Boolean, default: false
   field :multiple_selection, type: Boolean, default: false
-  field :description, type: String, default: ""
 
   embeds_many :aggregates
-  embedded_in :product
+  embedded_in :product, :inverse_of => :aggregate_category
 
   accepts_nested_attributes_for :aggregates, allow_destroy: true, :reject_if => :all_blank
   validates :name, presence: true, length: {in: 2..50}

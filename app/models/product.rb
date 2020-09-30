@@ -26,14 +26,16 @@ class Product
   field :sku, type: String, default: ""
   field :bar_code, type: String, default: ""
   field :quantity, type: String
-  field :quantity_measure, type: String
+  field :quantity_measure, type: String, default: "pzas"
   # TODO: Agregar la cantidad publica y la privada
 
   # relations
   belongs_to :place
   has_and_belongs_to_many :items
+
   has_many :cart_items
   embeds_many :aggregate_categories
+  accepts_nested_attributes_for :aggregate_categories
 
   embeds_many :images, as: :model
 
@@ -190,7 +192,7 @@ class Product
 
   def self.current_measures
     # kg grm oz ml l m2 m3
-    [["Kilogramos", "kg"], ["Gramos", "grm"], ["Onzas", "oz"], ["Mililitros", "ml"], ["Litros", "l"], ["Metros Cuadrados", "m2"], ["Metros Cúbicos", "m3"], ["Unidades/ Piezas", "pzas"]]
+    [["Kilogramos", "kg"], ["Gramos", "grm"], ["Onzas", "oz"], ["Mililitros", "ml"], ["Litros", "l"], ["Metros Cuadrados", "m2"], ["Metros Cúbicos", "m3"], ["Unidades / Piezas", "pzas"]]
   end
 
   def self.update_recent_products(item_ids:, product:, action: "create")

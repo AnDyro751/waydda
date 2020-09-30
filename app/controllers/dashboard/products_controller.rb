@@ -14,7 +14,9 @@ class Dashboard::ProductsController < ApplicationController
   end
 
   def new
-    @product = @place.products.new
+    @product = Product.new
+    @product.aggregate_categories.build
+    @product.aggregate_categories.new.aggregates.new
   end
 
   def edit
@@ -107,6 +109,6 @@ class Dashboard::ProductsController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def product_params
-    params.require(:product).permit(:name, :description, :price, :aggregates_required, :max_aggregates, :public_stock, :unlimited, :quantity, :quantity_measure, item_ids: [])
+    params.require(:product).permit(:name, :description, :price, :aggregates_required, :max_aggregates, :public_stock, :unlimited, :quantity, :quantity_measure, item_ids: [], aggregate_categories_attributes: [])
   end
 end

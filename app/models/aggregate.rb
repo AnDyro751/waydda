@@ -9,8 +9,13 @@ class Aggregate
 
   # fields
   field :name, type: String
-  field :price, type: Float, default: 0
   field :description, type: String
+  field :unlimited, type: Boolean
+  field :price, type: Float, default: 0
+  field :sku, type: String
+  field :bar_code, type: String
+  field :public_stock, type: Integer, default: 0
+  field :stock, type: Integer, default: 0
   field :default, type: Boolean, default: false
   field :add_to_price_product, type: Boolean, default: true
 
