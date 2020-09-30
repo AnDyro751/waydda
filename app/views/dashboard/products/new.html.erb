@@ -1,4 +1,8 @@
+<% set_meta_tags title: "Nuevo producto | Panel de control",
+                 description: "Agrega un nuevo producto - Waydda"
+%>
 <div class="w-full">
+
   <%= render Headers::Text.new(title: "Nuevo producto", small: false, with_border: false) %>
   <%= render 'form', product: @product %>
 </div>

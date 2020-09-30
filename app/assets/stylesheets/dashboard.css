@@ -2,6 +2,22 @@
 
 }
 
+.breadcrumbs {
+    color: #a4b6cc;
+}
+
+.breadcrumbs a:hover {
+    color: #333333;
+    border-radius: 3px;
+    background: #eeeeee;
+}
+
+.breadcrumbs a {
+    padding: .2em .6em;
+    font-weight: normal;
+    color: #333333;
+}
+
 ::selection {
     background: #79fee0; /* WebKit/Blink Browsers */
 }

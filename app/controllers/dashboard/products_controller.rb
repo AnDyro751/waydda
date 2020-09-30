@@ -4,7 +4,8 @@ class Dashboard::ProductsController < ApplicationController
   before_action :set_my_place
   before_action :set_item, only: [:create]
   before_action :set_product, only: [:show, :edit, :update, :update_status, :destroy]
-
+  add_breadcrumb "Inicio", :my_place_path
+  add_breadcrumb "Productos", :dashboard_products_path
   def index
     @products = @place.products.paginate(page: params[:page], per_page: 20)
   end
@@ -14,6 +15,7 @@ class Dashboard::ProductsController < ApplicationController
   end
 
   def new
+    add_breadcrumb "Nuevo producto"
     @product = Product.new
     @product.aggregate_categories.build
     @product.aggregate_categories.new.aggregates.new

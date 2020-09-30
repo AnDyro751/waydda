@@ -54,6 +54,7 @@
     <orderEntry type="library" scope="PROVIDED" name="bcrypt (v3.1.16, RVM: ruby-2.6.3) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="bindex (v0.8.1, RVM: ruby-2.6.3) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="bootsnap (v1.4.8, RVM: ruby-2.6.3) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="breadcrumbs_on_rails (v4.0.0, RVM: ruby-2.6.3) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="bson (v4.10.0, RVM: ruby-2.6.3) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="bson_ext (v1.5.1, RVM: ruby-2.6.3) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="builder (v3.2.4, RVM: ruby-2.6.3) [gem]" level="application" />
@@ -99,6 +100,7 @@
     <orderEntry type="library" scope="PROVIDED" name="mail (v2.7.1, RVM: ruby-2.6.3) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="mapbox-sdk (v2.3.0, RVM: ruby-2.6.3) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="marcel (v0.3.3, RVM: ruby-2.6.3) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="meta-tags (v2.13.0, RVM: ruby-2.6.3) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="method_source (v1.0.0, RVM: ruby-2.6.3) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="mime-types (v3.3.1, RVM: ruby-2.6.3) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="mime-types-data (v3.2020.0512, RVM: ruby-2.6.3) [gem]" level="application" />

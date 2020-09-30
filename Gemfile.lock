@@ -86,6 +86,8 @@ GEM
     bindex (0.8.1)
     bootsnap (1.4.8)
       msgpack (~> 1.0)
+    breadcrumbs_on_rails (4.0.0)
+      rails (>= 5.0)
     bson (4.10.0)
     bson_ext (1.5.1)
     builder (3.2.4)
@@ -168,6 +170,8 @@ GEM
       rest-client (~> 2.0.1)
     marcel (0.3.3)
       mimemagic (~> 0.3.2)
+    meta-tags (2.13.0)
+      actionpack (>= 3.2.0, < 6.1)
     method_source (1.0.0)
     mime-types (3.3.1)
       mime-types-data (~> 3.2015)
@@ -418,6 +422,7 @@ DEPENDENCIES
   aws-sdk-s3 (~> 1.14)
   bcrypt (~> 3.1.7)
   bootsnap (>= 1.4.2)
+  breadcrumbs_on_rails
   bson_ext
   byebug
   cancancan
@@ -434,6 +439,7 @@ DEPENDENCIES
   jbuilder (~> 2.7)
   listen (~> 3.2)
   mapbox-sdk
+  meta-tags
   mini_racer
   mongoid
   mongoid-geospatial
