@@ -102,7 +102,7 @@ class Dashboard::AggregatesController < ApplicationController
   end
 
   def set_aggregate
-    @aggregate = @aggregate_category.aggregates.find_by(id: params["id"])
+    @aggregate = @aggregate_category.aggregates.find(params["id"])
     not_found if @aggregate.nil?
   end
 
