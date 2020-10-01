@@ -1,4 +1,16 @@
 <div class="w-full">
-  <%= render Headers::Text.new(title: "Nueva subvariante", subtitle: "Nueva variante para #{@product.name}", small: true) %>
+  <%= render Headers::Text.new(title: "Nueva subvariante", subtitle: "Nueva subvariante para #{@aggregate_category.name}", small: true) %>
+</div>
+<div class="w-full mb-12">
+  <%= simple_form_for(@aggregate_category, url: dashboard_product_aggregate_category_path(@product.slug, @aggregate_category)) do |f| %>
+    <div class="w-full p-8 border-2 shadow rounded">
+      <%= f.simple_fields_for :aggregates, Aggregate.new do |agg| %>
+        <%= render "dashboard/aggregate_categories/aggregate_fields", :agg => agg %>
+      <% end %>
+    </div>
+    <div class="w-full flex justify-end mt-8">
+      <%= f.submit "Agregar subvariante", data: {disable_with: "Guardando..."}, class: "#{main_color_button(color: "dark", size: "big", padding: "big")}" %>
+    </div>
+  <% end %>
 </div>
 
