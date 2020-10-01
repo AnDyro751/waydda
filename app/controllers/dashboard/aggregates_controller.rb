@@ -96,7 +96,9 @@ class Dashboard::AggregatesController < ApplicationController
   private
 
   def aggregate_params
-    params.require(:aggregate).permit(:name, :description, :price, :default, :add_to_price_product, :photo)
+    params.require(:aggregate).permit(:name, :description, :price, :default, :add_to_price_product, :photo, :sku, :public_stock, :quantity, :unlimited)
+    # :sku, :public_stock, :quantity, :unlimited
+    # :sku, :public_stock, :quantity, :unlimited
   end
 
   def set_aggregate

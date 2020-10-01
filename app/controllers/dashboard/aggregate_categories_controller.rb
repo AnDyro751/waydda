@@ -83,7 +83,7 @@ class Dashboard::AggregateCategoriesController < ApplicationController
   end
 
   def aggregate_category_params
-    params.require(:aggregate_category).permit(:name, :required, :multiple_selection, aggregates: [], aggregates_attributes: [], aggregates_attributes: [:name, :id, :price, :_destroy])
+    params.require(:aggregate_category).permit(:name, :required, :multiple_selection, aggregates: [], aggregates_attributes: [:name, :unlimited, :price, :sku, :bar_code, :public_stock, :quantity, :_destroy,])
   end
 
 end
