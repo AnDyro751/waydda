@@ -1,59 +1,91 @@
-<div class="w-full flex mt-2 mb-4 gap-4 nested-fields items-center">
-  <div class="w-6/12 flex flex flex-wrap">
-        <label for="price" class="text-sm font-normal text-gray-600 mb-2">
-          <abbr title="required">*</abbr>
-          Nombre
-        </label>
-    <div class="w-full">
-      <%= f.input :name,
+<div class="w-full flex items-center">
+  <div class="w-7/12 mr-2">
+    <%= agg.input :name, label: "Título",
                   input_html: {
-                      class: "form-input block w-full py-3 px-3 w-full sm:text-sm sm:leading-5 bg-main-gray appearance-none rounded focus:outline-none w-full resize-none"
+                      class: "#{input_color_class} mt-2 mb-6 resize-none",
                   },
-                  label: false,
-                  wrapper_html: {
-                      class: "w-full"
+                  label_html: {
+                      class: label_color_class(size: "big")
                   },
-                  placeholder: "Nombre de la subvariante"
-      %>
-    </div>
-
+                  placeholder: "Ej. Mediano, grande o chico"
+    %>
   </div>
-  <div class="w-6/12 flex flex-wrap relative">
-        <label for="price" class="text-sm font-normal text-gray-600 mb-2">
-          <abbr title="required">*</abbr>
-          Precio
-        </label>
-    <div class="w-full relative">
-      <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-      <span class="text-gray-500 sm:text-sm sm:leading-5">
-        $
-      </span>
-      </div>
-      <div class="absolute inset-y-0 right-0 flex items-center">
-        <div aria-label="Currency" class="flex items-center justify-center h-full py-0 pl-2 pr-4 border-transparent bg-transparent text-gray-500 sm:text-sm sm:leading-5">
-          <span>MXN</span>
-        </div>
-      </div>
-
-    </div>
-
-
-    <!--      <input id="price" class="form-input block w-full pl-7 pr-12 sm:text-sm sm:leading-5" placeholder="0.00">-->
-
+  <div class="w-5/12 ml-2">
+    <%= agg.input :price,
+                  label: "Precio (MXN)",
+                  as: :float,
+                  input_html: {
+                      class: "#{input_color_class} mt-2 mb-6 resize-none",
+                  },
+                  label_html: {
+                      class: label_color_class(size: "big")
+                  },
+                  placeholder: "Precio de esta variante"
+    %>
   </div>
-<!--  <div class="w-1/12 flex justify-end">-->
-  <%#= link_to_remove_association f, class: "w-8 h-8 hover:bg-red-400 rounded text-gray-700 hover:text-white flex items-center justify-center" do %>
-  <!--      <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"-->
-  <!--           class="w-4 h-4  fill-current"-->
-  <!--           viewBox="0 0 24 24"-->
-  <!--      >-->
-  <!--        <path d="M 10 2 L 9 3 L 5 3 C 4.4 3 4 3.4 4 4 C 4 4.6 4.4 5 5 5 L 7 5 L 17 5 L 19 5 C 19.6 5 20 4.6 20 4 C 20 3.4 19.6 3 19 3 L 15 3 L 14 2 L 10 2 z M 5 7 L 5 20 C 5 21.1 5.9 22 7 22 L 17 22 C 18.1 22 19 21.1 19 20 L 19 7 L 5 7 z M 9 9 C 9.6 9 10 9.4 10 10 L 10 19 C 10 19.6 9.6 20 9 20 C 8.4 20 8 19.6 8 19 L 8 10 C 8 9.4 8.4 9 9 9 z M 15 9 C 15.6 9 16 9.4 16 10 L 16 19 C 16 19.6 15.6 20 15 20 C 14.4 20 14 19.6 14 19 L 14 10 C 14 9.4 14.4 9 15 9 z"></path>-->
-  <!--      </svg>-->
-  <%# end %>
-  <!--  </div>-->
-
-  <%#= f.input :_destroy, as: :hidden, value: "" %>
-  <!--    <small><%#= link_to "Remove", "#", data: {action: "click->nested-form#remove_association"} %></small>-->
+</div>
+<div class="w-full flex items-center">
+  <div class="w-7/12 mr-2">
+    <%= agg.input :sku,
+                  label: "SKU",
+                  as: :float,
+                  input_html: {
+                      class: "#{input_color_class} mt-2 mb-6 resize-none",
+                  },
+                  label_html: {
+                      class: label_color_class(size: "big")
+                  },
+                  placeholder: "Código de referencia"
+    %>
+  </div>
+  <div class="w-5/12 ml-2">
+    <%= agg.input :public_stock,
+                  label: "Productos en stock",
+                  as: :float,
+                  input_html: {
+                      class: "#{input_color_class} mt-2 mb-6 resize-none",
+                  },
+                  label_html: {
+                      class: label_color_class(size: "big")
+                  },
+                  placeholder: "Cantidad disponible"
+    %>
+  </div>
 </div>
 
-
+<div class="w-full flex">
+  <div class="w-7/12 mr-2">
+    <%= agg.input :quantity,
+                  placeholder: "Medida de volumen",
+                  label: "Medida de volumen",
+                  input_html: {
+                      class: "#{input_color_class} mt-2 mb-6 resize-none",
+                  },
+                  label_html: {
+                      class: label_color_class(size: "big")
+                  }
+    %>
+  </div>
+  <div class="w-5/12 ml-2">
+    <label for="" class="<%= label_color_class(size: "big") %>">Unidad de medida</label>
+    <select class="<%= input_color_class %> mt-2 mb-6 resize-none" name="" id="">
+      <option value=""><%= @product.get_simple_quantity_measure %></option>
+    </select>
+  </div>
+</div>
+<div class="w-full flex items-center">
+  <div class="w-7/12 mr-2">
+    <%= agg.input :unlimited,
+                  collection: [%w[SI true], %w[NO false]],
+                  input_html: {
+                      class: "#{input_color_class} mt-2 mb-6 resize-none",
+                  },
+                  label_html: {
+                      class: label_color_class(size: "big")
+                  },
+                  label: "Continuar vendiendo sin stock",
+                  prompt: "Selecciona una opción"
+    %>
+  </div>
+  <div class="w-5/12 ml-2"></div>
+</div>

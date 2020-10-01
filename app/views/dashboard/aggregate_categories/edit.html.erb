@@ -1,2 +1,16 @@
-<h1>Dashboard::AggregateCategories#edit</h1>
-<p>Find me in app/views/dashboard/aggregate_categories/edit.html.erb</p>
+<div class="w-full mt-4 text-gray-600 text-sm">
+  <div class=""><%= link_to "Productos", dashboard_products_path, class: "hover:underline" %>
+    <div class="mx-2 select-none inline">
+      >
+    </div>
+    <span class="">
+      <%= link_to @product.name, dashboard_product_path(@product.slug), class: "hover:underline" %>
+    </span>
+    <div class="mx-2 select-none inline">
+      >
+    </div>
+    <span class="text-indigo-700 font-medium">Crear variante</span>
+  </div>
+</div>
+<%= render Headers::Text.new(title: "Crear variante", subtitle: "Nueva variante de #{@product.name}", small: true) %>
+<%= render "form" %>

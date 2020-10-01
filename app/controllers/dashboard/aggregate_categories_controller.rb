@@ -7,6 +7,7 @@ class Dashboard::AggregateCategoriesController < ApplicationController
 
   def new
     @aggregate_category = @product.aggregate_categories.new
+    @aggregate_category.aggregates.new
   end
 
   def edit
@@ -61,7 +62,7 @@ class Dashboard::AggregateCategoriesController < ApplicationController
   end
 
   def aggregate_category_params
-    params.require(:aggregate_category).permit(:name, :required, :multiple_selection, :description, aggregates_attributes: [:name, :id, :price, :_destroy])
+    params.require(:aggregate_category).permit(:name, :required, :multiple_selection, aggregates: [], aggregates_attributes: [], aggregates_attributes: [:name, :id, :price, :_destroy])
   end
 
 end

@@ -79,6 +79,28 @@ class Product
     end
   end
 
+
+  def get_simple_quantity_measure
+    case self.quantity_measure
+    when "kg"
+      "Kilogramos"
+    when "grm"
+      "Gramos"
+    when "oz"
+      "Onzas"
+    when "ml"
+      "Mililitros"
+    when "m2"
+      "Metros cuadrados"
+    when "m3"
+      "Metros cubicos"
+    when "pzas"
+      "Piezas"
+    else
+      "error"
+    end
+  end
+
   def get_quantity_measure
     case self.quantity_measure
     when "kg"

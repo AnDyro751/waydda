@@ -4,13 +4,13 @@ class Aggregate
   include GlobalID::Identification
 
 
-  before_validation :assign_created_at, on: :create
+  before_create :assign_created_at
   # before_save :change_others_defaults
 
   # fields
   field :name, type: String
   field :description, type: String
-  field :unlimited, type: Boolean
+  field :unlimited, type: Boolean, default: true
   field :price, type: Float, default: 0
   field :sku, type: String
   field :bar_code, type: String
@@ -18,13 +18,15 @@ class Aggregate
   field :stock, type: Integer, default: 0
   field :default, type: Boolean, default: false
   field :add_to_price_product, type: Boolean, default: true
+  field :quantity, type: String
 
   # relations
-  embedded_in :aggregate_category
-  accepts_nested_attributes_for :aggregate_category, allow_destroy: true, :reject_if => :all_blank
+  embedded_in :aggregate_category, :inverse_of => :aggregate
+  # accepts_nested_attributes_for :aggregate_category, allow_destroy: true, :reject_if => :all_blank
 
   # validation
   # TODO: Add validations
+  validates :price, presence: true
   validates :name, presence: true, length: {in: 2..40}
   # validates :default, inclusion: {in: %w[true false]}
 
@@ -137,8 +139,8 @@ class Aggregate
 
 
   def assign_created_at
-    self.created_at = Time.now
-    self.updated_at = Time.now
+    self.created_at = DateTime.now
+    self.updated_at = DateTime.now
   end
 
 

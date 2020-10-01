@@ -1,0 +1,83 @@
+<div
+  class="w-full pb-8"
+  x-data="dashboardNewAggregate()"
+>
+  <%= simple_form_for(@aggregate_category,
+                      url: @aggregate_category.new_record ? dashboard_product_aggregate_categories_path : dashboard_product_aggregate_category_path(@product.slug, @aggregate_category),
+                      remote: true,
+                      html: {
+                          class: "w-full flex flex-wrap items-start mb-12 justify-between"
+                      },
+                      defaults: {
+                          input_html: {
+                              class: "#{input_color_class} mt-2 mb-6 resize-none"
+                          },
+                          label_html: {
+                              class: label_color_class(size: "big")
+                          },
+                          wrapper_html: {class: "w-full"}
+                      }
+      ) do |f| %>
+
+    <div class="w-full border-2 shadow rounded flex flex-wrap mb-4">
+      <%= render Headers::Text.new(title: "Información básica", font: "small", small: true, padding_class: "px-8 py-8") %>
+      <div class="w-full flex flex-wrap px-8">
+        <%= f.input :name,
+                    label: "Nombre de tu variante",
+                    placeholder: "Nombre de tu variante"
+
+        %>
+
+        <div class="w-full flex items-center">
+          <div class="w-6/12 mr-2">
+            <%= f.input :required,
+                        label: "¿Es obligatorio seleccionar una subvariante?",
+                        collection: [%w[SI true], %w[NO false]],
+                        prompt: "Selecciona una opción"
+
+            %>
+          </div>
+          <div class="w-6/12 ml-2">
+            <%= f.input :multiple_selection,
+                        collection: [%w[SI true], %w[NO false]],
+                        label: "Selección múltiple",
+                        prompt: "Selecciona una opción"
+
+            %>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="w-full border-2 shadow rounded flex flex-wrap mb-4">
+      <%= render Headers::Text.new(title: "Subvariantes", font: "small", small: true, padding_class: "px-8 py-8") %>
+      <div class="w-full px-8">
+        <%= f.simple_fields_for :aggregates, Aggregate.new do |agg| %>
+          <%= render "dashboard/aggregate_categories/aggregate_fields", :agg => agg %>
+        <% end %>
+      </div>
+    </div>
+    <div class="w-full flex justify-end mt-8">
+      <%= f.submit @aggregate_category.new_record ? "Crear variante" : "Actualizar variante", data: {"disable-with": "Guardando..."}, class: main_color_button(color: "dark", size: "big", padding: "big") %>
+    </div>
+  <% end %>
+  <script type="text/javascript" charset="utf-8">
+      function dashboardNewAggregate() {
+          return {
+              name: "",
+              description: "",
+              required: false,
+              multiple_selection: false,
+              handleChange: function (e) {
+                  e.target.classList.remove("border-2");
+                  e.target.classList.remove("border-red-500");
+              },
+              handleRequired: function (e) {
+                  this.required = (e.target.value === "true");
+              },
+              handleMultipleSelect: function (e) {
+                  this.multiple_selection = (e.target.value === "true");
+              }
+          }
+      }
+  </script>
+</div>

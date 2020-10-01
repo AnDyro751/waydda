@@ -8,10 +8,10 @@ class AggregateCategory
   field :required, type: Boolean, default: false
   field :multiple_selection, type: Boolean, default: false
 
-  embeds_many :aggregates
+  embeds_many :aggregates, cascade_callbacks: true
   embedded_in :product, :inverse_of => :aggregate_category
 
-  accepts_nested_attributes_for :aggregates, allow_destroy: true, :reject_if => :all_blank
+  accepts_nested_attributes_for :aggregates #, allow_destroy: true, :reject_if => :all_blank
   validates :name, presence: true, length: {in: 2..50}
 
   def self.get_all_valid(items:, all:)
