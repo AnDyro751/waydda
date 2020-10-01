@@ -4,7 +4,6 @@ class Dashboard::ProductsController < ApplicationController
   before_action :set_my_place
   before_action :set_item, only: [:create]
   before_action :set_product, only: [:show, :edit, :update, :update_status, :destroy]
-  add_breadcrumb "Inicio", :my_place_path
   add_breadcrumb "Productos", :dashboard_products_path
 
   def index

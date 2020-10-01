@@ -13,7 +13,7 @@
 ) %>
 <div class="w-full border mt-4 rounded">
   <%= render Headers::Text.new(title: "Subvariantes", small: true, with_margin: false, with_border: false, font: "small", padding_class: "p-4") do %>
-    <%= link_to "Añadir subvariante", new_dashboard_product_aggregate_category_aggregate_path(@product.slug, @aggregate_category), remote: true, class: main_color_button(padding: "big") %>
+    <%= link_to "Añadir subvariante", new_dashboard_product_aggregate_category_aggregate_path(@product.slug, @aggregate_category), class: main_color_button(padding: "big") %>
     <%#= main_button(to: "#", text: "Añadir subvariante", custom_click: "handleClick($event)", action: "add") %>
   <% end %>
   <div

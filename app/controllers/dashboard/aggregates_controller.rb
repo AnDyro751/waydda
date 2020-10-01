@@ -5,12 +5,17 @@ class Dashboard::AggregatesController < ApplicationController
   before_action :set_product
   before_action :set_aggregate_category, only: [:show, :update, :edit, :destroy, :new, :create]
   before_action :set_aggregate, only: [:show, :update, :edit, :destroy]
+  add_breadcrumb "Productos", :dashboard_products_path
 
   def new
+    add_breadcrumb "#{@product.name}", "#{dashboard_product_path(@product.slug)}"
+    add_breadcrumb "Variantes", "#{dashboard_product_aggregate_categories_path(@product.slug)}"
+    add_breadcrumb "#{@aggregate_category.name}", "#{dashboard_product_aggregate_categories_path(@product.slug, @aggregate_category)}"
+    add_breadcrumb "Nueva subvariante", "#{new_dashboard_product_aggregate_category_aggregate_path(@product.slug, @aggregate_category)}"
     @aggregate = @aggregate_category.aggregates.new
-    respond_to do |format|
-      format.js
-    end
+    # respond_to do |format|
+    #   format.js
+    # end
   end
 
   def show

@@ -4,16 +4,18 @@ class Dashboard::AggregateCategoriesController < ApplicationController
   before_action :set_my_place
   before_action :set_product
   before_action :set_aggregate_category, only: [:show, :update, :edit, :destroy]
-  add_breadcrumb "Inicio", :my_place_path
   add_breadcrumb "Productos", :dashboard_products_path
 
   def new
+    add_breadcrumb "#{@product.name}", "#{dashboard_product_path(@product.slug)}"
+    add_breadcrumb "Variantes", "#{dashboard_product_aggregate_categories_path(@product.slug)}"
+    add_breadcrumb "Nueva variante"
     @aggregate_category = @product.aggregate_categories.new
     @aggregate_category.aggregates.new
   end
 
   def edit
-    add_breadcrumb "#{@product.name}", :dashboard_product_path
+    add_breadcrumb "#{@product.name}", "#{dashboard_product_path(@product.slug)}"
     add_breadcrumb "Variantes", "#{dashboard_product_aggregate_categories_path(@product.slug)}"
     add_breadcrumb "#{@aggregate_category.name}", "#{dashboard_product_aggregate_category_path(@product.slug, @aggregate_category)}"
     add_breadcrumb "Editar"
