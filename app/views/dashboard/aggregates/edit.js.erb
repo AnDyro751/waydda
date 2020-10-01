@@ -3,7 +3,7 @@ if (window.vanillaModal) {
     if (element) {
         console.log("ABRIR MODAL");
         window.current_modal.open("#modal");
-        document.querySelector(".modal-content").innerHTML = "<%= j render Dashboard::Aggregates::Form.new(aggregate: @aggregate, product: @product,aggregate_category: @aggregate_category) %>";
+        document.querySelector(".modal-content").innerHTML = "<%= j render Dashboard::Aggregates::Form.new(small: true, aggregate: @aggregate, product: @product,aggregate_category: @aggregate_category) %>";
     }
 }
 //var modal = new VanillaModal();

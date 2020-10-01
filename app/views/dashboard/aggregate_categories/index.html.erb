@@ -1,15 +1,3 @@
-<div class="w-full mt-4 text-gray-600 text-sm">
-  <div class=""><%= link_to "Productos", dashboard_products_path, class: "hover:underline" %>
-    <div class="mx-2 select-none inline">
-      >
-    </div>
-    <span class=""><%= link_to @product.name, dashboard_product_path(@product.slug), class: "hover:underline" %></span>
-    <div class="mx-2 select-none inline">
-      >
-    </div>
-    <span class="text-indigo-700 font-medium">Variantes</span>
-  </div>
-</div>
 <%= render Headers::Text.new(title: "Listando variantes", subtitle: "Variantes de #{@product.name}", small: true, with_border: false, with_margin: false) do %>
   <%= main_button(text: "Agregar variante", to: new_dashboard_product_aggregate_category_path(@product.slug), action: "add") %>
 <% end %>

@@ -7,6 +7,8 @@ class Dashboard::AggregateCategoriesController < ApplicationController
   add_breadcrumb "Productos", :dashboard_products_path
 
   def new
+    set_meta_tags title: "Nueva variante de #{@product.name} | Panel de control",
+                  description: "Nueva variante de #{@product.name} | Panel de control"
     add_breadcrumb "#{@product.name}", "#{dashboard_product_path(@product.slug)}"
     add_breadcrumb "Variantes", "#{dashboard_product_aggregate_categories_path(@product.slug)}"
     add_breadcrumb "Nueva variante"
@@ -15,20 +17,26 @@ class Dashboard::AggregateCategoriesController < ApplicationController
   end
 
   def edit
-    add_breadcrumb "#{@product.name}", "#{dashboard_product_path(@product.slug)}"
+    set_meta_tags title: "Editar variante: #{@aggregate_category.name} | Panel de control",
+                  description: "Editar variante de #{@product.name} - Panel de control"
+    add_breadcrumb " #{@product.name}", "#{dashboard_product_path(@product.slug)}"
     add_breadcrumb "Variantes", "#{dashboard_product_aggregate_categories_path(@product.slug)}"
     add_breadcrumb "#{@aggregate_category.name}", "#{dashboard_product_aggregate_category_path(@product.slug, @aggregate_category)}"
     add_breadcrumb "Editar"
   end
 
   def show
-    add_breadcrumb "#{@product.name}", :dashboard_product_path
+    set_meta_tags title: "Variante: #{@aggregate_category.name} | Panel de control",
+                  description: "Variante de #{@product.name} - Panel de control"
+    add_breadcrumb "#{@product.name}", "#{dashboard_product_path(@product.slug)}"
     add_breadcrumb "Variantes", "#{dashboard_product_aggregate_categories_path(@product.slug)}"
     add_breadcrumb "#{@aggregate_category.name}"
     @aggregate_category.aggregates.build
   end
 
   def index
+    set_meta_tags title: "Variantes de: #{@product.name} | Panel de control",
+                  description: "Variantes de #{@product.name} - Panel de control"
     add_breadcrumb "#{@product.name}", "#{dashboard_product_path(@product.slug)}"
     add_breadcrumb "Variantes"
     @aggregate_categories = @product.aggregate_categories
