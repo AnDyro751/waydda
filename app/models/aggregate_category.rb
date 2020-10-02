@@ -12,7 +12,11 @@ class AggregateCategory
   embedded_in :product, :inverse_of => :aggregate_category
 
   accepts_nested_attributes_for :aggregates #, allow_destroy: true, :reject_if => :all_blank
-  validates :name, presence: true, length: {in: 2..50}
+
+  # Validations
+  validates :name, presence: true, length: {in: 2..40}
+  validates :required, presence: true, inclusion: {in: [true, false]}
+  validates :multiple_selection, presence: true, inclusion: {in: [true, false]}
 
   def self.get_all_valid(items:, all:)
     all_ids = all.map { |aggc| aggc.id.to_s }

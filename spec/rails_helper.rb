@@ -1,5 +1,5 @@
 # This file is copied to spec/ when you run 'rails generate rspec:install'
-require 'spec_helper'
+require "capybara/rspec"
 ENV['RAILS_ENV'] ||= 'test'
 require File.expand_path('../config/environment', __dir__)
 # Prevent database truncation if the environment is production
@@ -9,6 +9,8 @@ require 'factory_bot_rails'
 require 'database_cleaner'
 require 'capybara/rails'
 require 'simplecov'
+require 'spec_helper'
+
 SimpleCov.start
 # require 'mongoid-rspec'
 # Add additional requires below this line. Rails is not loaded until this point!

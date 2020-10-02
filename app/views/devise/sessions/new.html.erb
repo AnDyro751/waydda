@@ -21,6 +21,7 @@
                   placeholder: "+52 552 471 4512",
                   required: "required"
       %>
+
       <div class="hidden" id="verification-code">
         <%= f.input :verification_code,
                     placeholder: "487878",
@@ -28,6 +29,8 @@
                     label: "Código de verificación"
         %>
       </div>
+      <%= f.input :remember_me, as: :boolean, label: "Recordar sesión" %>
+      <%#= f.label :remember_me %>
       <%= f.submit "Iniciar sesión", data: {disable_with: "Cargando..."}, class: "#{main_color_button(color: "primary", padding: "big")} w-full" %>
     <% end %>
   </div>

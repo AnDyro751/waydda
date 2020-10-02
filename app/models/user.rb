@@ -152,7 +152,9 @@ class User
   # Assign User default Role
   def assign_default_role
     add_role(:customer) if roles.blank?
-    self.create_and_send_verification_code
+    unless self.phone.blank?
+      self.create_and_send_verification_code
+    end
   end
 
 
