@@ -20,7 +20,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b89cb0fb-b680-4bb9-8ae0-f4b41721cfb9" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/components/Products/Form/header_menu.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/components/Products/Form/header_menu.html.erb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/views/dashboard/products/_form.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/dashboard/products/_form.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/dashboard/products/new.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/dashboard/products/new.html.erb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -763,14 +766,7 @@
       <workItem from="1601523711677" duration="27605000" />
       <workItem from="1601611911430" duration="125000" />
       <workItem from="1601613224447" duration="10621000" />
-      <workItem from="1601738794056" duration="4396000" />
-    </task>
-    <task id="LOCAL-00225" summary="feat(Place): Validaciones del producto ya pasan">
-      <created>1601009147055</created>
-      <option name="number" value="00225" />
-      <option name="presentableId" value="LOCAL-00225" />
-      <option name="project" value="LOCAL" />
-      <updated>1601009147056</updated>
+      <workItem from="1601738794056" duration="5372000" />
     </task>
     <task id="LOCAL-00226" summary="feat(Cart): Pequeños errores en el carrito y relaciones">
       <created>1601052353250</created>
@@ -1108,7 +1104,14 @@
       <option name="project" value="LOCAL" />
       <updated>1601748320801</updated>
     </task>
-    <option name="localTasksCounter" value="274" />
+    <task id="LOCAL-00274" summary="Feat(Dashboard): Cambio de select a checkbox">
+      <created>1601748332556</created>
+      <option name="number" value="00274" />
+      <option name="presentableId" value="LOCAL-00274" />
+      <option name="project" value="LOCAL" />
+      <updated>1601748332556</updated>
+    </task>
+    <option name="localTasksCounter" value="275" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -1129,7 +1132,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="feat(Cart): Formulario de inicio de sesión completo 3:" />
     <MESSAGE value="feat(Cart): Pequeño dashboard en blanco" />
     <MESSAGE value="feat(Cart): Creamos el sidebar y añadimos otro item.html.erb&#10;Además se cambiaron los colores de los botones" />
     <MESSAGE value="feat(Cart): Color de los botones y del sidebar" />
@@ -1154,7 +1156,8 @@
     <MESSAGE value="Feat(Dashboard): Cambios en el sidebar" />
     <MESSAGE value="Feat(Dashboard): Agregamos los link del header menu para el producto" />
     <MESSAGE value="Feat(Dashboard): Vamos a cambiar de select a checkbox" />
-    <option name="LAST_COMMIT_MESSAGE" value="Feat(Dashboard): Vamos a cambiar de select a checkbox" />
+    <MESSAGE value="Feat(Dashboard): Cambio de select a checkbox" />
+    <option name="LAST_COMMIT_MESSAGE" value="Feat(Dashboard): Cambio de select a checkbox" />
   </component>
   <component name="WindowStateProjectService">
     <state x="392" y="0" key="#All_specs_in_spec:_waydda" timestamp="1598730457189">
@@ -1197,10 +1200,10 @@
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="491" y="102" width="374" height="557" key="#com.intellij.ide.util.MemberChooser/0.0.1366.768@0.0.1366.768" timestamp="1601746308565" />
-    <state x="261" y="0" width="834" height="683" key="CommitChangelistDialog2" timestamp="1601748320578">
+    <state x="261" y="0" width="834" height="683" key="CommitChangelistDialog2" timestamp="1601748332392">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state x="261" y="0" width="834" height="683" key="CommitChangelistDialog2/0.0.1366.768@0.0.1366.768" timestamp="1601748320578" />
+    <state x="261" y="0" width="834" height="683" key="CommitChangelistDialog2/0.0.1366.768@0.0.1366.768" timestamp="1601748332392" />
     <state x="255" y="248" width="424" height="479" key="FileChooserDialogImpl" timestamp="1601612037663">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
@@ -1294,13 +1297,13 @@
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="628" y="298" key="com.jetbrains.plugins.remotesdk.ui.RemoteMappingsConfiguration/0.0.1366.768@0.0.1366.768" timestamp="1598729856431" />
-    <state x="390" y="117" width="791" height="624" key="find.popup" timestamp="1601746564087">
+    <state x="390" y="117" width="791" height="624" key="find.popup" timestamp="1601749276500">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="1914" y="96" width="823" height="878" key="find.popup/0.0.1366.768/1366.-69.1920.1080@1366.-69.1920.1080" timestamp="1597716285449" />
     <state x="1754" y="117" width="583" height="624" key="find.popup/0.0.1366.768/1366.0.1360.768@1366.0.1360.768" timestamp="1598981376119" />
     <state x="1914" y="165" width="823" height="878" key="find.popup/0.0.1366.768/1366.0.1920.1080@1366.0.1920.1080" timestamp="1599260651210" />
-    <state x="390" y="117" width="791" height="624" key="find.popup/0.0.1366.768@0.0.1366.768" timestamp="1601746564087" />
+    <state x="390" y="117" width="791" height="624" key="find.popup/0.0.1366.768@0.0.1366.768" timestamp="1601749276500" />
     <state x="549" y="254" width="250" height="278" key="jetbrains.javascript.buildTools.run-task-popup" timestamp="1597946321130">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
@@ -1309,13 +1312,13 @@
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="339" y="174" width="672" height="677" key="run.anything.popup/0.0.1366.768@0.0.1366.768" timestamp="1600370541201" />
-    <state x="346" y="89" width="672" height="678" key="search.everywhere.popup" timestamp="1601747853746">
+    <state x="346" y="89" width="672" height="678" key="search.everywhere.popup" timestamp="1601749223862">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="1852" y="56" width="945" height="954" key="search.everywhere.popup/0.0.1366.768/1366.-69.1920.1080@1366.-69.1920.1080" timestamp="1597715976170" />
     <state x="1710" y="89" width="672" height="678" key="search.everywhere.popup/0.0.1366.768/1366.0.1360.768@1366.0.1360.768" timestamp="1598985878395" />
     <state x="1852" y="125" width="945" height="954" key="search.everywhere.popup/0.0.1366.768/1366.0.1920.1080@1366.0.1920.1080" timestamp="1599267313630" />
-    <state x="346" y="89" width="672" height="678" key="search.everywhere.popup/0.0.1366.768@0.0.1366.768" timestamp="1601747853746" />
+    <state x="346" y="89" width="672" height="678" key="search.everywhere.popup/0.0.1366.768@0.0.1366.768" timestamp="1601749223862" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/waydda@Cart__Create_cart_Add_produ___.rcov" NAME="Cart# Create cart Add produ... Coverage Results" MODIFIED="1601005601072" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="waydda" />

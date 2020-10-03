@@ -20,7 +20,9 @@
       ) do |f| %>
 
     <div class="w-full flex flex-wrap">
-      <%= render Products::Form::HeaderMenu.new(product: @product) %>
+      <% unless @product.new_record %>
+        <%= render Products::Form::HeaderMenu.new(product: @product) %>
+      <% end %>
 
       <div class="w-full flex">
         <div class="w-8/12 mr-2">
@@ -104,8 +106,21 @@
 
           <div class="w-full flex flex-wrap rounded bg-white shadow-lg pb-4 mb-4 ">
             <%= render Headers::Text.new(title: "Categorías", small: true, font: "small", padding_class: "px-4 py-4", with_background: false, with_border: true) %>
-            <div class="w-full px-4">
-              <%= f.input :item_ids, as: :check_boxes, collection: @place.items, label: false %>
+            <div class="w-full px-4 flex">
+              <%= f.input :item_ids,
+                          as: :check_boxes,
+                          collection: @place.items,
+                          label: false,
+                          input_html: {
+                              class: "w-auto mr-4 mt-2 mb-4 cursor-pointer"
+                          },
+                          item_label_class: "w-full cursor-pointer select-none text-sm font-normal",
+                          item_wrapper_class: "w-full",
+                          wrapper_html: {
+                              class: "flex flex-wrap"
+                          }
+
+              %>
               <span name="product[item_ids]_error" class="text-sm font-bold text-red-600"/>
             </div>
           </div>
