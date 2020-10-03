@@ -20,13 +20,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b89cb0fb-b680-4bb9-8ae0-f4b41721cfb9" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/assets/stylesheets/dashboard.css" beforeDir="false" afterPath="$PROJECT_DIR$/app/assets/stylesheets/dashboard.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/components/Headers/text.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/components/Headers/text.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/components/Headers/text.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/components/Headers/text.rb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/views/dashboard/products/_form.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/dashboard/products/_form.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/layouts/dashboard.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/layouts/dashboard.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/utils/Headers/_dashboard.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/utils/Headers/_dashboard.html.erb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -769,14 +763,7 @@
       <workItem from="1601523711677" duration="27605000" />
       <workItem from="1601611911430" duration="125000" />
       <workItem from="1601613224447" duration="10621000" />
-      <workItem from="1601738794056" duration="4383000" />
-    </task>
-    <task id="LOCAL-00224" summary="feat(Place): Cerramos el modal al agregar el producto al carrito">
-      <created>1601005249915</created>
-      <option name="number" value="00224" />
-      <option name="presentableId" value="LOCAL-00224" />
-      <option name="project" value="LOCAL" />
-      <updated>1601005249916</updated>
+      <workItem from="1601738794056" duration="4396000" />
     </task>
     <task id="LOCAL-00225" summary="feat(Place): Validaciones del producto ya pasan">
       <created>1601009147055</created>
@@ -1114,7 +1101,14 @@
       <option name="project" value="LOCAL" />
       <updated>1601746558997</updated>
     </task>
-    <option name="localTasksCounter" value="273" />
+    <task id="LOCAL-00273" summary="Feat(Dashboard): Vamos a cambiar de select a checkbox">
+      <created>1601748320801</created>
+      <option name="number" value="00273" />
+      <option name="presentableId" value="LOCAL-00273" />
+      <option name="project" value="LOCAL" />
+      <updated>1601748320801</updated>
+    </task>
+    <option name="localTasksCounter" value="274" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -1135,7 +1129,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="feat(Cart): Cambiamos a 5 minutos" />
     <MESSAGE value="feat(Cart): Formulario de inicio de sesión completo 3:" />
     <MESSAGE value="feat(Cart): Pequeño dashboard en blanco" />
     <MESSAGE value="feat(Cart): Creamos el sidebar y añadimos otro item.html.erb&#10;Además se cambiaron los colores de los botones" />
@@ -1160,7 +1153,8 @@
     <MESSAGE value="Feat(Dashboard): Add simple small padding in dashboard" />
     <MESSAGE value="Feat(Dashboard): Cambios en el sidebar" />
     <MESSAGE value="Feat(Dashboard): Agregamos los link del header menu para el producto" />
-    <option name="LAST_COMMIT_MESSAGE" value="Feat(Dashboard): Agregamos los link del header menu para el producto" />
+    <MESSAGE value="Feat(Dashboard): Vamos a cambiar de select a checkbox" />
+    <option name="LAST_COMMIT_MESSAGE" value="Feat(Dashboard): Vamos a cambiar de select a checkbox" />
   </component>
   <component name="WindowStateProjectService">
     <state x="392" y="0" key="#All_specs_in_spec:_waydda" timestamp="1598730457189">
@@ -1203,10 +1197,10 @@
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="491" y="102" width="374" height="557" key="#com.intellij.ide.util.MemberChooser/0.0.1366.768@0.0.1366.768" timestamp="1601746308565" />
-    <state x="261" y="0" width="834" height="683" key="CommitChangelistDialog2" timestamp="1601746558759">
+    <state x="261" y="0" width="834" height="683" key="CommitChangelistDialog2" timestamp="1601748320578">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state x="261" y="0" width="834" height="683" key="CommitChangelistDialog2/0.0.1366.768@0.0.1366.768" timestamp="1601746558759" />
+    <state x="261" y="0" width="834" height="683" key="CommitChangelistDialog2/0.0.1366.768@0.0.1366.768" timestamp="1601748320578" />
     <state x="255" y="248" width="424" height="479" key="FileChooserDialogImpl" timestamp="1601612037663">
       <screen x="0" y="0" width="1366" height="768" />
     </state>

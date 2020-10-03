@@ -106,15 +106,6 @@
             <%= render Headers::Text.new(title: "Categorías", small: true, font: "small", padding_class: "px-4 py-4", with_background: false, with_border: true) %>
             <div class="w-full px-4">
               <%= f.input :item_ids, as: :check_boxes, collection: @place.items, label: false %>
-              <%= f.input :item_ids,
-                          input_html: {
-                              class: "js-multiple hidden invisible py-3",
-                              multiple: "multiple"
-                          },
-                          label_html: {
-                              class: label_color_class(size: "big")
-                          },
-                          collection: @place.items, prompt: "Categorías", label: "Selecciona una categoría" %>
               <span name="product[item_ids]_error" class="text-sm font-bold text-red-600"/>
             </div>
           </div>
