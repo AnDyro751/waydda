@@ -8,9 +8,9 @@
       <div class="w-full flex ">
         <%= link_to @link, class: "hover:underline flex" do %>
           <% if @font %>
-            <h2 class="<%= @font === "small" ? "font-bold text-lg" : "font-bold text-3xl" %> "><%= @title %></h2>
+            <h2 id="<%= @id %>" class="<%= @font === "small" ? "font-bold text-lg" : "font-bold text-3xl" %> "><%= @title %></h2>
           <% else %>
-            <h2 class="<%= @small ? "text-3xl" : "text-4xl" %> font-bold"><%= @title %></h2>
+            <h2 id="<%= @id %>" class="<%= @small ? "text-3xl" : "text-4xl" %> font-bold"><%= @title %></h2>
           <% end %>
         <% end %>
       </div>
@@ -18,13 +18,13 @@
 
       <% if @font %>
         <!--        <h3 class="font-bold text-lg"><%#= @title %></h3>-->
-        <h2 class="<%= @font === "small" ? "font-medium text-lg" : "font-bold text-3xl" %> "><%= @title %></h2>
+        <h2 id="<%= @id %>" class="<%= @font === "small" ? "font-medium text-lg" : "font-bold text-3xl" %> "><%= @title %></h2>
       <% else %>
-        <h2 class="<%= @small ? "text-3xl" : "text-4xl" %> font-bold"><%= @title %></h2>
+        <h2 id="<%= @id %>" class="<%= @small ? "text-3xl" : "text-4xl" %> font-bold"><%= @title %></h2>
       <% end %>
     <% end %>
     <% if @subtitle %>
-      <h3 class="w-full text-sm text-gray-600 font-normal mt-1">
+      <h3 id="<%= @id %>" class="w-full text-sm text-gray-600 font-normal mt-1">
         <%= @subtitle %>
       </h3>
     <% end %>

@@ -29,9 +29,7 @@
                     label: "Código de verificación"
         %>
       </div>
-      <%= f.input :remember_me, as: :boolean, label: "Recordar sesión" %>
-      <%#= f.label :remember_me %>
-      <%= f.submit "Iniciar sesión", data: {disable_with: "Cargando..."}, class: "#{main_color_button(color: "primary", padding: "big")} w-full" %>
+      <%= f.submit "Iniciar sesión", data: {disable_with: "Cargando..."}, class: "#{main_color_button(color: "primary", padding: "big", size: "big")} w-full" %>
     <% end %>
   </div>
 </div>

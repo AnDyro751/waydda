@@ -1,7 +1,7 @@
 <div class="w-full flex flex-wrap"
      x-data="newFetch()"
 >
-  <%= simple_form_for(@product, url: @product.new_record ? dashboard_products_path : dashboard_product_path(@product.slug), remote: true,
+  <%= simple_form_for(@product, url: @product.new_record ? dashboard_products_path : dashboard_product_path(@product), remote: true,
                       defaults: {
                           input_html: {
                               class: "#{input_color_class} mt-2 resize-none",

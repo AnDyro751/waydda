@@ -2294,7 +2294,7 @@
 
             
 
-            <code class="ruby">    add_breadcrumb &quot;#{@product.name}&quot;, &quot;#{dashboard_product_path(@product.slug)}&quot;</code>
+            <code class="ruby">    add_breadcrumb &quot;#{@product.name}&quot;, &quot;#{dashboard_product_path(@product)}&quot;</code>
           </li>
         </div>
       
@@ -2305,7 +2305,7 @@
 
             
 
-            <code class="ruby">    add_breadcrumb &quot;Variantes&quot;, &quot;#{dashboard_product_aggregate_categories_path(@product.slug)}&quot;</code>
+            <code class="ruby">    add_breadcrumb &quot;Variantes&quot;, &quot;#{dashboard_product_aggregate_categories_path(@product)}&quot;</code>
           </li>
         </div>
       
@@ -2404,7 +2404,7 @@
 
             
 
-            <code class="ruby">    add_breadcrumb &quot; #{@product.name}&quot;, &quot;#{dashboard_product_path(@product.slug)}&quot;</code>
+            <code class="ruby">    add_breadcrumb &quot; #{@product.name}&quot;, &quot;#{dashboard_product_path(@product)}&quot;</code>
           </li>
         </div>
       
@@ -2415,7 +2415,7 @@
 
             
 
-            <code class="ruby">    add_breadcrumb &quot;Variantes&quot;, &quot;#{dashboard_product_aggregate_categories_path(@product.slug)}&quot;</code>
+            <code class="ruby">    add_breadcrumb &quot;Variantes&quot;, &quot;#{dashboard_product_aggregate_categories_path(@product)}&quot;</code>
           </li>
         </div>
       
@@ -2426,7 +2426,7 @@
 
             
 
-            <code class="ruby">    add_breadcrumb &quot;#{@aggregate_category.name}&quot;, &quot;#{dashboard_product_aggregate_category_path(@product.slug, @aggregate_category)}&quot;</code>
+            <code class="ruby">    add_breadcrumb &quot;#{@aggregate_category.name}&quot;, &quot;#{dashboard_product_aggregate_category_path(@product, @aggregate_category)}&quot;</code>
           </li>
         </div>
       
@@ -2503,7 +2503,7 @@
 
             
 
-            <code class="ruby">    add_breadcrumb &quot;#{@product.name}&quot;, &quot;#{dashboard_product_path(@product.slug)}&quot;</code>
+            <code class="ruby">    add_breadcrumb &quot;#{@product.name}&quot;, &quot;#{dashboard_product_path(@product)}&quot;</code>
           </li>
         </div>
       
@@ -2514,7 +2514,7 @@
 
             
 
-            <code class="ruby">    add_breadcrumb &quot;Variantes&quot;, &quot;#{dashboard_product_aggregate_categories_path(@product.slug)}&quot;</code>
+            <code class="ruby">    add_breadcrumb &quot;Variantes&quot;, &quot;#{dashboard_product_aggregate_categories_path(@product)}&quot;</code>
           </li>
         </div>
       
@@ -2602,7 +2602,7 @@
 
             
 
-            <code class="ruby">    add_breadcrumb &quot;#{@product.name}&quot;, &quot;#{dashboard_product_path(@product.slug)}&quot;</code>
+            <code class="ruby">    add_breadcrumb &quot;#{@product.name}&quot;, &quot;#{dashboard_product_path(@product)}&quot;</code>
           </li>
         </div>
       
@@ -2701,7 +2701,7 @@
 
             
 
-            <code class="ruby">        format.html { redirect_to dashboard_product_aggregate_category_path(@product.slug, @aggregate_category) }</code>
+            <code class="ruby">        format.html { redirect_to dashboard_product_aggregate_category_path(@product, @aggregate_category) }</code>
           </li>
         </div>
       
@@ -2811,7 +2811,7 @@
 
             
 
-            <code class="ruby">        format.html { redirect_to dashboard_product_aggregate_category_path(@product.slug, @aggregate_category), alert: &quot;Se ha actualizado la variante&quot; }</code>
+            <code class="ruby">        format.html { redirect_to dashboard_product_aggregate_category_path(@product, @aggregate_category), alert: &quot;Se ha actualizado la variante&quot; }</code>
           </li>
         </div>
       
@@ -2844,7 +2844,7 @@
 
             
 
-            <code class="ruby">        format.html { redirect_to dashboard_product_aggregate_category_path(@product.slug, @aggregate_category), notice: &quot;Ha ocurrido un error al actualizar la variante&quot; }</code>
+            <code class="ruby">        format.html { redirect_to dashboard_product_aggregate_category_path(@product, @aggregate_category), notice: &quot;Ha ocurrido un error al actualizar la variante&quot; }</code>
           </li>
         </div>
       
@@ -2932,7 +2932,7 @@
 
             
 
-            <code class="ruby">      format.html { redirect_to dashboard_product_aggregate_categories_path(@product.slug), alert: &quot;Se ha eliminado la variante&quot; }</code>
+            <code class="ruby">      format.html { redirect_to dashboard_product_aggregate_categories_path(@product), alert: &quot;Se ha eliminado la variante&quot; }</code>
           </li>
         </div>
       

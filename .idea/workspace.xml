@@ -19,21 +19,34 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b89cb0fb-b680-4bb9-8ae0-f4b41721cfb9" name="Default Changelist" comment="Feat(Product): Pensé que no existía un recurso pero si existía :v">
-      <change afterPath="$PROJECT_DIR$/spec/controllers/aggregate_categories_controller_spec.rb" afterDir="false" />
+    <list default="true" id="b89cb0fb-b680-4bb9-8ae0-f4b41721cfb9" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Gemfile" beforeDir="false" afterPath="$PROJECT_DIR$/Gemfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/components/Headers/text.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/components/Headers/text.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/components/Headers/text.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/components/Headers/text.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/components/Products/ViewModal/index.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/components/Products/ViewModal/index.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/components/Products/item.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/components/Products/item.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/components/dashboard/aggregate_categories/List/index.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/components/dashboard/aggregate_categories/List/index.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/components/dashboard/aggregates/form.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/components/dashboard/aggregates/form.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/components/dashboard/aggregates/item.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/components/dashboard/aggregates/item.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/components/dashboard/aggregates/new.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/components/dashboard/aggregates/new.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/application_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/application_controller.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/dashboard/aggregate_categories_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/dashboard/aggregate_categories_controller.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/dashboard/aggregates_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/dashboard/aggregates_controller.rb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/controllers/dashboard/products_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/dashboard/products_controller.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/aggregate_category.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/aggregate_category.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/user.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/user.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/helpers/dashboard/main_helper.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/helpers/dashboard/main_helper.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/dashboard/aggregate_categories/_aggregate_fields.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/dashboard/aggregate_categories/_aggregate_fields.html.erb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/views/dashboard/aggregate_categories/_form.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/dashboard/aggregate_categories/_form.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/dashboard/aggregate_categories/index.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/dashboard/aggregate_categories/index.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/dashboard/aggregate_categories/show.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/dashboard/aggregate_categories/show.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/dashboard/aggregates/_form.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/dashboard/aggregates/_form.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/dashboard/aggregates/index.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/dashboard/aggregates/index.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/dashboard/aggregates/new.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/dashboard/aggregates/new.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/dashboard/aggregates/show.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/dashboard/aggregates/show.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/dashboard/products/_form.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/dashboard/products/_form.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/dashboard/products/edit.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/dashboard/products/edit.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/dashboard/products/show.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/dashboard/products/show.html.erb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/views/devise/sessions/new.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/devise/sessions/new.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/coverage/.last_run.json" beforeDir="false" afterPath="$PROJECT_DIR$/coverage/.last_run.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/coverage/.resultset.json" beforeDir="false" afterPath="$PROJECT_DIR$/coverage/.resultset.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/coverage/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/coverage/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spec/factories/aggregate_categories.rb" beforeDir="false" afterPath="$PROJECT_DIR$/spec/factories/aggregate_categories.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spec/models/aggregate_category_spec.rb" beforeDir="false" afterPath="$PROJECT_DIR$/spec/models/aggregate_category_spec.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spec/rails_helper.rb" beforeDir="false" afterPath="$PROJECT_DIR$/spec/rails_helper.rb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -121,7 +134,7 @@
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="yarn" />
-    <property name="settings.editor.selected.configurable" value="preferences.general" />
+    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
     <property name="terminalCustomCommandExecutionTurnOff" value="false" />
     <property name="ts.external.directory.path" value="D:\Program Files\RubyMine 2020.1.2\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
   </component>
@@ -775,14 +788,8 @@
       <workItem from="1601439857276" duration="25474000" />
       <workItem from="1601523711677" duration="27605000" />
       <workItem from="1601611911430" duration="125000" />
-      <workItem from="1601613224447" duration="3909000" />
-    </task>
-    <task id="LOCAL-00219" summary="feat(Place): Corregimos un pequeño error de diseño con los gaps">
-      <created>1600917484390</created>
-      <option name="number" value="00219" />
-      <option name="presentableId" value="LOCAL-00219" />
-      <option name="project" value="LOCAL" />
-      <updated>1600917484390</updated>
+      <workItem from="1601613224447" duration="10621000" />
+      <workItem from="1601738794056" duration="1375000" />
     </task>
     <task id="LOCAL-00220" summary="feat(Place): Eliminamos los gaps del modal de show product">
       <created>1600978744391</created>
@@ -1120,7 +1127,14 @@
       <option name="project" value="LOCAL" />
       <updated>1601585617355</updated>
     </task>
-    <option name="localTasksCounter" value="268" />
+    <task id="LOCAL-00268" summary="Feat(Product): Añadimos el botón para añadir varias subvariantes">
+      <created>1601617205038</created>
+      <option name="number" value="00268" />
+      <option name="presentableId" value="LOCAL-00268" />
+      <option name="project" value="LOCAL" />
+      <updated>1601617205039</updated>
+    </task>
+    <option name="localTasksCounter" value="269" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -1141,7 +1155,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="feat(Cart): Enviamos el mensaje de whatsapp con el código" />
     <MESSAGE value="feat(Cart): Pequeño form de inicio de sesón" />
     <MESSAGE value="feat(Cart): Se enviaba un mensaje cuando no era necesario" />
     <MESSAGE value="feat(Cart): Hacemos un redirect cuando agregamos el param continue" />
@@ -1166,7 +1179,8 @@
     <MESSAGE value="Feat(Product): Actualizamos la subvariante" />
     <MESSAGE value="Feat(Product): Formulario para crear subvariante" />
     <MESSAGE value="Feat(Product): Pensé que no existía un recurso pero si existía :v" />
-    <option name="LAST_COMMIT_MESSAGE" value="Feat(Product): Pensé que no existía un recurso pero si existía :v" />
+    <MESSAGE value="Feat(Product): Añadimos el botón para añadir varias subvariantes" />
+    <option name="LAST_COMMIT_MESSAGE" value="Feat(Product): Añadimos el botón para añadir varias subvariantes" />
   </component>
   <component name="WindowStateProjectService">
     <state x="392" y="0" key="#All_specs_in_spec:_waydda" timestamp="1598730457189">
@@ -1205,10 +1219,10 @@
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="404" y="186" width="576" height="383" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1366.768@0.0.1366.768" timestamp="1601487998138" />
-    <state x="261" y="0" width="834" height="683" key="CommitChangelistDialog2" timestamp="1601615026100">
+    <state x="261" y="0" width="834" height="683" key="CommitChangelistDialog2" timestamp="1601617204529">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state x="261" y="0" width="834" height="683" key="CommitChangelistDialog2/0.0.1366.768@0.0.1366.768" timestamp="1601615026100" />
+    <state x="261" y="0" width="834" height="683" key="CommitChangelistDialog2/0.0.1366.768@0.0.1366.768" timestamp="1601617204529" />
     <state x="255" y="248" width="424" height="479" key="FileChooserDialogImpl" timestamp="1601612037663">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
@@ -1266,10 +1280,10 @@
     </state>
     <state x="2094" y="191" key="RollbackChangesDialog/0.0.1366.768/1366.-69.1920.1080@1366.-69.1920.1080" timestamp="1597697150509" />
     <state x="518" y="173" key="RollbackChangesDialog/0.0.1366.768@0.0.1366.768" timestamp="1598294478879" />
-    <state x="162" y="21" width="916" height="730" key="SettingsEditor" timestamp="1601515528500">
+    <state x="162" y="21" width="916" height="730" key="SettingsEditor" timestamp="1601658161557">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state x="162" y="21" width="916" height="730" key="SettingsEditor/0.0.1366.768@0.0.1366.768" timestamp="1601515528500" />
+    <state x="162" y="21" width="916" height="730" key="SettingsEditor/0.0.1366.768@0.0.1366.768" timestamp="1601658161557" />
     <state width="498" height="446" key="SwitcherDM" timestamp="1600056322387">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
@@ -1278,12 +1292,12 @@
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="544" y="96" key="VCS.ChangeListViewerDialog/0.0.1366.768@0.0.1366.768" timestamp="1598750646694" />
-    <state x="275" y="117" width="800" height="523" key="Vcs.Push.Dialog.v2" timestamp="1601493212208">
+    <state x="275" y="117" width="800" height="523" key="Vcs.Push.Dialog.v2" timestamp="1601617221434">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="1640" y="117" key="Vcs.Push.Dialog.v2/0.0.1366.768/1366.0.1360.768@1366.0.1360.768" timestamp="1598221582431" />
     <state x="1753" y="165" key="Vcs.Push.Dialog.v2/0.0.1366.768/1366.0.1920.1080@1366.0.1920.1080" timestamp="1599267641822" />
-    <state x="275" y="117" width="800" height="523" key="Vcs.Push.Dialog.v2/0.0.1366.768@0.0.1366.768" timestamp="1601493212208" />
+    <state x="275" y="117" width="800" height="523" key="Vcs.Push.Dialog.v2/0.0.1366.768@0.0.1366.768" timestamp="1601617221434" />
     <state x="496" y="169" key="chooseDestDirectoryDialog" timestamp="1598730651549">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
@@ -1302,13 +1316,13 @@
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="628" y="298" key="com.jetbrains.plugins.remotesdk.ui.RemoteMappingsConfiguration/0.0.1366.768@0.0.1366.768" timestamp="1598729856431" />
-    <state x="390" y="117" width="647" height="624" key="find.popup" timestamp="1601616461027">
+    <state x="390" y="117" width="791" height="624" key="find.popup" timestamp="1601745116175">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="1914" y="96" width="823" height="878" key="find.popup/0.0.1366.768/1366.-69.1920.1080@1366.-69.1920.1080" timestamp="1597716285449" />
     <state x="1754" y="117" width="583" height="624" key="find.popup/0.0.1366.768/1366.0.1360.768@1366.0.1360.768" timestamp="1598981376119" />
     <state x="1914" y="165" width="823" height="878" key="find.popup/0.0.1366.768/1366.0.1920.1080@1366.0.1920.1080" timestamp="1599260651210" />
-    <state x="390" y="117" width="647" height="624" key="find.popup/0.0.1366.768@0.0.1366.768" timestamp="1601616461027" />
+    <state x="390" y="117" width="791" height="624" key="find.popup/0.0.1366.768@0.0.1366.768" timestamp="1601745116175" />
     <state x="549" y="254" width="250" height="278" key="jetbrains.javascript.buildTools.run-task-popup" timestamp="1597946321130">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
@@ -1317,13 +1331,13 @@
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="339" y="174" width="672" height="677" key="run.anything.popup/0.0.1366.768@0.0.1366.768" timestamp="1600370541201" />
-    <state x="346" y="89" width="672" height="678" key="search.everywhere.popup" timestamp="1601616126643">
+    <state x="346" y="89" width="672" height="678" key="search.everywhere.popup" timestamp="1601745258740">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="1852" y="56" width="945" height="954" key="search.everywhere.popup/0.0.1366.768/1366.-69.1920.1080@1366.-69.1920.1080" timestamp="1597715976170" />
     <state x="1710" y="89" width="672" height="678" key="search.everywhere.popup/0.0.1366.768/1366.0.1360.768@1366.0.1360.768" timestamp="1598985878395" />
     <state x="1852" y="125" width="945" height="954" key="search.everywhere.popup/0.0.1366.768/1366.0.1920.1080@1366.0.1920.1080" timestamp="1599267313630" />
-    <state x="346" y="89" width="672" height="678" key="search.everywhere.popup/0.0.1366.768@0.0.1366.768" timestamp="1601616126643" />
+    <state x="346" y="89" width="672" height="678" key="search.everywhere.popup/0.0.1366.768@0.0.1366.768" timestamp="1601745258740" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/waydda@Cart__Create_cart_Add_produ___.rcov" NAME="Cart# Create cart Add produ... Coverage Results" MODIFIED="1601005601072" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="waydda" />

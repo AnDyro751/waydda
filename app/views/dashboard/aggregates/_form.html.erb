@@ -1,4 +1,4 @@
-<%= simple_form_for(@aggregate, url: action == "update" ? dashboard_product_aggregate_path(@product.slug, @aggregate) : dashboard_product_aggregates_path(@product.slug)) do |f| %>
+<%= simple_form_for(@aggregate, url: action == "update" ? dashboard_product_aggregate_path(@product, @aggregate) : dashboard_product_aggregates_path(@product)) do |f| %>
   <%= f.input :name %>
   <%= f.input :price, as: :float %>
   <%= f.input :description %>

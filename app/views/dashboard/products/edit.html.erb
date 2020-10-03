@@ -2,8 +2,8 @@
   <meta name="content_slug" content="<%= @product.id.to_s %>"/>
   <meta name="content_model" content="product"/>
 <% end %>
-<%= render Headers::Text.new(title: "#{@product.name}", subtitle: @product.description, link: dashboard_product_path(@product.slug), small: true) do %>
-  <%= button_to @product.active? ? "Desactivar" : "Activar", dashboard_product_update_status_path(@product.slug),
+<%= render Headers::Text.new(title: "#{@product.name}", subtitle: @product.description, link: dashboard_product_path(@product), small: true) do %>
+  <%= button_to @product.active? ? "Desactivar" : "Activar", dashboard_product_update_status_path(@product),
                 remote: true,
                 params: {
                     "to_status": "#{@product.active? ? "deactivate" : "activate"}"

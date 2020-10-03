@@ -2,7 +2,7 @@
   <%= render Headers::Text.new(title: "Nueva subvariante", subtitle: "Nueva subvariante para #{@aggregate_category.name}", small: true) %>
 </div>
 <div class="w-full mb-12">
-  <%= simple_form_for(@aggregate_category, url: dashboard_product_aggregate_category_path(@product.slug, @aggregate_category)) do |f| %>
+  <%= simple_form_for(@aggregate_category, url: dashboard_product_aggregate_category_path(@product, @aggregate_category)) do |f| %>
     <div class="w-full p-8 border-2 shadow rounded">
       <%= f.simple_fields_for :aggregates, Aggregate.new do |agg| %>
         <%= render "dashboard/aggregate_categories/aggregate_fields", :agg => agg %>

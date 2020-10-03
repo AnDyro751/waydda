@@ -3,17 +3,17 @@ class Dashboard::AggregatesController < ApplicationController
   before_action :authenticate_user!
   before_action :set_my_place
   before_action :set_product
-  before_action :set_aggregate_category, only: [:show, :update, :edit, :destroy, :new, :create]
+  before_action :set_aggregate_category, only: [:show, :update, :edit, :destroy, :new, :create, :index]
   before_action :set_aggregate, only: [:show, :update, :edit, :destroy]
   add_breadcrumb "Productos", :dashboard_products_path, only: [:new]
 
   def new
     set_meta_tags title: "Nueva subvariante de #{@aggregate_category.name} | Panel de control",
                   description: "Nueva subvariante de #{@aggregate_category.name} | Panel de control"
-    add_breadcrumb "#{@product.name}", "#{dashboard_product_path(@product.slug)}"
-    add_breadcrumb "Variantes", "#{dashboard_product_aggregate_categories_path(@product.slug)}"
-    add_breadcrumb "#{@aggregate_category.name}", "#{dashboard_product_aggregate_categories_path(@product.slug, @aggregate_category)}"
-    add_breadcrumb "Nueva subvariante", "#{new_dashboard_product_aggregate_category_aggregate_path(@product.slug, @aggregate_category)}"
+    add_breadcrumb "#{@product.name}", "#{dashboard_product_path(@product)}"
+    add_breadcrumb "Variantes", "#{dashboard_product_aggregate_categories_path(@product)}"
+    add_breadcrumb "#{@aggregate_category.name}", "#{dashboard_product_aggregate_categories_path(@product, @aggregate_category)}"
+    add_breadcrumb "Nueva subvariante", "#{new_dashboard_product_aggregate_category_aggregate_path(@product, @aggregate_category)}"
     @aggregate = @aggregate_category.aggregates.new
     # respond_to do |format|
     #   format.js
@@ -27,11 +27,11 @@ class Dashboard::AggregatesController < ApplicationController
   def edit
     set_meta_tags title: "Editar subvariante de #{@aggregate_category.name} | Panel de control",
                   description: "Editar subvariante de #{@aggregate_category.name} | Panel de control"
-    add_breadcrumb "#{@product.name}", "#{dashboard_product_path(@product.slug)}"
-    add_breadcrumb "Variantes", "#{dashboard_product_aggregate_categories_path(@product.slug)}"
-    add_breadcrumb "#{@aggregate_category.name}", "#{dashboard_product_aggregate_categories_path(@product.slug, @aggregate_category)}"
-    add_breadcrumb "Subvariantes", "#{dashboard_product_aggregate_category_aggregates_path(@product.slug, @aggregate_category)}"
-    add_breadcrumb "#{@aggregate.name}", "#{dashboard_product_aggregate_category_aggregates_path(@product.slug, @aggregate_category, @aggregate)}"
+    add_breadcrumb "#{@product.name}", "#{dashboard_product_path(@product)}"
+    add_breadcrumb "Variantes", "#{dashboard_product_aggregate_categories_path(@product)}"
+    add_breadcrumb "#{@aggregate_category.name}", "#{dashboard_product_aggregate_categories_path(@product, @aggregate_category)}"
+    add_breadcrumb "Subvariantes", "#{dashboard_product_aggregate_category_aggregates_path(@product, @aggregate_category)}"
+    add_breadcrumb "#{@aggregate.name}", "#{dashboard_product_aggregate_category_aggregates_path(@product, @aggregate_category, @aggregate)}"
     add_breadcrumb "Editar"
     respond_to do |format|
       format.js
@@ -40,7 +40,7 @@ class Dashboard::AggregatesController < ApplicationController
   end
 
   def index
-    @aggregates = @product.aggregates
+    @aggregates = @aggregate_category.aggregates
   end
 
   def create
@@ -50,7 +50,7 @@ class Dashboard::AggregatesController < ApplicationController
     respond_to do |format|
       if @aggregate.save
         if @redirect_to
-          format.html { redirect_to dashboard_product_aggregate_category_path(@product.slug, @aggregate_category), alert: "Se ha creado la subvariante" }
+          format.html { redirect_to dashboard_product_aggregate_category_path(@product, @aggregate_category), alert: "Se ha creado la subvariante" }
         else
           format.js
         end
@@ -66,11 +66,11 @@ class Dashboard::AggregatesController < ApplicationController
     respond_to do |format|
       if @aggregate.update(aggregate_params)
         # format.js
-        format.html { redirect_to dashboard_product_aggregate_category_path(@product.slug, @aggregate_category), alert: 'Se ha actualizado la subvariante' }
+        format.html { redirect_to dashboard_product_aggregate_category_path(@product, @aggregate_category), alert: 'Se ha actualizado la subvariante' }
         format.json { render :show, status: :ok, location: @place }
       else
         # format.js
-        format.html { redirect_to dashboard_product_aggregate_category_aggregate_path_path(@product.slug, @aggregate_category, @aggregate), notice: 'Ha ocurrido un error al actualizar la subvariante' }
+        format.html { redirect_to dashboard_product_aggregate_category_aggregate_path_path(@product, @aggregate_category, @aggregate), notice: 'Ha ocurrido un error al actualizar la subvariante' }
         format.json { render json: @place.errors, status: :unprocessable_entity }
       end
     end
@@ -88,7 +88,6 @@ class Dashboard::AggregatesController < ApplicationController
         @error = true
         format.js
       end
-      # format.html { redirect_to dashboard_product_aggregates_path(@product.slug), alert: 'Se ha eliminado la variante' }
       # format.json { head :no_content }
     end
   end

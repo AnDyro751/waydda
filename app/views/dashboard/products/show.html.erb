@@ -1,4 +1,3 @@
-
 <%= content_for(:head_tags) do %>
   <meta name="content_slug" content="<%= @product.id.to_s %>"/>
   <meta name="content_model" content="product"/>
@@ -13,7 +12,7 @@
     </div>
   </div>
   <%= render Headers::Text.new(title: "#{@product.name}", subtitle: @product.description, small: true) do %>
-    <%= main_button(text: "Editar producto", to: edit_dashboard_product_path(@product.slug), action: "update") %>
+    <%= main_button(text: "Editar producto", to: edit_dashboard_product_path(@product), action: "update") %>
   <% end %>
 </div>
 
@@ -62,15 +61,14 @@
       </h3>
     </div>
     <div class="w-9/12 flex justify-end items-center">
-      <%= link_to "Ver todas", dashboard_product_aggregate_categories_path(@product.slug), class: "font-bold mr-6 hover:underline" %>
-      <%= main_button(text: "Agregar variante", to: new_dashboard_product_aggregate_category_path(@product.slug), action: "add") %>
+      <%= link_to "Ver todas", dashboard_product_aggregate_categories_path(@product), class: "font-bold mr-6 hover:underline" %>
+      <%= main_button(text: "Agregar variante", to: new_dashboard_product_aggregate_category_path(@product), action: "add") %>
     </div>
   </div>
   <div class="w-full">
     <%= render Dashboard::AggregateCategories::List::Index.new(product: @product) %>
   </div>
 </div>
-<%#= link_to "Ver aggregates", dashboard_product_aggregates_path(@product.slug) %>
 <%= render Headers::Text.new(title: "Área de peligro", subtitle: "Si eliminas el producto no podrás recuperar la información de este recurso, está acción es irreversible", small: true, with_margin: false) do %>
-  <%= button_to "Eliminar producto", dashboard_product_path(@product.slug), method: :delete, data: {confirm: "¿Estás seguro?", "disable-with": "Cargando..."}, class: main_color_button(color: "danger"), remote: true %>
+  <%= button_to "Eliminar producto", dashboard_product_path(@product), method: :delete, data: {confirm: "¿Estás seguro?", "disable-with": "Cargando..."}, class: main_color_button(color: "danger"), remote: true %>
 <% end %>

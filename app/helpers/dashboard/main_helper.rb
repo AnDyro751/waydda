@@ -61,7 +61,7 @@ module Dashboard::MainHelper
       </span>"
       data.html_safe
     end
-    # link_to edit_dashboard_product_path(@product.slug), class: "bg-white shadow hover:shadow-lg py-2 px-4 transition duration-150 font-normal text-sm border text-black rounded border-gray-400 border-2" do %>
+    # link_to edit_dashboard_product_path(@product), class: "bg-white shadow hover:shadow-lg py-2 px-4 transition duration-150 font-normal text-sm border text-black rounded border-gray-400 border-2" do %>
     #   <span>
     #     <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
     # viewBox="0 0 24 24"
