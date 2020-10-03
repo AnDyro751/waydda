@@ -25,54 +25,26 @@
       <% end %>
 
       <div class="w-full flex">
-        <div class="w-8/12 mr-2">
+        <div class="w-8/12 mr-4">
           <div class="w-full flex flex-wrap py-8 shadow-lg rounded bg-white mb-4">
-            <%= render Headers::Text.new(title: "Información básica", small: true, font: "small", padding_class: "px-8 pb-8") %>
-            <div class="w-full px-8">
+            <%= render Headers::Text.new(title: "Información básica", small: true, font: "small", padding_class: "px-4 pb-8") %>
+            <div class="w-full px-4">
               <%= f.input :name, placeholder: "Nombre del producto", label: "Nombre del producto", input_html: {"x-on:input": "handleChange($event)"} %>
               <span name="product[name]_error" class="text-sm font-bold text-red-600"/>
             </div>
-            <div class="w-full px-8">
+            <div class="w-full px-4">
               <%= f.input :description, as: :text, placeholder: "Descripción breve del producto", label: "Descripción", input_html: {"x-on:input": "handleChange($event)", "rows": "4"} %>
               <span name="product[description]_error" class="text-sm font-bold text-red-600"/>
             </div>
-            <div class="w-full px-8">
+            <div class="w-full px-4">
               <%= f.input :price, as: :float, placeholder: "Precio del producto", label: "Precio", input_html: {"x-on:input": "handleChange($event)"} %>
               <span name="product[price]_error" class="text-sm font-bold text-red-600"/>
             </div>
           </div>
-          <div class="w-full flex flex-wrap self-start rounded bg-white py-8 shadow-lg mb-4">
-            <%= render Headers::Text.new(title: "Inventario", small: true, font: "small", padding_class: "px-8 pb-8") %>
-            <div class="w-full px-8 flex">
-              <div class="w-7/12 mr-2">
-                <%= f.input :public_stock,
-                            placeholder: "Productos en stock",
-                            label: "Cantidad disponible" %>
-                <span name="product[public_stock]_error" class="text-sm font-bold text-red-600"/>
-              </div>
-              <div class="w-5/12 ml-2">
-                <%= f.input :unlimited,
-                            collection: [%w[SI true], %w[NO false]],
-                            label: "Continuar vendiendo sin stock",
-                            prompt: "Selecciona una opción"
-                %>
-                <span name="product[public_stock]_error" class="text-sm font-bold text-red-600"/>
-              </div>
-            </div>
 
-            <div class="w-full px-8 flex">
-              <div class="w-7/12 mr-2">
-                <%= f.input :sku,
-                            placeholder: "Código de referencia",
-                            label: "SKU" %>
-                <span name="product[public_stock]_error" class="text-sm font-bold text-red-600"/>
-              </div>
-
-            </div>
-          </div>
 
           <div class="w-full flex rounded border-2 py-8 shadow mb-4 flex-wrap">
-            <%= render Headers::Text.new(title: "Medidas de volumen", small: true, font: "small", padding_class: "px-8 pb-8") %>
+            <%= render Headers::Text.new(title: "Medidas de volumen", small: true, font: "small", padding_class: "px-4 pb-8") %>
             <div class="w-full flex px-8">
               <div class="w-7/12 mr-2">
                 <%= f.input :quantity,
@@ -91,19 +63,8 @@
             </div>
           </div>
 
-          <!--      <div class="w-full flex rounded border-2 py-8 shadow mb-4 flex-wrap">-->
-          <%#= render Headers::Text.new(title: "Variantes", small: true, font: "small", padding_class: "px-8 pb-8") %>
-          <!--        <div class="w-full px-8">-->
-          <%#= f.simple_fields_for :aggregate_categorieas, AggregateCategory.new do |aggf| %>
-          <%#= render Products::AggregateCategory::Form.new(f: aggf) %>
-          <%# end %>
-          <!--        </div>-->
-          <!--      </div>-->
-
-
         </div>
-        <div class="w-4/12 ml-2">
-
+        <div class="w-4/12 ml-4">
           <div class="w-full flex flex-wrap rounded bg-white shadow-lg pb-4 mb-4 ">
             <%= render Headers::Text.new(title: "Categorías", small: true, font: "small", padding_class: "px-4 py-4", with_background: false, with_border: true) %>
             <div class="w-full px-4 flex">
@@ -122,6 +83,36 @@
 
               %>
               <span name="product[item_ids]_error" class="text-sm font-bold text-red-600"/>
+            </div>
+          </div>
+          <div class="w-full flex flex-wrap self-start rounded bg-white pb-4 shadow-lg mb-4">
+            <%= render Headers::Text.new(title: "Inventario", small: true, font: "small", padding_class: "px-4 py-4") %>
+            <div class="w-full px-4">
+              <div class="w-full">
+                <%= f.input :public_stock,
+                            placeholder: "Productos en stock",
+                            label: "Cantidad disponible" %>
+                <span name="product[public_stock]_error" class="text-sm font-bold text-red-600"/>
+              </div>
+            </div>
+            <div class="w-full px-4">
+              <div class="w-full">
+                <%= f.input :unlimited,
+                            collection: [%w[SI true], %w[NO false]],
+                            label: "Continuar vendiendo sin stock",
+                            prompt: "Selecciona una opción"
+                %>
+                <span name="product[public_stock]_error" class="text-sm font-bold text-red-600"/>
+              </div>
+            </div>
+            <div class="w-full px-4 flex">
+              <div class="w-full">
+                <%= f.input :sku,
+                            placeholder: "Código de referencia",
+                            label: "SKU" %>
+                <span name="product[public_stock]_error" class="text-sm font-bold text-red-600"/>
+              </div>
+
             </div>
           </div>
         </div>
