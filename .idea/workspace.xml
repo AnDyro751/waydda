@@ -19,10 +19,11 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b89cb0fb-b680-4bb9-8ae0-f4b41721cfb9" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.generators" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.generators" afterDir="false" />
+    <list default="true" id="b89cb0fb-b680-4bb9-8ae0-f4b41721cfb9" name="Default Changelist" comment="Feat(Dashboard): Add simple small padding in dashboard">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/layouts/dashboard.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/layouts/dashboard.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/components/dashboard/sidebar/item.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/components/dashboard/sidebar/item.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/components/dashboard/sidebar/item.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/components/dashboard/sidebar/item.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/utils/Headers/dashboard/_items.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/utils/Headers/dashboard/_items.html.erb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -765,14 +766,7 @@
       <workItem from="1601523711677" duration="27605000" />
       <workItem from="1601611911430" duration="125000" />
       <workItem from="1601613224447" duration="10621000" />
-      <workItem from="1601738794056" duration="1487000" />
-    </task>
-    <task id="LOCAL-00221" summary="feat(Place): Agregamos los toast para poder mostrar los errores">
-      <created>1600997024939</created>
-      <option name="number" value="00221" />
-      <option name="presentableId" value="LOCAL-00221" />
-      <option name="project" value="LOCAL" />
-      <updated>1600997024940</updated>
+      <workItem from="1601738794056" duration="1762000" />
     </task>
     <task id="LOCAL-00222" summary="feat(Place): Mostramos los mensajes necesarios para saber si enviaron los aggregates">
       <created>1600999504351</created>
@@ -1110,7 +1104,14 @@
       <option name="project" value="LOCAL" />
       <updated>1601745360240</updated>
     </task>
-    <option name="localTasksCounter" value="270" />
+    <task id="LOCAL-00270" summary="Feat(Dashboard): Add simple small padding in dashboard">
+      <created>1601745428914</created>
+      <option name="number" value="00270" />
+      <option name="presentableId" value="LOCAL-00270" />
+      <option name="project" value="LOCAL" />
+      <updated>1601745428914</updated>
+    </task>
+    <option name="localTasksCounter" value="271" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -1131,7 +1132,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="feat(Cart): Se enviaba un mensaje cuando no era necesario" />
     <MESSAGE value="feat(Cart): Hacemos un redirect cuando agregamos el param continue" />
     <MESSAGE value="feat(Cart): Verificamos que debe esperar 5 minutos para requerir otro código" />
     <MESSAGE value="feat(Cart): Cambiamos a 5 minutos" />
@@ -1156,7 +1156,8 @@
     <MESSAGE value="Feat(Product): Pensé que no existía un recurso pero si existía :v" />
     <MESSAGE value="Feat(Product): Añadimos el botón para añadir varias subvariantes" />
     <MESSAGE value="Feat(Dashboard): Devise redirect when session redirect is not empty" />
-    <option name="LAST_COMMIT_MESSAGE" value="Feat(Dashboard): Devise redirect when session redirect is not empty" />
+    <MESSAGE value="Feat(Dashboard): Add simple small padding in dashboard" />
+    <option name="LAST_COMMIT_MESSAGE" value="Feat(Dashboard): Add simple small padding in dashboard" />
   </component>
   <component name="WindowStateProjectService">
     <state x="392" y="0" key="#All_specs_in_spec:_waydda" timestamp="1598730457189">
@@ -1195,10 +1196,10 @@
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="404" y="186" width="576" height="383" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1366.768@0.0.1366.768" timestamp="1601487998138" />
-    <state x="261" y="0" width="834" height="683" key="CommitChangelistDialog2" timestamp="1601745359050">
+    <state x="261" y="0" width="834" height="683" key="CommitChangelistDialog2" timestamp="1601745451200">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state x="261" y="0" width="834" height="683" key="CommitChangelistDialog2/0.0.1366.768@0.0.1366.768" timestamp="1601745359050" />
+    <state x="261" y="0" width="834" height="683" key="CommitChangelistDialog2/0.0.1366.768@0.0.1366.768" timestamp="1601745451200" />
     <state x="255" y="248" width="424" height="479" key="FileChooserDialogImpl" timestamp="1601612037663">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
@@ -1292,13 +1293,13 @@
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="628" y="298" key="com.jetbrains.plugins.remotesdk.ui.RemoteMappingsConfiguration/0.0.1366.768@0.0.1366.768" timestamp="1598729856431" />
-    <state x="390" y="117" width="791" height="624" key="find.popup" timestamp="1601745116175">
+    <state x="390" y="117" width="791" height="624" key="find.popup" timestamp="1601745502957">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="1914" y="96" width="823" height="878" key="find.popup/0.0.1366.768/1366.-69.1920.1080@1366.-69.1920.1080" timestamp="1597716285449" />
     <state x="1754" y="117" width="583" height="624" key="find.popup/0.0.1366.768/1366.0.1360.768@1366.0.1360.768" timestamp="1598981376119" />
     <state x="1914" y="165" width="823" height="878" key="find.popup/0.0.1366.768/1366.0.1920.1080@1366.0.1920.1080" timestamp="1599260651210" />
-    <state x="390" y="117" width="791" height="624" key="find.popup/0.0.1366.768@0.0.1366.768" timestamp="1601745116175" />
+    <state x="390" y="117" width="791" height="624" key="find.popup/0.0.1366.768@0.0.1366.768" timestamp="1601745502957" />
     <state x="549" y="254" width="250" height="278" key="jetbrains.javascript.buildTools.run-task-popup" timestamp="1597946321130">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
@@ -1307,13 +1308,13 @@
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="339" y="174" width="672" height="677" key="run.anything.popup/0.0.1366.768@0.0.1366.768" timestamp="1600370541201" />
-    <state x="346" y="89" width="672" height="678" key="search.everywhere.popup" timestamp="1601745258740">
+    <state x="346" y="89" width="672" height="678" key="search.everywhere.popup" timestamp="1601745549336">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="1852" y="56" width="945" height="954" key="search.everywhere.popup/0.0.1366.768/1366.-69.1920.1080@1366.-69.1920.1080" timestamp="1597715976170" />
     <state x="1710" y="89" width="672" height="678" key="search.everywhere.popup/0.0.1366.768/1366.0.1360.768@1366.0.1360.768" timestamp="1598985878395" />
     <state x="1852" y="125" width="945" height="954" key="search.everywhere.popup/0.0.1366.768/1366.0.1920.1080@1366.0.1920.1080" timestamp="1599267313630" />
-    <state x="346" y="89" width="672" height="678" key="search.everywhere.popup/0.0.1366.768@0.0.1366.768" timestamp="1601745258740" />
+    <state x="346" y="89" width="672" height="678" key="search.everywhere.popup/0.0.1366.768@0.0.1366.768" timestamp="1601745549336" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/waydda@Cart__Create_cart_Add_produ___.rcov" NAME="Cart# Create cart Add produ... Coverage Results" MODIFIED="1601005601072" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="waydda" />

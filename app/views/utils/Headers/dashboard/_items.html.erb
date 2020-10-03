@@ -1,5 +1,5 @@
 <ul class="w-full flex flex-wrap mt-2">
-  <%= render Dashboard::Sidebar::Item.new(text: "Panel de control", to: my_place_path, active_controller: ["dashboard/places"]) do %>
+  <%= render Dashboard::Sidebar::Item.new(text: "Panel de control", to: my_place_path, active_controller: ["dashboard/places"], active_actions: ["my_place"]) do %>
     <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
          viewBox="0 0 48 48"
          class="h-6 w-6 fill-current mr-4 inline opacity-50"
@@ -47,7 +47,7 @@
     </svg>
   <% end %>
 
-  <%= render Dashboard::Sidebar::Item.new(text: "Ajustes", to: dashboard_edit_my_place_path, active_controller: ["dashboard/places"]) do %>
+  <%= render Dashboard::Sidebar::Item.new(text: "Ajustes", to: dashboard_edit_my_place_path, active_controller: ["dashboard/places"], active_actions: ["edit"]) do %>
     <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
          viewBox="0 0 24 24"
          class="h-6 w-6 fill-current mr-4 inline opacity-50"
