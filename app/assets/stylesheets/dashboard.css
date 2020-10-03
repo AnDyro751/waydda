@@ -11,7 +11,7 @@
 }
 .breadcrumbs div a:hover {
     border-radius: 3px;
-    background: #eeeeee;
+    background: #d8d8d8;
     cursor: pointer;
 }
 .breadcrumbs div{

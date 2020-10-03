@@ -1,8 +1,8 @@
-<div class="w-full flex <%= @with_border ? "border-b" : "" %> <%= @with_margin ? "mb-4" : "" %> <%= if @padding_class
-                                                                                                      @padding_class
-                                                                                                    else
-                                                                                                      @small ? "pt-8 pb-5" : "py-12"
-                                                                                                    end %> items-center">
+<div class="w-full flex <%= @with_background ? "bg-main-gray" : "" %> <%= @with_border ? "border-b" : "" %> <%= @with_margin ? "mb-4" : "" %> <%= if @padding_class
+                                                                                                                                                @padding_class
+                                                                                                                                              else
+                                                                                                                                                @small ? "pt-8 pb-5" : "py-12"
+                                                                                                                                              end %> items-center">
   <div class="<%= content ? "w-8/12" : "w-full flex flex-wrap" %>">
     <% if @link %>
       <div class="w-full flex ">
