@@ -19,7 +19,8 @@
                       }
       ) do |f| %>
 
-    <div class="w-full mb-12 flex flex-wrap">
+    <div class="w-full flex flex-wrap">
+      <%= render Products::Form::HeaderMenu.new(product: @product) %>
       <div class="w-full flex flex-wrap py-8 rounded border-2 shadow mb-4">
         <%= render Headers::Text.new(title: "Información básica", small: true, font: "small", padding_class: "px-8 pb-8") %>
         <div class="w-full px-8">

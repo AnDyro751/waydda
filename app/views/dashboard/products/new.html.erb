@@ -2,7 +2,6 @@
                  description: "Agrega un nuevo producto - Waydda"
 %>
 <div class="w-full">
-
-  <%= render Headers::Text.new(title: "Nuevo producto", small: false, with_border: false) %>
+  <%= render Headers::Text.new(title: "Nuevo producto", small: false, with_border: false, padding_class: "py-4") %>
   <%= render 'form', product: @product %>
 </div>
