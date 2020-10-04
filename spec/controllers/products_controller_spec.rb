@@ -68,8 +68,7 @@ RSpec.describe Dashboard::ProductsController, type: :controller do
     end
   end
 
-  context "POST /index" do
-
+  context "POST /create" do
 
     describe "Un Auth" do
       before(:each) do
@@ -99,11 +98,34 @@ RSpec.describe Dashboard::ProductsController, type: :controller do
         end
 
         it { expect(response).to have_http_status(302) }
+        it { expect(assigns(:product).errors.any?).to eq(false) }
 
         it { expect(response.should).to redirect_to(dashboard_product_path(assigns(:product))) }
+      end
 
+      describe "with invalid params" do
+        let(:invalid_params) {
+          {
+              product: {
+                  name: Faker::Name.name,
+                  status: "active"
+              }
+          }
+        }
+
+        before(:each) do
+          post(:create, params: invalid_params, :format => "js")
+        end
+
+        it { expect(response).to have_http_status(200) }
+        it { expect(assigns(:product).errors.any?).to eq(true) }
+        it { expect(assigns(:product).save).to eq(false) }
       end
 
     end
   end
+
+
+
+
 end

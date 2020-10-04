@@ -34,7 +34,6 @@ class Dashboard::ProductsController < ApplicationController
 
   def create
     @product = Product.new(product_params)
-    puts "-----------#{params} PARAMS"
     @product.place = @place
 
     respond_to do |format|
