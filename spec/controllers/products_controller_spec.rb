@@ -2,6 +2,7 @@ require 'rails_helper'
 # require 'spec_helper'
 
 RSpec.describe Dashboard::ProductsController, type: :controller do
+  let(:user_with_place) { FactoryBot.create(:user_with_place) }
 
   describe "PRODUCTS" do
     let(:user) { FactoryBot.create(:user) }
@@ -161,7 +162,6 @@ RSpec.describe Dashboard::ProductsController, type: :controller do
   end
 
   context "GET /new" do
-    let(:user_with_place) { FactoryBot.create(:user_with_place) }
     describe "without session" do
       before(:each) do
         get :new
@@ -181,9 +181,38 @@ RSpec.describe Dashboard::ProductsController, type: :controller do
       it { expect(response).not_to render_template(:create) }
 
     end
-
-
   end
 
+  context "DESTROY /:id" do
+    describe "without session" do
+      before(:each) do
+        delete :destroy, params: {id: "demo"}
+      end
 
+      it { expect(response).to have_http_status(302) }
+      it { expect(response.should).to redirect_to(new_user_session_path) }
+    end
+
+    describe "with session but product is not created" do
+      before(:each) do
+        sign_in user_with_place
+      end
+      it 'should be return ActionController Routing error' do
+        expect { delete :destroy, params: {id: "demo product"} }.to raise_error(ActionController::RoutingError)
+      end
+    end
+
+
+    describe "with session and product exists" do
+      let(:product) { FactoryBot.create(:product, place: user_with_place.places.last) }
+      before(:each) do
+        sign_in user_with_place
+        delete :destroy, params: {id: product.id.to_s}
+      end
+      it 'should be redirect to dashboard_products_path' do
+        expect(response.should).to redirect_to(dashboard_products_path)
+      end
+    end
+
+  end
 end

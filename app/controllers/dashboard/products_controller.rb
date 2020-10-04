@@ -94,10 +94,13 @@ class Dashboard::ProductsController < ApplicationController
   end
 
   def destroy
-    @product.destroy
     respond_to do |format|
-      format.html { redirect_to dashboard_products_path, alert: 'Producto eliminado correctamente' }
-      format.json { head :no_content }
+      if @product.destroy
+        format.html { redirect_to dashboard_products_path, alert: 'Producto eliminado correctamente' }
+        format.json { head :no_content }
+      else
+        format.html { redirect_to dashboard_product_path(@product), notice: 'Ha ocurrido un error al eliminar el producto' }
+      end
     end
   end
 
