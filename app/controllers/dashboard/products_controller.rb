@@ -11,6 +11,8 @@ class Dashboard::ProductsController < ApplicationController
     set_meta_tags title: "Productos | Panel de control",
                   description: "Productos - Panel de control"
     @products = @place.products.paginate(page: params[:page], per_page: 20)
+
+
   end
 
 
@@ -18,6 +20,7 @@ class Dashboard::ProductsController < ApplicationController
     set_meta_tags title: "#{@product.name} | Panel de control",
                   description: "#{@product.name} - Panel de control"
     add_breadcrumb "#{@product.name}", :dashboard_product_path
+
   end
 
   def new
