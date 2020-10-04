@@ -21,7 +21,6 @@
   <component name="ChangeListManager">
     <list default="true" id="b89cb0fb-b680-4bb9-8ae0-f4b41721cfb9" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/coverage/.last_run.json" beforeDir="false" afterPath="$PROJECT_DIR$/coverage/.last_run.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/coverage/.resultset.json" beforeDir="false" afterPath="$PROJECT_DIR$/coverage/.resultset.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/coverage/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/coverage/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/spec/controllers/products_controller_spec.rb" beforeDir="false" afterPath="$PROJECT_DIR$/spec/controllers/products_controller_spec.rb" afterDir="false" />
@@ -129,7 +128,7 @@
       <command value="rails g helper" />
     </option>
   </component>
-  <component name="RunManager" selected="RSpec.Dashboard::ProductsControll... (5)">
+  <component name="RunManager" selected="RSpec.Dashboard::ProductsControll... (2)">
     <configuration name="Rails" type="IrbRunConfigurationType" factoryName="IRB console">
       <module name="waydda" />
       <IRB_RUN_CONFIG NAME="RUBY_ARGS" VALUE="" />
@@ -240,7 +239,7 @@
       <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="FULL_BACKTRACE" VALUE="false" />
       <method v="2" />
     </configuration>
-    <configuration name="Dashboard::ProductsControll... (3)" type="RSpecRunConfigurationType" factoryName="RSpec" temporary="true" nameIsGenerated="true">
+    <configuration name="Dashboard::ProductsControll... (2)" type="RSpecRunConfigurationType" factoryName="RSpec" temporary="true" nameIsGenerated="true">
       <module name="waydda" />
       <predefined_log_file enabled="true" id="RUBY_RSPEC" />
       <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="RUBY_ARGS" VALUE="" />
@@ -264,7 +263,7 @@
       <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="TEST_SCRIPT_PATH" VALUE="$MODULE_DIR$/spec/controllers/products_controller_spec.rb" />
       <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="SPEC_RUNNER_PATH" VALUE="" />
       <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="TEST_FILE_MASK" VALUE="**/*_spec.rb" />
-      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="SPEC_EXAMPLE_NAME" VALUE="Dashboard::ProductsController POST /create Un Auth" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="SPEC_EXAMPLE_NAME" VALUE="Dashboard::ProductsController GET /new" />
       <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="TEST_TEST_TYPE" VALUE="TEST_SCRIPT" />
       <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="SPEC_ARGS" VALUE="" />
       <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="RUNNER_VERSION" VALUE="3.9.2" />
@@ -677,19 +676,19 @@
       <item itemvalue="Rake.spec: waydda" />
       <item itemvalue="Rake.test: waydda" />
       <item itemvalue="RSpec.All specs in spec: waydda" />
-      <item itemvalue="RSpec.Dashboard::ProductsControll... (3)" />
       <item itemvalue="RSpec.Dashboard::ProductsControll... (4)" />
       <item itemvalue="RSpec.Dashboard::ProductsControll..." />
       <item itemvalue="RSpec.Dashboard::ProductsControll... (1)" />
       <item itemvalue="RSpec.Dashboard::ProductsControll... (5)" />
+      <item itemvalue="RSpec.Dashboard::ProductsControll... (2)" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="RSpec.Dashboard::ProductsControll... (2)" />
         <item itemvalue="RSpec.Dashboard::ProductsControll... (5)" />
         <item itemvalue="RSpec.Dashboard::ProductsControll... (1)" />
         <item itemvalue="RSpec.Dashboard::ProductsControll..." />
         <item itemvalue="RSpec.Dashboard::ProductsControll... (4)" />
-        <item itemvalue="RSpec.Dashboard::ProductsControll... (3)" />
       </list>
     </recent_temporary>
   </component>
@@ -770,14 +769,7 @@
       <workItem from="1601738794056" duration="13692000" />
       <workItem from="1601781440868" duration="8240000" />
       <workItem from="1601823973155" duration="12553000" />
-      <workItem from="1601850906418" duration="889000" />
-    </task>
-    <task id="LOCAL-00232" summary="feat(Cart): Mostramos los productos en el carrito con el nuevo diseño, vamos a mostrar la dirección de entrega">
-      <created>1601081897568</created>
-      <option name="number" value="00232" />
-      <option name="presentableId" value="LOCAL-00232" />
-      <option name="project" value="LOCAL" />
-      <updated>1601081897568</updated>
+      <workItem from="1601850906418" duration="1125000" />
     </task>
     <task id="LOCAL-00233" summary="feat(Cart): Vamos a agregar una nueva ruta para editar el carrito">
       <created>1601094314956</created>
@@ -1115,7 +1107,14 @@
       <option name="project" value="LOCAL" />
       <updated>1601851143113</updated>
     </task>
-    <option name="localTasksCounter" value="281" />
+    <task id="LOCAL-00281" summary="test(Dashboard): products_controller.rb test #show action">
+      <created>1601851866519</created>
+      <option name="number" value="00281" />
+      <option name="presentableId" value="LOCAL-00281" />
+      <option name="project" value="LOCAL" />
+      <updated>1601851866519</updated>
+    </task>
+    <option name="localTasksCounter" value="282" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -1136,7 +1135,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="feat(Cart): Creamos los modelos para las ordenes,&#10;así se evita que cambien los precios 3:" />
     <MESSAGE value="feat(Cart): Creamos un nuevo formulario para el producto" />
     <MESSAGE value="Feat(Product): El label del sku era incorrecto" />
     <MESSAGE value="Feat(Product): Agregamos los breadcrumbs" />
@@ -1161,7 +1159,8 @@
     <MESSAGE value="Feat(Dashboard): Init tests" />
     <MESSAGE value="Feat(Dashboard): Products controller validations" />
     <MESSAGE value="test(Dashboard): products_controller.rb test # Create action" />
-    <option name="LAST_COMMIT_MESSAGE" value="test(Dashboard): products_controller.rb test # Create action" />
+    <MESSAGE value="test(Dashboard): products_controller.rb test #show action" />
+    <option name="LAST_COMMIT_MESSAGE" value="test(Dashboard): products_controller.rb test #show action" />
   </component>
   <component name="WindowStateProjectService">
     <state x="392" y="0" key="#All_specs_in_spec:_waydda" timestamp="1598730457189">
@@ -1204,30 +1203,30 @@
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="491" y="102" width="374" height="557" key="#com.intellij.ide.util.MemberChooser/0.0.1366.768@0.0.1366.768" timestamp="1601746308565" />
-    <state x="261" y="0" width="834" height="683" key="CommitChangelistDialog2" timestamp="1601851141309">
+    <state x="261" y="0" width="834" height="683" key="CommitChangelistDialog2" timestamp="1601851866164">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state x="261" y="0" width="834" height="683" key="CommitChangelistDialog2/0.0.1366.768@0.0.1366.768" timestamp="1601851141309" />
+    <state x="261" y="0" width="834" height="683" key="CommitChangelistDialog2/0.0.1366.768@0.0.1366.768" timestamp="1601851866164" />
     <state x="255" y="248" width="424" height="479" key="FileChooserDialogImpl" timestamp="1601612037663">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="255" y="248" width="424" height="479" key="FileChooserDialogImpl/0.0.1366.768@0.0.1366.768" timestamp="1601612037663" />
-    <state width="1324" height="179" key="GridCell.Tab.0.bottom" timestamp="1601851842897">
+    <state width="1324" height="179" key="GridCell.Tab.0.bottom" timestamp="1601852048796">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state width="1324" height="179" key="GridCell.Tab.0.bottom/0.0.1366.768@0.0.1366.768" timestamp="1601851842897" />
-    <state width="1324" height="179" key="GridCell.Tab.0.center" timestamp="1601851842896">
+    <state width="1324" height="179" key="GridCell.Tab.0.bottom/0.0.1366.768@0.0.1366.768" timestamp="1601852048796" />
+    <state width="1324" height="179" key="GridCell.Tab.0.center" timestamp="1601852048795">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state width="1324" height="179" key="GridCell.Tab.0.center/0.0.1366.768@0.0.1366.768" timestamp="1601851842896" />
-    <state width="1324" height="179" key="GridCell.Tab.0.left" timestamp="1601851842896">
+    <state width="1324" height="179" key="GridCell.Tab.0.center/0.0.1366.768@0.0.1366.768" timestamp="1601852048795" />
+    <state width="1324" height="179" key="GridCell.Tab.0.left" timestamp="1601852048795">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state width="1324" height="179" key="GridCell.Tab.0.left/0.0.1366.768@0.0.1366.768" timestamp="1601851842896" />
-    <state width="1324" height="179" key="GridCell.Tab.0.right" timestamp="1601851842896">
+    <state width="1324" height="179" key="GridCell.Tab.0.left/0.0.1366.768@0.0.1366.768" timestamp="1601852048795" />
+    <state width="1324" height="179" key="GridCell.Tab.0.right" timestamp="1601852048796">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state width="1324" height="179" key="GridCell.Tab.0.right/0.0.1366.768@0.0.1366.768" timestamp="1601851842896" />
+    <state width="1324" height="179" key="GridCell.Tab.0.right/0.0.1366.768@0.0.1366.768" timestamp="1601852048796" />
     <state width="1324" height="261" key="GridCell.Tab.1.bottom" timestamp="1601851736726">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
@@ -1351,6 +1350,6 @@
     <SUITE FILE_PATH="coverage/waydda@AggregateCategory_Save_reco___.rcov" NAME="AggregateCategory Save reco... Coverage Results" MODIFIED="1601591171722" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="waydda" />
     <SUITE FILE_PATH="coverage/waydda@Dashboard__AggregateCategor_____3_.rcov" NAME="Dashboard::AggregateCategor... (3) Coverage Results" MODIFIED="1601596084350" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="waydda" />
     <SUITE FILE_PATH="coverage/waydda@Dashboard__ProductsController.rcov" NAME="Dashboard::ProductsController Coverage Results" MODIFIED="1601846427366" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="waydda" />
-    <SUITE FILE_PATH="coverage/waydda@Dashboard__ProductsControll_____2_.rcov" NAME="Dashboard::ProductsControll... (2) Coverage Results" MODIFIED="1601850307334" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="waydda" />
+    <SUITE FILE_PATH="coverage/waydda@Dashboard__ProductsControll_____2_.rcov" NAME="Dashboard::ProductsControll... (2) Coverage Results" MODIFIED="1601852047721" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="waydda" />
   </component>
 </project>

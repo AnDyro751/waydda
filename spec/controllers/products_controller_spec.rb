@@ -158,6 +158,30 @@ RSpec.describe Dashboard::ProductsController, type: :controller do
       it { expect(response).to have_http_status(200) }
       it { expect(response).to render_template(:show) }
     end
+  end
+
+  context "GET /new" do
+    let(:user_with_place) { FactoryBot.create(:user_with_place) }
+    describe "without session" do
+      before(:each) do
+        get :new
+      end
+      it { expect(response).to have_http_status(302) }
+      it { expect(response.should).to redirect_to(new_user_session_path) }
+    end
+
+    describe "with session" do
+      before(:each) do
+        sign_in user_with_place
+        get :new
+      end
+
+      it { expect(response).to have_http_status(200) }
+      it { expect(response).to render_template(:new) }
+      it { expect(response).not_to render_template(:create) }
+
+    end
+
 
   end
 
