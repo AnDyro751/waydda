@@ -3,7 +3,7 @@ require 'rails_helper'
 
 RSpec.describe Dashboard::ProductsController, type: :controller do
 
-  describe "GET /index" do
+  describe "PRODUCTS" do
     let(:user) { FactoryBot.create(:user) }
     let(:place) { user.places.create(attributes_for :free_valid_place) }
     let(:product) { place.products.create(attributes_for :product) }
@@ -126,6 +126,40 @@ RSpec.describe Dashboard::ProductsController, type: :controller do
   end
 
 
+  context "GET #show" do
+    let(:user_with_place) { FactoryBot.create(:user_with_place) }
+    let(:product) { FactoryBot.create(:product, place: user_with_place.places.last) }
+
+    describe "without session" do
+      before(:each) do
+        get :show, params: {id: "demo product"}
+      end
+
+      it { expect(response).to have_http_status(302) }
+      it { expect(response.should).to redirect_to(new_user_session_path) }
+
+    end
+
+    describe "with session but product not exists" do
+      before(:each) do
+        sign_in user_with_place
+      end
+
+      it 'should be return action' do
+        expect { get :show, params: {id: "demo product"} }.to raise_error(ActionController::RoutingError)
+      end
+    end
+
+    describe "with session and product exists" do
+      before(:each) do
+        sign_in user_with_place
+        get :show, params: {id: product.id}
+      end
+      it { expect(response).to have_http_status(200) }
+      it { expect(response).to render_template(:show) }
+    end
+
+  end
 
 
 end
