@@ -95,6 +95,7 @@ class ApplicationController < ActionController::Base
 
   def set_my_place
     @place = current_user.places.first
+    puts "------#{current_user}------!!#{@place}!! SET MY PLACE"
     if @place.nil?
       redirect_to new_dashboard_place_path, notice: "Crea una empresa para continuar"
     end

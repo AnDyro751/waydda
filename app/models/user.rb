@@ -8,7 +8,7 @@ class User
   devise :database_authenticatable, :registerable, :rememberable
   # Callbacks
   after_create :assign_default_role
-  after_create :create_stripe_customer
+  # after_save :create_stripe_customer
   # TODO: Al registrarse y si ya cuenta con un carrito se debe hacer merge
   # after_create :merge_cart
 
@@ -127,7 +127,10 @@ class User
         raise "Usa el último código de activación que se envío a #{self.phone}"
       end
     end
-    SendWhatsAppMessageJob.perform_now(message: User.text_code_message(code: phone_code.verification_code), phone: self.phone)
+
+    if Rails.env != "test"
+      SendWhatsAppMessageJob.perform_now(message: User.text_code_message(code: phone_code.verification_code), phone: self.phone)
+    end
     return phone_code
   end
 
@@ -151,8 +154,11 @@ class User
 
   # Assign User default Role
   def assign_default_role
+    puts "CREANDO USAURIO"
     add_role(:customer) if roles.blank?
+    CreateStripeCustomerJob.perform_later(self)
     unless self.phone.blank?
+      puts "ENVIANDO 2"
       self.create_and_send_verification_code
     end
   end

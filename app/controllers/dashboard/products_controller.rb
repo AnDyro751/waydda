@@ -2,7 +2,6 @@ class Dashboard::ProductsController < ApplicationController
   layout "dashboard"
   before_action :authenticate_user!
   before_action :set_my_place
-  before_action :set_item, only: [:create]
   before_action :set_product, only: [:show, :edit, :update, :update_status, :destroy]
   add_breadcrumb "Productos", :dashboard_products_path
 
@@ -11,8 +10,6 @@ class Dashboard::ProductsController < ApplicationController
     set_meta_tags title: "Productos | Panel de control",
                   description: "Productos - Panel de control"
     @products = @place.products.paginate(page: params[:page], per_page: 20)
-
-
   end
 
 
@@ -37,11 +34,12 @@ class Dashboard::ProductsController < ApplicationController
 
   def create
     @product = Product.new(product_params)
+    puts "-----------#{params} PARAMS"
     @product.place = @place
 
     respond_to do |format|
       if @product.save
-        if params["product"]["item_ids"].present?
+        if params["product"] and params["product"]["item_ids"].present?
           Product.update_recent_products(item_ids: params["product"]["item_ids"], product: @product, action: "create")
         end
         format.html { redirect_to dashboard_product_path(@product), alert: 'Se ha creado el producto' }
@@ -107,13 +105,6 @@ class Dashboard::ProductsController < ApplicationController
 
   private
 
-  def set_item
-    if params["product"]["item_id"].present?
-      @item = Item.find_by(place: @place, id: params["product"]["item_id"])
-      not_found if @item.nil?
-    end
-  end
-
   def set_product
     if controller_name === "products"
       @product = Product.find_by(id: params["id"])
@@ -126,6 +117,7 @@ class Dashboard::ProductsController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def product_params
+    puts "----------------HOLA #{params}"
     params.require(:product).permit(:name, :description, :price, :aggregates_required, :max_aggregates, :public_stock, :unlimited, :quantity, :quantity_measure, item_ids: [], aggregate_categories_attributes: [])
   end
 end
