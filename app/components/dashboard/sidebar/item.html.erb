@@ -1,4 +1,4 @@
-<%= active_link_to @to, class_active: "bg-main-blue-light bg-opacity-25 hover:bg-main-blue-light hover:bg-opacity-25 text-blue-800", active: [@active_controller, @active_actions ? @active_actions : []], class: "w-full mb-4 px-3 py-3 text-gray-800 rounded-lg hover:bg-main-gray" do %>
+<%= active_link_to @to, class_active: "bg-blue-200 bg-opacity-25 hover:bg-main-gray hover:text-black text-blue-700", active: [@active_controller, @active_actions ? @active_actions : []], class: "w-full mb-4 px-3 py-3 text-gray-800 rounded-lg hover:bg-main-gray" do %>
   <div class="flex items-center w-full">
     <%= content %>
     <span class="font-medium"><%= @text %></span>

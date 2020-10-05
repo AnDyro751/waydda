@@ -1,5 +1,5 @@
 <%= render Headers::Text.new(title: "Todos los productos") do %>
-  <%= main_button(to: new_dashboard_product_path, action: "add", text: "Agregar producto") %>
+  <%= main_button(to: new_dashboard_product_path, action: "add", text: "Agregar producto", color_button: "dark") %>
 <% end %>
 
 <% if @products.length > 0 %>

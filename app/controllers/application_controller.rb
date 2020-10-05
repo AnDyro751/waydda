@@ -68,7 +68,9 @@ class ApplicationController < ActionController::Base
       session[:continue] = nil
       navigation
     else
-      session["user_return_to"] || root_path
+      current_return_to = session["user_return_to"]
+      session["user_return_to"] = nil
+      current_return_to || root_path
     end
   end
 

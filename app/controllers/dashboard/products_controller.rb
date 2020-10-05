@@ -109,9 +109,9 @@ class Dashboard::ProductsController < ApplicationController
 
   def set_product
     if controller_name === "products"
-      @product = Product.find_by(id: params["id"])
+      @product = @place.products.find_by(id: params["id"])
     else
-      @product = Product.find_by(id: params["product_id"])
+      @product = @place.products.find_by(id: params["product_id"])
     end
     not_found if @product.nil?
   end
@@ -119,7 +119,6 @@ class Dashboard::ProductsController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def product_params
-    puts "----------------HOLA #{params}"
-    params.require(:product).permit(:name, :description, :price, :aggregates_required, :max_aggregates, :public_stock, :unlimited, :quantity, :quantity_measure, item_ids: [], aggregate_categories_attributes: [])
+    params.require(:product).permit(:name, :description, :price, :aggregates_required, :sku, :max_aggregates, :public_stock, :unlimited, :quantity, :quantity_measure, item_ids: [], aggregate_categories_attributes: [])
   end
 end

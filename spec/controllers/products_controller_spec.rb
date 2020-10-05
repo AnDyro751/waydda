@@ -42,8 +42,7 @@ RSpec.describe Dashboard::ProductsController, type: :controller do
 
       describe "place is created and product id is not valid" do
         before(:each) do
-          place = user.places.create(attributes_for :free_valid_place)
-          place.products.create(attributes_for :product)
+          place.products.create(attributes_for :product, place: user_with_place.places.last)
           sign_in user
         end
         describe "if auth and place is created and product must not exist" do
@@ -213,6 +212,8 @@ RSpec.describe Dashboard::ProductsController, type: :controller do
         expect(response.should).to redirect_to(dashboard_products_path)
       end
     end
+
+
 
   end
 end

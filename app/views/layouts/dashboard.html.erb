@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html class="bg-white">
+<html class="bg-main-gray">
 <head>
   <%= display_meta_tags %>
   <%= csrf_meta_tags %>
@@ -22,8 +22,8 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;800&display=swap">
   <%= content_for?(:head_tags) ? yield(:head_tags) : nil %>
 </head>
-
 <body class="bg-main-gray">
+<!--<body class="<%#= action_name === "new" || action_name === "edit" ? "bg-main-gray" : "bg-white" %>">-->
 <div class="w-full flex items-start">
   <div class="w-1/5 mr-8">
     <% unless @place.nil? %>
