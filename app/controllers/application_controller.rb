@@ -37,7 +37,6 @@ class ApplicationController < ActionController::Base
   end
 
 
-
   def create_guest_user
     u = User.new(:name => "guest", :email => "guest_#{Time.now.to_i}#{rand(100)}@example.com")
     u.save(validate: false)
@@ -60,7 +59,7 @@ class ApplicationController < ActionController::Base
   end
 
   def after_sign_in_path_for(resource)
-    puts "-------------SIGN IN PATH FOR"
+    # puts "-------------SIGN IN PATH FOR"
     # current_or_guest_user
     MergeUserCartsJob.perform_later(guest_user, current_user)
     session[:guest_user_id] = nil
@@ -69,7 +68,9 @@ class ApplicationController < ActionController::Base
       session[:continue] = nil
       navigation
     else
-      root_path
+      current_return_to = session["user_return_to"]
+      session["user_return_to"] = nil
+      current_return_to || root_path
     end
   end
 
@@ -96,6 +97,7 @@ class ApplicationController < ActionController::Base
 
   def set_my_place
     @place = current_user.places.first
+    puts "------#{current_user}------!!#{@place}!! SET MY PLACE"
     if @place.nil?
       redirect_to new_dashboard_place_path, notice: "Crea una empresa para continuar"
     end

@@ -1,5 +1,5 @@
 <%= render Headers::Text.new(title: @aggregate_category.name, small: true, with_margin: true, subtitle: "#{pluralize(@aggregate_category.aggregates.select { |a| !a.new_record? }.length, "subvariante", "subvariantes")}") do %>
-  <%= main_button(to: edit_dashboard_product_aggregate_category_path(@product.slug, @aggregate_category), text: "Editar variante", action: "update") %>
+  <%= main_button(to: edit_dashboard_product_aggregate_category_path(@product, @aggregate_category), text: "Editar variante", action: "update") %>
 <% end %>
 
 <%= render Dashboard::List::Index.new(
@@ -12,7 +12,7 @@
 ) %>
 <div class="w-full border mt-4 rounded">
   <%= render Headers::Text.new(title: "Subvariantes", small: true, with_margin: false, with_border: false, font: "small", padding_class: "p-4") do %>
-    <%= link_to "Añadir subvariante", new_dashboard_product_aggregate_category_aggregate_path(@product.slug, @aggregate_category), class: main_color_button(padding: "big") %>
+    <%= link_to "Añadir subvariante", new_dashboard_product_aggregate_category_aggregate_path(@product, @aggregate_category), class: main_color_button(padding: "big") %>
     <%#= main_button(to: "#", text: "Añadir subvariante", custom_click: "handleClick($event)", action: "add") %>
   <% end %>
   <div
@@ -32,7 +32,7 @@
 
 <%= render Headers::Text.new(title: "Área de peligro", subtitle: "Si eliminas la variante no podrás recuperar la información de este recurso, está acción es irreversible", small: true, with_margin: true) do %>
   <%= link_to "Elminar variante",
-              dashboard_product_aggregate_category_path(@product.slug, @aggregate_category),
+              dashboard_product_aggregate_category_path(@product, @aggregate_category),
               method: :delete,
               remote: true,
               class: main_color_button(color: "danger"),

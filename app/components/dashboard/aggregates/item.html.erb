@@ -1,6 +1,9 @@
 <div class="w-full flex p-3 px-4 hover:bg-gray-200 gap-4 items-center" id="aggregate_<%= @aggregate.id %>">
   <div class="w-2/5">
-    <span class="font-medium text-sm truncate" id="aggregate_<%= @aggregate.id %>_name"><%= @aggregate.name %></span>
+    <%= link_to dashboard_product_aggregate_category_aggregate_path(@product, @aggregate_category, @aggregate) do %>
+      <span class="font-medium text-sm truncate" id="aggregate_<%= @aggregate.id %>_name"><%= @aggregate.name %></span>
+    <% end %>
+
   </div>
   <div class="w-1/5">
     <span class="text-sm truncate" id="aggregate_<%= @aggregate.id %>_price"><%= helpers.number_to_currency(@aggregate.price, format: "%u %n") %></span>
@@ -10,7 +13,7 @@
   </div>
   <div class="w-1/5 flex gap-8">
     <div class="w-auto flex justify-center items-center">
-      <%= link_to edit_dashboard_product_aggregate_category_aggregate_path(@product.slug, @aggregate_category, @aggregate), class: "w-8 h-8 hover:bg-main-blue rounded hover:text-white text-gray-700 flex items-center justify-center" do %>
+      <%= link_to edit_dashboard_product_aggregate_category_aggregate_path(@product, @aggregate_category, @aggregate), class: "w-8 h-8 hover:bg-main-blue rounded hover:text-white text-gray-700 flex items-center justify-center" do %>
         <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
              class="w-4 h-4 fill-current"
              viewBox="0 0 24 24">
@@ -19,7 +22,7 @@
       <% end %>
     </div>
     <div class="w-auto flex justify-center items-center">
-      <%= link_to dashboard_product_aggregate_category_aggregate_path(@product.slug, @aggregate_category, @aggregate), method: :delete, data: {confirm: "¿Seguro que quieres eliminar esta variante?"}, remote: true, class: "w-8 h-8 hover:bg-red-400 rounded text-gray-700 hover:text-white flex items-center justify-center" do %>
+      <%= link_to dashboard_product_aggregate_category_aggregate_path(@product, @aggregate_category, @aggregate), method: :delete, data: {confirm: "¿Seguro que quieres eliminar esta variante?"}, remote: true, class: "w-8 h-8 hover:bg-red-400 rounded text-gray-700 hover:text-white flex items-center justify-center" do %>
 
         <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
              class="w-4 h-4  fill-current"

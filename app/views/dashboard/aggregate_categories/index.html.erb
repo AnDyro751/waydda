@@ -1,5 +1,5 @@
 <%= render Headers::Text.new(title: "Listando variantes", subtitle: "Variantes de #{@product.name}", small: true, with_border: false, with_margin: false) do %>
-  <%= main_button(text: "Agregar variante", to: new_dashboard_product_aggregate_category_path(@product.slug), action: "add") %>
+  <%= main_button(text: "Agregar variante", to: new_dashboard_product_aggregate_category_path(@product), action: "add") %>
 <% end %>
 
 <div class="w-full border-l border-r rounded border-b" >

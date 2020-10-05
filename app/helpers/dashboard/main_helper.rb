@@ -46,7 +46,7 @@ module Dashboard::MainHelper
         if action === "add"
           "
           <svg xmlns='http://www.w3.org/2000/svg' x='0px' y='0px'
-          class='#{class_icon ? class_icon : 'inline h-4 fill-current text-gray-800'}'
+          class='#{class_icon ? class_icon : 'inline h-4 fill-current'}'
           viewBox='0 0 24 24'><path fill-rule='evenodd' d='M 11 2 L 11 11 L 2 11 L 2 13 L 11 13 L 11 22 L 13 22 L 13 13 L 22 13 L 22 11 L 13 11 L 13 2 Z'></path></svg>
         "
         else
@@ -61,7 +61,7 @@ module Dashboard::MainHelper
       </span>"
       data.html_safe
     end
-    # link_to edit_dashboard_product_path(@product.slug), class: "bg-white shadow hover:shadow-lg py-2 px-4 transition duration-150 font-normal text-sm border text-black rounded border-gray-400 border-2" do %>
+    # link_to edit_dashboard_product_path(@product), class: "bg-white shadow hover:shadow-lg py-2 px-4 transition duration-150 font-normal text-sm border text-black rounded border-gray-400 border-2" do %>
     #   <span>
     #     <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
     # viewBox="0 0 24 24"

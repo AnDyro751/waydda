@@ -2,7 +2,7 @@
   <% if @product.aggregate_categories.length <= 0 %>
     <%= render EmptyRecords.new(title: "Aún no has agregado ninguna variante") %>
   <% else %>
-    <div class="w-full flex px-3 py-2 border-b border-t gap-x-4">
+    <div class="w-full flex px-3 py-2 border-b border-gray-200 border-t gap-x-4">
       <div class="w-6/12">
         <span class="text-xs text-gray-700 font-normal uppercase">Nombre</span>
       </div>
@@ -17,10 +17,10 @@
         <span class="text-xs text-gray-700 font-normal uppercase">Subvariantes</span>
       </div>
     </div>
-    <div class="w-full flex flex-wrap divide-y divide-gray-300">
+    <div class="w-full flex flex-wrap divide-y divide-gray-200">
       <% @product.aggregate_categories.each_with_index do |aggregate_category, i| %>
-        <%= link_to dashboard_product_aggregate_category_path(@product.slug, aggregate_category), class: "w-full flex hover:bg-gray-200" do %>
-          <div class="w-full flex p-3 gap-x-4 items-center">
+        <%= link_to dashboard_product_aggregate_category_path(@product, aggregate_category), class: "w-full flex hover:bg-gray-200" do %>
+          <div class="w-full flex px-3 py-4 gap-x-4 items-center">
             <div class="w-6/12">
               <span class="font-medium text-sm truncate"><%= aggregate_category.name %></span>
               <% if aggregate_category.aggregates.length <= 0 %>

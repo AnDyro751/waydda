@@ -27,6 +27,7 @@ class Users::SessionsController < Devise::SessionsController
         else
           unless params["user"]["verification_code"].present?
             begin
+              puts "ENVIANDO 1"
               @user.create_and_send_verification_code
               @show_input = true
             rescue => e
@@ -42,6 +43,7 @@ class Users::SessionsController < Devise::SessionsController
           @last_verification_code = @user.get_last_phone_code
           puts "NO HAY CPODIGO DE VERIFICACIONE" if @last_verification_code.nil?
           if @last_verification_code.nil?
+            puts "ENVIANDO 3"
             @last_verification_code = @user.create_and_send_verification_code
           end
           if params["user"]["verification_code"] === @last_verification_code.verification_code

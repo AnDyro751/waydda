@@ -1,9 +1,8 @@
-
 <%= content_for(:head_tags) do %>
   <meta name="content_slug" content="<%= @product.id.to_s %>"/>
   <meta name="content_model" content="product"/>
 <% end %>
-<div class="w-full flex gap-4 items-center flex-wrap justify-between">
+<div class="w-full flex gap-4 items-center flex-wrap justify-between bg-white rounded px-4 shadow-xl py-4">
   <div class="mt-8 flex flex-wrap">
     <div class="flex w-full">
       <img
@@ -12,38 +11,38 @@
         src="<%= get_image_url(10, 10, @product.photo, "cover") %>" data-src="<%= get_image_url(150, 150, @product.photo, "cover") %>" alt="<%= @product.name %> photo">
     </div>
   </div>
-  <%= render Headers::Text.new(title: "#{@product.name}", subtitle: @product.description, small: true) do %>
-    <%= main_button(text: "Editar producto", to: edit_dashboard_product_path(@product.slug), action: "update") %>
+  <%= render Headers::Text.new(title: "#{@product.name}", subtitle: @product.description, small: true, with_border: false) do %>
+    <%= main_button(text: "Editar producto", to: edit_dashboard_product_path(@product), action: "update") %>
   <% end %>
 </div>
 
-<div class="w-full mt-8 flex flex-wrap rounded bg-main-gray divide-y divide-gray-400">
+<div class="w-full mt-12 flex flex-wrap rounded divide-y divide-gray-200 bg-white rounded shadow-xl">
   <div class="w-full p-4 flex items-center">
-    <h4 class="font-medium">Estatus:</h4>
+    <h4 class="font-medium w-3/12">Estatus:</h4>
     <h5 class="text-gray-700 ml-2 text-sm font-normal inline"><%= @product.status === "active" ? "Activo" : "Desactivado" %></h5>
   </div>
   <div class="w-full p-4 flex items-center">
-    <h4 class="font-medium">Precio:</h4>
+    <h4 class="font-medium w-3/12">Precio:</h4>
     <h5 class="text-gray-700 ml-2 text-sm font-normal inline"><%= number_to_currency(@product.price, format: "%u %n") %></h5>
   </div>
   <div class="w-full p-4 flex items-center">
-    <h4 class="font-medium">Descripción:</h4>
+    <h4 class="font-medium w-3/12">Descripción:</h4>
     <h5 class="ml-2 text-sm font-normal inline <%= @product.description.empty? ? "italic text-gray-500" : "text-gray-700" %>"><%= @product.description.empty? ? "Sin descripción" : @product.description %></h5>
   </div>
   <div class="w-full p-4 flex items-center">
-    <h4 class="font-medium">Productos en stock:</h4>
+    <h4 class="font-medium w-3/12">Productos en stock:</h4>
     <h5 class="text-gray-700 ml-2 text-sm font-normal inline"><%= pluralize(@product.public_stock, "unidad", plural: "unidades") %></h5>
   </div>
   <div class="w-full p-4 flex items-center">
-    <h4 class="font-medium">Vender sin stock:</h4>
+    <h4 class="font-medium w-3/12">Vender sin stock:</h4>
     <h5 class="text-gray-700 ml-2 text-sm font-normal inline"><%= @product.unlimited ? "SI" : "NO" %></h5>
   </div>
   <div class="w-full p-4 flex items-center">
-    <h4 class="font-medium">Creado:</h4>
+    <h4 class="font-medium w-3/12">Creado:</h4>
     <h5 class="ml-2 text-sm font-normal inline text-gray-700">Hace <%= time_ago_in_words(@product.created_at) %></h5>
   </div>
   <div class="w-full p-4 flex items-center">
-    <h4 class="font-medium">Visto por última vez:</h4>
+    <h4 class="font-medium w-3/12">Visto por última vez:</h4>
     <h5 class="ml-2 text-sm font-normal inline <%= @product.last_viewed.nil? ? "text-gray-500 italic" : "text-gray-700" %>">
       <% if @product.last_viewed.nil? %>
         Nunca
@@ -54,7 +53,7 @@
   </div>
 </div>
 
-<div class="w-full flex mt-8 flex-wrap border rounded">
+<div class="w-full flex mt-12 bg-white flex-wrap shadow-xl rounded">
   <div class="w-full flex justify-between items-center px-3 py-4">
     <div class="w-3/12">
       <h3 class="text-lg mb-1 font-medium">
@@ -62,15 +61,16 @@
       </h3>
     </div>
     <div class="w-9/12 flex justify-end items-center">
-      <%= link_to "Ver todas", dashboard_product_aggregate_categories_path(@product.slug), class: "font-bold mr-6 hover:underline" %>
-      <%= main_button(text: "Agregar variante", to: new_dashboard_product_aggregate_category_path(@product.slug), action: "add") %>
+      <%= link_to "Ver todas", dashboard_product_aggregate_categories_path(@product), class: "font-bold mr-6 hover:underline" %>
+      <%= main_button(text: "Agregar variante", to: new_dashboard_product_aggregate_category_path(@product), action: "add") %>
     </div>
   </div>
   <div class="w-full">
     <%= render Dashboard::AggregateCategories::List::Index.new(product: @product) %>
   </div>
 </div>
-<%#= link_to "Ver aggregates", dashboard_product_aggregates_path(@product.slug) %>
-<%= render Headers::Text.new(title: "Área de peligro", subtitle: "Si eliminas el producto no podrás recuperar la información de este recurso, está acción es irreversible", small: true, with_margin: false) do %>
-  <%= button_to "Eliminar producto", dashboard_product_path(@product.slug), method: :delete, data: {confirm: "¿Estás seguro?", "disable-with": "Cargando..."}, class: main_color_button(color: "danger"), remote: true %>
-<% end %>
+<div class="w-full bg-white p-4 rounded shadow-xl my-12">
+  <%= render Headers::Text.new(title: "Área de peligro", with_border: false, subtitle: "Si eliminas el producto no podrás recuperar la información de este recurso, está acción es irreversible", small: true, with_margin: false) do %>
+    <%= button_to "Eliminar producto", dashboard_product_path(@product), method: :delete, data: {confirm: "¿Estás seguro?", "disable-with": "Cargando..."}, class: main_color_button(color: "danger", size: "big", padding: "big"), remote: true %>
+  <% end %>
+</div>

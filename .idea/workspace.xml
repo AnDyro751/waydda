@@ -19,21 +19,10 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b89cb0fb-b680-4bb9-8ae0-f4b41721cfb9" name="Default Changelist" comment="Feat(Product): Pensé que no existía un recurso pero si existía :v">
-      <change afterPath="$PROJECT_DIR$/spec/controllers/aggregate_categories_controller_spec.rb" afterDir="false" />
+    <list default="true" id="b89cb0fb-b680-4bb9-8ae0-f4b41721cfb9" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Gemfile" beforeDir="false" afterPath="$PROJECT_DIR$/Gemfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/dashboard/products_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/dashboard/products_controller.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/aggregate_category.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/aggregate_category.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/user.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/user.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/dashboard/aggregate_categories/_form.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/dashboard/aggregate_categories/_form.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/devise/sessions/new.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/devise/sessions/new.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/coverage/.last_run.json" beforeDir="false" afterPath="$PROJECT_DIR$/coverage/.last_run.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/coverage/.resultset.json" beforeDir="false" afterPath="$PROJECT_DIR$/coverage/.resultset.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/coverage/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/coverage/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spec/factories/aggregate_categories.rb" beforeDir="false" afterPath="$PROJECT_DIR$/spec/factories/aggregate_categories.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spec/models/aggregate_category_spec.rb" beforeDir="false" afterPath="$PROJECT_DIR$/spec/models/aggregate_category_spec.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spec/rails_helper.rb" beforeDir="false" afterPath="$PROJECT_DIR$/spec/rails_helper.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/components/dashboard/aggregate_categories/List/index.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/components/dashboard/aggregate_categories/List/index.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/dashboard/products/show.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/dashboard/products/show.html.erb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -121,7 +110,7 @@
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="yarn" />
-    <property name="settings.editor.selected.configurable" value="preferences.general" />
+    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
     <property name="terminalCustomCommandExecutionTurnOff" value="false" />
     <property name="ts.external.directory.path" value="D:\Program Files\RubyMine 2020.1.2\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
   </component>
@@ -138,7 +127,7 @@
       <command value="rails g helper" />
     </option>
   </component>
-  <component name="RunManager" selected="RSpec.Dashboard::AggregateCategor... (5)">
+  <component name="RunManager" selected="RSpec.Dashboard::ProductsController">
     <configuration name="Rails" type="IrbRunConfigurationType" factoryName="IRB console">
       <module name="waydda" />
       <IRB_RUN_CONFIG NAME="RUBY_ARGS" VALUE="" />
@@ -214,7 +203,7 @@
       <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="FULL_BACKTRACE" VALUE="false" />
       <method v="2" />
     </configuration>
-    <configuration name="Dashboard::AggregateCategor... (2)" type="RSpecRunConfigurationType" factoryName="RSpec" temporary="true" nameIsGenerated="true">
+    <configuration name="Dashboard::ProductsControll... (2)" type="RSpecRunConfigurationType" factoryName="RSpec" temporary="true" nameIsGenerated="true">
       <module name="waydda" />
       <predefined_log_file enabled="true" id="RUBY_RSPEC" />
       <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="RUBY_ARGS" VALUE="" />
@@ -235,10 +224,10 @@
       </EXTENSION>
       <EXTENSION ID="org.jetbrains.plugins.ruby.rails.run.RailsRunConfigurationExtension" SCRATCH_USE_RAILS_RUNNER="false" />
       <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="TESTS_FOLDER_PATH" VALUE="" />
-      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="TEST_SCRIPT_PATH" VALUE="$MODULE_DIR$/spec/controllers/aggregate_categories_controller_spec.rb" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="TEST_SCRIPT_PATH" VALUE="$MODULE_DIR$/spec/controllers/products_controller_spec.rb" />
       <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="SPEC_RUNNER_PATH" VALUE="" />
       <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="TEST_FILE_MASK" VALUE="**/*_spec.rb" />
-      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="SPEC_EXAMPLE_NAME" VALUE="Dashboard::AggregateCategoriesController Un Auth should be get sign in info" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="SPEC_EXAMPLE_NAME" VALUE="Dashboard::ProductsController GET /new" />
       <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="TEST_TEST_TYPE" VALUE="TEST_SCRIPT" />
       <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="SPEC_ARGS" VALUE="" />
       <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="RUNNER_VERSION" VALUE="3.9.2" />
@@ -249,7 +238,7 @@
       <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="FULL_BACKTRACE" VALUE="false" />
       <method v="2" />
     </configuration>
-    <configuration name="Dashboard::AggregateCategor... (3)" type="RSpecRunConfigurationType" factoryName="RSpec" temporary="true" nameIsGenerated="true">
+    <configuration name="Dashboard::ProductsControll... (3)" type="RSpecRunConfigurationType" factoryName="RSpec" temporary="true" nameIsGenerated="true">
       <module name="waydda" />
       <predefined_log_file enabled="true" id="RUBY_RSPEC" />
       <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="RUBY_ARGS" VALUE="" />
@@ -270,10 +259,10 @@
       </EXTENSION>
       <EXTENSION ID="org.jetbrains.plugins.ruby.rails.run.RailsRunConfigurationExtension" SCRATCH_USE_RAILS_RUNNER="false" />
       <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="TESTS_FOLDER_PATH" VALUE="" />
-      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="TEST_SCRIPT_PATH" VALUE="$MODULE_DIR$/spec/controllers/aggregate_categories_controller_spec.rb" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="TEST_SCRIPT_PATH" VALUE="$MODULE_DIR$/spec/controllers/products_controller_spec.rb" />
       <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="SPEC_RUNNER_PATH" VALUE="" />
       <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="TEST_FILE_MASK" VALUE="**/*_spec.rb" />
-      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="SPEC_EXAMPLE_NAME" VALUE="Dashboard::AggregateCategoriesController" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="SPEC_EXAMPLE_NAME" VALUE="Dashboard::ProductsController DESTROY /:id" />
       <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="TEST_TEST_TYPE" VALUE="TEST_SCRIPT" />
       <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="SPEC_ARGS" VALUE="" />
       <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="RUNNER_VERSION" VALUE="3.9.2" />
@@ -284,7 +273,7 @@
       <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="FULL_BACKTRACE" VALUE="false" />
       <method v="2" />
     </configuration>
-    <configuration name="Dashboard::AggregateCategor... (4)" type="RSpecRunConfigurationType" factoryName="RSpec" temporary="true" nameIsGenerated="true">
+    <configuration name="Dashboard::ProductsControll... (4)" type="RSpecRunConfigurationType" factoryName="RSpec" temporary="true" nameIsGenerated="true">
       <module name="waydda" />
       <predefined_log_file enabled="true" id="RUBY_RSPEC" />
       <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="RUBY_ARGS" VALUE="" />
@@ -305,10 +294,10 @@
       </EXTENSION>
       <EXTENSION ID="org.jetbrains.plugins.ruby.rails.run.RailsRunConfigurationExtension" SCRATCH_USE_RAILS_RUNNER="false" />
       <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="TESTS_FOLDER_PATH" VALUE="" />
-      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="TEST_SCRIPT_PATH" VALUE="$MODULE_DIR$/spec/controllers/aggregate_categories_controller_spec.rb" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="TEST_SCRIPT_PATH" VALUE="$MODULE_DIR$/spec/controllers/products_controller_spec.rb" />
       <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="SPEC_RUNNER_PATH" VALUE="" />
       <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="TEST_FILE_MASK" VALUE="**/*_spec.rb" />
-      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="SPEC_EXAMPLE_NAME" VALUE="Dashboard::AggregateCategoriesController " />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="SPEC_EXAMPLE_NAME" VALUE="Dashboard::ProductsController DESTROY /:id with session but product is not created" />
       <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="TEST_TEST_TYPE" VALUE="TEST_SCRIPT" />
       <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="SPEC_ARGS" VALUE="" />
       <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="RUNNER_VERSION" VALUE="3.9.2" />
@@ -319,7 +308,7 @@
       <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="FULL_BACKTRACE" VALUE="false" />
       <method v="2" />
     </configuration>
-    <configuration name="Dashboard::AggregateCategor... (5)" type="RSpecRunConfigurationType" factoryName="RSpec" temporary="true" nameIsGenerated="true">
+    <configuration name="Dashboard::ProductsControll..." type="RSpecRunConfigurationType" factoryName="RSpec" temporary="true" nameIsGenerated="true">
       <module name="waydda" />
       <predefined_log_file enabled="true" id="RUBY_RSPEC" />
       <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="RUBY_ARGS" VALUE="" />
@@ -340,10 +329,10 @@
       </EXTENSION>
       <EXTENSION ID="org.jetbrains.plugins.ruby.rails.run.RailsRunConfigurationExtension" SCRATCH_USE_RAILS_RUNNER="false" />
       <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="TESTS_FOLDER_PATH" VALUE="" />
-      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="TEST_SCRIPT_PATH" VALUE="$MODULE_DIR$/spec/controllers/aggregate_categories_controller_spec.rb" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="TEST_SCRIPT_PATH" VALUE="$MODULE_DIR$/spec/controllers/products_controller_spec.rb" />
       <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="SPEC_RUNNER_PATH" VALUE="" />
       <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="TEST_FILE_MASK" VALUE="**/*_spec.rb" />
-      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="SPEC_EXAMPLE_NAME" VALUE="Dashboard::AggregateCategoriesController  Un Auth should be get sign in info" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="SPEC_EXAMPLE_NAME" VALUE="Dashboard::ProductsController DESTROY /:id with session and product exists" />
       <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="TEST_TEST_TYPE" VALUE="TEST_SCRIPT" />
       <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="SPEC_ARGS" VALUE="" />
       <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="RUNNER_VERSION" VALUE="3.9.2" />
@@ -354,7 +343,7 @@
       <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="FULL_BACKTRACE" VALUE="false" />
       <method v="2" />
     </configuration>
-    <configuration name="Dashboard::AggregateCategor..." type="RSpecRunConfigurationType" factoryName="RSpec" temporary="true" nameIsGenerated="true">
+    <configuration name="Dashboard::ProductsController" type="RSpecRunConfigurationType" factoryName="RSpec" temporary="true" nameIsGenerated="true">
       <module name="waydda" />
       <predefined_log_file enabled="true" id="RUBY_RSPEC" />
       <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="RUBY_ARGS" VALUE="" />
@@ -375,10 +364,10 @@
       </EXTENSION>
       <EXTENSION ID="org.jetbrains.plugins.ruby.rails.run.RailsRunConfigurationExtension" SCRATCH_USE_RAILS_RUNNER="false" />
       <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="TESTS_FOLDER_PATH" VALUE="" />
-      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="TEST_SCRIPT_PATH" VALUE="$MODULE_DIR$/spec/controllers/aggregate_categories_controller_spec.rb" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="TEST_SCRIPT_PATH" VALUE="$MODULE_DIR$/spec/controllers/products_controller_spec.rb" />
       <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="SPEC_RUNNER_PATH" VALUE="" />
       <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="TEST_FILE_MASK" VALUE="**/*_spec.rb" />
-      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="SPEC_EXAMPLE_NAME" VALUE="Dashboard::AggregateCategoriesController Un Auth GET /index" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="SPEC_EXAMPLE_NAME" VALUE="Dashboard::ProductsController" />
       <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="TEST_TEST_TYPE" VALUE="TEST_SCRIPT" />
       <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="SPEC_ARGS" VALUE="" />
       <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="RUNNER_VERSION" VALUE="3.9.2" />
@@ -686,19 +675,19 @@
       <item itemvalue="Rake.spec: waydda" />
       <item itemvalue="Rake.test: waydda" />
       <item itemvalue="RSpec.All specs in spec: waydda" />
-      <item itemvalue="RSpec.Dashboard::AggregateCategor..." />
-      <item itemvalue="RSpec.Dashboard::AggregateCategor... (2)" />
-      <item itemvalue="RSpec.Dashboard::AggregateCategor... (3)" />
-      <item itemvalue="RSpec.Dashboard::AggregateCategor... (4)" />
-      <item itemvalue="RSpec.Dashboard::AggregateCategor... (5)" />
+      <item itemvalue="RSpec.Dashboard::ProductsControll... (2)" />
+      <item itemvalue="RSpec.Dashboard::ProductsControll... (3)" />
+      <item itemvalue="RSpec.Dashboard::ProductsControll... (4)" />
+      <item itemvalue="RSpec.Dashboard::ProductsControll..." />
+      <item itemvalue="RSpec.Dashboard::ProductsController" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="RSpec.Dashboard::AggregateCategor... (5)" />
-        <item itemvalue="RSpec.Dashboard::AggregateCategor... (3)" />
-        <item itemvalue="RSpec.Dashboard::AggregateCategor... (4)" />
-        <item itemvalue="RSpec.Dashboard::AggregateCategor... (2)" />
-        <item itemvalue="RSpec.Dashboard::AggregateCategor..." />
+        <item itemvalue="RSpec.Dashboard::ProductsController" />
+        <item itemvalue="RSpec.Dashboard::ProductsControll..." />
+        <item itemvalue="RSpec.Dashboard::ProductsControll... (4)" />
+        <item itemvalue="RSpec.Dashboard::ProductsControll... (3)" />
+        <item itemvalue="RSpec.Dashboard::ProductsControll... (2)" />
       </list>
     </recent_temporary>
   </component>
@@ -775,126 +764,11 @@
       <workItem from="1601439857276" duration="25474000" />
       <workItem from="1601523711677" duration="27605000" />
       <workItem from="1601611911430" duration="125000" />
-      <workItem from="1601613224447" duration="3909000" />
-    </task>
-    <task id="LOCAL-00219" summary="feat(Place): Corregimos un pequeño error de diseño con los gaps">
-      <created>1600917484390</created>
-      <option name="number" value="00219" />
-      <option name="presentableId" value="LOCAL-00219" />
-      <option name="project" value="LOCAL" />
-      <updated>1600917484390</updated>
-    </task>
-    <task id="LOCAL-00220" summary="feat(Place): Eliminamos los gaps del modal de show product">
-      <created>1600978744391</created>
-      <option name="number" value="00220" />
-      <option name="presentableId" value="LOCAL-00220" />
-      <option name="project" value="LOCAL" />
-      <updated>1600978744392</updated>
-    </task>
-    <task id="LOCAL-00221" summary="feat(Place): Agregamos los toast para poder mostrar los errores">
-      <created>1600997024939</created>
-      <option name="number" value="00221" />
-      <option name="presentableId" value="LOCAL-00221" />
-      <option name="project" value="LOCAL" />
-      <updated>1600997024940</updated>
-    </task>
-    <task id="LOCAL-00222" summary="feat(Place): Mostramos los mensajes necesarios para saber si enviaron los aggregates">
-      <created>1600999504351</created>
-      <option name="number" value="00222" />
-      <option name="presentableId" value="LOCAL-00222" />
-      <option name="project" value="LOCAL" />
-      <updated>1600999504351</updated>
-    </task>
-    <task id="LOCAL-00223" summary="feat(Place): Mostramos los mensajes necesarios para saber si enviaron los aggregates">
-      <created>1600999568497</created>
-      <option name="number" value="00223" />
-      <option name="presentableId" value="LOCAL-00223" />
-      <option name="project" value="LOCAL" />
-      <updated>1600999568497</updated>
-    </task>
-    <task id="LOCAL-00224" summary="feat(Place): Cerramos el modal al agregar el producto al carrito">
-      <created>1601005249915</created>
-      <option name="number" value="00224" />
-      <option name="presentableId" value="LOCAL-00224" />
-      <option name="project" value="LOCAL" />
-      <updated>1601005249916</updated>
-    </task>
-    <task id="LOCAL-00225" summary="feat(Place): Validaciones del producto ya pasan">
-      <created>1601009147055</created>
-      <option name="number" value="00225" />
-      <option name="presentableId" value="LOCAL-00225" />
-      <option name="project" value="LOCAL" />
-      <updated>1601009147056</updated>
-    </task>
-    <task id="LOCAL-00226" summary="feat(Cart): Pequeños errores en el carrito y relaciones">
-      <created>1601052353250</created>
-      <option name="number" value="00226" />
-      <option name="presentableId" value="LOCAL-00226" />
-      <option name="project" value="LOCAL" />
-      <updated>1601052353250</updated>
-    </task>
-    <task id="LOCAL-00227" summary="feat(Cart): Pequeños errores en el carrito y relaciones">
-      <created>1601053868380</created>
-      <option name="number" value="00227" />
-      <option name="presentableId" value="LOCAL-00227" />
-      <option name="project" value="LOCAL" />
-      <updated>1601053868380</updated>
-    </task>
-    <task id="LOCAL-00228" summary="feat(Cart): Vamos a arreglar el problema de el carrito">
-      <created>1601053959270</created>
-      <option name="number" value="00228" />
-      <option name="presentableId" value="LOCAL-00228" />
-      <option name="project" value="LOCAL" />
-      <updated>1601053959270</updated>
-    </task>
-    <task id="LOCAL-00229" summary="feat(Cart): Identificamos los aggregates para poder crearlos sin problemas">
-      <created>1601057430946</created>
-      <option name="number" value="00229" />
-      <option name="presentableId" value="LOCAL-00229" />
-      <option name="project" value="LOCAL" />
-      <updated>1601057430946</updated>
-    </task>
-    <task id="LOCAL-00230" summary="feat(Cart): Vamos a actualizar dos partes del carrito, tanto la tabla de productos como la del precio">
-      <created>1601064952488</created>
-      <option name="number" value="00230" />
-      <option name="presentableId" value="LOCAL-00230" />
-      <option name="project" value="LOCAL" />
-      <updated>1601064952488</updated>
-    </task>
-    <task id="LOCAL-00231" summary="feat(Cart): Actualizamos el carrito, eliminamos productos y precio">
-      <created>1601075512332</created>
-      <option name="number" value="00231" />
-      <option name="presentableId" value="LOCAL-00231" />
-      <option name="project" value="LOCAL" />
-      <updated>1601075512333</updated>
-    </task>
-    <task id="LOCAL-00232" summary="feat(Cart): Mostramos los productos en el carrito con el nuevo diseño, vamos a mostrar la dirección de entrega">
-      <created>1601081897568</created>
-      <option name="number" value="00232" />
-      <option name="presentableId" value="LOCAL-00232" />
-      <option name="project" value="LOCAL" />
-      <updated>1601081897568</updated>
-    </task>
-    <task id="LOCAL-00233" summary="feat(Cart): Vamos a agregar una nueva ruta para editar el carrito">
-      <created>1601094314956</created>
-      <option name="number" value="00233" />
-      <option name="presentableId" value="LOCAL-00233" />
-      <option name="project" value="LOCAL" />
-      <updated>1601094314956</updated>
-    </task>
-    <task id="LOCAL-00234" summary="feat(Cart): Actualizamos la dirección desde el carrito 3':">
-      <created>1601095967971</created>
-      <option name="number" value="00234" />
-      <option name="presentableId" value="LOCAL-00234" />
-      <option name="project" value="LOCAL" />
-      <updated>1601095967972</updated>
-    </task>
-    <task id="LOCAL-00235" summary="feat(Cart): Corregimos un pequeño error con las delivery options">
-      <created>1601138295439</created>
-      <option name="number" value="00235" />
-      <option name="presentableId" value="LOCAL-00235" />
-      <option name="project" value="LOCAL" />
-      <updated>1601138295440</updated>
+      <workItem from="1601613224447" duration="10621000" />
+      <workItem from="1601738794056" duration="13692000" />
+      <workItem from="1601781440868" duration="8240000" />
+      <workItem from="1601823973155" duration="12553000" />
+      <workItem from="1601850906418" duration="7005000" />
     </task>
     <task id="LOCAL-00236" summary="feat(Dashboard): Pequeño error en el select de shipping.html.erb">
       <created>1601143646716</created>
@@ -1120,7 +994,126 @@
       <option name="project" value="LOCAL" />
       <updated>1601585617355</updated>
     </task>
-    <option name="localTasksCounter" value="268" />
+    <task id="LOCAL-00268" summary="Feat(Product): Añadimos el botón para añadir varias subvariantes">
+      <created>1601617205038</created>
+      <option name="number" value="00268" />
+      <option name="presentableId" value="LOCAL-00268" />
+      <option name="project" value="LOCAL" />
+      <updated>1601617205039</updated>
+    </task>
+    <task id="LOCAL-00269" summary="Feat(Dashboard): Devise redirect when session redirect is not empty">
+      <created>1601745360239</created>
+      <option name="number" value="00269" />
+      <option name="presentableId" value="LOCAL-00269" />
+      <option name="project" value="LOCAL" />
+      <updated>1601745360240</updated>
+    </task>
+    <task id="LOCAL-00270" summary="Feat(Dashboard): Add simple small padding in dashboard">
+      <created>1601745428914</created>
+      <option name="number" value="00270" />
+      <option name="presentableId" value="LOCAL-00270" />
+      <option name="project" value="LOCAL" />
+      <updated>1601745428914</updated>
+    </task>
+    <task id="LOCAL-00271" summary="Feat(Dashboard): Cambios en el sidebar">
+      <created>1601745713306</created>
+      <option name="number" value="00271" />
+      <option name="presentableId" value="LOCAL-00271" />
+      <option name="project" value="LOCAL" />
+      <updated>1601745713306</updated>
+    </task>
+    <task id="LOCAL-00272" summary="Feat(Dashboard): Agregamos los link del header menu para el producto">
+      <created>1601746558997</created>
+      <option name="number" value="00272" />
+      <option name="presentableId" value="LOCAL-00272" />
+      <option name="project" value="LOCAL" />
+      <updated>1601746558997</updated>
+    </task>
+    <task id="LOCAL-00273" summary="Feat(Dashboard): Vamos a cambiar de select a checkbox">
+      <created>1601748320801</created>
+      <option name="number" value="00273" />
+      <option name="presentableId" value="LOCAL-00273" />
+      <option name="project" value="LOCAL" />
+      <updated>1601748320801</updated>
+    </task>
+    <task id="LOCAL-00274" summary="Feat(Dashboard): Cambio de select a checkbox">
+      <created>1601748332556</created>
+      <option name="number" value="00274" />
+      <option name="presentableId" value="LOCAL-00274" />
+      <option name="project" value="LOCAL" />
+      <updated>1601748332556</updated>
+    </task>
+    <task id="LOCAL-00275" summary="Feat(Dashboard): Categorías a checkboxes completada, ahorita hacemos que cree una categoría">
+      <created>1601749338842</created>
+      <option name="number" value="00275" />
+      <option name="presentableId" value="LOCAL-00275" />
+      <option name="project" value="LOCAL" />
+      <updated>1601749338842</updated>
+    </task>
+    <task id="LOCAL-00276" summary="Feat(Dashboard): Agregamos categorías e inventario a la nueva vista de producto">
+      <created>1601767787071</created>
+      <option name="number" value="00276" />
+      <option name="presentableId" value="LOCAL-00276" />
+      <option name="project" value="LOCAL" />
+      <updated>1601767787071</updated>
+    </task>
+    <task id="LOCAL-00277" summary="Feat(Dashboard): Spec">
+      <created>1601773765648</created>
+      <option name="number" value="00277" />
+      <option name="presentableId" value="LOCAL-00277" />
+      <option name="project" value="LOCAL" />
+      <updated>1601773765649</updated>
+    </task>
+    <task id="LOCAL-00278" summary="Feat(Dashboard): Init tests">
+      <created>1601781809282</created>
+      <option name="number" value="00278" />
+      <option name="presentableId" value="LOCAL-00278" />
+      <option name="project" value="LOCAL" />
+      <updated>1601781809290</updated>
+    </task>
+    <task id="LOCAL-00279" summary="Feat(Dashboard): Products controller validations">
+      <created>1601846438590</created>
+      <option name="number" value="00279" />
+      <option name="presentableId" value="LOCAL-00279" />
+      <option name="project" value="LOCAL" />
+      <updated>1601846438590</updated>
+    </task>
+    <task id="LOCAL-00280" summary="test(Dashboard): products_controller.rb test # Create action">
+      <created>1601851143112</created>
+      <option name="number" value="00280" />
+      <option name="presentableId" value="LOCAL-00280" />
+      <option name="project" value="LOCAL" />
+      <updated>1601851143113</updated>
+    </task>
+    <task id="LOCAL-00281" summary="test(Dashboard): products_controller.rb test #show action">
+      <created>1601851866519</created>
+      <option name="number" value="00281" />
+      <option name="presentableId" value="LOCAL-00281" />
+      <option name="project" value="LOCAL" />
+      <updated>1601851866519</updated>
+    </task>
+    <task id="LOCAL-00282" summary="test(Dashboard): products_controller.rb test #new action">
+      <created>1601852091836</created>
+      <option name="number" value="00282" />
+      <option name="presentableId" value="LOCAL-00282" />
+      <option name="project" value="LOCAL" />
+      <updated>1601852091836</updated>
+    </task>
+    <task id="LOCAL-00283" summary="test(Dashboard): products_controller.rb test #destroy action">
+      <created>1601853853759</created>
+      <option name="number" value="00283" />
+      <option name="presentableId" value="LOCAL-00283" />
+      <option name="project" value="LOCAL" />
+      <updated>1601853853759</updated>
+    </task>
+    <task id="LOCAL-00284" summary="feat(Dashboard): Product and sidebar colors">
+      <created>1601857071595</created>
+      <option name="number" value="00284" />
+      <option name="presentableId" value="LOCAL-00284" />
+      <option name="project" value="LOCAL" />
+      <updated>1601857071595</updated>
+    </task>
+    <option name="localTasksCounter" value="285" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -1141,23 +1134,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="feat(Cart): Enviamos el mensaje de whatsapp con el código" />
-    <MESSAGE value="feat(Cart): Pequeño form de inicio de sesón" />
-    <MESSAGE value="feat(Cart): Se enviaba un mensaje cuando no era necesario" />
-    <MESSAGE value="feat(Cart): Hacemos un redirect cuando agregamos el param continue" />
-    <MESSAGE value="feat(Cart): Verificamos que debe esperar 5 minutos para requerir otro código" />
-    <MESSAGE value="feat(Cart): Cambiamos a 5 minutos" />
-    <MESSAGE value="feat(Cart): Formulario de inicio de sesión completo 3:" />
-    <MESSAGE value="feat(Cart): Pequeño dashboard en blanco" />
-    <MESSAGE value="feat(Cart): Creamos el sidebar y añadimos otro item.html.erb&#10;Además se cambiaron los colores de los botones" />
-    <MESSAGE value="feat(Cart): Color de los botones y del sidebar" />
-    <MESSAGE value="feat(Cart): Creamos el form del producto sin problemas" />
-    <MESSAGE value="feat(Cart): Migramos el carrito y agregamos el guest user sin problemas 3:" />
-    <MESSAGE value="feat(Cart): Notice in carts_controller.rb" />
-    <MESSAGE value="feat(Cart): Creamos los modelos para las ordenes,&#10;así se evita que cambien los precios 3:" />
-    <MESSAGE value="feat(Cart): Creamos un nuevo formulario para el producto" />
-    <MESSAGE value="Feat(Product): El label del sku era incorrecto" />
-    <MESSAGE value="Feat(Product): Agregamos los breadcrumbs" />
     <MESSAGE value="Feat(Product): Estilos a los breadcrumbs" />
     <MESSAGE value="Feat(Product): Añadimos el form para los aggregate categories" />
     <MESSAGE value="Feat(Product): Añadimos los breadcrumbs a las vistas de los productos" />
@@ -1166,7 +1142,24 @@
     <MESSAGE value="Feat(Product): Actualizamos la subvariante" />
     <MESSAGE value="Feat(Product): Formulario para crear subvariante" />
     <MESSAGE value="Feat(Product): Pensé que no existía un recurso pero si existía :v" />
-    <option name="LAST_COMMIT_MESSAGE" value="Feat(Product): Pensé que no existía un recurso pero si existía :v" />
+    <MESSAGE value="Feat(Product): Añadimos el botón para añadir varias subvariantes" />
+    <MESSAGE value="Feat(Dashboard): Devise redirect when session redirect is not empty" />
+    <MESSAGE value="Feat(Dashboard): Add simple small padding in dashboard" />
+    <MESSAGE value="Feat(Dashboard): Cambios en el sidebar" />
+    <MESSAGE value="Feat(Dashboard): Agregamos los link del header menu para el producto" />
+    <MESSAGE value="Feat(Dashboard): Vamos a cambiar de select a checkbox" />
+    <MESSAGE value="Feat(Dashboard): Cambio de select a checkbox" />
+    <MESSAGE value="Feat(Dashboard): Categorías a checkboxes completada, ahorita hacemos que cree una categoría" />
+    <MESSAGE value="Feat(Dashboard): Agregamos categorías e inventario a la nueva vista de producto" />
+    <MESSAGE value="Feat(Dashboard): Spec" />
+    <MESSAGE value="Feat(Dashboard): Init tests" />
+    <MESSAGE value="Feat(Dashboard): Products controller validations" />
+    <MESSAGE value="test(Dashboard): products_controller.rb test # Create action" />
+    <MESSAGE value="test(Dashboard): products_controller.rb test #show action" />
+    <MESSAGE value="test(Dashboard): products_controller.rb test #new action" />
+    <MESSAGE value="test(Dashboard): products_controller.rb test #destroy action" />
+    <MESSAGE value="feat(Dashboard): Product and sidebar colors" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat(Dashboard): Product and sidebar colors" />
   </component>
   <component name="WindowStateProjectService">
     <state x="392" y="0" key="#All_specs_in_spec:_waydda" timestamp="1598730457189">
@@ -1205,71 +1198,75 @@
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="404" y="186" width="576" height="383" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1366.768@0.0.1366.768" timestamp="1601487998138" />
-    <state x="261" y="0" width="834" height="683" key="CommitChangelistDialog2" timestamp="1601615026100">
+    <state x="491" y="102" width="374" height="557" key="#com.intellij.ide.util.MemberChooser" timestamp="1601746308565">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state x="261" y="0" width="834" height="683" key="CommitChangelistDialog2/0.0.1366.768@0.0.1366.768" timestamp="1601615026100" />
+    <state x="491" y="102" width="374" height="557" key="#com.intellij.ide.util.MemberChooser/0.0.1366.768@0.0.1366.768" timestamp="1601746308565" />
+    <state x="261" y="0" width="834" height="683" key="CommitChangelistDialog2" timestamp="1601857071179">
+      <screen x="0" y="0" width="1366" height="768" />
+    </state>
+    <state x="261" y="0" width="834" height="683" key="CommitChangelistDialog2/0.0.1366.768@0.0.1366.768" timestamp="1601857071178" />
     <state x="255" y="248" width="424" height="479" key="FileChooserDialogImpl" timestamp="1601612037663">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="255" y="248" width="424" height="479" key="FileChooserDialogImpl/0.0.1366.768@0.0.1366.768" timestamp="1601612037663" />
-    <state width="1324" height="261" key="GridCell.Tab.0.bottom" timestamp="1601606355109">
+    <state width="1324" height="179" key="GridCell.Tab.0.bottom" timestamp="1601854133756">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state width="1324" height="261" key="GridCell.Tab.0.bottom/0.0.1366.768@0.0.1366.768" timestamp="1601606355109" />
-    <state width="1324" height="261" key="GridCell.Tab.0.center" timestamp="1601606355109">
+    <state width="1324" height="179" key="GridCell.Tab.0.bottom/0.0.1366.768@0.0.1366.768" timestamp="1601854133756" />
+    <state width="1324" height="179" key="GridCell.Tab.0.center" timestamp="1601854133756">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state width="1324" height="261" key="GridCell.Tab.0.center/0.0.1366.768@0.0.1366.768" timestamp="1601606355109" />
-    <state width="1324" height="261" key="GridCell.Tab.0.left" timestamp="1601606355109">
+    <state width="1324" height="179" key="GridCell.Tab.0.center/0.0.1366.768@0.0.1366.768" timestamp="1601854133756" />
+    <state width="1324" height="179" key="GridCell.Tab.0.left" timestamp="1601854133755">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state width="1324" height="261" key="GridCell.Tab.0.left/0.0.1366.768@0.0.1366.768" timestamp="1601606355109" />
-    <state width="1324" height="261" key="GridCell.Tab.0.right" timestamp="1601606355109">
+    <state width="1324" height="179" key="GridCell.Tab.0.left/0.0.1366.768@0.0.1366.768" timestamp="1601854133755" />
+    <state width="1324" height="179" key="GridCell.Tab.0.right" timestamp="1601854133756">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state width="1324" height="261" key="GridCell.Tab.0.right/0.0.1366.768@0.0.1366.768" timestamp="1601606355109" />
-    <state width="1324" height="261" key="GridCell.Tab.1.bottom" timestamp="1601606355110">
+    <state width="1324" height="179" key="GridCell.Tab.0.right/0.0.1366.768@0.0.1366.768" timestamp="1601854133756" />
+    <state width="1324" height="261" key="GridCell.Tab.1.bottom" timestamp="1601851736726">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state width="1324" height="261" key="GridCell.Tab.1.bottom/0.0.1366.768@0.0.1366.768" timestamp="1601606355110" />
-    <state width="1324" height="261" key="GridCell.Tab.1.center" timestamp="1601606355110">
+    <state width="1324" height="261" key="GridCell.Tab.1.bottom/0.0.1366.768@0.0.1366.768" timestamp="1601851736726" />
+    <state width="1324" height="261" key="GridCell.Tab.1.center" timestamp="1601851736726">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state width="1324" height="261" key="GridCell.Tab.1.center/0.0.1366.768@0.0.1366.768" timestamp="1601606355110" />
-    <state width="1324" height="261" key="GridCell.Tab.1.left" timestamp="1601606355110">
+    <state width="1324" height="261" key="GridCell.Tab.1.center/0.0.1366.768@0.0.1366.768" timestamp="1601851736726" />
+    <state width="1324" height="261" key="GridCell.Tab.1.left" timestamp="1601851736726">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state width="1324" height="261" key="GridCell.Tab.1.left/0.0.1366.768@0.0.1366.768" timestamp="1601606355110" />
-    <state width="1324" height="261" key="GridCell.Tab.1.right" timestamp="1601606355110">
+    <state width="1324" height="261" key="GridCell.Tab.1.left/0.0.1366.768@0.0.1366.768" timestamp="1601851736726" />
+    <state width="1324" height="261" key="GridCell.Tab.1.right" timestamp="1601851736726">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state width="1324" height="261" key="GridCell.Tab.1.right/0.0.1366.768@0.0.1366.768" timestamp="1601606355110" />
-    <state width="1324" height="261" key="GridCell.Tab.2.bottom" timestamp="1601606355111">
+    <state width="1324" height="261" key="GridCell.Tab.1.right/0.0.1366.768@0.0.1366.768" timestamp="1601851736726" />
+    <state width="1324" height="261" key="GridCell.Tab.2.bottom" timestamp="1601851736727">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state width="1324" height="261" key="GridCell.Tab.2.bottom/0.0.1366.768@0.0.1366.768" timestamp="1601606355111" />
-    <state width="1324" height="261" key="GridCell.Tab.2.center" timestamp="1601606355111">
+    <state width="1324" height="261" key="GridCell.Tab.2.bottom/0.0.1366.768@0.0.1366.768" timestamp="1601851736727" />
+    <state width="1324" height="261" key="GridCell.Tab.2.center" timestamp="1601851736727">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state width="1324" height="261" key="GridCell.Tab.2.center/0.0.1366.768@0.0.1366.768" timestamp="1601606355111" />
-    <state width="1324" height="261" key="GridCell.Tab.2.left" timestamp="1601606355110">
+    <state width="1324" height="261" key="GridCell.Tab.2.center/0.0.1366.768@0.0.1366.768" timestamp="1601851736727" />
+    <state width="1324" height="261" key="GridCell.Tab.2.left" timestamp="1601851736727">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state width="1324" height="261" key="GridCell.Tab.2.left/0.0.1366.768@0.0.1366.768" timestamp="1601606355110" />
-    <state width="1324" height="261" key="GridCell.Tab.2.right" timestamp="1601606355111">
+    <state width="1324" height="261" key="GridCell.Tab.2.left/0.0.1366.768@0.0.1366.768" timestamp="1601851736727" />
+    <state width="1324" height="261" key="GridCell.Tab.2.right" timestamp="1601851736727">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state width="1324" height="261" key="GridCell.Tab.2.right/0.0.1366.768@0.0.1366.768" timestamp="1601606355111" />
+    <state width="1324" height="261" key="GridCell.Tab.2.right/0.0.1366.768@0.0.1366.768" timestamp="1601851736727" />
     <state x="518" y="173" key="RollbackChangesDialog" timestamp="1598294478879">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="2094" y="191" key="RollbackChangesDialog/0.0.1366.768/1366.-69.1920.1080@1366.-69.1920.1080" timestamp="1597697150509" />
     <state x="518" y="173" key="RollbackChangesDialog/0.0.1366.768@0.0.1366.768" timestamp="1598294478879" />
-    <state x="162" y="21" width="916" height="730" key="SettingsEditor" timestamp="1601515528500">
+    <state x="162" y="21" width="916" height="730" key="SettingsEditor" timestamp="1601658161557">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state x="162" y="21" width="916" height="730" key="SettingsEditor/0.0.1366.768@0.0.1366.768" timestamp="1601515528500" />
+    <state x="162" y="21" width="916" height="730" key="SettingsEditor/0.0.1366.768@0.0.1366.768" timestamp="1601658161557" />
     <state width="498" height="446" key="SwitcherDM" timestamp="1600056322387">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
@@ -1278,12 +1275,12 @@
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="544" y="96" key="VCS.ChangeListViewerDialog/0.0.1366.768@0.0.1366.768" timestamp="1598750646694" />
-    <state x="275" y="117" width="800" height="523" key="Vcs.Push.Dialog.v2" timestamp="1601493212208">
+    <state x="275" y="117" width="800" height="523" key="Vcs.Push.Dialog.v2" timestamp="1601617221434">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="1640" y="117" key="Vcs.Push.Dialog.v2/0.0.1366.768/1366.0.1360.768@1366.0.1360.768" timestamp="1598221582431" />
     <state x="1753" y="165" key="Vcs.Push.Dialog.v2/0.0.1366.768/1366.0.1920.1080@1366.0.1920.1080" timestamp="1599267641822" />
-    <state x="275" y="117" width="800" height="523" key="Vcs.Push.Dialog.v2/0.0.1366.768@0.0.1366.768" timestamp="1601493212208" />
+    <state x="275" y="117" width="800" height="523" key="Vcs.Push.Dialog.v2/0.0.1366.768@0.0.1366.768" timestamp="1601617221434" />
     <state x="496" y="169" key="chooseDestDirectoryDialog" timestamp="1598730651549">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
@@ -1292,23 +1289,23 @@
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="289" y="0" width="683" height="763" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.0.1366.768@0.0.1366.768" timestamp="1601418501198" />
-    <state x="552" y="328" width="395" height="155" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1601514423908">
+    <state x="552" y="328" width="405" height="160" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1601785910871">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="2142" y="392" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1366.768/1366.-69.1920.1080@1366.-69.1920.1080" timestamp="1597712613222" />
     <state x="1916" y="328" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1366.768/1366.0.1360.768@1366.0.1360.768" timestamp="1598664942468" />
-    <state x="552" y="328" width="395" height="155" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1366.768@0.0.1366.768" timestamp="1601514423908" />
+    <state x="552" y="328" width="405" height="160" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1366.768@0.0.1366.768" timestamp="1601785910871" />
     <state x="628" y="298" key="com.jetbrains.plugins.remotesdk.ui.RemoteMappingsConfiguration" timestamp="1598729856431">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="628" y="298" key="com.jetbrains.plugins.remotesdk.ui.RemoteMappingsConfiguration/0.0.1366.768@0.0.1366.768" timestamp="1598729856431" />
-    <state x="390" y="117" width="647" height="624" key="find.popup" timestamp="1601616461027">
+    <state x="390" y="117" width="791" height="624" key="find.popup" timestamp="1601858155055">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="1914" y="96" width="823" height="878" key="find.popup/0.0.1366.768/1366.-69.1920.1080@1366.-69.1920.1080" timestamp="1597716285449" />
     <state x="1754" y="117" width="583" height="624" key="find.popup/0.0.1366.768/1366.0.1360.768@1366.0.1360.768" timestamp="1598981376119" />
     <state x="1914" y="165" width="823" height="878" key="find.popup/0.0.1366.768/1366.0.1920.1080@1366.0.1920.1080" timestamp="1599260651210" />
-    <state x="390" y="117" width="647" height="624" key="find.popup/0.0.1366.768@0.0.1366.768" timestamp="1601616461027" />
+    <state x="390" y="117" width="791" height="624" key="find.popup/0.0.1366.768@0.0.1366.768" timestamp="1601858155055" />
     <state x="549" y="254" width="250" height="278" key="jetbrains.javascript.buildTools.run-task-popup" timestamp="1597946321130">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
@@ -1317,34 +1314,41 @@
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="339" y="174" width="672" height="677" key="run.anything.popup/0.0.1366.768@0.0.1366.768" timestamp="1600370541201" />
-    <state x="346" y="89" width="672" height="678" key="search.everywhere.popup" timestamp="1601616126643">
+    <state x="346" y="89" width="672" height="678" key="search.everywhere.popup" timestamp="1601858162754">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="1852" y="56" width="945" height="954" key="search.everywhere.popup/0.0.1366.768/1366.-69.1920.1080@1366.-69.1920.1080" timestamp="1597715976170" />
     <state x="1710" y="89" width="672" height="678" key="search.everywhere.popup/0.0.1366.768/1366.0.1360.768@1366.0.1360.768" timestamp="1598985878395" />
     <state x="1852" y="125" width="945" height="954" key="search.everywhere.popup/0.0.1366.768/1366.0.1920.1080@1366.0.1920.1080" timestamp="1599267313630" />
-    <state x="346" y="89" width="672" height="678" key="search.everywhere.popup/0.0.1366.768@0.0.1366.768" timestamp="1601616126643" />
+    <state x="346" y="89" width="672" height="678" key="search.everywhere.popup/0.0.1366.768@0.0.1366.768" timestamp="1601858162754" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/waydda@Dashboard__ProductsControll_____3_.rcov" NAME="Dashboard::ProductsControll... (3) Coverage Results" MODIFIED="1601852304157" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="waydda" />
     <SUITE FILE_PATH="coverage/waydda@Cart__Create_cart_Add_produ___.rcov" NAME="Cart# Create cart Add produ... Coverage Results" MODIFIED="1601005601072" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="waydda" />
+    <SUITE FILE_PATH="coverage/waydda@AggregateCategory_Un_Auth.rcov" NAME="AggregateCategory Un Auth Coverage Results" MODIFIED="1601591967707" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="waydda" />
+    <SUITE FILE_PATH="coverage/waydda@Cart__Create_cart_Add_produ_____1_.rcov" NAME="Cart# Create cart Add produ... (1) Coverage Results" MODIFIED="1601049916427" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="waydda" />
+    <SUITE FILE_PATH="coverage/waydda@Dashboard__AggregateCategor_____1_.rcov" NAME="Dashboard::AggregateCategor... (1) Coverage Results" MODIFIED="1601593843052" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="waydda" />
+    <SUITE FILE_PATH="coverage/waydda@Dashboard__ProductsControll_____5_.rcov" NAME="Dashboard::ProductsControll... (5) Coverage Results" MODIFIED="1601851818129" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="waydda" />
+    <SUITE FILE_PATH="coverage/waydda@Dashboard__AggregateCategor___.rcov" NAME="Dashboard::AggregateCategor... Coverage Results" MODIFIED="1601594563133" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="waydda" />
+    <SUITE FILE_PATH="coverage/waydda@Product_Valid_aggregates_Pr___.rcov" NAME="Product Valid aggregates Pr... Coverage Results" MODIFIED="1600915744155" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="waydda" />
+    <SUITE FILE_PATH="coverage/waydda@Rails.rcov" NAME="Rails Coverage Results" MODIFIED="1600915770485" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="waydda" />
+    <SUITE FILE_PATH="coverage/waydda@Dashboard__ProductsControll_____1_.rcov" NAME="Dashboard::ProductsControll... (1) Coverage Results" MODIFIED="1601851812505" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="waydda" />
+    <SUITE FILE_PATH="coverage/waydda@AggregateCategoriesControll___.rcov" NAME="AggregateCategoriesControll... Coverage Results" MODIFIED="1601592661468" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="waydda" />
+    <SUITE FILE_PATH="coverage/waydda@Dashboard__AggregateCategor_____4_.rcov" NAME="Dashboard::AggregateCategor... (4) Coverage Results" MODIFIED="1601596008022" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="waydda" />
     <SUITE FILE_PATH="coverage/waydda@Cart__Create_cart_Add_produ_____2_.rcov" NAME="Cart# Create cart Add produ... (2) Coverage Results" MODIFIED="1601050018903" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="waydda" />
     <SUITE FILE_PATH="coverage/waydda@Cart.rcov" NAME="Cart Coverage Results" MODIFIED="1601050157968" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="waydda" />
     <SUITE FILE_PATH="coverage/waydda@Dashboard__AggregateCategor_____2_.rcov" NAME="Dashboard::AggregateCategor... (2) Coverage Results" MODIFIED="1601595318211" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="waydda" />
     <SUITE FILE_PATH="coverage/waydda@AggregateCategory.rcov" NAME="AggregateCategory Coverage Results" MODIFIED="1601589879087" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="waydda" />
-    <SUITE FILE_PATH="coverage/waydda@AggregateCategory_Un_Auth.rcov" NAME="AggregateCategory Un Auth Coverage Results" MODIFIED="1601591967707" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="waydda" />
-    <SUITE FILE_PATH="coverage/waydda@Cart__Create_cart_Add_produ_____1_.rcov" NAME="Cart# Create cart Add produ... (1) Coverage Results" MODIFIED="1601049916427" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="waydda" />
-    <SUITE FILE_PATH="coverage/waydda@Dashboard__AggregateCategor_____1_.rcov" NAME="Dashboard::AggregateCategor... (1) Coverage Results" MODIFIED="1601593843052" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="waydda" />
-    <SUITE FILE_PATH="coverage/waydda@Dashboard__AggregateCategor___.rcov" NAME="Dashboard::AggregateCategor... Coverage Results" MODIFIED="1601594563133" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="waydda" />
+    <SUITE FILE_PATH="coverage/waydda@Dashboard__ProductsControll___.rcov" NAME="Dashboard::ProductsControll... Coverage Results" MODIFIED="1601853611990" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="waydda" />
     <SUITE FILE_PATH="coverage/waydda@AggregateCategory_Un_Auth_G___.rcov" NAME="AggregateCategory Un Auth G... Coverage Results" MODIFIED="1601592419532" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="waydda" />
-    <SUITE FILE_PATH="coverage/waydda@Product_Valid_aggregates_Pr___.rcov" NAME="Product Valid aggregates Pr... Coverage Results" MODIFIED="1600915744155" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="waydda" />
+    <SUITE FILE_PATH="coverage/waydda@Dashboard__ProductsControll_____4_.rcov" NAME="Dashboard::ProductsControll... (4) Coverage Results" MODIFIED="1601853350729" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="waydda" />
     <SUITE FILE_PATH="coverage/waydda@AggregateCategory__1_.rcov" NAME="AggregateCategory (1) Coverage Results" MODIFIED="1601591999548" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="waydda" />
     <SUITE FILE_PATH="coverage/waydda@Dashboard__AggregateCategor_____5_.rcov" NAME="Dashboard::AggregateCategor... (5) Coverage Results" MODIFIED="1601596113086" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="waydda" />
-    <SUITE FILE_PATH="coverage/waydda@Rails.rcov" NAME="Rails Coverage Results" MODIFIED="1600915770485" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="waydda" />
     <SUITE FILE_PATH="coverage/waydda@Product_Valid_aggregates.rcov" NAME="Product Valid aggregates Coverage Results" MODIFIED="1600914307672" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="waydda" />
     <SUITE FILE_PATH="coverage/waydda@AggregateCategory_Save_record.rcov" NAME="AggregateCategory Save record Coverage Results" MODIFIED="1601590972512" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="waydda" />
     <SUITE FILE_PATH="coverage/waydda@AggregateCategory_Save_reco___.rcov" NAME="AggregateCategory Save reco... Coverage Results" MODIFIED="1601591171722" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="waydda" />
-    <SUITE FILE_PATH="coverage/waydda@AggregateCategoriesControll___.rcov" NAME="AggregateCategoriesControll... Coverage Results" MODIFIED="1601592661468" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="waydda" />
-    <SUITE FILE_PATH="coverage/waydda@Dashboard__AggregateCategor_____4_.rcov" NAME="Dashboard::AggregateCategor... (4) Coverage Results" MODIFIED="1601596008022" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="waydda" />
     <SUITE FILE_PATH="coverage/waydda@Dashboard__AggregateCategor_____3_.rcov" NAME="Dashboard::AggregateCategor... (3) Coverage Results" MODIFIED="1601596084350" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="waydda" />
+    <SUITE FILE_PATH="coverage/waydda@Dashboard__ProductsController.rcov" NAME="Dashboard::ProductsController Coverage Results" MODIFIED="1601854133736" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="waydda" />
+    <SUITE FILE_PATH="coverage/waydda@Dashboard__ProductsControll_____2_.rcov" NAME="Dashboard::ProductsControll... (2) Coverage Results" MODIFIED="1601852178969" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="waydda" />
   </component>
 </project>

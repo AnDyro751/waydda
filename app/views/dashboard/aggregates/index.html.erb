@@ -4,7 +4,7 @@
       >
     </div>
     <span class="hover:underline">
-      <%= link_to @product.name, dashboard_product_path(@product.slug) %>
+      <%= link_to @product.name, dashboard_product_path(@product) %>
     </span>
     <span class="mx-2">
       >
@@ -13,7 +13,7 @@
   </div>
 </div>
 <%= render Headers::Text.new(title: "Variantes", subtitle: "Variantes de #{@product.name}", small: true, with_margin: true) do %>
-  <%= main_button(to: new_dashboard_product_aggregate_path(@product.slug, @aggregate), text: "Agregar variante", action: "add") %>
+  <%= main_button(to: new_dashboard_product_aggregate_path(@product, @aggregate), text: "Agregar variante", action: "add") %>
 <% end %>
 
 <% if @aggregates.length > 0 %>
