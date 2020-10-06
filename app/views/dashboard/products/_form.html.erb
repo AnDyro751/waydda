@@ -45,7 +45,7 @@
 
           <div class="w-full flex rounded pb-4 shadow-xl bg-white mb-4 flex-wrap">
             <%= render Headers::Text.new(title: "Medidas de volumen", small: true, font: "small", padding_class: "px-4 py-4") %>
-            <div class="w-full flex px-8">
+            <div class="w-full flex px-4">
               <div class="w-7/12 mr-2">
                 <%= f.input :quantity,
                             placeholder: "Medida de volumen",
@@ -61,6 +61,13 @@
                 <span name="product[quantity_measure]_error" class="text-sm font-bold text-red-600"/>
               </div>
             </div>
+          </div>
+          <div class="w-full flex justify-end mt-8 mb-12">
+            <%= f.button :submit,
+                         data: {"disable-with": @product.new_record ? "Creando producto..." : "Actualizar producto"},
+                         value: @product.new_record ? "Crear producto" : "Actualizar producto",
+                         class: "#{main_color_button(size: "big", padding_class: "py-4", color: "dark")} mt-8"
+            %>
           </div>
 
         </div>
@@ -83,6 +90,9 @@
 
               %>
               <span name="product[item_ids]_error" class="text-sm font-bold text-red-600"/>
+            </div>
+            <div class="w-full px-4 flex my-2">
+              <%= link_to "+ Agregar categoría", new_dashboard_item_path, remote: true, class: "text-blue-700 hover:underline text-sm" %>
             </div>
           </div>
           <div class="w-full flex flex-wrap self-start rounded bg-white pb-4 shadow-xl mb-4">
@@ -119,13 +129,6 @@
       </div>
 
 
-      <div class="w-full flex justify-end">
-        <%= f.button :submit,
-                     data: {"disable-with": @product.new_record ? "Creando producto..." : "Actualizar producto"},
-                     value: @product.new_record ? "Crear producto" : "Actualizar producto",
-                     class: "#{main_color_button(size: "big", padding: "big", color: "dark")} mt-8"
-        %>
-      </div>
     </div>
 
   <% end %>
