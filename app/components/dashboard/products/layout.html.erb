@@ -50,7 +50,7 @@
       </div>
       <div class="w-8/12 flex justify-end">
         <%= f.button :submit,
-                     data: {"disable-with": @product.new_record ? "Guardando..." : "Guardando"},
+                     data: {"disable-with": "Guardando..."},
                      value: @product.new_record ? "Guardar producto" : "Actualizar producto",
                      class: "#{helpers.main_color_button(size: "big", padding_class: "py-4", color: "dark")}"
         %>
