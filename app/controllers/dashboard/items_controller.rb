@@ -29,12 +29,14 @@ class Dashboard::ItemsController < ApplicationController
   # POST /items.json
   def create
     @item = @place.items.new(item_params)
-
     respond_to do |format|
       if @item.save
+        @items = @place.items
+        format.js if params["type"]
         format.html { redirect_to dashboard_items_path, alert: 'Se ha creado el item' }
         format.json { render :show, status: :created, location: @item }
       else
+        format.js if params["type"]
         format.html { render :new }
         format.json { render json: @item.errors, status: :unprocessable_entity }
       end
