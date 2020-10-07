@@ -67,7 +67,7 @@ Rails.application.routes.draw do
     resources :subscriptions, only: [:new]
     # Products
     resources :products do
-      # TODO: Crud operations
+      get "/edit/inventory", to: "products#edit_inventory", as: :edit_inventory
       post "/update_status", to: "products#update_status", as: :update_status
       resources :aggregate_categories, :path => 'variants' do
         resources :aggregates

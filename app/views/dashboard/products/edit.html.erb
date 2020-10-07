@@ -14,7 +14,9 @@
                 },
                 class: main_color_button(color: @product.active? ? "danger" : "secondary", size: "big") %>
 <% end %>
-
+<% unless @product.new_record %>
+  <%= render Products::Form::HeaderMenu.new(product: @product) %>
+<% end %>
 <div class="w-full flex flex-wrap">
   <div class="w-full">
     <div class="flex w-full flex-wrap">

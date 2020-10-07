@@ -1,20 +1,25 @@
 <div class="w-full flex mb-8">
-  <%= active_link_to new_dashboard_product_path, class_active: "font-medium bg-main-blue-light bg-opacity-25 hover:bg-main-blue-light hover:bg-opacity-25 text-blue-800", active: [@active_controller, @active_actions ? @active_actions : []], class: "w-auto mr-3 mb-4 px-3 py-2 text-gray-800 rounded-lg hover:bg-main-gray" do %>
-    <span class="">
+  <%= active_link_to edit_dashboard_product_path(@product), class_active: "bg-main-blue-light bg-opacity-25 hover:bg-main-blue-light hover:bg-opacity-25 text-blue-800", class: "w-auto mr-3 mb-4 px-3 py-2 text-gray-800 rounded-lg hover:bg-main-gray font-medium hover:text-blue-700", active: :exclusive do %>
+    <span>
       General
     </span>
   <% end %>
-  <%= active_link_to new_dashboard_product_path, class_active: "font-medium bg-main-blue-light bg-opacity-25 hover:bg-main-blue-light hover:bg-opacity-25 text-blue-800", active: [@active_controller, @active_actions ? @active_actions : []], class: "w-auto mr-3 mb-4 px-3 py-2 text-gray-800 rounded-lg hover:bg-main-gray" do %>
+  <%= active_link_to dashboard_product_edit_inventory_path(@product), class_active: "bg-main-blue-light bg-opacity-25 hover:bg-main-blue-light hover:bg-opacity-25 text-blue-800", class: "w-auto mr-3 mb-4 px-3 py-2 text-gray-800 rounded-lg hover:bg-main-gray font-medium hover:text-blue-700", active: :exclusive do %>
+    <span>
+      Inventario
+    </span>
+  <% end %>
+  <%= active_link_to edit_dashboard_product_path(@product), class_active: "bg-main-blue-light bg-opacity-25 hover:bg-main-blue-light hover:bg-opacity-25 text-blue-800", class: "w-auto mr-3 mb-4 px-3 py-2 text-gray-800 rounded-lg hover:bg-main-gray font-medium hover:text-blue-700", active: :exclusive do %>
     <span class="">
       Variantes
     </span>
   <% end %>
-  <%= active_link_to new_dashboard_product_path, class_active: "font-medium bg-main-blue-light bg-opacity-25 hover:bg-main-blue-light hover:bg-opacity-25 text-blue-800", active: [@active_controller, @active_actions ? @active_actions : []], class: "w-auto mr-3 mb-4 px-3 py-2 text-gray-800 rounded-lg hover:bg-main-gray" do %>
+  <%= active_link_to edit_dashboard_product_path(@product), class_active: "bg-main-blue-light bg-opacity-25 hover:bg-main-blue-light hover:bg-opacity-25 text-blue-800", class: "w-auto mr-3 mb-4 px-3 py-2 text-gray-800 rounded-lg hover:bg-main-gray font-medium hover:text-blue-700", active: :exclusive do %>
     <span class="">
       SEO
     </span>
   <% end %>
-  <%= active_link_to new_dashboard_product_path, class_active: "font-medium bg-main-blue-light bg-opacity-25 hover:bg-main-blue-light hover:bg-opacity-25 text-blue-800", active: [@active_controller, @active_actions ? @active_actions : []], class: "w-auto mr-3 mb-4 px-3 py-2 text-gray-800 rounded-lg hover:bg-main-gray" do %>
+  <%= active_link_to edit_dashboard_product_path(@product), class_active: "bg-main-blue-light bg-opacity-25 hover:bg-main-blue-light hover:bg-opacity-25 text-blue-800", class: "w-auto mr-3 mb-4 px-3 py-2 text-gray-800 rounded-lg hover:bg-main-gray font-medium hover:text-blue-700", active: :exclusive do %>
     <span class="">
       Área de peligro
     </span>

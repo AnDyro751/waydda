@@ -1,0 +1,4 @@
+<%= render Headers::Text.new(title: "Editar inventario", small: true) %>
+<% unless @product.new_record %>
+  <%= render Products::Form::HeaderMenu.new(product: @product) %>
+<% end %>

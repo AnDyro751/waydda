@@ -2,7 +2,7 @@ class Dashboard::ProductsController < ApplicationController
   layout "dashboard"
   before_action :authenticate_user!
   before_action :set_my_place
-  before_action :set_product, only: [:show, :edit, :update, :update_status, :destroy]
+  before_action :set_product, only: [:show, :edit, :update, :update_status, :destroy, :edit_inventory]
   add_breadcrumb "Productos", :dashboard_products_path
 
 
@@ -30,6 +30,13 @@ class Dashboard::ProductsController < ApplicationController
   def edit
     add_breadcrumb "#{@product.name}", :dashboard_product_path
     add_breadcrumb "Editar"
+  end
+
+  # GET /edit/inventory
+  def edit_inventory
+    add_breadcrumb "#{@product.name}", "#{dashboard_product_path(@product)}"
+    add_breadcrumb "Editar", edit_dashboard_product_path(@product)
+    add_breadcrumb "Editar inventario"
   end
 
   def create
@@ -109,7 +116,7 @@ class Dashboard::ProductsController < ApplicationController
 
   def set_product
     if controller_name === "products"
-      @product = @place.products.find_by(id: params["id"])
+      @product = @place.products.find_by(id: params["id"] || params["product_id"])
     else
       @product = @place.products.find_by(id: params["product_id"])
     end
