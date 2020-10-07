@@ -60,10 +60,21 @@
         </div>
         <div class="w-4/12 ml-4">
           <div class="w-full bg-white rounded pb-4 mb-4 shadow-xl">
-            <%= render Headers::Text.new(title: "Categorías", small: true, font: "small", padding_class: "px-4 py-4", with_background: false, with_border: true) %>
+            <%= render Headers::Text.new(title: "Precio", small: true, font: "small", padding_class: "px-4 py-4", with_background: false, with_border: true) %>
             <div class="w-full px-4">
-              <%= f.input :price, as: :float, placeholder: "Precio del producto", label: "Precio", input_html: {"x-on:input": "handleChange($event)"} %>
-              <span name="product[price]_error" class="text-sm font-bold text-red-600"/>
+              <div class="w-full relative mt-6">
+                <%= f.input :price,
+                            as: :float,
+                            placeholder: "Precio del producto",
+                            label: false,
+                            input_html: {
+                                "x-on:input": "handleChange($event)",
+                                class: "#{input_color_class} pl-16"
+                            }
+                %>
+                <span name="product[price]_error" class="text-sm font-bold text-red-600"></span>
+                <div class="absolute bottom-0 top-0 left-0 right-0 w-12 bg-main-gray-dark rounded-l flex items-center justify-center font-medium">$</div>
+              </div>
             </div>
           </div>
           <div class="w-full flex flex-wrap rounded bg-white shadow-xl pb-4 mb-4 ">

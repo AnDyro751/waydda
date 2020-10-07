@@ -2,3 +2,4 @@
 <% unless @product.new_record %>
   <%= render Products::Form::HeaderMenu.new(product: @product) %>
 <% end %>
+<%= render "dashboard/products/pages/inventory" %>
