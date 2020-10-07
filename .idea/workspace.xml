@@ -20,9 +20,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b89cb0fb-b680-4bb9-8ae0-f4b41721cfb9" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/app/views/dashboard/products/edit_variants.html.erb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/views/dashboard/products/pages/_variants.html.erb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/components/Products/Form/header_menu.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/components/Products/Form/header_menu.html.erb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/components/dashboard/products/layout.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/components/dashboard/products/layout.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/dashboard/products/edit.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/dashboard/products/edit.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/dashboard/products_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/dashboard/products_controller.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/dashboard/products/edit_inventory.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/dashboard/products/edit_inventory.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/dashboard/products/pages/_inventory.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/dashboard/products/pages/_inventory.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/routes.rb" beforeDir="false" afterPath="$PROJECT_DIR$/config/routes.rb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -770,14 +776,7 @@
       <workItem from="1601781440868" duration="8240000" />
       <workItem from="1601823973155" duration="12553000" />
       <workItem from="1601850906418" duration="7005000" />
-      <workItem from="1602016975802" duration="14488000" />
-    </task>
-    <task id="LOCAL-00245" summary="feat(Cart): Se enviaba un mensaje cuando no era necesario">
-      <created>1601311721906</created>
-      <option name="number" value="00245" />
-      <option name="presentableId" value="LOCAL-00245" />
-      <option name="project" value="LOCAL" />
-      <updated>1601311721907</updated>
+      <workItem from="1602016975802" duration="15038000" />
     </task>
     <task id="LOCAL-00246" summary="feat(Cart): Hacemos un redirect cuando agregamos el param continue">
       <created>1601320125471</created>
@@ -1115,7 +1114,14 @@
       <option name="project" value="LOCAL" />
       <updated>1602096353840</updated>
     </task>
-    <option name="localTasksCounter" value="294" />
+    <task id="LOCAL-00294" summary="feat(Dashboard): Product layout">
+      <created>1602111023024</created>
+      <option name="number" value="00294" />
+      <option name="presentableId" value="LOCAL-00294" />
+      <option name="project" value="LOCAL" />
+      <updated>1602111023024</updated>
+    </task>
+    <option name="localTasksCounter" value="295" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -1136,7 +1142,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Feat(Dashboard): Devise redirect when session redirect is not empty" />
     <MESSAGE value="Feat(Dashboard): Add simple small padding in dashboard" />
     <MESSAGE value="Feat(Dashboard): Cambios en el sidebar" />
     <MESSAGE value="Feat(Dashboard): Agregamos los link del header menu para el producto" />
@@ -1161,7 +1166,8 @@
     <MESSAGE value="feat(Dashboard): Cambiamos el lugar del precio al lado derecho para poder usarlo como layout" />
     <MESSAGE value="feat(Dashboard): Actualizamos el inventario a una nueva página con un layout para que todo se use de forma más sencilla, según yo" />
     <MESSAGE value="feat(Dashboard): Formulario de producto en el #new" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat(Dashboard): Formulario de producto en el #new" />
+    <MESSAGE value="feat(Dashboard): Product layout" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat(Dashboard): Product layout" />
   </component>
   <component name="WindowStateProjectService">
     <state x="392" y="0" key="#All_specs_in_spec:_waydda" timestamp="1598730457189">
@@ -1204,10 +1210,10 @@
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="491" y="102" width="374" height="557" key="#com.intellij.ide.util.MemberChooser/0.0.1366.768@0.0.1366.768" timestamp="1601746308565" />
-    <state x="261" y="0" width="834" height="683" key="CommitChangelistDialog2" timestamp="1602096353740">
+    <state x="261" y="0" width="834" height="683" key="CommitChangelistDialog2" timestamp="1602111572618">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state x="261" y="0" width="834" height="683" key="CommitChangelistDialog2/0.0.1366.768@0.0.1366.768" timestamp="1602096353740" />
+    <state x="261" y="0" width="834" height="683" key="CommitChangelistDialog2/0.0.1366.768@0.0.1366.768" timestamp="1602111572618" />
     <state x="255" y="248" width="424" height="479" key="FileChooserDialogImpl" timestamp="1602095350030">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
@@ -1316,13 +1322,13 @@
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="339" y="174" width="672" height="677" key="run.anything.popup/0.0.1366.768@0.0.1366.768" timestamp="1600370541201" />
-    <state x="346" y="89" width="672" height="678" key="search.everywhere.popup" timestamp="1602110958284">
+    <state x="346" y="89" width="672" height="678" key="search.everywhere.popup" timestamp="1602111565438">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="1852" y="56" width="945" height="954" key="search.everywhere.popup/0.0.1366.768/1366.-69.1920.1080@1366.-69.1920.1080" timestamp="1597715976170" />
     <state x="1710" y="89" width="672" height="678" key="search.everywhere.popup/0.0.1366.768/1366.0.1360.768@1366.0.1360.768" timestamp="1598985878395" />
     <state x="1852" y="125" width="945" height="954" key="search.everywhere.popup/0.0.1366.768/1366.0.1920.1080@1366.0.1920.1080" timestamp="1599267313630" />
-    <state x="346" y="89" width="672" height="678" key="search.everywhere.popup/0.0.1366.768@0.0.1366.768" timestamp="1602110958284" />
+    <state x="346" y="89" width="672" height="678" key="search.everywhere.popup/0.0.1366.768@0.0.1366.768" timestamp="1602111565438" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/waydda@Dashboard__ProductsControll_____3_.rcov" NAME="Dashboard::ProductsControll... (3) Coverage Results" MODIFIED="1601852304157" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="waydda" />

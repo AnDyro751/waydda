@@ -28,6 +28,9 @@
           <% if action_name == "edit_inventory" %>
             <%= render "dashboard/products/pages/inventory", f: f %>
           <% end %>
+          <% if action_name == "edit_variants" %>
+            <%= render "dashboard/products/pages/variants", f: f %>
+          <% end %>
         </div>
 
         <div class="w-4/12 ml-4">

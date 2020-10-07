@@ -2,7 +2,7 @@ class Dashboard::ProductsController < ApplicationController
   layout "dashboard"
   before_action :authenticate_user!
   before_action :set_my_place
-  before_action :set_product, only: [:show, :edit, :update, :update_status, :destroy, :edit_inventory]
+  before_action :set_product, only: [:show, :edit, :update, :update_status, :destroy, :edit_inventory, :edit_variants]
   add_breadcrumb "Productos", :dashboard_products_path
 
 
@@ -37,6 +37,13 @@ class Dashboard::ProductsController < ApplicationController
     add_breadcrumb "#{@product.name}", "#{dashboard_product_path(@product)}"
     add_breadcrumb "Editar", edit_dashboard_product_path(@product)
     add_breadcrumb "Editar inventario"
+  end
+
+  # GET /edit/variants
+  def edit_variants
+    add_breadcrumb "#{@product.name}", "#{dashboard_product_path(@product)}"
+    add_breadcrumb "Editar", edit_dashboard_product_path(@product)
+    add_breadcrumb "Editar variantes"
   end
 
   def create
