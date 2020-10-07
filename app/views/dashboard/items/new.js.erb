@@ -1,1 +1,8 @@
-console.log("Agregar modal")
+if (window.vanillaModal) {
+    var element = document.querySelector("#modal");
+    if (element) {
+        console.log("ABRIR MODAL");
+        window.current_modal.open("#modal");
+        document.querySelector(".modal-content").innerHTML = "QUE ONDA :)";
+    }
+}
