@@ -1,0 +1,75 @@
+<div class="w-full flex flex-wrap"
+     x-data="newFetch()"
+>
+  <%= simple_form_for(@product, url: @product.new_record ? dashboard_products_path : dashboard_product_path(@product), remote: true,
+                      defaults: {
+                          input_html: {
+                              class: "#{helpers.input_color_class} mt-2 resize-none",
+                              autocomplete: "off"
+                          },
+                          wrapper_html: {
+                              class: "mt-2 mb-4"
+                          },
+                          label_html: {
+                              class: "#{helpers.label_color_class(size: "big")}"
+                          }
+                      },
+                      html: {
+                          class: "w-full "
+                      }
+      ) do |f| %>
+
+    <div class="w-full flex flex-wrap mb-32">
+      <div class="w-full flex">
+        <div class="w-8/12 mr-4">
+          <% if action_name === "edit" %>
+            <%= render "dashboard/products/form", f: f %>
+          <% end %>
+          <% if action_name == "edit_inventory" %>
+            <%= render "dashboard/products/pages/inventory", f: f %>
+          <% end %>
+        </div>
+
+        <div class="w-4/12 ml-4">
+          <%= render "dashboard/products/sidebar", f: f %>
+        </div>
+
+
+      </div>
+    </div>
+    <div class="w-4/5 flex justify-end fixed bottom-0 right-0 bg-white shadow-top pr-6 pl-8 py-3 justify-center flex items-center">
+      <div class="w-4/12">
+        <%= link_to dashboard_products_path do %>
+        <span class="font-medium text-blue-700 hover:underline flex items-center hover:text-blue-800">
+          <img
+            class="inline mr-1"
+            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABmJLR0QA/wD/AP+gvaeTAAAAq0lEQVRIie2U3QnCMBRGz1cEd7FO4QLqGNLizyRWreAW1g0cIvtcH0QUFJM09kHogTyFe75cchPo6XnHdF9hDGLlo+JSZTB0R1uAzFcRfJKHXGIJmLCJq+dXX1XWSi7WIXII6uCD/DDbhx3MG5Am9wSky8FzB5I9p8QUMRAvju/bprxstqAVYEIbV093PwxIDwlsu31I5w8tElNenqtx0Zxi/qPokA7lPf/IDUOqVKdfjfT3AAAAAElFTkSuQmCC">
+          Atrás
+        </span>
+        <% end %>
+      </div>
+      <div class="w-8/12 flex justify-end">
+        <%= f.button :submit,
+                     data: {"disable-with": @product.new_record ? "Guardando..." : "Guardando"},
+                     value: @product.new_record ? "Guardar producto" : "Actualizar producto",
+                     class: "#{helpers.main_color_button(size: "big", padding_class: "py-4", color: "dark")}"
+        %>
+      </div>
+    </div>
+  <% end %>
+  <script type="text/javascript" charset="utf-8">
+      function newFetch() {
+          return {
+              handleChange: function (e) {
+                  e.target.classList.remove("border-red-500");
+                  var element = document.querySelector(`[name="${e.target.name}_error"`);
+                  if (element) {
+                      element.innerHTML = "";
+                  }
+              }
+          }
+      }
+  </script>
+
+</div>
+<%= javascript_packs_with_chunks_tag "dashboard/products/new", 'data-turbolinks-track': "reload" %>
