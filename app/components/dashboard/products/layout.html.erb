@@ -22,7 +22,7 @@
     <div class="w-full flex flex-wrap mb-32">
       <div class="w-full flex">
         <div class="w-8/12 mr-4">
-          <% if action_name === "edit" %>
+          <% if action_name === "edit" || action_name === "new" %>
             <%= render "dashboard/products/form", f: f %>
           <% end %>
           <% if action_name == "edit_inventory" %>
