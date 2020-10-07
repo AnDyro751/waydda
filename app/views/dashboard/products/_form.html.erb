@@ -19,7 +19,7 @@
                       }
       ) do |f| %>
 
-    <div class="w-full flex flex-wrap">
+    <div class="w-full flex flex-wrap mb-32">
       <% unless @product.new_record %>
         <%= render Products::Form::HeaderMenu.new(product: @product) %>
       <% end %>
@@ -62,13 +62,7 @@
               </div>
             </div>
           </div>
-          <div class="w-full flex justify-end mt-8 mb-12">
-            <%= f.button :submit,
-                         data: {"disable-with": @product.new_record ? "Creando producto..." : "Actualizar producto"},
-                         value: @product.new_record ? "Crear producto" : "Actualizar producto",
-                         class: "#{main_color_button(size: "big", padding_class: "py-4", color: "dark")} mt-8"
-            %>
-          </div>
+
 
         </div>
         <div class="w-4/12 ml-4">
@@ -128,10 +122,26 @@
           </div>
         </div>
       </div>
-
-
     </div>
-
+    <div class="w-4/5 flex justify-end fixed bottom-0 right-0 bg-white shadow-top pr-6 pl-8 py-3 justify-center flex items-center">
+      <div class="w-4/12">
+        <%= link_to dashboard_products_path do %>
+        <span class="font-medium text-blue-700 hover:underline flex items-center hover:text-blue-800">
+          <img
+            class="inline mr-1"
+            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABmJLR0QA/wD/AP+gvaeTAAAAq0lEQVRIie2U3QnCMBRGz1cEd7FO4QLqGNLizyRWreAW1g0cIvtcH0QUFJM09kHogTyFe75cchPo6XnHdF9hDGLlo+JSZTB0R1uAzFcRfJKHXGIJmLCJq+dXX1XWSi7WIXII6uCD/DDbhx3MG5Am9wSky8FzB5I9p8QUMRAvju/bprxstqAVYEIbV093PwxIDwlsu31I5w8tElNenqtx0Zxi/qPokA7lPf/IDUOqVKdfjfT3AAAAAElFTkSuQmCC">
+          Atrás
+        </span>
+        <% end %>
+      </div>
+      <div class="w-8/12 flex justify-end">
+        <%= f.button :submit,
+                     data: {"disable-with": @product.new_record ? "Guardando..." : "Guardando"},
+                     value: @product.new_record ? "Guardar producto" : "Actualizar producto",
+                     class: "#{main_color_button(size: "big", padding_class: "py-4", color: "dark")}"
+        %>
+      </div>
+    </div>
   <% end %>
   <script type="text/javascript" charset="utf-8">
       function newFetch() {
