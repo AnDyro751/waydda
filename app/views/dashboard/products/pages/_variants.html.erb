@@ -1,30 +1,9 @@
-<div class="w-full flex flex-wrap self-start rounded bg-white pb-4 shadow-xl mb-4">
+<div class="w-full flex flex-wrap self-start pb-4 mb-4 <%= border_color %>">
   <%= render Headers::Text.new(title: "Variantes", small: true, font: "small", padding_class: "px-4 py-4") %>
-  <div class="w-full px-4">
-    <div class="w-full">
-      <%= f.input :public_stock,
-                  placeholder: "Productos en stock",
-                  label: "Cantidad disponible" %>
-      <span name="product[public_stock]_error" class="text-sm font-bold text-red-600"/>
-    </div>
-  </div>
-
-  <div class="w-full px-4 flex">
-    <div class="w-full">
-      <%= f.input :sku,
-                  placeholder: "Código de referencia",
-                  label: "SKU" %>
-      <span name="product[public_stock]_error" class="text-sm font-bold text-red-600"/>
-    </div>
-  </div>
-  <div class="w-full px-4">
-    <div class="w-full">
-      <%= f.input :unlimited,
-                  collection: [%w[SI true], %w[NO false]],
-                  label: "Continuar vendiendo sin stock",
-                  prompt: "Selecciona una opción"
-      %>
-      <span name="product[public_stock]_error" class="text-sm font-bold text-red-600"/>
-    </div>
-  </div>
+  <%= f.simple_fields_for :aggregate_categories, AggregateCategory.new do |aggf| %>
+    <%= aggf.input :name %>
+    <%= aggf.input :description, as: :text %>
+    <%= aggf.input :required, as: :boolean %>
+    <%= aggf.input :multiple_selection, as: :boolean %>
+  <% end %>
 </div>
