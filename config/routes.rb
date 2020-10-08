@@ -69,6 +69,7 @@ Rails.application.routes.draw do
     resources :products do
       get "/edit/inventory", to: "products#edit_inventory", as: :edit_inventory
       get "/edit/variants", to: "products#edit_variants", as: :edit_variants
+      get "/edit/variants/:id", to: "aggregate_categories#show", as: :edit_variant
       post "/update_status", to: "products#update_status", as: :update_status
       resources :aggregate_categories, :path => 'variants' do
         resources :aggregates

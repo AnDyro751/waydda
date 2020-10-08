@@ -9,7 +9,7 @@
       Inventario
     </span>
   <% end %>
-  <%= active_link_to dashboard_product_edit_variants_path(@product), class_active: "bg-main-blue-light bg-opacity-25 hover:bg-main-blue-light hover:bg-opacity-25 text-blue-800", class: "w-auto mr-3 mb-4 px-3 py-2 text-gray-800 rounded-lg hover:bg-main-gray font-medium hover:text-blue-700", active: :exclusive do %>
+  <%= active_link_to dashboard_product_edit_variants_path(@product), class_active: "bg-main-blue-light bg-opacity-25 hover:bg-main-blue-light hover:bg-opacity-25 text-blue-800", class: "w-auto mr-3 mb-4 px-3 py-2 text-gray-800 rounded-lg hover:bg-main-gray font-medium hover:text-blue-700", active: ["dashboard/aggregate_categories"] do %>
     <span class="">
       Variantes
     </span>

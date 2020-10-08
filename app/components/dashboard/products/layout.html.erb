@@ -28,8 +28,8 @@
           <% if action_name == "edit_inventory" %>
             <%= render "dashboard/products/pages/inventory", f: f %>
           <% end %>
-          <% if action_name == "edit_variants" %>
-            <%= render "dashboard/products/pages/variants", f: f %>
+          <% if action_name == "edit_variants" || (controller_name === "aggregate_categories" and action_name === "show") %>
+            <%= render "dashboard/products/pages/variants", f: f, variant: @custom_record %>
           <% end %>
         </div>
         <% unless @full_page %>

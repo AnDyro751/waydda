@@ -1,6 +1,5 @@
 <div class="w-full flex flex-wrap self-start mb-4 <%= border_color %>">
-  <%= render Headers::Text.new(title: "Variantes", small: true, font: "small", padding_class: "px-4 py-4", with_margin: false) %>
-  <%= render Dashboard::AggregateCategories::List::Index.new(product: @product) %>
+  <%= render Dashboard::AggregateCategories::List::Simple.new(product: @product, aggregate_category: @aggregate_category) %>
   <%#= f.simple_fields_for :aggregate_categories, AggregateCategory.new do |aggf| %>
     <%#= aggf.input :name %>
     <%#= aggf.input :description, as: :text %>
