@@ -21,8 +21,10 @@
   <component name="ChangeListManager">
     <list default="true" id="b89cb0fb-b680-4bb9-8ae0-f4b41721cfb9" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/components/Products/Form/header_menu.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/components/Products/Form/header_menu.html.erb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/components/dashboard/aggregate_categories/List/simple.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/components/dashboard/aggregate_categories/List/simple.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/components/dashboard/aggregate_categories/List/simple.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/components/dashboard/aggregate_categories/List/simple.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/dashboard/aggregate_categories/_aggregate_fields.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/dashboard/aggregate_categories/_aggregate_fields.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/dashboard/products/pages/_variants.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/dashboard/products/pages/_variants.html.erb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -777,14 +779,7 @@
       <workItem from="1601850906418" duration="7005000" />
       <workItem from="1602016975802" duration="17457000" />
       <workItem from="1602118111911" duration="5712000" />
-      <workItem from="1602128790083" duration="1252000" />
-    </task>
-    <task id="LOCAL-00251" summary="feat(Cart): Creamos el sidebar y añadimos otro item.html.erb&#10;Además se cambiaron los colores de los botones">
-      <created>1601338350176</created>
-      <option name="number" value="00251" />
-      <option name="presentableId" value="LOCAL-00251" />
-      <option name="project" value="LOCAL" />
-      <updated>1601338350177</updated>
+      <workItem from="1602128790083" duration="2767000" />
     </task>
     <task id="LOCAL-00252" summary="feat(Cart): Color de los botones y del sidebar">
       <created>1601338678440</created>
@@ -1122,7 +1117,14 @@
       <option name="project" value="LOCAL" />
       <updated>1602123986738</updated>
     </task>
-    <option name="localTasksCounter" value="300" />
+    <task id="LOCAL-00300" summary="feat(Dashboard): Mostramos los active links">
+      <created>1602130076716</created>
+      <option name="number" value="00300" />
+      <option name="presentableId" value="LOCAL-00300" />
+      <option name="project" value="LOCAL" />
+      <updated>1602130076721</updated>
+    </task>
+    <option name="localTasksCounter" value="301" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -1143,7 +1145,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Feat(Dashboard): Categorías a checkboxes completada, ahorita hacemos que cree una categoría" />
     <MESSAGE value="Feat(Dashboard): Agregamos categorías e inventario a la nueva vista de producto" />
     <MESSAGE value="Feat(Dashboard): Spec" />
     <MESSAGE value="Feat(Dashboard): Init tests" />
@@ -1168,7 +1169,8 @@
     <MESSAGE value="feat(Dashboard): Añadimos las variantes a la vista, vamos a cambiar la forma de listarlas" />
     <MESSAGE value="feat(Dashboard): Cambiamos la estructura del layout para poder aceptar el full page o un min page" />
     <MESSAGE value="feat(Dashboard): Mostramos la subvariante en un menu con un sidebar" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat(Dashboard): Mostramos la subvariante en un menu con un sidebar" />
+    <MESSAGE value="feat(Dashboard): Mostramos los active links" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat(Dashboard): Mostramos los active links" />
   </component>
   <component name="WindowStateProjectService">
     <state x="392" y="0" key="#All_specs_in_spec:_waydda" timestamp="1598730457189">
@@ -1211,10 +1213,10 @@
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="491" y="102" width="374" height="557" key="#com.intellij.ide.util.MemberChooser/0.0.1366.768@0.0.1366.768" timestamp="1601746308565" />
-    <state x="261" y="0" width="834" height="683" key="CommitChangelistDialog2" timestamp="1602123986537">
+    <state x="261" y="0" width="834" height="683" key="CommitChangelistDialog2" timestamp="1602130075755">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state x="261" y="0" width="834" height="683" key="CommitChangelistDialog2/0.0.1366.768@0.0.1366.768" timestamp="1602123986537" />
+    <state x="261" y="0" width="834" height="683" key="CommitChangelistDialog2/0.0.1366.768@0.0.1366.768" timestamp="1602130075755" />
     <state x="255" y="248" width="424" height="479" key="FileChooserDialogImpl" timestamp="1602095350030">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
@@ -1308,13 +1310,13 @@
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="628" y="298" key="com.jetbrains.plugins.remotesdk.ui.RemoteMappingsConfiguration/0.0.1366.768@0.0.1366.768" timestamp="1598729856431" />
-    <state x="390" y="117" width="791" height="624" key="find.popup" timestamp="1602128934749">
+    <state x="390" y="117" width="791" height="624" key="find.popup" timestamp="1602131116665">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="1914" y="96" width="823" height="878" key="find.popup/0.0.1366.768/1366.-69.1920.1080@1366.-69.1920.1080" timestamp="1597716285449" />
     <state x="1754" y="117" width="583" height="624" key="find.popup/0.0.1366.768/1366.0.1360.768@1366.0.1360.768" timestamp="1598981376119" />
     <state x="1914" y="165" width="823" height="878" key="find.popup/0.0.1366.768/1366.0.1920.1080@1366.0.1920.1080" timestamp="1599260651210" />
-    <state x="390" y="117" width="791" height="624" key="find.popup/0.0.1366.768@0.0.1366.768" timestamp="1602128934749" />
+    <state x="390" y="117" width="791" height="624" key="find.popup/0.0.1366.768@0.0.1366.768" timestamp="1602131116665" />
     <state x="549" y="254" width="250" height="278" key="jetbrains.javascript.buildTools.run-task-popup" timestamp="1597946321130">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
@@ -1323,13 +1325,13 @@
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="339" y="174" width="672" height="677" key="run.anything.popup/0.0.1366.768@0.0.1366.768" timestamp="1600370541201" />
-    <state x="346" y="89" width="672" height="678" key="search.everywhere.popup" timestamp="1602130029619">
+    <state x="346" y="89" width="672" height="678" key="search.everywhere.popup" timestamp="1602131012093">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="1852" y="56" width="945" height="954" key="search.everywhere.popup/0.0.1366.768/1366.-69.1920.1080@1366.-69.1920.1080" timestamp="1597715976170" />
     <state x="1710" y="89" width="672" height="678" key="search.everywhere.popup/0.0.1366.768/1366.0.1360.768@1366.0.1360.768" timestamp="1598985878395" />
     <state x="1852" y="125" width="945" height="954" key="search.everywhere.popup/0.0.1366.768/1366.0.1920.1080@1366.0.1920.1080" timestamp="1599267313630" />
-    <state x="346" y="89" width="672" height="678" key="search.everywhere.popup/0.0.1366.768@0.0.1366.768" timestamp="1602130029619" />
+    <state x="346" y="89" width="672" height="678" key="search.everywhere.popup/0.0.1366.768@0.0.1366.768" timestamp="1602131012093" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/waydda@Dashboard__ProductsControll_____3_.rcov" NAME="Dashboard::ProductsControll... (3) Coverage Results" MODIFIED="1601852304157" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="waydda" />

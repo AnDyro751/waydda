@@ -1,11 +1,11 @@
 <%= render Headers::Text.new(title: "Variantes", small: true, font: "small", padding_class: "px-4 py-4", with_margin: false) do %>
-  <%= link_to "Agregar " %>
+  <%= link_to "+ Agregar variante", new_dashboard_product_aggregate_category_aggregate_path(@product, @aggregate_category), class: "text-blue-700 text-sm font-medium hover:text-blue-800" %>
 <% end %>
-<div class="w-full flex" id="list_variants">
+<div class="w-full flex items-start " id="list_variants">
   <% if @product.aggregate_categories.length <= 0 %>
     <%= render EmptyRecords.new(title: "El producto no tiene variantes") %>
   <% else %>
-    <div class="w-4/12 divide-y divide-gray-300 border-r flex flex-wrap">
+    <div class="w-4/12 bg-main-gray border-r flex flex-wrap">
       <% @product.aggregate_categories.each do |aggc| %>
         <%= active_link_to dashboard_product_edit_variant_path(@product, aggc), class: "w-full px-4 py-3 hover:bg-blue-200 hover:bg-opacity-25 hover:text-blue-700 text-gray-700 font-medium ", class_active: "bg-blue-200 bg-opacity-25 text-blue-700" do %>
           <%= aggc.name %>
@@ -13,9 +13,19 @@
       <% end %>
     </div>
     <div class="w-8/12">
-      <div class="w-full flex flex-wrap ">
+      <div class="w-full flex flex-wrap p-4">
         <% if @aggregate_category %>
-          <%= @aggregate_category.name %>
+          <div class="w-full">
+            <%= @f.simple_fields_for @aggregate_category do |aggc| %>
+              <%= aggc.input :name %>
+              <%= aggc.input :required, as: :boolean %>
+            <% end %>
+          </div>
+          <%= @f.simple_fields_for :aggregates, Aggregate.new do |agg| %>
+            <h3 class="my-4 font-medium text-lg">Subvariantes</h3>
+            <%= render "dashboard/aggregate_categories/aggregate_fields", agg: agg %>
+            <%#= agg.input :name, label: "Nombre de la subvariante", placeholder: "Ej: Azul, rojo" %>
+          <% end %>
         <% else %>
           <div class="w-full flex justify-center py-12">
             <h4 class="font-normal text-gray-500">Selecciona una variante</h4>
