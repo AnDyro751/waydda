@@ -1,9 +1,10 @@
-<div class="w-full flex flex-wrap self-start pb-4 mb-4 <%= border_color %>">
-  <%= render Headers::Text.new(title: "Variantes", small: true, font: "small", padding_class: "px-4 py-4") %>
-  <%= f.simple_fields_for :aggregate_categories, AggregateCategory.new do |aggf| %>
-    <%= aggf.input :name %>
-    <%= aggf.input :description, as: :text %>
-    <%= aggf.input :required, as: :boolean %>
-    <%= aggf.input :multiple_selection, as: :boolean %>
-  <% end %>
+<div class="w-full flex flex-wrap self-start mb-4 <%= border_color %>">
+  <%= render Headers::Text.new(title: "Variantes", small: true, font: "small", padding_class: "px-4 py-4", with_margin: false) %>
+  <%= render Dashboard::AggregateCategories::List::Index.new(product: @product) %>
+  <%#= f.simple_fields_for :aggregate_categories, AggregateCategory.new do |aggf| %>
+    <%#= aggf.input :name %>
+    <%#= aggf.input :description, as: :text %>
+    <%#= aggf.input :required, as: :boolean %>
+    <%#= aggf.input :multiple_selection, as: :boolean %>
+  <%# end %>
 </div>

@@ -1,7 +1,7 @@
 <div class="w-full mb-8 flex flex-wrap">
   <%= render Headers::Text.new(title: "Editar subvariante", small: true, padding_class: @small ? "py-8 px-8" : "py-6", font: @small ? "small" : "big", with_margin: @small ? false : true, with_border: true) %>
   <%= simple_form_for(@aggregate, remote: true, url: @aggregate_category.new_record ? dashboard_product_aggregate_category_aggregates_path(@product, @aggregate_category) : dashboard_product_aggregate_category_aggregate_path(@product, @aggregate_category, @aggregate)) do |f| %>
-    <div class="w-full px-8 pt-8 <%= @small ? "" : "border-2 shadow rounded" %>">
+    <div class="w-full px-8 pt-8 <%= @small ? "" : "#{helpers.border_color}" %>">
       <%= render "dashboard/aggregate_categories/aggregate_fields", :agg => f %>
     </div>
     <div class="w-full flex justify-start my-8 <%= @small ? "px-8" : "" %>">

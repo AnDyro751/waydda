@@ -1,6 +1,6 @@
-<div class="w-full flex mt-8 border rounded flex-wrap">
-  <div class="w-full py-4 px-4 border-b">
-    <h3 class="font-bold text-lg"><%= @title %></h3>
+<div class="w-full flex mt-8 flex-wrap <%= helpers.border_color %>">
+  <div class="w-full border-b">
+    <%= render Headers::Text.new(title: "#{@title}", small: true, with_margin: false, with_border: false, font: "small", padding_class: "p-4") %>
   </div>
   <div class="w-full flex flex-wrap divide-y divide-gray-300">
     <% @items.each do |item| %>
