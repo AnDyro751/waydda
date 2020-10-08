@@ -20,15 +20,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b89cb0fb-b680-4bb9-8ae0-f4b41721cfb9" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/components/dashboard/aggregate_categories/List/simple.html.erb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/components/dashboard/aggregate_categories/List/simple.rb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/components/Products/Form/header_menu.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/components/Products/Form/header_menu.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/components/dashboard/products/layout.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/components/dashboard/products/layout.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/components/dashboard/products/layout.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/components/dashboard/products/layout.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/dashboard/aggregate_categories/show.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/dashboard/aggregate_categories/show.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/dashboard/products/pages/_variants.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/dashboard/products/pages/_variants.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/routes.rb" beforeDir="false" afterPath="$PROJECT_DIR$/config/routes.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/components/dashboard/aggregate_categories/List/simple.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/components/dashboard/aggregate_categories/List/simple.html.erb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -782,14 +775,7 @@
       <workItem from="1601823973155" duration="12553000" />
       <workItem from="1601850906418" duration="7005000" />
       <workItem from="1602016975802" duration="17457000" />
-      <workItem from="1602118111911" duration="5587000" />
-    </task>
-    <task id="LOCAL-00250" summary="feat(Cart): Pequeño dashboard en blanco">
-      <created>1601332580988</created>
-      <option name="number" value="00250" />
-      <option name="presentableId" value="LOCAL-00250" />
-      <option name="project" value="LOCAL" />
-      <updated>1601332580988</updated>
+      <workItem from="1602118111911" duration="5712000" />
     </task>
     <task id="LOCAL-00251" summary="feat(Cart): Creamos el sidebar y añadimos otro item.html.erb&#10;Además se cambiaron los colores de los botones">
       <created>1601338350176</created>
@@ -1127,7 +1113,14 @@
       <option name="project" value="LOCAL" />
       <updated>1602120438934</updated>
     </task>
-    <option name="localTasksCounter" value="299" />
+    <task id="LOCAL-00299" summary="feat(Dashboard): Mostramos la subvariante en un menu con un sidebar">
+      <created>1602123986738</created>
+      <option name="number" value="00299" />
+      <option name="presentableId" value="LOCAL-00299" />
+      <option name="project" value="LOCAL" />
+      <updated>1602123986738</updated>
+    </task>
+    <option name="localTasksCounter" value="300" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -1148,7 +1141,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Feat(Dashboard): Cambio de select a checkbox" />
     <MESSAGE value="Feat(Dashboard): Categorías a checkboxes completada, ahorita hacemos que cree una categoría" />
     <MESSAGE value="Feat(Dashboard): Agregamos categorías e inventario a la nueva vista de producto" />
     <MESSAGE value="Feat(Dashboard): Spec" />
@@ -1173,7 +1165,8 @@
     <MESSAGE value="feat(Dashboard): Agregamos un border color helper para poder usar el color blanco en todo el dashboard.html.erb" />
     <MESSAGE value="feat(Dashboard): Añadimos las variantes a la vista, vamos a cambiar la forma de listarlas" />
     <MESSAGE value="feat(Dashboard): Cambiamos la estructura del layout para poder aceptar el full page o un min page" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat(Dashboard): Cambiamos la estructura del layout para poder aceptar el full page o un min page" />
+    <MESSAGE value="feat(Dashboard): Mostramos la subvariante en un menu con un sidebar" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat(Dashboard): Mostramos la subvariante en un menu con un sidebar" />
   </component>
   <component name="WindowStateProjectService">
     <state x="392" y="0" key="#All_specs_in_spec:_waydda" timestamp="1598730457189">
@@ -1216,10 +1209,10 @@
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="491" y="102" width="374" height="557" key="#com.intellij.ide.util.MemberChooser/0.0.1366.768@0.0.1366.768" timestamp="1601746308565" />
-    <state x="261" y="0" width="834" height="683" key="CommitChangelistDialog2" timestamp="1602120438655">
+    <state x="261" y="0" width="834" height="683" key="CommitChangelistDialog2" timestamp="1602123986537">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state x="261" y="0" width="834" height="683" key="CommitChangelistDialog2/0.0.1366.768@0.0.1366.768" timestamp="1602120438655" />
+    <state x="261" y="0" width="834" height="683" key="CommitChangelistDialog2/0.0.1366.768@0.0.1366.768" timestamp="1602123986537" />
     <state x="255" y="248" width="424" height="479" key="FileChooserDialogImpl" timestamp="1602095350030">
       <screen x="0" y="0" width="1366" height="768" />
     </state>

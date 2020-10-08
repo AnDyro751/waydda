@@ -9,7 +9,13 @@
   </div>
   <div class="w-8/12">
     <div class="w-full flex flex-wrap ">
-      <%= @aggregate_category.name %>
+      <% if @aggregate_category %>
+        <%= @aggregate_category.name %>
+      <% else %>
+        <div class="w-full flex justify-center pt-12">
+          <h4 class="font-normal text-gray-500">Selecciona una variante</h4>
+        </div>
+      <% end %>
     </div>
   </div>
 </div>
