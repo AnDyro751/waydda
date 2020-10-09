@@ -5,7 +5,7 @@
                       url: @aggregate_category.new_record ? dashboard_product_aggregate_categories_path : dashboard_product_aggregate_category_path(@product, @aggregate_category),
                       remote: true,
                       html: {
-                          class: "w-full flex flex-wrap items-start mb-12 justify-between relative"
+                          class: "w-full flex flex-wrap items-start justify-between relative"
                       },
                       defaults: {
                           input_html: {
@@ -22,25 +22,15 @@
       <%= render Headers::Text.new(title: "Información básica", font: "small", small: true, padding_class: "px-8 py-8") %>
       <div class="w-full flex flex-wrap px-4">
         <%= f.input :name,
-                    label: "Nombre de tu variante",
-                    placeholder: "Nombre de tu variante"
+                    label: "Nombre de la variante",
+                    placeholder: "Ej: Amarillo, azul"
 
         %>
         <div class="w-full">
-          <%= f.input :required,
-                      label: "¿Es obligatorio seleccionar una subvariante?",
-                      collection: [%w[SI true], %w[NO false]],
-                      prompt: "Selecciona una opción"
-
-          %>
+          <%= f.input :required, as: :boolean, label: "Se requiere la selección del cliente", required: false, input_html: {class: "mr-5"}, wrapper_html: {class: "my-5"} %>
         </div>
         <div class="w-full">
-          <%= f.input :multiple_selection,
-                      collection: [%w[SI true], %w[NO false]],
-                      label: "Selección múltiple",
-                      prompt: "Selecciona una opción"
-
-          %>
+          <%= f.input :multiple_selection, as: :boolean, label: "Selección multiple", required: false, input_html: {class: "mr-5"}, wrapper_html: {class: "my-5"} %>
         </div>
       </div>
     </div>

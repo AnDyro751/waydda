@@ -167,12 +167,12 @@ window.persistScroll = function (more = 0) {
 };
 
 document.addEventListener("turbolinks:load", () => {
-
     const elements = document.querySelectorAll("[data-turbolinks-scroll]");
 
     elements.forEach(function (element) {
 
         element.addEventListener("click", () => {
+            console.log("Click para", document.scrollingElement.scrollTop)
             Turbolinks.scroll['top'] = document.scrollingElement.scrollTop;
         });
 
@@ -188,10 +188,7 @@ document.addEventListener("turbolinks:load", () => {
     }
 
     Turbolinks.scroll = {};
-});
 
-
-document.addEventListener("turbolinks:load", () => {
     window.Toastify = Toastify;
 
     function logElementEvent(eventName, element) {

@@ -1,4 +1,3 @@
-window.scrollTo(0, 0);
 document.querySelector("#notifications").innerHTML = "";
 <% if @product.errors.any? %>
 document.querySelector("#notifications").innerHTML = "<%= j render Notifications::Alert.new(alert: "Se han encontrado errores al editar el producto",kind: "error") %>";
@@ -18,7 +17,8 @@ if (element) {
 }
 <% end %>
 <% else %>
-document.querySelector("#notifications").innerHTML = "<%= j render Notifications::Alert.new(alert: "Se ha actualizado el producto") %>";
+window.addToastify("primary", "Se ha actualizado el producto")
+//document.querySelector("#notifications").innerHTML = "<%= j render Notifications::Alert.new(alert: "Se ha actualizado el producto") %>";
 <% end %>
 
 window.deleteFlashs();
