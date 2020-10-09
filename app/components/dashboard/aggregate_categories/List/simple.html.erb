@@ -1,7 +1,11 @@
 <%= render Headers::Text.new(title: "Variantes", small: true, font: "small", padding_class: "px-4 py-4", with_margin: false) do %>
   <%= link_to "+ Agregar variante", dashboard_product_new_variant_path(@product), remote: true, class: "text-blue-700 text-sm font-medium hover:text-blue-800" %>
 <% end %>
-<div class="w-full flex items-start " id="list_variants">
+<div
+  class="w-full flex items-start"
+  id="list_variants"
+  x-data="productVariants()"
+>
   <% if @product.aggregate_categories.length <= 0 %>
     <%= render EmptyRecords.new(title: "El producto no tiene variantes") %>
   <% else %>
@@ -15,13 +19,36 @@
     <div class="w-8/12">
       <div class="w-full flex flex-wrap p-4">
         <% if @aggregate_category %>
+
           <div class="w-full">
-            <%= @f.simple_fields_for :aggregate_categories, @aggregate_category do |aggc| %>
+            <% @f.simple_fields_for :aggregate_categories, @aggregate_category do |aggc| %>
+              <%#= aggc.text_field :name %>
               <%= aggc.input :name %>
-              <%= aggc.input :required, as: :boolean, label: "Se requiere la selección del cliente", input_html: {class: "mr-5", required: false}, required: false, wrapper_html: {class: "my-5"} %>
-              <%= aggc.input :multiple_selection, as: :boolean, label: "Selección multiple", input_html: {class: "mr-5", required: false}, required: false, wrapper_html: {class: "my-5"} %>
+              <%= aggc.input :id, as: :hidden, input_html: {value: @aggregate_category.id} %>
+              <%#= aggc.input :required, as: :boolean, label: "Se requiere la selección del cliente", input_html: {class: "mr-5", required: false}, required: false, wrapper_html: {class: "my-5"} %>
+              <%#= aggc.input :multiple_selection, as: :boolean, label: "Selección multiple", input_html: {class: "mr-5", required: false}, required: false, wrapper_html: {class: "my-5"} %>
+              <div>
+                <template>
+                  <%= aggc.simple_fields_for :aggregates, Aggregate.new, child_index: "NEW_RECORD" do |agg| %>
+                    <h3 class="my-4 font-medium text-lg">Subvariantes</h3>
+                    <%= render "dashboard/aggregate_categories/aggregate_fields", agg: agg %>
+                  <% end %>
+                </template>
+                <a @click="addSubvariant($event)" href="#">Agregar selección</a>
+                <div class="" id="all-variants">
+                  <% @aggregate_category.aggregates.each do |aggregate| %>
+                    <p>
+                      <%= aggregate.name %>
+                    </p>
+                    <%# end %>
+                  <% end %>
+                </div>
+              </div>
             <% end %>
           </div>
+
+
+          <%#= link_to "Agregar selección", "#", id: "add-subvariant" %>
           <%#= @f.simple_fields_for :aggregates, Aggregate.new do |agg| %>
           <!--            <h3 class="my-4 font-medium text-lg">Subvariantes</h3>-->
           <%#= render "dashboard/aggregate_categories/aggregate_fields", agg: agg %>
@@ -35,4 +62,20 @@
       </div>
     </div>
   <% end %>
+  <script type="text/javascript" charset="utf-8">
+      function productVariants() {
+          return {
+              addSubvariant: function (e) {
+                  e.preventDefault();
+                  var template = document.querySelector("template");
+                  var content = template.innerHTML.replace(/NEW_RECORD/g, new Date().getTime())
+                  console.log(content)
+                  document.querySelector("#all-variants").insertAdjacentHTML('afterbegin', content);
+                  // var total_subvariants = document.querySelectorAll(".add-variant");
+                  window.addToastify("primary", "Se ha añadido una nueva subvariante")
+                  // document.querySelector("#all-variants").innerHTML = content + document.querySelector("#all-variants").innerHTML;
+              },
+          }
+      }
+  </script>
 </div>

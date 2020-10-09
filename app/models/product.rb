@@ -36,6 +36,7 @@ class Product
   has_many :cart_items
   embeds_many :aggregate_categories
   accepts_nested_attributes_for :aggregate_categories
+  accepts_nested_attributes_for aggregate_categories: [:aggregates]
 
   embeds_many :images, as: :model
 
