@@ -161,12 +161,9 @@ window.addToastify = function addToastify(color = "primary", text = "") {
 }
 Turbolinks.scroll = {};
 
-window.persistScroll = function () {
+window.persistScroll = function (more = 0) {
     console.log("PERSISTIENDO A ", document.scrollingElement.scrollTop)
     Turbolinks.scroll['top'] = document.scrollingElement.scrollTop;
-    // if (Turbolinks.scroll['top']) {
-    //     document.scrollingElement.scrollTo(0, Turbolinks.scroll['top']);
-    // }
 };
 
 document.addEventListener("turbolinks:load", () => {

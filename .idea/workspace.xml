@@ -778,14 +778,7 @@
       <workItem from="1602016975802" duration="17457000" />
       <workItem from="1602118111911" duration="5712000" />
       <workItem from="1602128790083" duration="2854000" />
-      <workItem from="1602264524655" duration="5515000" />
-    </task>
-    <task id="LOCAL-00254" summary="feat(Cart): Migramos el carrito y agregamos el guest user sin problemas 3:">
-      <created>1601400814337</created>
-      <option name="number" value="00254" />
-      <option name="presentableId" value="LOCAL-00254" />
-      <option name="project" value="LOCAL" />
-      <updated>1601400814338</updated>
+      <workItem from="1602264524655" duration="5629000" />
     </task>
     <task id="LOCAL-00255" summary="feat(Cart): Notice in carts_controller.rb">
       <created>1601410369192</created>
@@ -1123,7 +1116,14 @@
       <option name="project" value="LOCAL" />
       <updated>1602268852739</updated>
     </task>
-    <option name="localTasksCounter" value="303" />
+    <task id="LOCAL-00303" summary="feat(Dashboard): Creamos una persistencia al redireccionar 3:">
+      <created>1602271074378</created>
+      <option name="number" value="00303" />
+      <option name="presentableId" value="LOCAL-00303" />
+      <option name="project" value="LOCAL" />
+      <updated>1602271074378</updated>
+    </task>
+    <option name="localTasksCounter" value="304" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -1144,7 +1144,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Feat(Dashboard): Init tests" />
     <MESSAGE value="Feat(Dashboard): Products controller validations" />
     <MESSAGE value="test(Dashboard): products_controller.rb test # Create action" />
     <MESSAGE value="test(Dashboard): products_controller.rb test #show action" />
@@ -1169,7 +1168,8 @@
     <MESSAGE value="feat(Dashboard): Mostramos los active links" />
     <MESSAGE value="feat(Dashboard): Mostramos el form, solo queda hacer el refactor y mostrar bien los inputs" />
     <MESSAGE value="feat(Dashboard): Mostramos los errores al crear el aggregate category" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat(Dashboard): Mostramos los errores al crear el aggregate category" />
+    <MESSAGE value="feat(Dashboard): Creamos una persistencia al redireccionar 3:" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat(Dashboard): Creamos una persistencia al redireccionar 3:" />
   </component>
   <component name="WindowStateProjectService">
     <state x="392" y="0" key="#All_specs_in_spec:_waydda" timestamp="1598730457189">
@@ -1212,10 +1212,10 @@
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="491" y="102" width="374" height="557" key="#com.intellij.ide.util.MemberChooser/0.0.1366.768@0.0.1366.768" timestamp="1601746308565" />
-    <state x="261" y="0" width="834" height="683" key="CommitChangelistDialog2" timestamp="1602268852166">
+    <state x="261" y="0" width="834" height="683" key="CommitChangelistDialog2" timestamp="1602271074182">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state x="261" y="0" width="834" height="683" key="CommitChangelistDialog2/0.0.1366.768@0.0.1366.768" timestamp="1602268852166" />
+    <state x="261" y="0" width="834" height="683" key="CommitChangelistDialog2/0.0.1366.768@0.0.1366.768" timestamp="1602271074182" />
     <state x="255" y="248" width="424" height="479" key="FileChooserDialogImpl" timestamp="1602095350030">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
