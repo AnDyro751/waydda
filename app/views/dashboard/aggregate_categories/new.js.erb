@@ -1,0 +1,8 @@
+if (window.vanillaModal) {
+    var element = document.querySelector("#modal");
+    if (element) {
+        console.log("ABRIR MODAL");
+        window.current_modal.open("#modal");
+        document.querySelector(".modal-content").innerHTML = "<%= j render"dashboard/aggregate_categories/form", aggregate_category: @aggregate_category %>";
+    }
+}

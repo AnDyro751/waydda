@@ -1,12 +1,11 @@
 <div
   class="w-full pb-8"
-  x-data="dashboardNewAggregate()"
 >
   <%= simple_form_for(@aggregate_category,
                       url: @aggregate_category.new_record ? dashboard_product_aggregate_categories_path : dashboard_product_aggregate_category_path(@product, @aggregate_category),
                       remote: true,
                       html: {
-                          class: "w-full flex flex-wrap items-start mb-12 justify-between"
+                          class: "w-full flex flex-wrap items-start mb-12 justify-between relative"
                       },
                       defaults: {
                           input_html: {
@@ -19,91 +18,88 @@
                       }
       ) do |f| %>
 
-    <div class="w-full border-2 shadow rounded flex flex-wrap mb-4">
+    <div class="w-full flex flex-wrap mb-4">
       <%= render Headers::Text.new(title: "Información básica", font: "small", small: true, padding_class: "px-8 py-8") %>
-      <div class="w-full flex flex-wrap px-8">
+      <div class="w-full flex flex-wrap px-4">
         <%= f.input :name,
                     label: "Nombre de tu variante",
                     placeholder: "Nombre de tu variante"
 
         %>
+        <div class="w-full">
+          <%= f.input :required,
+                      label: "¿Es obligatorio seleccionar una subvariante?",
+                      collection: [%w[SI true], %w[NO false]],
+                      prompt: "Selecciona una opción"
 
-        <div class="w-full flex items-end">
-          <div class="w-7/12 mr-2">
-            <%= f.input :required,
-                        label: "¿Es obligatorio seleccionar una subvariante?",
-                        collection: [%w[SI true], %w[NO false]],
-                        prompt: "Selecciona una opción"
+          %>
+        </div>
+        <div class="w-full">
+          <%= f.input :multiple_selection,
+                      collection: [%w[SI true], %w[NO false]],
+                      label: "Selección múltiple",
+                      prompt: "Selecciona una opción"
 
-            %>
-          </div>
-          <div class="w-5/12 ml-2">
-            <%= f.input :multiple_selection,
-                        collection: [%w[SI true], %w[NO false]],
-                        label: "Selección múltiple",
-                        prompt: "Selecciona una opción"
-
-            %>
-          </div>
+          %>
         </div>
       </div>
     </div>
-    <template data-target="nested-form-template ">
-      <div class="w-full px-8 py-8 add-variant">
-        <%= f.simple_fields_for :aggregates, Aggregate.new, child_index: 'NEW_RECORD' do |agg| %>
-          <%= render "dashboard/aggregate_categories/aggregate_fields", :agg => agg %>
-        <% end %>
-      </div>
-    </template>
-    <div class="w-full border-2 shadow rounded flex flex-wrap mb-4">
-      <%= render Headers::Text.new(title: "Subvariantes (#{@aggregate_category.aggregates.select { |agg| !agg.new_record }.length})", id: "variant-title", font: "small", small: true, padding_class: "px-8 py-8") do %>
-        <div @click="addSubvariant()" class="cursor-pointer <%= main_color_button(size: "big", padding: "big") %>">
-          Agregar subvariante
-        </div>
-      <% end %>
+    <!--    <template data-target="nested-form-template ">-->
+    <!--      <div class="w-full px-8 py-8 add-variant">-->
+    <%#= f.simple_fields_for :aggregates, Aggregate.new, child_index: 'NEW_RECORD' do |agg| %>
+    <%#= render "dashboard/aggregate_categories/aggregate_fields", :agg => agg %>
+    <%# end %>
+    <!--      </div>-->
+    <!--    </template>-->
+    <!--    <div class="w-full border-2 shadow rounded flex flex-wrap mb-4">-->
+    <%#= render Headers::Text.new(title: "Subvariantes (#{@aggregate_category.aggregates.select { |agg| !agg.new_record }.length})", id: "variant-title", font: "small", small: true, padding_class: "px-8 py-8") do %>
+    <!--        <div @click="addSubvariant()" class="cursor-pointer <%#= main_color_button(size: "big", padding: "big") %>">-->
+    <!--          Agregar subvariante-->
+    <!--        </div>-->
+    <%# end %>
 
-      <div class="w-full divide-y divide-gray-400" id="all-variants">
-        <div class="w-full px-8 py-8 add-variant">
-          <h3 class="font-bold text-xl mb-10">Subvariante #</h3>
-          <%= f.simple_fields_for :aggregates, Aggregate.new do |agg| %>
-            <%= render "dashboard/aggregate_categories/aggregate_fields", :agg => agg %>
-          <% end %>
-        </div>
-      </div>
+    <!--      <div class="w-full divide-y divide-gray-400" id="all-variants">-->
+    <!--        <div class="w-full px-8 py-8 add-variant">-->
+    <!--          <h3 class="font-bold text-xl mb-10">Subvariante #</h3>-->
+    <%#= f.simple_fields_for :aggregates, Aggregate.new do |agg| %>
+    <%#= render "dashboard/aggregate_categories/aggregate_fields", :agg => agg %>
+    <%# end %>
+    <!--        </div>-->
+    <!--      </div>-->
 
-    </div>
-    <div class="w-full flex justify-end mt-8">
+    <!--    </div>-->
+    <div class="w-full flex justify-end mt-8 px-4">
       <%= f.submit @aggregate_category.new_record ? "Crear variante" : "Actualizar variante", data: {"disable-with": "Guardando..."}, class: main_color_button(color: "dark", size: "big", padding: "big") %>
     </div>
   <% end %>
-  <script type="text/javascript" charset="utf-8">
-      function dashboardNewAggregate() {
-          return {
-              addSubvariant: function () {
-                  var template = document.querySelector("template");
-                  var content = template.innerHTML.replace(/NEW_RECORD/g, new Date().getTime())
-                  console.log(content)
-                  document.querySelector("#all-variants").insertAdjacentHTML('afterbegin', content);
-                  var total_subvariants = document.querySelectorAll(".add-variant");
-                  document.querySelector("#variant-title").innerHTML = `Subvariantes (${total_subvariants.length})`;
-                  window.addToastify("primary", "Se ha añadido una nueva subvariante")
-                  // document.querySelector("#all-variants").innerHTML = content + document.querySelector("#all-variants").innerHTML;
-              },
-              name: "",
-              description: "",
-              required: false,
-              multiple_selection: false,
-              handleChange: function (e) {
-                  e.target.classList.remove("border-2");
-                  e.target.classList.remove("border-red-500");
-              },
-              handleRequired: function (e) {
-                  this.required = (e.target.value === "true");
-              },
-              handleMultipleSelect: function (e) {
-                  this.multiple_selection = (e.target.value === "true");
-              }
-          }
-      }
-  </script>
+  <!--  <script type="text/javascript" charset="utf-8">-->
+  <!--      function dashboardNewAggregate() {-->
+  <!--          return {-->
+  <!--              addSubvariant: function () {-->
+  <!--                  var template = document.querySelector("template");-->
+  <!--                  var content = template.innerHTML.replace(/NEW_RECORD/g, new Date().getTime())-->
+  <!--                  console.log(content)-->
+  <!--                  document.querySelector("#all-variants").insertAdjacentHTML('afterbegin', content);-->
+  <!--                  var total_subvariants = document.querySelectorAll(".add-variant");-->
+  <!--                  document.querySelector("#variant-title").innerHTML = `Subvariantes (${total_subvariants.length})`;-->
+  <!--                  window.addToastify("primary", "Se ha añadido una nueva subvariante")-->
+  <!--                  // document.querySelector("#all-variants").innerHTML = content + document.querySelector("#all-variants").innerHTML;-->
+  <!--              },-->
+  <!--              name: "",-->
+  <!--              description: "",-->
+  <!--              required: false,-->
+  <!--              multiple_selection: false,-->
+  <!--              handleChange: function (e) {-->
+  <!--                  e.target.classList.remove("border-2");-->
+  <!--                  e.target.classList.remove("border-red-500");-->
+  <!--              },-->
+  <!--              handleRequired: function (e) {-->
+  <!--                  this.required = (e.target.value === "true");-->
+  <!--              },-->
+  <!--              handleMultipleSelect: function (e) {-->
+  <!--                  this.multiple_selection = (e.target.value === "true");-->
+  <!--              }-->
+  <!--          }-->
+  <!--      }-->
+  <!--  </script>-->
 </div>

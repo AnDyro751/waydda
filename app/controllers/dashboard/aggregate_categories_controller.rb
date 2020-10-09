@@ -7,11 +7,15 @@ class Dashboard::AggregateCategoriesController < ApplicationController
   add_breadcrumb "Productos", :dashboard_products_path
 
   def new
-    set_meta_tags title: "Nueva variante de #{@product.name} | Panel de control",
-                  description: "Nueva variante de #{@product.name} | Panel de control"
-    add_breadcrumb "#{@product.name}", "#{dashboard_product_path(@product)}"
-    add_breadcrumb "Variantes", "#{dashboard_product_aggregate_categories_path(@product)}"
-    add_breadcrumb "Nueva variante"
+    respond_to do |format|
+      format.js
+      format.html { redirect_to dashboard_product_edit_variants_path(@product) }
+    end
+    # set_meta_tags title: "Nueva variante de #{@product.name} | Panel de control",
+    #               description: "Nueva variante de #{@product.name} | Panel de control"
+    # add_breadcrumb "#{@product.name}", "#{dashboard_product_path(@product)}"
+    # add_breadcrumb "Variantes", "#{dashboard_product_aggregate_categories_path(@product)}"
+    # add_breadcrumb "Nueva variante"
     @aggregate_category = @product.aggregate_categories.new
     @aggregate_category.aggregates.new
   end
@@ -46,9 +50,10 @@ class Dashboard::AggregateCategoriesController < ApplicationController
     @aggregate_category = @product.aggregate_categories.new(aggregate_category_params)
     respond_to do |format|
       if @aggregate_category.save
-        format.html { redirect_to dashboard_product_aggregate_category_path(@product, @aggregate_category) }
+        format.js
       else
         format.js
+        # format.html{redirect_to dashboard_product_edit_variants_path(@product), notice: "Ha ocurrido un error al crear la variante"}
       end
     end
   end

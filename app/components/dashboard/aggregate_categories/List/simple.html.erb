@@ -1,5 +1,5 @@
 <%= render Headers::Text.new(title: "Variantes", small: true, font: "small", padding_class: "px-4 py-4", with_margin: false) do %>
-  <%= link_to "+ Agregar variante", new_dashboard_product_aggregate_category_aggregate_path(@product, @aggregate_category), class: "text-blue-700 text-sm font-medium hover:text-blue-800" %>
+  <%= link_to "+ Agregar variante", dashboard_product_new_variant_path(@product), remote: true, class: "text-blue-700 text-sm font-medium hover:text-blue-800" %>
 <% end %>
 <div class="w-full flex items-start " id="list_variants">
   <% if @product.aggregate_categories.length <= 0 %>
@@ -19,6 +19,7 @@
             <%= @f.simple_fields_for @aggregate_category do |aggc| %>
               <%= aggc.input :name %>
               <%= aggc.input :required, as: :boolean %>
+              <%= aggc.input :multiple_selection, as: :boolean %>
             <% end %>
           </div>
           <%= @f.simple_fields_for :aggregates, Aggregate.new do |agg| %>
