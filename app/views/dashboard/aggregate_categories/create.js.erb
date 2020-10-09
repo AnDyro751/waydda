@@ -11,7 +11,10 @@ newNotification.innerHTML = "<%= j render Notifications::Alert.new(alert: messag
 document.querySelector("#notifications").appendChild(newNotification);
 <% end %>
 <% else %>
+window.persistScroll();
+Turbolinks.visit("<%= dashboard_product_edit_variant_path(@product,@aggregate_category) %>")
 window.addToastify("primary", "Se ha creado la variante")
+//document.querySelector("#list_variants").innerHTML = "";
 <% end %>
 
 window.deleteFlashs();
