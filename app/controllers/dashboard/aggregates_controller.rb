@@ -78,7 +78,6 @@ class Dashboard::AggregatesController < ApplicationController
 
   def destroy
     @aggregate_id = @aggregate.id.to_s
-
     respond_to do |format|
       begin
         @aggregate.destroy
@@ -111,7 +110,7 @@ class Dashboard::AggregatesController < ApplicationController
   end
 
   def set_product
-    @product = @place.products.find_by(slug: params["product_id"])
+    @product = @place.products.find(params["product_id"])
     not_found if @product.nil?
   end
 
