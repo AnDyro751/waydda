@@ -36,6 +36,8 @@ class Dashboard::AggregateCategoriesController < ApplicationController
     add_breadcrumb "Variantes", "#{dashboard_product_aggregate_categories_path(@product)}"
     add_breadcrumb "#{@aggregate_category.name}"
     @aggregate_category.aggregates.build
+    @aggregate_category_item = @aggregate_category
+    @aggregate_category_item["custom_aggregates"] = @aggregate_category.aggregates.order(created_at: "desc")
   end
 
   def index

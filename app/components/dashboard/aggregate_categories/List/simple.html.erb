@@ -36,7 +36,7 @@
                 </template>
                 <a @click="addSubvariant($event)" href="#">Agregar selección</a>
                 <div class="" id="all-variants">
-                  <% @aggregate_category.aggregates.select { |agg| !agg.new_record }.each do |aggregate| %>
+                  <% @aggregate_category["custom_aggregates"].select { |agg| !agg.new_record }.each do |aggregate| %>
                     <% aggc.simple_fields_for :aggregates, aggregate do |agg| %>
                       <h3 class="my-4 font-medium text-lg">Subvariantes</h3>
                       <%= agg.input :id, as: :hidden, input_html: {value: aggregate.id} %>

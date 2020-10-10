@@ -34,7 +34,7 @@ class Product
   has_and_belongs_to_many :items
 
   has_many :cart_items
-  embeds_many :aggregate_categories
+  embeds_many :aggregate_categories, cascade_callbacks: true
   accepts_nested_attributes_for :aggregate_categories
   accepts_nested_attributes_for aggregate_categories: [:aggregates]
 

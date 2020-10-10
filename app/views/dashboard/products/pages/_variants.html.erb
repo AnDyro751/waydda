@@ -1,9 +1,9 @@
 <div class="w-full flex flex-wrap self-start mb-4 <%= border_color %>">
   <%= render Dashboard::AggregateCategories::List::Simple.new(product: @product, aggregate_category: @aggregate_category, f: f) %>
   <%#= f.simple_fields_for :aggregate_categories, AggregateCategory.new do |aggf| %>
-    <%#= aggf.input :name %>
-    <%#= aggf.input :description, as: :text %>
-    <%#= aggf.input :required, as: :boolean %>
-    <%#= aggf.input :multiple_selection, as: :boolean %>
+  <%#= aggf.input :name %>
+  <%#= aggf.input :description, as: :text %>
+  <%#= aggf.input :required, as: :boolean %>
+  <%#= aggf.input :multiple_selection, as: :boolean %>
   <%# end %>
 </div>
