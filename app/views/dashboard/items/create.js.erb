@@ -1,0 +1,14 @@
+<% if @item.errors.any? %>
+console.log("HAY ERRORES")
+<% @item.errors.full_messages.each do |error| %>
+console.log("ERROR: <%= error %>")
+<% end %>
+<% else %>
+window.addToastify("primary", "Se ha creado la categoría")
+if (window.current_modal.isOpen) {
+    var newSpan = "<span class=\"checkbox w-full\"><label class=\"w-full cursor-pointer select-none text-sm font-normal\" for=\"product_item_ids_<%= @item.id %>\"><input class=\"check_boxes optional w-auto mr-4 mt-2 mb-4 cursor-pointer\" autocomplete=\"off\" type=\"checkbox\" value=\"<%= @item.id %>\" name=\"product[item_ids][]\" id=\"product_item_ids_<%= @item.id %>\"><%= @item.name %></label></span>"
+    document.querySelector("#select_categories").insertAdjacentHTML("beforeend", newSpan);
+    console.log("CREATE JS, SIN ERRORES");
+    window.current_modal.close();
+}
+<% end %>

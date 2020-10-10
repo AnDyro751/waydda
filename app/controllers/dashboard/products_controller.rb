@@ -2,7 +2,7 @@ class Dashboard::ProductsController < ApplicationController
   layout "dashboard"
   before_action :authenticate_user!
   before_action :set_my_place
-  before_action :set_product, only: [:show, :edit, :update, :update_status, :destroy]
+  before_action :set_product, only: [:show, :edit, :update, :update_status, :destroy, :edit_inventory, :edit_variants]
   add_breadcrumb "Productos", :dashboard_products_path
 
 
@@ -32,6 +32,20 @@ class Dashboard::ProductsController < ApplicationController
     add_breadcrumb "Editar"
   end
 
+  # GET /edit/inventory
+  def edit_inventory
+    add_breadcrumb "#{@product.name}", "#{dashboard_product_path(@product)}"
+    add_breadcrumb "Editar", edit_dashboard_product_path(@product)
+    add_breadcrumb "Editar inventario"
+  end
+
+  # GET /edit/variants
+  def edit_variants
+    add_breadcrumb "#{@product.name}", "#{dashboard_product_path(@product)}"
+    add_breadcrumb "Editar", edit_dashboard_product_path(@product)
+    add_breadcrumb "Editar variantes"
+  end
+
   def create
     @product = Product.new(product_params)
     @product.place = @place
@@ -51,12 +65,15 @@ class Dashboard::ProductsController < ApplicationController
   def update
     respond_to do |format|
       old_items = @product.item_ids.map(&:to_s)
-      new_items = params["product"]["item_ids"].select { |ii| ii.length > 0 }
-      old_items.each do |ii|
-        new_items.delete(ii)
-      end
-      params["product"]["item_ids"].each do |ii|
-        old_items.delete(ii)
+      new_items = []
+      if params["product"]["item_ids"].present?
+        new_items = params["product"]["item_ids"].select { |ii| ii.length > 0 }
+        old_items.each do |ii|
+          new_items.delete(ii)
+        end
+        params["product"]["item_ids"].each do |ii|
+          old_items.delete(ii)
+        end
       end
       if @product.update(product_params)
         if new_items.length > 0 # Se agregaron nuevos elementos
@@ -65,7 +82,6 @@ class Dashboard::ProductsController < ApplicationController
         if old_items.length > 0 # Se eliminaron elementos - Eliminar de los recientes del item
           Product.update_recent_products(item_ids: old_items, product: @product, action: "delete")
         end
-        # format.html { redirect_to dashboard_product_path(@product), alert: 'Se ha actualizado el producto.' }
         format.js
         # format.json { render :show, status: :ok, location: @product }
       else
@@ -109,7 +125,7 @@ class Dashboard::ProductsController < ApplicationController
 
   def set_product
     if controller_name === "products"
-      @product = @place.products.find_by(id: params["id"])
+      @product = @place.products.find_by(id: params["id"] || params["product_id"])
     else
       @product = @place.products.find_by(id: params["product_id"])
     end
@@ -119,6 +135,6 @@ class Dashboard::ProductsController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def product_params
-    params.require(:product).permit(:name, :description, :price, :aggregates_required, :sku, :max_aggregates, :public_stock, :unlimited, :quantity, :quantity_measure, item_ids: [], aggregate_categories_attributes: [])
+    params.require(:product).permit(:name, :description, :price, :aggregates_required, :sku, :max_aggregates, :public_stock, :unlimited, :quantity, :quantity_measure, item_ids: [], aggregate_categories_attributes: [:name, :id, :required, :multiple_selection, aggregates_attributes: [:name, :price, :sku, :public_stock, :quantity, :unlimited, :id]])
   end
 end

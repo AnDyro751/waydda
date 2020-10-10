@@ -1,22 +1,22 @@
 <%= simple_form_for(
-        @item, url: action === "edit" ? dashboard_item_path(@item) : dashboard_items_path,
+        @item, remote: true, url: @item.new_record ? dashboard_items_path(type: "js") : dashboard_item_path(@item, type: "controller"),
         defaults: {
             input_html: {
-                class: 'py-3 px-3 bg-main-gray appearance-none rounded focus:outline-none w-full mt-2 mb-4 resize-none',
+                class: "#{input_color_class} mt-2 mb-4 resize-none",
                 rows: "5"
             },
             label_html: {
-                class: "text-sm font-normal text-gray-600"
+                class: label_color_class(size: "big")
             }
         }
     ) do |f| %>
   <%= f.input :name, label: "Nombre de la categoría", placeholder: "Ej. Ropa roja" %>
-  <%= f.input :description, as: :text, label: "Descripción", placeholder: "Una breve descripción. No se motrará al público" %>
+  <%= f.input :description, as: :text, label: "Descripción", placeholder: "Una breve descripción (No se mostrará al público)" %>
   <div class="w-full mt-8 flex justify-end">
     <%= f.button :submit,
                  data: {"disable-with": "Cargando..."},
-                 value: "Crear producto",
-                 class: main_color_button(color: "secondary", with_shadow: false)
+                 value: "Crear categoría",
+                 class: main_color_button(color: "dark", with_shadow: false, size: "big", padding: "big")
     %>
   </div>
 <% end %>

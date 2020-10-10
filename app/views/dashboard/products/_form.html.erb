@@ -1,147 +1,30 @@
-<div class="w-full flex flex-wrap"
-     x-data="newFetch()"
->
-  <%= simple_form_for(@product, url: @product.new_record ? dashboard_products_path : dashboard_product_path(@product), remote: true,
-                      defaults: {
-                          input_html: {
-                              class: "#{input_color_class} mt-2 resize-none",
-                              autocomplete: "off"
-                          },
-                          wrapper_html: {
-                              class: "mt-2 mb-4"
-                          },
-                          label_html: {
-                              class: "#{label_color_class(size: "big")}"
-                          }
-                      },
-                      html: {
-                          class: "w-full "
-                      }
-      ) do |f| %>
-
-    <div class="w-full flex flex-wrap">
-      <% unless @product.new_record %>
-        <%= render Products::Form::HeaderMenu.new(product: @product) %>
-      <% end %>
-
-      <div class="w-full flex">
-        <div class="w-8/12 mr-4">
-          <div class="w-full flex flex-wrap py-8 shadow-xl rounded bg-white mb-4">
-            <%= render Headers::Text.new(title: "Información básica", small: true, font: "small", padding_class: "px-4 pb-8") %>
-            <div class="w-full px-4">
-              <%= f.input :name, placeholder: "Nombre del producto", label: "Nombre del producto", input_html: {"x-on:input": "handleChange($event)"} %>
-              <span name="product[name]_error" class="text-sm font-bold text-red-600"/>
-            </div>
-            <div class="w-full px-4">
-              <%= f.input :description, as: :text, placeholder: "Descripción breve del producto", label: "Descripción", input_html: {"x-on:input": "handleChange($event)", "rows": "4"} %>
-              <span name="product[description]_error" class="text-sm font-bold text-red-600"/>
-            </div>
-            <div class="w-full px-4">
-              <%= f.input :price, as: :float, placeholder: "Precio del producto", label: "Precio", input_html: {"x-on:input": "handleChange($event)"} %>
-              <span name="product[price]_error" class="text-sm font-bold text-red-600"/>
-            </div>
-          </div>
-
-
-          <div class="w-full flex rounded pb-4 shadow-xl bg-white mb-4 flex-wrap">
-            <%= render Headers::Text.new(title: "Medidas de volumen", small: true, font: "small", padding_class: "px-4 py-4") %>
-            <div class="w-full flex px-8">
-              <div class="w-7/12 mr-2">
-                <%= f.input :quantity,
-                            placeholder: "Medida de volumen",
-                            label: "Medida de volumen" %>
-                <span name="product[quantity]_error" class="text-sm font-bold text-red-600"/>
-              </div>
-              <div class="w-5/12 ml-2">
-                <%= f.input :quantity_measure,
-                            collection: Product.current_measures,
-                            prompt: "Selecciona una unidad",
-                            label: "Unidad del volumen"
-                %>
-                <span name="product[quantity_measure]_error" class="text-sm font-bold text-red-600"/>
-              </div>
-            </div>
-          </div>
-
-        </div>
-        <div class="w-4/12 ml-4">
-          <div class="w-full flex flex-wrap rounded bg-white shadow-xl pb-4 mb-4 ">
-            <%= render Headers::Text.new(title: "Categorías", small: true, font: "small", padding_class: "px-4 py-4", with_background: false, with_border: true) %>
-            <div class="w-full px-4 flex">
-              <%= f.input :item_ids,
-                          as: :check_boxes,
-                          collection: @place.items,
-                          label: false,
-                          input_html: {
-                              class: "w-auto mr-4 mt-2 mb-4 cursor-pointer"
-                          },
-                          item_label_class: "w-full cursor-pointer select-none text-sm font-normal",
-                          item_wrapper_class: "w-full",
-                          wrapper_html: {
-                              class: "flex flex-wrap"
-                          }
-
-              %>
-              <span name="product[item_ids]_error" class="text-sm font-bold text-red-600"/>
-            </div>
-          </div>
-          <div class="w-full flex flex-wrap self-start rounded bg-white pb-4 shadow-xl mb-4">
-            <%= render Headers::Text.new(title: "Inventario", small: true, font: "small", padding_class: "px-4 py-4") %>
-            <div class="w-full px-4">
-              <div class="w-full">
-                <%= f.input :public_stock,
-                            placeholder: "Productos en stock",
-                            label: "Cantidad disponible" %>
-                <span name="product[public_stock]_error" class="text-sm font-bold text-red-600"/>
-              </div>
-            </div>
-            <div class="w-full px-4">
-              <div class="w-full">
-                <%= f.input :unlimited,
-                            collection: [%w[SI true], %w[NO false]],
-                            label: "Continuar vendiendo sin stock",
-                            prompt: "Selecciona una opción"
-                %>
-                <span name="product[public_stock]_error" class="text-sm font-bold text-red-600"/>
-              </div>
-            </div>
-            <div class="w-full px-4 flex">
-              <div class="w-full">
-                <%= f.input :sku,
-                            placeholder: "Código de referencia",
-                            label: "SKU" %>
-                <span name="product[public_stock]_error" class="text-sm font-bold text-red-600"/>
-              </div>
-
-            </div>
-          </div>
-        </div>
-      </div>
-
-
-      <div class="w-full flex justify-end">
-        <%= f.button :submit,
-                     data: {"disable-with": @product.new_record ? "Creando producto..." : "Actualizar producto"},
-                     value: @product.new_record ? "Crear producto" : "Actualizar producto",
-                     class: "#{main_color_button(size: "big", padding: "big", color: "dark")} mt-8"
-        %>
-      </div>
-    </div>
-
-  <% end %>
-  <script type="text/javascript" charset="utf-8">
-      function newFetch() {
-          return {
-              handleChange: function (e) {
-                  e.target.classList.remove("border-red-500");
-                  var element = document.querySelector(`[name="${e.target.name}_error"`);
-                  if (element) {
-                      element.innerHTML = "";
-                  }
-              }
-          }
-      }
-  </script>
-
+<div class="w-full flex flex-wrap py-8 mb-4 <%= border_color %>">
+  <%= render Headers::Text.new(title: "Información básica", small: true, font: "small", padding_class: "px-4 pb-8") %>
+  <div class="w-full px-4">
+    <%= f.input :name, placeholder: "Nombre del producto", label: "Nombre del producto", input_html: {"x-on:input": "handleChange($event)"} %>
+    <span name="product[name]_error" class="text-sm font-bold text-red-600"/>
+  </div>
+  <div class="w-full px-4">
+    <%= f.input :description, as: :text, placeholder: "Descripción breve del producto", label: "Descripción", input_html: {"x-on:input": "handleChange($event)", "rows": "4"} %>
+    <span name="product[description]_error" class="text-sm font-bold text-red-600"/>
+  </div>
 </div>
-<%= javascript_packs_with_chunks_tag "dashboard/products/new", 'data-turbolinks-track': "reload" %>
+<div class="w-full flex pb-4 mb-4 flex-wrap <%= border_color %>">
+  <%= render Headers::Text.new(title: "Medidas de volumen", small: true, font: "small", padding_class: "px-4 py-4") %>
+  <div class="w-full flex px-4">
+    <div class="w-7/12 mr-2">
+      <%= f.input :quantity,
+                  placeholder: "Medida de volumen",
+                  label: "Medida de volumen" %>
+      <span name="product[quantity]_error" class="text-sm font-bold text-red-600"/>
+    </div>
+    <div class="w-5/12 ml-2">
+      <%= f.input :quantity_measure,
+                  collection: Product.current_measures,
+                  prompt: "Selecciona una unidad",
+                  label: "Unidad del volumen"
+      %>
+      <span name="product[quantity_measure]_error" class="text-sm font-bold text-red-600"/>
+    </div>
+  </div>
+</div>

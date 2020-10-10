@@ -24,8 +24,7 @@ module WayddaDev
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 6.0
-      # TODO: Cambiar esto a es
-      # config.i18n.default_locale = :es
+    # config.i18n.default_locale = :es
     # config.mongoid.logger.level = Logger::INFO
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration can go into files in config/initializers

@@ -1,13 +1,13 @@
 var element = document.querySelector("#aggregate_<%=@aggregate_id %>");
 document.querySelector("#notifications").innerHTML = "";
 <% if @error %>
-document.querySelector("#notifications").innerHTML = "<%= j render Notifications::Alert.new(alert: "Ha ocurrido un error al eliminar la subvariante",kind: "error") %>";
+window.addToastify("danger", "Ha ocurrido un error al eliminar la subvariante");
 <% else %>
 if (element) {
     console.log("Se encontró elemento");
     element.parentNode.removeChild(element);
 }
-document.querySelector("#notifications").innerHTML = "<%= j render Notifications::Alert.new(alert: "Se ha eliminado la subvariante",kind: "success") %>";
+window.addToastify("primary", "Se ha eliminado la subvariante");
 <% end %>
 
 window.deleteFlashs();

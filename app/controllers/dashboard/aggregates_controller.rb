@@ -78,12 +78,15 @@ class Dashboard::AggregatesController < ApplicationController
 
   def destroy
     @aggregate_id = @aggregate.id.to_s
-
     respond_to do |format|
       begin
         @aggregate.destroy
         @error = false
-        format.js
+        if @aggregate_category.aggregates.length <= 0
+          format.html { redirect_to dashboard_product_edit_variant_path(@product, @aggregate_category), alert: "Se han eliminado todas las subvariantes" }
+        else
+          format.js
+        end
       rescue
         @error = true
         format.js
@@ -111,7 +114,7 @@ class Dashboard::AggregatesController < ApplicationController
   end
 
   def set_product
-    @product = @place.products.find_by(slug: params["product_id"])
+    @product = @place.products.find(params["product_id"])
     not_found if @product.nil?
   end
 

@@ -3,17 +3,17 @@
     <%= render EmptyRecords.new(title: "Aún no has agregado ninguna variante") %>
   <% else %>
     <div class="w-full flex px-3 py-2 border-b border-gray-200 border-t gap-x-4">
-      <div class="w-6/12">
+      <div class="w-5/12">
         <span class="text-xs text-gray-700 font-normal uppercase">Nombre</span>
       </div>
 
-      <div class="w-1/12">
+      <div class="w-2/12 text-center">
         <span class="text-xs text-gray-700 font-normal uppercase">Requerido</span>
       </div>
-      <div class="w-1/12">
+      <div class="w-2/12 text-center">
         <span class="text-xs text-gray-700 font-normal uppercase">Múltiple</span>
       </div>
-      <div class="w-3/12">
+      <div class="w-3/12 text-center">
         <span class="text-xs text-gray-700 font-normal uppercase">Subvariantes</span>
       </div>
     </div>
@@ -21,17 +21,17 @@
       <% @product.aggregate_categories.each_with_index do |aggregate_category, i| %>
         <%= link_to dashboard_product_aggregate_category_path(@product, aggregate_category), class: "w-full flex hover:bg-gray-200" do %>
           <div class="w-full flex px-3 py-4 gap-x-4 items-center">
-            <div class="w-6/12">
+            <div class="w-5/12">
               <span class="font-medium text-sm truncate"><%= aggregate_category.name %></span>
               <% if aggregate_category.aggregates.length <= 0 %>
                 <br>
                 <small class="text-xs text-gray-600 italic">No se muestra (sin subvariantes)</small>
               <% end %>
             </div>
-<!--            <div class="w-4/12">-->
-<!--              <span class="text-sm truncate <%#= aggregate_category.description.empty? ? "text-gray-500" : "" %>"><%#= aggregate_category.description.empty? ? "—" : aggregate_category.description %></span>-->
-<!--            </div>-->
-            <div class="w-1/12">
+            <!--            <div class="w-4/12">-->
+            <!--              <span class="text-sm truncate <%#= aggregate_category.description.empty? ? "text-gray-500" : "" %>"><%#= aggregate_category.description.empty? ? "—" : aggregate_category.description %></span>-->
+            <!--            </div>-->
+            <div class="w-2/12 text-center flex justify-center">
               <% if aggregate_category.required %>
                 <img
                   class="h-5 w-5"
@@ -45,7 +45,7 @@
                   alt="svgImg" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHg9IjBweCIgeT0iMHB4Igp3aWR0aD0iNjQiIGhlaWdodD0iNjQiCnZpZXdCb3g9IjAgMCA1MTIgNTEyIgpzdHlsZT0iIGZpbGw6IzAwMDAwMDsiPjxwYXRoIGZpbGw9IiNFMDRGNUYiIGQ9Ik01MDQuMSwyNTZDNTA0LjEsMTE5LDM5Myw3LjksMjU2LDcuOUMxMTksNy45LDcuOSwxMTksNy45LDI1NkM3LjksMzkzLDExOSw1MDQuMSwyNTYsNTA0LjFDMzkzLDUwNC4xLDUwNC4xLDM5Myw1MDQuMSwyNTZ6Ij48L3BhdGg+PHBhdGggZmlsbD0iI0ZGRiIgZD0iTTI4NSwyNTZsNzIuNS04NC4yYzcuOS05LjIsNi45LTIzLTIuMy0zMWMtOS4yLTcuOS0yMy02LjktMzAuOSwyLjNMMjU2LDIyMi40bC02OC4yLTc5LjJjLTcuOS05LjItMjEuOC0xMC4yLTMxLTIuM2MtOS4yLDcuOS0xMC4yLDIxLjgtMi4zLDMxTDIyNywyNTZsLTcyLjUsODQuMmMtNy45LDkuMi02LjksMjMsMi4zLDMxYzQuMSwzLjYsOS4yLDUuMywxNC4zLDUuM2M2LjIsMCwxMi4zLTIuNiwxNi42LTcuNmw2OC4yLTc5LjJsNjguMiw3OS4yYzQuMyw1LDEwLjUsNy42LDE2LjYsNy42YzUuMSwwLDEwLjItMS43LDE0LjMtNS4zYzkuMi03LjksMTAuMi0yMS44LDIuMy0zMUwyODUsMjU2eiI+PC9wYXRoPjwvc3ZnPg=="/>
               <% end %>
             </div>
-            <div class="w-1/12">
+            <div class="w-2/12 text-center flex justify-center">
               <% if aggregate_category.multiple_selection %>
                 <img
                   class="h-5 w-5"
@@ -59,8 +59,8 @@
                   alt="svgImg" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHg9IjBweCIgeT0iMHB4Igp3aWR0aD0iNjQiIGhlaWdodD0iNjQiCnZpZXdCb3g9IjAgMCA1MTIgNTEyIgpzdHlsZT0iIGZpbGw6IzAwMDAwMDsiPjxwYXRoIGZpbGw9IiNFMDRGNUYiIGQ9Ik01MDQuMSwyNTZDNTA0LjEsMTE5LDM5Myw3LjksMjU2LDcuOUMxMTksNy45LDcuOSwxMTksNy45LDI1NkM3LjksMzkzLDExOSw1MDQuMSwyNTYsNTA0LjFDMzkzLDUwNC4xLDUwNC4xLDM5Myw1MDQuMSwyNTZ6Ij48L3BhdGg+PHBhdGggZmlsbD0iI0ZGRiIgZD0iTTI4NSwyNTZsNzIuNS04NC4yYzcuOS05LjIsNi45LTIzLTIuMy0zMWMtOS4yLTcuOS0yMy02LjktMzAuOSwyLjNMMjU2LDIyMi40bC02OC4yLTc5LjJjLTcuOS05LjItMjEuOC0xMC4yLTMxLTIuM2MtOS4yLDcuOS0xMC4yLDIxLjgtMi4zLDMxTDIyNywyNTZsLTcyLjUsODQuMmMtNy45LDkuMi02LjksMjMsMi4zLDMxYzQuMSwzLjYsOS4yLDUuMywxNC4zLDUuM2M2LjIsMCwxMi4zLTIuNiwxNi42LTcuNmw2OC4yLTc5LjJsNjguMiw3OS4yYzQuMyw1LDEwLjUsNy42LDE2LjYsNy42YzUuMSwwLDEwLjItMS43LDE0LjMtNS4zYzkuMi03LjksMTAuMi0yMS44LDIuMy0zMUwyODUsMjU2eiI+PC9wYXRoPjwvc3ZnPg=="/>
               <% end %>
             </div>
-            <div class="w-3/12">
-              <span class="text-sm truncate"><%= helpers.pluralize(aggregate_category.aggregates.length, "subvariante", plural: "subvariantes") %></span>
+            <div class="w-3/12  flex justify-center">
+              <span class="text-sm truncate text-gray-700"><%= helpers.pluralize(aggregate_category.aggregates.length, "subvariante", plural: "subvariantes") %></span>
             </div>
           </div>
         <% end %>

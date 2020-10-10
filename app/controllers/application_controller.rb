@@ -6,6 +6,7 @@ class ApplicationController < ActionController::Base
   before_action :set_language
   before_action :set_continue
   before_action :current_or_guest_user
+  before_action :set_raven_context
   protect_from_forgery
   # before_action :set_default_locations
 
@@ -143,6 +144,11 @@ class ApplicationController < ActionController::Base
   end
 
   private
+
+  def set_raven_context
+    Raven.user_context(id: current_or_guest_user.id.to_s) # or anything else in session
+  end
+
 
   def set_current_address
     if user_signed_in?

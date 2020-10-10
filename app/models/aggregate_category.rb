@@ -11,7 +11,7 @@ class AggregateCategory
   embeds_many :aggregates, cascade_callbacks: true
   embedded_in :product, :inverse_of => :aggregate_category
 
-  accepts_nested_attributes_for :aggregates #, allow_destroy: true, :reject_if => :all_blank
+  accepts_nested_attributes_for :aggregates, allow_destroy: true, :reject_if => :all_blank
 
   # Validations
   validates :name, presence: true, length: {in: 2..40}

@@ -124,8 +124,6 @@ window.deleteFlashs = function deleteFlashNotice(custom_element = "#flash-notice
 }
 
 
-
-
 function getColor(color) {
     switch (color) {
         case "primary":
@@ -161,8 +159,36 @@ window.addToastify = function addToastify(color = "primary", text = "") {
         className: "w-full flex px-4 rounded font-medium text-sm py-3 border-2 border-black shadow-main"
     }).showToast();
 }
+Turbolinks.scroll = {};
+
+window.persistScroll = function (more = 0) {
+    console.log("PERSISTIENDO A ", document.scrollingElement.scrollTop)
+    Turbolinks.scroll['top'] = document.scrollingElement.scrollTop;
+};
 
 document.addEventListener("turbolinks:load", () => {
+    const elements = document.querySelectorAll("[data-turbolinks-scroll]");
+
+    elements.forEach(function (element) {
+
+        element.addEventListener("click", () => {
+            console.log("Click para", document.scrollingElement.scrollTop)
+            Turbolinks.scroll['top'] = document.scrollingElement.scrollTop;
+        });
+
+        element.addEventListener("submit", () => {
+            Turbolinks.scroll['top'] = document.scrollingElement.scrollTop;
+        });
+
+    });
+
+    if (Turbolinks.scroll['top']) {
+        console.log("Scroll to:", Turbolinks.scroll["top"]);
+        document.scrollingElement.scrollTo(0, Turbolinks.scroll['top']);
+    }
+
+    Turbolinks.scroll = {};
+
     window.Toastify = Toastify;
 
     function logElementEvent(eventName, element) {

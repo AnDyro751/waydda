@@ -1,22 +1,20 @@
-window.scrollTo(0, 0);
+if (window.current_modal.isOpen) {
+    window.current_modal.close()
+}
 document.querySelector("#notifications").innerHTML = "";
 <% if @aggregate_category.errors.any? %>
+window.scrollTo(0, 0);
 document.querySelector("#notifications").innerHTML = "<%= j render Notifications::Alert.new(alert: "Se han encontrado errores al crear la variante",kind: "error") %>";
-<% @aggregate_category.errors.each do |keyE,error| %>
-var element = document.querySelector("#aggregate_category_<%= keyE %>");
-if (element) {
-    element.classList.add("border-red-500");
-    element.classList.add("border-2");
-    var spanElement = document.querySelector('[name="aggregate_category[<%=keyE %>]_error"]')
-    if (spanElement) {
-        spanElement.innerHTML = "<%= error %>";
-    } else {
-        var newNotification = document.createElement("div")
-        newNotification.innerHTML = "<%= j render Notifications::Alert.new(alert: "#{keyE} #{error}" ,kind: "error") %>";
-        document.querySelector("#notifications").appendChild(newNotification);
-    }
-}
+<% @aggregate_category.errors.full_messages.each do |message| %>
+var newNotification = document.createElement("div")
+newNotification.innerHTML = "<%= j render Notifications::Alert.new(alert: message ,kind: "error") %>";
+document.querySelector("#notifications").appendChild(newNotification);
 <% end %>
+<% else %>
+window.persistScroll();
+Turbolinks.visit("<%= dashboard_product_edit_variant_path(@product,@aggregate_category) %>")
+window.addToastify("primary", "Se ha creado la variante")
+//document.querySelector("#list_variants").innerHTML = "";
 <% end %>
 
 window.deleteFlashs();
