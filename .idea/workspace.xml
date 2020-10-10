@@ -21,14 +21,7 @@
   <component name="ChangeListManager">
     <list default="true" id="b89cb0fb-b680-4bb9-8ae0-f4b41721cfb9" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/components/dashboard/aggregate_categories/List/simple.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/components/dashboard/aggregate_categories/List/simple.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/components/dashboard/products/layout.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/components/dashboard/products/layout.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/dashboard/aggregate_categories_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/dashboard/aggregate_categories_controller.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/dashboard/products_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/dashboard/products_controller.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/product.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/product.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/dashboard/aggregate_categories/_aggregate_fields.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/dashboard/aggregate_categories/_aggregate_fields.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/dashboard/aggregate_categories/show.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/dashboard/aggregate_categories/show.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/dashboard/products/pages/_variants.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/dashboard/products/pages/_variants.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/dashboard/products/edit.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/dashboard/products/edit.html.erb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -785,6 +778,7 @@
       <workItem from="1602118111911" duration="5712000" />
       <workItem from="1602128790083" duration="2854000" />
       <workItem from="1602264524655" duration="14829000" />
+      <workItem from="1602297453008" duration="1071000" />
     </task>
     <task id="LOCAL-00259" summary="Feat(Product): Agregamos los breadcrumbs">
       <created>1601498465995</created>
@@ -1315,13 +1309,13 @@
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="628" y="298" key="com.jetbrains.plugins.remotesdk.ui.RemoteMappingsConfiguration/0.0.1366.768@0.0.1366.768" timestamp="1598729856431" />
-    <state x="390" y="117" width="791" height="624" key="find.popup" timestamp="1602289230882">
+    <state x="390" y="117" width="791" height="624" key="find.popup" timestamp="1602298492260">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="1914" y="96" width="823" height="878" key="find.popup/0.0.1366.768/1366.-69.1920.1080@1366.-69.1920.1080" timestamp="1597716285449" />
     <state x="1754" y="117" width="583" height="624" key="find.popup/0.0.1366.768/1366.0.1360.768@1366.0.1360.768" timestamp="1598981376119" />
     <state x="1914" y="165" width="823" height="878" key="find.popup/0.0.1366.768/1366.0.1920.1080@1366.0.1920.1080" timestamp="1599260651210" />
-    <state x="390" y="117" width="791" height="624" key="find.popup/0.0.1366.768@0.0.1366.768" timestamp="1602289230882" />
+    <state x="390" y="117" width="791" height="624" key="find.popup/0.0.1366.768@0.0.1366.768" timestamp="1602298492260" />
     <state x="549" y="254" width="250" height="278" key="jetbrains.javascript.buildTools.run-task-popup" timestamp="1597946321130">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
