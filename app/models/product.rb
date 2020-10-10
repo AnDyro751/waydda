@@ -27,6 +27,7 @@ class Product
   field :bar_code, type: String, default: ""
   field :quantity, type: String
   field :quantity_measure, type: String, default: "pzas"
+  field :weight, type: Float, default: 0.0
   # TODO: Agregar la cantidad publica y la privada
 
   # relations
