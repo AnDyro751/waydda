@@ -82,7 +82,11 @@ class Dashboard::AggregatesController < ApplicationController
       begin
         @aggregate.destroy
         @error = false
-        format.js
+        if @aggregate_category.aggregates.length <= 0
+          format.html { redirect_to dashboard_product_edit_variant_path(@product, @aggregate_category), alert: "Se han eliminado todas las subvariantes" }
+        else
+          format.js
+        end
       rescue
         @error = true
         format.js

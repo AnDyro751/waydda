@@ -1,5 +1,5 @@
 <div
-  id="<%= agg.object.new_record ? "NEW_ID" : "aggregate_#{agg.object.id}" %>" class="w-full flex items-center md:flex-no-wrap flex-wrap px-4">
+  id="<%= agg.object.new_record ? "" : "aggregate_#{agg.object.id}" %>" class="aggregate_record w-full flex items-center md:flex-no-wrap flex-wrap px-4">
   <% unless agg.object.new_record %>
     <%= agg.input :id, as: :hidden, input_html: {value: agg.object.id} %>
   <% end %>
