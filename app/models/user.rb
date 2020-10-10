@@ -156,8 +156,8 @@ class User
   def assign_default_role
     puts "CREANDO USAURIO"
     add_role(:customer) if roles.blank?
-    CreateStripeCustomerJob.perform_later(self)
     unless self.phone.blank?
+      CreateStripeCustomerJob.perform_later(self)
       puts "ENVIANDO 2"
       self.create_and_send_verification_code
     end
