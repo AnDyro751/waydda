@@ -25,8 +25,8 @@
               <%#= aggc.text_field :name %>
               <%= aggc.input :name %>
               <%= aggc.input :id, as: :hidden, input_html: {value: @aggregate_category.id} %>
-              <%#= aggc.input :required, as: :boolean, label: "Se requiere la selección del cliente", input_html: {class: "mr-5", required: false}, required: false, wrapper_html: {class: "my-5"} %>
-              <%#= aggc.input :multiple_selection, as: :boolean, label: "Selección multiple", input_html: {class: "mr-5", required: false}, required: false, wrapper_html: {class: "my-5"} %>
+              <%= aggc.input :required, as: :boolean, label: "Se requiere la selección del cliente", input_html: {class: "mr-5", required: false}, required: false, wrapper_html: {class: "my-5"} %>
+              <%= aggc.input :multiple_selection, as: :boolean, label: "Selección multiple", input_html: {class: "mr-5", required: false}, required: false, wrapper_html: {class: "my-5"} %>
               <div>
                 <template>
                   <%= aggc.simple_fields_for :aggregates, Aggregate.new, child_index: "NEW_RECORD" do |agg| %>
@@ -36,11 +36,12 @@
                 </template>
                 <a @click="addSubvariant($event)" href="#">Agregar selección</a>
                 <div class="" id="all-variants">
-                  <% @aggregate_category.aggregates.each do |aggregate| %>
-                    <p>
-                      <%= aggregate.name %>
-                    </p>
-                    <%# end %>
+                  <% @aggregate_category.aggregates.select { |agg| !agg.new_record }.each do |aggregate| %>
+                    <% aggc.simple_fields_for :aggregates, aggregate do |agg| %>
+                      <h3 class="my-4 font-medium text-lg">Subvariantes</h3>
+                      <%= agg.input :id, as: :hidden, input_html: {value: aggregate.id} %>
+                      <%= render "dashboard/aggregate_categories/aggregate_fields", agg: agg %>
+                    <% end %>
                   <% end %>
                 </div>
               </div>
