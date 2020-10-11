@@ -1,4 +1,6 @@
-<div class="w-full py-3 fixed top-0 left-0 right-0 z-50 bg-white flex px-4 justify-between items-center">
+<div
+  x-data="headerSimple()"
+  class="w-full py-3 fixed top-0 left-0 right-0 z-50 bg-white flex px-4 justify-between items-center">
   <div class="w-1/12">
     <div class="w-full flex">
       <%= link_to my_place_path, title: "Waydda index dashboard" do %>
@@ -10,12 +12,38 @@
       <% end %>
     </div>
   </div>
-  <div class="w-1/12 flex justify-end">
+  <div
+    class="w-2/12 flex relative justify-end">
+    <div
+      :class="{'hidden' : !isOpen}"
+      class="rounded absolute border-gray-200 top-0 right-0 hidden left-0 w-full shadow-menu bg-white mt-12 flex flex-wrap">
+      <%= link_to my_profile_path, class: "w-full border-b border-gray-200 px-3 cursor-pointer text-gray-700 hover:text-gray-900 hover:bg-main-gray py-3" do %>
+        <span class="font-normal">
+          Mi perfil
+        </span>
+      <% end %>
+      <%= link_to destroy_user_session_path, method: :delete, class: "w-full text-gray-700 px-3 cursor-pointer hover:text-gray-900 hover:bg-main-gray py-3" do %>
+        <span class="font-normal">
+          Cerrar sesión
+        </span>
+      <% end %>
+    </div>
     <img
-      class="h-10 cursor-pointer w-10 lazy"
+      @click="handleToggle()"
+      class="h-8 w-8 lazy cursor-pointer"
       data-src="<%= helpers.get_image_url(50, 50, "utils/icons8-test-account-96.png") %>"
       src="<%= helpers.get_image_url(5, 5, "utils/icons8-test-account-96.png") %>"
       alt="Waydda profile picture"
     >
   </div>
+  <script type="text/javascript" charset="utf-8">
+      function headerSimple() {
+          return {
+              isOpen: false,
+              handleToggle: function () {
+                  this.isOpen = !this.isOpen;
+              }
+          }
+      }
+  </script>
 </div>
