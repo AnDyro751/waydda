@@ -48,6 +48,7 @@ class Dashboard::ProductsController < ApplicationController
 
   def create
     @product = Product.new(product_params)
+    @product.status = params["product"]["status"] === "0" ? "inactive" : "active"
     @product.place = @place
 
     respond_to do |format|
@@ -55,7 +56,7 @@ class Dashboard::ProductsController < ApplicationController
         if params["product"] and params["product"]["item_ids"].present?
           Product.update_recent_products(item_ids: params["product"]["item_ids"], product: @product, action: "create")
         end
-        format.html { redirect_to dashboard_product_path(@product), alert: 'Se ha creado el producto' }
+        format.html { redirect_to edit_dashboard_product_path(@product), alert: 'Se ha creado el producto' }
       else
         format.js
       end
@@ -64,9 +65,12 @@ class Dashboard::ProductsController < ApplicationController
 
   def update
     respond_to do |format|
-      old_items = @product.item_ids.map(&:to_s)
+      @typo = params["product"]["typo"].present?
+      params["product"]["status"] = params["product"]["status"] === "on" ? "active" : "inactive"
+      old_items = []
       new_items = []
       if params["product"]["item_ids"].present?
+        old_items = @product.item_ids.map(&:to_s)
         new_items = params["product"]["item_ids"].select { |ii| ii.length > 0 }
         old_items.each do |ii|
           new_items.delete(ii)
@@ -76,6 +80,7 @@ class Dashboard::ProductsController < ApplicationController
         end
       end
       if @product.update(product_params)
+        puts "---------------#{new_items.length}----------#{old_items} ----------- #{params["product"]["item_ids"]}"
         if new_items.length > 0 # Se agregaron nuevos elementos
           Product.update_recent_products(item_ids: new_items, product: @product, action: "create")
         end
@@ -135,6 +140,6 @@ class Dashboard::ProductsController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def product_params
-    params.require(:product).permit(:name, :description, :price, :loweight, :aggregates_required, :sku, :max_aggregates, :public_stock, :unlimited, :quantity, :quantity_measure, item_ids: [], aggregate_categories_attributes: [:name, :id, :required, :multiple_selection, aggregates_attributes: [:name, :price, :sku, :public_stock, :quantity, :unlimited, :id]])
+    params.require(:product).permit(:name, :description, :price, :status, :weight, :aggregates_required, :sku, :max_aggregates, :public_stock, :unlimited, :quantity, :quantity_measure, item_ids: [], aggregate_categories_attributes: [:name, :id, :required, :multiple_selection, aggregates_attributes: [:name, :price, :sku, :public_stock, :quantity, :unlimited, :id]])
   end
 end

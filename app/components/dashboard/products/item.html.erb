@@ -1,0 +1,49 @@
+<%= simple_form_for(@product, url: dashboard_product_path(@product), remote: true, html: {class: "w-full grid grid-cols-12 p-4 hover:bg-gray-200 #{@product.inactive? ? "opacity-50" : ""}"}) do |f| %>
+  <%= f.input :typo, as: :hidden, input_html: {value: "list"} %>
+  <div class="col-span-1">
+    <img
+      class="lazy rounded h-16 w-16 bg-blue-200"
+      data-src="<%= helpers.get_image_url(50, 50, @product.photo, "cover") %>"
+      src="<%= helpers.get_image_url(10, 10, @product.photo, "cover") %>"
+      alt="<%= @product.name %> image"
+    >
+  </div>
+  <div class="col-span-11">
+    <div class="grid grid-cols-12">
+      <div class="col-span-8">
+        <%= link_to dashboard_product_path(@product) do %>
+          <h4
+            title="Visitar a <%= @product.name %>"
+            class="font-medium"><%= @product.name %>
+            <span class="text-gray-600 ml-4 font-normal text-sm"><%= @product.sku %></span>
+          </h4>
+        <% end %>
+      </div>
+      <div class="col-span-4 text-right">
+        <h4 class="text-lg font-bold"><%= helpers.number_to_currency(@product.price) %></h4>
+      </div>
+    </div>
+    <div class="flex items-center mt-2">
+      <%= f.input :status, as: :boolean, label: false, input_html: {class: "hidden"} %>
+      <label class="switch">
+        <input
+          name="product[status]"
+          type="checkbox"
+          onchange="Rails.fire(this.form, 'submit')"
+          <%= @product.status === "active" ? "checked" : true %>
+        >
+        <span class="slider round"></span>
+      </label>
+      <% if @product.active? %>
+        <span class="text-sm font-normal text-green-700 ml-2">Activado</span>
+      <% else %>
+        <span class="text-sm font-normal text-gray-800 ml-2">Desactivado</span>
+      <% end %>
+    </div>
+    <div class="mt-2">
+      <%= link_to dashboard_product_path(@product) do %>
+        <h5 class="text-sm"><%= @product.aggregate_categories.length %> variantes</h5>
+      <% end %>
+    </div>
+  </div>
+<% end %>

@@ -1,7 +1,8 @@
-<div class="w-full flex">
+<div class="w-full grid grid-cols-12 divide-y divide-gray-300 border-l border-r border-gray-300 border-b">
   <% @products.each do |product| %>
-    <div class="w-3/12 gap-4">
-      <%= render Products::Item.new(product: product, in_dashboard: @in_dashboard, place: @place) %>
+    <div class="col-span-12" >
+      <%= render Dashboard::Products::Item.new(product: product, place: @place) %>
     </div>
+    <%#= render Products::Item.new(product: product, in_dashboard: @in_dashboard, place: @place) %>
   <% end %>
 </div>
