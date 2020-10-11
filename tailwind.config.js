@@ -41,7 +41,8 @@ module.exports = {
                 main: "rgb(0, 0, 0) 3px 3px 0px",
                 "product-modal": "rgba(45, 22, 20, 0.08) -15px 0px 10px -10px",
                 "top": "5px 0 20px rgba(0,0,0,0.2)",
-                "input": "rgba(209, 202, 216, 0.5) 0px 0px 0px 3px"
+                "input": "rgba(209, 202, 216, 0.5) 0px 0px 0px 3px",
+                "menu": "0 2px 16px rgba(13,12,34,.1)"
             },
             inset: {
                 "simple": "1px",

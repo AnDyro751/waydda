@@ -50,10 +50,7 @@
       <% end %>
       <div class="w-auto flex justify-center">
         <% if user_signed_in? %>
-          <%= link_to my_profile_path, class: "rounded-full select-none" do %>
-            <!--            TODO: Agregar el dropdown-->
-            <img class="h-8 shadow-lg rounded-full" src="<%= get_image_url(50, 50, "utils/icons8-test-account-96.png") %>" alt="Waydda default profile photo">
-          <% end %>
+          <%= render "dashboard/utils/toggle", mt: "big" %>
         <% else %>
           <%= link_to "Inicia sesión", new_user_session_path, class: main_color_button(color: "primary") %>
         <% end %>

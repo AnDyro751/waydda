@@ -1,0 +1,31 @@
+<div class="w-full flex justify-end"
+     x-data="headerSimple()"
+>
+  <div
+    :class="{'hidden' : !isOpen}"
+    class="rounded absolute border-gray-200 top-0 right-0 hidden mr-6 w-2/12 shadow-menu bg-white <%= mt === "big" ? "mt-20" : "mt-16" %> flex flex-wrap">
+    <%= link_to my_profile_path, class: "w-full border-b border-gray-200 px-3 cursor-pointer text-gray-600 hover:text-gray-900 hover:bg-main-gray py-3" do %>
+      Mi perfil
+    <% end %>
+    <%= link_to destroy_user_session_path, method: :delete, class: "w-full text-gray-600 px-3 cursor-pointer hover:text-gray-900 hover:bg-main-gray py-3" do %>
+      Cerrar sesión
+    <% end %>
+  </div>
+  <img
+    @click="handleToggle()"
+    class="h-8 w-8 lazy cursor-pointer"
+    data-src="<%= get_image_url(50, 50, "utils/icons8-test-account-96.png") %>"
+    src="<%= get_image_url(5, 5, "utils/icons8-test-account-96.png") %>"
+    alt="Waydda profile picture"
+  >
+  <script type="text/javascript" charset="utf-8">
+      function headerSimple() {
+          return {
+              isOpen: false,
+              handleToggle: function () {
+                  this.isOpen = !this.isOpen;
+              }
+          }
+      }
+  </script>
+</div>

@@ -1,0 +1,19 @@
+<div
+  class="w-full py-3 fixed top-0 left-0 right-0 z-50 bg-white flex px-4 justify-between items-center">
+  <div class="w-1/12">
+    <div class="w-full flex">
+      <%= link_to my_place_path, title: "Waydda index dashboard" do %>
+        <img
+          draggable="false"
+          src="<%= helpers.get_image_url(20, 100, "utils/w-logo-5.png") %>"
+          class="h-10"
+          />
+      <% end %>
+    </div>
+  </div>
+  <div
+    class="w-2/12 flex justify-end">
+    <%= render "dashboard/utils/toggle", mt: "small" %>
+  </div>
+
+</div>

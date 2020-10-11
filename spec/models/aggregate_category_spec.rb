@@ -21,11 +21,28 @@ RSpec.describe AggregateCategory, type: :model do
     let(:aggregate_category) { product.aggregate_categories.new(attributes_for :aggregate_category, product: product) }
 
     describe "save aggregate category" do
+
       it { expect(aggregate_category.save).to eq(true) }
       it { expect(aggregate_category.name).to eq("Aggregate Category") }
       it { expect(aggregate_category.required).to eq(true) }
       it { expect(aggregate_category.multiple_selection).to eq(true) }
     end
-
   end
+
+  describe "model methods" do
+    let(:user) { FactoryBot.create(:user) }
+    let(:place) { FactoryBot.create(:free_valid_place, user: user) }
+    let(:product) { FactoryBot.create(:product, place: place) }
+    before(:each) do
+      product.aggregate_categories.new(attributes_for :aggregate_category)
+      product.aggregate_categories.new(attributes_for :aggregate_category)
+    end
+    it "should be return 2 aggregate_categories in product relation" do
+      expect(product.aggregate_categories.size).to eq(2)
+    end
+    it 'should be return correct record' do
+      expect(AggregateCategory.get_record(id: product.aggregate_categories.last.id, items: product.aggregate_categories)).to eq(product.aggregate_categories.last)
+    end
+  end
+
 end

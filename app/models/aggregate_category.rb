@@ -95,18 +95,10 @@ class AggregateCategory
   def self.get_record(id:, items:)
     current_record = nil
     items.to_a.each do |it|
-      logger.warn "----ITEM #{it.id.to_s} --- #{id}"
-      current_record = it if it.id.to_s == id
+      logger.warn "----ITEM #{it.id.to_s == id.to_s} --#{it.id.to_s}-- #{id}"
+      current_record = it if it.id.to_s == id.to_s
     end
     current_record
-  end
-
-  def self.get_records_by_ids(ids:, product:)
-    new_records = []
-    # aggregate_ids = AggregateCategory.get_ids(items: product.aggregate_categories)
-
-    product.aggregate_categories.select { |aggc| aggc }
-
   end
 
 

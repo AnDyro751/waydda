@@ -10,6 +10,8 @@ class Dashboard::PlacesController < ApplicationController
   Stripe.api_key = 'sk_test_51H9CZeBOcPJ0nbHctTzfQZhFXBnn8j05e0xqJ5RSVz5Bum72LsvmQKIecJnsoHISEg0jUWtKjERYGeCAEWiIAujP00Fae9MiKm'
 
   def new
+    set_meta_tags title: "Crear empresa | Panel de control",
+                  description: "Crear empresa | Panel de control"
     @place = current_user.places.first
     if @place.nil?
       @place = Place.new
@@ -60,9 +62,8 @@ class Dashboard::PlacesController < ApplicationController
 
 
   def my_place
-    if @place.nil?
-      redirect_to new_dashboard_place_path, alert: "Crea una empresa para continuar"
-    end
+    set_meta_tags title: "#{@place.name} | Panel de control",
+                  description: "#{@place.name} | Panel de control"
     @products = @place.products.where(:last_viewed.gte => (Date.today - 30)).paginate(page: params[:page], per_page: 20)
     @orders = Order.where(place: @place, status: "pending")
   end
