@@ -20,9 +20,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b89cb0fb-b680-4bb9-8ae0-f4b41721cfb9" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/app/views/dashboard/utils/_toggle.html.erb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/components/dashboard/Header/simple.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/components/dashboard/Header/simple.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tailwind.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/tailwind.config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/dashboard/places_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/dashboard/places_controller.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/utils/Headers/_simple.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/utils/Headers/_simple.html.erb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -107,7 +109,7 @@
     <property name="js.buildTools.grunt.grunt-cli.package" value="" />
     <property name="js.buildTools.gulp.gulp_package_dir" value="" />
     <property name="last_directory_selection" value="$PROJECT_DIR$/spec" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/app/components/dashboard/products" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/app/views/dashboard/utils" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -121,6 +123,7 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/app/views/dashboard/utils" />
       <recent name="$PROJECT_DIR$/app/components/dashboard/products" />
       <recent name="\\wsl$\Ubuntu-18.04\home\andyro\Code\RB\waydda\app\views\dashboard\settings" />
       <recent name="\\wsl$\Ubuntu-18.04\home\andyro\Code\RB\waydda\app\javascript\packs\css" />
@@ -781,14 +784,7 @@
       <workItem from="1602264524655" duration="14829000" />
       <workItem from="1602297453008" duration="8646000" />
       <workItem from="1602364401165" duration="17117000" />
-      <workItem from="1602456135891" duration="2094000" />
-    </task>
-    <task id="LOCAL-00273" summary="Feat(Dashboard): Vamos a cambiar de select a checkbox">
-      <created>1601748320801</created>
-      <option name="number" value="00273" />
-      <option name="presentableId" value="LOCAL-00273" />
-      <option name="project" value="LOCAL" />
-      <updated>1601748320801</updated>
+      <workItem from="1602456135891" duration="3435000" />
     </task>
     <task id="LOCAL-00274" summary="Feat(Dashboard): Cambio de select a checkbox">
       <created>1601748332556</created>
@@ -1126,7 +1122,14 @@
       <option name="project" value="LOCAL" />
       <updated>1602456843451</updated>
     </task>
-    <option name="localTasksCounter" value="322" />
+    <task id="LOCAL-00322" summary="feat(Dashboard): Creamos un pequeño menú para cerrar sesión o para acceder a mi perfil">
+      <created>1602458265548</created>
+      <option name="number" value="00322" />
+      <option name="presentableId" value="LOCAL-00322" />
+      <option name="project" value="LOCAL" />
+      <updated>1602458265548</updated>
+    </task>
+    <option name="localTasksCounter" value="323" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -1147,7 +1150,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="feat(Dashboard): Agregamos un border color helper para poder usar el color blanco en todo el dashboard.html.erb" />
     <MESSAGE value="feat(Dashboard): Añadimos las variantes a la vista, vamos a cambiar la forma de listarlas" />
     <MESSAGE value="feat(Dashboard): Cambiamos la estructura del layout para poder aceptar el full page o un min page" />
     <MESSAGE value="feat(Dashboard): Mostramos la subvariante en un menu con un sidebar" />
@@ -1172,7 +1174,8 @@
     <MESSAGE value="test(AggregateCategory): aggregate_category.rb tests" />
     <MESSAGE value="feat(Dashboard): Init dashboard header menu" />
     <MESSAGE value="feat(Dashboard): Create gray design in session" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat(Dashboard): Create gray design in session" />
+    <MESSAGE value="feat(Dashboard): Creamos un pequeño menú para cerrar sesión o para acceder a mi perfil" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat(Dashboard): Creamos un pequeño menú para cerrar sesión o para acceder a mi perfil" />
   </component>
   <component name="WindowStateProjectService">
     <state x="392" y="0" key="#All_specs_in_spec:_waydda" timestamp="1598730457189">
@@ -1215,14 +1218,14 @@
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="491" y="102" width="374" height="557" key="#com.intellij.ide.util.MemberChooser/0.0.1366.768@0.0.1366.768" timestamp="1601746308565" />
-    <state x="261" y="0" width="834" height="683" key="CommitChangelistDialog2" timestamp="1602456842145">
+    <state x="261" y="0" width="834" height="683" key="CommitChangelistDialog2" timestamp="1602458265301">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state x="261" y="0" width="834" height="683" key="CommitChangelistDialog2/0.0.1366.768@0.0.1366.768" timestamp="1602456842145" />
-    <state x="255" y="248" width="424" height="479" key="FileChooserDialogImpl" timestamp="1602095350030">
+    <state x="261" y="0" width="834" height="683" key="CommitChangelistDialog2/0.0.1366.768@0.0.1366.768" timestamp="1602458265301" />
+    <state x="255" y="248" width="424" height="479" key="FileChooserDialogImpl" timestamp="1602458482165">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state x="255" y="248" width="424" height="479" key="FileChooserDialogImpl/0.0.1366.768@0.0.1366.768" timestamp="1602095350030" />
+    <state x="255" y="248" width="424" height="479" key="FileChooserDialogImpl/0.0.1366.768@0.0.1366.768" timestamp="1602458482165" />
     <state width="1324" height="222" key="GridCell.Tab.0.bottom" timestamp="1602452937616">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
@@ -1312,13 +1315,13 @@
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="628" y="298" key="com.jetbrains.plugins.remotesdk.ui.RemoteMappingsConfiguration/0.0.1366.768@0.0.1366.768" timestamp="1598729856431" />
-    <state x="390" y="117" width="791" height="624" key="find.popup" timestamp="1602458170729">
+    <state x="390" y="117" width="791" height="624" key="find.popup" timestamp="1602459099858">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="1914" y="96" width="823" height="878" key="find.popup/0.0.1366.768/1366.-69.1920.1080@1366.-69.1920.1080" timestamp="1597716285449" />
     <state x="1754" y="117" width="583" height="624" key="find.popup/0.0.1366.768/1366.0.1360.768@1366.0.1360.768" timestamp="1598981376119" />
     <state x="1914" y="165" width="823" height="878" key="find.popup/0.0.1366.768/1366.0.1920.1080@1366.0.1920.1080" timestamp="1599260651210" />
-    <state x="390" y="117" width="791" height="624" key="find.popup/0.0.1366.768@0.0.1366.768" timestamp="1602458170729" />
+    <state x="390" y="117" width="791" height="624" key="find.popup/0.0.1366.768@0.0.1366.768" timestamp="1602459099858" />
     <state x="549" y="254" width="250" height="278" key="jetbrains.javascript.buildTools.run-task-popup" timestamp="1597946321130">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
@@ -1327,13 +1330,13 @@
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="339" y="174" width="672" height="677" key="run.anything.popup/0.0.1366.768@0.0.1366.768" timestamp="1600370541201" />
-    <state x="346" y="89" width="672" height="678" key="search.everywhere.popup" timestamp="1602457196836">
+    <state x="346" y="89" width="672" height="678" key="search.everywhere.popup" timestamp="1602459519289">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="1852" y="56" width="945" height="954" key="search.everywhere.popup/0.0.1366.768/1366.-69.1920.1080@1366.-69.1920.1080" timestamp="1597715976170" />
     <state x="1710" y="89" width="672" height="678" key="search.everywhere.popup/0.0.1366.768/1366.0.1360.768@1366.0.1360.768" timestamp="1598985878395" />
     <state x="1852" y="125" width="945" height="954" key="search.everywhere.popup/0.0.1366.768/1366.0.1920.1080@1366.0.1920.1080" timestamp="1599267313630" />
-    <state x="346" y="89" width="672" height="678" key="search.everywhere.popup/0.0.1366.768@0.0.1366.768" timestamp="1602457196836" />
+    <state x="346" y="89" width="672" height="678" key="search.everywhere.popup/0.0.1366.768@0.0.1366.768" timestamp="1602459519289" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/waydda@Dashboard__ProductsControll_____3_.rcov" NAME="Dashboard::ProductsControll... (3) Coverage Results" MODIFIED="1601852304157" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="waydda" />
