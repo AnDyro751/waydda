@@ -23,14 +23,14 @@
   <%= content_for?(:head_tags) ? yield(:head_tags) : nil %>
 </head>
 <body class="bg-white">
-<!--<body class="<%#= action_name === "new" || action_name === "edit" ? "bg-main-gray" : "bg-white" %>">-->
+<%= render Dashboard::Header::Simple.new(place: @place, current_user: current_or_guest_user) %>
 <div class="w-full flex items-start">
   <div class="w-1/5 mr-8">
     <% unless @place.nil? %>
       <%= render "utils/Headers/dashboard" %>
     <% end %>
   </div>
-  <div class="w-4/5 flex flex-wrap <%= @full_page ? "" : "pr-6" %>">
+  <div class="w-4/5 pt-8 flex flex-wrap <%= @full_page ? "" : "pr-6" %>">
 
     <% unless @hide_breads %>
       <div class="w-full py-4 breadcrumbs text-sm">
