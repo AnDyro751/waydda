@@ -28,12 +28,16 @@ class Dashboard::ProductsController < ApplicationController
   end
 
   def edit
+    set_meta_tags title: "Editar #{@product.name} | Panel de control",
+                  description: "Editar #{@product.name} | Panel de control"
     add_breadcrumb "#{@product.name}", :dashboard_product_path
     add_breadcrumb "Editar"
   end
 
   # GET /edit/inventory
   def edit_inventory
+    set_meta_tags title: "Editar inventario de #{@product.name} | Panel de control",
+                  description: "Editar inventario de #{@product.name} | Panel de control"
     add_breadcrumb "#{@product.name}", "#{dashboard_product_path(@product)}"
     add_breadcrumb "Editar", edit_dashboard_product_path(@product)
     add_breadcrumb "Editar inventario"
@@ -41,6 +45,8 @@ class Dashboard::ProductsController < ApplicationController
 
   # GET /edit/variants
   def edit_variants
+    set_meta_tags title: "Editar variantes de #{@product.name} | Panel de control",
+                  description: "Editar variantes de #{@product.name} | Panel de control"
     add_breadcrumb "#{@product.name}", "#{dashboard_product_path(@product)}"
     add_breadcrumb "Editar", edit_dashboard_product_path(@product)
     add_breadcrumb "Editar variantes"
