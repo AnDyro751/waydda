@@ -50,11 +50,11 @@ if (element) {
                                 fit: "contain"
                             });
 
-                            window.addFlashMessage("Se ha actualizado la imagen")
+                            window.addToastify("primary", "Se ha actualizado la imagen")
                             uppyOne.reset()
                         } catch (e) {
                             console.log("HOLA", e)
-                            window.addFlashMessage("Ha ocurrido un error al actualizar la imagen", true)
+                            window.addToastify("danger", "Ha ocurrido un error al actualizar la imagen", true)
                         }
 
                     }

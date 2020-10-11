@@ -1,4 +1,4 @@
-<%= render Headers::Text.new(title: "Todos los productos") do %>
+<%= render Headers::Text.new(title: "Todos los productos", with_margin: false) do %>
   <%= main_button(to: new_dashboard_product_path, action: "add", text: "Agregar producto", color_button: "dark") %>
 <% end %>
 

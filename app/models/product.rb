@@ -12,7 +12,7 @@ class Product
   #fields
   field :name, type: String
   field :description, type: String
-  field :price, type: Float
+  field :price, type: Float, default: 0
   field :aggregates_required, type: Integer, default: 0
   field :max_aggregates, type: Integer, default: 1
   field :slug, type: String
@@ -27,7 +27,7 @@ class Product
   field :bar_code, type: String, default: ""
   field :quantity, type: String
   field :quantity_measure, type: String, default: "pzas"
-  # TODO: Agregar la cantidad publica y la privada
+  field :weight, type: Float, default: 0.0
 
   # relations
   belongs_to :place
@@ -36,18 +36,34 @@ class Product
   has_many :cart_items
   embeds_many :aggregate_categories, cascade_callbacks: true
   accepts_nested_attributes_for :aggregate_categories
-  accepts_nested_attributes_for aggregate_categories: [:aggregates]
 
   embeds_many :images, as: :model
 
 
   validates :name, presence: true, length: {in: 4..30}
-  validates :price, presence: true, numericality: {only_integer: false}
+  validates :price, numericality: {greater_than: 0}, presence: true
+
   validates :status, presence: true, inclusion: {in: %w[active inactive]}
-  validates :quantity, numericality: {greater_than_or_equal_to: 1}, allow_blank: true
+  validates :quantity, numericality: {greater_than: 0, less_than_or_equal_to: 100000}, allow_blank: true
   validates :quantity_measure, inclusion: {in: %w[kg grm oz ml l m2 m3 v pzas]}, allow_blank: true
-  validates :price, numericality: {greater_than_or_equal_to: 1}
+  validates :weight, numericality: {greater_than_or_equal_to: 0, less_than_or_equal_to: 100000}
+  validates :sku, length: {in: 1..20}
+  validates :public_stock, numericality: {greater_than_or_equal_to: 1, less_than_or_equal_to: 100000}
+  validates :unlimited, inclusion: {in: [true, false]}
+  # Custom validations
   validate :quantity_validations
+  validate :photo_extension
+
+  def photo_extension
+    unless valid_extension? self.photo
+      errors.add(:photo, "Invalid file name")
+    end
+  end
+
+  def valid_extension?(filename)
+    ext = File.extname(filename)
+    %w( jpg jpeg png).include? ext.downcase
+  end
 
   def quantity_validations
     if quantity.present?

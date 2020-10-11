@@ -85,7 +85,6 @@ class Aggregate
                         end
                       end
                     else
-                      logger.warn "ESTO NO SE DEBIO MOSTRAR PERO PUES NIMODO"
                       new_items << current_aggc
                     end
                   else

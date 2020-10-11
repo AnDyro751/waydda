@@ -8,23 +8,30 @@
     <%= f.input :description, as: :text, placeholder: "Descripción breve del producto", label: "Descripción", input_html: {"x-on:input": "handleChange($event)", "rows": "4"} %>
     <span name="product[description]_error" class="text-sm font-bold text-red-600"/>
   </div>
-</div>
-<div class="w-full flex pb-4 mb-4 flex-wrap <%= border_color %>">
-  <%= render Headers::Text.new(title: "Medidas de volumen", small: true, font: "small", padding_class: "px-4 py-4") %>
-  <div class="w-full flex px-4">
-    <div class="w-7/12 mr-2">
-      <%= f.input :quantity,
-                  placeholder: "Medida de volumen",
-                  label: "Medida de volumen" %>
-      <span name="product[quantity]_error" class="text-sm font-bold text-red-600"/>
-    </div>
-    <div class="w-5/12 ml-2">
-      <%= f.input :quantity_measure,
-                  collection: Product.current_measures,
-                  prompt: "Selecciona una unidad",
-                  label: "Unidad del volumen"
-      %>
-      <span name="product[quantity_measure]_error" class="text-sm font-bold text-red-600"/>
-    </div>
+  <div class="w-full px-4">
+    <%= f.input :weight, as: :float, placeholder: "Peso, kg", label: "Peso, KG", input_html: {"x-on:input": "handleChange($event)", "rows": "4"} %>
+    <span name="product[weight]_error" class="text-sm font-bold text-red-600"/>
   </div>
 </div>
+<% if @complete_form %>
+  <div class="w-full flex pb-4 mb-4 flex-wrap <%= border_color %>">
+    <%= render Headers::Text.new(title: "Medidas de volumen", small: true, font: "small", padding_class: "px-4 py-4") %>
+    <div class="w-full flex px-4">
+      <div class="w-7/12 mr-2">
+        <%= f.input :quantity,
+                    placeholder: "Medida de volumen",
+                    label: "Medida de volumen" %>
+        <span name="product[quantity]_error" class="text-sm font-bold text-red-600"/>
+      </div>
+      <div class="w-5/12 ml-2">
+        <%= f.input :quantity_measure,
+                    collection: Product.current_measures,
+                    prompt: "Selecciona una unidad",
+                    label: "Unidad del volumen"
+        %>
+        <span name="product[quantity_measure]_error" class="text-sm font-bold text-red-600"/>
+      </div>
+    </div>
+  </div>
+
+<% end %>

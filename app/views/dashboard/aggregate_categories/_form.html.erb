@@ -19,7 +19,7 @@
       ) do |f| %>
 
     <div class="w-full flex flex-wrap mb-4">
-      <%= render Headers::Text.new(title: "Información básica", font: "small", small: true, padding_class: "px-8 py-8") %>
+      <%= render Headers::Text.new(title: "Nueva variante", font: "small", small: true, padding_class: "px-8 py-8") %>
       <div class="w-full flex flex-wrap px-4">
         <%= f.input :name,
                     label: "Nombre de la variante",
@@ -27,10 +27,10 @@
 
         %>
         <div class="w-full">
-          <%= f.input :required, as: :boolean, label: "Se requiere la selección del cliente", required: false, input_html: {class: "mr-5"}, wrapper_html: {class: "my-5"} %>
+          <%= f.input :required, as: :boolean, label: "Se requiere la selección del cliente", required: false, input_html: {class: "mr-5"}, wrapper_html: {class: "mb-6"} %>
         </div>
         <div class="w-full">
-          <%= f.input :multiple_selection, as: :boolean, label: "Selección multiple", required: false, input_html: {class: "mr-5"}, wrapper_html: {class: "my-5"} %>
+          <%= f.input :multiple_selection, as: :boolean, label: "Selección multiple", required: false, input_html: {class: "mr-5"}, wrapper_html: {class: "mb-6"} %>
         </div>
       </div>
     </div>
@@ -58,7 +58,7 @@
     <!--      </div>-->
 
     <!--    </div>-->
-    <div class="w-full flex justify-end mt-8 px-4">
+    <div class="w-full flex justify-end mt-4 px-4">
       <%= f.submit @aggregate_category.new_record ? "Crear variante" : "Actualizar variante", data: {"disable-with": "Guardando..."}, class: main_color_button(color: "dark", size: "big", padding: "big") %>
     </div>
   <% end %>

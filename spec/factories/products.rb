@@ -4,7 +4,7 @@ FactoryBot.define do
     sequence(:name) { |n| "Product #{n}" }
     description { Faker::Lorem.sentence }
     price { 50 }
-    public_stock { 50 }
+    public_stock { 0 }
     status { "active" }
     slug { "demo-product-slug" }
     unlimited { true }

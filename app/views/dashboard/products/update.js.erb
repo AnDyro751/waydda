@@ -1,6 +1,5 @@
-document.querySelector("#notifications").innerHTML = "";
 <% if @product.errors.any? %>
-document.querySelector("#notifications").innerHTML = "<%= j render Notifications::Alert.new(alert: "Se han encontrado errores al editar el producto",kind: "error") %>";
+window.addToastify("danger", "Se han encontrado errores al editar el producto")
 <% @product.errors.each do |keyE,error| %>
 var element = document.querySelector("#product_<%= keyE %>");
 if (element) {
@@ -10,15 +9,15 @@ if (element) {
     if (spanElement) {
         spanElement.innerHTML = "<%= error %>";
     } else {
-        var newNotification = document.createElement("div")
-        newNotification.innerHTML = "<%= j render Notifications::Alert.new(alert: "#{keyE} #{error}" ,kind: "error") %>";
-        document.querySelector("#notifications").appendChild(newNotification);
+        window.addToastify("danger", "<%= key %> <%= error %>")
     }
 }
 <% end %>
 <% else %>
+<% if @typo %>
+document.querySelector("#edit_product_<%=@product.id %>").parentNode.innerHTML = "<%= j render Dashboard::Products::Item.new(product: @product, place: @place) %>"
+window.customLazyLoad.update();
+<% end %>
 window.addToastify("primary", "Se ha actualizado el producto")
-//document.querySelector("#notifications").innerHTML = "<%= j render Notifications::Alert.new(alert: "Se ha actualizado el producto") %>";
 <% end %>
 
-window.deleteFlashs();
