@@ -1,4 +1,5 @@
-<div class="w-full pb-4 mb-4 <%= border_color %>">
+<div class="w-full pb-4 mb-4 <%= border_color %>"
+>
   <%= render Headers::Text.new(title: "Precio", small: true, font: "small", padding_class: "px-4 py-4", with_background: false, with_border: true) %>
   <div class="w-full px-4">
     <div class="w-full relative mt-6">
@@ -15,6 +16,48 @@
       <div class="absolute bottom-0 top-0 left-0 right-0 w-12 bg-main-gray-dark rounded-l flex items-center justify-center font-medium">$</div>
     </div>
   </div>
+</div>
+<div
+  x-data="productSidebar(<%= @product.active? %>)"
+  class="w-full pb-4 mb-4 <%= border_color %>">
+  <%= render Headers::Text.new(title: "Disponibilidad", small: true, font: "small", padding_class: "px-4 py-4", with_background: false, with_border: true) %>
+  <div class="w-full px-4">
+    <div class="w-full relative mt-6">
+      <div class="flex items-center mt-2">
+        <%= f.input :status,
+                    required: false,
+                    as: :boolean, label: false, input_html: {class: "hidden"} %>
+        <label class="switch">
+          <input
+            name="product[status]"
+            type="checkbox"
+            @change="isActive = !isActive"
+            <%= @product.status === "active" ? "checked" : true %>
+          >
+          <span class="slider round"></span>
+        </label>
+
+        <div
+          :class="{'hidden': isActive === false}"
+          x-show="isActive" class="<%= @product.active? ? "" : "hidden" %>">
+          <span class="text-sm font-normal text-green-700 ml-2">Activado</span>
+        </div>
+        <div
+          :class="{'hidden': !isActive === false}"
+          x-show="!isActive" class="<%= @product.active? ? "hidden" : "" %>">
+          <span class="text-sm font-normal text-red-800 ml-2">Desactivado</span>
+        </div>
+      </div>
+      <span name="product[status]_error" class="text-sm font-bold text-red-600"></span>
+    </div>
+  </div>
+  <script type="text/javascript" charset="utf-8">
+      function productSidebar(defaultActive = true) {
+          return {
+              isActive: defaultActive
+          }
+      }
+  </script>
 </div>
 <div class="w-full flex flex-wrap pb-4 mb-4 <%= border_color %>">
   <%= render Headers::Text.new(title: "Categorías", small: true, font: "small", padding_class: "px-4 py-4", with_background: false, with_border: true) %>
