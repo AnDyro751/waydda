@@ -46,9 +46,9 @@ class Product
   validates :status, presence: true, inclusion: {in: %w[active inactive]}
   validates :quantity, numericality: {greater_than: 0, less_than_or_equal_to: 100000}, allow_blank: true
   validates :quantity_measure, inclusion: {in: %w[kg grm oz ml l m2 m3 v pzas]}, allow_blank: true
-  validates :weight, numericality: {greater_than_or_equal_to: 0, less_than_or_equal_to: 100000}
-  validates :sku, length: {in: 1..20}
-  validates :public_stock, numericality: {greater_than_or_equal_to: 1, less_than_or_equal_to: 100000}
+  validates :weight, numericality: {greater_than_or_equal_to: 0, less_than_or_equal_to: 100000}, allow_blank: true
+  validates :sku, length: {in: 1..20}, allow_blank: true
+  validates :public_stock, numericality: {greater_than_or_equal_to: 0, less_than_or_equal_to: 100000}, allow_blank: true
   validates :unlimited, inclusion: {in: [true, false]}
   # Custom validations
   validate :quantity_validations
@@ -62,7 +62,7 @@ class Product
 
   def valid_extension?(filename)
     ext = File.extname(filename)
-    %w( jpg jpeg png).include? ext.downcase
+    %w(.jpg .jpeg .png).include? ext.downcase
   end
 
   def quantity_validations
