@@ -30,13 +30,7 @@
       <%= render "utils/Headers/dashboard" %>
     <% end %>
   </div>
-  <div class="w-4/5 pt-8 flex flex-wrap <%= @full_page ? "" : "pr-6" %>">
-    <% unless @hide_breads %>
-      <div class="w-full py-4 breadcrumbs text-sm">
-        <%= render_breadcrumbs :separator => '&#160;/&#160;', tag: "div" %>
-      </div>
-    <% end %>
-
+  <div class="w-4/5 pt-16 flex flex-wrap <%= @full_page ? "" : "pr-6" %>">
     <% if @place.in_free_trial and @place.subscription %>
       <% unless @place.subscription.new_record? %>
         <%= button_to dashboard_create_user_portal_path, class: "py-4 w-full border-b border-t", form_class: "w-full", data: {"disable-with": "Cargando..."}, remote: true do %>
@@ -45,6 +39,13 @@
         <% end %>
       <% end %>
     <% end %>
+    <% unless @hide_breads %>
+      <div class="w-full py-4 breadcrumbs text-sm">
+        <%= render_breadcrumbs :separator => '&#160;/&#160;', tag: "div" %>
+      </div>
+    <% end %>
+
+
     <div class="flex w-full justify-center">
       <div class="w-full flex mx-auto flex-wrap">
         <div id="notifications" class="w-full">

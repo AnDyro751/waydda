@@ -1,7 +1,4 @@
-<div class="w-full mt-4 text-gray-600 text-sm">
-  <span class=""><%= link_to "Ajustes", dashboard_edit_my_place_path, class: "hover:underline" %>
-    <span class="mx-2 select-none">></span><span class="text-indigo-700 font-medium">Mi suscripción</span></span>
-</div>
+
 <%= render Headers::Text.new(title: "Mi suscripción", small: true, with_margin: true) %>
 <div class="w-full flex flex-wrap border p-4 mt-4 divide-y divide-gray-400 rounded bg-main-gray">
   <% if @place.free? %>

@@ -29,13 +29,15 @@ class Dashboard::PlacesController < ApplicationController
   end
 
   def connect
-    # details_submitted
+    set_meta_tags title: "Pagos con tarjeta - Ajustes | Panel de control",
+                  description: "Pagos con tarjeta - Ajustes | Panel de control"
+    add_breadcrumb "Ajustes", dashboard_edit_my_place_path
+    add_breadcrumb "Pagos con tarjeta"
   end
 
   def create_account_link
     redirect_to dashboard_place_connect_path, notice: "Primero conecta tu cuenta bancaria" if @user_account.nil?
-
-    @account_link = Account.create_login_account(@user_account.account_id)
+    @account_link = Account.create_link(@user_account.account_id)
 
     respond_to do |format|
       if @account_link.nil?
@@ -68,8 +70,11 @@ class Dashboard::PlacesController < ApplicationController
     @orders = Order.where(place: @place, status: "pending")
   end
 
-  # GET /places/1/edit
+  # GET /dashboard/settings
   def edit
+    set_meta_tags title: "Ajustes de mi empresa | Panel de control",
+                  description: "Ajustes de mi empresa | Panel de control"
+    add_breadcrumb "Ajustes"
   end
 
   # PATCH/PUT /places/1

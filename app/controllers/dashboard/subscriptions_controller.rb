@@ -8,7 +8,10 @@ class Dashboard::SubscriptionsController < ApplicationController
   layout "dashboard"
 
   def edit
-
+    set_meta_tags title: "Mi suscripción - Ajustes | Panel de control",
+                  description: "Mi suscripción - Ajustes | Panel de control"
+    add_breadcrumb "Ajustes", dashboard_edit_my_place_path
+    add_breadcrumb "Mi suscripción"
   end
 
   def cancel
