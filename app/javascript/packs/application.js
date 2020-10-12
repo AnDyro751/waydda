@@ -65,21 +65,10 @@ import '../../assets/stylesheets/application.scss'
 // ReactRailsUJS.useContext(componentRequireContext);
 
 window.findRegion = function (arrayRegion) {
-    let newRegion = arrayRegion.context.find((el) => el.id.includes("region"))
-    let newPlace = arrayRegion.context.find((el) => el.id.includes("place"))
+    let newRegion = arrayRegion.context.find((el) => el.id.includes("country"))
     if (newRegion) {
         if (newRegion.short_code) {
             return newRegion;
-        } else {
-            return null;
-        }
-    } else {
-        if (newPlace) {
-            if (newPlace.short_code) {
-                return newPlace
-            } else {
-                return null;
-            }
         } else {
             return null;
         }
@@ -99,7 +88,7 @@ window.addFlashMessage = function (text, error = false) {
 }
 
 window.getMapRecords = async function ({text, limit = 5}) {
-    const URL = `https://api.mapbox.com/geocoding/v5/mapbox.places/${encodeURIComponent(text)}.json?access_token=pk.eyJ1Ijoid2F5ZGRhIiwiYSI6ImNrZzYwZWJiYzB6bjMycW5udmd1NHNscDAifQ.wkmzM9Mh8XyPXZ8BgpyJXg&cachebuster=1596775236930&autocomplete=true&country=mx&bbox=-102.36584333677,18.203715736351,-95.646605055518,20.200815919313&proximity=-99.630833,19.354167&limit=${limit}`;
+    const URL = `https://api.mapbox.com/geocoding/v5/mapbox.places/${encodeURIComponent(text)}.json?access_token=pk.eyJ1Ijoid2F5ZGRhIiwiYSI6ImNrZzYwZWJiYzB6bjMycW5udmd1NHNscDAifQ.wkmzM9Mh8XyPXZ8BgpyJXg&cachebuster=1596775236930&autocomplete=true&country=mx&limit=${limit}`;
     try {
         let response = await (
             await fetch(URL, {

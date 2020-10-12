@@ -55,6 +55,7 @@ class User
   # validates :phone, uniqueness: {case_sensitive: false}, allow_nil: false, phone: {possible: true, types: [:mobile, :voip], countries: :mx}
   # validates :encrypted_password, presence: true
 
+
   def valid_phone
     if phone.present?
       unless Phonelib.valid?("+52#{phone}")
@@ -65,6 +66,10 @@ class User
       errors.add(:phone, "Can't be blank")
       return false
     end
+  end
+
+  def current_place
+    self.places.last
   end
 
   # Plugins
