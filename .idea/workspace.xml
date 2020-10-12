@@ -22,6 +22,8 @@
     <list default="true" id="b89cb0fb-b680-4bb9-8ae0-f4b41721cfb9" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/components/dashboard/Header/simple.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/components/dashboard/Header/simple.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/dashboard/places/update_delivery.js.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/dashboard/places/update_delivery.js.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/dashboard/settings/shipping.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/dashboard/settings/shipping.html.erb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/views/dashboard/utils/_toggle.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/dashboard/utils/_toggle.html.erb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -783,14 +785,7 @@
       <workItem from="1602297453008" duration="8646000" />
       <workItem from="1602364401165" duration="17117000" />
       <workItem from="1602456135891" duration="7727000" />
-      <workItem from="1602473981064" duration="2516000" />
-    </task>
-    <task id="LOCAL-00279" summary="Feat(Dashboard): Products controller validations">
-      <created>1601846438590</created>
-      <option name="number" value="00279" />
-      <option name="presentableId" value="LOCAL-00279" />
-      <option name="project" value="LOCAL" />
-      <updated>1601846438590</updated>
+      <workItem from="1602473981064" duration="3575000" />
     </task>
     <task id="LOCAL-00280" summary="test(Dashboard): products_controller.rb test # Create action">
       <created>1601851143112</created>
@@ -1128,7 +1123,14 @@
       <option name="project" value="LOCAL" />
       <updated>1602476186782</updated>
     </task>
-    <option name="localTasksCounter" value="328" />
+    <task id="LOCAL-00328" summary="feat(Dashboard): Agregamos un link para acceder a mi empresa desde el header">
+      <created>1602514904103</created>
+      <option name="number" value="00328" />
+      <option name="presentableId" value="LOCAL-00328" />
+      <option name="project" value="LOCAL" />
+      <updated>1602514904103</updated>
+    </task>
+    <option name="localTasksCounter" value="329" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -1149,7 +1151,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="feat(Dashboard): Mostramos los errores al crear el aggregate category" />
     <MESSAGE value="feat(Dashboard): Creamos una persistencia al redireccionar 3:" />
     <MESSAGE value="feat(Dashboard): Persist scroll" />
     <MESSAGE value="feat(Dashboard): Ya mostramos y agregamos un nuevo aggregate en aggregate_category.rb" />
@@ -1174,7 +1175,8 @@
     <MESSAGE value="feat(Dashboard): Agregamos breadcrumbs a las páginas de los settings" />
     <MESSAGE value="feat(Dashboard): Agregamos el link para acceder al panel de control" />
     <MESSAGE value="feat(Dashboard): Dashboard general settings completed" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat(Dashboard): Dashboard general settings completed" />
+    <MESSAGE value="feat(Dashboard): Agregamos un link para acceder a mi empresa desde el header" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat(Dashboard): Agregamos un link para acceder a mi empresa desde el header" />
   </component>
   <component name="WindowStateProjectService">
     <state x="392" y="0" key="#All_specs_in_spec:_waydda" timestamp="1598730457189">
@@ -1217,10 +1219,10 @@
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="491" y="102" width="374" height="557" key="#com.intellij.ide.util.MemberChooser/0.0.1366.768@0.0.1366.768" timestamp="1601746308565" />
-    <state x="261" y="0" width="834" height="683" key="CommitChangelistDialog2" timestamp="1602476186337">
+    <state x="261" y="0" width="834" height="683" key="CommitChangelistDialog2" timestamp="1602514903932">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state x="261" y="0" width="834" height="683" key="CommitChangelistDialog2/0.0.1366.768@0.0.1366.768" timestamp="1602476186337" />
+    <state x="261" y="0" width="834" height="683" key="CommitChangelistDialog2/0.0.1366.768@0.0.1366.768" timestamp="1602514903932" />
     <state x="255" y="248" width="424" height="479" key="FileChooserDialogImpl" timestamp="1602458482165">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
@@ -1314,13 +1316,13 @@
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="628" y="298" key="com.jetbrains.plugins.remotesdk.ui.RemoteMappingsConfiguration/0.0.1366.768@0.0.1366.768" timestamp="1598729856431" />
-    <state x="390" y="117" width="791" height="624" key="find.popup" timestamp="1602514637367">
+    <state x="390" y="117" width="791" height="624" key="find.popup" timestamp="1602515258193">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="1914" y="96" width="823" height="878" key="find.popup/0.0.1366.768/1366.-69.1920.1080@1366.-69.1920.1080" timestamp="1597716285449" />
     <state x="1754" y="117" width="583" height="624" key="find.popup/0.0.1366.768/1366.0.1360.768@1366.0.1360.768" timestamp="1598981376119" />
     <state x="1914" y="165" width="823" height="878" key="find.popup/0.0.1366.768/1366.0.1920.1080@1366.0.1920.1080" timestamp="1599260651210" />
-    <state x="390" y="117" width="791" height="624" key="find.popup/0.0.1366.768@0.0.1366.768" timestamp="1602514637367" />
+    <state x="390" y="117" width="791" height="624" key="find.popup/0.0.1366.768@0.0.1366.768" timestamp="1602515258193" />
     <state x="549" y="254" width="250" height="278" key="jetbrains.javascript.buildTools.run-task-popup" timestamp="1597946321130">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
@@ -1329,13 +1331,13 @@
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="339" y="174" width="672" height="677" key="run.anything.popup/0.0.1366.768@0.0.1366.768" timestamp="1600370541201" />
-    <state x="346" y="89" width="672" height="678" key="search.everywhere.popup" timestamp="1602514789025">
+    <state x="346" y="89" width="672" height="678" key="search.everywhere.popup" timestamp="1602515755521">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="1852" y="56" width="945" height="954" key="search.everywhere.popup/0.0.1366.768/1366.-69.1920.1080@1366.-69.1920.1080" timestamp="1597715976170" />
     <state x="1710" y="89" width="672" height="678" key="search.everywhere.popup/0.0.1366.768/1366.0.1360.768@1366.0.1360.768" timestamp="1598985878395" />
     <state x="1852" y="125" width="945" height="954" key="search.everywhere.popup/0.0.1366.768/1366.0.1920.1080@1366.0.1920.1080" timestamp="1599267313630" />
-    <state x="346" y="89" width="672" height="678" key="search.everywhere.popup/0.0.1366.768@0.0.1366.768" timestamp="1602514789025" />
+    <state x="346" y="89" width="672" height="678" key="search.everywhere.popup/0.0.1366.768@0.0.1366.768" timestamp="1602515755521" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/waydda@Dashboard__ProductsControll_____3_.rcov" NAME="Dashboard::ProductsControll... (3) Coverage Results" MODIFIED="1601852304157" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="waydda" />
