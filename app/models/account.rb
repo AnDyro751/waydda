@@ -72,9 +72,8 @@ class Account
         puts "-----------ES VACIO"
         account = Stripe::Account.create({
                                              country: 'MX',
-                                             type: 'express',
-                                             email: user.email,
-                                             requested_capabilities: %w[card_payments transfers],
+                                             type: 'standard',
+                                             email: user.email
                                          })
 
         new_account = user.build_account(account_id: account.id, created_at: DateTime.now, place: place)
