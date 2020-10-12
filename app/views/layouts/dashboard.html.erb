@@ -10,7 +10,6 @@
   <%= javascript_packs_with_chunks_tag 'application', "dashboard/index", 'data-turbolinks-track': 'reload' %>
 
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <meta name="model" content="<%= controller_name.singularize %>"/>
   <meta name="action_name" content="<%= action_name %>_<%= controller_name %>"/>
   <link rel="preconnect" href="https://d1nrrr6y3ujrjz.cloudfront.net" crossOrigin/>
   <link rel="dns-prefetch" href="https://d1nrrr6y3ujrjz.cloudfront.net"/>
@@ -20,7 +19,12 @@
   <link rel="dns-prefetch" href="https://fonts.gstatic.com/"/>
   <link rel="preload" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;800&display=swap" as="style">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;800&display=swap">
-  <%= content_for?(:head_tags) ? yield(:head_tags) : nil %>
+  <% if content_for?(:head_tags) %>
+    <%= yield(:head_tags) %>
+  <% else %>
+    <meta name="model" content="<%= controller_name.singularize %>"/>
+  <% end %>
+  <%# if content_for %>
 </head>
 <body class="bg-white">
 <%= render Dashboard::Header::Simple.new(place: @place, current_user: current_or_guest_user) %>

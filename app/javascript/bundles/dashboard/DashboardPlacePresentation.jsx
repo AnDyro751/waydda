@@ -11,7 +11,7 @@ export default function DashboardPlacePresentation({place, id}) {
     }
 
     const searchAddress = async (address, limit = 5) => {
-        const link = `https://api.mapbox.com/geocoding/v5/mapbox.places/${address}.json?access_token=eyJ1Ijoic2VhcmNoLW1hY2hpbmUtdXNlci0xIiwiYSI6ImNrN2Y1Nmp4YjB3aG4zZ253YnJoY21kbzkifQ&cachebuster=1596775236930&autocomplete=true&country=mx&types=country%2Clocality%2Cneighborhood%2Cdistrict%2Cregion%2Cpostcode%2Caddress&limit=${limit}`
+        const link = `https://api.mapbox.com/geocoding/v5/mapbox.places/${address}.json?access_token=pk.eyJ1Ijoid2F5ZGRhIiwiYSI6ImNrZzYwZWJiYzB6bjMycW5udmd1NHNscDAifQ.wkmzM9Mh8XyPXZ8BgpyJXg&cachebuster=1596775236930&autocomplete=true&country=mx&types=country%2Clocality%2Cneighborhood%2Cdistrict%2Cregion%2Cpostcode%2Caddress&limit=${limit}`
         try {
             const results = await (await fetch(link)).json()
             return results.features;

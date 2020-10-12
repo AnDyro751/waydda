@@ -15,7 +15,7 @@ export default function UserEdit({states, current_user, current_user_id, default
 
     const searchAddress = async (address_text, limit = 5) => {
         // console.log("BUSCANDP jeje", address)
-        const link = `https://api.mapbox.com/geocoding/v5/mapbox.places/${address_text}.json?access_token=eyJ1Ijoic2VhcmNoLW1hY2hpbmUtdXNlci0xIiwiYSI6ImNrN2Y1Nmp4YjB3aG4zZ253YnJoY21kbzkifQ&cachebuster=1596775236930&autocomplete=true&types=country%2Cregion%2Cdistrict%2Cpostcode%2Clocality%2Cplace%2Cpoi%2Caddress&country=mx&limit=${limit}`
+        const link = `https://api.mapbox.com/geocoding/v5/mapbox.places/${address_text}.json?access_token=pk.eyJ1Ijoid2F5ZGRhIiwiYSI6ImNrZzYwZWJiYzB6bjMycW5udmd1NHNscDAifQ.wkmzM9Mh8XyPXZ8BgpyJXg&cachebuster=1596775236930&autocomplete=true&types=country%2Cregion%2Cdistrict%2Cpostcode%2Clocality%2Cplace%2Cpoi%2Caddress&country=mx&limit=${limit}`
         try {
             const results = await (await fetch(link)).json()
             return results.features;

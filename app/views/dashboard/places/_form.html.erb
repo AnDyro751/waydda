@@ -1,6 +1,6 @@
-<div class="w-full flex" x-data="addressForm()">
-  <%= simple_form_for(@place, url: url ? url : dashboard_places_path, remote: true, html: {class: "w-full flex items-start flex-wrap p-8 rounded border-2 shadow"}) do |f| %>
-    <div class="w-full flex-wrap flex">
+<div class="w-full flex mb-20" x-data="addressForm()">
+  <%= simple_form_for(@place, url: url ? url : dashboard_places_path, remote: true, html: {class: "w-full flex items-start p-4 #{border_color}"}) do |f| %>
+    <div class="w-full flex-wrap flex w-7/12 mr-4">
       <div class="w-full mb-6">
         <%= f.input :name, label: "Nombre de tu empresa", placeholder: "Ej. Miscelanea Hermanos Ponchos",
                     label_html: {
@@ -66,24 +66,27 @@
         </div>
       </div>
 
+
     </div>
-    <div class="w-full flex flex-wrap">
+    <div class="w-full flex flex-wrap w-5/12 ml-4">
       <% unless @place.new_record? %>
         <div class="w-full relative self-start">
           <div class="flex w-full flex-wrap">
-            <p class="text-sm font-normal w-full text-gray-600">Imagen de portada</p>
-            <label
-              class="h-56 rounded relative w-full mt-2 bg-main-gray cursor-pointer"
-            >
-              <div class="absolute flex justify-center items-center rounded bottom-0 top-0 left-0 right-0 bg-black bg-opacity-25 opacity-0 hover:opacity-100 hover:bg-opacity-75 transition duration-150">
-                <span class="text-sm text-white">Actualizar</span>
-              </div>
-              <img
-                id="place_image"
-                class="lazy h-56 rounded w-full bg-main-gray"
-                src="<%= get_image_url(10, 20, @place.cover, "cover") %>" data-src="<%= get_image_url(200, 400, @place.cover, "cover") %>" alt="<%= @place.name %> photo">
-              <input type='file' class="hidden" accept="image/*" id="my-file-input"/>
-            </label>
+            <p class="<%= label_color_class(size: "big") %>">Imagen de portada</p>
+            <div class="w-full border border-gray-300 mt-6 relative">
+              <label
+                class="h-56 rounded w-full mt-2 bg-main-gray cursor-pointer"
+              >
+                <div class="absolute flex justify-center items-center rounded bottom-0 top-0 left-0 right-0 bg-black bg-opacity-25 opacity-0 hover:opacity-100 hover:bg-opacity-75 transition duration-150">
+                  <span class="text-sm text-white">Actualizar</span>
+                </div>
+                <img
+                  id="place_image"
+                  class="lazy h-56 rounded w-full bg-main-gray"
+                  src="<%= get_image_url(10, 20, @place.cover, "cover") %>" data-src="<%= get_image_url(200, 400, @place.cover, "cover") %>" alt="<%= @place.name %> photo">
+                <input type='file' class="hidden" accept="image/*" id="my-file-input"/>
+              </label>
+            </div>
           </div>
           <div class="UppyInput-Progress w-full mt-8"></div>
         </div>
@@ -103,10 +106,14 @@
         %>
         <span name="place[category]_error" class="text-sm font-bold text-red-600"></span>
       </div>
-      <div class="w-full justify-start flex mt-4">
-        <%= f.submit !@place.new_record? ? "Actualizar empresa" : "Crear empresa", data: {"disable-with": !@place.new_record? ? "Actualizando..." : "Creando..."}, class: main_color_button(color: "secondary", padding: "big") %>
+    </div>
+
+    <div class="w-4/5 fixed right-0 bottom-0 py-4 px-4 shadow-top bg-white z-30">
+      <div class="w-full justify-end flex">
+        <%= f.submit !@place.new_record? ? "Actualizar empresa" : "Crear empresa", data: {"disable-with": "Guardando..."}, class: main_color_button(color: "dark", padding: "big") %>
       </div>
     </div>
+
   <% end %>
   <script type="text/javascript" charset="utf-8">
       var timer;
