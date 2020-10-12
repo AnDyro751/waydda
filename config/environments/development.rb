@@ -1,6 +1,6 @@
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
-  config.hosts << "dfbbcaad1dda.ngrok.io"
+  config.hosts << "4425010d7c9a.ngrok.io"
   # config.logger = Logger.new(STDOUT)
   # config.log_level = :warn
   # In the development environment your application's code is reloaded on

@@ -33,7 +33,7 @@
         </div>
         <div class="w-6/12 flex justify-end">
           <% if @place.premium? %>
-            <button class="<%= main_color_button(color: "primary") %>" id="get-to-my-dashboard">
+            <button class="<%= main_color_button(color: "primary") %> get-to-my-dashboard">
               Acceder a mi panel de control
             </button>
           <% end %>
@@ -46,7 +46,7 @@
             Completar mis datos
           </p>
           <small>
-            Cuenta bancaria, responsable de la empresa y más.
+            Cuenta bancaria, responsable de la empresa.
           </small>
         </div>
         <div class="w-6/12 flex justify-end">
@@ -64,16 +64,16 @@
       <div class="w-full flex items-center py-4">
         <div class="w-6/12">
           <p class="font-normal">
-            Hay información que debes verificar
+            Hay información que debes verificar o pendiente de revisión
           </p>
           <small>
-            Cuenta bancaria, responsable de la empresa y más.
+            Cuenta bancaria, responsable de la empresa.
           </small>
         </div>
         <div class="w-6/12 flex justify-end">
           <% if @place.premium? %>
-            <button class="<%= main_color_button(color: "primary") %>" id="get-to-my-dashboard">
-              Acceder a mi panel de control
+            <button class="<%= main_color_button(color: "primary") %> get-to-my-dashboard">
+              Revisar mi información
             </button>
           <% end %>
         </div>

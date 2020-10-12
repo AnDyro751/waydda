@@ -100,7 +100,7 @@ class Account
     current_account = Account.find_by(account_id: account_updated["id"])
     return false if current_account.nil?
     if account_updated["requirements"]
-      if account_updated["requirements"]["pending_verification"].length > 0
+      if account_updated["requirements"]["pending_verification"].length > 0 || account_updated["requirements"]["past_due"].length > 0 || account_updated["requirements"]["eventually_due"].length > 0
         current_account.update(pending_verification: true)
       else
         current_account.update(pending_verification: false)
