@@ -1,4 +1,5 @@
 import {loadStripe} from '@stripe/stripe-js';
+import getDefaultHeaders from "../../../lib/getDefaultHeaders";
 
 async function loadNewForm() {
     var element = document.querySelector("#card-element");
@@ -65,21 +66,40 @@ async function loadNewForm() {
 }
 
 // Submit the form with the token ID.
-function stripeTokenHandler(token) {
+async function stripeTokenHandler(token) {
     // Insert the token ID into the form so it gets submitted to the server
-    var form = document.getElementById('new_subscription');
-    var old_input = document.querySelector('input[name="card_token"]')
-    if (old_input) {
-        old_input.value = token.id;
-    } else {
-        var hiddenInput = document.createElement('input');
-        hiddenInput.setAttribute('type', 'hidden');
-        hiddenInput.setAttribute('name', 'card_token');
-        hiddenInput.setAttribute('value', token.id);
-        form.appendChild(hiddenInput);
+    // var form = document.getElementById('new_subscription');
+    // var old_input = document.querySelector('input[name="card_token"]')
+    // if (old_input) {
+    //     old_input.value = token.id;
+    // } else {
+    //     var hiddenInput = document.createElement('input');
+    //     hiddenInput.setAttribute('type', 'hidden');
+    //     hiddenInput.setAttribute('name', 'card_token');
+    //     hiddenInput.setAttribute('value', token.id);
+    //     form.appendChild(hiddenInput);
+    // }
+    console.log("Enviar al servidor")
+    try {
+        let response = await (await fetch("/dashboard/upgrade/premium", {
+            method: "POST",
+            headers: getDefaultHeaders(),
+            body: JSON.stringify({
+                card_token: token.id
+            })
+        })).json()
+        console.log(response)
+        if (response.errors) {
+            window.addToastify("danger", response.errors)
+        } else {
+            window.addToastify("primary", "Se ha actualizado la suscripción")
+            Turbolinks.visit("/dashboard");
+        }
+    } catch (e) {
+        console.log(e)
+        window.addToastify("danger", "Ha ocurrido un error")
     }
-    form.submit();
-
+    // form.submit();
 }
 
 loadNewForm()

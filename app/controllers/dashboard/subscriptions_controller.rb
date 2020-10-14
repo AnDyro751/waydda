@@ -41,38 +41,18 @@ class Dashboard::SubscriptionsController < ApplicationController
 
   def create
     respond_to do |format|
-      # if current_user.default_source.empty?
-      #   card_token = params["card_token"]
-      #   if card_token.nil?
-      #     puts "---------NO SE HA ENVIADO TOKEN"
-      #     format.html { redirect_to dashboard_upgrade_plan_path, notice: "Ha ocurrido un error al suscribirte" }
-      #   end
-      #   current_source = Account.create_source(current_user.stripe_customer_id, params["card_token"])
-      #   if current_source.nil?
-      #     format.html { redirect_to dashboard_upgrade_plan_path, notice: "Ha ocurrido un error al suscribirte" }
-      #   else
-      #     updated_account = Account.update_account(current_user.stripe_customer_id, {
-      #         default_source: current_source["id"]
-      #     })
-      #     puts "---------#{updated_account[:success]} UPDATED"
-      #     if updated_account[:success]
-      #       current_user.update(default_source: {id: updated_account["default_source"]})
-      #     else
-      #       format.html { redirect_to dashboard_upgrade_plan_path, notice: "Ha ocurrido un error al suscribirte" }
-      #     end
-      #     # TODO: Guardar el default token que recibimos como param
-      #   end
-      # end
+      if @place.kind === "premium" and params["subscription_id"] === "premium"
+        format.json { render json: {errors: "Ya cuentas con el plan premium"}, status: :unprocessable_entity }
+      end
       begin
         card_token = params["card_token"]
-        if @place.trial_used and card_token.nil?
-          return format.html { redirect_to dashboard_new_subscription_path("premium"), notice: "Ya se ha utilizado la prueba gratuita." }
-
+        if card_token.nil?
+          format.json { render json: {errors: "No se ha ingresado información bancaria"}, status: :unprocessable_entity }
         else
           if card_token
             current_source = Account.create_source(current_user.stripe_customer_id, params["card_token"])
             if current_source.nil?
-              format.html { redirect_to dashboard_new_subscription_path("premium"), notice: "Ha ocurrido un error al suscribirte" }
+              format.json { render json: {errors: "Ha ocurrido un error al suscribirte"}, status: :unprocessable_entity }
             else
               updated_account = Account.update_account(current_user.stripe_customer_id, {
                   default_source: current_source["id"]
@@ -81,7 +61,7 @@ class Dashboard::SubscriptionsController < ApplicationController
               if updated_account[:success]
                 current_user.update(default_source: {id: updated_account["default_source"]})
               else
-                format.html { redirect_to dashboard_upgrade_plan_path, notice: "Ha ocurrido un error al suscribirte" }
+                format.json { render json: {errors: "Ha ocurrido un error al suscribirte"}, status: :unprocessable_entity }
               end
               # TODO: Guardar el default token que recibimos como param
             end
@@ -94,26 +74,34 @@ class Dashboard::SubscriptionsController < ApplicationController
                                                                        price: Account.get_price(free_days: @free_days.to_i, price: @premium_pricing.to_i)
                                                                    },
                                                                ],
-                                                               # trial_from_plan: @place.trial_used ? false : true
+                                                               trial_from_plan: true
                                                            })
           rescue
-            format.html { redirect_to dashboard_upgrade_plan_path, notice: "Ha ocurrido un error al suscribirte" }
+            format.json { render json: {errors: "Ha ocurrido un error al suscribirte"}, status: :unprocessable_entity }
           end
           current_subscription = @place.subscription
           if current_subscription
+            puts "--------------__#{new_subscription}------------SUBSCRIPTION"
             if current_subscription.update(kind: "premium", stripe_subscription_id: new_subscription["id"], trial_end: new_subscription["trial_end"], trial_start: new_subscription["trial_start"])
               @place.update(kind: "premium", trial_will_end: false, in_free_trial: @place.trial_used ? false : true, trial_used: true)
-              format.html { redirect_to my_place_path, alert: "¡Se ha actualizado tu suscripción!" }
+              @success = true
+              puts "----------------4"
+              format.json { render json: {errors: nil, success: true}, status: :ok }
             else
-              format.html { redirect_to dashboard_upgrade_plan_path, notice: "Ha ocurrido un error al suscribirte" }
+              puts "----------------3"
+              format.json { render json: {errors: "Ha ocurrido un error al suscribirte", success: false}, status: :unprocessable_entity }
             end
           else
+            puts "--------------__#{new_subscription}------------SUBSCRIPTION"
             @subscription = @place.create_subscription(stripe_subscription_id: new_subscription["id"], kind: "premium", trial_end: new_subscription["trial_end"], trial_start: new_subscription["trial_start"])
             if @subscription.save
+              @success = true
               @place.update(kind: "premium", trial_will_end: false, in_free_trial: @place.trial_used ? false : true, trial_used: true)
-              format.html { redirect_to my_place_path, alert: "¡Se ha actualizado tu suscripción!" }
+              puts "----------------5"
+              format.json { render json: {errors: nil, success: true}, status: :ok }
             else
-              format.html { redirect_to dashboard_upgrade_plan_path, notice: "Ha ocurrido un error al suscribirte" }
+              puts "----------------2"
+              format.json { render json: {errors: "Ha ocurrido un error al suscribirte", success: false}, status: :unprocessable_entity }
             end
           end
         end
@@ -121,8 +109,7 @@ class Dashboard::SubscriptionsController < ApplicationController
 
       rescue => e
         puts "Error --------#{e}------"
-        # format.js
-        format.html { redirect_to dashboard_upgrade_plan_path, notice: "Ha ocurrido un error al suscribirte" }
+        format.json { render json: {errors: "Ha ocurrido un error al suscribirte", success: false}, status: :unprocessable_entity }
       end
     end
   end
