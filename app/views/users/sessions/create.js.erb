@@ -1,10 +1,12 @@
 <% if @error %>
-window.addToastify("danger", "<%= @error %>")
+window.addToastify("primary", "<%= @error %>")
 <% if @show_input %>
 document.querySelector("#verification-code").classList.remove("hidden")
+document.querySelector("#user_verification_code").focus();
 <% end %>
 <% else %>
 document.querySelector("#verification-code").classList.remove("hidden")
+document.querySelector("#user_verification_code").focus();
 window.addToastify("primary", "Se ha enviado el código de verificación a <%= @user.phone %>")
 
 <% end %>

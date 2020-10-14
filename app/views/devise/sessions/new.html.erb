@@ -16,11 +16,21 @@
                         as: resource_name, remote: true, html: {class: "w-full"}, url: session_path(resource_name)) do |f| %>
       <h1 class="w-full my-8 text-2xl font-bold">Inicia sesión en tu cuenta de Waydda</h1>
       <%#= render "devise/shared/error_messages", resource: resource %>
-      <%= f.input :phone,
-                  label: "Número de teléfono",
-                  placeholder: "+52 552 471 4512",
-                  required: "required"
-      %>
+      <div class="w-full relative mb-6">
+        <label for="user_phone" class="<%= label_color_class %>">Número de teléfono</label>
+        <div class="w-full relative mt-3">
+          <%= f.input :phone,
+                      label: "Número de teléfono",
+                      placeholder: "552 471 4512",
+                      required: "required",
+                      input_html: {autofocus: true, class: "#{input_color_class} pl-20"},
+                      label: false
+          %>
+          <div class="absolute left-0 bottom-0 top-0 w-16 flex justify-center items-center bg-main-gray-dark">
+            + 52
+          </div>
+        </div>
+      </div>
 
       <div class="hidden" id="verification-code">
         <%= f.input :verification_code,

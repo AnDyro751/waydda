@@ -163,7 +163,7 @@ class Dashboard::PlacesController < ApplicationController
         format.html { redirect_to my_place_path, alert: action === "activate" ? "Se ha activado tu empresa" : "Se ha descativado tu empresa" }
       rescue => e
         puts "--------#{e}"
-        format.html { redirect_to dashboard_edit_my_place_path, notice: "Ha ocurrido un error, intenta de nuevo" }
+        format.html { redirect_to dashboard_edit_my_place_path, notice: "#{e}" }
       end
     end
   end

@@ -38,16 +38,6 @@
     </div>
     <div class="w-2/12 px-0 flex items-center gap-3 justify-around">
       <%= render Header::Public::Cart.new(current_cart: @current_cart) %>
-      <% if user_signed_in? %>
-        <% if current_user.is_admin %>
-          <!--        TODO: Agregar imagen para el dashboard -->
-          <%= link_to my_place_path, title: "Panel de control" do %>
-            <img
-              class="h-6"
-              alt="dashboard image" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHg9IjBweCIgeT0iMHB4Igp3aWR0aD0iNDgiIGhlaWdodD0iNDgiCnZpZXdCb3g9IjAgMCAyNCAyNCIKc3R5bGU9IiBmaWxsOiMwMDAwMDA7Ij4gICAgPHBhdGggZD0iTSAzIDMgTCAzIDExIEwgMTEgMTEgTCAxMSAzIEwgMyAzIHogTSAxMyAzIEwgMTMgMTEgTCAyMSAxMSBMIDIxIDMgTCAxMyAzIHogTSAzIDEzIEwgMyAyMSBMIDExIDIxIEwgMTEgMTMgTCAzIDEzIHogTSAxMyAxMyBMIDEzIDIxIEwgMjEgMjEgTCAyMSAxMyBMIDEzIDEzIHoiPjwvcGF0aD48L3N2Zz4="/>
-          <% end %>
-        <% end %>
-      <% end %>
       <div class="w-auto flex justify-center">
         <% if user_signed_in? %>
           <%= render "dashboard/utils/toggle", mt: "big" %>
