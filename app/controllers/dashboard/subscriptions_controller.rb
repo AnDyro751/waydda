@@ -47,7 +47,8 @@ class Dashboard::SubscriptionsController < ApplicationController
       begin
         card_token = params["card_token"]
         if card_token.nil?
-          format.json { render json: {errors: "No se ha ingresado información bancaria"}, status: :unprocessable_entity }
+          puts "-------------DEBE"
+          format.json { render json: {errors: "No se ha ingresado información bancaria"}, status: :bad_gateway }
         else
           if card_token
             current_source = Account.create_source(current_user.stripe_customer_id, params["card_token"])

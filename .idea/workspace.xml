@@ -19,9 +19,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b89cb0fb-b680-4bb9-8ae0-f4b41721cfb9" name="Default Changelist" comment="feat(Dashboard): Init add card to subscription form">
-      <change afterPath="$PROJECT_DIR$/app/views/dashboard/subscriptions/create.html.erb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/views/dashboard/subscriptions/create.js.erb" afterDir="false" />
+    <list default="true" id="b89cb0fb-b680-4bb9-8ae0-f4b41721cfb9" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/controllers/dashboard/subscriptions_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/dashboard/subscriptions_controller.rb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/javascript/packs/dashboard/subscriptions/new.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/javascript/packs/dashboard/subscriptions/new.js" afterDir="false" />
@@ -792,14 +790,7 @@
       <workItem from="1602473981064" duration="9534000" />
       <workItem from="1602534028896" duration="416000" />
       <workItem from="1602625646815" duration="1538000" />
-      <workItem from="1602704305961" duration="3989000" />
-    </task>
-    <task id="LOCAL-00284" summary="feat(Dashboard): Product and sidebar colors">
-      <created>1601857071595</created>
-      <option name="number" value="00284" />
-      <option name="presentableId" value="LOCAL-00284" />
-      <option name="project" value="LOCAL" />
-      <updated>1601857071595</updated>
+      <workItem from="1602704305961" duration="6178000" />
     </task>
     <task id="LOCAL-00285" summary="feat(Dashboard): Vamos a agregar un modal para crear la categoría">
       <created>1602028613144</created>
@@ -1137,7 +1128,14 @@
       <option name="project" value="LOCAL" />
       <updated>1602705545946</updated>
     </task>
-    <option name="localTasksCounter" value="333" />
+    <task id="LOCAL-00333" summary="feat(Dashboard): Creamos la suscripción y la mejoramos con ajax">
+      <created>1602708345331</created>
+      <option name="number" value="00333" />
+      <option name="presentableId" value="LOCAL-00333" />
+      <option name="project" value="LOCAL" />
+      <updated>1602708345331</updated>
+    </task>
+    <option name="localTasksCounter" value="334" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -1158,7 +1156,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="feat(Dashboard): Foto del producto, mensaje de actualizar restaurado" />
     <MESSAGE value="feat(Dashboard): Eliminamos la subvariante, cuando hay registro y cuando está a punto de crearse" />
     <MESSAGE value="feat(Dashboard): Mostramos ls subvariantes y las creamos sin problemas" />
     <MESSAGE value="feat(Dashboard): Formulario de subvariantes completado 3:" />
@@ -1183,7 +1180,8 @@
     <MESSAGE value="feat(Dashboard): Mostramos anuncios cuando la cuenta aún de stripe aún no está completada" />
     <MESSAGE value="feat(Dashboard): Remove unnecessary elements in dashboard and public header" />
     <MESSAGE value="feat(Dashboard): Init add card to subscription form" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat(Dashboard): Init add card to subscription form" />
+    <MESSAGE value="feat(Dashboard): Creamos la suscripción y la mejoramos con ajax" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat(Dashboard): Creamos la suscripción y la mejoramos con ajax" />
   </component>
   <component name="WindowStateProjectService">
     <state x="392" y="0" key="#All_specs_in_spec:_waydda" timestamp="1598730457189">
@@ -1226,10 +1224,10 @@
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="491" y="102" width="374" height="557" key="#com.intellij.ide.util.MemberChooser/0.0.1366.768@0.0.1366.768" timestamp="1601746308565" />
-    <state x="261" y="0" width="834" height="683" key="CommitChangelistDialog2" timestamp="1602706610723">
+    <state x="261" y="0" width="834" height="683" key="CommitChangelistDialog2" timestamp="1602708345083">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state x="261" y="0" width="834" height="683" key="CommitChangelistDialog2/0.0.1366.768@0.0.1366.768" timestamp="1602706610723" />
+    <state x="261" y="0" width="834" height="683" key="CommitChangelistDialog2/0.0.1366.768@0.0.1366.768" timestamp="1602708345083" />
     <state x="255" y="248" width="424" height="479" key="FileChooserDialogImpl" timestamp="1602458482165">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
@@ -1323,13 +1321,13 @@
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="628" y="298" key="com.jetbrains.plugins.remotesdk.ui.RemoteMappingsConfiguration/0.0.1366.768@0.0.1366.768" timestamp="1598729856431" />
-    <state x="390" y="117" width="791" height="624" key="find.popup" timestamp="1602707554627">
+    <state x="390" y="117" width="791" height="624" key="find.popup" timestamp="1602708917120">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="1914" y="96" width="823" height="878" key="find.popup/0.0.1366.768/1366.-69.1920.1080@1366.-69.1920.1080" timestamp="1597716285449" />
     <state x="1754" y="117" width="583" height="624" key="find.popup/0.0.1366.768/1366.0.1360.768@1366.0.1360.768" timestamp="1598981376119" />
     <state x="1914" y="165" width="823" height="878" key="find.popup/0.0.1366.768/1366.0.1920.1080@1366.0.1920.1080" timestamp="1599260651210" />
-    <state x="390" y="117" width="791" height="624" key="find.popup/0.0.1366.768@0.0.1366.768" timestamp="1602707554627" />
+    <state x="390" y="117" width="791" height="624" key="find.popup/0.0.1366.768@0.0.1366.768" timestamp="1602708917120" />
     <state x="549" y="254" width="250" height="278" key="jetbrains.javascript.buildTools.run-task-popup" timestamp="1597946321130">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
