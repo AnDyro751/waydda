@@ -26,14 +26,7 @@
   </div>
   <% unless @place.kind == "premium" %>
     <div class="absolute bottom-0 left-0 right-0 w-full bg-white flex shadow-top px-4 py-6">
-      <%= link_to "Actualizar plan", dashboard_new_subscription_path("premium"), class: "text-center w-full #{main_color_button(color: "dark", size: "big", padding: "big")}" %>
+      <%= link_to "Actualizar plan", dashboard_new_subscription_path("premium"), class: "text-center w-full #{main_color_button(color: "primary", size: "big", padding: "big")}" %>
     </div>
   <% end %>
 </aside>
-<!--<div-->
-<!--  data-scroll-shadow="true"-->
-<!--  class="w-full border-b sticky top-0 bg-white z-50">-->
-<!--  <div class="w-9/12 mx-auto flex flex-wrap">-->
-<%#= render "utils/Headers/dashboard/items" %>
-<!--  </div>-->
-<!--</div>-->

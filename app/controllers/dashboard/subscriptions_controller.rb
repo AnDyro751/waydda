@@ -94,7 +94,7 @@ class Dashboard::SubscriptionsController < ApplicationController
                                                                        price: Account.get_price(free_days: @free_days.to_i, price: @premium_pricing.to_i)
                                                                    },
                                                                ],
-                                                               trial_from_plan: @place.trial_used ? false : true
+                                                               # trial_from_plan: @place.trial_used ? false : true
                                                            })
           rescue
             format.html { redirect_to dashboard_upgrade_plan_path, notice: "Ha ocurrido un error al suscribirte" }
