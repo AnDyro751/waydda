@@ -39,7 +39,7 @@ class Dashboard::PlacesController < ApplicationController
 
   def create_account_link
     redirect_to dashboard_place_connect_path, notice: "Primero conecta tu cuenta bancaria" if @user_account.nil?
-    @account_link = Account.create_link(@user_account.account_id)
+    @account_link = Account.create_link(@user_account.account_id, !@user_account.details_submitted)
 
     respond_to do |format|
       if @account_link.nil?
@@ -55,7 +55,7 @@ class Dashboard::PlacesController < ApplicationController
   def create_stripe_account
     respond_to do |format|
       # @connect = Place.create_stripe_account_link(current_user)
-      @connect = Account.create_link(@user_account.account_id, @user_account.completed)
+      @connect = Account.create_link(@user_account.account_id, @user_account.details_submitted)
       if @connect.nil?
         format.html { redirect_to dashboard_place_connect_path, notice: "Ha ocurrido un error al generar la configuración 2" }
       else

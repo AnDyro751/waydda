@@ -7,6 +7,7 @@ class Account
   field :account_id, type: String, default: ""
   field :completed, type: Boolean, default: false
   field :pending_verification, type: Boolean, default: false
+  field :details_submitted, type: Boolean, default: false
 
   # Stripe key
   # TODO: Enviar a secret
@@ -74,12 +75,12 @@ class Account
     if account_updated["details_submitted"]
       unless current_account.completed
         puts "----------ACTUALIZANDO A COMPLETED"
-        return current_account.update(completed: true)
+        return current_account.update(completed: true, details_submitted: account_updated["details_submitted"])
       end
     else
       if current_account.completed
         puts "----------ACTUALIZANDO A NOOOO COMPLETED"
-        return current_account.update(completed: false)
+        return current_account.update(completed: false, details_submitted: account_updated["details_submitted"])
       end
     end
 
@@ -91,10 +92,10 @@ class Account
                                             account: account_id,
                                             refresh_url: 'http://localhost:3000/dashboard/settings/payments/connect',
                                             return_url: 'http://localhost:3000/dashboard/settings/payments/connect',
-                                            type: update ? "account_update" : 'account_onboarding',
+                                            type: 'account_onboarding',
                                         })
       return link
-    rescue => e
+    rescue Stripe::StripeError => e
       puts "-----------#{e}-----2"
       return nil
     end
