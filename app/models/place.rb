@@ -55,7 +55,7 @@ class Place
   has_many :viewers
   has_many :views
   has_many :orders # Todas las ordenes que recibe
-  embeds_one :subscription
+  has_one :subscription
   has_one :account
 
 # Validations
@@ -175,12 +175,16 @@ class Place
   end
 
 
+
+
+
   private
 
 
   def self.current_categories
     [%w[Abarrotes groceries], %w[Alimentos food], %w[Servicios services], %w[Otros other]]
   end
+
 
   def self.cancel_subscription(subscription_id)
     get_subscription = Subscription.find_by(stripe_subscription_id: subscription_id)

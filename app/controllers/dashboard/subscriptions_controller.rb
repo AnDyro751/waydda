@@ -44,73 +44,70 @@ class Dashboard::SubscriptionsController < ApplicationController
       if @place.kind === "premium" and params["subscription_id"] === "premium"
         format.json { render json: {errors: "Ya cuentas con el plan premium"}, status: :unprocessable_entity }
       end
-      begin
-        card_token = params["card_token"]
-        if card_token.nil?
-          puts "-------------DEBE"
-          format.json { render json: {errors: "No se ha ingresado información bancaria"}, status: :bad_gateway }
-        else
-          if card_token
-            current_source = Account.create_source(current_user.stripe_customer_id, params["card_token"])
-            if current_source.nil?
-              format.json { render json: {errors: "Ha ocurrido un error al suscribirte"}, status: :unprocessable_entity }
-            else
-              updated_account = Account.update_account(current_user.stripe_customer_id, {
-                  default_source: current_source["id"]
-              })
-              puts "---------#{updated_account[:success]} UPDATED"
-              if updated_account[:success]
-                current_user.update(default_source: {id: updated_account["default_source"]})
-              else
-                format.json { render json: {errors: "Ha ocurrido un error al suscribirte"}, status: :unprocessable_entity }
-              end
-              # TODO: Guardar el default token que recibimos como param
-            end
-          end
-          begin
-            new_subscription = Stripe::Subscription.create({
-                                                               customer: current_user.stripe_customer_id,
-                                                               items: [
-                                                                   {
-                                                                       price: Account.get_price(free_days: @free_days.to_i, price: @premium_pricing.to_i)
-                                                                   },
-                                                               ],
-                                                               trial_from_plan: true
-                                                           })
-          rescue
+      card_token = params["card_token"]
+      if card_token.nil?
+        puts "-------------DEBE"
+        format.json { render json: {errors: "No se ha ingresado información bancaria"}, status: :bad_gateway }
+      else
+        if card_token
+          current_source = Account.create_source(current_user.stripe_customer_id, params["card_token"])
+          if current_source.nil?
             format.json { render json: {errors: "Ha ocurrido un error al suscribirte"}, status: :unprocessable_entity }
-          end
-          current_subscription = @place.subscription
-          if current_subscription
-            puts "--------------__#{new_subscription}------------SUBSCRIPTION"
-            if current_subscription.update(kind: "premium", stripe_subscription_id: new_subscription["id"], trial_end: new_subscription["trial_end"], trial_start: new_subscription["trial_start"])
-              @place.update(kind: "premium", trial_will_end: false, in_free_trial: @place.trial_used ? false : true, trial_used: true)
-              @success = true
-              puts "----------------4"
-              format.json { render json: {errors: nil, success: true}, status: :ok }
-            else
-              puts "----------------3"
-              format.json { render json: {errors: "Ha ocurrido un error al suscribirte", success: false}, status: :unprocessable_entity }
-            end
           else
-            puts "--------------__#{new_subscription}------------SUBSCRIPTION"
-            @subscription = @place.create_subscription(stripe_subscription_id: new_subscription["id"], kind: "premium", trial_end: new_subscription["trial_end"], trial_start: new_subscription["trial_start"])
-            if @subscription.save
-              @success = true
-              @place.update(kind: "premium", trial_will_end: false, in_free_trial: @place.trial_used ? false : true, trial_used: true)
-              puts "----------------5"
-              format.json { render json: {errors: nil, success: true}, status: :ok }
+            updated_account = Account.update_account(current_user.stripe_customer_id, {
+                default_source: current_source["id"]
+            })
+            puts "---------#{updated_account[:success]} UPDATED"
+            if updated_account[:success]
+              current_user.update(default_source: {id: updated_account["default_source"]})
             else
-              puts "----------------2"
-              format.json { render json: {errors: "Ha ocurrido un error al suscribirte", success: false}, status: :unprocessable_entity }
+              format.json { render json: {errors: "Ha ocurrido un error al suscribirte"}, status: :unprocessable_entity }
             end
           end
         end
-
-
-      rescue => e
-        puts "Error --------#{e}------"
-        format.json { render json: {errors: "Ha ocurrido un error al suscribirte", success: false}, status: :unprocessable_entity }
+        begin
+          new_subscription = Stripe::Subscription.create({
+                                                             customer: current_user.stripe_customer_id,
+                                                             items: [
+                                                                 {
+                                                                     price: Account.get_price(free_days: @free_days.to_i, price: @premium_pricing.to_i)
+                                                                 },
+                                                             ],
+                                                             trial_from_plan: true
+                                                         })
+        rescue => e
+          puts "------------#{e}ERROR 2"
+          format.json { render json: {errors: "Ha ocurrido un error al suscribirte #{e}"}, status: :unprocessable_entity }
+          # raise "Ha ocurrido un error"
+        end
+        if new_subscription.nil?
+          return render json: {errors: "Ha ocurrido un error al suscribirte"}, status: :unprocessable_entity
+        end
+        current_subscription = @place.subscription
+        if current_subscription
+          puts "--------------__#{new_subscription}------------SUBSCRIPTION"
+          if current_subscription.update(kind: "premium", stripe_subscription_id: new_subscription["id"], trial_end: new_subscription["trial_end"], trial_start: new_subscription["trial_start"])
+            @place.update(kind: "premium", trial_will_end: false, in_free_trial: @place.trial_used ? false : true, trial_used: true)
+            @success = true
+            puts "----------------4"
+            format.json { render json: {errors: nil, success: true}, status: :ok }
+          else
+            puts "----------------3"
+            format.json { render json: {errors: "Ha ocurrido un error al suscribirte", success: false}, status: :unprocessable_entity }
+          end
+        else
+          puts "--------------__#{new_subscription}------------SUBSCRIPTION"
+          @subscription = @place.create_subscription(stripe_subscription_id: new_subscription["id"], kind: "premium", trial_end: new_subscription["trial_end"], trial_start: new_subscription["trial_start"])
+          if @subscription.save
+            @success = true
+            @place.update(kind: "premium", trial_will_end: false, in_free_trial: @place.trial_used ? false : true, trial_used: true)
+            puts "----------------5"
+            format.json { render json: {errors: nil, success: true}, status: :ok }
+          else
+            puts "----------------2"
+            format.json { render json: {errors: "Ha ocurrido un error al suscribirte", success: false}, status: :unprocessable_entity }
+          end
+        end
       end
     end
   end

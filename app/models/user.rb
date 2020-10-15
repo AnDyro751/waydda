@@ -7,7 +7,7 @@ class User
 
   devise :database_authenticatable, :registerable, :rememberable
   # Callbacks
-  after_create :assign_default_role
+  after_create :assign_default_role, if: Proc.new { self.phone.present? }
   # after_save :create_stripe_customer
   # TODO: Al registrarse y si ya cuenta con un carrito se debe hacer merge
   # after_create :merge_cart

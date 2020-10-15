@@ -11,6 +11,7 @@ class ApplicationController < ActionController::Base
   # before_action :set_default_locations
 
 
+
   def current_or_guest_user
     if current_user
       if session[:guest_user_id] && session[:guest_user_id] != current_user.id.to_s
@@ -144,6 +145,11 @@ class ApplicationController < ActionController::Base
   end
 
   private
+
+  def hook_controller
+    controller_name == "hooks"
+  end
+
 
   def set_raven_context
     Raven.user_context(id: current_or_guest_user.id.to_s) # or anything else in session

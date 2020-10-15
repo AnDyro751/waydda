@@ -105,7 +105,9 @@ async function stripeTokenHandler(token) {
             window.addToastify("danger", response.errors)
         } else {
             window.addToastify("primary", "Se ha actualizado la suscripción")
-            Turbolinks.visit("/dashboard");
+            setTimeout(() => {
+                Turbolinks.visit("/dashboard");
+            }, 3000)
         }
     } catch (e) {
         document.querySelector("#submit-input").disabled = false;

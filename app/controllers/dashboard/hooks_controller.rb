@@ -90,10 +90,15 @@ class Dashboard::HooksController < ApplicationController
         Account.update_account_hook(account_updated)
         puts "--------ACCOUNT UPDATE"
         return head :ok
+      when "customer.subscription.updated"
+        subscription_updated = Subscription.update_subscription_plan(event.data.object)
+        return head :ok if subscription_updated
+        return not_found if subscription_updated.nil?
       when "customer.subscription.deleted"
         subscription_updated = event.data.object
         subscription_deleted = Place.cancel_subscription(subscription_updated["id"])
         return head :ok if subscription_deleted
+        # return head :ok
         return not_found if subscription_deleted.nil? || subscription_deleted === false
         return
       else
