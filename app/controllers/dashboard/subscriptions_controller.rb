@@ -30,9 +30,12 @@ class Dashboard::SubscriptionsController < ApplicationController
   end
 
   def new
-    if @place.premium? and params["subscription_id"] === "premium"
-      redirect_to dashboard_edit_subscription_path, notice: "Ya cuentas con el plan premium"
+    set_meta_tags title: "Suscripción | Waydda",
+                  description: "Suscripción | Waydda"
+    unless @place.subscription.new_record
+      redirect_to dashboard_edit_subscription_path, alert: "Desde aquí puedes administrar tu sucripción"
     end
+
     if @place.subscription.nil?
       @subscription = @place.build_subscription
     end

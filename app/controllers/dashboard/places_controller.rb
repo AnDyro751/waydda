@@ -25,6 +25,8 @@ class Dashboard::PlacesController < ApplicationController
 
 
   def upgrade
+    set_meta_tags title: "Suscripción | Waydda",
+                  description: "Suscripción | Waydda"
     @full_page = true
   end
 

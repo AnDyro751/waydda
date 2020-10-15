@@ -11,7 +11,6 @@
   <h2>Ya cuentas con esta suscripción</h2>
   <%= link_to "¿Buscabas mejorar tu suscripción?", dashboard_new_subscription_path("premium") %>
 <% end %>
-
 <% if params["subscription_id"] === "premium" and @place.premium? %>
   <h2>Ya tienes premium</h2>
 <% end %>

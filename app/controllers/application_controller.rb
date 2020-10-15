@@ -11,7 +11,6 @@ class ApplicationController < ActionController::Base
   # before_action :set_default_locations
 
 
-
   def current_or_guest_user
     if current_user
       if session[:guest_user_id] && session[:guest_user_id] != current_user.id.to_s
@@ -78,19 +77,8 @@ class ApplicationController < ActionController::Base
 
 
   def set_price
-    if user_signed_in?
-      if current_user.price_selected
-        @premium_pricing = current_user.price_selected
-        @free_days = current_user.free_days_selected
-      else
-        @premium_pricing = ab_test(:premium_pricing, '69', '129', '229')
-        @free_days = ab_test(:free_pricing, '7', '14', '30')
-        current_user.update(price_selected: @premium_pricing, free_days_selected: @free_days)
-      end
-    else
-      @premium_pricing = ab_test(:premium_pricing, '69', '129', '229')
-      @free_days = ab_test(:free_pricing, '7', '14', '30')
-    end
+    @premium_pricing = 229
+    @free_days = 14
   end
 
   def set_language
