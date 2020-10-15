@@ -73,7 +73,7 @@ class Dashboard::SubscriptionsController < ApplicationController
                                                                      price: Account.get_price(free_days: @free_days.to_i, price: @premium_pricing.to_i)
                                                                  },
                                                              ],
-                                                             trial_from_plan: true
+                                                             trial_from_plan: @place.trial_used ? false : true
                                                          })
         rescue => e
           puts "------------#{e}ERROR 2"
