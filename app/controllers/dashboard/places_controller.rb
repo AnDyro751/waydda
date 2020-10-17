@@ -180,7 +180,7 @@ class Dashboard::PlacesController < ApplicationController
     @place.destroy
     respond_to do |format|
       sign_out(current_user)
-      format.html { redirect_to places_url, notice: 'Place was successfully destroyed.' }
+      format.html { redirect_to root_path, notice: 'Se ha eliminado tu empresa' }
       format.json { head :no_content }
     end
   end
