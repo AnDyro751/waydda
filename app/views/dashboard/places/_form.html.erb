@@ -68,9 +68,9 @@
 
 
     </div>
-    <div class="w-full flex flex-wrap w-5/12 ml-4  <%= border_color %>  p-4">
+    <div class="w-full flex flex-wrap w-5/12 ml-4 ">
       <% unless @place.new_record? %>
-        <div class="w-full relative self-start">
+        <div class="w-full relative self-start  <%= border_color %>  p-4 mb-4">
           <div class="flex w-full flex-wrap">
             <p class="<%= label_color_class(size: "big") %>">Imagen de portada</p>
             <div class="w-full border border-gray-300 mt-6 relative">
@@ -91,7 +91,7 @@
           <div class="UppyInput-Progress w-full mt-8"></div>
         </div>
       <% end %>
-      <div class="w-full mb-4">
+      <div class="w-full mb-4  <%= border_color %>  p-4">
         <%= f.input :category,
                     label: "Categoría de tu empresa",
                     label_html: {
