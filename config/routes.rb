@@ -78,11 +78,12 @@ Rails.application.routes.draw do
     end
     # Places
     get "/my-sales", to: "places#sales", as: "my_sales"
-
+    delete "/delete-place", to: "places#destroy", as: "destroy_my_place"
     get "/settings", to: "places#edit", as: "edit_my_place"
     get "/settings/general", to: "settings#general", as: "edit_general_my_place"
     get "/settings/shipping", to: "settings#shipping", as: "edit_shipping"
     get "/settings/danger", to: "settings#danger", as: "danger_zone"
+
     get "/settings/subscription", to: "subscriptions#edit", as: "edit_subscription"
     post "/settings/subscription", to: "settings#create_portal", as: "create_user_portal"
 

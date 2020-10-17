@@ -179,6 +179,7 @@ class Dashboard::PlacesController < ApplicationController
   def destroy
     @place.destroy
     respond_to do |format|
+      sign_out(current_user)
       format.html { redirect_to places_url, notice: 'Place was successfully destroyed.' }
       format.json { head :no_content }
     end

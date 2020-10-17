@@ -31,14 +31,14 @@ class ApplicationController < ActionController::Base
 
   def guest_user(with_retry = true)
     # Cache the value the first time it's gotten.
-    @cached_guest_user ||= User.find(session[:guest_user_id])
+    @cached_guest_user ||= User.find(session[:guest_user_id] || "")
     puts "------------#{@cached_guest_user} 1"
     if @cached_guest_user.nil?
       @cached_guest_user = create_guest_user
       puts "------------#{@cached_guest_user} ---2"
     end
 
-  rescue ActiveRecord::RecordNotFound # if session[:guest_user_id] invalid
+  rescue Mongoid::Errors::DocumentNotFound # if session[:guest_user_id] invalid
     session[:guest_user_id] = nil
     guest_user if with_retry
   end
