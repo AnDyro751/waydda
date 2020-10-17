@@ -50,7 +50,6 @@ RSpec.describe "Places", type: :request do
       }
     end
     describe "POST /dashboard/places" do
-
       it 'should creates a new place when user dont have records' do
         post "/dashboard/places", params: params
         expect(response).to redirect_to(my_place_path)
@@ -59,7 +58,6 @@ RSpec.describe "Places", type: :request do
         expect(response.body).to include("Se ha creado tu empresa")
       end
     end
-
 
   end
 
