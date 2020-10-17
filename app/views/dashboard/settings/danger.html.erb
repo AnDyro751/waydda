@@ -5,14 +5,14 @@
   <div class="w-full flex items-center py-4">
     <div class="w-6/12">
       <p class="font-normal">
-        <% if @place.active? %>
+        <% if @place.status === "active" %>
           Desactivar empresa
         <% else %>
           Activar empresa
         <% end %>
       </p>
       <small>
-        <% if @place.active? %>
+        <% if @place.status === "active" %>
           Al desactivar tu empresa ya no podrás aceptar pedidos ni se listarán tus productos.
           <% else %>
           Al activar tu empresa podrás aceptar pedidos y todos tus productos se listarán.

@@ -129,14 +129,18 @@ class Dashboard::PlacesController < ApplicationController
   def update_delivery
     respond_to do |format|
       # puts "-------#{can?(:update, @place) and @place.premium?}"
-      if can?(:update, @place) and @place.premium?
+      if can?(:update, @place) and @place.kind === "premium"
         if @place.update(place_delivery_params)
           format.js
         else
           format.js
         end
       else
-        format.html { redirect_to dashboard_edit_my_place_path, notice: "No tienes los permisos necesarios para realizar esta acción", status: :unprocessable_entity }
+        if @place.kind == "free"
+          format.html { redirect_to dashboard_edit_my_place_path, notice: "Actuaiza tu plan para acceder ofrecer envíos a domicilio" }
+        else
+          format.html { redirect_to dashboard_edit_my_place_path, notice: "No tienes los permisos necesarios para realizar está acción" }
+        end
       end
     end
   end
