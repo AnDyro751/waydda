@@ -1,6 +1,6 @@
-<div class="w-full flex mb-20" x-data="addressForm()">
-  <%= simple_form_for(@place, url: url ? url : dashboard_places_path, remote: true, html: {class: "w-full flex items-start p-4 #{border_color}"}) do |f| %>
-    <div class="w-full flex-wrap flex w-7/12 mr-4">
+<div class="w-full flex mb-40" x-data="addressForm()">
+  <%= simple_form_for(@place, url: url ? url : dashboard_places_path, remote: true, html: {class: "w-full flex items-start"}) do |f| %>
+    <div class="w-full flex-wrap flex w-7/12 mr-4 <%= border_color %>  p-4">
       <div class="w-full mb-6">
         <%= f.input :name, label: "Nombre de tu empresa", placeholder: "Ej. Miscelanea Hermanos Ponchos",
                     label_html: {
@@ -68,7 +68,7 @@
 
 
     </div>
-    <div class="w-full flex flex-wrap w-5/12 ml-4">
+    <div class="w-full flex flex-wrap w-5/12 ml-4  <%= border_color %>  p-4">
       <% unless @place.new_record? %>
         <div class="w-full relative self-start">
           <div class="flex w-full flex-wrap">
