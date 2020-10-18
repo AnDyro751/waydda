@@ -3,13 +3,16 @@
 <% end %>
 <% content_for :content do %>
   <div class="h-64 bg-gray-300 w-full bg-center bg-cover relative bg-no-repeat">
-    <div class="absolute bottom-0 top-0 left-0 right-0 bg-opacity-25 bg-black" ></div>
+    <div class="absolute bottom-0 top-0 left-0 right-0 bg-opacity-50 bg-black"></div>
     <img
-      src="<%= helpers.get_image_url(6, 25, @place.cover, "cover") %>"
-      data-src="<%= helpers.get_image_url(250, 1000, @place.cover, "cover") %>"
-      class="lazy h-full w-full"
+      src="<%= helpers.get_image_url(12, 50, @place.cover, "cover") %>"
+      class="lazy h-full w-full hidden"
       draggable="false"
       alt="<%= @place.name %> cover photo">
+    <div
+      class="lazy h-full w-full bg-no-repeat bg-cover bg-center"
+      data-bg="<%= helpers.get_image_url(240, 1000, @place.cover, "cover") %>">
+    </div>
   </div>
 <% end %>
 <div
