@@ -18,6 +18,7 @@ class PlacesController < ApplicationController
   # GET /places/1.json
   def show
     @products = []
+    @current_distance = @place.get_distance(current_or_guest_user.get_ll)
     # @place.products.paginate(page: params[:page], per_page: 30)
     @items = @place.items.includes(:recent_products)
   end

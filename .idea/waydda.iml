@@ -87,6 +87,7 @@
     <orderEntry type="library" scope="PROVIDED" name="faker (v2.14.0, RVM: ruby-2.6.3) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="faraday (v1.0.1, RVM: ruby-2.6.3) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="ffi (v1.13.1, RVM: ruby-2.6.3) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="geokit (v1.13.1, RVM: ruby-2.6.3) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="globalid (v0.4.2, RVM: ruby-2.6.3) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="hashie (v4.1.0, RVM: ruby-2.6.3) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="http-cookie (v1.0.3, RVM: ruby-2.6.3) [gem]" level="application" />

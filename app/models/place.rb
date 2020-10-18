@@ -105,6 +105,17 @@ class Place
     self.update(total_products: oper)
   end
 
+# @note
+# Función para calcular la distancia entre un place y un punto a
+# @param [Array] point_a
+# @return [Geokit::LatLng] KMS distance
+  def get_distance(point_a = [])
+    return 100000000 if point_a.length <= 0 # return 1000000 if point_a is empty
+    a = Geokit::LatLng.new(self.lat, self.lng)
+    b = Geokit::LatLng.new(point_a[0], point_a[1])
+    a.distance_to(b)
+  end
+
 
   def valid_sale?
     unless self.nil?
@@ -173,9 +184,6 @@ class Place
   def can_delivery?
     self.kind === "premium" and self.delivery_option
   end
-
-
-
 
 
   private

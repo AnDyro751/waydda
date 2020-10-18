@@ -118,6 +118,15 @@ class User
   end
 
 
+  def get_ll
+    new_current_address = self.current_address
+    if new_current_address
+      return [new_current_address.lat, new_current_address.lng]
+    else
+      return []
+    end
+  end
+
   def current_address
     self.addresses.find_by(current: true) || nil
   end

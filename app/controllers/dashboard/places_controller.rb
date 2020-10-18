@@ -1,7 +1,7 @@
 class Dashboard::PlacesController < ApplicationController
   layout "dashboard"
   before_action :authenticate_user!
-  before_action :set_my_place, except: [:new, :create] #, except: [:new, :create]
+  before_action :set_my_place, except: [:new, :create, :get_distance_from_current_user] #, except: [:new, :create]
   before_action :valid_uniqueness_place, only: [:new, :create]
   before_action :redirect_if_empty_place, only: [:my_place, :edit, :update, :destroy]
   before_action :set_user_account, only: [:connect, :create_account_link, :create_stripe_account]
@@ -172,6 +172,15 @@ class Dashboard::PlacesController < ApplicationController
         format.html { redirect_to dashboard_edit_my_place_path, notice: "#{e}" }
       end
     end
+  end
+
+  def get_distance_from_current_user
+    if current_or_guest_user.current_address
+      render json: {errors: nil, distance: @place.get_distance([current_user.current_address.lat, current_user.current_address.lng])}
+    else
+      render json: {errors: "Agrega una dirección de entrega", distance: 0}
+    end
+    # return json {errors: ""}
   end
 
   # DELETE /places/1
