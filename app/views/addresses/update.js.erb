@@ -31,3 +31,6 @@ if (document.querySelector("#address_value")) {
 }
 <% end %>
 window.deleteFlashs();
+if (window.current_modal.isOpen) {
+    window.current_modal.close();
+}

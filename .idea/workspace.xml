@@ -19,18 +19,14 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b89cb0fb-b680-4bb9-8ae0-f4b41721cfb9" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/components/Places/delivery_modal.html.erb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/components/Places/delivery_modal.rb" afterDir="false" />
+    <list default="true" id="b89cb0fb-b680-4bb9-8ae0-f4b41721cfb9" name="Default Changelist" comment="feat(Dashboard): Ya mostramos el modal pero hay que ocultarlo cuando ya lo vio o mostrarlo de una manera más sutil">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/javascript/packs/application.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/javascript/packs/application.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/javascript/packs/dashboard/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/javascript/packs/dashboard/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/components/Places/delivery_modal.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/components/Places/delivery_modal.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/components/Places/delivery_modal.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/components/Places/delivery_modal.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/components/address/form.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/components/address/form.html.erb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/javascript/packs/places/show.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/javascript/packs/places/show.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/dashboard/items/_form.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/dashboard/items/_form.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/dashboard/items/_simple_new.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/dashboard/items/_simple_new.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/dashboard/items/new.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/dashboard/items/new.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/layouts/application.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/layouts/application.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/layouts/dashboard.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/layouts/dashboard.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/addresses/create.js.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/addresses/create.js.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/addresses/update.js.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/addresses/update.js.erb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/views/places/show.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/places/show.html.erb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -800,14 +796,7 @@
       <workItem from="1602625646815" duration="1538000" />
       <workItem from="1602704305961" duration="12648000" />
       <workItem from="1602732490459" duration="5194000" />
-      <workItem from="1602957821015" duration="14336000" />
-    </task>
-    <task id="LOCAL-00302" summary="feat(Dashboard): Mostramos los errores al crear el aggregate category">
-      <created>1602268852738</created>
-      <option name="number" value="00302" />
-      <option name="presentableId" value="LOCAL-00302" />
-      <option name="project" value="LOCAL" />
-      <updated>1602268852739</updated>
+      <workItem from="1602957821015" duration="20184000" />
     </task>
     <task id="LOCAL-00303" summary="feat(Dashboard): Creamos una persistencia al redireccionar 3:">
       <created>1602271074378</created>
@@ -1145,7 +1134,14 @@
       <option name="project" value="LOCAL" />
       <updated>1602993169361</updated>
     </task>
-    <option name="localTasksCounter" value="351" />
+    <task id="LOCAL-00351" summary="feat(Dashboard): Ya mostramos el modal pero hay que ocultarlo cuando ya lo vio o mostrarlo de una manera más sutil">
+      <created>1602995522755</created>
+      <option name="number" value="00351" />
+      <option name="presentableId" value="LOCAL-00351" />
+      <option name="project" value="LOCAL" />
+      <updated>1602995522755</updated>
+    </task>
+    <option name="localTasksCounter" value="352" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -1166,7 +1162,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="feat(Dashboard): Dashboard general settings completed" />
     <MESSAGE value="feat(Dashboard): Agregamos un link para acceder a mi empresa desde el header" />
     <MESSAGE value="feat(Dashboard): Shipping settings" />
     <MESSAGE value="feat(Dashboard): Mostramos anuncios cuando la cuenta aún de stripe aún no está completada" />
@@ -1191,7 +1186,8 @@
     <MESSAGE value="feat(Dashboard): Toggle design" />
     <MESSAGE value="feat(Dashboard): Add simple metatags in places_controller.rb" />
     <MESSAGE value="feat(Dashboard): Agregamos un pequeño fondo negro para diferenciar entre la imagen de portada y el contenido" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat(Dashboard): Agregamos un pequeño fondo negro para diferenciar entre la imagen de portada y el contenido" />
+    <MESSAGE value="feat(Dashboard): Ya mostramos el modal pero hay que ocultarlo cuando ya lo vio o mostrarlo de una manera más sutil" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat(Dashboard): Ya mostramos el modal pero hay que ocultarlo cuando ya lo vio o mostrarlo de una manera más sutil" />
   </component>
   <component name="WindowStateProjectService">
     <state x="392" y="0" key="#All_specs_in_spec:_waydda" timestamp="1598730457189">
@@ -1234,10 +1230,10 @@
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="491" y="102" width="374" height="557" key="#com.intellij.ide.util.MemberChooser/0.0.1366.768@0.0.1366.768" timestamp="1601746308565" />
-    <state x="261" y="0" width="834" height="683" key="CommitChangelistDialog2" timestamp="1602993169260">
+    <state x="261" y="0" width="834" height="683" key="CommitChangelistDialog2" timestamp="1602995665235">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state x="261" y="0" width="834" height="683" key="CommitChangelistDialog2/0.0.1366.768@0.0.1366.768" timestamp="1602993169260" />
+    <state x="261" y="0" width="834" height="683" key="CommitChangelistDialog2/0.0.1366.768@0.0.1366.768" timestamp="1602995665235" />
     <state x="255" y="248" width="424" height="479" key="FileChooserDialogImpl" timestamp="1602458482165">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
@@ -1307,12 +1303,12 @@
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="544" y="96" key="VCS.ChangeListViewerDialog/0.0.1366.768@0.0.1366.768" timestamp="1598750646694" />
-    <state x="275" y="117" width="800" height="523" key="Vcs.Push.Dialog.v2" timestamp="1602476188193">
+    <state x="275" y="117" width="800" height="523" key="Vcs.Push.Dialog.v2" timestamp="1602995667784">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="1640" y="117" key="Vcs.Push.Dialog.v2/0.0.1366.768/1366.0.1360.768@1366.0.1360.768" timestamp="1598221582431" />
     <state x="1753" y="165" key="Vcs.Push.Dialog.v2/0.0.1366.768/1366.0.1920.1080@1366.0.1920.1080" timestamp="1599267641822" />
-    <state x="275" y="117" width="800" height="523" key="Vcs.Push.Dialog.v2/0.0.1366.768@0.0.1366.768" timestamp="1602476188193" />
+    <state x="275" y="117" width="800" height="523" key="Vcs.Push.Dialog.v2/0.0.1366.768@0.0.1366.768" timestamp="1602995667784" />
     <state x="496" y="169" key="chooseDestDirectoryDialog" timestamp="1598730651549">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
@@ -1331,13 +1327,13 @@
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="628" y="298" key="com.jetbrains.plugins.remotesdk.ui.RemoteMappingsConfiguration/0.0.1366.768@0.0.1366.768" timestamp="1598729856431" />
-    <state x="390" y="117" width="791" height="624" key="find.popup" timestamp="1602995257295">
+    <state x="390" y="117" width="791" height="624" key="find.popup" timestamp="1603048944372">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="1914" y="96" width="823" height="878" key="find.popup/0.0.1366.768/1366.-69.1920.1080@1366.-69.1920.1080" timestamp="1597716285449" />
     <state x="1754" y="117" width="583" height="624" key="find.popup/0.0.1366.768/1366.0.1360.768@1366.0.1360.768" timestamp="1598981376119" />
     <state x="1914" y="165" width="823" height="878" key="find.popup/0.0.1366.768/1366.0.1920.1080@1366.0.1920.1080" timestamp="1599260651210" />
-    <state x="390" y="117" width="791" height="624" key="find.popup/0.0.1366.768@0.0.1366.768" timestamp="1602995257295" />
+    <state x="390" y="117" width="791" height="624" key="find.popup/0.0.1366.768@0.0.1366.768" timestamp="1603048944372" />
     <state x="549" y="254" width="250" height="278" key="jetbrains.javascript.buildTools.run-task-popup" timestamp="1597946321130">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
@@ -1346,13 +1342,13 @@
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="339" y="174" width="672" height="677" key="run.anything.popup/0.0.1366.768@0.0.1366.768" timestamp="1600370541201" />
-    <state x="346" y="89" width="672" height="678" key="search.everywhere.popup" timestamp="1602995199095">
+    <state x="346" y="89" width="672" height="678" key="search.everywhere.popup" timestamp="1603048835421">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="1852" y="56" width="945" height="954" key="search.everywhere.popup/0.0.1366.768/1366.-69.1920.1080@1366.-69.1920.1080" timestamp="1597715976170" />
     <state x="1710" y="89" width="672" height="678" key="search.everywhere.popup/0.0.1366.768/1366.0.1360.768@1366.0.1360.768" timestamp="1598985878395" />
     <state x="1852" y="125" width="945" height="954" key="search.everywhere.popup/0.0.1366.768/1366.0.1920.1080@1366.0.1920.1080" timestamp="1599267313630" />
-    <state x="346" y="89" width="672" height="678" key="search.everywhere.popup/0.0.1366.768@0.0.1366.768" timestamp="1602995199095" />
+    <state x="346" y="89" width="672" height="678" key="search.everywhere.popup/0.0.1366.768@0.0.1366.768" timestamp="1603048835421" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/waydda@Dashboard__ProductsControll_____3_.rcov" NAME="Dashboard::ProductsControll... (3) Coverage Results" MODIFIED="1601852304157" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="waydda" />

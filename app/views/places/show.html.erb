@@ -15,9 +15,16 @@
   }
 
 
+
+
+
+
 </script>
+<%= content_for(:head_tags) do %>
+  <meta name="show-modal" content="<%= @available_distance ? "no" : "yes" %>">
+<% end %>
 <%= render Places::Presentation.new(delivery_option: @delivery_option, place: @place, current_cart: @current_cart, items: @items) %>
-<%= render Places::DeliveryModal.new(message: "E") %>
+<%= render Places::DeliveryModal.new(message: "E", current_user: current_or_guest_user, available_distance: @available_distance) %>
 <div class="w-10/12 mx-auto flex flex-wrap">
   <% @items.each do |item| %>
     <div class="w-full flex flex-wrap " id="<%= item.id.to_s %>">

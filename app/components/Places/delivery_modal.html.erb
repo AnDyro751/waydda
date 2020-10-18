@@ -1,3 +1,25 @@
 <template class="new-modal-content">
-  <a data-modal-close>Close</a>
+  <%= content_for :modal_size do %>
+    <%= "w-5/12" %>
+  <% end %>
+  <div class="w-full">
+    <% if @current_user.current_address.nil? %>
+      <%= render Headers::Text.new(title: "Ingresa una dirección de entrega", small: true, with_margin: false, with_border: true, padding_class: "py-6 px-4", font: "small", subtitle: "Agrega información de tu dirección de entrega o recoge en tienda") %>
+    <% else %>
+      <% unless @available_distance %>
+        <%= render Headers::Text.new(title: "Estás un poco lejos", small: true, with_margin: true, with_margin: false, with_border: true, padding_class: "py-6 px-4", font: "small", subtitle: "Actualiza tu ubicación o programa la recolección de tu pedido") %>
+      <% end %>
+    <% end %>
+    <div class="px-4 py-6">
+      <% unless @available_distance %>
+        <%= render Address::Form.new(address: @current_user.current_address || Address.new) %>
+      <% end %>
+      <!--      <img-->
+      <!--        class="lazy h-64 w-64 mx-auto"-->
+      <!--        data-src="<%#= helpers.get_image_url(500, 500, "utils/pixeltrue-icons-seo-business-location-3.png") %>"-->
+      <!--        src="<%#= helpers.get_image_url(10, 10, "utils/pixeltrue-icons-seo-business-location-3.png") %>"-->
+      <!--        alt="Distance">-->
+    </div>
+  </div>
+
 </template>

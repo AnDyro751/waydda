@@ -1,10 +1,13 @@
 var ele = document.getElementById("scroll-container");
 document.addEventListener("turbolinks:load", function () {
-    console.log("window", window.current_modal)
-    window.current_modal.open("#modal");
-    var new_template = document.querySelector(".new-modal-content");
-    var clone = document.importNode(new_template.content, true);
-    document.querySelector(".modal-content").appendChild(clone);
+    var showModal = document.querySelector("meta[name=show-modal]").content;
+    if (showModal === "yes") {
+        window.current_modal.open("#modal");
+        var new_template = document.querySelector(".new-modal-content");
+        var clone = document.importNode(new_template.content, true);
+        document.querySelector(".modal-content").appendChild(clone);
+        window.customLazyLoad.update();
+    }
     if (ele) {
         ele.style.cursor = 'grab';
 
