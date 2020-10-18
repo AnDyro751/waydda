@@ -1,27 +1,29 @@
 var ele = document.getElementById("scroll-container");
 document.addEventListener("turbolinks:load", function () {
-    var showModal = document.querySelector("meta[name=show-modal]").content;
+    var showModal = document.querySelector("meta[name=show-modal]");
 
-    if (showModal === "yes") {
-        window.current_modal.open("#modal");
-        var new_template = document.querySelector(".new-modal-content");
-        var clone = document.importNode(new_template.content, true);
-        document.querySelector(".modal-content").appendChild(clone);
-        window.customLazyLoad.update();
-        console.log(document.querySelectorAll(".button-select-modal").length, "LEN");
+    if (showModal) {
+        if (showModal.content === "yes") {
+            window.current_modal.open("#modal");
+            var new_template = document.querySelector(".new-modal-content");
+            var clone = document.importNode(new_template.content, true);
+            document.querySelector(".modal-content").appendChild(clone);
+            window.customLazyLoad.update();
+            console.log(document.querySelectorAll(".button-select-modal").length, "LEN");
 
-        document.querySelectorAll(".button-select-modal").forEach((el) => {
-            console.log(el)
-            el.addEventListener("click", () => {
-                document.querySelector(".divider-modal").classList.add("hidden");
-                document.querySelector("#button-pickup-modal").classList.add("hidden");
-                document.querySelector("#button-address-modal").classList.add("hidden");
-                if (el.id === "button-address-modal") {
-                    document.querySelector("#delivery-form-modal").classList.remove("hidden");
-                }
-            })
+            document.querySelectorAll(".button-select-modal").forEach((el) => {
+                console.log(el)
+                el.addEventListener("click", () => {
+                    document.querySelector(".divider-modal").classList.add("hidden");
+                    document.querySelector("#button-pickup-modal").classList.add("hidden");
+                    document.querySelector("#button-address-modal").classList.add("hidden");
+                    if (el.id === "button-address-modal") {
+                        document.querySelector("#delivery-form-modal").classList.remove("hidden");
+                    }
+                })
 
-        });
+            });
+        }
     }
     if (ele) {
         ele.style.cursor = 'grab';

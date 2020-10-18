@@ -19,9 +19,19 @@
 
 
 
+
+
+
+
+
+
+
+
 </script>
-<%= content_for(:head_tags) do %>
-  <meta name="show-modal" content="<%= @available_distance ? "no" : "yes" %>">
+<% if @place.delivery_option and @place.kind === "premium" %>
+  <%= content_for(:head_tags) do %>
+    <meta name="show-modal" content="<%= @available_distance ? "no" : "yes" %>">
+  <% end %>
 <% end %>
 <%= render Places::Presentation.new(delivery_option: @delivery_option, place: @place, current_cart: @current_cart, items: @items) %>
 <%= render Places::DeliveryModal.new(message: "E", current_user: current_or_guest_user, available_distance: @available_distance) %>
