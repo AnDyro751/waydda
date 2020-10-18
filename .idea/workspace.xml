@@ -21,7 +21,6 @@
   <component name="ChangeListManager">
     <list default="true" id="b89cb0fb-b680-4bb9-8ae0-f4b41721cfb9" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/places_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/places_controller.rb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/models/place.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/place.rb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -791,14 +790,7 @@
       <workItem from="1602625646815" duration="1538000" />
       <workItem from="1602704305961" duration="12648000" />
       <workItem from="1602732490459" duration="5194000" />
-      <workItem from="1602957821015" duration="10711000" />
-    </task>
-    <task id="LOCAL-00297" summary="feat(Dashboard): Añadimos las variantes a la vista, vamos a cambiar la forma de listarlas">
-      <created>1602120276431</created>
-      <option name="number" value="00297" />
-      <option name="presentableId" value="LOCAL-00297" />
-      <option name="project" value="LOCAL" />
-      <updated>1602120276431</updated>
+      <workItem from="1602957821015" duration="10806000" />
     </task>
     <task id="LOCAL-00298" summary="feat(Dashboard): Cambiamos la estructura del layout para poder aceptar el full page o un min page">
       <created>1602120438933</created>
@@ -1136,7 +1128,14 @@
       <option name="project" value="LOCAL" />
       <updated>1602980944924</updated>
     </task>
-    <option name="localTasksCounter" value="346" />
+    <task id="LOCAL-00346" summary="feat(Dashboard): Cambiamos el mostrar en variable los km a un true o false para checar si se puede enviar">
+      <created>1602981408815</created>
+      <option name="number" value="00346" />
+      <option name="presentableId" value="LOCAL-00346" />
+      <option name="project" value="LOCAL" />
+      <updated>1602981408815</updated>
+    </task>
+    <option name="localTasksCounter" value="347" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -1157,7 +1156,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="feat(Dashboard): Creamos un pequeño menú para cerrar sesión o para acceder a mi perfil" />
     <MESSAGE value="feat(Dashboard): Creamos un pequeño menú para cerrar sesión o para acceder a mi perfil y lo agregamos al header normal" />
     <MESSAGE value="feat(Dashboard): Dashboard upgrade component" />
     <MESSAGE value="feat(Dashboard): Agregamos breadcrumbs a las páginas de los settings" />
@@ -1182,7 +1180,8 @@
     <MESSAGE value="feat(Dashboard): Delete place and logout" />
     <MESSAGE value="feat(Dashboard): Redirect to root path" />
     <MESSAGE value="feat(Dashboard): Calculamos los kms desde donde se visita" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat(Dashboard): Calculamos los kms desde donde se visita" />
+    <MESSAGE value="feat(Dashboard): Cambiamos el mostrar en variable los km a un true o false para checar si se puede enviar" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat(Dashboard): Cambiamos el mostrar en variable los km a un true o false para checar si se puede enviar" />
   </component>
   <component name="WindowStateProjectService">
     <state x="392" y="0" key="#All_specs_in_spec:_waydda" timestamp="1598730457189">
@@ -1225,10 +1224,10 @@
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="491" y="102" width="374" height="557" key="#com.intellij.ide.util.MemberChooser/0.0.1366.768@0.0.1366.768" timestamp="1601746308565" />
-    <state x="261" y="0" width="834" height="683" key="CommitChangelistDialog2" timestamp="1602980944811">
+    <state x="261" y="0" width="834" height="683" key="CommitChangelistDialog2" timestamp="1602981408711">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state x="261" y="0" width="834" height="683" key="CommitChangelistDialog2/0.0.1366.768@0.0.1366.768" timestamp="1602980944811" />
+    <state x="261" y="0" width="834" height="683" key="CommitChangelistDialog2/0.0.1366.768@0.0.1366.768" timestamp="1602981408711" />
     <state x="255" y="248" width="424" height="479" key="FileChooserDialogImpl" timestamp="1602458482165">
       <screen x="0" y="0" width="1366" height="768" />
     </state>

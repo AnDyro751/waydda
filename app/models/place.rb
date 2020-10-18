@@ -116,6 +116,11 @@ class Place
     a.distance_to(b)
   end
 
+# @notice
+# Función que nos retorna true/false que verifica que la distancia entre el punto a y delivery_distance
+# sea menor o igual
+# @param [Array] point_a
+# @return [TrueClass, FalseClass]
   def available_distance?(point_a = [])
     self.get_distance(point_a) <= self.delivery_distance
   end
