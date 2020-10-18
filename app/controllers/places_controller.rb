@@ -17,6 +17,8 @@ class PlacesController < ApplicationController
   # GET /places/1
   # GET /places/1.json
   def show
+    set_meta_tags title: "#{@place.name} en Waydda",
+                  description: "Visita la tienda en línea de #{@place.name} en Waydda"
     @products = []
     @available_distance = @place.available_distance?(current_or_guest_user.get_ll)
     # @place.products.paginate(page: params[:page], per_page: 30)
