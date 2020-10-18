@@ -22,9 +22,6 @@
     <list default="true" id="b89cb0fb-b680-4bb9-8ae0-f4b41721cfb9" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/components/Places/presentation.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/components/Places/presentation.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/places_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/places_controller.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/layouts/application.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/layouts/application.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/places/show.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/places/show.html.erb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -793,14 +790,7 @@
       <workItem from="1602625646815" duration="1538000" />
       <workItem from="1602704305961" duration="12648000" />
       <workItem from="1602732490459" duration="5194000" />
-      <workItem from="1602957821015" duration="11899000" />
-    </task>
-    <task id="LOCAL-00300" summary="feat(Dashboard): Mostramos los active links">
-      <created>1602130076716</created>
-      <option name="number" value="00300" />
-      <option name="presentableId" value="LOCAL-00300" />
-      <option name="project" value="LOCAL" />
-      <updated>1602130076721</updated>
+      <workItem from="1602957821015" duration="12000000" />
     </task>
     <task id="LOCAL-00301" summary="feat(Dashboard): Mostramos el form, solo queda hacer el refactor y mostrar bien los inputs">
       <created>1602131581503</created>
@@ -1138,7 +1128,14 @@
       <option name="project" value="LOCAL" />
       <updated>1602992857415</updated>
     </task>
-    <option name="localTasksCounter" value="349" />
+    <task id="LOCAL-00349" summary="feat(Dashboard): Add simple metatags in places_controller.rb">
+      <created>1602993048840</created>
+      <option name="number" value="00349" />
+      <option name="presentableId" value="LOCAL-00349" />
+      <option name="project" value="LOCAL" />
+      <updated>1602993048840</updated>
+    </task>
+    <option name="localTasksCounter" value="350" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -1159,7 +1156,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="feat(Dashboard): Agregamos breadcrumbs a las páginas de los settings" />
     <MESSAGE value="feat(Dashboard): Agregamos el link para acceder al panel de control" />
     <MESSAGE value="feat(Dashboard): Dashboard general settings completed" />
     <MESSAGE value="feat(Dashboard): Agregamos un link para acceder a mi empresa desde el header" />
@@ -1184,7 +1180,8 @@
     <MESSAGE value="feat(Dashboard): Cambiamos el mostrar en variable los km a un true o false para checar si se puede enviar" />
     <MESSAGE value="doc(Dashboard): Documentación de la función" />
     <MESSAGE value="feat(Dashboard): Toggle design" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat(Dashboard): Toggle design" />
+    <MESSAGE value="feat(Dashboard): Add simple metatags in places_controller.rb" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat(Dashboard): Add simple metatags in places_controller.rb" />
   </component>
   <component name="WindowStateProjectService">
     <state x="392" y="0" key="#All_specs_in_spec:_waydda" timestamp="1598730457189">
@@ -1227,10 +1224,10 @@
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="491" y="102" width="374" height="557" key="#com.intellij.ide.util.MemberChooser/0.0.1366.768@0.0.1366.768" timestamp="1601746308565" />
-    <state x="261" y="0" width="834" height="683" key="CommitChangelistDialog2" timestamp="1602992857318">
+    <state x="261" y="0" width="834" height="683" key="CommitChangelistDialog2" timestamp="1602993048727">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state x="261" y="0" width="834" height="683" key="CommitChangelistDialog2/0.0.1366.768@0.0.1366.768" timestamp="1602992857318" />
+    <state x="261" y="0" width="834" height="683" key="CommitChangelistDialog2/0.0.1366.768@0.0.1366.768" timestamp="1602993048727" />
     <state x="255" y="248" width="424" height="479" key="FileChooserDialogImpl" timestamp="1602458482165">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
