@@ -20,8 +20,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b89cb0fb-b680-4bb9-8ae0-f4b41721cfb9" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/javascript/packs/places/show.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/javascript/packs/places/show.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/views/places/show.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/places/show.html.erb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -791,14 +789,7 @@
       <workItem from="1602625646815" duration="1538000" />
       <workItem from="1602704305961" duration="12648000" />
       <workItem from="1602732490459" duration="5194000" />
-      <workItem from="1602957821015" duration="21447000" />
-    </task>
-    <task id="LOCAL-00305" summary="feat(Dashboard): Persist scroll">
-      <created>1602273741686</created>
-      <option name="number" value="00305" />
-      <option name="presentableId" value="LOCAL-00305" />
-      <option name="project" value="LOCAL" />
-      <updated>1602273741686</updated>
+      <workItem from="1602957821015" duration="21510000" />
     </task>
     <task id="LOCAL-00306" summary="feat(Dashboard): Ya mostramos y agregamos un nuevo aggregate en aggregate_category.rb">
       <created>1602282631303</created>
@@ -1136,7 +1127,14 @@
       <option name="project" value="LOCAL" />
       <updated>1603050507780</updated>
     </task>
-    <option name="localTasksCounter" value="354" />
+    <task id="LOCAL-00354" summary="feat(Dashboard): Mostramos el mo0dal solo cuando el place hace envíos a domicilio. Vamos a mostrar un  modal informativo cuando la dirección actual está un lejos del punto de recolección">
+      <created>1603050674923</created>
+      <option name="number" value="00354" />
+      <option name="presentableId" value="LOCAL-00354" />
+      <option name="project" value="LOCAL" />
+      <updated>1603050674923</updated>
+    </task>
+    <option name="localTasksCounter" value="355" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -1157,7 +1155,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="feat(Dashboard): Mostramos anuncios cuando la cuenta aún de stripe aún no está completada" />
     <MESSAGE value="feat(Dashboard): Remove unnecessary elements in dashboard and public header" />
     <MESSAGE value="feat(Dashboard): Init add card to subscription form" />
     <MESSAGE value="feat(Dashboard): Creamos la suscripción y la mejoramos con ajax" />
@@ -1182,7 +1179,8 @@
     <MESSAGE value="feat(Dashboard): Ya mostramos el modal pero hay que ocultarlo cuando ya lo vio o mostrarlo de una manera más sutil" />
     <MESSAGE value="feat(Dashboard): Mostramos el modal cuando la persona está lejos de la ubicación" />
     <MESSAGE value="feat(Dashboard):Mostramos el modal cuando lo necesitamos y actuaizamos la información desde el mismo, solo falta agregar el botón para actualizar el método de envío y válidar que la empresa acepte envíos a domicilio" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat(Dashboard):Mostramos el modal cuando lo necesitamos y actuaizamos la información desde el mismo, solo falta agregar el botón para actualizar el método de envío y válidar que la empresa acepte envíos a domicilio" />
+    <MESSAGE value="feat(Dashboard): Mostramos el mo0dal solo cuando el place hace envíos a domicilio. Vamos a mostrar un  modal informativo cuando la dirección actual está un lejos del punto de recolección" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat(Dashboard): Mostramos el mo0dal solo cuando el place hace envíos a domicilio. Vamos a mostrar un  modal informativo cuando la dirección actual está un lejos del punto de recolección" />
   </component>
   <component name="WindowStateProjectService">
     <state x="392" y="0" key="#All_specs_in_spec:_waydda" timestamp="1598730457189">
@@ -1225,10 +1223,10 @@
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="491" y="102" width="374" height="557" key="#com.intellij.ide.util.MemberChooser/0.0.1366.768@0.0.1366.768" timestamp="1601746308565" />
-    <state x="261" y="0" width="834" height="683" key="CommitChangelistDialog2" timestamp="1603050507631">
+    <state x="261" y="0" width="834" height="683" key="CommitChangelistDialog2" timestamp="1603050674800">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state x="261" y="0" width="834" height="683" key="CommitChangelistDialog2/0.0.1366.768@0.0.1366.768" timestamp="1603050507631" />
+    <state x="261" y="0" width="834" height="683" key="CommitChangelistDialog2/0.0.1366.768@0.0.1366.768" timestamp="1603050674800" />
     <state x="255" y="248" width="424" height="479" key="FileChooserDialogImpl" timestamp="1602458482165">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
@@ -1298,12 +1296,12 @@
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="544" y="96" key="VCS.ChangeListViewerDialog/0.0.1366.768@0.0.1366.768" timestamp="1598750646694" />
-    <state x="275" y="117" width="800" height="523" key="Vcs.Push.Dialog.v2" timestamp="1602995667784">
+    <state x="275" y="117" width="800" height="523" key="Vcs.Push.Dialog.v2" timestamp="1603050676362">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="1640" y="117" key="Vcs.Push.Dialog.v2/0.0.1366.768/1366.0.1360.768@1366.0.1360.768" timestamp="1598221582431" />
     <state x="1753" y="165" key="Vcs.Push.Dialog.v2/0.0.1366.768/1366.0.1920.1080@1366.0.1920.1080" timestamp="1599267641822" />
-    <state x="275" y="117" width="800" height="523" key="Vcs.Push.Dialog.v2/0.0.1366.768@0.0.1366.768" timestamp="1602995667784" />
+    <state x="275" y="117" width="800" height="523" key="Vcs.Push.Dialog.v2/0.0.1366.768@0.0.1366.768" timestamp="1603050676362" />
     <state x="496" y="169" key="chooseDestDirectoryDialog" timestamp="1598730651549">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
