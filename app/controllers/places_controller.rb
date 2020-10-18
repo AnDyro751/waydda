@@ -38,7 +38,6 @@ class PlacesController < ApplicationController
   # Use callbacks to share common setup or constraints between actions.
   def set_place
     @place = Place.find_by(slug: params[:id] || params["place_id"])
-    # TODO: Agregar delivery option y current cart
     not_found if @place.nil?
     if current_user
       unless current_user.id == @place.user_id
@@ -50,7 +49,7 @@ class PlacesController < ApplicationController
   end
 
   def set_current_cart
-    @current_cart = current_or_guest_user.carts.find_or_create_by(place: @place, status: "pending")
+    @current_cart = current_or_guest_user.carts.find_or_create_by(place: @place, status: "pending", delivery_kind: "pickup")
     if @current_cart
       @delivery_option = @current_cart.delivery_option
     end

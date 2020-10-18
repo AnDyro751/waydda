@@ -23,6 +23,7 @@ class Cart
 
   validates :payment_type, inclusion: {in: %w[card cash]}
   validates :status, presence: true, inclusion: {in: %w[pending success]}
+  validates :delivery_kind, presence: true, inclusion: {in: %w[pickup delivery]}
 
 
   aasm column: :status do
