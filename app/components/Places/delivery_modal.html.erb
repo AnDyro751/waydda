@@ -7,13 +7,26 @@
       <%= render Headers::Text.new(title: "Ingresa una dirección de entrega", small: true, with_margin: false, with_border: true, padding_class: "py-6 px-4", font: "small", subtitle: "Agrega información de tu dirección de entrega o recoge en tienda") %>
     <% else %>
       <% unless @available_distance %>
-        <%= render Headers::Text.new(title: "Estás un poco lejos", small: true, with_margin: true, with_margin: false, with_border: true, padding_class: "py-6 px-4", font: "small", subtitle: "Actualiza tu ubicación o programa la recolección de tu pedido") %>
+        <%= render Headers::Text.new(title: "Tu dirección actual está demasiado lejos de este lugar.", small: true, with_margin: true, with_margin: false, with_border: true, padding_class: "py-6 px-4", font: "small", subtitle: "Actualiza tu ubicación o programa la recolección de tu pedido") %>
       <% end %>
     <% end %>
-    <div class="px-4 py-6">
-      <% unless @available_distance %>
+    <div class="px-4 py-6 flex flex-wrap">
+      <%# unless @available_distance %>
+      <div class="w-full hidden" id="delivery-form-modal">
         <%= render Address::Form.new(address: @current_user.current_address || Address.new) %>
-      <% end %>
+      </div>
+      <div class="w-8/12 mx-auto" >
+        <div class="w-full flex justify-center button-select-modal" id="button-address-modal">
+          <button class="<%= helpers.main_color_button(color: "dark", size: "big", padding: "big") %> w-full">
+            Actualizar ubicación
+          </button>
+        </div>
+        <div class="w-full my-4 text-center divider-modal "><span class="text-sm text-gray-600 font-normal">O bien</span></div>
+        <div class="w-full flex justify-center button-select-modal" id="button-pickup-modal">
+          <button class="<%= helpers.main_color_button(size: "big", padding: "big") %> w-full">Recoger en tienda</button>
+        </div>
+      </div>
+      <%# end %>
       <!--      <img-->
       <!--        class="lazy h-64 w-64 mx-auto"-->
       <!--        data-src="<%#= helpers.get_image_url(500, 500, "utils/pixeltrue-icons-seo-business-location-3.png") %>"-->
@@ -21,5 +34,7 @@
       <!--        alt="Distance">-->
     </div>
   </div>
-
+  <!--  <div class="absolute bottom-0 left-0 right-0 shadow-top px-4 text-right py-3">-->
+  <!--    <span class="text-right">Cerrar</span>-->
+  <!--  </div>-->
 </template>
