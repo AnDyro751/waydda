@@ -13,6 +13,9 @@ module.exports = {
                 xxl: "28em",
                 xxxl: "35em"
             },
+            width: {
+                "xl": "35em"
+            },
             backgroundColor: {
                 facebook: "#4065b4",
                 main: "#f8f5f2",
