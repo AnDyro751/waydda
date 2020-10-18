@@ -116,6 +116,10 @@ class Place
     a.distance_to(b)
   end
 
+  def available_distance?(point_a = [])
+    self.get_distance(point_a) <= self.delivery_distance
+  end
+
 
   def valid_sale?
     unless self.nil?
