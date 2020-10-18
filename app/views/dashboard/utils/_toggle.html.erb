@@ -3,7 +3,7 @@
 >
   <div
     :class="{'hidden' : !isOpen}"
-    class="rounded absolute border-gray-200 top-0 right-0 hidden mr-6 w-2/12 shadow-menu bg-main-gray <%= mt === "big" ? "mt-20" : "mt-16" %> flex flex-wrap">
+    class="rounded absolute shadow-main border border-black top-0 right-0 hidden mr-6 w-2/12 bg-white z-50 <%= mt === "big" ? "mt-20" : "mt-16" %> flex flex-wrap">
     <% if @current_user.is_admin %>
       <%= link_to my_place_path, class: "w-full border-b border-gray-300 px-3 cursor-pointer text-gray-700 hover:text-gray-900 hover:bg-main-gray py-3" do %>
         Panel de control
