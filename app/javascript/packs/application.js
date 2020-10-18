@@ -12,7 +12,25 @@ require("channels")
 require('alpinejs')
 import LazyLoad from "vanilla-lazyload";
 import Toastify from 'toastify-js'
-import "toastify-js/src/toastify.css"
+import "toastify-js/src/toastify.css";
+
+import VanillaModal from 'vanilla-modal';
+
+document.addEventListener("turbolinks:load", function () {
+    window.vanillaModal = VanillaModal;
+    console.log("SI HAY WINDOW")
+    var current_location = location.href;
+    window.current_modal = new window.vanillaModal({
+        onBeforeClose: function () {
+            history.replaceState({}, "", current_location);
+        },
+        onClose: () => {
+            document.querySelector("#modal").innerHTML = "";
+            document.querySelector("#modal-content").innerHTML = "";
+        }
+    });
+})
+
 // Uncomment to copy all static images under ../images to the output folder and reference
 // them with the image_pack_tag helper in views (e.g <%= image_pack_tag 'rails.png' %>)
 // or the `imagePath` JavaScript helper below.
@@ -156,6 +174,8 @@ window.persistScroll = function (more = 0) {
 };
 
 document.addEventListener("turbolinks:load", () => {
+
+
     const elements = document.querySelectorAll("[data-turbolinks-scroll]");
 
     elements.forEach(function (element) {

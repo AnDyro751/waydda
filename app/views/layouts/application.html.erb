@@ -35,32 +35,21 @@
     <%= content_for?(:content) ? yield(:content) : yield %>
   </div>
 </div>
+<div class="modal">
+  <div class="modal-inner <%= content_for?(:modal_size) ? yield(:modal_size) : "w-4/12" %> rounded">
+    <!--    <span data-modal-close>&times;</span>-->
+    <div class="modal-content h-full flex modal-content" id="modal-content"></div>
+  </div>
+</div>
+<div id="modal">
+</div>
 <%= content_for?(:sticky) ? yield(:sticky) : nil %>
 <%= content_for?(:content) ? yield : nil %>
 <% if params["console"] %>
   <%= console %>
 <% end %>
-<% if Rails.env === "development" %>
-  <%#= console %>
-<% end %>
+
+
 </body>
-<script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async></script>
-<script>
-    window.OneSignal = window.OneSignal || [];
-    OneSignal.push(function () {
-        OneSignal.init({
-            welcomeNotification: {
-                title: "Waydda",
-                message: "Gracias por suscribirte "
-            },
-            appId: "db46681d-d22f-4c5c-ae4c-e85d54364f40",
-            notifyButton: {
-                enable: true,
-            },
-            allowLocalhostAsSecureOrigin: true
-        });
 
-
-    });
-</script>
 </html>

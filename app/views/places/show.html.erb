@@ -13,8 +13,11 @@
     "paymentAccepted": true,
     "url": "https://waydda.com/places/<%= @place.slug %>"
   }
+
+
 </script>
 <%= render Places::Presentation.new(delivery_option: @delivery_option, place: @place, current_cart: @current_cart, items: @items) %>
+<%= render Places::DeliveryModal.new(message: "E") %>
 <div class="w-10/12 mx-auto flex flex-wrap">
   <% @items.each do |item| %>
     <div class="w-full flex flex-wrap " id="<%= item.id.to_s %>">
@@ -24,14 +27,6 @@
       </div>
     </div>
   <% end %>
-</div>
-<div id="modal">
-</div>
-<div class="modal">
-  <div class="modal-inner w-10/12 h-xxxl rounded overflow-hidden">
-    <!--    <span data-modal-close>&times;</span>-->
-    <div class="modal-content h-full flex modal-content" id="modal-content"></div>
-  </div>
 </div>
 
 
