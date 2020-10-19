@@ -21,7 +21,8 @@
   <component name="ChangeListManager">
     <list default="true" id="b89cb0fb-b680-4bb9-8ae0-f4b41721cfb9" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/places_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/places_controller.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/dashboard/products_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/dashboard/products_controller.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/product.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/product.rb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -80,6 +81,13 @@
       <scroll-view-position x="0" y="0" />
     </layout>
   </component>
+  <component name="LogFilters">
+    <option name="FILTER_ERRORS" value="false" />
+    <option name="FILTER_WARNINGS" value="false" />
+    <option name="FILTER_INFO" value="true" />
+    <option name="FILTER_DEBUG" value="true" />
+    <option name="CUSTOM_FILTER" />
+  </component>
   <component name="ProjectConfig">
     <option name="enabled" value="false" />
   </component>
@@ -114,7 +122,7 @@
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="yarn" />
-    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
+    <property name="settings.editor.selected.configurable" value="org.jetbrains.plugins.ruby.settings.RubyActiveModuleSdkConfigurable" />
     <property name="terminalCustomCommandExecutionTurnOff" value="false" />
     <property name="ts.external.directory.path" value="D:\Program Files\RubyMine 2020.1.2\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
   </component>
@@ -136,7 +144,7 @@
       <command value="rails g helper" />
     </option>
   </component>
-  <component name="RunManager" selected="RSpec.Places GET /places">
+  <component name="RunManager" selected="Rails.Development: waydda">
     <configuration name="Rails" type="IrbRunConfigurationType" factoryName="IRB console">
       <module name="waydda" />
       <IRB_RUN_CONFIG NAME="RUBY_ARGS" VALUE="" />
@@ -445,8 +453,8 @@
       <predefined_log_file enabled="true" id="RUBY_RAILS_SERVER" />
       <RAILS_SERVER_CONFIG_SETTINGS_ID NAME="RUBY_ARGS" VALUE="" />
       <RAILS_SERVER_CONFIG_SETTINGS_ID NAME="WORK DIR" VALUE="$MODULE_DIR$" />
-      <RAILS_SERVER_CONFIG_SETTINGS_ID NAME="SHOULD_USE_SDK" VALUE="true" />
-      <RAILS_SERVER_CONFIG_SETTINGS_ID NAME="ALTERN_SDK_NAME" VALUE="Remote-rvm: ruby-2.7.1-p83" />
+      <RAILS_SERVER_CONFIG_SETTINGS_ID NAME="SHOULD_USE_SDK" VALUE="false" />
+      <RAILS_SERVER_CONFIG_SETTINGS_ID NAME="ALTERN_SDK_NAME" VALUE="" />
       <RAILS_SERVER_CONFIG_SETTINGS_ID NAME="myPassParentEnvs" VALUE="true" />
       <EXTENSION ID="BundlerRunConfigurationExtension" bundleExecEnabled="false" />
       <EXTENSION ID="JRubyRunConfigurationExtension" NailgunExecEnabled="false" />
@@ -790,14 +798,7 @@
       <workItem from="1602625646815" duration="1538000" />
       <workItem from="1602704305961" duration="12648000" />
       <workItem from="1602732490459" duration="5194000" />
-      <workItem from="1602957821015" duration="32678000" />
-    </task>
-    <task id="LOCAL-00314" summary="feat(Dashboard): Edit and show all variants link">
-      <created>1602364773414</created>
-      <option name="number" value="00314" />
-      <option name="presentableId" value="LOCAL-00314" />
-      <option name="project" value="LOCAL" />
-      <updated>1602364773414</updated>
+      <workItem from="1602957821015" duration="42210000" />
     </task>
     <task id="LOCAL-00315" summary="feat(Dashboard): Actualizamos los productos desde la vista del index 3:">
       <created>1602384791912</created>
@@ -1135,7 +1136,14 @@
       <option name="project" value="LOCAL" />
       <updated>1603081863559</updated>
     </task>
-    <option name="localTasksCounter" value="363" />
+    <task id="LOCAL-00363" summary="feat(Dashboard): Hace falta eliminar cuando no todas las categirías se envían">
+      <created>1603082442246</created>
+      <option name="number" value="00363" />
+      <option name="presentableId" value="LOCAL-00363" />
+      <option name="project" value="LOCAL" />
+      <updated>1603082442246</updated>
+    </task>
+    <option name="localTasksCounter" value="364" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -1156,7 +1164,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="feat(Dashboard): Un pequeño error al crear el usuario con sentry" />
     <MESSAGE value="feat(Dashboard): Eliminamos el link to al place cuando no hay place que motrar" />
     <MESSAGE value="feat(Dashboard): New place form" />
     <MESSAGE value="feat(Dashboard): Update place form" />
@@ -1181,7 +1188,8 @@
     <MESSAGE value="feat(Dashboard): Traemos los productos que no tienen ninguna categoría en especial" />
     <MESSAGE value="feat(Dashboard): Mostramos los productos recientes que se han agregado a las categorías y quitamos el toggle para editar el estado desde el principio" />
     <MESSAGE value="feat(Dashboard): Ahora si lo actualizamos desde el toggle solo agarramos los item ids y listo" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat(Dashboard): Ahora si lo actualizamos desde el toggle solo agarramos los item ids y listo" />
+    <MESSAGE value="feat(Dashboard): Hace falta eliminar cuando no todas las categirías se envían" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat(Dashboard): Hace falta eliminar cuando no todas las categirías se envían" />
   </component>
   <component name="WindowStateProjectService">
     <state x="392" y="0" key="#All_specs_in_spec:_waydda" timestamp="1598730457189">
@@ -1212,10 +1220,10 @@
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="318" y="234" width="716" height="341" key="#com.intellij.codeInsight.template.impl.EditVariableDialog/0.0.1366.768@0.0.1366.768" timestamp="1598040140330" />
-    <state x="137" y="23" width="1084" height="745" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1600915785948">
+    <state x="137" y="23" width="1084" height="745" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1603127195276">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state x="137" y="23" width="1084" height="745" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1366.768@0.0.1366.768" timestamp="1600915785948" />
+    <state x="137" y="23" width="1084" height="745" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1366.768@0.0.1366.768" timestamp="1603127195276" />
     <state x="404" y="186" width="576" height="383" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1602993186201">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
@@ -1224,71 +1232,71 @@
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="491" y="102" width="374" height="557" key="#com.intellij.ide.util.MemberChooser/0.0.1366.768@0.0.1366.768" timestamp="1601746308565" />
-    <state x="261" y="0" width="834" height="683" key="CommitChangelistDialog2" timestamp="1603081863454">
+    <state x="261" y="0" width="834" height="683" key="CommitChangelistDialog2" timestamp="1603082442158">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state x="261" y="0" width="834" height="683" key="CommitChangelistDialog2/0.0.1366.768@0.0.1366.768" timestamp="1603081863454" />
+    <state x="261" y="0" width="834" height="683" key="CommitChangelistDialog2/0.0.1366.768@0.0.1366.768" timestamp="1603082442158" />
     <state x="255" y="248" width="424" height="479" key="FileChooserDialogImpl" timestamp="1602458482165">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="255" y="248" width="424" height="479" key="FileChooserDialogImpl/0.0.1366.768@0.0.1366.768" timestamp="1602458482165" />
-    <state width="1324" height="222" key="GridCell.Tab.0.bottom" timestamp="1602958709107">
+    <state width="1324" height="239" key="GridCell.Tab.0.bottom" timestamp="1603130882399">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state width="1324" height="222" key="GridCell.Tab.0.bottom/0.0.1366.768@0.0.1366.768" timestamp="1602958709107" />
-    <state width="1324" height="222" key="GridCell.Tab.0.center" timestamp="1602958709106">
+    <state width="1324" height="239" key="GridCell.Tab.0.bottom/0.0.1366.768@0.0.1366.768" timestamp="1603130882399" />
+    <state width="1324" height="239" key="GridCell.Tab.0.center" timestamp="1603130882399">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state width="1324" height="222" key="GridCell.Tab.0.center/0.0.1366.768@0.0.1366.768" timestamp="1602958709106" />
-    <state width="1324" height="222" key="GridCell.Tab.0.left" timestamp="1602958709106">
+    <state width="1324" height="239" key="GridCell.Tab.0.center/0.0.1366.768@0.0.1366.768" timestamp="1603130882399" />
+    <state width="1324" height="239" key="GridCell.Tab.0.left" timestamp="1603130882398">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state width="1324" height="222" key="GridCell.Tab.0.left/0.0.1366.768@0.0.1366.768" timestamp="1602958709106" />
-    <state width="1324" height="222" key="GridCell.Tab.0.right" timestamp="1602958709107">
+    <state width="1324" height="239" key="GridCell.Tab.0.left/0.0.1366.768@0.0.1366.768" timestamp="1603130882398" />
+    <state width="1324" height="239" key="GridCell.Tab.0.right" timestamp="1603130882399">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state width="1324" height="222" key="GridCell.Tab.0.right/0.0.1366.768@0.0.1366.768" timestamp="1602958709107" />
-    <state width="1324" height="261" key="GridCell.Tab.1.bottom" timestamp="1601851736726">
+    <state width="1324" height="239" key="GridCell.Tab.0.right/0.0.1366.768@0.0.1366.768" timestamp="1603130882399" />
+    <state width="1324" height="239" key="GridCell.Tab.1.bottom" timestamp="1603130882400">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state width="1324" height="261" key="GridCell.Tab.1.bottom/0.0.1366.768@0.0.1366.768" timestamp="1601851736726" />
-    <state width="1324" height="261" key="GridCell.Tab.1.center" timestamp="1601851736726">
+    <state width="1324" height="239" key="GridCell.Tab.1.bottom/0.0.1366.768@0.0.1366.768" timestamp="1603130882400" />
+    <state width="1324" height="239" key="GridCell.Tab.1.center" timestamp="1603130882400">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state width="1324" height="261" key="GridCell.Tab.1.center/0.0.1366.768@0.0.1366.768" timestamp="1601851736726" />
-    <state width="1324" height="261" key="GridCell.Tab.1.left" timestamp="1601851736726">
+    <state width="1324" height="239" key="GridCell.Tab.1.center/0.0.1366.768@0.0.1366.768" timestamp="1603130882400" />
+    <state width="1324" height="239" key="GridCell.Tab.1.left" timestamp="1603130882399">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state width="1324" height="261" key="GridCell.Tab.1.left/0.0.1366.768@0.0.1366.768" timestamp="1601851736726" />
-    <state width="1324" height="261" key="GridCell.Tab.1.right" timestamp="1601851736726">
+    <state width="1324" height="239" key="GridCell.Tab.1.left/0.0.1366.768@0.0.1366.768" timestamp="1603130882399" />
+    <state width="1324" height="239" key="GridCell.Tab.1.right" timestamp="1603130882400">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state width="1324" height="261" key="GridCell.Tab.1.right/0.0.1366.768@0.0.1366.768" timestamp="1601851736726" />
-    <state width="1324" height="261" key="GridCell.Tab.2.bottom" timestamp="1601851736727">
+    <state width="1324" height="239" key="GridCell.Tab.1.right/0.0.1366.768@0.0.1366.768" timestamp="1603130882400" />
+    <state width="1324" height="261" key="GridCell.Tab.2.bottom" timestamp="1603128909786">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state width="1324" height="261" key="GridCell.Tab.2.bottom/0.0.1366.768@0.0.1366.768" timestamp="1601851736727" />
-    <state width="1324" height="261" key="GridCell.Tab.2.center" timestamp="1601851736727">
+    <state width="1324" height="261" key="GridCell.Tab.2.bottom/0.0.1366.768@0.0.1366.768" timestamp="1603128909786" />
+    <state width="1324" height="261" key="GridCell.Tab.2.center" timestamp="1603128909785">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state width="1324" height="261" key="GridCell.Tab.2.center/0.0.1366.768@0.0.1366.768" timestamp="1601851736727" />
-    <state width="1324" height="261" key="GridCell.Tab.2.left" timestamp="1601851736727">
+    <state width="1324" height="261" key="GridCell.Tab.2.center/0.0.1366.768@0.0.1366.768" timestamp="1603128909785" />
+    <state width="1324" height="261" key="GridCell.Tab.2.left" timestamp="1603128909785">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state width="1324" height="261" key="GridCell.Tab.2.left/0.0.1366.768@0.0.1366.768" timestamp="1601851736727" />
-    <state width="1324" height="261" key="GridCell.Tab.2.right" timestamp="1601851736727">
+    <state width="1324" height="261" key="GridCell.Tab.2.left/0.0.1366.768@0.0.1366.768" timestamp="1603128909785" />
+    <state width="1324" height="261" key="GridCell.Tab.2.right" timestamp="1603128909785">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state width="1324" height="261" key="GridCell.Tab.2.right/0.0.1366.768@0.0.1366.768" timestamp="1601851736727" />
+    <state width="1324" height="261" key="GridCell.Tab.2.right/0.0.1366.768@0.0.1366.768" timestamp="1603128909785" />
     <state x="518" y="173" key="RollbackChangesDialog" timestamp="1598294478879">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="2094" y="191" key="RollbackChangesDialog/0.0.1366.768/1366.-69.1920.1080@1366.-69.1920.1080" timestamp="1597697150509" />
     <state x="518" y="173" key="RollbackChangesDialog/0.0.1366.768@0.0.1366.768" timestamp="1598294478879" />
-    <state x="162" y="21" width="916" height="730" key="SettingsEditor" timestamp="1601658161557">
+    <state x="162" y="21" width="916" height="730" key="SettingsEditor" timestamp="1603127152233">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state x="162" y="21" width="916" height="730" key="SettingsEditor/0.0.1366.768@0.0.1366.768" timestamp="1601658161557" />
+    <state x="162" y="21" width="916" height="730" key="SettingsEditor/0.0.1366.768@0.0.1366.768" timestamp="1603127152233" />
     <state width="498" height="446" key="SwitcherDM" timestamp="1602707879555">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
@@ -1321,13 +1329,13 @@
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="628" y="298" key="com.jetbrains.plugins.remotesdk.ui.RemoteMappingsConfiguration/0.0.1366.768@0.0.1366.768" timestamp="1598729856431" />
-    <state x="390" y="117" width="791" height="624" key="find.popup" timestamp="1603081821479">
+    <state x="390" y="117" width="791" height="624" key="find.popup" timestamp="1603130817664">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="1914" y="96" width="823" height="878" key="find.popup/0.0.1366.768/1366.-69.1920.1080@1366.-69.1920.1080" timestamp="1597716285449" />
     <state x="1754" y="117" width="583" height="624" key="find.popup/0.0.1366.768/1366.0.1360.768@1366.0.1360.768" timestamp="1598981376119" />
     <state x="1914" y="165" width="823" height="878" key="find.popup/0.0.1366.768/1366.0.1920.1080@1366.0.1920.1080" timestamp="1599260651210" />
-    <state x="390" y="117" width="791" height="624" key="find.popup/0.0.1366.768@0.0.1366.768" timestamp="1603081821479" />
+    <state x="390" y="117" width="791" height="624" key="find.popup/0.0.1366.768@0.0.1366.768" timestamp="1603130817664" />
     <state x="549" y="254" width="250" height="278" key="jetbrains.javascript.buildTools.run-task-popup" timestamp="1597946321130">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
@@ -1336,13 +1344,13 @@
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="339" y="174" width="672" height="677" key="run.anything.popup/0.0.1366.768@0.0.1366.768" timestamp="1600370541201" />
-    <state x="346" y="89" width="672" height="678" key="search.everywhere.popup" timestamp="1603082213051">
+    <state x="346" y="89" width="672" height="678" key="search.everywhere.popup" timestamp="1603122049568">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="1852" y="56" width="945" height="954" key="search.everywhere.popup/0.0.1366.768/1366.-69.1920.1080@1366.-69.1920.1080" timestamp="1597715976170" />
     <state x="1710" y="89" width="672" height="678" key="search.everywhere.popup/0.0.1366.768/1366.0.1360.768@1366.0.1360.768" timestamp="1598985878395" />
     <state x="1852" y="125" width="945" height="954" key="search.everywhere.popup/0.0.1366.768/1366.0.1920.1080@1366.0.1920.1080" timestamp="1599267313630" />
-    <state x="346" y="89" width="672" height="678" key="search.everywhere.popup/0.0.1366.768@0.0.1366.768" timestamp="1603082213051" />
+    <state x="346" y="89" width="672" height="678" key="search.everywhere.popup/0.0.1366.768@0.0.1366.768" timestamp="1603122049568" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/waydda@Dashboard__ProductsControll_____3_.rcov" NAME="Dashboard::ProductsControll... (3) Coverage Results" MODIFIED="1601852304157" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="waydda" />
@@ -1351,10 +1359,11 @@
     <SUITE FILE_PATH="coverage/waydda@AggregateCategory_Un_Auth.rcov" NAME="AggregateCategory Un Auth Coverage Results" MODIFIED="1601591967707" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="waydda" />
     <SUITE FILE_PATH="coverage/waydda@Cart__Create_cart_Add_produ_____1_.rcov" NAME="Cart# Create cart Add produ... (1) Coverage Results" MODIFIED="1601049916427" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="waydda" />
     <SUITE FILE_PATH="coverage/waydda@Dashboard__AggregateCategor_____1_.rcov" NAME="Dashboard::AggregateCategor... (1) Coverage Results" MODIFIED="1601593843052" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="waydda" />
+    <SUITE FILE_PATH="coverage/waydda@Development__waydda.rcov" NAME="Development: waydda Coverage Results" MODIFIED="1603130744052" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="waydda" />
     <SUITE FILE_PATH="coverage/waydda@Dashboard__ProductsControll_____5_.rcov" NAME="Dashboard::ProductsControll... (5) Coverage Results" MODIFIED="1601851818129" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="waydda" />
     <SUITE FILE_PATH="coverage/waydda@Dashboard__AggregateCategor___.rcov" NAME="Dashboard::AggregateCategor... Coverage Results" MODIFIED="1601594563133" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="waydda" />
     <SUITE FILE_PATH="coverage/waydda@Product_Valid_aggregates_Pr___.rcov" NAME="Product Valid aggregates Pr... Coverage Results" MODIFIED="1602436862868" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="waydda" />
-    <SUITE FILE_PATH="coverage/waydda@Places_GET__places.rcov" NAME="Places GET /places Coverage Results" MODIFIED="1602958518762" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="waydda" />
+    <SUITE FILE_PATH="coverage/waydda@Places_GET__places.rcov" NAME="Places GET /places Coverage Results" MODIFIED="1603126631617" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="waydda" />
     <SUITE FILE_PATH="coverage/waydda@Rails.rcov" NAME="Rails Coverage Results" MODIFIED="1600915770485" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="waydda" />
     <SUITE FILE_PATH="coverage/waydda@Dashboard__ProductsControll_____1_.rcov" NAME="Dashboard::ProductsControll... (1) Coverage Results" MODIFIED="1601851812505" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="waydda" />
     <SUITE FILE_PATH="coverage/waydda@AggregateCategoriesControll___.rcov" NAME="AggregateCategoriesControll... Coverage Results" MODIFIED="1601592661468" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="waydda" />
