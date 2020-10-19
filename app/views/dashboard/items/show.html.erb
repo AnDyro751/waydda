@@ -1,16 +1,3 @@
-<div class="w-full mt-4 text-gray-600 text-sm">
-  <div class="">
-    <span>
-      <%= link_to "Categorías", dashboard_items_path, class: "hover:underline" %>
-    </span>
-    <span class="mx-2 select-none">
-      >
-    </span>
-    <span class="text-indigo-700 font-medium">
-      <%= @item.name %>
-    </span>
-  </div>
-</div>
 <%= render Headers::Text.new(title: @item.name, subtitle: "Creado hace #{time_ago_in_words(@item.created_at)}", small: true, with_margin: true) %>
 <div class="w-full flex flex-wrap bg-main-gray rounded divide-gray-400 divide-y">
   <div class="w-full p-4 flex items-center">
@@ -27,11 +14,7 @@
   <% if @products.length <= 0 %>
     <%= render EmptyRecords.new(title: "¡Vaya, no hay nada por aquí!") %>
   <% end %>
-  <% @products.each do |product| %>
-    <div class="col-span-6">
-      <%= render Products::Item.new(product: product, in_dashboard: true) %>
-    </div>
-  <% end %>
+  <%= render Products::List.new(products: @products, in_dashboard: true, place: @place) %>
   <div class="w-full flex justify-center mt-8">
     <%= will_paginate @products %>
   </div>
