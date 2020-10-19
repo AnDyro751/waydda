@@ -3,26 +3,39 @@ class Dashboard::ItemsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_item, only: [:show, :edit, :update, :destroy]
   before_action :set_my_place
+  add_breadcrumb "Categorías", :dashboard_items_path
 
   # GET /items
   # GET /items.json
   def index
+    set_meta_tags title: "Categorías | Panel de control",
+                  description: "Categorías | Panel de control"
     @items = @place.items.paginate(page: params[:page], per_page: 25)
   end
 
   # GET /items/1
   # GET /items/1.json
   def show
+    add_breadcrumb "#{@item.name}"
+    set_meta_tags title: "#{@item.name} - Categoría | Panel de control",
+                  description: "#{@item.name} - Categoría | Panel de control"
     @products = @item.products.paginate(page: params[:page], per_page: 20)
   end
 
   # GET /items/new
   def new
+    add_breadcrumb "Nueva categoría"
+    set_meta_tags title: "Nueva categoría | Panel de control",
+                  description: "Nueva categoría | Panel de control"
     @item = @place.items.new
   end
 
   # GET /items/1/edit
   def edit
+    add_breadcrumb "#{@item.name}", dashboard_item_path(@item)
+    add_breadcrumb "Editar"
+    set_meta_tags title: "Editar #{@item.name} - Categoría | Panel de control",
+                  description: "Editar #{@item.name} - Categoría | Panel de control"
   end
 
   # POST /items
@@ -48,7 +61,7 @@ class Dashboard::ItemsController < ApplicationController
   def update
     respond_to do |format|
       if @item.update(item_params)
-        format.html { redirect_to dashboard_item_path(@item), alert: 'Item was successfully updated.' }
+        format.html { redirect_to dashboard_item_path(@item), alert: 'Se ha actualizado la categoría' }
         format.json { render :show, status: :ok, location: @item }
       else
         format.html { render :edit }

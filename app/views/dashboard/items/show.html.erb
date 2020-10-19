@@ -1,4 +1,7 @@
-<%= render Headers::Text.new(title: @item.name, subtitle: "Creado hace #{time_ago_in_words(@item.created_at)}", small: true, with_margin: true) %>
+<%= render Headers::Text.new(title: @item.name, subtitle: "Creado hace #{time_ago_in_words(@item.created_at)}", small: true, with_margin: true) do %>
+  <%#= link_to "Editar categoría", edit_dashboard_item_path(@item), class: "#{main_color_button(size: "big", padding: "big")}" %>
+  <%= main_button(to: edit_dashboard_item_path(@item), text: "Editar categoría", action: "create", color_button: "dark") %>
+<% end %>
 <div class="w-full flex flex-wrap bg-main-gray rounded divide-gray-400 divide-y">
   <div class="w-full p-4 flex items-center">
     <h4 class="font-medium">Nombre:</h4>
