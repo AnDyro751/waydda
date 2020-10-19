@@ -19,6 +19,7 @@
 
 
 
+
 </script>
 <%= content_for(:head_tags) do %>
   <% if @current_cart.delivery_kind == "deliver" %>
@@ -28,7 +29,7 @@
 <%= render Places::Presentation.new(delivery_option: @delivery_option, place: @place, current_cart: @current_cart, items: @items, available_distance: @available_distance) %>
 <%= render Places::DeliveryModal.new(message: "E", current_user: current_or_guest_user, available_distance: @available_distance, current_cart: @current_cart) %>
 <div class="w-10/12 mx-auto flex flex-wrap mb-12">
-  <% if @items.length <= 0 %>
+  <% if @items.length <= 0 and @products.length <= 0 %>
     <div class="w-full py-8 px-4 text-center rounded bg-main-gray">
       <img
         class="lazy mx-auto mb-4"
@@ -49,5 +50,8 @@
       </div>
     <% end %>
   <% end %>
+  <div class="w-full flex flex-wrap">
+    <%= render Products::List.new(products: @products, place: @place) %>
+  </div>
 </div>
 <%= javascript_packs_with_chunks_tag "places/show", 'data-turbolinks-track': "reload" %>
