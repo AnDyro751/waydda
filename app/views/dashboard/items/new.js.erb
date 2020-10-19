@@ -3,6 +3,6 @@ if (window.vanillaModal) {
     if (element) {
         console.log("ABRIR MODAL");
         window.current_modal.open("#modal");
-        document.querySelector(".modal-content").innerHTML = "<%= j render"dashboard/items/simple_new" %>";
+        document.querySelector(".modal-content").innerHTML = "<%= j render"dashboard/items/simple_new", custom_type: @custom_type %>";
     }
 }

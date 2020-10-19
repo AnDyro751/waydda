@@ -10,7 +10,7 @@
   <div class="w-9/12 mx-auto flex-wrap">
     <div class="w-full items-center flex">
       <%= render Headers::Text.new(title: current_user.name) do %>
-        <%= main_button(to: edit_my_profile_path, text: "Editar perfil", action: "update") %>
+        <%= main_button(to: edit_my_profile_path, text: "Editar perfil", action: "update", color_button: "dark") %>
       <% end %>
     </div>
     <div class="w-full flex flex-wrap items-start">

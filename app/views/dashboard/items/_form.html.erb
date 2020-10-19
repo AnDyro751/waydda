@@ -1,5 +1,5 @@
 <%= simple_form_for(
-        @item, remote: true, url: @item.new_record ? dashboard_items_path(type: local_assigns[:custom_type] ? nil : "js") : dashboard_item_path(@item, type: "controller"),
+        @item, remote: true, url: @item.new_record ? dashboard_items_path(type: local_assigns[:custom_type].nil? ? "js" : nil) : dashboard_item_path(@item, type: "controller"),
         defaults: {
             input_html: {
                 class: "#{input_color_class} mt-2 mb-4 resize-none",

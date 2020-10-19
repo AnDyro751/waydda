@@ -24,6 +24,7 @@ class Dashboard::ItemsController < ApplicationController
 
   # GET /items/new
   def new
+    @custom_type = params["custom_type"].present?
     add_breadcrumb "Nueva categoría"
     set_meta_tags title: "Nueva categoría | Panel de control",
                   description: "Nueva categoría | Panel de control"
