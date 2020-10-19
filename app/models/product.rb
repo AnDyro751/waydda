@@ -32,6 +32,7 @@ class Product
   # relations
   belongs_to :place
   has_and_belongs_to_many :items
+  has_and_belongs_to_many :items_recents, class_name: "Item", inverse_of: :items
 
   has_many :cart_items
   embeds_many :aggregate_categories, cascade_callbacks: true

@@ -21,8 +21,9 @@ class PlacesController < ApplicationController
                   description: "Visita la tienda en línea de #{@place.name} en Waydda"
     @available_distance = @place.available_distance?(current_or_guest_user.get_ll)
     # @place.products.paginate(page: params[:page], per_page: 30)
-    @items = @place.items.includes(:recent_products).select { |ii| ii.recent_products.length > 0 }
-    @products = @place.products.where(:item_ids.with_size => 0)
+    # includes(:interests).where(interests: { id: 4 })
+    @items = @place.items.includes(:recent_products)
+    @products = @place.products.where(:item_ids.with_size => 0, status: "active")
   end
 
 

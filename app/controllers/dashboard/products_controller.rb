@@ -60,7 +60,9 @@ class Dashboard::ProductsController < ApplicationController
     respond_to do |format|
       if @product.save
         if params["product"] and params["product"]["item_ids"].present?
-          Product.update_recent_products(item_ids: params["product"]["item_ids"], product: @product, action: "create")
+          if params["product"]["status"] === "active"
+            Product.update_recent_products(item_ids: params["product"]["item_ids"], product: @product, action: "create")
+          end
         end
         format.html { redirect_to edit_dashboard_product_path(@product), alert: 'Se ha creado el producto' }
       else
@@ -76,8 +78,8 @@ class Dashboard::ProductsController < ApplicationController
       old_items = []
       new_items = []
       if params["product"]["item_ids"].present?
-        old_items = @product.item_ids.map(&:to_s)
-        new_items = params["product"]["item_ids"].select { |ii| ii.length > 0 }
+        old_items = @product.items_recent_ids.map(&:to_s)
+        new_items = params["product"]["item_ids"].select { |ii| ii.length > 0 } # Hacemos parse de los items cuya longitud de string sea mayor a cero
         old_items.each do |ii|
           new_items.delete(ii)
         end
@@ -87,6 +89,9 @@ class Dashboard::ProductsController < ApplicationController
       end
       if @product.update(product_params)
         puts "---------------#{new_items.length}----------#{old_items} ----------- #{params["product"]["item_ids"]}"
+        # if @product.status === "inactive"
+        #   old_items = @product.items_recent_ids.map(&:to_s)
+        # end
         if new_items.length > 0 # Se agregaron nuevos elementos
           Product.update_recent_products(item_ids: new_items, product: @product, action: "create")
         end
