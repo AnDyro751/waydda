@@ -19,10 +19,6 @@
 
 
 
-
-
-
-
 </script>
 <%= content_for(:head_tags) do %>
   <% if @current_cart.delivery_kind == "deliver" %>
@@ -31,26 +27,27 @@
 <% end %>
 <%= render Places::Presentation.new(delivery_option: @delivery_option, place: @place, current_cart: @current_cart, items: @items, available_distance: @available_distance) %>
 <%= render Places::DeliveryModal.new(message: "E", current_user: current_or_guest_user, available_distance: @available_distance, current_cart: @current_cart) %>
-<div class="w-10/12 mx-auto flex flex-wrap">
-  <% @items.each do |item| %>
-    <div class="w-full flex flex-wrap " id="<%= item.id.to_s %>">
-      <h2 class="text-sm font-medium text-gray-600 mb-8 pb-4 border-b uppercase w-full"><%= item.name %></h2>
-      <div class="w-full mb-8">
-        <%= render Products::List.new(products: item.recent_products, place: @place) %>
-      </div>
+<div class="w-10/12 mx-auto flex flex-wrap mb-12">
+  <% if @items.length <= 0 %>
+    <div class="w-full py-8 px-4 text-center rounded bg-main-gray">
+      <img
+        class="lazy mx-auto mb-4"
+        src="<%= get_image_url(4, 4, "utils/conifer-178.png") %>"
+        data-src="<%= get_image_url(400, 400, "utils/conifer-178.png") %>"
+        alt="Empty products">
+      <span class="text-2xl font-normal text-gray-900">
+        Este establecimiento aún no tiene productos publicados
+      </span>
     </div>
+  <% else %>
+    <% @items.each do |item| %>
+      <div class="w-full flex flex-wrap " id="<%= item.id.to_s %>">
+        <h2 class="text-sm font-medium text-gray-600 mb-8 pb-4 border-b uppercase w-full"><%= item.name %></h2>
+        <div class="w-full mb-8">
+          <%= render Products::List.new(products: item.recent_products, place: @place) %>
+        </div>
+      </div>
+    <% end %>
   <% end %>
 </div>
-
-
-<%# @products.each do |product| %>
-<!--  <div class="bg-gray-100 p-3 my-3">-->
-<!--    <p>Nombre: <%#= product.name %></p>-->
-<!--    <p>Descripción: <%#= product.description %></p>-->
-<!--    <p>Aggregates <%#= product.aggregates.length %></p>-->
-<!--    <p>Precio: <%#= number_to_currency(product.price, raise: true, format: "%u %n") %></p>-->
-<%#= button_to "Agregar al carrito", add_product_to_cart_path(@place.slug, product), method: :post, class: "cursor-pointer", remote: true, data: {"disable-with": "Agregando..."} %>
-<!--  </div>-->
-<%# end %>
-<%#= will_paginate @products %>
 <%= javascript_packs_with_chunks_tag "places/show", 'data-turbolinks-track': "reload" %>
