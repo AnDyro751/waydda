@@ -89,10 +89,16 @@ class Dashboard::ItemsController < ApplicationController
       begin
         @item.products.delete(@product)
         @item.recent_products.delete(@product)
+        @product.items.delete(@item)
+        @product.items_recents.delete(@item)
+        if @item.products.length <= 0
+          format.html { redirect_to dashboard_item_path(@item), alert: "Se han eliminado todos los productos de este departamento" }
+        else
+          format.js
+        end
       rescue => e
-        format.html { redirect_to dashboard_items_path, notice: "Ha ocurrido un error al actualizar el departamento" }
+        format.html { redirect_to dashboard_item_path(@item), notice: "Ha ocurrido un error al actualizar el departamento" }
       end
-      format.js
     end
   end
 
