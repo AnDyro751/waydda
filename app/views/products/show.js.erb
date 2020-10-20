@@ -5,6 +5,12 @@ if (window.vanillaModal) {
         console.log("<%= request.original_url %>")
         history.replaceState({}, "", "<%= request.original_url %>");
         console.log("<%= @product.name %>")
+//        document.addEventListener("popstate", function () {
+//            window.getScript(location.href);
+//        })
+        window.addEventListener("popstate", function (e) {
+            window.location.href = location.href;
+        });
         window.current_modal.open("#modal");
         document.querySelector(".modal-content").innerHTML = "<%= j render Products::ViewModal::Index.new(product: @product, place: @place) %>";
         window.customLazyLoad.update();

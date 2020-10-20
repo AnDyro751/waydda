@@ -16,12 +16,21 @@ import "toastify-js/src/toastify.css";
 
 import VanillaModal from 'vanilla-modal';
 
+window.getScript = function (url) {
+    var httpRequest = new XMLHttpRequest()
+    httpRequest.onreadystatechange = function (data) {
+        // code
+    }
+    httpRequest.open('GET', url)
+    httpRequest.send()
+};
+
 document.addEventListener("turbolinks:load", function () {
     window.vanillaModal = VanillaModal;
-    console.log("SI HAY WINDOW")
     var current_location = location.href;
     window.current_modal = new window.vanillaModal({
         onBeforeClose: function () {
+            console.log("befeore")
             history.replaceState({}, "", current_location);
         },
         onClose: () => {

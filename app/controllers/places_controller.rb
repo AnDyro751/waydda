@@ -12,7 +12,7 @@ class PlacesController < ApplicationController
 
   def catalog
     @available_distance = @place.available_distance?(current_or_guest_user.get_ll)
-    @items = @place.items
+    @items = @place.items.includes(:recent_products).select { |item| item.recent_products.length > 0 }
   end
 
   # GET /places/1
