@@ -9,7 +9,7 @@ class Item
   field :description, type: String
   # relations
   belongs_to :place
-  has_and_belongs_to_many :products
+  has_and_belongs_to_many :products, inverse_of: :products
   has_and_belongs_to_many :recent_products, class_name: "Product", inverse_of: :products
   validates :name, presence: true, length: {in: 1..30}
   # Limitar los productos de recent products a 10

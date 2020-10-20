@@ -1,8 +1,9 @@
 class Dashboard::ItemsController < ApplicationController
   layout "dashboard"
   before_action :authenticate_user!
-  before_action :set_item, only: [:show, :edit, :update, :destroy]
+  before_action :set_item, only: [:show, :edit, :update, :destroy, :remove_product]
   before_action :set_my_place
+  before_action :set_product, only: [:remove_product]
   add_breadcrumb "Departamentos", :dashboard_items_path
 
   # GET /items
@@ -81,11 +82,32 @@ class Dashboard::ItemsController < ApplicationController
     end
   end
 
+  # DELETE /items/1/:product_id
+  def remove_product
+    # Vamos a eliminar de los recientes y de los items
+    respond_to do |format|
+      begin
+        @item.products.delete(@product)
+      rescue => e
+        format.html { redirect_to dashboard_items_path, notice: "Ha ocurrido un error al actualizar el departamento" }
+      end
+      format.js
+    end
+  end
+
+
   private
+
+  def set_product
+    @product = @place.products.find(params["product_id"])
+    if @product.nil?
+      not_found
+    end
+  end
 
   # Use callbacks to share common setup or constraints between actions.
   def set_item
-    @item = Item.find_by(id: params[:id])
+    @item = Item.find_by(id: params[:id] || params[:item_id]) || not_found
   end
 
   # Only allow a list of trusted parameters through.

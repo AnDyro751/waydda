@@ -64,7 +64,9 @@ Rails.application.routes.draw do
     get "/upgrade/:subscription_id", to: "subscriptions#new", as: :new_subscription
     post "/upgrade/:subscription_id", to: "subscriptions#create", as: :create_subscription
     # Items
-    resources :items, path: "departments"
+    resources :items, path: "departments" do
+      delete "/:product_id", to: "items#remove_product", as: :remove_product
+    end
     resources :subscriptions, only: [:new]
     # Products
     resources :products do

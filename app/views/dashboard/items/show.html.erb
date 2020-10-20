@@ -16,7 +16,7 @@
   <% if @products.length <= 0 %>
     <%= render EmptyRecords.new(title: "¡Vaya, no hay nada por aquí!") %>
   <% end %>
-  <%= render Products::List.new(products: @products, in_dashboard: true, place: @place) %>
+  <%= render Products::List.new(products: @products, in_dashboard: true, place: @place, with_delete: true) %>
   <div class="w-full flex justify-center mt-8">
     <%= will_paginate @products %>
   </div>
