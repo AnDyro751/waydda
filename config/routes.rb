@@ -66,6 +66,8 @@ Rails.application.routes.draw do
     # Items
     resources :items, path: "departments" do
       delete "/:product_id", to: "items#remove_product", as: :remove_product
+      get "/add-products", to: "items#add_products", as: :add_products
+      post "/add-product/:product_id", to: "items#add_product", as: :add_product
     end
     resources :subscriptions, only: [:new]
     # Products

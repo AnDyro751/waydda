@@ -1,9 +1,9 @@
 class Dashboard::ItemsController < ApplicationController
   layout "dashboard"
   before_action :authenticate_user!
-  before_action :set_item, only: [:show, :edit, :update, :destroy, :remove_product]
   before_action :set_my_place
-  before_action :set_product, only: [:remove_product]
+  before_action :set_item, only: [:show, :edit, :update, :destroy, :remove_product, :add_products, :add_product]
+  before_action :set_product, only: [:remove_product, :add_product]
   add_breadcrumb "Departamentos", :dashboard_items_path
 
   # GET /items
@@ -38,6 +38,27 @@ class Dashboard::ItemsController < ApplicationController
     add_breadcrumb "Editar"
     set_meta_tags title: "Editar #{@item.name} - Departamento | Panel de control",
                   description: "Editar #{@item.name} - Departamento | Panel de control"
+  end
+
+  # GET /items/1/add_products
+  def add_products
+    add_breadcrumb "#{@item.name}", dashboard_item_path(@item)
+    add_breadcrumb "Agregar productos"
+    set_meta_tags title: "Agregar productos a #{@item.name} - Departamento | Panel de control",
+                  description: "Agregar productos a #{@item.name} - Departamento | Panel de control"
+    @products = @place.products.not_in(:item_ids => [@item.id])
+  end
+
+  def add_product
+    respond_to do |format|
+      if @product.items.find(@item.id) # Aqui ya el producto está dentro de la relación
+        @error = "El producto ya se encuentra en el departamento"
+      else
+        @product.items << @item
+        Product.update_recent_products(item_ids: [@item.id.to_s], product: @product, action: "create")
+      end
+      format.js
+    end
   end
 
   # POST /items
@@ -114,7 +135,7 @@ class Dashboard::ItemsController < ApplicationController
 
   # Use callbacks to share common setup or constraints between actions.
   def set_item
-    @item = Item.find_by(id: params[:id] || params[:item_id]) || not_found
+    @item = @place.items.find_by(id: params[:id] || params[:item_id]) || not_found
   end
 
   # Only allow a list of trusted parameters through.

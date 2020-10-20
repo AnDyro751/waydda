@@ -1,0 +1,38 @@
+<%= render Headers::Text.new(title: "Agregar productos a #{@item.name}", subtitle: "Actualizado hace #{time_ago_in_words(@item.updated_at)}", small: true, with_margin: true, with_border: false) %>
+<div class="w-full flex flex-wrap">
+  <div class="w-full flex p-3 bg-gray-400">
+    <div class="w-2/12">
+      <span class="text-sm font-normal text-gray-700">SKU</span>
+    </div>
+    <div class="w-9/12">
+      <span class="text-sm font-normal text-gray-700">Nombre</span>
+    </div>
+    <div class="w-1/12">
+    </div>
+  </div>
+  <% if @products.length <= 0 %>
+    <%= render EmptyRecords.new(title: "No hay productos para mostrar") %>
+  <% else %>
+    <div class="w-full flex divide-y divide-gray-300 flex-wrap border-gray-300 border-l border-r border-b">
+      <% @products.each do |product| %>
+        <div class="w-full flex p-3 items-center" id="product_<%= product.id.to_s %>">
+          <div class="w-2/12 truncate">
+            <span class=""><%= product.sku %></span>
+          </div>
+          <div class="w-9/12 truncate">
+            <span class=""><%= product.name %></span>
+          </div>
+          <div class="w-1/12 flex justify-center items-center border-l">
+            <%= button_to dashboard_item_add_product_path(@item, product), remote: true do %>
+              <div class="h-8 w-8 bg-blue-600 hover:bg-blue-800 flex justify-center items-center rounded cursor-pointer">
+                <img
+                  class="w-4 h-4"
+                  src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABmJLR0QA/wD/AP+gvaeTAAAAN0lEQVRIiWNgGFHgPxSQooeJVo4ZtWDUgiFkASOMQWoGImgwIyMjAwMdfEASGC0qRi0YtWCkAgDXKRQUa9rr/gAAAABJRU5ErkJggg==">
+              </div>
+            <% end %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
+</div>

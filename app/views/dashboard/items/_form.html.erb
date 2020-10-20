@@ -15,7 +15,7 @@
   <div class="w-full my-8 flex justify-end">
     <%= f.button :submit,
                  data: {"disable-with": "Cargando..."},
-                 value: "Crear departamento",
+                 value: @item.new_record ? "Crear departamento" : "Actualizar departamento",
                  class: main_color_button(color: "dark", with_shadow: false, size: "big", padding: "big")
     %>
   </div>

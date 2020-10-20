@@ -1,0 +1,6 @@
+<% if @error %>
+window.addToastify("danger", "<%= @error %>")
+<% else %>
+window.addToastify("primary", "Producto agregado al departamento")
+<% end %>
+
