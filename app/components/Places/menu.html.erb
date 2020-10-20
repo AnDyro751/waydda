@@ -15,7 +15,7 @@
         </div>
       <% end %>
 
-      <%= link_to place_items_path(@place.slug), class: "w-auto flex items-center #{current_page?(place_items_path(@place.slug)) ? "bg-black text-white shadow-2xl" : "shadow-lg border border-gray-100 hover:bg-black hover:text-white"} text-sm px-3 rounded cursor-pointer ml-2" do %>
+      <%= link_to place_items_path(@place.slug), class: "w-auto flex items-center #{controller_name === "items" ? "bg-black text-white shadow-2xl" : "shadow-lg border border-gray-100 hover:bg-black hover:text-white"} text-sm px-3 rounded cursor-pointer ml-2" do %>
 
         <span class="w-auto mr-2">
           <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"

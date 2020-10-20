@@ -17,6 +17,7 @@ class ItemsController < ApplicationController
   def show
     set_meta_tags title: "#{@item.name} | Departamentos #{@place.name}",
                   description: "#{@item.name} | Departamentos #{@place.name}"
+    @products = @place.products.where(:item_ids.in => [@item.id]).paginate(page: params[:page], per_page: 30)
   end
 
   private

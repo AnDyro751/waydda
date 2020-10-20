@@ -9,7 +9,8 @@ if (window.vanillaModal) {
 //            window.getScript(location.href);
 //        })
         window.addEventListener("popstate", function (e) {
-            window.location.href = location.href;
+            Turbolinks.visit(window.location.pathname);
+//            window.location.href = location.href;
         });
         window.current_modal.open("#modal");
         document.querySelector(".modal-content").innerHTML = "<%= j render Products::ViewModal::Index.new(product: @product, place: @place) %>";
