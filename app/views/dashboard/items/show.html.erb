@@ -11,12 +11,6 @@
     <h5 class="text-gray-700 ml-2 text-sm font-normal inline"><%= @item.description %></h5>
   </div>
 </div>
-<%= render Headers::Text.new(title: "Sub departamentos", small: true, with_margin: true, font: "small") do %>
-  <button class="<%= main_color_button(color: "dark", size: "big", padding: "big") %>">Agregar sub departamento</button>
-<% end %>
-<div class="w-full <%= border_color %> px-4 py-4">
-
-</div>
 <%= render Headers::Text.new(title: "Productos en este departamento", small: true, with_margin: true, font: "small") %>
 <div class="w-full flex flex-wrap">
   <% if @products.length <= 0 %>
