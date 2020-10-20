@@ -1,0 +1,16 @@
+<% if @place.category %>
+  <% if @place.category === "food" %>
+    <div class="w-full grid grid-cols-12">
+      <% @products.each do |product| %>
+        <div class="col-span-6">
+          <%= render Products::Public::ItemFood.new(product: product, place: @place) %>
+        </div>
+      <% end %>
+    </div>
+  <% else %>
+    <h2>Listar en normal</h2>
+  <% end %>
+<% else %>
+  <h2>Listar en normal</h2>
+<% end %>
+<!--<h1>LISTAR PRODUCTOS</h1>-->

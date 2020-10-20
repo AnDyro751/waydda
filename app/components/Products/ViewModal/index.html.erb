@@ -1,4 +1,4 @@
-<%= simple_form_for(@product, url: place_product_add_to_cart_path(@place, @product), method: :post, remote: true, html: {class: "w-full flex overflow-y-auto justify-end"}) do |f| %>
+<%= simple_form_for(@product, url: place_product_add_to_cart_path(@place.slug, @product.slug), method: :post, remote: true, html: {class: "w-full flex overflow-y-auto justify-end"}) do |f| %>
   <div class="w-7/12 px-4 py-8 h-full flex self-center fixed top-0 left-0">
     <img
       class="lazy mx-auto my-auto h-xxl bg-gray-300"

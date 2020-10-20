@@ -13,7 +13,16 @@
     "paymentAccepted": true,
     "url": "https://waydda.com/places/<%= @place.slug %>"
   }
+
+
+
+
+
+
 </script>
+<%= content_for(:modal_size) do %>
+  w-8/12 h-xxxl
+<% end %>
 <%= content_for(:head_tags) do %>
   <% if @current_cart.delivery_kind == "deliver" %>
     <meta name="show-modal" content="<%= @available_distance ? "no" : "yes" %>">
@@ -38,7 +47,7 @@
       <div class="w-full flex flex-wrap " id="<%= item.id.to_s %>">
         <h2 class="text-sm font-medium text-gray-600 mb-8 pb-4 border-b uppercase w-full"><%= item.name %></h2>
         <div class="w-full mb-8">
-          <%= render Products::List.new(products: item.recent_products, place: @place) %>
+          <%= render Products::Public::List.new(products: item.recent_products, place: @place) %>
         </div>
       </div>
     <% end %>
