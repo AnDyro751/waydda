@@ -1,21 +1,16 @@
 if (window.vanillaModal) {
     var element = document.querySelector("#modal");
     if (element) {
-        console.log("ABRIR MODAL");
-        console.log("<%= request.original_url %>")
         history.replaceState({}, "", "<%= request.original_url %>");
-        console.log("<%= @product.name %>")
-//        document.addEventListener("popstate", function () {
-//            window.getScript(location.href);
-//        })
+        var a = 0;
         window.addEventListener("popstate", function (e) {
-            Turbolinks.visit(window.location.pathname);
-//            window.location.href = location.href;
+            a = a + 1;
+            if (a == 1) {
+                Turbolinks.visit(window.location.pathname, {action: 'replace'});
+            }
         });
         window.current_modal.open("#modal");
         document.querySelector(".modal-content").innerHTML = "<%= j render Products::ViewModal::Index.new(product: @product, place: @place) %>";
         window.customLazyLoad.update();
     }
 }
-//var modal = new VanillaModal();
-//modal.open();
