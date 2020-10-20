@@ -12,6 +12,7 @@ class PlacesController < ApplicationController
 
   def catalog
     @available_distance = @place.available_distance?(current_or_guest_user.get_ll)
+    @items = @place.items
   end
 
   # GET /places/1
