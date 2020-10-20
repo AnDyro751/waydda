@@ -10,12 +10,12 @@
             }
         }
     ) do |f| %>
-  <%= f.input :name, label: "Nombre de la categoría", placeholder: "Ej. Ropa roja" %>
+  <%= f.input :name, label: "Nombre del departamento", placeholder: "Ej. Ropa roja" %>
   <%= f.input :description, as: :text, label: "Descripción", placeholder: "Una breve descripción (No se mostrará al público)" %>
   <div class="w-full my-8 flex justify-end">
     <%= f.button :submit,
                  data: {"disable-with": "Cargando..."},
-                 value: "Crear categoría",
+                 value: "Crear departamento",
                  class: main_color_button(color: "dark", with_shadow: false, size: "big", padding: "big")
     %>
   </div>

@@ -42,7 +42,7 @@ Rails.application.routes.draw do
       post "/cart/add_item", to: "carts#add_product", as: "add_to_cart"
     end
 
-    resources :items
+    resources :items, path: "departments"
     patch "/cart/:cart_item_id/update_item", to: "carts#update_item", as: "update_cart_item"
     get "/cart", to: "carts#show", as: "my_cart"
     # get "/cart/edit", to: "carts#show", as: "edit_my_cart"
@@ -64,7 +64,7 @@ Rails.application.routes.draw do
     get "/upgrade/:subscription_id", to: "subscriptions#new", as: :new_subscription
     post "/upgrade/:subscription_id", to: "subscriptions#create", as: :create_subscription
     # Items
-    resources :items
+    resources :items, path: "departments"
     resources :subscriptions, only: [:new]
     # Products
     resources :products do

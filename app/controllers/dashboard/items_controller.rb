@@ -3,13 +3,13 @@ class Dashboard::ItemsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_item, only: [:show, :edit, :update, :destroy]
   before_action :set_my_place
-  add_breadcrumb "Categorías", :dashboard_items_path
+  add_breadcrumb "Departamentos", :dashboard_items_path
 
   # GET /items
   # GET /items.json
   def index
-    set_meta_tags title: "Categorías | Panel de control",
-                  description: "Categorías | Panel de control"
+    set_meta_tags title: "Departamentos | Panel de control",
+                  description: "Departamentos | Panel de control"
     @items = @place.items.paginate(page: params[:page], per_page: 25)
   end
 
@@ -17,17 +17,17 @@ class Dashboard::ItemsController < ApplicationController
   # GET /items/1.json
   def show
     add_breadcrumb "#{@item.name}"
-    set_meta_tags title: "#{@item.name} - Categoría | Panel de control",
-                  description: "#{@item.name} - Categoría | Panel de control"
+    set_meta_tags title: "#{@item.name} - Departamento | Panel de control",
+                  description: "#{@item.name} - Departamento | Panel de control"
     @products = @item.products.paginate(page: params[:page], per_page: 20)
   end
 
   # GET /items/new
   def new
     @custom_type = params["custom_type"].present?
-    add_breadcrumb "Nueva categoría"
-    set_meta_tags title: "Nueva categoría | Panel de control",
-                  description: "Nueva categoría | Panel de control"
+    add_breadcrumb "Nuevo departamento"
+    set_meta_tags title: "Nuevo departamento | Panel de control",
+                  description: "Nuevo departamento | Panel de control"
     @item = @place.items.new
   end
 
@@ -35,8 +35,8 @@ class Dashboard::ItemsController < ApplicationController
   def edit
     add_breadcrumb "#{@item.name}", dashboard_item_path(@item)
     add_breadcrumb "Editar"
-    set_meta_tags title: "Editar #{@item.name} - Categoría | Panel de control",
-                  description: "Editar #{@item.name} - Categoría | Panel de control"
+    set_meta_tags title: "Editar #{@item.name} - Departamento | Panel de control",
+                  description: "Editar #{@item.name} - Departamento | Panel de control"
   end
 
   # POST /items
@@ -47,7 +47,7 @@ class Dashboard::ItemsController < ApplicationController
       if @item.save
         @items = @place.items
         format.js if params["type"]
-        format.html { redirect_to dashboard_items_path, alert: 'Se ha creado el item' }
+        format.html { redirect_to dashboard_items_path, alert: 'Se ha creado el departamento' }
         format.json { render :show, status: :created, location: @item }
       else
         format.js if params["type"]
@@ -62,7 +62,7 @@ class Dashboard::ItemsController < ApplicationController
   def update
     respond_to do |format|
       if @item.update(item_params)
-        format.html { redirect_to dashboard_item_path(@item), alert: 'Se ha actualizado la categoría' }
+        format.html { redirect_to dashboard_item_path(@item), alert: 'Se ha actualizado el departamento' }
         format.json { render :show, status: :ok, location: @item }
       else
         format.html { render :edit }
@@ -76,7 +76,7 @@ class Dashboard::ItemsController < ApplicationController
   def destroy
     @item.destroy
     respond_to do |format|
-      format.html { redirect_to dashboard_items_path, alert: 'Se ha eliminado la categoría' }
+      format.html { redirect_to dashboard_items_path, alert: 'Se ha eliminado el departamento' }
       format.json { head :no_content }
     end
   end

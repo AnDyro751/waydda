@@ -1,5 +1,5 @@
-<%= render Headers::Text.new(title: "Categorías", small: false, with_margin: true) do %>
-  <%= main_button(to: new_dashboard_item_path(custom_type: "html"), text: "Crear categoría", action: "add", color_button: "dark", remote: true) %>
+<%= render Headers::Text.new(title: "Departamentos", small: false, with_margin: true) do %>
+  <%= main_button(to: new_dashboard_item_path(custom_type: "html"), text: "Crear departamento", action: "add", color_button: "dark", remote: true) %>
 <% end %>
 
 <% if @items.length <= 0 %>
