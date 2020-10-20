@@ -88,6 +88,7 @@ class Dashboard::ItemsController < ApplicationController
     respond_to do |format|
       begin
         @item.products.delete(@product)
+        @item.recent_products.delete(@product)
       rescue => e
         format.html { redirect_to dashboard_items_path, notice: "Ha ocurrido un error al actualizar el departamento" }
       end

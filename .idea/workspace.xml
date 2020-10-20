@@ -19,18 +19,9 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b89cb0fb-b680-4bb9-8ae0-f4b41721cfb9" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/views/dashboard/items/remove_product.js.erb" afterDir="false" />
+    <list default="true" id="b89cb0fb-b680-4bb9-8ae0-f4b41721cfb9" name="Default Changelist" comment="feat(Dashboard): Eliminamos el producto de los items sin problemas">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/components/Products/list.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/components/Products/list.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/components/Products/list.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/components/Products/list.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/components/dashboard/products/item.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/components/dashboard/products/item.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/components/dashboard/products/item.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/components/dashboard/products/item.rb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/controllers/dashboard/items_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/dashboard/items_controller.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/item.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/item.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/product.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/product.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/dashboard/items/show.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/dashboard/items/show.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/routes.rb" beforeDir="false" afterPath="$PROJECT_DIR$/config/routes.rb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -807,14 +798,7 @@
       <workItem from="1602704305961" duration="12648000" />
       <workItem from="1602732490459" duration="5194000" />
       <workItem from="1602957821015" duration="49417000" />
-      <workItem from="1603162034839" duration="8332000" />
-    </task>
-    <task id="LOCAL-00327" summary="feat(Dashboard): Dashboard general settings completed">
-      <created>1602476186782</created>
-      <option name="number" value="00327" />
-      <option name="presentableId" value="LOCAL-00327" />
-      <option name="project" value="LOCAL" />
-      <updated>1602476186782</updated>
+      <workItem from="1603162034839" duration="8439000" />
     </task>
     <task id="LOCAL-00328" summary="feat(Dashboard): Agregamos un link para acceder a mi empresa desde el header">
       <created>1602514904103</created>
@@ -1152,7 +1136,14 @@
       <option name="project" value="LOCAL" />
       <updated>1603206409983</updated>
     </task>
-    <option name="localTasksCounter" value="376" />
+    <task id="LOCAL-00376" summary="feat(Dashboard): Eliminamos el producto de los items sin problemas">
+      <created>1603209402845</created>
+      <option name="number" value="00376" />
+      <option name="presentableId" value="LOCAL-00376" />
+      <option name="project" value="LOCAL" />
+      <updated>1603209402845</updated>
+    </task>
+    <option name="localTasksCounter" value="377" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -1173,7 +1164,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="feat(Dashboard): Ya mostramos el modal pero hay que ocultarlo cuando ya lo vio o mostrarlo de una manera más sutil" />
     <MESSAGE value="feat(Dashboard): Mostramos el modal cuando la persona está lejos de la ubicación" />
     <MESSAGE value="feat(Dashboard):Mostramos el modal cuando lo necesitamos y actuaizamos la información desde el mismo, solo falta agregar el botón para actualizar el método de envío y válidar que la empresa acepte envíos a domicilio" />
     <MESSAGE value="feat(Dashboard): Mostramos el mo0dal solo cuando el place hace envíos a domicilio. Vamos a mostrar un  modal informativo cuando la dirección actual está un lejos del punto de recolección" />
@@ -1198,7 +1188,8 @@
     <MESSAGE value="feat(Dashboard): Estamos eliminando categorías  reemplazando por departamentos" />
     <MESSAGE value="feat(Dashboard): Iniciamos subdepartamentos" />
     <MESSAGE value="feat(Dashboard): Change categorias to departamentos en el _items.html.erb de sidebar" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat(Dashboard): Change categorias to departamentos en el _items.html.erb de sidebar" />
+    <MESSAGE value="feat(Dashboard): Eliminamos el producto de los items sin problemas" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat(Dashboard): Eliminamos el producto de los items sin problemas" />
   </component>
   <component name="WindowStateProjectService">
     <state x="392" y="0" key="#All_specs_in_spec:_waydda" timestamp="1598730457189">
@@ -1241,10 +1232,10 @@
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="491" y="102" width="374" height="557" key="#com.intellij.ide.util.MemberChooser/0.0.1366.768@0.0.1366.768" timestamp="1601746308565" />
-    <state x="261" y="0" width="834" height="683" key="CommitChangelistDialog2" timestamp="1603206409790">
+    <state x="261" y="0" width="834" height="683" key="CommitChangelistDialog2" timestamp="1603209430644">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state x="261" y="0" width="834" height="683" key="CommitChangelistDialog2/0.0.1366.768@0.0.1366.768" timestamp="1603206409790" />
+    <state x="261" y="0" width="834" height="683" key="CommitChangelistDialog2/0.0.1366.768@0.0.1366.768" timestamp="1603209430644" />
     <state x="255" y="248" width="424" height="479" key="FileChooserDialogImpl" timestamp="1602458482165">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
