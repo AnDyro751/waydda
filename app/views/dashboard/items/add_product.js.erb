@@ -1,6 +1,10 @@
 <% if @error %>
 window.addToastify("danger", "<%= @error %>")
 <% else %>
+var element = document.querySelector("#product_<%= @product.id.to_s%>");
+if (element) {
+    element.parentNode.removeChild(element);
+}
 window.addToastify("primary", "Producto agregado al departamento")
 <% end %>
 

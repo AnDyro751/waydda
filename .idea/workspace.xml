@@ -20,14 +20,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b89cb0fb-b680-4bb9-8ae0-f4b41721cfb9" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/javascript/packs/dashboard/items/add_products.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/views/dashboard/items/add_product.js.erb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/views/dashboard/items/add_products.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/dashboard/items_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/dashboard/items_controller.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/product.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/product.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/dashboard/items/_form.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/dashboard/items/_form.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/routes.rb" beforeDir="false" afterPath="$PROJECT_DIR$/config/routes.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/dashboard/items/add_product.js.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/dashboard/items/add_product.js.erb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -804,14 +797,7 @@
       <workItem from="1602704305961" duration="12648000" />
       <workItem from="1602732490459" duration="5194000" />
       <workItem from="1602957821015" duration="49417000" />
-      <workItem from="1603162034839" duration="12749000" />
-    </task>
-    <task id="LOCAL-00330" summary="feat(Dashboard): Mostramos anuncios cuando la cuenta aún de stripe aún no está completada">
-      <created>1602517961735</created>
-      <option name="number" value="00330" />
-      <option name="presentableId" value="LOCAL-00330" />
-      <option name="project" value="LOCAL" />
-      <updated>1602517961735</updated>
+      <workItem from="1603162034839" duration="12802000" />
     </task>
     <task id="LOCAL-00331" summary="feat(Dashboard): Remove unnecessary elements in dashboard and public header">
       <created>1602705221081</created>
@@ -1149,7 +1135,14 @@
       <option name="project" value="LOCAL" />
       <updated>1603212025319</updated>
     </task>
-    <option name="localTasksCounter" value="379" />
+    <task id="LOCAL-00379" summary="feat(Dashboard): Agregamos los productos a la categoría">
+      <created>1603215722020</created>
+      <option name="number" value="00379" />
+      <option name="presentableId" value="LOCAL-00379" />
+      <option name="project" value="LOCAL" />
+      <updated>1603215722020</updated>
+    </task>
+    <option name="localTasksCounter" value="380" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -1170,7 +1163,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="feat(Dashboard): Mostramos el mo0dal solo cuando el place hace envíos a domicilio. Vamos a mostrar un  modal informativo cuando la dirección actual está un lejos del punto de recolección" />
     <MESSAGE value="feat(Dashboard): Espacios del json ld" />
     <MESSAGE value="feat(Dashboard): Cambiamos la imagen en etiqueta para el cover por un div" />
     <MESSAGE value="feat(Dashboard): Agregamos la validación del delivery kind al carrito y mostramos un mensaje al actualizar el método de envío en el place" />
@@ -1195,7 +1187,8 @@
     <MESSAGE value="feat(Dashboard): Eliminamos el producto de los items sin problemas" />
     <MESSAGE value="feat(Dashboard): Eliminamos de productos recientes 3:" />
     <MESSAGE value="feat(Dashboard): Eliminamos los productos de todas las relaciones sin problemas" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat(Dashboard): Eliminamos los productos de todas las relaciones sin problemas" />
+    <MESSAGE value="feat(Dashboard): Agregamos los productos a la categoría" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat(Dashboard): Agregamos los productos a la categoría" />
   </component>
   <component name="WindowStateProjectService">
     <state x="392" y="0" key="#All_specs_in_spec:_waydda" timestamp="1598730457189">
@@ -1238,10 +1231,10 @@
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="491" y="102" width="374" height="557" key="#com.intellij.ide.util.MemberChooser/0.0.1366.768@0.0.1366.768" timestamp="1601746308565" />
-    <state x="261" y="0" width="834" height="683" key="CommitChangelistDialog2" timestamp="1603212025202">
+    <state x="261" y="0" width="834" height="683" key="CommitChangelistDialog2" timestamp="1603215721816">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state x="261" y="0" width="834" height="683" key="CommitChangelistDialog2/0.0.1366.768@0.0.1366.768" timestamp="1603212025202" />
+    <state x="261" y="0" width="834" height="683" key="CommitChangelistDialog2/0.0.1366.768@0.0.1366.768" timestamp="1603215721816" />
     <state x="255" y="248" width="424" height="479" key="FileChooserDialogImpl" timestamp="1602458482165">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
