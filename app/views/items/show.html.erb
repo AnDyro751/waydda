@@ -2,7 +2,12 @@
   w-8/12 h-xxxl
 <% end %>
 <%= render Places::Presentation.new(delivery_option: @delivery_option, place: @place, current_cart: @current_cart, available_distance: @available_distance, with_cover: false) %>
-<div class="w-10/12 mx-auto">
+<div class="w-10/12 mx-auto flex flex-wrap">
+  <div class="w-full my-4 flex">
+    <h2 class="text-xl font-normal text-gray-700" >
+      <%= @item.name %>
+    </h2>
+  </div>
   <% if @products.length <= 0 %>
     <div class="w-full py-8 px-4 text-center rounded bg-main-gray">
       <img
