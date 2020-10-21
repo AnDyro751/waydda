@@ -20,8 +20,10 @@
   <% end %>
 <% end %>
 <% unless @available_distance %>
-  <div class="w-10/12 mx-auto my-8">
-  <span class="bg-black shadow-lg w-auto px-4 font-normal text-sm py-3 rounded text-white">
+  <div class="w-10/12 mx-auto my-8 relative">
+    <span class="bg-black shadow-lg hover:shadow-2xl relative transition duration-150 w-auto px-4 font-normal text-sm py-3 rounded text-white">
+    <span class="animate-ping absolute inline-flex h-3 w-3 right-0 -mt-1  rounded-full bg-red-400 top-0 opacity-75"></span>
+    <span class="inline-flex rounded-full h-3 w-3 bg-red-500 right-0 -mt-1 absolute top-0"></span>
     <img
       class="inline h-4 w-4 mr-2"
       alt="svgImg"

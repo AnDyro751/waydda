@@ -7,16 +7,16 @@ class ItemsController < ApplicationController
   # GET /items
   # GET /items.json
   def index
-    set_meta_tags title: "Departamentos | #{@place.name}",
-                  description: "Departamentos | #{@place.name}"
+    set_meta_tags title: "#{@place.is_restaurant? ? "Categorías" : "Departamentos"} | #{@place.name}",
+                  description: "#{@place.is_restaurant? ? "Categorías" : "Departamentos"} | #{@place.name}"
     @items = @place.items.includes(:recent_products).select { |item| item.recent_products.length > 0 }
   end
 
   # GET /items/1
   # GET /items/1.json
   def show
-    set_meta_tags title: "#{@item.name} | Departamentos #{@place.name}",
-                  description: "#{@item.name} | Departamentos #{@place.name}"
+    set_meta_tags title: "#{@item.name} | #{@place.is_restaurant? ? "Categorías" : "Departamentos"} #{@place.name}",
+                  description: "#{@item.name} |  #{@place.is_restaurant? ? "Categorías" : "Departamentos"} #{@place.name}"
     @products = @place.products.where(:item_ids.in => [@item.id]).paginate(page: params[:page], per_page: 30)
   end
 

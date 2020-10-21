@@ -136,6 +136,16 @@ class Place
     false
   end
 
+# @note Retorna True, False si el place es un restaurante
+# @return [TrueClass, FalseClass]
+  def is_restaurant?
+    if self.category
+      return self.category === "food"
+    else
+      return false
+    end
+  end
+
   def self.get_pickup_times
     [["10 - 15 minutos", "0"], ["15 - 30 minutos", "1"], ["30 - 45 minutos", "2"], ["Más de una hora", "3"]]
   end
