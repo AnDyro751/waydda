@@ -1,7 +1,7 @@
 if (window.vanillaModal) {
     var element = document.querySelector("#modal");
     if (element) {
-        history.replaceState({}, "", "<%= request.original_url %>");
+        history.pushState({}, "<%= @product.name %> - <%= @place.name %>", "<%= request.original_url %>");
         var a = 0;
         window.addEventListener("popstate", function (e) {
             a = a + 1;
