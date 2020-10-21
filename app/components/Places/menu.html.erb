@@ -27,15 +27,7 @@
         </span>
         <div class="w-auto h-5">
           <span class="font-medium">
-            <% if @place.category %>
-              <% if @place.category === "food" %>
-                Categorías
-              <% else %>
-              Pasillos
-              <% end %>
-            <% else %>
-              Pasillos
-            <% end %>
+            <%= @place.is_restaurant? ? "Categorías" : "Pasillos" %>
           </span>
         </div>
       <% end %>
