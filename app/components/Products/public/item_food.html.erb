@@ -1,5 +1,5 @@
-<%= link_to place_product_path(@place.slug, @product.slug), remote: true do %>
-  <div class="w-full grid grid-cols-12 rounded border cursor-pointer border-gray-300 hover:border-black">
+<%= link_to place_product_path(@place.slug, @product.slug), remote: true, class: "bg-white" do %>
+  <div class="w-full grid grid-cols-12 bg-white rounded shadow hover:shadow-lg cursor-pointer border-gray-300 transition duration-300">
     <div class="col-span-8 p-4 content-between grid">
       <div class="w-full" >
         <h3 class="font-normal text-lg"><%= @product.name %></h3>
