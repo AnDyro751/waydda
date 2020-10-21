@@ -18,6 +18,10 @@
 
 
 
+
+
+
+
 </script>
 <%= content_for(:modal_size) do %>
   w-8/12 h-xxxl
@@ -44,11 +48,25 @@
   <% else %>
     <% @item_arrays.each do |item| %>
       <div class="w-full flex flex-wrap " id="<%= item.id.to_s %>">
-        <h2 class="text-sm font-medium text-gray-600 mb-8 pb-4 border-b uppercase w-full">
-          <%= link_to item.name, place_item_path(@place.slug, item), class: "hover:underline" %>
-        </h2>
+        <div class="w-full flex items-center mb-8 pb-4 border-b">
+          <div class="w-10/12">
+            <h2 class="text-sm font-medium text-gray-600 uppercase w-full">
+              <%= link_to item.name, place_item_path(@place.slug, item), class: "hover:underline" %>
+            </h2>
+          </div>
+          <div class="w-2/12 flex justify-end">
+            <%= link_to place_item_path(@place.slug, item) do %>
+              <span class="font-medium text-sm hover:underline text-black">Ver más</span>
+            <% end %>
+          </div>
+        </div>
         <div class="w-full mb-8">
           <%= render Products::Public::List.new(products: item.recent_products, place: @place) %>
+        </div>
+        <div class="w-full">
+          <%= link_to place_item_path(@place.slug, item) do %>
+            <span class="font-medium text-sm hover:underline text-black">Ver más</span>
+          <% end %>
         </div>
       </div>
     <% end %>
