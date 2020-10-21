@@ -19,7 +19,7 @@
   <%= content_for?(:head_tags) ? yield(:head_tags) : nil %>
 </head>
 
-<body>
+<body class="<%= controller_name === "place" || controller_name === "product" ? "bg-main-gray" : "bg-main-gray" %>">
 
 <div class="w-full">
   <div class="w-full sticky top-0">
@@ -48,8 +48,5 @@
 <% if params["console"] %>
   <%= console %>
 <% end %>
-
-
 </body>
-
 </html>

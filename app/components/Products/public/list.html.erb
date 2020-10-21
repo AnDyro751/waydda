@@ -8,7 +8,13 @@
       <% end %>
     </div>
   <% else %>
-    <h2>Listar en normal</h2>
+    <div class="w-full grid grid-cols-12 gap-5">
+      <% (@products * 4).each_with_index do |product, i| %>
+        <div class="col-span-3 hover:shadow-lg mb-4 transition duration-300 shadow">
+          <%= render Products::Public::ItemNormal.new(product: product, place: @place) %>
+        </div>
+      <% end %>
+    </div>
   <% end %>
 <% else %>
   <h2>Listar en normal</h2>

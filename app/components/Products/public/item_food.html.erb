@@ -11,8 +11,8 @@
     </div>
     <div class="col-span-4 flex justify-end">
       <img
-        data-src="<%= helpers.get_image_url(250, 250, @product.photo, "cover") %>"
-        src="<%= helpers.get_image_url(15, 15, @product.photo, "cover") %>"
+        data-src="<%= helpers.get_image_url(250, 250, @product.photo, "contain") %>"
+        src="<%= helpers.get_image_url(15, 15, @product.photo, "contain") %>"
         class="lazy h-40 w-40"
         alt="<%= @product.name %> image photo">
     </div>
