@@ -44,7 +44,7 @@
     <% @items.each do |item| %>
       <div class="w-full flex flex-wrap " id="<%= item.id.to_s %>">
         <h2 class="text-sm font-medium text-gray-600 mb-8 pb-4 border-b uppercase w-full" >
-          <%= link_to item.name, dashboard_item_path(@place, item), class: "" %>
+          <%= link_to item.name, place_item_path(@place.slug, item), class: "hover:underline" %>
         </h2>
         <div class="w-full mb-8">
           <%= render Products::Public::List.new(products: item.recent_products, place: @place) %>

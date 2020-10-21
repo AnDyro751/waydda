@@ -1,7 +1,7 @@
 <%= content_for(:modal_size) do %>
   w-8/12 h-xxxl
 <% end %>
-<%= render Places::Presentation.new(delivery_option: @delivery_option, place: @place, current_cart: @current_cart, available_distance: @available_distance) %>
+<%= render Places::Presentation.new(delivery_option: @delivery_option, place: @place, current_cart: @current_cart, available_distance: @available_distance, with_cover: false) %>
 <div class="w-10/12 mx-auto mb-12">
   <div class="w-full grid grid-cols-3">
     <% @items.each_with_index do |item, i| %>
