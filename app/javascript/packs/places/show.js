@@ -1,59 +1,71 @@
 var ele = document.getElementById("scroll-container");
-import VanillaModal from 'vanilla-modal';
+document.addEventListener("turbolinks:load", function () {
+    var showModal = document.querySelector("meta[name=show-modal]");
 
-window.vanillaModal = VanillaModal;
-if (window.vanillaModal) {
-    var current_location = location.href;
-    window.current_modal = new window.vanillaModal({
-        onBeforeClose: function () {
-            console.log("BEOFRE");
-            history.replaceState({}, "", current_location);
-        },
-        onClose: ()=>{
-            document.querySelector("#modal").innerHTML = "";
-            document.querySelector("#modal-content").innerHTML = "";
+    if (showModal) {
+        if (showModal.content === "yes") {
+            window.current_modal.open("#modal");
+            var new_template = document.querySelector(".new-modal-content");
+            var clone = document.importNode(new_template.content, true);
+            document.querySelector(".modal-content").appendChild(clone);
+            window.customLazyLoad.update();
+            console.log(document.querySelectorAll(".button-select-modal").length, "LEN");
+
+            document.querySelectorAll(".button-select-modal").forEach((el) => {
+                console.log(el)
+                el.addEventListener("click", () => {
+                    document.querySelector(".divider-modal").classList.add("hidden");
+                    document.querySelector("#button-pickup-modal").classList.add("hidden");
+                    document.querySelector("#button-address-modal").classList.add("hidden");
+                    if (el.id === "button-address-modal") {
+                        document.querySelector("#delivery-form-modal").classList.remove("hidden");
+                    }
+                })
+
+            });
         }
-    });
-}
-if (ele) {
-    ele.style.cursor = 'grab';
+    }
+    if (ele) {
+        ele.style.cursor = 'grab';
 
-    let pos = {top: 0, left: 0, x: 0, y: 0};
+        let pos = {top: 0, left: 0, x: 0, y: 0};
 
-    const mouseDownHandler = function (e) {
-        ele.style.cursor = 'grabbing';
-        ele.style.userSelect = 'none';
+        const mouseDownHandler = function (e) {
+            ele.style.cursor = 'grabbing';
+            ele.style.userSelect = 'none';
 
-        pos = {
-            left: ele.scrollLeft,
-            top: ele.scrollTop,
-            // Get the current mouse position
-            x: e.clientX,
-            y: e.clientY,
+            pos = {
+                left: ele.scrollLeft,
+                top: ele.scrollTop,
+                // Get the current mouse position
+                x: e.clientX,
+                y: e.clientY,
+            };
+
+            document.addEventListener('mousemove', mouseMoveHandler);
+            document.addEventListener('mouseup', mouseUpHandler);
         };
 
-        document.addEventListener('mousemove', mouseMoveHandler);
-        document.addEventListener('mouseup', mouseUpHandler);
-    };
+        const mouseMoveHandler = function (e) {
+            // How far the mouse has been moved
+            const dx = e.clientX - pos.x;
+            const dy = e.clientY - pos.y;
 
-    const mouseMoveHandler = function (e) {
-        // How far the mouse has been moved
-        const dx = e.clientX - pos.x;
-        const dy = e.clientY - pos.y;
+            // Scroll the element
+            ele.scrollTop = pos.top - dy;
+            ele.scrollLeft = pos.left - dx;
+        };
 
-        // Scroll the element
-        ele.scrollTop = pos.top - dy;
-        ele.scrollLeft = pos.left - dx;
-    };
+        const mouseUpHandler = function () {
+            ele.style.cursor = 'grab';
+            ele.style.removeProperty('user-select');
 
-    const mouseUpHandler = function () {
-        ele.style.cursor = 'grab';
-        ele.style.removeProperty('user-select');
+            document.removeEventListener('mousemove', mouseMoveHandler);
+            document.removeEventListener('mouseup', mouseUpHandler);
+        };
+        ele.addEventListener('mousedown', mouseDownHandler);
 
-        document.removeEventListener('mousemove', mouseMoveHandler);
-        document.removeEventListener('mouseup', mouseUpHandler);
-    };
-    ele.addEventListener('mousedown', mouseDownHandler);
+        console.log("JOLA")
+    }
 
-    console.log("JOLA")
-}
+})

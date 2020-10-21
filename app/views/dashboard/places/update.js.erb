@@ -1,8 +1,8 @@
-window.scrollTo(0, 0);
+//window.scrollTo(0, 0);
 document.querySelector("#notifications").innerHTML = "";
 console.log("<%= @place.errors.any? %>")
 <% if @place.errors.any? %>
-document.querySelector("#notifications").innerHTML = "<%= j render Notifications::Alert.new(alert: "Se han encontrado errores al actualizar la empresa",kind: "error",with_spacing:true) %>";
+window.addToastify("danger", "Se han encontrado errores al actualizar la empresa")
 <% @place.errors.each do |keyE,error| %>
 console.log("<%= keyE %>", "<%= error %>")
 <% if keyE.to_s === "address" %>
@@ -16,15 +16,13 @@ if (element) {
     if (spanElement) {
         spanElement.innerHTML = "<%= error %>";
     } else {
-        var newNotification = document.createElement("div")
-        newNotification.innerHTML = "<%= j render Notifications::Alert.new(alert: "#{keyE} #{error}" ,kind: "error",with_spacing:true) %>";
-        document.querySelector("#notifications").appendChild(newNotification);
+        window.addToastify("danger", "<%= keyE %> <%= error %>")
     }
 }
 <% end %>
 <% end %>
 <% else %>
-document.querySelector("#notifications").innerHTML = "<%= j render Notifications::Alert.new(alert: "Se ha actualizado la empresa",with_spacing:true) %>";
+window.addToastify("primary", "Se ha actualizado la empresa")
 <% end %>
 
-window.deleteFlashs();
+//window.deleteFlashs();

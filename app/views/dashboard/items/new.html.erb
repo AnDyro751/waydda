@@ -1,4 +1,4 @@
-<%= render Headers::Text.new(title: "Crear categoría", small: false, with_margin: true) %>
-<div class="w-6/12" >
-  <%= render 'form', {item: @item, action: "create"} %>
+<%= render Headers::Text.new(title: "Crear categoría", small: true, padding_class: "px-4 py-8", with_margin: true) %>
+<div class="w-full">
+  <%= render 'form', custom_type: "html" %>
 </div>

@@ -12,7 +12,7 @@
     </div>
   </div>
   <%= render Headers::Text.new(title: "#{@product.name}", subtitle: @product.description, small: true, with_border: false) do %>
-    <%= main_button(text: "Editar producto", to: edit_dashboard_product_path(@product), action: "update") %>
+    <%= main_button(text: "Editar producto", to: edit_dashboard_product_path(@product), action: "update", color_button: "dark") %>
   <% end %>
 </div>
 

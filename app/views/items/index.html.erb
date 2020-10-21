@@ -1,27 +1,41 @@
-<h1>Items</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Business</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @items.each do |item| %>
-      <tr>
-        <td><%= item.name %></td>
-<!--        <td><%#= item.business_id %></td>-->
-        <td><%= link_to 'Show', item %></td>
-<!--        <td><%#= link_to 'Edit', edit_item_path(item) %></td>-->
-<!--        <td><%#= link_to 'Destroy', item, method: :delete, data: { confirm: 'Are you sure?' } %></td>-->
-      </tr>
+<%= content_for(:modal_size) do %>
+  w-8/12 h-xxxl
+<% end %>
+<%= render Places::Presentation.new(delivery_option: @delivery_option, place: @place, current_cart: @current_cart, available_distance: @available_distance, with_cover: false) %>
+<div class="w-10/12 mx-auto mb-12">
+  <div class="w-full grid grid-cols-3">
+    <% @items.each_with_index do |item, i| %>
+      <div class="col-span-1 bg-white mb-8 shadow hover:shadow-xl transition duration-300 rounded-lg border border-gray-300 <%= i % 3 != 2 ? "mr-3" : "" %>">
+        <div class="px-3 w-full py-3 bg-black rounded-t">
+          <%= link_to place_item_path(@place.slug, item) do %>
+            <h4 class="font-medium text-white hover:underline truncate"><%= item.name %></h4>
+          <% end %>
+        </div>
+        <div class="w-full">
+          <ul class="divide-y divide-gray-300">
+            <% item.recent_products.to_a.first(5).each do |rp| %>
+              <%= link_to place_product_path(@place.slug, rp.slug), remote: true do %>
+                <li class="list-none cursor-pointer text-gray-800 hover:text-red-600 px-3 py-3">
+                  <span class="text-sm font-normal"><%= rp.name %></span>
+                </li>
+              <% end %>
+            <% end %>
+          </ul>
+        </div>
+        <div class="w-full mt-4 px-3 pb-4">
+          <%= link_to place_item_path(@place.slug, item), class: "text-red-600 text-xs hover:underline" do %>
+            <span>
+            Ver más
+              <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                   viewBox="0 0 16 16"
+                   class="inline h-3 w-3 fill-current ml-1"
+              >
+              <path d="M 6.734375 1.023438 L 6.015625 1.726563 L 11.675781 7.5 L 6.015625 13.277344 L 6.734375 13.972656 L 13.074219 7.5 Z"></path>
+            </svg>
+            </span>
+          <% end %>
+        </div>
+      </div>
     <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%#= link_to 'New Item', new_item_path %>
+  </div>
+</div>

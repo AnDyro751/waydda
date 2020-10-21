@@ -1,5 +1,5 @@
 <%= simple_form_for(
-        @item, remote: true, url: @item.new_record ? dashboard_items_path(type: "js") : dashboard_item_path(@item, type: "controller"),
+        @item, remote: true, url: @item.new_record ? dashboard_items_path(type: local_assigns[:custom_type].nil? ? "js" : nil) : dashboard_item_path(@item, type: "controller"),
         defaults: {
             input_html: {
                 class: "#{input_color_class} mt-2 mb-4 resize-none",
@@ -10,12 +10,12 @@
             }
         }
     ) do |f| %>
-  <%= f.input :name, label: "Nombre de la categoría", placeholder: "Ej. Ropa roja" %>
+  <%= f.input :name, label: "Nombre del departamento", placeholder: "Ej. Ropa roja" %>
   <%= f.input :description, as: :text, label: "Descripción", placeholder: "Una breve descripción (No se mostrará al público)" %>
-  <div class="w-full mt-8 flex justify-end">
+  <div class="w-full my-8 flex justify-end">
     <%= f.button :submit,
                  data: {"disable-with": "Cargando..."},
-                 value: "Crear categoría",
+                 value: @item.new_record ? "Crear departamento" : "Actualizar departamento",
                  class: main_color_button(color: "dark", with_shadow: false, size: "big", padding: "big")
     %>
   </div>

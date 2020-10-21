@@ -10,7 +10,7 @@
   <div class="w-9/12 mx-auto flex-wrap">
     <div class="w-full items-center flex">
       <%= render Headers::Text.new(title: current_user.name) do %>
-        <%= main_button(to: edit_my_profile_path, text: "Editar perfil", action: "update") %>
+        <%= main_button(to: edit_my_profile_path, text: "Editar perfil", action: "update", color_button: "dark") %>
       <% end %>
     </div>
     <div class="w-full flex flex-wrap items-start">
@@ -22,10 +22,11 @@
           <%= render Address::Form.new(address: @new_address) %>
         </div>
         <div class="w-6/12">
-          <h2 class="font-bold mb-4 text-lg">
+          <h2 class="font-bold text-lg">
             Mapa
           </h2>
-          <div class="h-xl bg-gray-200 w-full rounded" id="map">
+          <span class="<%= label_color_class(size: "small") %>">Arrastra el marcador para colocar tu dirección exacta</span>
+          <div class="h-xl mt-4 bg-gray-200 w-full rounded" id="map">
 
           </div>
         </div>

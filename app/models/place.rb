@@ -55,7 +55,7 @@ class Place
   has_many :viewers
   has_many :views
   has_many :orders # Todas las ordenes que recibe
-  embeds_one :subscription
+  has_one :subscription
   has_one :account
 
 # Validations
@@ -105,6 +105,26 @@ class Place
     self.update(total_products: oper)
   end
 
+# @note
+# Función para calcular la distancia entre un place y un punto a
+# @param [Array] point_a
+# @return [Geokit::LatLng] KMS distance
+  def get_distance(point_a = [])
+    return 100000000 if point_a.length <= 0 # return 1000000 if point_a is empty
+    a = Geokit::LatLng.new(self.lat, self.lng)
+    b = Geokit::LatLng.new(point_a[0], point_a[1])
+    a.distance_to(b)
+  end
+
+# @notice
+# Función que nos retorna true/false que verifica que la distancia entre el punto a y delivery_distance
+# sea menor o igual
+# @param [Array] point_a
+# @return [TrueClass, FalseClass]
+  def available_distance?(point_a = [])
+    self.get_distance(point_a) <= self.delivery_distance
+  end
+
 
   def valid_sale?
     unless self.nil?
@@ -114,6 +134,16 @@ class Place
     end
     raise "Esta empresa no está disponible"
     false
+  end
+
+# @note Retorna True, False si el place es un restaurante
+# @return [TrueClass, FalseClass]
+  def is_restaurant?
+    if self.category
+      return self.category === "food"
+    else
+      return false
+    end
   end
 
   def self.get_pickup_times
@@ -181,6 +211,7 @@ class Place
   def self.current_categories
     [%w[Abarrotes groceries], %w[Alimentos food], %w[Servicios services], %w[Otros other]]
   end
+
 
   def self.cancel_subscription(subscription_id)
     get_subscription = Subscription.find_by(stripe_subscription_id: subscription_id)

@@ -42,12 +42,12 @@
       <% if @current_cart.delivery_kind == "pickup" %>
         <img
           class="lazy h-64 w-full shadow rounded"
-          src="https://api.mapbox.com/styles/v1/mapbox/streets-v11/static/pin-s-l+000(<%= @place.lng %>,<%= @place.lat %>)/<%= @place.lng %>,<%= @place.lat %>,16/500x400?access_token=pk.eyJ1Ijoid2F5ZGRhIiwiYSI6ImNrOXp0ZnllMDBlOHQzbHcxeTVranl1MzQifQ.N3Kcp4xfFVpJz3byWcrIcg"
+          src="https://api.mapbox.com/styles/v1/mapbox/streets-v11/static/pin-s-l+000(<%= @place.lng %>,<%= @place.lat %>)/<%= @place.lng %>,<%= @place.lat %>,16/500x400?access_token=pk.eyJ1Ijoid2F5ZGRhIiwiYSI6ImNrZzYwZWJiYzB6bjMycW5udmd1NHNscDAifQ.wkmzM9Mh8XyPXZ8BgpyJXg"
           alt="">
       <% else %>
         <img
           class="lazy h-64 w-full shadow rounded"
-          src="https://api.mapbox.com/styles/v1/mapbox/streets-v11/static/pin-s-l+000(<%= @current_cart.order.address.lng %>,<%= @current_cart.order.address.lat %>)/<%= @current_cart.order.address.lng %>,<%= @current_cart.order.address.lat %>,16/500x400?access_token=pk.eyJ1Ijoid2F5ZGRhIiwiYSI6ImNrOXp0ZnllMDBlOHQzbHcxeTVranl1MzQifQ.N3Kcp4xfFVpJz3byWcrIcg"
+          src="https://api.mapbox.com/styles/v1/mapbox/streets-v11/static/pin-s-l+000(<%= @current_cart.order.address.lng %>,<%= @current_cart.order.address.lat %>)/<%= @current_cart.order.address.lng %>,<%= @current_cart.order.address.lat %>,16/500x400?access_token=pk.eyJ1Ijoid2F5ZGRhIiwiYSI6ImNrZzYwZWJiYzB6bjMycW5udmd1NHNscDAifQ.wkmzM9Mh8XyPXZ8BgpyJXg"
           alt="">
       <% end %>
     </div>

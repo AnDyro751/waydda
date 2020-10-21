@@ -7,6 +7,7 @@ class Account
   field :account_id, type: String, default: ""
   field :completed, type: Boolean, default: false
   field :pending_verification, type: Boolean, default: false
+  field :details_submitted, type: Boolean, default: false
 
   # Stripe key
   # TODO: Enviar a secret
@@ -17,7 +18,7 @@ class Account
     begin
       current_portal = Stripe::BillingPortal::Session.create({
                                                                  customer: customer_id,
-                                                                 return_url: 'http://localhost:3000/dashboard/settings',
+                                                                 return_url: 'http://localhost:3000/dashboard/settings/subscription',
                                                              })
       return current_portal["url"]
     rescue => e
@@ -28,42 +29,7 @@ class Account
   end
 
   def self.get_price(free_days:, price:)
-    if Rails.env === "development"
-      if price == 229
-        if free_days === 30
-          return "price_1HNmjCBOcPJ0nbHcDOPnmdPR"
-        elsif free_days === 14
-          return "price_1HNmioBOcPJ0nbHcNEhtQXao"
-        elsif free_days === 7
-          return "price_1HNmiLBOcPJ0nbHce9Dg9vYj"
-        else
-          return nil
-        end
-      elsif price == 129
-        if free_days == 30
-          return "price_1HNmhxBOcPJ0nbHcObBcFqIu"
-        elsif free_days == 14
-          return "price_1HNmhhBOcPJ0nbHciN5H6YaT"
-        elsif free_days == 7
-          return "price_1HNmhNBOcPJ0nbHc3bf1aAeX"
-        else
-          return nil
-        end
-      elsif price == 69
-        if free_days == 30
-          return "price_1HNmgIBOcPJ0nbHcaweGnfsr"
-        elsif free_days == 14
-          return "price_1HNmgIBOcPJ0nbHcrsn0bmBC"
-        elsif free_days == 7
-          return "price_1HNmgIBOcPJ0nbHcAt2FBrs9"
-        end
-      else
-        return nil
-      end
-
-    else
-
-    end
+    return "price_1HcIbtBOcPJ0nbHcRTyWGupu"
   end
 
   def self.create_stripe_account(place, user)
@@ -72,9 +38,8 @@ class Account
         puts "-----------ES VACIO"
         account = Stripe::Account.create({
                                              country: 'MX',
-                                             type: 'express',
-                                             email: user.email,
-                                             requested_capabilities: %w[card_payments transfers],
+                                             type: 'standard',
+                                             email: user.email
                                          })
 
         new_account = user.build_account(account_id: account.id, created_at: DateTime.now, place: place)
@@ -101,7 +66,7 @@ class Account
     current_account = Account.find_by(account_id: account_updated["id"])
     return false if current_account.nil?
     if account_updated["requirements"]
-      if account_updated["requirements"]["pending_verification"].length > 0
+      if account_updated["requirements"]["pending_verification"].length > 0 || account_updated["requirements"]["past_due"].length > 0 || account_updated["requirements"]["eventually_due"].length > 0
         current_account.update(pending_verification: true)
       else
         current_account.update(pending_verification: false)
@@ -110,12 +75,12 @@ class Account
     if account_updated["details_submitted"]
       unless current_account.completed
         puts "----------ACTUALIZANDO A COMPLETED"
-        return current_account.update(completed: true)
+        return current_account.update(completed: true, details_submitted: account_updated["details_submitted"])
       end
     else
       if current_account.completed
         puts "----------ACTUALIZANDO A NOOOO COMPLETED"
-        return current_account.update(completed: false)
+        return current_account.update(completed: false, details_submitted: account_updated["details_submitted"])
       end
     end
 
@@ -127,10 +92,10 @@ class Account
                                             account: account_id,
                                             refresh_url: 'http://localhost:3000/dashboard/settings/payments/connect',
                                             return_url: 'http://localhost:3000/dashboard/settings/payments/connect',
-                                            type: update ? "account_update" : 'account_onboarding',
+                                            type: 'account_onboarding',
                                         })
       return link
-    rescue => e
+    rescue Stripe::StripeError => e
       puts "-----------#{e}-----2"
       return nil
     end

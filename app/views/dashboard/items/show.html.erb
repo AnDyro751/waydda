@@ -1,17 +1,6 @@
-<div class="w-full mt-4 text-gray-600 text-sm">
-  <div class="">
-    <span>
-      <%= link_to "Categorías", dashboard_items_path, class: "hover:underline" %>
-    </span>
-    <span class="mx-2 select-none">
-      >
-    </span>
-    <span class="text-indigo-700 font-medium">
-      <%= @item.name %>
-    </span>
-  </div>
-</div>
-<%= render Headers::Text.new(title: @item.name, subtitle: "Creado hace #{time_ago_in_words(@item.created_at)}", small: true, with_margin: true) %>
+<%= render Headers::Text.new(title: @item.name, subtitle: "Creado hace #{time_ago_in_words(@item.created_at)}", small: true, with_margin: true) do %>
+  <%= main_button(to: edit_dashboard_item_path(@item), text: "Editar departamento", action: "create", color_button: "dark") %>
+<% end %>
 <div class="w-full flex flex-wrap bg-main-gray rounded divide-gray-400 divide-y">
   <div class="w-full p-4 flex items-center">
     <h4 class="font-medium">Nombre:</h4>
@@ -22,21 +11,17 @@
     <h5 class="text-gray-700 ml-2 text-sm font-normal inline"><%= @item.description %></h5>
   </div>
 </div>
-<%= render Headers::Text.new(title: "Productos en esta categoría", small: true, with_margin: true, font: "small") %>
+<%= render Headers::Text.new(title: "Productos en este departamento", small: true, with_margin: true, font: "small") %>
 <div class="w-full flex flex-wrap">
   <% if @products.length <= 0 %>
     <%= render EmptyRecords.new(title: "¡Vaya, no hay nada por aquí!") %>
   <% end %>
-  <% @products.each do |product| %>
-    <div class="col-span-6">
-      <%= render Products::Item.new(product: product, in_dashboard: true) %>
-    </div>
-  <% end %>
+  <%= render Products::List.new(products: @products, in_dashboard: true, place: @place, with_delete: true) %>
   <div class="w-full flex justify-center mt-8">
     <%= will_paginate @products %>
   </div>
 </div>
-<%= render Headers::Text.new(title: "Eliminar categoría", subtitle: "Si eliminas la categoría no podrás recuperar la información de este recurso, está acción es irreversible.", small: true, with_margin: true) do %>
-  <%= button_to "Eliminar categoría", dashboard_item_path(@item), method: :delete, data: {confirm: "¿Estás seguro?", "disable-with": "Cargando..."}, class: main_color_button(color: "danger"), remote: true %>
+<%= render Headers::Text.new(title: "Eliminar departamento", subtitle: "Si eliminas el departamento no podrás recuperar la información de este recurso, está acción es irreversible.", small: true, with_margin: true) do %>
+  <%= button_to "Eliminar departamento", dashboard_item_path(@item), method: :delete, data: {confirm: "¿Estás seguro?", "disable-with": "Cargando..."}, class: main_color_button(color: "danger"), remote: true %>
 <% end %>
 

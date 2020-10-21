@@ -7,10 +7,9 @@
   <meta name="robots" content="noindex, nofollow">
   <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
   <%= stylesheet_link_tag 'dashboard', media: 'all', 'data-turbolinks-track': 'reload' %>
-  <%= javascript_packs_with_chunks_tag 'application', "dashboard/index", 'data-turbolinks-track': 'reload' %>
+  <%= javascript_packs_with_chunks_tag 'application', 'data-turbolinks-track': 'reload' %>
 
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <meta name="model" content="<%= controller_name.singularize %>"/>
   <meta name="action_name" content="<%= action_name %>_<%= controller_name %>"/>
   <link rel="preconnect" href="https://d1nrrr6y3ujrjz.cloudfront.net" crossOrigin/>
   <link rel="dns-prefetch" href="https://d1nrrr6y3ujrjz.cloudfront.net"/>
@@ -20,7 +19,12 @@
   <link rel="dns-prefetch" href="https://fonts.gstatic.com/"/>
   <link rel="preload" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;800&display=swap" as="style">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;800&display=swap">
-  <%= content_for?(:head_tags) ? yield(:head_tags) : nil %>
+  <% if content_for?(:head_tags) %>
+    <%= yield(:head_tags) %>
+  <% else %>
+    <meta name="model" content="<%= controller_name.singularize %>"/>
+  <% end %>
+  <%# if content_for %>
 </head>
 <body class="bg-white">
 <%= render Dashboard::Header::Simple.new(place: @place, current_user: current_or_guest_user) %>
@@ -30,22 +34,38 @@
       <%= render "utils/Headers/dashboard" %>
     <% end %>
   </div>
-  <div class="w-4/5 pt-8 flex flex-wrap <%= @full_page ? "" : "pr-6" %>">
-
-    <% unless @hide_breads %>
-      <div class="w-full py-4 breadcrumbs text-sm">
-        <%= render_breadcrumbs :separator => '&#160;/&#160;', tag: "div" %>
-      </div>
-    <% end %>
+  <div class="w-4/5 pt-16 flex flex-wrap <%= @full_page ? "" : "pr-6" %>">
 
     <% if @place.in_free_trial and @place.subscription %>
       <% unless @place.subscription.new_record? %>
-        <%= button_to dashboard_create_user_portal_path, class: "py-4 w-full border-b", form_class: "w-full", data: {"disable-with": "Cargando..."}, remote: true do %>
+        <%= button_to dashboard_create_user_portal_path, class: "py-4 w-full border-b border-t", form_class: "w-full", data: {"disable-with": "Cargando..."}, remote: true do %>
         <span class="bg-transparent cursor-pointer text-sm text-gray-700">Tu prueba termina en <%= time_ago_in_words(@place.subscription.trial_end.to_i) %>
           . <span class="text-indigo-700 font-medium">Agrega un método de pago para continuar con el servicio</span></span>
         <% end %>
       <% end %>
     <% end %>
+    <% unless @hide_breads %>
+      <div class="w-full py-4 breadcrumbs text-sm">
+        <%= render_breadcrumbs :separator => '&#160;/&#160;', tag: "div" %>
+      </div>
+    <% end %>
+    <% unless current_user.account.nil? %>
+      <% unless current_user.account.completed %>
+        <% if @place.premium? %>
+          <div class="w-full my-4 items-center px-4 py-8 bg-red-100 rounded flex">
+            <div class="w-8/12 mr-2">
+              <p class="font-medium text-lg">
+                Aún no puedes aceptar págos con tarjeta. Hay información que debes verificar.</p>
+            </div>
+            <div class="w-4/12 ml-2 flex justify-end">
+              <%= button_to "Verificar mis datos", dashboard_place_create_connect_path, method: :post, class: main_color_button(color: "dark"), remote: true, data: {"disable-with": "Cargando..."} %>
+            </div>
+          </div>
+        <% end %>
+      <% end %>
+    <% end %>
+
+
     <div class="flex w-full justify-center">
       <div class="w-full flex mx-auto flex-wrap">
         <div id="notifications" class="w-full">

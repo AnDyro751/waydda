@@ -1,4 +1,3 @@
-window.scrollTo(0, 0);
 document.querySelector("#notifications").innerHTML = "";
 <% if @address.errors.any? %>
 document.querySelector("#notifications").innerHTML = "<%= j render Notifications::Alert.new(alert: "Se han encontrado errores al guardar la dirección",kind: "error") %>";
@@ -32,3 +31,6 @@ if (document.querySelector("#address_value")) {
 }
 <% end %>
 window.deleteFlashs();
+if (window.current_modal.isOpen) {
+    window.current_modal.close();
+}

@@ -4,12 +4,24 @@ class Dashboard::SettingsController < ApplicationController
   layout "dashboard"
 
   def general
+    set_meta_tags title: "General - Ajustes | Panel de control",
+                  description: "General - Ajustes | Panel de control"
+    add_breadcrumb "Ajustes", dashboard_edit_my_place_path
+    add_breadcrumb "General"
   end
 
   def danger
+    set_meta_tags title: "Zona de peligro - Ajustes | Panel de control",
+                  description: "Zona de peligro - Ajustes | Panel de control"
+    add_breadcrumb "Ajustes", dashboard_edit_my_place_path
+    add_breadcrumb "Zona de peligro"
   end
 
   def shipping
+    set_meta_tags title: "Envíos - Ajustes | Panel de control",
+                  description: "Envíos - Ajustes | Panel de control"
+    add_breadcrumb "Ajustes", dashboard_edit_my_place_path
+    add_breadcrumb "Envíos"
   end
 
   def create_portal

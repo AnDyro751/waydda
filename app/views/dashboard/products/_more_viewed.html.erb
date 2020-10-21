@@ -5,7 +5,7 @@
   <%= render(EmptyRecords.new(title: "Aún no hay productos para mostrar")) %>
 <% else %>
   <div class="flex w-full mt-4">
-    <%= render Products::List.new(products: @products, in_dashboard: true) %>
+    <%= render Products::List.new(products: @products, in_dashboard: true, place: @place) %>
   </div>
 <% end %>
 

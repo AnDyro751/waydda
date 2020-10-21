@@ -9,20 +9,25 @@ class UpdateRecentProductsJob < ApplicationJob
       if current_item
         puts "----------HAY ITEM"
         current_products = current_item.recent_products
-        if current_products.length <= 15
-          puts "------------AGREGANDO #{product.name} A RECENT PRODUCTS de #{current_item.name}"
-          other_product = current_products.find_by(id: product.id.to_s)
-          unless other_product
+        if product.status === "active"
+          if current_products.length <= 15
+            puts "------------AGREGANDO #{product.name} A RECENT PRODUCTS de #{current_item.name}"
+            other_product = current_products.find_by(id: product.id.to_s)
+            unless other_product
+              current_products << product
+            end
+            # Agregamos el producto
+          else
+            puts "ELIMINANDO!!!!!!!!"
+            last_product = current_products.last
+            current_products.delete(last_product)
             current_products << product
+            # Eliminamos el ulitmo y agregamos
           end
-          # Agregamos el producto
         else
-          puts "ELIMINANDO!!!!!!!!"
-          last_product = current_products.last
-          current_products.delete(last_product)
-          current_products << product
-          # Eliminamos el ulitmo y agregamos
+          current_products.delete(product)
         end
+
       end
     elsif action === "delete"
       if current_item

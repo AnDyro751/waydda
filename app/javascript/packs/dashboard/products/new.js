@@ -45,9 +45,9 @@ if (element) {
                         try {
                             document.querySelector(`#${model}_image`).src = GetImageUrl({
                                 publicId: current_result.response.body.image_url,
-                                height: 250,
-                                width: 250,
-                                fit: "contain"
+                                height: attribute === "photo" ? 250 : 200,
+                                width: attribute === "photo" ? 250 : 400,
+                                fit: attribute === "photo" ? "contain" : "cover"
                             });
 
                             window.addToastify("primary", "Se ha actualizado la imagen")

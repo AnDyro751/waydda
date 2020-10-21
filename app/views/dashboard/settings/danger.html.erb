@@ -1,25 +1,21 @@
-<div class="w-full mt-4 text-gray-600 text-sm">
-  <span class=""><%= link_to "Ajustes", dashboard_edit_my_place_path, class: "hover:underline" %>
-    <span class="mx-2 select-none">></span><span class="text-indigo-700 font-medium">Zona de peligro</span></span>
-</div>
 <%= render Headers::Text.new(title: "Zona de peligro", small: true, with_margin: true) %>
 <div class="w-full flex flex-wrap border p-4 mt-4 divide-y divide-gray-400 rounded bg-main-gray">
 
   <div class="w-full flex items-center py-4">
     <div class="w-6/12">
       <p class="font-normal">
-        <% if @place.active? %>
+        <% if @place.status === "active" %>
           Desactivar empresa
         <% else %>
           Activar empresa
         <% end %>
       </p>
       <small>
-        <% if @place.active? %>
+        <% if @place.status === "active" %>
           Al desactivar tu empresa ya no podrás aceptar pedidos ni se listarán tus productos.
-          <% else %>
+        <% else %>
           Al activar tu empresa podrás aceptar pedidos y todos tus productos se listarán.
-      <% end %>
+        <% end %>
         <!--        Elimina todos tus productos, clientes y registros. Está acción es irreversible-->
       </small>
     </div>
@@ -47,3 +43,20 @@
   </div>
 </div>
 
+
+
+<div class="w-full flex flex-wrap border p-4 mt-4 divide-y divide-gray-400 rounded bg-main-gray">
+  <div class="w-full flex items-center py-4">
+    <div class="w-6/12">
+      <p class="font-normal">
+        Eliminar empresa
+      </p>
+      <small>
+        Al eliminar la empresa no podrás recuperar tu información, productos o ventas que has hecho hasta el momento.
+      </small>
+    </div>
+    <div class="w-6/12 flex justify-end">
+      <%= link_to "Eliminar", dashboard_destroy_my_place_path, method: :delete, data: {confirm: "¿Estás seguro de realizar esta acción?"}, class: main_color_button(color: "danger") %>
+    </div>
+  </div>
+</div>

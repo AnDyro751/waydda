@@ -27,7 +27,7 @@
   <% end %>
 
 
-  <%= render Dashboard::Sidebar::Item.new(text: "Categorías", to: dashboard_items_path, active_controller: ["dashboard/items"]) do %>
+  <%= render Dashboard::Sidebar::Item.new(text: "Departamentos", to: dashboard_items_path, active_controller: ["dashboard/items"]) do %>
     <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
          viewBox="0 0 48 48"
          class="h-6 w-6 fill-current mr-4 inline opacity-75"
@@ -56,13 +56,5 @@
     </svg>
   <% end %>
 
-
-
-
-
-  <%# if @place.free? %>
-  <%#= link_to "¡Actualizar plan!", dashboard_upgrade_plan_path, class: "text-sm w-full text-gray-800 text-main-red font-bold py-3 cursor-pointer" %>
-  <%# end %>
-  <%#= link_to "Cerrar sesión", destroy_user_session_path, method: :delete %>
 </ul>
 

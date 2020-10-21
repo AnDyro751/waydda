@@ -11,15 +11,21 @@ class PlacesController < ApplicationController
   end
 
   def catalog
-
+    @available_distance = @place.available_distance?(current_or_guest_user.get_ll)
+    @items = @place.items.includes(:recent_products).select { |item| item.recent_products.length > 0 }
   end
 
   # GET /places/1
   # GET /places/1.json
   def show
-    @products = []
+    set_meta_tags title: "#{@place.name} en Waydda",
+                  description: "Visita la tienda en línea de #{@place.name} en Waydda"
+    @available_distance = @place.available_distance?(current_or_guest_user.get_ll)
     # @place.products.paginate(page: params[:page], per_page: 30)
-    @items = @place.items.includes(:recent_products)
+    @items = @place.items.includes(:recent_products).paginate(page: params[:page], per_page: 30)
+    @item_arrays = @items.select { |item| item.recent_products.length > 0 }
+    # @products = @place.products.where(:items_recents.with_size => 0, status: "active")
+    @products = []
   end
 
 
@@ -35,7 +41,6 @@ class PlacesController < ApplicationController
   # Use callbacks to share common setup or constraints between actions.
   def set_place
     @place = Place.find_by(slug: params[:id] || params["place_id"])
-    # TODO: Agregar delivery option y current cart
     not_found if @place.nil?
     if current_user
       unless current_user.id == @place.user_id
@@ -47,7 +52,7 @@ class PlacesController < ApplicationController
   end
 
   def set_current_cart
-    @current_cart = current_or_guest_user.carts.find_or_create_by(place: @place, status: "pending")
+    @current_cart = current_or_guest_user.carts.find_or_create_by(place: @place, status: "pending", delivery_kind: "pickup")
     if @current_cart
       @delivery_option = @current_cart.delivery_option
     end

@@ -5,14 +5,31 @@ class DeliveryOptionsController < ApplicationController
   def update
     respond_to do |format|
       @big = params["size"].present?
-      @total = Cart.get_total(@current_cart.cart_items.includes(:product))
+
       unless params["to_state"].present?
-        format.html { redirect_to place_path(@place.slug), alert: "Ha ocurrido un error" }
+        format.html { redirect_to place_path(@place.slug), alert: "No se han enviado parámetros para evaluar" }
+      end
+      @total = Cart.get_total(@current_cart.cart_items.includes(:product))
+
+      if @current_cart.delivery_kind === params["to_state"]
+        @error = nil
+        format.js
+      end
+
+      if @place.kind === "free" and params["to_state"] === "delivery"
+        @error = "Este comercio no permite los envíos a domicilio"
+        format.js
+        # format.html { redirect_to place_path(@place.slug), alert: "Este comercio no permite los envíos a domicilio" }
       end
       if !@place.delivery_option and params["to_state"] === "delivery"
-        format.html { redirect_to place_path(@place.slug), alert: "Este comercio no permite los envíos a domicilio" }
+        @error = "Este comercio no permite los envíos a domicilio"
+        format.js
+        # format.html { redirect_to place_path(@place.slug), alert: "Este comercio no permite los envíos a domicilio" }
       else
         if @current_cart.update(delivery_kind: params["to_state"])
+          @error = nil
+          format.js
+        else
           format.js
         end
       end

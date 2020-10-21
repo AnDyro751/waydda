@@ -42,7 +42,7 @@ class Address
   def coordinated_validation
     if lat.present? && lng.present?
       # Hacer la petición a mapbox
-      response = Address.current_available?([lng, lat], %w[MX-MEX MX-DIF MX-MEX MX-CMX])
+      response = Address.current_available?([lng, lat], %w[mx])
       unless response
         errors.add(:lng, "Los valores son incorrectos")
         errors.add(:lat, "Los valores son incorrectos")
@@ -87,24 +87,16 @@ class Address
     features = placenames.first["features"]
     if features.length > 0
       # TODO: Buscar en region y en place
-      region = features.first["context"].find { |el| el["id"].include?("region") }
-      place = features.first["context"].find { |el| el["id"].include?("place") }
-      if region
-        if region["short_code"]
-          str = region
+      place = features.first["context"].find { |el| el["id"].include?("country") }
+
+      if place
+        if place["short_code"]
+          str = place
         else
           return false
         end
       else
-        if place
-          if place["short_code"]
-            str = place
-          else
-            return false
-          end
-        else
-          return false
-        end
+        return false
       end
     else
       return false

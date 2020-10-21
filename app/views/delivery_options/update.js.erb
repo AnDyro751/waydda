@@ -1,7 +1,14 @@
+<% unless @error.nil? %>
+window.addToastify("danger", "<%= @error %>")
+<% end %>
 <%if @current_cart.errors.any? %>
-//TODO: Mostrar errores
-console.log("ERRORES")
+<% @current_cart.errors.full_messages.each do |fm| %>
+window.addToastify("danger", "<%= fm %>")
+<% end %>
 <% else %>
+<% if @error.nil? %>
+window.addToastify("primary", "Se ha actualizado el método de envío")
+<% end %>
 <% if @big %>
 <% if @current_cart.delivery_kind === "delivery" %>
 // Remove styles
@@ -43,8 +50,10 @@ document.querySelector("#menu-pickup").classList.remove("border-b-2");
 document.querySelector("#menu-pickup").classList.remove("border-green-600");
 document.querySelector("#menu-delivery").className += " border-b-2 border-green-600";
 <% else %>
-document.querySelector("#menu-delivery").classList.remove("border-b-2");
-document.querySelector("#menu-delivery").classList.remove("border-green-600");
+if (document.querySelector("#menu-delivery")) {
+    document.querySelector("#menu-delivery").classList.remove("border-b-2");
+    document.querySelector("#menu-delivery").classList.remove("border-green-600");
+}
 document.querySelector("#menu-pickup").className += " border-b-2 border-green-600";
 <% end %>
 <% end %>

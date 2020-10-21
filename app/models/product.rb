@@ -7,7 +7,8 @@ class Product
 
   require 'will_paginate/array'
   before_create :assign_slug
-  after_create :update_counters
+  # after_create :update_counters
+  after_update :update_status_items
 
   #fields
   field :name, type: String
@@ -31,7 +32,8 @@ class Product
 
   # relations
   belongs_to :place
-  has_and_belongs_to_many :items
+  has_and_belongs_to_many :items, inverse_of: :products
+  has_and_belongs_to_many :items_recents, class_name: "Item", inverse_of: :products
 
   has_many :cart_items
   embeds_many :aggregate_categories, cascade_callbacks: true
@@ -241,10 +243,10 @@ class Product
     end
   end
 
-  def update_counters
-    # Add Job queue
-    self.place.update_products_counter(1, true)
-  end
+  # def update_counters
+  #   # Add Job queue
+  #   self.place.update_products_counter(1, true)
+  # end
 
   def assign_slug
     self.slug = "#{self.name.parameterize}-#{SecureRandom.hex(10)}"
@@ -269,6 +271,10 @@ class Product
       return {success: false, error: 'Ha ocurrido un error al cargar la foto'}
     end
     return {success: true, error: nil}
+  end
+
+  def update_status_items
+
   end
 
 end

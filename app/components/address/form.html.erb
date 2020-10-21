@@ -46,7 +46,7 @@
 
     <div class="w-full flex flex-grow">
       <div class="w-full mb-4">
-        <%= f.input :instructions, label: "Instrucciones de entrega", placeholder: "Agrega instrucciones de entrega" %>
+        <%= f.input :instructions, as: :text, label: "Instrucciones de entrega", placeholder: "Agrega instrucciones de entrega" %>
         <span id="description_error" class="text-sm font-bold text-red-600"></span>
       </div>
     </div>
@@ -54,11 +54,12 @@
       <%= f.submit "Guardar",
                    data:
                        {"disable-with": "Guardando..."},
-                   class: helpers.main_color_button(color: "secondary", size: "big") %>
+                   class: helpers.main_color_button(color: "dark", size: "big", padding: "big", padding_class: "py-3 px-12") %>
     </div>
   <% end %>
   <script type="text/javascript" charset="utf-8">
       var timer;
+
       function address() {
           return {
               addresses: [],
@@ -77,8 +78,10 @@
                   document.querySelector("#address_address").value = e.address;
                   document.querySelector("#address_lng").value = coordinates[0];
                   document.querySelector("#address_lat").value = coordinates[1];
-                  window.current_map.setCenter(coordinates);
-                  window.current_marker.setLngLat(coordinates);
+                  if (window.current_map) {
+                      window.current_map.setCenter(coordinates);
+                      window.current_marker.setLngLat(coordinates);
+                  }
               },
               addressHandleChange: function (e) {
                   var element = document.querySelector('[name="address[address]_error"]');

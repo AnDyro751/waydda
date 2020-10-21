@@ -1,3 +1,6 @@
-<h1>Editar item</h1>
-
-<%= render "form", {item: @item, action: "edit"} %>
+<div class="w-full">
+  <%= render Headers::Text.new(title: "Editar #{@item.name}", subtitle: "Editado hace #{time_ago_in_words(@item.updated_at)}", small: true, with_margin: true) %>
+</div>
+<div class="w-full">
+  <%= render "form", {item: @item, action: "edit"} %>
+</div>

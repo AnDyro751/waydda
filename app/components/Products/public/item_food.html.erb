@@ -1,0 +1,20 @@
+<%= link_to place_product_path(@place.slug, @product.slug), remote: true, class: "bg-white" do %>
+  <div class="w-full grid grid-cols-12 bg-white rounded shadow hover:shadow-lg cursor-pointer border-gray-300 transition duration-300">
+    <div class="col-span-8 p-4 content-between grid">
+      <div class="w-full" >
+        <h3 class="font-normal text-lg"><%= @product.name %></h3>
+        <% if @product.description %>
+          <h4 class="text-sm mt-2 text-gray-700"><%= @product.description.truncate(50) %></h4>
+        <% end %>
+      </div>
+      <h5 class="font-medium text-sm"><%= helpers.number_to_currency(@product.price) %></h5>
+    </div>
+    <div class="col-span-4 flex justify-end">
+      <img
+        data-src="<%= helpers.get_image_url(250, 250, @product.photo, "contain") %>"
+        src="<%= helpers.get_image_url(15, 15, @product.photo, "contain") %>"
+        class="lazy h-40 w-40"
+        alt="<%= @product.name %> image photo">
+    </div>
+  </div>
+<% end %>

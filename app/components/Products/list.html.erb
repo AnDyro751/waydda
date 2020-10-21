@@ -1,7 +1,7 @@
-<div class="w-full grid grid-cols-12 divide-y divide-gray-300 border-l border-r border-gray-300 border-b">
+<div class="w-full grid grid-cols-12">
   <% @products.each do |product| %>
-    <div class="col-span-12" >
-      <%= render Dashboard::Products::Item.new(product: product, place: @place) %>
+    <div class="col-span-12 flex items-center" id="product_<%= product.id.to_s %>">
+      <%= render Dashboard::Products::Item.new(product: product, place: @place, with_delete: true) %>
     </div>
     <%#= render Products::Item.new(product: product, in_dashboard: @in_dashboard, place: @place) %>
   <% end %>

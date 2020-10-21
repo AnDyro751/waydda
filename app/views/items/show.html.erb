@@ -1,12 +1,28 @@
-<p>
-  <strong>Name:</strong>
-  <%= @item.name %>
-</p>
-
-<!--<p>-->
-<!--  <strong>Business:</strong>-->
-  <%#= @item.business_id %>
-<!--</p>-->
-
-<!--<%#= link_to 'Edit', edit_item_path(@item) %> |-->
-<%#= link_to 'Back', items_path %>
+<%= content_for(:modal_size) do %>
+  w-8/12 h-xxxl
+<% end %>
+<%= render Places::Presentation.new(delivery_option: @delivery_option, place: @place, current_cart: @current_cart, available_distance: @available_distance, with_cover: false) %>
+<div class="w-10/12 mx-auto flex flex-wrap">
+  <div class="w-full my-4 flex">
+    <h2 class="text-xl font-normal text-gray-700" >
+      <%= @item.name %>
+    </h2>
+  </div>
+  <% if @products.length <= 0 %>
+    <div class="w-full py-8 px-4 text-center rounded bg-main-gray">
+      <img
+        class="lazy mx-auto mb-4"
+        src="<%= get_image_url(4, 4, "utils/conifer-178.png") %>"
+        data-src="<%= get_image_url(400, 400, "utils/conifer-178.png") %>"
+        alt="Empty products">
+      <span class="text-2xl font-normal text-gray-900">
+        Este departamento aún no tiene productos publicados
+    </span>
+    </div>
+  <% else %>
+    <%= render Products::Public::List.new(products: @products, place: @place) %>
+    <div class="w-full mx-auto my-12 flex justify-center ">
+      <%= will_paginate @products, class: "apple_pagination" %>
+    </div>
+  <% end %>
+</div>

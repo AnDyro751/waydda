@@ -1,0 +1,7 @@
+var element = document.querySelector("#product_<%= @product.id.to_s %>")
+if (element) {
+    element.parentNode.removeChild(element);
+    window.addToastify("primary", "Se ha removido el producto de este departamento")
+} else {
+    window.addToastify("danger", "No se ha encontrado el elemento a eliminar")
+}

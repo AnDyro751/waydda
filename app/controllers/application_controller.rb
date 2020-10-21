@@ -1,11 +1,11 @@
 class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
   # before_action :current_cart
+  before_action :current_or_guest_user
   before_action :set_current_address
   before_action :set_time_zone
   before_action :set_language
   before_action :set_continue
-  before_action :current_or_guest_user
   before_action :set_raven_context
   protect_from_forgery
   # before_action :set_default_locations
@@ -21,6 +21,7 @@ class ApplicationController < ActionController::Base
       end
       current_user
     else
+      puts "-----------ELSE"
       guest_user
     end
   end
@@ -30,18 +31,24 @@ class ApplicationController < ActionController::Base
 
   def guest_user(with_retry = true)
     # Cache the value the first time it's gotten.
-    @cached_guest_user ||= User.find(session[:guest_user_id] ||= create_guest_user.id.to_s)
+    @cached_guest_user ||= User.find(session[:guest_user_id] || "")
+    puts "------------#{@cached_guest_user} 1"
+    if @cached_guest_user.nil?
+      @cached_guest_user = create_guest_user
+      puts "------------#{@cached_guest_user} ---2"
+    end
 
-  rescue ActiveRecord::RecordNotFound # if session[:guest_user_id] invalid
+  rescue Mongoid::Errors::DocumentNotFound # if session[:guest_user_id] invalid
     session[:guest_user_id] = nil
     guest_user if with_retry
   end
 
 
   def create_guest_user
-    u = User.new(:name => "guest", :email => "guest_#{Time.now.to_i}#{rand(100)}@example.com")
+    u = User.new
     u.save(validate: false)
-    puts "-------------_#{u.persisted?}"
+    puts "-------------_#{u.persisted?} 3"
+    puts "------------#{u.id.to_s} ---4"
     session[:guest_user_id] = u.id.to_s
     u
   end
@@ -77,19 +84,8 @@ class ApplicationController < ActionController::Base
 
 
   def set_price
-    if user_signed_in?
-      if current_user.price_selected
-        @premium_pricing = current_user.price_selected
-        @free_days = current_user.free_days_selected
-      else
-        @premium_pricing = ab_test(:premium_pricing, '69', '129', '229')
-        @free_days = ab_test(:free_pricing, '7', '14', '30')
-        current_user.update(price_selected: @premium_pricing, free_days_selected: @free_days)
-      end
-    else
-      @premium_pricing = ab_test(:premium_pricing, '69', '129', '229')
-      @free_days = ab_test(:free_pricing, '7', '14', '30')
-    end
+    @premium_pricing = 229
+    @free_days = 14
   end
 
   def set_language
@@ -143,12 +139,19 @@ class ApplicationController < ActionController::Base
     raise ActionController::RoutingError.new('Not Found')
   end
 
+
+
   private
 
-  def set_raven_context
-    Raven.user_context(id: current_or_guest_user.id.to_s) # or anything else in session
+  def hook_controller
+    controller_name == "hooks"
   end
 
+
+  def set_raven_context
+    puts "--------------------------------------#{session[:guest_user_id]}"
+    Raven.user_context(id: session[:guest_user_id]) # or anything else in session
+  end
 
   def set_current_address
     if user_signed_in?

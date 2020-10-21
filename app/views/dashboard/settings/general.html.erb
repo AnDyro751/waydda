@@ -1,13 +1,10 @@
 <%= content_for(:head_tags) do %>
   <meta name="content_slug" content="<%= @place.id.to_s %>"/>
   <meta name="content_model" content="place"/>
+  <meta name="model" content="place"/>
   <meta name="content_attribute" content="cover"/>
 <% end %>
 <div class="w-full" id="messages"></div>
-<div class="w-full mt-4 text-gray-600 text-sm">
-  <span class=""><%= link_to "Ajustes", dashboard_edit_my_place_path, class: "hover:underline" %>
-    <span class="mx-2 select-none">></span><span class="text-indigo-700 font-medium">General</span></span>
-</div>
 <%= render Headers::Text.new(title: "Actualizar empresa", small: true, with_margin: true) %>
 
 <div class="w-full gap-8 flex items-start">

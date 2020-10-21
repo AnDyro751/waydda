@@ -1,6 +1,39 @@
 <div class="sticky top-0 bg-white justify-center flex items-center border-b py-3 z-10">
   <div class="w-10/12 mx-auto flex">
-    <div class="w-3/12 flex items-center mr-4 <%= @place.delivery_option ? "justify-around" : "justify-start" %>">
+    <div class="w-4/12 flex">
+      <%= link_to place_path(@place.slug), class: "w-auto flex items-center #{current_page?(place_path(@place.slug)) ? "bg-black text-white shadow-lg" : "shadow-lg border border-gray-100 hover:bg-black hover:text-white"} text-sm px-3 rounded cursor-pointer mr-2" do %>
+        <span class="w-auto mr-2">
+          <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+               class="h-5 w-5 fill-current"
+               viewBox="0 0 48 48"
+          >
+          <path d="M39.5,43h-9c-1.381,0-2.5-1.119-2.5-2.5v-9c0-1.105-0.895-2-2-2h-4c-1.105,0-2,0.895-2,2v9c0,1.381-1.119,2.5-2.5,2.5h-9	C7.119,43,6,41.881,6,40.5V21.413c0-2.299,1.054-4.471,2.859-5.893L23.071,4.321c0.545-0.428,1.313-0.428,1.857,0L39.142,15.52	C40.947,16.942,42,19.113,42,21.411V40.5C42,41.881,40.881,43,39.5,43z"></path>
+        </svg>
+        </span>
+        <div class="w-auto">
+          <span class="font-medium">Inicio</span>
+        </div>
+      <% end %>
+
+      <%= link_to place_items_path(@place.slug), class: "w-auto flex items-center #{controller_name === "items" ? "bg-black text-white shadow-2xl" : "shadow-lg border border-gray-100 hover:bg-black hover:text-white"} text-sm px-3 rounded cursor-pointer ml-2" do %>
+
+        <span class="w-auto mr-2">
+          <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+               viewBox="0 0 24 24"
+               class="h-5 w-5 fill-current"
+          >
+            <path d="M 5 3 C 3.897 3 3 3.897 3 5 L 3 9 C 3 10.103 3.897 11 5 11 L 9 11 C 10.103 11 11 10.103 11 9 L 11 5 C 11 3.897 10.103 3 9 3 L 5 3 z M 15 3 C 13.897 3 13 3.897 13 5 L 13 9 C 13 10.103 13.897 11 15 11 L 19 11 C 20.103 11 21 10.103 21 9 L 21 5 C 21 3.897 20.103 3 19 3 L 15 3 z M 5 13 C 3.897 13 3 13.897 3 15 L 3 19 C 3 20.103 3.897 21 5 21 L 9 21 C 10.103 21 11 20.103 11 19 L 11 15 C 11 13.897 10.103 13 9 13 L 5 13 z M 15 13 C 13.897 13 13 13.897 13 15 L 13 19 C 13 20.103 13.897 21 15 21 L 19 21 C 20.103 21 21 20.103 21 19 L 21 15 C 21 13.897 20.103 13 19 13 L 15 13 z"></path>
+          </svg>
+        </span>
+        <div class="w-auto h-5">
+          <span class="font-medium">
+            <%= @place.is_restaurant? ? "Categorías" : "Pasillos" %>
+          </span>
+        </div>
+      <% end %>
+    </div>
+
+    <div class="w-8/12 flex items-center justify-end">
       <% if @place.delivery_option %>
         <%= button_to place_delivery_options_path(@place.slug, @current_cart),
                       data: {"disable-with": "Actualizando..."},
@@ -8,7 +41,7 @@
                       id: "menu-delivery",
                       remote: true,
                       method: :put,
-                      class: "text-sm w-auto py-2 hover:text-gray-600 focus:outline-none #{
+                      class: "text-sm w-auto mr-4 py-2 hover:text-gray-600 focus:outline-none #{
                       if @delivery_option.nil?
                         "border-b-2 border-transparent"
                       else
@@ -17,8 +50,7 @@
           <span class="text-sm font-normal">Enviar a domicilio</span>
         <% end %>
       <% end %>
-
-      <%= button_to place_delivery_options_path(@place.slug, @current_cart), data: {"disable-with": "Actualizando..."}, params: {to_state: "pickup"}, id: "menu-pickup", remote: true, method: :put, class: "w-auto py-2 text-sm hover:text-gray-600 focus:outline-none #{
+      <%= button_to place_delivery_options_path(@place.slug, @current_cart), data: {"disable-with": "Actualizando..."}, params: {to_state: "pickup"}, id: "menu-pickup", remote: true, method: :put, class: "relative w-auto py-2 ml-2 text-sm hover:text-gray-600 focus:outline-none #{
       if @delivery_option.nil?
         "border-b-2 border-green-600"
       else
@@ -33,40 +65,7 @@
       <% end %>
 
     </div>
-    <%= link_to place_path(@place.slug), class: "w-auto flex items-center #{current_page?(place_path(@place.slug)) ? "bg-black text-white shadow-lg" : "shadow"} text-sm px-3 rounded cursor-pointer mr-2" do %>
-      <div class="w-auto mr-2">
-        <% if current_page?(place_path(@place.slug)) %>
-          <img
-            class="h-5"
-            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABmJLR0QA/wD/AP+gvaeTAAAA60lEQVRIieWSQUrDQBhGv18ELd23i2bpJofoQtpNKXgMr9DruHTtFSwewE1PIAqhzbbWwOvCRENM0pkkLRQfDAzDN++D+Uf6NwAB8JyuoGv5GHjnlwiYdiW/B3b8JQEWgDUV94CHEnGRR6DvK78BXh3kGSsgdJXPgdhDnhED80PyCfDVQJ6xA27rCl5ayDOWeacVCraSrpzesppPM7uuKqCl/Ftq9uO96EJYx9ELLj2yb5JW6T6UNHK55DODgZlFaW4o6aNSmpuBc0H+kk/2/Id88oJNRW5dcuaULX7TmaS7wnki6alE5JM9Y/aFr5i5OGFtXAAAAABJRU5ErkJggg==">
-        <% else %>
-          <img
-            class="h-5"
-            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABmJLR0QA/wD/AP+gvaeTAAAA10lEQVRIieWSMQrCMABFnyKoOIuDHV08hIPoIoLH8Apex9HZKygewMUTFAfRrloLdWgiJbZNk1ah+OEv4ed9Qj78kxxgJ+yUDR8BZyAUvgDTsuBLwI/BpQNgBdRswW1gnQBWvQE6pvABcMwBlz4Bw7zwOeAZwKU9cTdTE+BpAZf2gXFWwaEAXHofB6oLuANN3TM1egCttIKwIPyDWy8JmKqvFzQMsi7R3iHafN+mMGsd3Viup8m+ZfLJVtnqf/LPC24puWvCWa6sOtMZsFDOA2CbADLJVlgvgcFv6queTAcAAAAASUVORK5CYII="/>
-        <% end %>
-      </div>
-      <div class="w-auto">
-        <span class="font-bold">Inicio</span>
-      </div>
-    <% end %>
 
-    <%= link_to place_catalog_path(@place.slug), class: "w-auto flex items-center #{current_page?(place_catalog_path(@place.slug)) ? "bg-black text-white shadow-2xl" : "shadow"} text-sm px-3 rounded cursor-pointer mr-2" do %>
 
-      <div class="w-auto mr-2">
-        <% if current_page?(place_catalog_path(@place.slug)) %>
-          <img
-            class="h-5"
-            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABmJLR0QA/wD/AP+gvaeTAAAAnUlEQVRIie2Uyw3CMBAFnxFnSElw4AhUAkWFNAANUAOlOA0MlxAFK6wTtByAjGRZltZv/JEtTYwBKIAKiPSzalofETgBhSWoXkweInhQdjNniWPrcBA7S7BwECwtgTuTIMs8GW8y9beBdS0f30HoDgAy9eumv5qhIbS533/JvyeoHTKjJbg4CJ4y0od2kISkvcb/rLWks6Tj20v7T+48mpdjOlOATQAAAABJRU5ErkJggg==">
-        <% else %>
-          <img
-            class="h-5"
-            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABmJLR0QA/wD/AP+gvaeTAAAAi0lEQVRIiWNgGAUkAgEGBoYlDAwMHxkYGP5jwQ5QjE3uIwMDw2KoGTjBEhyaibEAhhchG8iEZoEvCb7FBfzwWcBHBQv48VlAdTBqAUHAgsZ3JaD+IpHq4IDmPmBE4/8noN4RSu8n1tyhH8nDz4JPVDDzIz4LNlHBArxmCDBAynNyK5xFDAQqnFGAAQBQAzKt/7KN6wAAAABJRU5ErkJggg=="/>
-        <% end %>
-      </div>
-
-      <div class="w-auto">
-        <span class="font-bold">Pasillos</span>
-      </div>
-    <% end %>
   </div>
 </div>

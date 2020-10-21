@@ -20,7 +20,7 @@ if (element) {
 }
 <% end %>
 <% else %>
-document.querySelector("#notifications").innerHTML = "<%= j render Notifications::Alert.new(alert: "Se ha actualizado la empresa", kind: "success", with_spacing: true) %>";
+window.addToastify("primary", "Se ha actualizado la configuración de la empresa")
 <% end %>
 
 window.deleteFlashs();

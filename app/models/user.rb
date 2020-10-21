@@ -7,7 +7,7 @@ class User
 
   devise :database_authenticatable, :registerable, :rememberable
   # Callbacks
-  after_create :assign_default_role
+  after_create :assign_default_role, if: Proc.new { self.phone.present? }
   # after_save :create_stripe_customer
   # TODO: Al registrarse y si ya cuenta con un carrito se debe hacer merge
   # after_create :merge_cart
@@ -55,6 +55,7 @@ class User
   # validates :phone, uniqueness: {case_sensitive: false}, allow_nil: false, phone: {possible: true, types: [:mobile, :voip], countries: :mx}
   # validates :encrypted_password, presence: true
 
+
   def valid_phone
     if phone.present?
       unless Phonelib.valid?("+52#{phone}")
@@ -65,6 +66,10 @@ class User
       errors.add(:phone, "Can't be blank")
       return false
     end
+  end
+
+  def current_place
+    self.places.last
   end
 
   # Plugins
@@ -112,6 +117,15 @@ class User
     #Token.generate_token(self.id)
   end
 
+
+  def get_ll
+    new_current_address = self.current_address
+    if new_current_address
+      return [new_current_address.lat, new_current_address.lng]
+    else
+      return []
+    end
+  end
 
   def current_address
     self.addresses.find_by(current: true) || nil

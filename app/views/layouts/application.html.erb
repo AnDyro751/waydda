@@ -1,7 +1,7 @@
 <!DOCTYPE html>
-<html>
+<html class="<%= controller_name === "place" || controller_name === "product" ? "bg-main-gray" : "bg-main-gray" %>">
 <head>
-  <title><%= content_for?(:html_title) ? "#{yield(:html_title)} | Waydda" : "Waydda" %></title>
+  <%= display_meta_tags %>
   <%= csrf_meta_tags %>
   <%= csp_meta_tag %>
   <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -19,7 +19,7 @@
   <%= content_for?(:head_tags) ? yield(:head_tags) : nil %>
 </head>
 
-<body>
+<body class="<%= controller_name === "place" || controller_name === "product" ? "bg-main-gray" : "bg-main-gray" %>">
 
 <div class="w-full">
   <div class="w-full sticky top-0">
@@ -35,32 +35,18 @@
     <%= content_for?(:content) ? yield(:content) : yield %>
   </div>
 </div>
+<div class="modal">
+  <div class="modal-inner <%= content_for?(:modal_size) ? yield(:modal_size) : "w-4/12" %> rounded">
+    <!--    <span data-modal-close>&times;</span>-->
+    <div class="modal-content h-full flex modal-content" id="modal-content"></div>
+  </div>
+</div>
+<div id="modal">
+</div>
 <%= content_for?(:sticky) ? yield(:sticky) : nil %>
 <%= content_for?(:content) ? yield : nil %>
 <% if params["console"] %>
   <%= console %>
 <% end %>
-<% if Rails.env === "development" %>
-  <%#= console %>
-<% end %>
 </body>
-<script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async></script>
-<script>
-    window.OneSignal = window.OneSignal || [];
-    OneSignal.push(function () {
-        OneSignal.init({
-            welcomeNotification: {
-                title: "Waydda",
-                message: "Gracias por suscribirte "
-            },
-            appId: "db46681d-d22f-4c5c-ae4c-e85d54364f40",
-            notifyButton: {
-                enable: true,
-            },
-            allowLocalhostAsSecureOrigin: true
-        });
-
-
-    });
-</script>
 </html>

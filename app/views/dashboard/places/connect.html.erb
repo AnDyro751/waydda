@@ -1,7 +1,4 @@
-<div class="w-full mt-4 text-gray-600 text-sm">
-  <span class=""><%= link_to "Ajustes", dashboard_edit_my_place_path, class: "hover:underline" %>
-    <span class="mx-2 select-none">></span><span class="text-indigo-700 font-medium">Cobros</span></span>
-</div>
+
 <%= render Headers::Text.new(title: "Pagos", subtitle: "Acepta pagos con tarjeta", small: true, with_margin: false) %>
 <% if @place.free? %>
   <%= render Notifications::Alert.new(alert: "Accede al plan premium para aceptar pagos con tarjeta y mucho más.", with_spacing: true, kind: "error") %>
@@ -36,7 +33,7 @@
         </div>
         <div class="w-6/12 flex justify-end">
           <% if @place.premium? %>
-            <button class="<%= main_color_button(color: "primary") %>" id="get-to-my-dashboard">
+            <button class="<%= main_color_button(color: "primary") %> get-to-my-dashboard">
               Acceder a mi panel de control
             </button>
           <% end %>
@@ -49,7 +46,7 @@
             Completar mis datos
           </p>
           <small>
-            Cuenta bancaria, responsable de la empresa y más.
+            Cuenta bancaria, responsable de la empresa.
           </small>
         </div>
         <div class="w-6/12 flex justify-end">
@@ -67,16 +64,16 @@
       <div class="w-full flex items-center py-4">
         <div class="w-6/12">
           <p class="font-normal">
-            Hay información que debes verificar
+            Hay información que debes verificar o pendiente de revisión
           </p>
           <small>
-            Cuenta bancaria, responsable de la empresa y más.
+            Cuenta bancaria, responsable de la empresa.
           </small>
         </div>
         <div class="w-6/12 flex justify-end">
           <% if @place.premium? %>
-            <button class="<%= main_color_button(color: "primary") %>" id="get-to-my-dashboard">
-              Acceder a mi panel de control
+            <button class="<%= main_color_button(color: "primary") %> get-to-my-dashboard">
+              Revisar mi información
             </button>
           <% end %>
         </div>

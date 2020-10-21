@@ -1,7 +1,7 @@
 class Dashboard::PlacesController < ApplicationController
   layout "dashboard"
   before_action :authenticate_user!
-  before_action :set_my_place, except: [:new, :create] #, except: [:new, :create]
+  before_action :set_my_place, except: [:new, :create, :get_distance_from_current_user] #, except: [:new, :create]
   before_action :valid_uniqueness_place, only: [:new, :create]
   before_action :redirect_if_empty_place, only: [:my_place, :edit, :update, :destroy]
   before_action :set_user_account, only: [:connect, :create_account_link, :create_stripe_account]
@@ -25,17 +25,21 @@ class Dashboard::PlacesController < ApplicationController
 
 
   def upgrade
+    set_meta_tags title: "Suscripción | Waydda",
+                  description: "Suscripción | Waydda"
     @full_page = true
   end
 
   def connect
-    # details_submitted
+    set_meta_tags title: "Pagos con tarjeta - Ajustes | Panel de control",
+                  description: "Pagos con tarjeta - Ajustes | Panel de control"
+    add_breadcrumb "Ajustes", dashboard_edit_my_place_path
+    add_breadcrumb "Pagos con tarjeta"
   end
 
   def create_account_link
     redirect_to dashboard_place_connect_path, notice: "Primero conecta tu cuenta bancaria" if @user_account.nil?
-
-    @account_link = Account.create_login_account(@user_account.account_id)
+    @account_link = Account.create_link(@user_account.account_id, !@user_account.details_submitted)
 
     respond_to do |format|
       if @account_link.nil?
@@ -51,7 +55,7 @@ class Dashboard::PlacesController < ApplicationController
   def create_stripe_account
     respond_to do |format|
       # @connect = Place.create_stripe_account_link(current_user)
-      @connect = Account.create_link(@user_account.account_id, @user_account.completed)
+      @connect = Account.create_link(@user_account.account_id, @user_account.details_submitted)
       if @connect.nil?
         format.html { redirect_to dashboard_place_connect_path, notice: "Ha ocurrido un error al generar la configuración 2" }
       else
@@ -68,8 +72,11 @@ class Dashboard::PlacesController < ApplicationController
     @orders = Order.where(place: @place, status: "pending")
   end
 
-  # GET /places/1/edit
+  # GET /dashboard/settings
   def edit
+    set_meta_tags title: "Ajustes de mi empresa | Panel de control",
+                  description: "Ajustes de mi empresa | Panel de control"
+    add_breadcrumb "Ajustes"
   end
 
   # PATCH/PUT /places/1
@@ -122,14 +129,18 @@ class Dashboard::PlacesController < ApplicationController
   def update_delivery
     respond_to do |format|
       # puts "-------#{can?(:update, @place) and @place.premium?}"
-      if can?(:update, @place) and @place.premium?
+      if can?(:update, @place) and @place.kind === "premium"
         if @place.update(place_delivery_params)
           format.js
         else
           format.js
         end
       else
-        format.html { redirect_to dashboard_edit_my_place_path, notice: "No tienes los permisos necesarios para realizar esta acción", status: :unprocessable_entity }
+        if @place.kind == "free"
+          format.html { redirect_to dashboard_edit_my_place_path, notice: "Actuaiza tu plan para acceder ofrecer envíos a domicilio" }
+        else
+          format.html { redirect_to dashboard_edit_my_place_path, notice: "No tienes los permisos necesarios para realizar está acción" }
+        end
       end
     end
   end
@@ -158,9 +169,18 @@ class Dashboard::PlacesController < ApplicationController
         format.html { redirect_to my_place_path, alert: action === "activate" ? "Se ha activado tu empresa" : "Se ha descativado tu empresa" }
       rescue => e
         puts "--------#{e}"
-        format.html { redirect_to dashboard_edit_my_place_path, notice: "Ha ocurrido un error, intenta de nuevo" }
+        format.html { redirect_to dashboard_edit_my_place_path, notice: "#{e}" }
       end
     end
+  end
+
+  def get_distance_from_current_user
+    if current_or_guest_user.current_address
+      render json: {errors: nil, distance: @place.get_distance([current_user.current_address.lat, current_user.current_address.lng])}
+    else
+      render json: {errors: "Agrega una dirección de entrega", distance: 0}
+    end
+    # return json {errors: ""}
   end
 
   # DELETE /places/1
@@ -168,7 +188,8 @@ class Dashboard::PlacesController < ApplicationController
   def destroy
     @place.destroy
     respond_to do |format|
-      format.html { redirect_to places_url, notice: 'Place was successfully destroyed.' }
+      sign_out(current_user)
+      format.html { redirect_to root_path, notice: 'Se ha eliminado tu empresa' }
       format.json { head :no_content }
     end
   end

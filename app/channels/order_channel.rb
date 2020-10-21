@@ -1,6 +1,8 @@
 class OrderChannel < ApplicationCable::Channel
   def subscribed
-    # stream_from "some_channel"
+    if current_user.current_place
+      stream_from "#{current_user.current_place.id.to_s}_place"
+    end
   end
 
   def unsubscribed

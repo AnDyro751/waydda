@@ -2,24 +2,47 @@
   <%= render Places::Menu.new(delivery_option: @delivery_option, place: @place, current_cart: @current_cart) %>
 <% end %>
 <% content_for :content do %>
-  <div class="h-64 bg-gray-300 w-full bg-center bg-cover bg-no-repeat">
+  <% if @with_cover %>
+    <div class="h-64 bg-gray-300 w-full bg-center bg-cover relative bg-no-repeat">
+      <div class="absolute bottom-0 top-0 left-0 right-0 bg-opacity-50 bg-black"></div>
+      <img
+        src="<%= helpers.get_image_url(12, 50, @place.cover, "cover") %>"
+        class="lazy h-full w-full hidden"
+        draggable="false"
+        alt="<%= @place.name %> cover photo">
+      <div
+        class="lazy h-full w-full bg-no-repeat bg-cover bg-center"
+        data-bg="<%= helpers.get_image_url(240, 1000, @place.cover, "cover") %>">
+      </div>
+    </div>
+  <% else %>
+    <div></div>
+  <% end %>
+<% end %>
+<% unless @available_distance %>
+  <div class="w-10/12 mx-auto my-8 relative">
+    <span class="bg-black shadow-lg hover:shadow-2xl relative transition duration-150 w-auto px-4 font-normal text-sm py-3 rounded text-white">
+    <span class="animate-ping absolute inline-flex h-3 w-3 right-0 -mt-1  rounded-full bg-red-400 top-0 opacity-75"></span>
+    <span class="inline-flex rounded-full h-3 w-3 bg-red-500 right-0 -mt-1 absolute top-0"></span>
     <img
-      src="<%= helpers.get_image_url(12, 50, @place.cover, "cover") %>"
-      data-src="<%= helpers.get_image_url(250, 1000, @place.cover, "cover") %>"
-      class="lazy h-full w-full"
-      draggable="false"
-      alt="<%= @place.cover %> cover photo">
+      class="inline h-4 w-4 mr-2"
+      alt="svgImg"
+      src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHg9IjBweCIgeT0iMHB4Igp3aWR0aD0iNTAiIGhlaWdodD0iNTAiCnZpZXdCb3g9IjAgMCAyMjYgMjI2IgpzdHlsZT0iIGZpbGw6IzAwMDAwMDsiPjxnIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0ibm9uemVybyIgc3Ryb2tlPSJub25lIiBzdHJva2Utd2lkdGg9IjEiIHN0cm9rZS1saW5lY2FwPSJidXR0IiBzdHJva2UtbGluZWpvaW49Im1pdGVyIiBzdHJva2UtbWl0ZXJsaW1pdD0iMTAiIHN0cm9rZS1kYXNoYXJyYXk9IiIgc3Ryb2tlLWRhc2hvZmZzZXQ9IjAiIGZvbnQtZmFtaWx5PSJub25lIiBmb250LXdlaWdodD0ibm9uZSIgZm9udC1zaXplPSJub25lIiB0ZXh0LWFuY2hvcj0ibm9uZSIgc3R5bGU9Im1peC1ibGVuZC1tb2RlOiBub3JtYWwiPjxwYXRoIGQ9Ik0wLDIyNnYtMjI2aDIyNnYyMjZ6IiBmaWxsPSJub25lIj48L3BhdGg+PGcgZmlsbD0iI2ZmZmZmZiI+PHBhdGggZD0iTTIxOS42NDAzNiwxODcuMTE0NDRsLTk0LjcyMTEyLC0xNjYuNTg0NmMtMi40ODE0OCwtNC4zNjE4IC02LjkzMzY4LC02Ljk2OTg0IC0xMS45MTkyNCwtNi45Njk4NGMtNC45ODU1NiwwIC05LjQzNzc2LDIuNjA4MDQgLTExLjkxOTI0LDYuOTY5ODRsLTk0LjcyMTEyLDE2Ni41ODQ2Yy0yLjQ5MDUyLDQuMzc5ODggLTIuNDYzNCw5LjYwMDQ4IDAuMDcyMzIsMTMuOTU3NzZjMi40OTUwNCw0LjI4OTQ4IDYuOTIwMTIsNi44NDc4IDExLjg0NjkyLDYuODQ3OGgxODkuNDQyMjRjNC45MjY4LDAgOS4zNTE4OCwtMi41NTgzMiAxMS44NDY5MiwtNi44NDc4YzIuNTM1NzIsLTQuMzU3MjggMi41NjI4NCwtOS41NzMzNiAwLjA3MjMyLC0xMy45NTc3NnpNMTIyLjA0LDE3Ni4yOGMwLDIuNDk1MDQgLTIuMDE1OTIsNC41MiAtNC41MTA5Niw0LjUyYy0yLjc2NjI0LDAgLTYuMjkxODQsMCAtOS4wNTgwOCwwYy0yLjQ5NTA0LDAgLTQuNTEwOTYsLTIuMDI0OTYgLTQuNTEwOTYsLTQuNTJ2LTkuMDRjMCwtMi40OTUwNCAyLjAxNTkyLC00LjUyIDQuNTEwOTYsLTQuNTJjMi43NjYyNCwwIDYuMjkxODQsMCA5LjA1MzU2LDBjMi40OTk1NiwwIDQuNTE1NDgsMi4wMjQ5NiA0LjUxNTQ4LDQuNTJ6TTEyMi4wNCwxNDQuNjRjMCwyLjQ5NTA0IC0yLjAyNDk2LDQuNTIgLTQuNTIsNC41MmMtMi43NjYyNCwwIC02LjI5MTg0LDAgLTkuMDUzNTYsMGMtMi40OTk1NiwwIC00LjUwNjQ0LC0yLjAyNDk2IC00LjUwNjQ0LC00LjUydi02My4yOGMwLC0yLjQ5NTA0IDIuMDE1OTIsLTQuNTIgNC41MTA5NiwtNC41MmMyLjc2NjI0LDAgNi4yOTE4NCwwIDkuMDUzNTYsMGMyLjQ5OTU2LDAgNC41MTU0OCwyLjAyNDk2IDQuNTE1NDgsNC41MnoiPjwvcGF0aD48L2c+PC9nPjwvc3ZnPg=="/>
+    Tu dirección actual está demasiado lejos de este lugar
+  </span>
   </div>
 <% end %>
-<div
-  id="scroll-container"
-  class="w-10/12 mx-auto main-scroll mt-5 flex overflow-x-auto pb-4">
-  <% @items.each do |item| %>
-    <div class="<%= helpers.main_color_button(color: "primary") %> mr-6">
-      <%= item.name %>
-    </div>
-  <% end %>
-</div>
+<!--<div class="w-full pb-4">-->
+<!--  <div-->
+<!--    id="scroll-container"-->
+<!--    class="w-10/12 mx-auto main-scroll mt-5 flex overflow-x-auto">-->
+<%# @items.each do |item| %>
+<!--      <div class="<%#= helpers.main_color_button(color: "primary", padding_class: "px-4 py-2") %> mr-6 flex-none">-->
+<%#= item.name %>
+<!--      </div>-->
+<%# end %>
+<!--  </div>-->
+<!--</div>-->
 <div class="w-full mb-8 justify-center flex">
   <div class="w-10/12 mx-auto">
     <h1 class="text-4xl font-bold text-gray-900"><%= @place.name %></h1>

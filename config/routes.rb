@@ -36,12 +36,13 @@ Rails.application.routes.draw do
 
   #Public places
   resources :places, only: [:show, :index], path: "place" do
-    get "/catalog", to: "places#catalog", as: :catalog
+    # get "/catalog", to: "places#catalog", as: :catalog
     put '/:cart_id/delivery-options', to: "delivery_options#update", as: "delivery_options"
     resources :products do
       post "/cart/add_item", to: "carts#add_product", as: "add_to_cart"
     end
 
+    resources :items, path: "departments", only: [:index, :show]
     patch "/cart/:cart_item_id/update_item", to: "carts#update_item", as: "update_cart_item"
     get "/cart", to: "carts#show", as: "my_cart"
     # get "/cart/edit", to: "carts#show", as: "edit_my_cart"
@@ -63,7 +64,11 @@ Rails.application.routes.draw do
     get "/upgrade/:subscription_id", to: "subscriptions#new", as: :new_subscription
     post "/upgrade/:subscription_id", to: "subscriptions#create", as: :create_subscription
     # Items
-    resources :items
+    resources :items, path: "departments" do
+      delete "/:product_id", to: "items#remove_product", as: :remove_product
+      get "/add-products", to: "items#add_products", as: :add_products
+      post "/add-product/:product_id", to: "items#add_product", as: :add_product
+    end
     resources :subscriptions, only: [:new]
     # Products
     resources :products do
@@ -78,11 +83,12 @@ Rails.application.routes.draw do
     end
     # Places
     get "/my-sales", to: "places#sales", as: "my_sales"
-
+    delete "/delete-place", to: "places#destroy", as: "destroy_my_place"
     get "/settings", to: "places#edit", as: "edit_my_place"
     get "/settings/general", to: "settings#general", as: "edit_general_my_place"
     get "/settings/shipping", to: "settings#shipping", as: "edit_shipping"
     get "/settings/danger", to: "settings#danger", as: "danger_zone"
+
     get "/settings/subscription", to: "subscriptions#edit", as: "edit_subscription"
     post "/settings/subscription", to: "settings#create_portal", as: "create_user_portal"
 
