@@ -29,9 +29,9 @@ class CartsController < ApplicationController
   def show
     respond_to do |format|
       @address = current_user.current_address || current_user.addresses.new
-      # format.html
       format.html { render :show }
       format.json { render "carts/show" }
+      format.js
     end
   end
 

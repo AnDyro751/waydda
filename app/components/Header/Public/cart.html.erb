@@ -1,33 +1,35 @@
 <div
-  x-data='getCart("<%= @current_cart.id.to_s %>")'
+  x-data='getCart("<%= @current_cart ? @current_cart.id.to_s : "" %>")'
 >
+  <% unless @place.nil? %>
+    <%= link_to place_my_cart_path(@place.slug), remote: true do %>
+      <div
+        class="py-1 flex">
+        <div class="h-6 cursor-pointer ">
+          <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+               width="1.5em" height="1.5em"
+               viewBox="0 0 24 24"
+               style=" fill:#000000;">
+            <path d="M 12 2 A 1.0001 1.0001 0 0 0 11.205078 2.4316406 L 6.6679688 9 L 2.0019531 9 C 1.3409531 9 0.86110938 9.628625 1.0371094 10.265625 L 3.5976562 19.53125 C 3.8366562 20.39825 4.6244375 21 5.5234375 21 L 18.476562 21 C 19.375563 21 20.164297 20.39825 20.404297 19.53125 L 22.964844 10.265625 C 23.139844 9.628625 22.659047 9 21.998047 9 L 17.337891 9 L 12.853516 2.4355469 A 1.0001 1.0001 0 0 0 12 2 z M 12.023438 4.765625 L 14.916016 9 L 9.0976562 9 L 12.023438 4.765625 z M 12 13 C 13.105 13 14 13.895 14 15 C 14 16.105 13.105 17 12 17 C 10.895 17 10 16.105 10 15 C 10 13.895 10.895 13 12 13 z"></path>
+          </svg>
+          </svg>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
   <div
-    @click="handleToggle()"
-    class="py-1 flex">
-    <div class="h-6 cursor-pointer ">
-      <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
-           width="1.5em" height="1.5em"
-           viewBox="0 0 24 24"
-           style=" fill:#000000;">
-        <path d="M 12 2 A 1.0001 1.0001 0 0 0 11.205078 2.4316406 L 6.6679688 9 L 2.0019531 9 C 1.3409531 9 0.86110938 9.628625 1.0371094 10.265625 L 3.5976562 19.53125 C 3.8366562 20.39825 4.6244375 21 5.5234375 21 L 18.476562 21 C 19.375563 21 20.164297 20.39825 20.404297 19.53125 L 22.964844 10.265625 C 23.139844 9.628625 22.659047 9 21.998047 9 L 17.337891 9 L 12.853516 2.4355469 A 1.0001 1.0001 0 0 0 12 2 z M 12.023438 4.765625 L 14.916016 9 L 9.0976562 9 L 12.023438 4.765625 z M 12 13 C 13.105 13 14 13.895 14 15 C 14 16.105 13.105 17 12 17 C 10.895 17 10 16.105 10 15 C 10 13.895 10.895 13 12 13 z"></path>
-      </svg>
-      </svg>
-    </div>
-  </div>
-  <div
-    x-show="isOpen"
+    id="sidebar-toggle"
   >
     <div
+      id="sidebar-toggle-overlay"
       @click="isOpen = false"
       :class="{'block': isOpen === true, 'hidden': isOpen === false}"
       class="cursor-pointer hidden fixed w-full h-screen bg-black bg-opacity-50 z-50 bottom-0 top-0 left-0 w-8/12">
     </div>
     <div
+      id="sidebar-toggle-content"
       :class="{'block': isOpen === true, 'hidden': isOpen === false}"
       class="fixed hidden top-0 bottom-0 h-screen w-4/12 bg-white right-0 z-50">
-      <template x-if="loading">
-        <p>Cargando ...</p>
-      </template>
     </div>
   </div>
 </div>
@@ -39,9 +41,12 @@
             isOpen: false,
             cartItems: [],
             loading: true,
+            totalCart: 0,
             handleToggle: function () {
                 if (!this.isOpen) { // Estado anterior
                     this.getRecord() // Vamos a traer los nuevos records
+                } else {
+                    this.cartItems = [];
                 }
                 this.isOpen = !this.isOpen;
             },
@@ -58,7 +63,9 @@
                             'Accept': 'application/json'
                         }
                     })).json();
-                    console.log(response);
+                    this.cartItems = response.items;
+                    this.totalCart = response.total;
+                    console.log(response.items);
                     this.loading = false;
                 } catch (e) {
                     this.loading = true;

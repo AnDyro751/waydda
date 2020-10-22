@@ -14,6 +14,7 @@
 json.total @total
 json.items @cart_items do |item| #, :quantity, :aggregates, product_record #, product_record: [:name, :photo, :price, :public_stock, :sku, :status, :unlimited]
   json.quantity item.quantity
+  json.id item.id.to_s
   json.aggregates item.aggregates
   json.product item["product_record"], :name, :photo, :price, :public_stock, :sku, :status, :unlimited
 end
