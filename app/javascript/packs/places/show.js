@@ -1,16 +1,20 @@
 var ele = document.getElementById("scroll-container");
 document.addEventListener("turbolinks:load", function () {
-    var progressBar = new Turbolinks.ProgressBar()
-    document.querySelector("#get-my-cart").addEventListener("ajax:beforeSend", function () {
-        progressBar.setValue(0);
-        progressBar.show();
-    });
-    document.querySelector("#get-my-cart").addEventListener("ajax:success", function () {
-        if (progressBar) {
-            progressBar.setValue(1);
-            progressBar.hide();
-        }
-    });
+    var cartElement = document.querySelector("#get-my-cart");
+    if (cartElement) {
+        cartElement.addEventListener("ajax:beforeSend", function () {
+            progressBar.setValue(0);
+            progressBar.show();
+        });
+        cartElement.addEventListener("ajax:complete", function () {
+            if (progressBar) {
+                progressBar.setValue(1);
+                progressBar.hide();
+            }
+        });
+        var progressBar = new Turbolinks.ProgressBar()
+
+    }
     var showModal = document.querySelector("meta[name=show-modal]");
 
     if (showModal) {

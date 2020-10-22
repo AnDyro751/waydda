@@ -1,13 +1,13 @@
 <% if @place.is_restaurant? %>
-  <div class="w-full grid grid-cols-12">
+  <div class="w-full grid grid-cols-12 space-x-5">
     <% @products.each_with_index do |product, i| %>
-      <div class="col-span-6 <%= i % 2 === 1 ? "ml-2" : "mr-2" %>">
+      <div class="col-span-6">
         <%= render Products::Public::ItemFood.new(product: product, place: @place) %>
       </div>
     <% end %>
   </div>
 <% else %>
-  <div class="w-full grid grid-cols-12 gap-5">
+  <div class="w-full grid grid-cols-12 space-x-5">
     <% @products.each_with_index do |product, i| %>
       <div class="col-span-3 hover:shadow-lg mb-4 transition duration-300 shadow">
         <%= render Products::Public::ItemNormal.new(product: product, place: @place) %>
