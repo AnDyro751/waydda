@@ -21,18 +21,18 @@ class CartsController < ApplicationController
         @new_payment_method = params["cart"]["payment_type"] === "cash" ? "card" : "cash"
         format.js
       else
-        format.html { redirect_to place_my_cart_path(@place.slug), status: :unprocessable_entity, notice: "Ha ocurrido un error al actualizar el carrito" }
+        format.html { redirect_to place_my_cart_path(@place.slug), notice: "Ha ocurrido un error al actualizar el carrito" }
       end
     end
   end
 
   def show
-    # respond_to do |format|
-    @address = current_user.current_address || current_user.addresses.new
-    # format.html
-    # format.html { render :show }
-    # format.json { render "carts/show" }
-    # end
+    respond_to do |format|
+      @address = current_user.current_address || current_user.addresses.new
+      # format.html
+      format.html { render :show }
+      format.json { render "carts/show" }
+    end
   end
 
 

@@ -1,8 +1,8 @@
 <div
-  x-data="getCart()"
+  x-data='getCart("<%= @current_cart.id.to_s %>")'
 >
   <div
-    @click="handleOpen()"
+    @click="handleToggle()"
     class="py-1 flex">
     <div class="h-6 cursor-pointer ">
       <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
@@ -25,18 +25,46 @@
     <div
       :class="{'block': isOpen === true, 'hidden': isOpen === false}"
       class="fixed hidden top-0 bottom-0 h-screen w-4/12 bg-white right-0 z-50">
-      <p>HOLA</p>
+      <template x-if="loading">
+        <p>Cargando ...</p>
+      </template>
     </div>
   </div>
 </div>
 
 
 <script type="text/javascript" charset="utf-8">
-    function getCart() {
+    function getCart(cartId) {
         return {
             isOpen: false,
-            handleOpen: function () {
-                this.isOpen = true
+            cartItems: [],
+            loading: true,
+            handleToggle: function () {
+                if (!this.isOpen) { // Estado anterior
+                    this.getRecord() // Vamos a traer los nuevos records
+                }
+                this.isOpen = !this.isOpen;
+            },
+            getRecord: async function () {
+                console.log("GET RECORDS", cartId);
+                const token =
+                    document.querySelector('[name=csrf-token]').content;
+                try {
+                    let response = await (await fetch(new URL(`${window.location.pathname}/cart`, window.location.origin).href, {
+                        method: "GET",
+                        headers: {
+                            'X-CSRF-TOKEN': token,
+                            'Content-Type': 'application/json',
+                            'Accept': 'application/json'
+                        }
+                    })).json();
+                    console.log(response);
+                    this.loading = false;
+                } catch (e) {
+                    this.loading = true;
+                    window.addToastify("danger", "Ha ocurrido un error al cargar el carrito");
+                    console.log("ERROR", e)
+                }
             }
         }
     }

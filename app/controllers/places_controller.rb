@@ -2,8 +2,10 @@ class PlacesController < ApplicationController
   before_action :authenticate_user!, except: [:show, :catalog, :index]
   before_action :set_place, only: [:show, :edit, :update, :destroy, :catalog]
   before_action :validate_my_identity, except: [:show, :new, :index, :catalog]
-  after_action :update_views, only: [:show]
   before_action :set_current_cart, only: [:show, :catalog]
+  before_action :set_line_items, only: [:show]
+  after_action :update_views, only: [:show]
+
   # GET /places
   # GET /places.json
   def index
@@ -64,6 +66,11 @@ class PlacesController < ApplicationController
       flash[:alert] = "No puedes acceder a este recurso"
       redirect_to root_path #,status: :unprocessable_entity
     end
+  end
+
+
+  def set_line_items
+    @cart_items = @current_cart.cart_items.includes(:product).select { |ci| ci.product.status === "active" } # Mostramos los productos del carrito que aún estén activos
   end
 
 
