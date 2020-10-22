@@ -1,0 +1,18 @@
+<div class="w-full flex flex-wrap">
+  <div class="px-3 py-5 mb-4 bg-main-gray w-full flex flex-wrap">
+    <span class="mb-2 text-sm text-gray-600 font-normal w-full">Ordenando en:</span>
+    <span class="text-2xl truncate font-medium w-full">
+      <%= @place.name %>
+    </span>
+  </div>
+  <div class="w-full flex flex-wrap">
+    <span class="mb-2 text-sm px-3 w-full text-gray-600 font-normal w-full">Productos en el carrito:</span>
+    <div class="w-full divide-y divide-gray-300 border-b border-gray-300 border-t">
+      <% @cart_items.each do |ci| %>
+        <div class="w-full p-3">
+          <%= render Carts::SidebarItem.new(cart_item: ci, place: @place) %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

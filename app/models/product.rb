@@ -229,6 +229,18 @@ class Product
     end
   end
 
+  def get_public_stock
+    if self.public_stock <= 0
+      if self.unlimited
+        return 20
+      else
+        return 0
+      end
+    else
+      return self.public_stock
+    end
+  end
+
   private
 
   def self.current_measures

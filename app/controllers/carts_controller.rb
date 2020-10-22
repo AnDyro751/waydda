@@ -101,6 +101,7 @@ class CartsController < ApplicationController
   end
 
   def update_item
+    @in_sidebar = params["cart_item"]["element"].present?
     respond_to do |format|
       begin
         if @cart_item.update_quantity(quantity: params["cart_item"]["quantity"].to_i, force: true)

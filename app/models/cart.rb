@@ -142,6 +142,22 @@ class Cart
     place.valid_sale? and product.valid_sale?(quantity: quantity) and product.valid_aggregates_sale?(aggregates: aggregates)
   end
 
+  # @note muestra el total de productos
+  # si la cantidad es mayor a 9 entonces hace truncade de la cantidad y muestra +9
+  # De lo contrario muestra la cantidad adecuada
+  # @return [String]
+  def get_public_quantity
+    if self.quantity <= 0
+      return "0"
+    else
+      if self.quantity > 9
+        return "+9"
+      else
+        return self.quantity
+      end
+    end
+  end
+
 
   # @param [Object] params
   # @return [Array] new_params

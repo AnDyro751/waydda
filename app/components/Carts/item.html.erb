@@ -16,7 +16,7 @@
           onchange="Rails.fire(this.form, 'submit')"
         >
           <option value="0">Eliminar</option>
-          <% (1..@cart_item.product.get_truncate(@cart_item.product.public_stock)).each do |a| %>
+          <% (1..@cart_item.product.get_truncate(@cart_item.product.get_public_stock)).each do |a| %>
             <option
               <%= @cart_item.quantity === a ? "selected" : "" %>
               value="<%= a %>">

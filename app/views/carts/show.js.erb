@@ -1,3 +1,4 @@
 document.querySelector("#sidebar-toggle-overlay").classList.remove("hidden");
 document.querySelector("#sidebar-toggle-content").classList.remove("hidden");
 console.log("ABRIR y mostrar los productos en #sidebar-toggle-content");
+document.querySelector("#sidebar-toggle-content").innerHTML = "<%= j render Carts::SidebarList.new(place: @place, cart_items: @cart_items, total: @total, current_cart: @current_cart) %>"

@@ -55,9 +55,12 @@ class CartItem
   end
 
   def update_quantity(quantity:, force: false, add: true)
-    if quantity > self.product.public_stock
-      raise "Ha ocurrido un error al actualizar la cantidad"
-      return false
+    this_product = self.product
+    if quantity > this_product.public_stock
+      unless this_product.unlimited
+        raise "Ha ocurrido un error al actualizar la cantidad"
+        return false
+      end
     end
     if quantity <= 0
       return self.destroy

@@ -3,7 +3,7 @@ document.addEventListener("turbolinks:load", function () {
     var cartElement = document.querySelector("#get-my-cart");
     if (cartElement) {
         cartElement.addEventListener("ajax:beforeSend", function () {
-            progressBar.setValue(0);
+            progressBar.setValue(0.2);
             progressBar.show();
         });
         cartElement.addEventListener("ajax:complete", function () {

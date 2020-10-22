@@ -1,3 +1,7 @@
+<% if @in_sidebar %>
+document.querySelector("#sidebar-toggle-content").innerHTML = "<%= j render Carts::SidebarList.new(place: @place, cart_items: @cart_items, total: @total, current_cart: @current_cart) %>"
+<% else %>
 document.querySelector("#cart-show-products").innerHTML = "<%= j render(Carts::ListItems.new(cart_items: @cart_items, place: @place)) %>";
 document.querySelector("#cart-total").innerHTML = "<%= j render(Carts::TotalList.new(total: @total, current_cart: @current_cart, place: @place)) %>";
+<% end %>
 window.addToastify("primary", "Carrito actualizado");
