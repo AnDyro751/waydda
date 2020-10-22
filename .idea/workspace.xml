@@ -20,16 +20,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b89cb0fb-b680-4bb9-8ae0-f4b41721cfb9" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/components/Products/public/in_cart.html.erb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/components/Products/public/in_cart.rb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/views/carts/show.js.erb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/components/Header/Public/cart.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/components/Header/Public/cart.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/components/Header/Public/cart.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/components/Header/Public/cart.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/carts_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/carts_controller.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/javascript/packs/application.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/javascript/packs/application.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/carts/show.json.jbuilder" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/carts/show.json.jbuilder" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/utils/Headers/_simple.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/utils/Headers/_simple.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/javascript/packs/places/show.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/javascript/packs/places/show.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -808,14 +801,7 @@
       <workItem from="1602957821015" duration="49417000" />
       <workItem from="1603162034839" duration="20905000" />
       <workItem from="1603310628788" duration="8363000" />
-      <workItem from="1603334368490" duration="6414000" />
-    </task>
-    <task id="LOCAL-00346" summary="feat(Dashboard): Cambiamos el mostrar en variable los km a un true o false para checar si se puede enviar">
-      <created>1602981408815</created>
-      <option name="number" value="00346" />
-      <option name="presentableId" value="LOCAL-00346" />
-      <option name="project" value="LOCAL" />
-      <updated>1602981408815</updated>
+      <workItem from="1603334368490" duration="6691000" />
     </task>
     <task id="LOCAL-00347" summary="doc(Dashboard): Documentación de la función">
       <created>1602981498350</created>
@@ -1153,7 +1139,14 @@
       <option name="project" value="LOCAL" />
       <updated>1603388410734</updated>
     </task>
-    <option name="localTasksCounter" value="395" />
+    <task id="LOCAL-00395" summary="feat(Place): Abrimos el producto mediante un link remote">
+      <created>1603399527872</created>
+      <option name="number" value="00395" />
+      <option name="presentableId" value="LOCAL-00395" />
+      <option name="project" value="LOCAL" />
+      <updated>1603399527872</updated>
+    </task>
+    <option name="localTasksCounter" value="396" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -1174,7 +1167,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="feat(Dashboard): De pasillos a inicio y viseversa" />
     <MESSAGE value="feat(Dashboard): Vista simple de producto" />
     <MESSAGE value="feat(Dashboard): Pequeño estilo de los pasillos" />
     <MESSAGE value="feat(Dashboard): Estamos eliminando categorías  reemplazando por departamentos" />
@@ -1199,7 +1191,8 @@
     <MESSAGE value="feat(Dashboard): Cambiamos departamentos por categorías cuando es restaurante" />
     <MESSAGE value="feat(Place): Corregimos un pequeño error en el header y el menu del place" />
     <MESSAGE value="feat(Place): Traemos el producto sin problemas en json mediante REST" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat(Place): Traemos el producto sin problemas en json mediante REST" />
+    <MESSAGE value="feat(Place): Abrimos el producto mediante un link remote" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat(Place): Abrimos el producto mediante un link remote" />
   </component>
   <component name="WindowStateProjectService">
     <state x="392" y="0" key="#All_specs_in_spec:_waydda" timestamp="1598730457189">
@@ -1242,10 +1235,10 @@
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="491" y="102" width="374" height="557" key="#com.intellij.ide.util.MemberChooser/0.0.1366.768@0.0.1366.768" timestamp="1601746308565" />
-    <state x="261" y="0" width="834" height="683" key="CommitChangelistDialog2" timestamp="1603388410437">
+    <state x="261" y="0" width="834" height="683" key="CommitChangelistDialog2" timestamp="1603399527617">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state x="261" y="0" width="834" height="683" key="CommitChangelistDialog2/0.0.1366.768@0.0.1366.768" timestamp="1603388410437" />
+    <state x="261" y="0" width="834" height="683" key="CommitChangelistDialog2/0.0.1366.768@0.0.1366.768" timestamp="1603399527617" />
     <state x="255" y="248" width="424" height="479" key="FileChooserDialogImpl" timestamp="1602458482165">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
@@ -1315,12 +1308,12 @@
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="544" y="96" key="VCS.ChangeListViewerDialog/0.0.1366.768@0.0.1366.768" timestamp="1598750646694" />
-    <state x="275" y="117" width="800" height="523" key="Vcs.Push.Dialog.v2" timestamp="1603388248262">
+    <state x="275" y="117" width="800" height="523" key="Vcs.Push.Dialog.v2" timestamp="1603399529028">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="1640" y="117" key="Vcs.Push.Dialog.v2/0.0.1366.768/1366.0.1360.768@1366.0.1360.768" timestamp="1598221582431" />
     <state x="1753" y="165" key="Vcs.Push.Dialog.v2/0.0.1366.768/1366.0.1920.1080@1366.0.1920.1080" timestamp="1599267641822" />
-    <state x="275" y="117" width="800" height="523" key="Vcs.Push.Dialog.v2/0.0.1366.768@0.0.1366.768" timestamp="1603388248262" />
+    <state x="275" y="117" width="800" height="523" key="Vcs.Push.Dialog.v2/0.0.1366.768@0.0.1366.768" timestamp="1603399529028" />
     <state x="496" y="169" key="chooseDestDirectoryDialog" timestamp="1598730651549">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
@@ -1354,13 +1347,13 @@
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="339" y="174" width="672" height="677" key="run.anything.popup/0.0.1366.768@0.0.1366.768" timestamp="1600370541201" />
-    <state x="346" y="89" width="672" height="678" key="search.everywhere.popup" timestamp="1603399508909">
+    <state x="346" y="89" width="672" height="678" key="search.everywhere.popup" timestamp="1603400485194">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="1852" y="56" width="945" height="954" key="search.everywhere.popup/0.0.1366.768/1366.-69.1920.1080@1366.-69.1920.1080" timestamp="1597715976170" />
     <state x="1710" y="89" width="672" height="678" key="search.everywhere.popup/0.0.1366.768/1366.0.1360.768@1366.0.1360.768" timestamp="1598985878395" />
     <state x="1852" y="125" width="945" height="954" key="search.everywhere.popup/0.0.1366.768/1366.0.1920.1080@1366.0.1920.1080" timestamp="1599267313630" />
-    <state x="346" y="89" width="672" height="678" key="search.everywhere.popup/0.0.1366.768@0.0.1366.768" timestamp="1603399508909" />
+    <state x="346" y="89" width="672" height="678" key="search.everywhere.popup/0.0.1366.768@0.0.1366.768" timestamp="1603400485194" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/waydda@Dashboard__ProductsControll_____3_.rcov" NAME="Dashboard::ProductsControll... (3) Coverage Results" MODIFIED="1601852304157" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="waydda" />

@@ -2,7 +2,7 @@
   x-data='getCart("<%= @current_cart ? @current_cart.id.to_s : "" %>")'
 >
   <% unless @place.nil? %>
-    <%= link_to place_my_cart_path(@place.slug), remote: true do %>
+    <%= link_to place_my_cart_path(@place.slug), remote: true, id: "get-my-cart" do %>
       <div
         class="py-1 flex">
         <div class="h-6 cursor-pointer ">
