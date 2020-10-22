@@ -22,7 +22,7 @@
 <body class="<%= controller_name === "place" || controller_name === "product" ? "bg-main-gray" : "bg-main-gray" %>">
 
 <div class="w-full">
-  <div class="w-full sticky top-0">
+  <div class="w-full sticky top-0 z-20">
     <%= render "utils/Headers/simple", {current_user: current_user, current_user_id: current_user ? current_user.id.to_s : nil} %>
     <div id="notifications">
       <% if notice.present? %>
