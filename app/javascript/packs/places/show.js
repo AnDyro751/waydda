@@ -1,10 +1,23 @@
 var ele = document.getElementById("scroll-container");
 document.addEventListener("turbolinks:load", function () {
     var cartElement = document.querySelector("#get-my-cart");
+    var sidebarElement = document.querySelector("#sidebar-toggle-overlay")
+    if (sidebarElement) {
+        sidebarElement.addEventListener("click", () => {
+            sidebarElement.classList.add("hidden");
+            document.querySelector("#sidebar-toggle-content").classList.add("hidden");
+        })
+    }
     if (cartElement) {
         cartElement.addEventListener("ajax:beforeSend", function () {
             progressBar.setValue(0.2);
             progressBar.show();
+        });
+        cartElement.addEventListener("ajax:success", function () {
+            if (progressBar) {
+                progressBar.setValue(1);
+                progressBar.hide();
+            }
         });
         cartElement.addEventListener("ajax:complete", function () {
             if (progressBar) {

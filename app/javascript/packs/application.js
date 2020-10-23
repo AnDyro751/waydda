@@ -26,13 +26,8 @@ window.getScript = function (url) {
 };
 
 document.addEventListener("turbolinks:load", function () {
-    var sidebarElement = document.querySelector("#sidebar-toggle-overlay")
-    if (sidebarElement) {
-        sidebarElement.addEventListener("click", () => {
-            sidebarElement.classList.add("hidden");
-            document.querySelector("#sidebar-toggle-content").classList.add("hidden");
-        })
-    }
+    document.querySelector("body").classList.remove("overflow-hidden");
+
     window.vanillaModal = VanillaModal;
     var current_location = location.href;
     window.current_modal = new window.vanillaModal({

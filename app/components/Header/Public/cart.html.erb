@@ -11,7 +11,7 @@
           >
             <path d="M 3.7421875 2 L 2.0019531 2.0136719 A 1.0001 1.0001 0 1 0 2.015625 4.0136719 L 3.0859375 4.0058594 L 6.3789062 11.908203 L 5.1816406 13.822266 C 4.3432894 15.16101 5.3626785 17 6.9414062 17 L 18 17 A 1.0001 1.0001 0 1 0 18 15 L 6.9414062 15 C 6.8301342 15 6.8173041 14.978071 6.8769531 14.882812 A 1.0001 1.0001 0 0 0 6.8789062 14.882812 L 8.0546875 13 L 15.521484 13 C 16.247484 13 16.917531 12.605703 17.269531 11.970703 L 20.871094 5.484375 C 21.242094 4.818375 20.760047 4 19.998047 4 L 5.25 4 L 4.6738281 2.6152344 A 1.0001 1.0001 0 0 0 3.7421875 2 z M 7 18 A 2 2 0 0 0 5 20 A 2 2 0 0 0 7 22 A 2 2 0 0 0 9 20 A 2 2 0 0 0 7 18 z M 17 18 A 2 2 0 0 0 15 20 A 2 2 0 0 0 17 22 A 2 2 0 0 0 19 20 A 2 2 0 0 0 17 18 z"></path>
           </svg>
-          <span class="inline ml-2 text-sm font-normal text-current" >(<%= @current_cart.get_public_quantity %>)</span>
+          <span class="inline ml-2 text-sm font-normal text-current">(<%= @current_cart.get_public_quantity %>)</span>
         </div>
       </div>
     <% end %>
@@ -28,7 +28,15 @@
     <div
       id="sidebar-toggle-content"
       :class="{'block': isOpen === true, 'hidden': isOpen === false}"
-      class="fixed hidden top-0 bottom-0 h-screen w-4/12 bg-white right-0 z-50">
+      class="fixed hidden top-0 bottom-0 w-4/12 bg-white right-0 z-50">
+      <div class="static overflow-y-auto h-screen">
+        <div id="sidebar-toggle-content-type" class="mb-32"></div>
+        <% if @place %>
+          <%= link_to place_my_cart_path(@place.slug), class: "absolute bottom-0 left-0 right-0 bg-black p-4 text-center shadow-top" do %>
+            <span class="text-white text-center font-medium text-center">Ir a pagar</span>
+          <% end %>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>

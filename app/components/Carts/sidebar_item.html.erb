@@ -5,8 +5,11 @@
         class="rounded shadow"
         src="<%= helpers.get_image_url(100, 100, @cart_item.product.photo, "contain") %>" alt="<%= @cart_item.product.name %> foto de producto">
     </div>
-    <div class="w-10/12">
+    <div class="w-10/12 flex flex-wrap">
       <span class="text-lg font-normal"><%= @cart_item.product.name %></span>
+      <% if @cart_item.product.sku %>
+        <span class="text-xs font-normal w-full text-gray-700 mt-2"><%= @cart_item.product.sku %></span>
+      <% end %>
     </div>
   </div>
   <div class="w-full mt-6 flex items-center">
