@@ -6,13 +6,25 @@
     </span>
   </div>
   <div class="w-full flex flex-wrap">
-    <span class="mb-2 text-sm px-3 w-full text-gray-600 font-normal w-full">Productos en el carrito:</span>
+    <span class="mb-4 text-sm px-3 w-full text-gray-600 font-normal w-full">Productos en el carrito:</span>
     <div class="w-full divide-y divide-gray-300 border-b border-gray-300 border-t">
-      <% @cart_items.each do |ci| %>
-        <div class="w-full p-3">
-          <%= render Carts::SidebarItem.new(cart_item: ci, place: @place) %>
-        </div>
+      <% if @cart_items.length <= 0 %>
+        <%= render EmptyRecords.new(title: "No hay productos en tu carrito") %>
+      <% else %>
+        <% @cart_items.each do |ci| %>
+          <div class="w-full p-3">
+            <%= render Carts::SidebarItem.new(cart_item: ci, place: @place) %>
+          </div>
+        <% end %>
       <% end %>
+    </div>
+    <div class="w-full mt-4 flex items-center">
+      <div class="w-6/12">
+        <span class="text-sm px-3 w-full text-gray-600 font-normal w-full">Total:</span>
+      </div>
+      <div class="w-6/12 text-right flex justify-end">
+        <span class="text-sm px-3 w-full text-gray-800 font-medium w-full"><%= helpers.number_to_currency(@total) %></span>
+      </div>
     </div>
   </div>
 </div>

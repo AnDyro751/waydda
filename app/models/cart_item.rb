@@ -63,16 +63,20 @@ class CartItem
       end
     end
     if quantity <= 0
+      new_quantity = self.cart.quantity - self.quantity
+      if new_quantity <= 0
+        new_quantity = 0
+      end
+      self.cart.update(quantity: new_quantity)
       return self.destroy
     end
     new_quantity = if force
                      quantity
                    else
-                     add ? self.quantity + 1 : self.quantity - 1
+                     add ? self.quantity + quantity : self.quantity - quantity
                    end
-    new_cart_quantity = self.cart.quantity + 1
+    new_quantity = 0 if new_quantity <= 0
     logger.warn "-----------NUEVA CANTIDAD #{new_quantity}"
-    self.cart.update(quantity: new_cart_quantity)
     return self.update(quantity: new_quantity)
   end
 

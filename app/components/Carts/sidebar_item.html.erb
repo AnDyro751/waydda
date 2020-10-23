@@ -1,8 +1,15 @@
 <div class="w-full flex flex-wrap" id="cart_item_<%= @cart_item.id.to_s %>">
-  <div class="w-full">
-    <span class="text-lg font-normal"><%= @cart_item.product.name %></span>
+  <div class="w-full flex items-center">
+    <div class="w-10 h-10 mr-4">
+      <img
+        class="rounded shadow"
+        src="<%= helpers.get_image_url(100, 100, @cart_item.product.photo, "contain") %>" alt="<%= @cart_item.product.name %> foto de producto">
+    </div>
+    <div class="w-10/12">
+      <span class="text-lg font-normal"><%= @cart_item.product.name %></span>
+    </div>
   </div>
-  <div class="w-full py-3 flex items-center">
+  <div class="w-full mt-6 flex items-center">
     <div class="w-6/12">
       <%= simple_form_for(@cart_item, remote: true, url: place_update_cart_item_path(@place.slug, @cart_item), html: {class: "relative"}) do |f| %>
         <%= f.input :element, as: :hidden, input_html: {value: "sidebar"} %>
@@ -23,13 +30,9 @@
       <% end %>
     </div>
     <div class="w-6/12 flex justify-end">
-      <span class="text-sm text-gray-800">
+      <span class="text-sm font-normal text-gray-700">
               <%= helpers.number_to_currency(@cart_item.quantity * @cart_item.product.price) %>
       </span>
     </div>
-  </div>
-  <div class="w-full">
-    <span class="font-normal">
-    </span>
   </div>
 </div>

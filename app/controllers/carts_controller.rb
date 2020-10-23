@@ -104,10 +104,14 @@ class CartsController < ApplicationController
     @in_sidebar = params["cart_item"]["element"].present?
     respond_to do |format|
       begin
-        if @cart_item.update_quantity(quantity: params["cart_item"]["quantity"].to_i, force: true)
+        if @cart_item.update_quantity(quantity: params["cart_item"]["quantity"].to_i, force: true, add: params["cart_item"]["quantity"].to_i > @cart_item.quantity)
           set_cart_items
           if @cart_items.length <= 0
-            format.html { redirect_to place_my_cart_path(@place.slug), alert: "No hay productos en tu carrio" }
+            if @in_sidebar
+              format.html { redirect_to place_path(@place.slug), alert: "No hay productos en tu carrio" }
+            else
+              format.html { redirect_to place_my_cart_path(@place.slug), alert: "No hay productos en tu carrio" }
+            end
           else
             format.js
           end
