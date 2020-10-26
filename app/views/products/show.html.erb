@@ -1,12 +1,21 @@
-<div class="w-10/12 mx-auto flex flex-wrap">
+<div class="w-10/12 mx-auto flex flex-wrap mb-20">
   <div class="w-full my-4 py-4 breadcrumbs text-sm flex">
     <%= render_breadcrumbs :separator => '&#160;/&#160;', tag: "div" %>
   </div>
-  <div class="w-7/12">
-    <img
-      class="lazy h-full w-full"
-      src="<%= get_image_url(15, 15, @product.photo, "contain") %>"
-      data-src="<%= get_image_url(500, 500, @product.photo, "contain") %>"
-      alt="Foto de <%= @product.name %>, <%= @product.description %>">
+  <div class="w-full flex space-x-8">
+    <div class="w-7/12">
+      <img
+        class="lazy h-full w-full shadow transition rounded duration-150 hover:shadow-2xl"
+        src="<%= get_image_url(15, 15, @product.photo, "contain") %>"
+        data-src="<%= get_image_url(500, 500, @product.photo, "contain") %>"
+        alt="Foto de <%= @product.name %>, <%= @product.description %>">
+    </div>
+    <div class="w-5/12">
+      <h1 class="text-2xl font-bold text-gray-900 mb-2"><%= @product.name %></h1>
+      <h2 class="text-gray-700"><%= @product.description %></h2>
+      <div class="w-full">
+        <%= render Products::Variants::List::Index.new(product: @product) %>
+      </div>
+    </div>
   </div>
 </div>

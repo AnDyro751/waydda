@@ -19,12 +19,11 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b89cb0fb-b680-4bb9-8ae0-f4b41721cfb9" name="Default Changelist" comment="">
+    <list default="true" id="b89cb0fb-b680-4bb9-8ae0-f4b41721cfb9" name="Default Changelist" comment="feat(Place): Agregamos los breadcrumbs en la vista de show">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/assets/stylesheets/application.scss" beforeDir="false" afterPath="$PROJECT_DIR$/app/assets/stylesheets/application.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/assets/stylesheets/dashboard.css" beforeDir="false" afterPath="$PROJECT_DIR$/app/assets/stylesheets/dashboard.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/products_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/products_controller.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/layouts/application.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/layouts/application.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/components/Products/Variants/List/index.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/components/Products/Variants/List/index.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/components/Products/Variants/List/index.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/components/Products/Variants/List/index.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/components/Products/public/item_normal.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/components/Products/public/item_normal.html.erb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/views/products/show.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/products/show.html.erb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -812,14 +811,7 @@
       <workItem from="1603481816213" duration="43000" />
       <workItem from="1603541525785" duration="600000" />
       <workItem from="1603682905917" duration="6467000" />
-      <workItem from="1603750346262" duration="1631000" />
-    </task>
-    <task id="LOCAL-00355" summary="feat(Dashboard): Espacios del json ld">
-      <created>1603050693587</created>
-      <option name="number" value="00355" />
-      <option name="presentableId" value="LOCAL-00355" />
-      <option name="project" value="LOCAL" />
-      <updated>1603050693587</updated>
+      <workItem from="1603750346262" duration="2702000" />
     </task>
     <task id="LOCAL-00356" summary="feat(Dashboard): Cambiamos la imagen en etiqueta para el cover por un div">
       <created>1603062621952</created>
@@ -1157,7 +1149,14 @@
       <option name="project" value="LOCAL" />
       <updated>1603688772502</updated>
     </task>
-    <option name="localTasksCounter" value="404" />
+    <task id="LOCAL-00404" summary="feat(Place): Agregamos los breadcrumbs en la vista de show">
+      <created>1603752729878</created>
+      <option name="number" value="00404" />
+      <option name="presentableId" value="LOCAL-00404" />
+      <option name="project" value="LOCAL" />
+      <updated>1603752729879</updated>
+    </task>
+    <option name="localTasksCounter" value="405" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -1177,7 +1176,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="feat(Dashboard): Agregamos los productos a la categoría" />
     <MESSAGE value="feat(Dashboard): Eliminamos el producto de la lista al agregarlo" />
     <MESSAGE value="feat(Dashboard): Esto funciona, pero no es la solución que me agrade" />
     <MESSAGE value="feat(Dashboard): Agregamos el html pequeño para mostrar los productos que tiene el departamento" />
@@ -1202,7 +1200,8 @@
     <MESSAGE value="feat(Place): Botón para pagar" />
     <MESSAGE value="feat(Place): Turbolinks css" />
     <MESSAGE value="feat(Place): Removemos el caché y ya funciona sin problemas" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat(Place): Removemos el caché y ya funciona sin problemas" />
+    <MESSAGE value="feat(Place): Agregamos los breadcrumbs en la vista de show" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat(Place): Agregamos los breadcrumbs en la vista de show" />
   </component>
   <component name="WindowStateProjectService">
     <state x="392" y="0" key="#All_specs_in_spec:_waydda" timestamp="1598730457189">
@@ -1249,10 +1248,10 @@
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="366" y="122" width="624" height="517" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.0.1366.768@0.0.1366.768" timestamp="1603481656867" />
-    <state x="261" y="0" width="834" height="683" key="CommitChangelistDialog2" timestamp="1603688771598">
+    <state x="261" y="0" width="834" height="683" key="CommitChangelistDialog2" timestamp="1603752705880">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state x="261" y="0" width="834" height="683" key="CommitChangelistDialog2/0.0.1366.768@0.0.1366.768" timestamp="1603688771598" />
+    <state x="261" y="0" width="834" height="683" key="CommitChangelistDialog2/0.0.1366.768@0.0.1366.768" timestamp="1603752705880" />
     <state x="255" y="248" width="424" height="479" key="FileChooserDialogImpl" timestamp="1603481857828">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
@@ -1346,13 +1345,13 @@
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="628" y="298" key="com.jetbrains.plugins.remotesdk.ui.RemoteMappingsConfiguration/0.0.1366.768@0.0.1366.768" timestamp="1598729856431" />
-    <state x="390" y="117" width="791" height="624" key="find.popup" timestamp="1603689323261">
+    <state x="390" y="117" width="791" height="624" key="find.popup" timestamp="1603753721539">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="1914" y="96" width="823" height="878" key="find.popup/0.0.1366.768/1366.-69.1920.1080@1366.-69.1920.1080" timestamp="1597716285449" />
     <state x="1754" y="117" width="583" height="624" key="find.popup/0.0.1366.768/1366.0.1360.768@1366.0.1360.768" timestamp="1598981376119" />
     <state x="1914" y="165" width="823" height="878" key="find.popup/0.0.1366.768/1366.0.1920.1080@1366.0.1920.1080" timestamp="1599260651210" />
-    <state x="390" y="117" width="791" height="624" key="find.popup/0.0.1366.768@0.0.1366.768" timestamp="1603689323261" />
+    <state x="390" y="117" width="791" height="624" key="find.popup/0.0.1366.768@0.0.1366.768" timestamp="1603753721539" />
     <state x="549" y="254" width="250" height="278" key="jetbrains.javascript.buildTools.run-task-popup" timestamp="1597946321130">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
@@ -1361,13 +1360,13 @@
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="339" y="174" width="672" height="677" key="run.anything.popup/0.0.1366.768@0.0.1366.768" timestamp="1600370541201" />
-    <state x="346" y="89" width="672" height="678" key="search.everywhere.popup" timestamp="1603752676753">
+    <state x="346" y="89" width="672" height="678" key="search.everywhere.popup" timestamp="1603753747530">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="1852" y="56" width="945" height="954" key="search.everywhere.popup/0.0.1366.768/1366.-69.1920.1080@1366.-69.1920.1080" timestamp="1597715976170" />
     <state x="1710" y="89" width="672" height="678" key="search.everywhere.popup/0.0.1366.768/1366.0.1360.768@1366.0.1360.768" timestamp="1598985878395" />
     <state x="1852" y="125" width="945" height="954" key="search.everywhere.popup/0.0.1366.768/1366.0.1920.1080@1366.0.1920.1080" timestamp="1599267313630" />
-    <state x="346" y="89" width="672" height="678" key="search.everywhere.popup/0.0.1366.768@0.0.1366.768" timestamp="1603752676753" />
+    <state x="346" y="89" width="672" height="678" key="search.everywhere.popup/0.0.1366.768@0.0.1366.768" timestamp="1603753747530" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/waydda@AggregateCategory_Save_reco___.rcov" NAME="AggregateCategory Save reco... Coverage Results" MODIFIED="1602439891498" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="waydda" />
