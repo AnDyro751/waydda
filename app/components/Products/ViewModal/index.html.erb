@@ -12,7 +12,7 @@
       <h1 class="text-xl font-medium"><%= @product.name %></h1>
       <h2 class="mt-2 text-gray-600 text-sm font-light mb-8"><%= @product.description %></h2>
       <% if @product.aggregate_categories.length > 0 %>
-        <%= render Products::Variants::List::Index.new(product: @product, f: f) %>
+        <%= render Products::Variants::List::Index.new(product: @product) %>
       <% end %>
     </div>
     <div class="w-full absolute bottom-0 left-0 right-0 p-4 bg-main-gray shadow">

@@ -19,11 +19,9 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b89cb0fb-b680-4bb9-8ae0-f4b41721cfb9" name="Default Changelist" comment="feat(Place): Agregamos los breadcrumbs en la vista de show">
+    <list default="true" id="b89cb0fb-b680-4bb9-8ae0-f4b41721cfb9" name="Default Changelist" comment="feat(Place): Mostramos las variantes y las seleccionamos">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/components/Products/Variants/List/index.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/components/Products/Variants/List/index.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/components/Products/Variants/List/index.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/components/Products/Variants/List/index.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/components/Products/public/item_normal.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/components/Products/public/item_normal.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/components/Products/ViewModal/index.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/components/Products/ViewModal/index.html.erb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/views/products/show.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/products/show.html.erb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -811,14 +809,7 @@
       <workItem from="1603481816213" duration="43000" />
       <workItem from="1603541525785" duration="600000" />
       <workItem from="1603682905917" duration="6467000" />
-      <workItem from="1603750346262" duration="2702000" />
-    </task>
-    <task id="LOCAL-00356" summary="feat(Dashboard): Cambiamos la imagen en etiqueta para el cover por un div">
-      <created>1603062621952</created>
-      <option name="number" value="00356" />
-      <option name="presentableId" value="LOCAL-00356" />
-      <option name="project" value="LOCAL" />
-      <updated>1603062621952</updated>
+      <workItem from="1603750346262" duration="3438000" />
     </task>
     <task id="LOCAL-00357" summary="feat(Dashboard): Agregamos la validación del delivery kind al carrito y mostramos un mensaje al actualizar el método de envío en el place">
       <created>1603063876626</created>
@@ -1156,7 +1147,14 @@
       <option name="project" value="LOCAL" />
       <updated>1603752729879</updated>
     </task>
-    <option name="localTasksCounter" value="405" />
+    <task id="LOCAL-00405" summary="feat(Place): Mostramos las variantes y las seleccionamos">
+      <created>1603753785751</created>
+      <option name="number" value="00405" />
+      <option name="presentableId" value="LOCAL-00405" />
+      <option name="project" value="LOCAL" />
+      <updated>1603753785751</updated>
+    </task>
+    <option name="localTasksCounter" value="406" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -1176,7 +1174,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="feat(Dashboard): Eliminamos el producto de la lista al agregarlo" />
     <MESSAGE value="feat(Dashboard): Esto funciona, pero no es la solución que me agrade" />
     <MESSAGE value="feat(Dashboard): Agregamos el html pequeño para mostrar los productos que tiene el departamento" />
     <MESSAGE value="feat(Dashboard): Actualizamos el window.location por el turbolinks visit" />
@@ -1201,7 +1198,8 @@
     <MESSAGE value="feat(Place): Turbolinks css" />
     <MESSAGE value="feat(Place): Removemos el caché y ya funciona sin problemas" />
     <MESSAGE value="feat(Place): Agregamos los breadcrumbs en la vista de show" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat(Place): Agregamos los breadcrumbs en la vista de show" />
+    <MESSAGE value="feat(Place): Mostramos las variantes y las seleccionamos" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat(Place): Mostramos las variantes y las seleccionamos" />
   </component>
   <component name="WindowStateProjectService">
     <state x="392" y="0" key="#All_specs_in_spec:_waydda" timestamp="1598730457189">
@@ -1345,13 +1343,13 @@
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="628" y="298" key="com.jetbrains.plugins.remotesdk.ui.RemoteMappingsConfiguration/0.0.1366.768@0.0.1366.768" timestamp="1598729856431" />
-    <state x="390" y="117" width="791" height="624" key="find.popup" timestamp="1603753721539">
+    <state x="390" y="117" width="791" height="624" key="find.popup" timestamp="1603754391843">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="1914" y="96" width="823" height="878" key="find.popup/0.0.1366.768/1366.-69.1920.1080@1366.-69.1920.1080" timestamp="1597716285449" />
     <state x="1754" y="117" width="583" height="624" key="find.popup/0.0.1366.768/1366.0.1360.768@1366.0.1360.768" timestamp="1598981376119" />
     <state x="1914" y="165" width="823" height="878" key="find.popup/0.0.1366.768/1366.0.1920.1080@1366.0.1920.1080" timestamp="1599260651210" />
-    <state x="390" y="117" width="791" height="624" key="find.popup/0.0.1366.768@0.0.1366.768" timestamp="1603753721539" />
+    <state x="390" y="117" width="791" height="624" key="find.popup/0.0.1366.768@0.0.1366.768" timestamp="1603754391843" />
     <state x="549" y="254" width="250" height="278" key="jetbrains.javascript.buildTools.run-task-popup" timestamp="1597946321130">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
