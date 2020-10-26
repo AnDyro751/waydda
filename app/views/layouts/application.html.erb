@@ -32,6 +32,7 @@
         <%= render Notifications::Alert.new(alert: alert) %>
       <% end %>
     </div>
+
     <%= content_for?(:content) ? yield(:content) : yield %>
   </div>
 </div>

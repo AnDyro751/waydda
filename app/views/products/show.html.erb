@@ -1,3 +1,12 @@
-<div class="w-full">
-
+<div class="w-10/12 mx-auto flex flex-wrap">
+  <div class="w-full my-4 py-4 breadcrumbs text-sm flex">
+    <%= render_breadcrumbs :separator => '&#160;/&#160;', tag: "div" %>
+  </div>
+  <div class="w-7/12">
+    <img
+      class="lazy h-full w-full"
+      src="<%= get_image_url(15, 15, @product.photo, "contain") %>"
+      data-src="<%= get_image_url(500, 500, @product.photo, "contain") %>"
+      alt="Foto de <%= @product.name %>, <%= @product.description %>">
+  </div>
 </div>

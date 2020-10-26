@@ -62,29 +62,6 @@ input:checked + .slider:before {
 
 }
 
-.breadcrumbs {
-    font-weight: normal;
-    color: #a4b6cc;
-}
-
-.breadcrumbs div {
-    display: inline;
-}
-
-.breadcrumbs div a:hover {
-    border-radius: 3px;
-    background: #d8d8d8;
-    cursor: pointer;
-}
-
-.breadcrumbs div {
-    color: #939393;
-}
-
-.breadcrumbs div a {
-    color: #333333;
-    padding: .2em .6em;
-}
 
 ::selection {
     background: #79fee0; /* WebKit/Blink Browsers */

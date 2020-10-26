@@ -13,6 +13,9 @@ class ProductsController < ApplicationController
 
   # GET /places/1
   def show
+    add_breadcrumb "#{@place.name}", place_path(@place.slug)
+    add_breadcrumb "Productos", place_products_path(@place.slug)
+    add_breadcrumb "#{@product.name}"
     set_meta_tags title: "#{@product.name} en Waydda",
                   description: "Compra #{@product.name} y cientos de productos más en Waydda."
     respond_to do |format|
