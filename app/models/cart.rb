@@ -90,6 +90,7 @@ class Cart
   #
 
   def add_item(product:, place:, quantity:, aggregates: [])
+    logger.warn "CART #{aggregates}"
     if valid_sale?(product: product, place: place, aggregates: aggregates, quantity: quantity)
       return self.create_or_update_cart_item(product: product, aggregates: aggregates)
     end
@@ -164,13 +165,18 @@ class Cart
   def self.seralize_params(params:)
     new_params = []
     begin
-      params["radio_ids"].each do |k, v|
-        new_params << {id: k, subvariants: [v]} if v.kind_of?(String)
+      if params["radio_ids"]
+        params["radio_ids"].each do |k, v|
+          new_params << {id: k, subvariants: [v]} if v.kind_of?(String)
+        end
       end
-      params["checkbox_ids"].each do |k, v|
-        new_params << {id: k, subvariants: v} if v.kind_of?(Array)
+      if params["checkbox_ids"]
+        params["checkbox_ids"].each do |k, v|
+          new_params << {id: k, subvariants: v} if v.kind_of?(Array)
+        end
       end
-    rescue
+    rescue => e
+      logger.warn "ERROR #{e} LN 175"
       return []
     end
     return new_params

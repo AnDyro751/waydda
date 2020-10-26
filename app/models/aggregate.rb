@@ -28,6 +28,7 @@ class Aggregate
   # @param [Object] items
   def self.valid_elements(items:, required: true, aggregates:)
     new_items = []
+    logger.warn "ENTRANDO #{items}"
     if items.kind_of?(Array)
       items.each do |aggc|
         logger.warn "Aggregate 29 #{aggc}"
@@ -35,7 +36,7 @@ class Aggregate
           if aggc["id"].present? || aggc[:id].present?
             current_aggregate_id = aggc["id"] || aggc[:id]
             current_subvariants = aggc["subvariants"] || aggc[:subvariants]
-
+            logger.warn "SUBARAINTS #{current_subvariants}"
             if required # TODO: Validar cuando las subvariantes no sean requeridas también
               current_aggc = AggregateCategory.get_record(id: current_aggregate_id, items: aggregates)
               logger.warn "El current aggc es nulo - #{current_aggregate_id}" if current_aggc.nil?
@@ -120,6 +121,7 @@ class Aggregate
   # @param [ArrayField] ids
   # @return [ArrayField]
   def self.get_valid_ids_in_aggregates(ids: [], aggregates: [])
+    logger.warn "IDS: #{ids}, aggregates: #{aggregates}"
     ids.select { |id| aggregates.include?(id) }
   end
 

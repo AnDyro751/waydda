@@ -204,7 +204,7 @@ class Product
       logger.warn "Aggregate ids #{receive_aggregates_ids}-------#{current_aggregates}"
       return true
     end
-    logger.warn "Los aggregates son invalidos #{valid_aggregates_categories}-#{receive_aggregates_ids}."
+    logger.warn "Los aggregates son invalidos !#{valid_aggregates_categories}!-!#{receive_aggregates_ids}!."
     raise "Selecciona los elementos que son obligatorios"
     false
 
