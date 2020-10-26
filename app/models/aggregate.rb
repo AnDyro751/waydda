@@ -3,11 +3,6 @@ class Aggregate
   include Mongoid::Timestamps
   include GlobalID::Identification
 
-
-  before_create :assign_created_at
-  # before_save :change_others_defaults
-
-  # fields
   field :name, type: String
   field :description, type: String
   field :unlimited, type: Boolean, default: true

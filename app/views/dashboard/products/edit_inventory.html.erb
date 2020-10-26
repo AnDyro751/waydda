@@ -1,3 +1,3 @@
 <%= render Headers::Text.new(title: "#{@product.name}", subtitle: @product.description, link: dashboard_product_path(@product), small: true) %>
 <%= render Products::Form::HeaderMenu.new(product: @product) %>
-<%= render Dashboard::Products::Layout.new(product: @product) %>
+<%= render Dashboard::Products::Layout.new(product: @product, action_name: action_name) %>

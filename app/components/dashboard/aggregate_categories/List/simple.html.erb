@@ -56,12 +56,9 @@
                       <%= render "dashboard/aggregate_categories/aggregate_fields", agg: agg %>
                     <% end %>
                   </template>
-
-                  <% @aggregate_category["custom_aggregates"].select { |agg| !agg.new_record }.each do |aggregate| %>
-                    <% aggc.simple_fields_for :aggregates, aggregate do |agg| %>
-                      <%= render "dashboard/aggregate_categories/aggregate_fields", agg: agg %>
-                    <% end %>
-                  <% end %>
+                  <div id="list-variants">
+                    <%= render Dashboard::Products::Aggregates::List.new(aggregate_category: @aggregate_category, aggc: aggc) %>
+                  </div>
                 </div>
               </div>
             <% end %>
@@ -82,7 +79,9 @@
                   document.querySelector("#empty-aggregates").classList.add("hidden");
                   document.querySelector("#table-titles").classList.remove("hidden");
                   var template = document.querySelector("template");
-                  var content = template.innerHTML.replace(/NEW_RECORD/g, new Date().getTime())
+                  var newId = document.querySelector("#all-variants").querySelectorAll(".aggregate_record");
+                  var content = template.innerHTML.replace(/NEW_RECORD/g, new Date().getTime());
+                  // var content = template.innerHTML.replace(/NEW_RECORD/g, newId);
                   console.log(content)
                   document.querySelector("#all-variants").insertAdjacentHTML('afterbegin', content);
                   // var total_subvariants = document.querySelectorAll(".add-variant");

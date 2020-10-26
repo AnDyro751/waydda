@@ -3,5 +3,5 @@
 %>
 <div class="w-full">
   <%= render Headers::Text.new(title: "Nuevo producto", subtitle: "Añade un nuevo producto a tu colección", small: false, with_border: false, padding_class: @product.new_record ? "py-8" : "py-4") %>
-  <%= render Dashboard::Products::Layout.new(product: @product)  %>
+  <%= render Dashboard::Products::Layout.new(product: @product, action_name: action_name) %>
 </div>

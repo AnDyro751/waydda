@@ -20,7 +20,28 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b89cb0fb-b680-4bb9-8ae0-f4b41721cfb9" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/app/assets/stylesheets/application.scss" beforeDir="false" afterPath="$PROJECT_DIR$/app/assets/stylesheets/application.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/components/dashboard/products/aggregates/list.html.erb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/components/dashboard/products/aggregates/list.rb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/views/products/show.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/components/dashboard/aggregate_categories/List/simple.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/components/dashboard/aggregate_categories/List/simple.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/components/dashboard/products/item.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/components/dashboard/products/item.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/components/dashboard/products/layout.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/components/dashboard/products/layout.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/components/dashboard/products/layout.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/components/dashboard/products/layout.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/dashboard/products_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/dashboard/products_controller.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/places_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/places_controller.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/products_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/products_controller.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/javascript/packs/application.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/javascript/packs/application.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/aggregate.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/aggregate.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/dashboard/aggregate_categories/_aggregate_fields.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/dashboard/aggregate_categories/_aggregate_fields.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/dashboard/aggregate_categories/show.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/dashboard/aggregate_categories/show.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/dashboard/products/edit.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/dashboard/products/edit.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/dashboard/products/edit_inventory.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/dashboard/products/edit_inventory.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/dashboard/products/edit_variants.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/dashboard/products/edit_variants.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/dashboard/products/new.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/dashboard/products/new.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/dashboard/products/update.js.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/dashboard/products/update.js.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/routes.rb" beforeDir="false" afterPath="$PROJECT_DIR$/config/routes.rb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,9 +61,6 @@
     </option>
     <expand />
     <select />
-  </component>
-  <component name="FavoritesManager">
-    <favorites_list name="waydda" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -67,6 +85,9 @@
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="UPDATE_TYPE" value="MERGE" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/app/components/dashboard/products/layout.html.erb" root0="SKIP_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" root2="FORCE_HIGHLIGHTING" />
   </component>
   <component name="JsFlowSettings">
     <service-enabled>true</service-enabled>
@@ -112,7 +133,7 @@
     <property name="js.buildTools.grunt.grunt-cli.package" value="" />
     <property name="js.buildTools.gulp.gulp_package_dir" value="" />
     <property name="last_directory_selection" value="$PROJECT_DIR$/spec" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/app/views/dashboard/subscriptions" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../garantiApp_web" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -126,8 +147,8 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/app/views/dashboard/utils" />
       <recent name="$PROJECT_DIR$/app/components/dashboard/products" />
+      <recent name="$PROJECT_DIR$/app/views/dashboard/utils" />
       <recent name="\\wsl$\Ubuntu-18.04\home\andyro\Code\RB\waydda\app\views\dashboard\settings" />
       <recent name="\\wsl$\Ubuntu-18.04\home\andyro\Code\RB\waydda\app\javascript\packs\css" />
       <recent name="\\wsl$\Ubuntu-18.04\home\andyro\Code\RB\waydda\app\views\dashboard\dashboard" />
@@ -614,9 +635,12 @@
       <method v="2" />
     </configuration>
     <configuration default="true" type="ShConfigurationType">
+      <option name="INDEPENDENT_SCRIPT_PATH" value="true" />
       <option name="SCRIPT_PATH" value="cmd.exe" />
       <option name="SCRIPT_OPTIONS" value="" />
+      <option name="INDEPENDENT_SCRIPT_WORKING_DIRECTORY" value="true" />
       <option name="SCRIPT_WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="INDEPENDENT_INTERPRETER_PATH" value="true" />
       <option name="INTERPRETER_PATH" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <method v="2" />
@@ -684,16 +708,16 @@
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="IRB console.Rails" />
+      <item itemvalue="IRB.Rails" />
       <item itemvalue="Rails.Development: waydda" />
       <item itemvalue="Rails.Production: waydda" />
       <item itemvalue="Rake.spec: waydda" />
       <item itemvalue="Rake.test: waydda" />
       <item itemvalue="RSpec.All specs in spec: waydda" />
-      <item itemvalue="RSpec.AggregateCategory" />
       <item itemvalue="RSpec.AggregateCategory Save reco..." />
-      <item itemvalue="RSpec.AggregateCategory model met..." />
       <item itemvalue="RSpec.AggregateCategory model met... (1)" />
+      <item itemvalue="RSpec.AggregateCategory model met..." />
+      <item itemvalue="RSpec.AggregateCategory" />
       <item itemvalue="RSpec.Places GET /places" />
     </list>
     <recent_temporary>
@@ -706,6 +730,7 @@
       </list>
     </recent_temporary>
   </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="project-level" UseSingleDictionary="true" transferred="true" />
   <component name="SpringUtil" SPRING_PRE_LOADER_OPTION="true" RAKE_SPRING_PRE_LOADER_OPTION="true" RAILS_SPRING_PRE_LOADER_OPTION="true" />
   <component name="SvnConfiguration">
     <configuration>C:\Users\52951\AppData\Roaming\Subversion</configuration>
@@ -799,14 +824,10 @@
       <workItem from="1602957821015" duration="49417000" />
       <workItem from="1603162034839" duration="20905000" />
       <workItem from="1603310628788" duration="8363000" />
-      <workItem from="1603334368490" duration="14604000" />
-    </task>
-    <task id="LOCAL-00353" summary="feat(Dashboard):Mostramos el modal cuando lo necesitamos y actuaizamos la información desde el mismo, solo falta agregar el botón para actualizar el método de envío y válidar que la empresa acepte envíos a domicilio">
-      <created>1603050507780</created>
-      <option name="number" value="00353" />
-      <option name="presentableId" value="LOCAL-00353" />
-      <option name="project" value="LOCAL" />
-      <updated>1603050507780</updated>
+      <workItem from="1603334368490" duration="15898000" />
+      <workItem from="1603481816213" duration="43000" />
+      <workItem from="1603541525785" duration="600000" />
+      <workItem from="1603682905917" duration="5766000" />
     </task>
     <task id="LOCAL-00354" summary="feat(Dashboard): Mostramos el mo0dal solo cuando el place hace envíos a domicilio. Vamos a mostrar un  modal informativo cuando la dirección actual está un lejos del punto de recolección">
       <created>1603050674923</created>
@@ -1144,28 +1165,33 @@
       <option name="project" value="LOCAL" />
       <updated>1603412713310</updated>
     </task>
-    <option name="localTasksCounter" value="402" />
+    <task id="LOCAL-00402" summary="feat(Place): Turbolinks css">
+      <created>1603412747863</created>
+      <option name="number" value="00402" />
+      <option name="presentableId" value="LOCAL-00402" />
+      <option name="project" value="LOCAL" />
+      <updated>1603412747864</updated>
+    </task>
+    <option name="localTasksCounter" value="403" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="1" />
+    <option name="version" value="3" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
       <map>
         <entry key="MAIN">
           <value>
-            <State>
-              <option name="COLUMN_ORDER" />
-            </State>
+            <State />
           </value>
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="feat(Dashboard): Eliminamos de productos recientes 3:" />
     <MESSAGE value="feat(Dashboard): Eliminamos los productos de todas las relaciones sin problemas" />
     <MESSAGE value="feat(Dashboard): Agregamos los productos a la categoría" />
     <MESSAGE value="feat(Dashboard): Eliminamos el producto de la lista al agregarlo" />
@@ -1190,7 +1216,8 @@
     <MESSAGE value="feat(Place): Actualizamos el carrito y seteamos los nuevos elementos" />
     <MESSAGE value="feat(Place): Mostramos el total del carrito y los items del mismo" />
     <MESSAGE value="feat(Place): Botón para pagar" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat(Place): Botón para pagar" />
+    <MESSAGE value="feat(Place): Turbolinks css" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat(Place): Turbolinks css" />
   </component>
   <component name="WindowStateProjectService">
     <state x="392" y="0" key="#All_specs_in_spec:_waydda" timestamp="1598730457189">
@@ -1225,22 +1252,26 @@
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="137" y="23" width="1084" height="745" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1366.768@0.0.1366.768" timestamp="1603127195276" />
-    <state x="404" y="186" width="576" height="383" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1603155480060">
+    <state x="404" y="186" width="576" height="383" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1603541953353">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state x="404" y="186" width="576" height="383" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1366.768@0.0.1366.768" timestamp="1603155480060" />
+    <state x="404" y="186" width="576" height="383" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1366.768@0.0.1366.768" timestamp="1603541953353" />
     <state x="491" y="102" width="374" height="557" key="#com.intellij.ide.util.MemberChooser" timestamp="1601746308565">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="491" y="102" width="374" height="557" key="#com.intellij.ide.util.MemberChooser/0.0.1366.768@0.0.1366.768" timestamp="1601746308565" />
-    <state x="261" y="0" width="834" height="683" key="CommitChangelistDialog2" timestamp="1603412713198">
+    <state x="366" y="122" width="624" height="517" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" timestamp="1603481656867">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state x="261" y="0" width="834" height="683" key="CommitChangelistDialog2/0.0.1366.768@0.0.1366.768" timestamp="1603412713198" />
-    <state x="255" y="248" width="424" height="479" key="FileChooserDialogImpl" timestamp="1602458482165">
+    <state x="366" y="122" width="624" height="517" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.0.1366.768@0.0.1366.768" timestamp="1603481656867" />
+    <state x="261" y="0" width="834" height="683" key="CommitChangelistDialog2" timestamp="1603412747735">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state x="255" y="248" width="424" height="479" key="FileChooserDialogImpl/0.0.1366.768@0.0.1366.768" timestamp="1602458482165" />
+    <state x="261" y="0" width="834" height="683" key="CommitChangelistDialog2/0.0.1366.768@0.0.1366.768" timestamp="1603412747735" />
+    <state x="255" y="248" width="424" height="479" key="FileChooserDialogImpl" timestamp="1603481857828">
+      <screen x="0" y="0" width="1366" height="768" />
+    </state>
+    <state x="255" y="248" width="424" height="479" key="FileChooserDialogImpl/0.0.1366.768@0.0.1366.768" timestamp="1603481857828" />
     <state width="1324" height="239" key="GridCell.Tab.0.bottom" timestamp="1603130882399">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
@@ -1306,12 +1337,12 @@
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="544" y="96" key="VCS.ChangeListViewerDialog/0.0.1366.768@0.0.1366.768" timestamp="1598750646694" />
-    <state x="275" y="117" width="800" height="523" key="Vcs.Push.Dialog.v2" timestamp="1603399529028">
+    <state x="275" y="117" width="800" height="523" key="Vcs.Push.Dialog.v2" timestamp="1603412834478">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="1640" y="117" key="Vcs.Push.Dialog.v2/0.0.1366.768/1366.0.1360.768@1366.0.1360.768" timestamp="1598221582431" />
     <state x="1753" y="165" key="Vcs.Push.Dialog.v2/0.0.1366.768/1366.0.1920.1080@1366.0.1920.1080" timestamp="1599267641822" />
-    <state x="275" y="117" width="800" height="523" key="Vcs.Push.Dialog.v2/0.0.1366.768@0.0.1366.768" timestamp="1603399529028" />
+    <state x="275" y="117" width="800" height="523" key="Vcs.Push.Dialog.v2/0.0.1366.768@0.0.1366.768" timestamp="1603412834478" />
     <state x="496" y="169" key="chooseDestDirectoryDialog" timestamp="1598730651549">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
@@ -1330,13 +1361,13 @@
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="628" y="298" key="com.jetbrains.plugins.remotesdk.ui.RemoteMappingsConfiguration/0.0.1366.768@0.0.1366.768" timestamp="1598729856431" />
-    <state x="390" y="117" width="791" height="624" key="find.popup" timestamp="1603412643791">
+    <state x="390" y="117" width="791" height="624" key="find.popup" timestamp="1603687818458">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="1914" y="96" width="823" height="878" key="find.popup/0.0.1366.768/1366.-69.1920.1080@1366.-69.1920.1080" timestamp="1597716285449" />
     <state x="1754" y="117" width="583" height="624" key="find.popup/0.0.1366.768/1366.0.1360.768@1366.0.1360.768" timestamp="1598981376119" />
     <state x="1914" y="165" width="823" height="878" key="find.popup/0.0.1366.768/1366.0.1920.1080@1366.0.1920.1080" timestamp="1599260651210" />
-    <state x="390" y="117" width="791" height="624" key="find.popup/0.0.1366.768@0.0.1366.768" timestamp="1603412643791" />
+    <state x="390" y="117" width="791" height="624" key="find.popup/0.0.1366.768@0.0.1366.768" timestamp="1603687818458" />
     <state x="549" y="254" width="250" height="278" key="jetbrains.javascript.buildTools.run-task-popup" timestamp="1597946321130">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
@@ -1345,47 +1376,47 @@
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="339" y="174" width="672" height="677" key="run.anything.popup/0.0.1366.768@0.0.1366.768" timestamp="1600370541201" />
-    <state x="346" y="89" width="672" height="678" key="search.everywhere.popup" timestamp="1603412739558">
+    <state x="346" y="89" width="672" height="678" key="search.everywhere.popup" timestamp="1603687476510">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="1852" y="56" width="945" height="954" key="search.everywhere.popup/0.0.1366.768/1366.-69.1920.1080@1366.-69.1920.1080" timestamp="1597715976170" />
     <state x="1710" y="89" width="672" height="678" key="search.everywhere.popup/0.0.1366.768/1366.0.1360.768@1366.0.1360.768" timestamp="1598985878395" />
     <state x="1852" y="125" width="945" height="954" key="search.everywhere.popup/0.0.1366.768/1366.0.1920.1080@1366.0.1920.1080" timestamp="1599267313630" />
-    <state x="346" y="89" width="672" height="678" key="search.everywhere.popup/0.0.1366.768@0.0.1366.768" timestamp="1603412739558" />
+    <state x="346" y="89" width="672" height="678" key="search.everywhere.popup/0.0.1366.768@0.0.1366.768" timestamp="1603687476510" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/waydda@Dashboard__ProductsControll_____3_.rcov" NAME="Dashboard::ProductsControll... (3) Coverage Results" MODIFIED="1601852304157" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="waydda" />
-    <SUITE FILE_PATH="coverage/waydda@Cart__Create_cart_Add_produ___.rcov" NAME="Cart# Create cart Add produ... Coverage Results" MODIFIED="1601005601072" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="waydda" />
-    <SUITE FILE_PATH="coverage/waydda@AggregateCategory_model_met_____1_.rcov" NAME="AggregateCategory model met... (1) Coverage Results" MODIFIED="1602440620439" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="waydda" />
-    <SUITE FILE_PATH="coverage/waydda@AggregateCategory_Un_Auth.rcov" NAME="AggregateCategory Un Auth Coverage Results" MODIFIED="1601591967707" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="waydda" />
-    <SUITE FILE_PATH="coverage/waydda@Cart__Create_cart_Add_produ_____1_.rcov" NAME="Cart# Create cart Add produ... (1) Coverage Results" MODIFIED="1601049916427" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="waydda" />
-    <SUITE FILE_PATH="coverage/waydda@Dashboard__AggregateCategor_____1_.rcov" NAME="Dashboard::AggregateCategor... (1) Coverage Results" MODIFIED="1601593843052" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="waydda" />
-    <SUITE FILE_PATH="coverage/waydda@Development__waydda.rcov" NAME="Development: waydda Coverage Results" MODIFIED="1603130744052" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="waydda" />
-    <SUITE FILE_PATH="coverage/waydda@Dashboard__ProductsControll_____5_.rcov" NAME="Dashboard::ProductsControll... (5) Coverage Results" MODIFIED="1601851818129" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="waydda" />
-    <SUITE FILE_PATH="coverage/waydda@Dashboard__AggregateCategor___.rcov" NAME="Dashboard::AggregateCategor... Coverage Results" MODIFIED="1601594563133" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="waydda" />
+    <SUITE FILE_PATH="coverage/waydda@AggregateCategory_Save_reco___.rcov" NAME="AggregateCategory Save reco... Coverage Results" MODIFIED="1602439891498" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="waydda" />
+    <SUITE FILE_PATH="coverage/waydda@AggregateCategory_Un_Auth_G___.rcov" NAME="AggregateCategory Un Auth G... Coverage Results" MODIFIED="1601592419532" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="waydda" />
+    <SUITE FILE_PATH="coverage/waydda@AggregateCategoriesControll___.rcov" NAME="AggregateCategoriesControll... Coverage Results" MODIFIED="1601592661468" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="waydda" />
+    <SUITE FILE_PATH="coverage/waydda@Product_Valid_aggregates.rcov" NAME="Product Valid aggregates Coverage Results" MODIFIED="1600914307672" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="waydda" />
+    <SUITE FILE_PATH="coverage/waydda@Product_Fields_model.rcov" NAME="Product Fields model Coverage Results" MODIFIED="1602439166654" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="waydda" />
+    <SUITE FILE_PATH="coverage/waydda@Dashboard__ProductsControll___.rcov" NAME="Dashboard::ProductsControll... Coverage Results" MODIFIED="1601853611990" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="waydda" />
+    <SUITE FILE_PATH="coverage/waydda@Dashboard__AggregateCategor_____2_.rcov" NAME="Dashboard::AggregateCategor... (2) Coverage Results" MODIFIED="1601595318211" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="waydda" />
+    <SUITE FILE_PATH="coverage/waydda@Dashboard__AggregateCategor_____5_.rcov" NAME="Dashboard::AggregateCategor... (5) Coverage Results" MODIFIED="1601596113086" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="waydda" />
+    <SUITE FILE_PATH="coverage/waydda@Cart.rcov" NAME="Cart Coverage Results" MODIFIED="1601050157968" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="waydda" />
+    <SUITE FILE_PATH="coverage/waydda@AggregateCategory_model_met___.rcov" NAME="AggregateCategory model met... Coverage Results" MODIFIED="1602440162737" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="waydda" />
     <SUITE FILE_PATH="coverage/waydda@Product_Valid_aggregates_Pr___.rcov" NAME="Product Valid aggregates Pr... Coverage Results" MODIFIED="1602436862868" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="waydda" />
-    <SUITE FILE_PATH="coverage/waydda@Places_GET__places.rcov" NAME="Places GET /places Coverage Results" MODIFIED="1603126631617" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="waydda" />
+    <SUITE FILE_PATH="coverage/waydda@Dashboard__AggregateCategor_____4_.rcov" NAME="Dashboard::AggregateCategor... (4) Coverage Results" MODIFIED="1601596008022" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="waydda" />
+    <SUITE FILE_PATH="coverage/waydda@AggregateCategory__1_.rcov" NAME="AggregateCategory (1) Coverage Results" MODIFIED="1601591999548" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="waydda" />
+    <SUITE FILE_PATH="coverage/waydda@AggregateCategory_model_met_____1_.rcov" NAME="AggregateCategory model met... (1) Coverage Results" MODIFIED="1602440620439" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="waydda" />
+    <SUITE FILE_PATH="coverage/waydda@Dashboard__ProductsControll_____3_.rcov" NAME="Dashboard::ProductsControll... (3) Coverage Results" MODIFIED="1601852304157" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="waydda" />
+    <SUITE FILE_PATH="coverage/waydda@Development__waydda.rcov" NAME="Development: waydda Coverage Results" MODIFIED="1603130744052" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="waydda" />
+    <SUITE FILE_PATH="coverage/waydda@AggregateCategory_Save_record.rcov" NAME="AggregateCategory Save record Coverage Results" MODIFIED="1601590972512" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="waydda" />
+    <SUITE FILE_PATH="coverage/waydda@Cart__Create_cart_Add_produ_____1_.rcov" NAME="Cart# Create cart Add produ... (1) Coverage Results" MODIFIED="1601049916427" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="waydda" />
+    <SUITE FILE_PATH="coverage/waydda@Dashboard__AggregateCategor___.rcov" NAME="Dashboard::AggregateCategor... Coverage Results" MODIFIED="1601594563133" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="waydda" />
     <SUITE FILE_PATH="coverage/waydda@Rails.rcov" NAME="Rails Coverage Results" MODIFIED="1600915770485" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="waydda" />
     <SUITE FILE_PATH="coverage/waydda@Dashboard__ProductsControll_____1_.rcov" NAME="Dashboard::ProductsControll... (1) Coverage Results" MODIFIED="1601851812505" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="waydda" />
-    <SUITE FILE_PATH="coverage/waydda@AggregateCategoriesControll___.rcov" NAME="AggregateCategoriesControll... Coverage Results" MODIFIED="1601592661468" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="waydda" />
-    <SUITE FILE_PATH="coverage/waydda@Dashboard__AggregateCategor_____4_.rcov" NAME="Dashboard::AggregateCategor... (4) Coverage Results" MODIFIED="1601596008022" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="waydda" />
-    <SUITE FILE_PATH="coverage/waydda@Product_Fields_model.rcov" NAME="Product Fields model Coverage Results" MODIFIED="1602439166654" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="waydda" />
-    <SUITE FILE_PATH="coverage/waydda@AggregateCategory_model_met___.rcov" NAME="AggregateCategory model met... Coverage Results" MODIFIED="1602440162737" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="waydda" />
-    <SUITE FILE_PATH="coverage/waydda@Cart__Create_cart_Add_produ_____2_.rcov" NAME="Cart# Create cart Add produ... (2) Coverage Results" MODIFIED="1601050018903" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="waydda" />
-    <SUITE FILE_PATH="coverage/waydda@Cart.rcov" NAME="Cart Coverage Results" MODIFIED="1601050157968" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="waydda" />
-    <SUITE FILE_PATH="coverage/waydda@Dashboard__AggregateCategor_____2_.rcov" NAME="Dashboard::AggregateCategor... (2) Coverage Results" MODIFIED="1601595318211" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="waydda" />
-    <SUITE FILE_PATH="coverage/waydda@AggregateCategory.rcov" NAME="AggregateCategory Coverage Results" MODIFIED="1602439705813" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="waydda" />
-    <SUITE FILE_PATH="coverage/waydda@Dashboard__ProductsControll___.rcov" NAME="Dashboard::ProductsControll... Coverage Results" MODIFIED="1601853611990" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="waydda" />
-    <SUITE FILE_PATH="coverage/waydda@AggregateCategory_Un_Auth_G___.rcov" NAME="AggregateCategory Un Auth G... Coverage Results" MODIFIED="1601592419532" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="waydda" />
-    <SUITE FILE_PATH="coverage/waydda@Dashboard__ProductsControll_____4_.rcov" NAME="Dashboard::ProductsControll... (4) Coverage Results" MODIFIED="1601853350729" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="waydda" />
-    <SUITE FILE_PATH="coverage/waydda@AggregateCategory__1_.rcov" NAME="AggregateCategory (1) Coverage Results" MODIFIED="1601591999548" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="waydda" />
-    <SUITE FILE_PATH="coverage/waydda@Dashboard__AggregateCategor_____5_.rcov" NAME="Dashboard::AggregateCategor... (5) Coverage Results" MODIFIED="1601596113086" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="waydda" />
-    <SUITE FILE_PATH="coverage/waydda@Product_Valid_aggregates.rcov" NAME="Product Valid aggregates Coverage Results" MODIFIED="1600914307672" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="waydda" />
-    <SUITE FILE_PATH="coverage/waydda@AggregateCategory_Save_record.rcov" NAME="AggregateCategory Save record Coverage Results" MODIFIED="1601590972512" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="waydda" />
-    <SUITE FILE_PATH="coverage/waydda@AggregateCategory_Save_reco___.rcov" NAME="AggregateCategory Save reco... Coverage Results" MODIFIED="1602439891498" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="waydda" />
-    <SUITE FILE_PATH="coverage/waydda@Dashboard__AggregateCategor_____3_.rcov" NAME="Dashboard::AggregateCategor... (3) Coverage Results" MODIFIED="1601596084350" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="waydda" />
+    <SUITE FILE_PATH="coverage/waydda@Places_GET__places.rcov" NAME="Places GET /places Coverage Results" MODIFIED="1603126631617" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="waydda" />
     <SUITE FILE_PATH="coverage/waydda@Dashboard__ProductsController.rcov" NAME="Dashboard::ProductsController Coverage Results" MODIFIED="1601854133736" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="waydda" />
+    <SUITE FILE_PATH="coverage/waydda@Dashboard__AggregateCategor_____1_.rcov" NAME="Dashboard::AggregateCategor... (1) Coverage Results" MODIFIED="1601593843052" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="waydda" />
+    <SUITE FILE_PATH="coverage/waydda@AggregateCategory.rcov" NAME="AggregateCategory Coverage Results" MODIFIED="1602439705813" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="waydda" />
+    <SUITE FILE_PATH="coverage/waydda@Dashboard__ProductsControll_____4_.rcov" NAME="Dashboard::ProductsControll... (4) Coverage Results" MODIFIED="1601853350729" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="waydda" />
+    <SUITE FILE_PATH="coverage/waydda@Dashboard__AggregateCategor_____3_.rcov" NAME="Dashboard::AggregateCategor... (3) Coverage Results" MODIFIED="1601596084350" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="waydda" />
+    <SUITE FILE_PATH="coverage/waydda@AggregateCategory_Un_Auth.rcov" NAME="AggregateCategory Un Auth Coverage Results" MODIFIED="1601591967707" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="waydda" />
+    <SUITE FILE_PATH="coverage/waydda@Dashboard__ProductsControll_____5_.rcov" NAME="Dashboard::ProductsControll... (5) Coverage Results" MODIFIED="1601851818129" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="waydda" />
     <SUITE FILE_PATH="coverage/waydda@Product.rcov" NAME="Product Coverage Results" MODIFIED="1602438069888" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="waydda" />
+    <SUITE FILE_PATH="coverage/waydda@Cart__Create_cart_Add_produ___.rcov" NAME="Cart# Create cart Add produ... Coverage Results" MODIFIED="1601005601072" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="waydda" />
+    <SUITE FILE_PATH="coverage/waydda@Cart__Create_cart_Add_produ_____2_.rcov" NAME="Cart# Create cart Add produ... (2) Coverage Results" MODIFIED="1601050018903" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="waydda" />
     <SUITE FILE_PATH="coverage/waydda@Dashboard__ProductsControll_____2_.rcov" NAME="Dashboard::ProductsControll... (2) Coverage Results" MODIFIED="1601852178969" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="waydda" />
   </component>
 </project>

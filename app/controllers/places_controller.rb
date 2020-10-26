@@ -4,7 +4,7 @@ class PlacesController < ApplicationController
   before_action :validate_my_identity, except: [:show, :new, :index, :catalog]
   before_action :set_current_cart, only: [:show, :catalog]
   before_action :set_line_items, only: [:show]
-  after_action :update_views, only: [:show]
+  # after_action :update_views, only: [:show]
 
   # GET /places
   # GET /places.json

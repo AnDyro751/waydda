@@ -18,6 +18,11 @@ if (element) {
 document.querySelector("#edit_product_<%=@product.id %>").parentNode.innerHTML = "<%= j render Dashboard::Products::Item.new(product: @product, place: @place) %>"
 window.customLazyLoad.update();
 <% end %>
+<% if @in_variants %>
+Turbolinks.clearCache();
+window.persistScroll();
+Turbolinks.visit(window.location.pathname);
+<% end %>
 window.addToastify("primary", "Se ha actualizado el producto")
 <% end %>
 

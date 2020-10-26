@@ -77,6 +77,7 @@ Rails.application.routes.draw do
       get "/edit/variants", to: "products#edit_variants", as: :edit_variants
       get "/edit/variants/new", to: "aggregate_categories#new", as: :new_variant
       get "/edit/variants/:id", to: "aggregate_categories#show", as: :edit_variant
+      # patch "/edit/variants/:id", to: "aggregate_categories#update", as: :update_variant
       resources :aggregate_categories, :path => 'variants' do
         resources :aggregates
       end

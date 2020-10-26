@@ -12,7 +12,7 @@
   <div class="w-full px-4 mb-4 pt-4 <%= border_color %>">
     <div class="flex w-full flex-wrap">
       <p class="<%= label_color_class(size: "big") %> inline w-full mb-3">Foto del producto</p>
-      <div class="border-2 rounded hover:shadow-xl transition duration-150" >
+      <div class="border-2 rounded hover:shadow-xl transition duration-150">
         <label
           class="h-48 relative w-48 mt-2 bg-main-gray cursor-pointer"
         >
@@ -30,7 +30,7 @@
     <div class="UppyInput-Progress w-full mt-8"></div>
   </div>
   <div class="w-full">
-    <%= render Dashboard::Products::Layout.new(product: @product) %>
+    <%= render Dashboard::Products::Layout.new(product: @product, action_name: action_name) %>
   </div>
 </div>
 

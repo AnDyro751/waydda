@@ -1,12 +1,14 @@
 <%= simple_form_for(@product, url: dashboard_product_path(@product), remote: true, html: {class: "w-full grid grid-cols-12 p-4 #{helpers.border_color} mb-4 hover:bg-main-gray #{@product.inactive? ? "opacity-50" : ""}"}) do |f| %>
   <%= f.input :typo, as: :hidden, input_html: {value: "list"} %>
   <div class="col-span-1">
-    <img
-      class="lazy rounded h-16 w-16 bg-blue-200"
-      data-src="<%= helpers.get_image_url(50, 50, @product.photo, "cover") %>"
-      src="<%= helpers.get_image_url(10, 10, @product.photo, "cover") %>"
-      alt="<%= @product.name %> image"
-    >
+    <%= link_to dashboard_product_path(@product) do %>
+      <img
+        class="lazy rounded h-16 w-16 bg-blue-200"
+        data-src="<%= helpers.get_image_url(50, 50, @product.photo, "cover") %>"
+        src="<%= helpers.get_image_url(10, 10, @product.photo, "cover") %>"
+        alt="<%= @product.name %> image"
+      >
+    <% end %>
   </div>
   <div class="col-span-10">
     <div class="grid grid-cols-12">

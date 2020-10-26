@@ -178,19 +178,23 @@ window.addToastify = function addToastify(color = "primary", text = "") {
     }).showToast();
 }
 Turbolinks.scroll = {};
+let scrollPosition = null;
 
 window.persistScroll = function (more = 0) {
     console.log("PERSISTIENDO A ", document.scrollingElement.scrollTop)
     Turbolinks.scroll['top'] = document.scrollingElement.scrollTop;
+    document.addEventListener("turbolinks:before-render", () => {
+        scrollPosition = window.scrollY;
+    }, {once: true})
 };
 
-document.addEventListener("turbolinks:load", () => {
-
-
+const turbolinksPersistScroll = () => {
+    if (scrollPosition) {
+        window.scrollTo(0, scrollPosition);
+        scrollPosition = null;
+    }
     const elements = document.querySelectorAll("[data-turbolinks-scroll]");
-
     elements.forEach(function (element) {
-
         element.addEventListener("click", () => {
             console.log("Click para", document.scrollingElement.scrollTop)
             Turbolinks.scroll['top'] = document.scrollingElement.scrollTop;
@@ -209,6 +213,12 @@ document.addEventListener("turbolinks:load", () => {
 
     Turbolinks.scroll = {};
 
+}
+
+document.addEventListener('turbolinks:render', turbolinksPersistScroll)
+document.addEventListener("turbolinks:load", () => {
+    console.log("LOAD")
+    turbolinksPersistScroll();
     window.Toastify = Toastify;
 
     // function logElementEvent(eventName, element) {

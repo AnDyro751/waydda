@@ -3,8 +3,8 @@ class Dashboard::ProductsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_my_place
   before_action :set_product, only: [:show, :edit, :update, :update_status, :destroy, :edit_inventory, :edit_variants]
+  before_action :set_aggregate_category_item, only: [:update]
   add_breadcrumb "Productos", :dashboard_products_path
-
 
   def index
     set_meta_tags title: "Productos | Panel de control",
@@ -72,10 +72,15 @@ class Dashboard::ProductsController < ApplicationController
   end
 
   def update
+
     respond_to do |format|
       @typo = params["product"]["typo"].present?
       begin
-        params["product"]["status"] = params["product"]["status"] === "on" ? "active" : "inactive"
+        params["product"]["status"] = if params["product"]["status"].present?
+                                        params["product"]["status"] === "on" ? "active" : "inactive"
+                                      else
+                                        @product.status
+                                      end
         old_items = []
         new_items = []
 
@@ -103,7 +108,8 @@ class Dashboard::ProductsController < ApplicationController
             Product.update_recent_products(item_ids: new_item_ids.pluck(:id).map(&:to_s), product: @product, action: "create")
             # vamos a agregar a los productos recientes de cada item que tiene
             # Si tiene el item de "new" entonces vamos a agregar un recent product a new
-          else # el status anterior era active
+          else
+            # el status anterior era active
             # Tenemos que eliminar de todos los recent_products
             current_items = @place.items.includes(:recent_products).where(:recent_product_ids.in => [@product.id]) # traemos todos los recent_products que contengan está relación para después eliminarlos
             Product.update_recent_products(item_ids: current_items.pluck(:id).map(&:to_s), product: @product, action: "delete")
@@ -168,9 +174,18 @@ class Dashboard::ProductsController < ApplicationController
     not_found if @product.nil?
   end
 
+  def set_aggregate_category_item
+    if params["product"]["aggregate_categories_attributes"].present?
+      @in_variants = params["product"]["aggregate_categories_attributes"].present?
+      begin
+        @aggregate_category_item = @product.aggregate_categories.find("5f9643aa04e4140ed351e4a3")
+      end
+    end
+  end
+
 
   # Only allow a list of trusted parameters through.
   def product_params
-    params.require(:product).permit(:name, :description, :price, :status, :weight, :aggregates_required, :sku, :max_aggregates, :public_stock, :unlimited, :quantity, :quantity_measure, item_ids: [], aggregate_categories_attributes: [:name, :id, :required, :multiple_selection, aggregates_attributes: [:name, :price, :sku, :public_stock, :quantity, :unlimited, :id]])
+    params.require(:product).permit(:name, :description, :price, :status, :weight, :aggregates_required, :sku, :max_aggregates, :public_stock, :unlimited, :quantity, :quantity_measure, item_ids: [], aggregate_categories_attributes: [:name, :id, :required, :multiple_selection, aggregates_attributes: [:_id, :name, :price, :sku, :public_stock, :quantity, :unlimited, :id]])
   end
 end
