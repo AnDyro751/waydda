@@ -21,7 +21,6 @@
   <component name="ChangeListManager">
     <list default="true" id="b89cb0fb-b680-4bb9-8ae0-f4b41721cfb9" name="Default Changelist" comment="feat(Place): Mostramos las variantes y las seleccionamos">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/components/Products/ViewModal/index.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/components/Products/ViewModal/index.html.erb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/views/products/show.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/products/show.html.erb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -810,13 +809,8 @@
       <workItem from="1603541525785" duration="600000" />
       <workItem from="1603682905917" duration="6467000" />
       <workItem from="1603750346262" duration="3438000" />
-    </task>
-    <task id="LOCAL-00357" summary="feat(Dashboard): Agregamos la validación del delivery kind al carrito y mostramos un mensaje al actualizar el método de envío en el place">
-      <created>1603063876626</created>
-      <option name="number" value="00357" />
-      <option name="presentableId" value="LOCAL-00357" />
-      <option name="project" value="LOCAL" />
-      <updated>1603063876626</updated>
+      <workItem from="1603944160108" duration="624000" />
+      <workItem from="1604083118354" duration="1449000" />
     </task>
     <task id="LOCAL-00358" summary="feat(Dashboard): Mostramos un pequeño mensaje para dar a entender que el lugar que vista está lejos de ese lugar">
       <created>1603065380835</created>
@@ -1154,7 +1148,14 @@
       <option name="project" value="LOCAL" />
       <updated>1603753785751</updated>
     </task>
-    <option name="localTasksCounter" value="406" />
+    <task id="LOCAL-00406" summary="PUSH">
+      <created>1603945232017</created>
+      <option name="number" value="00406" />
+      <option name="presentableId" value="LOCAL-00406" />
+      <option name="project" value="LOCAL" />
+      <updated>1603945232018</updated>
+    </task>
+    <option name="localTasksCounter" value="407" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -1174,7 +1175,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="feat(Dashboard): Esto funciona, pero no es la solución que me agrade" />
     <MESSAGE value="feat(Dashboard): Agregamos el html pequeño para mostrar los productos que tiene el departamento" />
     <MESSAGE value="feat(Dashboard): Actualizamos el window.location por el turbolinks visit" />
     <MESSAGE value="feat(Dashboard): Arreglamos los multiples loads" />
@@ -1199,7 +1199,8 @@
     <MESSAGE value="feat(Place): Removemos el caché y ya funciona sin problemas" />
     <MESSAGE value="feat(Place): Agregamos los breadcrumbs en la vista de show" />
     <MESSAGE value="feat(Place): Mostramos las variantes y las seleccionamos" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat(Place): Mostramos las variantes y las seleccionamos" />
+    <MESSAGE value="PUSH" />
+    <option name="LAST_COMMIT_MESSAGE" value="PUSH" />
   </component>
   <component name="WindowStateProjectService">
     <state x="392" y="0" key="#All_specs_in_spec:_waydda" timestamp="1598730457189">
@@ -1343,13 +1344,13 @@
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="628" y="298" key="com.jetbrains.plugins.remotesdk.ui.RemoteMappingsConfiguration/0.0.1366.768@0.0.1366.768" timestamp="1598729856431" />
-    <state x="390" y="117" width="791" height="624" key="find.popup" timestamp="1603754391843">
+    <state x="390" y="117" width="791" height="624" key="find.popup" timestamp="1604083614321">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="1914" y="96" width="823" height="878" key="find.popup/0.0.1366.768/1366.-69.1920.1080@1366.-69.1920.1080" timestamp="1597716285449" />
     <state x="1754" y="117" width="583" height="624" key="find.popup/0.0.1366.768/1366.0.1360.768@1366.0.1360.768" timestamp="1598981376119" />
     <state x="1914" y="165" width="823" height="878" key="find.popup/0.0.1366.768/1366.0.1920.1080@1366.0.1920.1080" timestamp="1599260651210" />
-    <state x="390" y="117" width="791" height="624" key="find.popup/0.0.1366.768@0.0.1366.768" timestamp="1603754391843" />
+    <state x="390" y="117" width="791" height="624" key="find.popup/0.0.1366.768@0.0.1366.768" timestamp="1604083614321" />
     <state x="549" y="254" width="250" height="278" key="jetbrains.javascript.buildTools.run-task-popup" timestamp="1597946321130">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
