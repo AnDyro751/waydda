@@ -65,14 +65,12 @@
           <% end %>
         </div>
       </div>
-
-
       <div class="w-full mt-10 <%= if @current_cart.delivery_kind === "pickup"
                                      ""
                                    else
                                      "hidden"
                                    end %>" id="pickup-address">
-        <%= render(Carts::Address::Pickup.new(place: @place)) %>
+        <%= render(Carts::Address::Pickup.new(place: @place, available_distance: @available_distance)) %>
       </div>
       <div class="w-full mt-10 <%= if @current_cart.delivery_kind === "pickup"
                                      "hidden"
@@ -117,12 +115,11 @@
         </div>
         <div class="w-full flex flex-wrap px-4" id="cart-current-payment">
 
-          <% if @current_cart.payment_type === "cash" or !@place.can_accept_payment_method?(payment_method: "card") %>
+          <% if @current_cart.get_valid_payment_type(@place) === "cash" or !@place.can_accept_payment_method?(payment_method: "card") %>
             <%= render Carts::PaymentMethods::Cash.new(place: @place) %>
           <% end %>
 
-
-          <% if @current_cart.payment_type === 'card' and @place.can_accept_payment_method?(payment_method: "card") %>
+          <% if @current_cart.get_valid_payment_type(@place) === 'card' and @place.can_accept_payment_method?(payment_method: "card") %>
             <%= render Carts::PaymentMethods::Card.new(place: @place) %>
           <% end %>
 

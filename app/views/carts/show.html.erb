@@ -9,6 +9,6 @@
     <h4 class="text-center font-normal text-lg text-gray-800">Aún no tienes productos en tu carrito</h4>
   </div>
 <% else %>
-  <%= render Carts::Form.new(cart_items: @cart_items, address: @address, place: @place, current_cart: @current_cart, total: @total, current_user: current_user, current_address: @current_address) %>
+  <%= render Carts::Form.new(cart_items: @cart_items, address: @address, place: @place, current_cart: @current_cart, total: @total, current_user: current_user, current_address: @current_address, available_distance: @available_distance) %>
 <% end %>
 <!--CARDS-->

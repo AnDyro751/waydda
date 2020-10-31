@@ -1,9 +1,17 @@
+
 <div class="w-full border border-black shadow-main rounded">
   <%= render Headers::Text.new(title: "Detalles de recolección", small: true, padding_class: "py-6 px-4", font: "small", with_margin: false, padding_class: "px-4 py-6", with_border: true) do %>
     <%= link_to "Actualizar", my_profile_path, class: "#{helpers.main_color_button(color: "dark")}" %>
   <% end %>
 
   <div id="address-data" class="px-4 my-8">
+    <div class="w-full flex">
+      <% unless @available_distance %>
+        <div class="mb-8 flex ">
+          <%= render Utils::LongDistance.new %>
+        </div>
+      <% end %>
+    </div>
     <h3 class="font-normal text-gray-800 truncate flex items-center">
       <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
            viewBox="0 0 24 24"

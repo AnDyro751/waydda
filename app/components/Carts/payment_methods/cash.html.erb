@@ -1,6 +1,6 @@
 <div
   id="payment-with-cash"
-  class="w-full my-8 flex justify-end flex-wrap">
+  class="payment-with-cash w-full my-8 flex justify-end flex-wrap">
   <div class="w-full flex flex-wrap px-4 py-6 rounded bg-main-gray">
     <div class="w-full mx-auto py-4">
       <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
@@ -31,7 +31,7 @@
     <%= button_to "Realizar pedido", place_create_charge_path(@place), data: {"disable-with": "Finalizando pedido..."},
                   params: {payment_type: "cash"},
                   remote: true,
-                  class: helpers.main_color_button(color: "primary")
+                  class: helpers.main_color_button(color: "primary", size: "big", padding: "big")
     %>
   </div>
 </div>

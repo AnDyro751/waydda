@@ -8,8 +8,8 @@ class CartsController < ApplicationController
   before_action :set_current_cart_item, only: [:update_item]
   before_action :set_cart_items, only: [:show]
   before_action :set_current_address, only: [:create_charge]
+  before_action :set_available_distance, only: [:show]
   skip_before_action :verify_authenticity_token, only: [:update_item, :create_charge]
-
 
   def delivery_option
 
@@ -172,6 +172,10 @@ class CartsController < ApplicationController
       end
       @total = @total + Cart.get_total(@cart_items)
     end
+  end
+
+  def set_available_distance
+    @available_distance = @place.available_distance?(current_or_guest_user.get_ll)
   end
 
   def set_current_cart_item

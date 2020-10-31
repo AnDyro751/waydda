@@ -42,6 +42,18 @@ class Cart
     end
   end
 
+  def get_valid_payment_type(this_place)
+    if self.payment_type === "card"
+      if this_place.valid_payment_methods.length == 2
+        return "card"
+      else
+        return "cash"
+      end
+    else
+      return "cash"
+    end
+  end
+
   def self.get_total(old_items = nil)
     total = 0
     old_items.each do |i|

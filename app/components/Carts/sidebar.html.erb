@@ -15,4 +15,13 @@
     </h4>
   </div>
   <%= render Carts::TotalList.new(total: @total, current_cart: @current_cart, place: @place) %>
+  <% if @current_cart.get_valid_payment_type(@place) === "cash" %>
+    <div class="w-full pt-6 border-t">
+      <%= button_to "Realizar pedido", place_create_charge_path(@place), data: {"disable-with": "Finalizando pedido..."},
+                    params: {payment_type: "cash"},
+                    remote: true,
+                    class: "#{helpers.main_color_button(color: "primary", size: "big", padding: "big")} w-full"
+      %>
+    </div>
+  <% end %>
 </div>

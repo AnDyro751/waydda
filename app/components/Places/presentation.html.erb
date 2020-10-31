@@ -21,15 +21,7 @@
 <% end %>
 <% unless @available_distance %>
   <div class="<%= @size === "small" ? "w-10/12" : "w-11/12" %> mx-auto my-8 relative">
-    <span class="bg-black shadow-lg hover:shadow-2xl relative transition duration-150 w-auto px-4 font-normal text-sm py-3 rounded text-white">
-    <span class="animate-ping absolute inline-flex h-3 w-3 right-0 -mt-1  rounded-full bg-red-400 top-0 opacity-75"></span>
-    <span class="inline-flex rounded-full h-3 w-3 bg-red-500 right-0 -mt-1 absolute top-0"></span>
-    <img
-      class="inline h-4 w-4 mr-2"
-      alt="svgImg"
-      src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHg9IjBweCIgeT0iMHB4Igp3aWR0aD0iNTAiIGhlaWdodD0iNTAiCnZpZXdCb3g9IjAgMCAyMjYgMjI2IgpzdHlsZT0iIGZpbGw6IzAwMDAwMDsiPjxnIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0ibm9uemVybyIgc3Ryb2tlPSJub25lIiBzdHJva2Utd2lkdGg9IjEiIHN0cm9rZS1saW5lY2FwPSJidXR0IiBzdHJva2UtbGluZWpvaW49Im1pdGVyIiBzdHJva2UtbWl0ZXJsaW1pdD0iMTAiIHN0cm9rZS1kYXNoYXJyYXk9IiIgc3Ryb2tlLWRhc2hvZmZzZXQ9IjAiIGZvbnQtZmFtaWx5PSJub25lIiBmb250LXdlaWdodD0ibm9uZSIgZm9udC1zaXplPSJub25lIiB0ZXh0LWFuY2hvcj0ibm9uZSIgc3R5bGU9Im1peC1ibGVuZC1tb2RlOiBub3JtYWwiPjxwYXRoIGQ9Ik0wLDIyNnYtMjI2aDIyNnYyMjZ6IiBmaWxsPSJub25lIj48L3BhdGg+PGcgZmlsbD0iI2ZmZmZmZiI+PHBhdGggZD0iTTIxOS42NDAzNiwxODcuMTE0NDRsLTk0LjcyMTEyLC0xNjYuNTg0NmMtMi40ODE0OCwtNC4zNjE4IC02LjkzMzY4LC02Ljk2OTg0IC0xMS45MTkyNCwtNi45Njk4NGMtNC45ODU1NiwwIC05LjQzNzc2LDIuNjA4MDQgLTExLjkxOTI0LDYuOTY5ODRsLTk0LjcyMTEyLDE2Ni41ODQ2Yy0yLjQ5MDUyLDQuMzc5ODggLTIuNDYzNCw5LjYwMDQ4IDAuMDcyMzIsMTMuOTU3NzZjMi40OTUwNCw0LjI4OTQ4IDYuOTIwMTIsNi44NDc4IDExLjg0NjkyLDYuODQ3OGgxODkuNDQyMjRjNC45MjY4LDAgOS4zNTE4OCwtMi41NTgzMiAxMS44NDY5MiwtNi44NDc4YzIuNTM1NzIsLTQuMzU3MjggMi41NjI4NCwtOS41NzMzNiAwLjA3MjMyLC0xMy45NTc3NnpNMTIyLjA0LDE3Ni4yOGMwLDIuNDk1MDQgLTIuMDE1OTIsNC41MiAtNC41MTA5Niw0LjUyYy0yLjc2NjI0LDAgLTYuMjkxODQsMCAtOS4wNTgwOCwwYy0yLjQ5NTA0LDAgLTQuNTEwOTYsLTIuMDI0OTYgLTQuNTEwOTYsLTQuNTJ2LTkuMDRjMCwtMi40OTUwNCAyLjAxNTkyLC00LjUyIDQuNTEwOTYsLTQuNTJjMi43NjYyNCwwIDYuMjkxODQsMCA5LjA1MzU2LDBjMi40OTk1NiwwIDQuNTE1NDgsMi4wMjQ5NiA0LjUxNTQ4LDQuNTJ6TTEyMi4wNCwxNDQuNjRjMCwyLjQ5NTA0IC0yLjAyNDk2LDQuNTIgLTQuNTIsNC41MmMtMi43NjYyNCwwIC02LjI5MTg0LDAgLTkuMDUzNTYsMGMtMi40OTk1NiwwIC00LjUwNjQ0LC0yLjAyNDk2IC00LjUwNjQ0LC00LjUydi02My4yOGMwLC0yLjQ5NTA0IDIuMDE1OTIsLTQuNTIgNC41MTA5NiwtNC41MmMyLjc2NjI0LDAgNi4yOTE4NCwwIDkuMDUzNTYsMGMyLjQ5OTU2LDAgNC41MTU0OCwyLjAyNDk2IDQuNTE1NDgsNC41MnoiPjwvcGF0aD48L2c+PC9nPjwvc3ZnPg=="/>
-    Tu dirección actual está demasiado lejos de este lugar
-  </span>
+    <%= render Utils::LongDistance.new(size: @size) %>
   </div>
 <% end %>
 <!--<div class="w-full pb-4">-->
