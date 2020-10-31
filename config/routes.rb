@@ -1,5 +1,10 @@
 Rails.application.routes.draw do
 
+  namespace :dashboard do
+    get 'sales/index'
+    get 'sales/show'
+    get 'sales/edit'
+  end
   root 'home#index'
   # TODO: Agregar seguridad a esto
   mount Split::Dashboard, at: 'split'
@@ -83,7 +88,8 @@ Rails.application.routes.draw do
       end
     end
     # Places
-    get "/my-sales", to: "places#sales", as: "my_sales"
+    resources :sales
+    get "/my-sales", to: "sales#index", as: "my_sales"
     delete "/delete-place", to: "places#destroy", as: "destroy_my_place"
     get "/settings", to: "places#edit", as: "edit_my_place"
     get "/settings/general", to: "settings#general", as: "edit_general_my_place"
