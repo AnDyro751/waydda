@@ -1,1 +1,5 @@
 <%= render Headers::Text.new(title: "Mis ventas", small: false) %>
+
+<div class="w-full mx-auto my-12 flex justify-center ">
+  <%= will_paginate @sales, class: "apple_pagination" %>
+</div>

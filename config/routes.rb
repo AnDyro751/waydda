@@ -1,10 +1,5 @@
 Rails.application.routes.draw do
 
-  namespace :dashboard do
-    get 'sales/index'
-    get 'sales/show'
-    get 'sales/edit'
-  end
   root 'home#index'
   # TODO: Agregar seguridad a esto
   mount Split::Dashboard, at: 'split'
