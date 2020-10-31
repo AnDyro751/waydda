@@ -223,7 +223,7 @@ class Product
 
   def get_truncate(quantity = 1)
     if quantity >= 51
-      return 20
+      return 51
     else
       return quantity
     end
@@ -232,7 +232,7 @@ class Product
   def get_public_stock
     if self.public_stock <= 0
       if self.unlimited
-        return 20
+        return 51
       else
         return 0
       end

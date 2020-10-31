@@ -4,6 +4,7 @@ document.addEventListener("turbolinks:load", function () {
     var sidebarElement = document.querySelector("#sidebar-toggle-overlay")
     if (sidebarElement) {
         sidebarElement.addEventListener("click", () => {
+            document.querySelector("body").classList.remove("overflow-hidden");
             sidebarElement.classList.add("hidden");
             document.querySelector("#sidebar-toggle-content").classList.add("hidden");
         })

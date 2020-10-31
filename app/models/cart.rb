@@ -108,11 +108,16 @@ class Cart
         logger.warn "CURRENT CART ITEM ES NULO"
         self.create_cart_item(product: product, aggregates: aggregates, quantity: quantity)
       else
-        return current_cart_item.update_quantity(quantity: quantity)
+        if (current_cart_item.quantity + quantity) > product.get_public_stock
+          raise "No puedes agregar más productos al carrito"
+          return false
+        else
+          return current_cart_item.update_quantity(quantity: quantity)
+        end
       end
     rescue => e
       logger.warn "Error al crear o actualizar item #{e}"
-      raise "Ha ocurrido un error al agregar el producto"
+      raise "#{e}"
       return false
     end
   end
@@ -122,6 +127,8 @@ class Cart
   # @return [TrueClass]
   def create_cart_item(product:, aggregates:, quantity: 1)
     new_cart_item = self.cart_items.new(product: product, aggregates: aggregates, quantity: quantity)
+    return false if quantity > 51
+    raise "No puedes agregar tantos productos al carrito" if quantity > 51
     if new_cart_item.save
       new_cart_quantity = self.quantity + 1
       return self.update(quantity: new_cart_quantity)

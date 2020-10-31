@@ -81,7 +81,12 @@ class CartsController < ApplicationController
     respond_to do |format|
       @error = nil
       begin
-        if @current_cart.add_item(product: @product, place: @place, quantity: params["cart_item"].present? ? (params["cart_item"]["quantity"] || 1).to_i : 1, aggregates: Cart.seralize_params(params: params))
+        puts "-----------------NUEVA CANTIDAD AL CARRITO #{params["cart_item"]["quantity"].to_i}"
+        if @current_cart.add_item(product: @product, place: @place, quantity: if params["cart_item"].present?
+                                                                                (params["cart_item"]["quantity"] || 1).to_i > 0 ? (params["cart_item"]["quantity"] || 1).to_i : 1
+                                                                              else
+                                                                                1
+                                                                              end, aggregates: Cart.seralize_params(params: params))
           format.js
         else
           @error = "Ha ocurrido un error"
