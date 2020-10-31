@@ -54,11 +54,11 @@ class CartItem
     return new_price
   end
 
-  def update_quantity(quantity:, force: false, add: true)
+  def update_quantity(quantity: 1, force: false, add: true)
     this_product = self.product
     if quantity > this_product.public_stock
       unless this_product.unlimited
-        raise "Ha ocurrido un error al actualizar la cantidad"
+        raise "Ha ocurrido un error al agregar el producto al carrito"
         return false
       end
     end

@@ -1,5 +1,5 @@
 <% content_for :sticky do %>
-  <%= render Places::Menu.new(delivery_option: @delivery_option, place: @place, current_cart: @current_cart) %>
+  <%= render Places::Menu.new(delivery_option: @delivery_option, place: @place, current_cart: @current_cart, size: @size) %>
 <% end %>
 <% content_for :content do %>
   <% if @with_cover %>
@@ -20,7 +20,7 @@
   <% end %>
 <% end %>
 <% unless @available_distance %>
-  <div class="w-10/12 mx-auto my-8 relative">
+  <div class="<%= @size === "small" ? "w-10/12" : "w-11/12" %> mx-auto my-8 relative">
     <span class="bg-black shadow-lg hover:shadow-2xl relative transition duration-150 w-auto px-4 font-normal text-sm py-3 rounded text-white">
     <span class="animate-ping absolute inline-flex h-3 w-3 right-0 -mt-1  rounded-full bg-red-400 top-0 opacity-75"></span>
     <span class="inline-flex rounded-full h-3 w-3 bg-red-500 right-0 -mt-1 absolute top-0"></span>
@@ -43,19 +43,22 @@
 <%# end %>
 <!--  </div>-->
 <!--</div>-->
-<div class="w-full mb-8 justify-center flex">
-  <div class="w-10/12 mx-auto">
-    <h1 class="text-4xl font-bold text-gray-900"><%= @place.name %></h1>
-    <div class="w-auto flex items-center mt-3">
-      <div class="w-auto mr-2">
-        <img
-          load="lazy"
-          class="h-5 opacity-75"
-          src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABmJLR0QA/wD/AP+gvaeTAAABqklEQVRoge3ZMWsUQRiH8V+SImARUnhgYroQUAQrm4Ck0UK/gZ8ggWC00EoLwQ8gWASEFAp2FtaCooitEDAQhQQCEsWQxsKkiZ4WtweHucvd7M7diJkH3nL+7/vsws7uDplMJpOSoYrrx3ENcxjGKp5jo2Ju35nFE+zjd5taxR3MlMhdwaeiHmEyysQaV/s6Pmg/dKfqJtMtdxtTVQa/gMfYCxy8m8xsQO7TMoMPYRn1CINXrd0yAjcCm7zB2aJu4h1+RZQIZj2wwXSbjEks4W0EmWAOIjc4hcVCZiAC/WxwK1b+URtZ6FAhm+IJjadP5fxUAtHyhwND/jmyQGqyQGqyQGqyQGqyQGqyQGqyQGpiCoxEzOqZmAKXImZFIfSb9Tvu4Uwf8uuDEGittULmXIfsk4F5nwct0FrruI/zRe4IHgZmPCgj8COiRLO+4FvgmvcYKyPwuscGW7iLBbzCz0iyW7iN0TLDw0Wd/84daBxkXHH4SVarIHNUbiku42NLg02Nqz3R4/oa5vGyi0zzLkY7zPib0xHCmzIvsIOveIar/oM3gkwmc1z5AzWXmPF9iwImAAAAAElFTkSuQmCC"/>
-      </div>
-      <div class="w-auto">
-        <h5 class="text-base text-gray-700 font-normal"><%= @place.address %></h5>
+<% if @with_data %>
+  <div class="w-full mb-8 justify-center flex">
+    <div class="<%= @size === "small" ? "w-10/12" : "w-11/12" %> mx-auto">
+      <h1 class="text-4xl font-bold text-gray-900"><%= @place.name %></h1>
+      <div class="w-auto flex items-center mt-3">
+        <div class="w-auto mr-2">
+          <img
+            load="lazy"
+            class="h-5 opacity-75"
+            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABmJLR0QA/wD/AP+gvaeTAAABqklEQVRoge3ZMWsUQRiH8V+SImARUnhgYroQUAQrm4Ck0UK/gZ8ggWC00EoLwQ8gWASEFAp2FtaCooitEDAQhQQCEsWQxsKkiZ4WtweHucvd7M7diJkH3nL+7/vsws7uDplMJpOSoYrrx3ENcxjGKp5jo2Ju35nFE+zjd5taxR3MlMhdwaeiHmEyysQaV/s6Pmg/dKfqJtMtdxtTVQa/gMfYCxy8m8xsQO7TMoMPYRn1CINXrd0yAjcCm7zB2aJu4h1+RZQIZj2wwXSbjEks4W0EmWAOIjc4hcVCZiAC/WxwK1b+URtZ6FAhm+IJjadP5fxUAtHyhwND/jmyQGqyQGqyQGqyQGqyQGqyQGqyQGpiCoxEzOqZmAKXImZFIfSb9Tvu4Uwf8uuDEGittULmXIfsk4F5nwct0FrruI/zRe4IHgZmPCgj8COiRLO+4FvgmvcYKyPwuscGW7iLBbzCz0iyW7iN0TLDw0Wd/84daBxkXHH4SVarIHNUbiku42NLg02Nqz3R4/oa5vGyi0zzLkY7zPib0xHCmzIvsIOveIar/oM3gkwmc1z5AzWXmPF9iwImAAAAAElFTkSuQmCC"/>
+        </div>
+        <div class="w-auto">
+          <h5 class="text-base text-gray-700 font-normal"><%= @place.address %></h5>
+        </div>
       </div>
     </div>
   </div>
-</div>
+<% end %>
+

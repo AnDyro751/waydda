@@ -2,6 +2,17 @@
   <div class="w-full my-4 py-4 breadcrumbs text-sm flex">
     <%= render_breadcrumbs :separator => '&#160;/&#160;', tag: "div" %>
   </div>
+  <div class="w-full mx-auto mb-8 relative">
+    <span class="bg-black shadow-lg hover:shadow-2xl relative transition duration-150 w-auto px-4 font-normal text-sm py-3 rounded text-white">
+    <span class="animate-ping absolute inline-flex h-3 w-3 right-0 -mt-1  rounded-full bg-red-400 top-0 opacity-75"></span>
+    <span class="inline-flex rounded-full h-3 w-3 bg-red-500 right-0 -mt-1 absolute top-0"></span>
+    <img
+      class="inline h-4 w-4 mr-2"
+      alt="svgImg"
+      src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHg9IjBweCIgeT0iMHB4Igp3aWR0aD0iNTAiIGhlaWdodD0iNTAiCnZpZXdCb3g9IjAgMCAyMjYgMjI2IgpzdHlsZT0iIGZpbGw6IzAwMDAwMDsiPjxnIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0ibm9uemVybyIgc3Ryb2tlPSJub25lIiBzdHJva2Utd2lkdGg9IjEiIHN0cm9rZS1saW5lY2FwPSJidXR0IiBzdHJva2UtbGluZWpvaW49Im1pdGVyIiBzdHJva2UtbWl0ZXJsaW1pdD0iMTAiIHN0cm9rZS1kYXNoYXJyYXk9IiIgc3Ryb2tlLWRhc2hvZmZzZXQ9IjAiIGZvbnQtZmFtaWx5PSJub25lIiBmb250LXdlaWdodD0ibm9uZSIgZm9udC1zaXplPSJub25lIiB0ZXh0LWFuY2hvcj0ibm9uZSIgc3R5bGU9Im1peC1ibGVuZC1tb2RlOiBub3JtYWwiPjxwYXRoIGQ9Ik0wLDIyNnYtMjI2aDIyNnYyMjZ6IiBmaWxsPSJub25lIj48L3BhdGg+PGcgZmlsbD0iI2ZmZmZmZiI+PHBhdGggZD0iTTIxOS42NDAzNiwxODcuMTE0NDRsLTk0LjcyMTEyLC0xNjYuNTg0NmMtMi40ODE0OCwtNC4zNjE4IC02LjkzMzY4LC02Ljk2OTg0IC0xMS45MTkyNCwtNi45Njk4NGMtNC45ODU1NiwwIC05LjQzNzc2LDIuNjA4MDQgLTExLjkxOTI0LDYuOTY5ODRsLTk0LjcyMTEyLDE2Ni41ODQ2Yy0yLjQ5MDUyLDQuMzc5ODggLTIuNDYzNCw5LjYwMDQ4IDAuMDcyMzIsMTMuOTU3NzZjMi40OTUwNCw0LjI4OTQ4IDYuOTIwMTIsNi44NDc4IDExLjg0NjkyLDYuODQ3OGgxODkuNDQyMjRjNC45MjY4LDAgOS4zNTE4OCwtMi41NTgzMiAxMS44NDY5MiwtNi44NDc4YzIuNTM1NzIsLTQuMzU3MjggMi41NjI4NCwtOS41NzMzNiAwLjA3MjMyLC0xMy45NTc3NnpNMTIyLjA0LDE3Ni4yOGMwLDIuNDk1MDQgLTIuMDE1OTIsNC41MiAtNC41MTA5Niw0LjUyYy0yLjc2NjI0LDAgLTYuMjkxODQsMCAtOS4wNTgwOCwwYy0yLjQ5NTA0LDAgLTQuNTEwOTYsLTIuMDI0OTYgLTQuNTEwOTYsLTQuNTJ2LTkuMDRjMCwtMi40OTUwNCAyLjAxNTkyLC00LjUyIDQuNTEwOTYsLTQuNTJjMi43NjYyNCwwIDYuMjkxODQsMCA5LjA1MzU2LDBjMi40OTk1NiwwIDQuNTE1NDgsMi4wMjQ5NiA0LjUxNTQ4LDQuNTJ6TTEyMi4wNCwxNDQuNjRjMCwyLjQ5NTA0IC0yLjAyNDk2LDQuNTIgLTQuNTIsNC41MmMtMi43NjYyNCwwIC02LjI5MTg0LDAgLTkuMDUzNTYsMGMtMi40OTk1NiwwIC00LjUwNjQ0LC0yLjAyNDk2IC00LjUwNjQ0LC00LjUydi02My4yOGMwLC0yLjQ5NTA0IDIuMDE1OTIsLTQuNTIgNC41MTA5NiwtNC41MmMyLjc2NjI0LDAgNi4yOTE4NCwwIDkuMDUzNTYsMGMyLjQ5OTU2LDAgNC41MTU0OCwyLjAyNDk2IDQuNTE1NDgsNC41MnoiPjwvcGF0aD48L2c+PC9nPjwvc3ZnPg=="/>
+    Tu dirección actual está demasiado lejos de este lugar
+  </span>
+  </div>
   <div class="w-full flex space-x-8 bg-white rounded shadow p-4 justify-between">
     <div class="w-7/12">
       <img
@@ -12,16 +23,41 @@
     </div>
     <div class="w-4/12 border border-gray-300 flex px-3 py-5 rounded flex-wrap self-start">
       <div class="w-full">
+        <% if @product.get_public_stock <= 0 %>
+          <div class="w-full mt-4 mb-8">
+            <div class="w-full bg-red-600 p-3 text-sm font-medium rounded shadow transition duration-100 hover:shadow-lg text-white">
+              <span>Producto no disponible</span>
+            </div>
+          </div>
+        <% end %>
         <h1 class="text-2xl font-medium text-gray-900 mb-2 w-full"><%= @product.name %></h1>
         <h2 class="text-gray-700 w-full mb-4"><%= @product.description %></h2>
-        <h3 class="text-2xl font-normal mb-4"><%= number_to_currency(@product.price) %></h3>
+        <h3 class="text-2xl font-normal mb-h"><%= number_to_currency(@product.price) %></h3>
       </div>
       <%= simple_form_for(@product, url: place_product_add_to_cart_path(@place.slug, @product.slug), method: :post, remote: true, html: {class: "w-full flex flex-wrap"}) do |f| %>
         <div class="w-full">
           <%= render Products::Variants::List::Index.new(product: @product) %>
         </div>
+        <div class="w-full">
+          <label for="cart_item[quantity]" class="<%= label_color_class(size: "small") %>">Cantidad</label>
+          <select
+            <%= @product.get_public_stock <= 0 ? "disabled" : "" %>
+            name="cart_item[quantity]"
+            class="truncate block appearance-none w-full bg-white border border-gray-400 mt-3 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none"
+          >
+            <% (1..@product.get_public_stock).each do |a| %>
+              <option
+                value="<%= a %>">
+                <%= a %>
+              </option>
+            <% end %>
+          </select>
+        </div>
         <div class="w-full mt-8">
-          <%= f.submit "Agregar al carrito", data: {disable_with: "Agregando..."}, class: "#{main_color_button(color: "primary", size: "big", padding: "big") } w-full" %>
+          <%= f.submit "Agregar al carrito",
+                       data: {disable_with: "Agregando..."},
+                       class: "#{main_color_button(color: "primary", size: "big", padding: "big") } w-full"
+          %>
         </div>
       <% end %>
     </div>
