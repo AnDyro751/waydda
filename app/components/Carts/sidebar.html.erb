@@ -1,6 +1,9 @@
 <div class="w-4/12 flex flex-wrap">
-  <div class="w-full h-64 bg-main-gray" id="address-map">
-    <!--        MAPA-->
+  <div class="w-full h-64 bg-main-gray" id="address-map2">
+    <div
+      class="w-full h-full bg-gray-400 rounded shadow-lg bg-cover bg-center bg-no-repeat"
+      style="background-image: url('https://api.mapbox.com/styles/v1/mapbox/streets-v11/static/pin-l-embassy+f74e4e(<%= @place.lng %>,<%= @place.lat %>)/<%= @place.lng %>,<%= @place.lat %>,14,0/420x360?access_token=pk.eyJ1IjoiYW5keXJvaG0iLCJhIjoiY2p6NmRldzJjMGsyMzNpbjJ0YjZjZjV5NSJ9.SeHsvxUe4-pszVk0B4gRAQ')"
+    ></div>
   </div>
   <div class="w-full mt-4">
     <!--        Place information-->
