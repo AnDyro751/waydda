@@ -14,6 +14,21 @@
       <% if @product.aggregate_categories.length > 0 %>
         <%= render Products::Variants::List::Index.new(product: @product) %>
       <% end %>
+      <div class="w-full">
+        <label for="cart_item[quantity]" class="<%= helpers.label_color_class(size: "small") %>">Cantidad</label>
+        <select
+          <%= @product.get_public_stock <= 0 ? "disabled" : "" %>
+          name="cart_item[quantity]"
+          class="truncate block appearance-none w-full bg-white border border-gray-400 mt-3 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none"
+        >
+          <% (1..@product.get_public_stock).each do |a| %>
+            <option
+              value="<%= a %>">
+              <%= a %>
+            </option>
+          <% end %>
+        </select>
+      </div>
     </div>
     <div class="w-full absolute bottom-0 left-0 right-0 p-4 bg-main-gray shadow">
       <%= f.submit "Agregar al carrito", data: {disable_with: "Agregando..."}, class: "#{helpers.main_color_button(color: "primary", size: "big", padding: "big") } w-full" %>
