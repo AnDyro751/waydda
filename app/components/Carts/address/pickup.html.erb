@@ -1,6 +1,5 @@
 <div class="w-full border border-black shadow-main rounded">
   <%= render Headers::Text.new(title: "Detalles de recolección", small: true, padding_class: "py-6 px-4", font: "small", with_margin: false, padding_class: "px-4 py-6", with_border: true) %>
-
   <div id="address-data" class="px-4 my-8">
     <% if current_page?(place_edit_my_cart_path(@place.slug)) %>
       <%= render Address::Form.new(address: helpers.current_or_guest_user.current_address || helpers.current_or_guest_user.addresses.new, page_type: "#{place_my_cart_path(@place.slug)}") %>

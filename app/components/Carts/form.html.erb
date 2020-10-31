@@ -81,7 +81,7 @@
                                    end
       %>"
            id="cart-address">
-        <%= render(Carts::Address::Delivery.new(place: @place, address: @address)) %>
+        <%= render(Carts::Address::Delivery.new(place: @place, address: @address, current_cart: @current_cart)) %>
       </div>
       <div class="w-full border-black border shadow-main mt-10 bg-white rounded flex flex-wrap" id="cart-show-products">
         <%= render Carts::ListItems.new(cart_items: @cart_items, place: @place) %>
