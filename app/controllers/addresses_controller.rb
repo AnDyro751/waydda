@@ -2,7 +2,8 @@ class AddressesController < ApplicationController
 
   before_action :authenticate_user!, only: [:index]
   before_action :set_address, only: [:show, :edit, :update, :destroy]
-
+  before_action :set_page_type, only: [:update, :create]
+  # before_action :set_place, only: [:update, :create]
 
   # GET /addresses
   # GET /addresses.json
@@ -83,6 +84,10 @@ class AddressesController < ApplicationController
   def set_address
     @address = current_user.addresses.find(params[:id])
     not_found if @address.nil?
+  end
+
+  def set_page_type
+    @page_type = params["address"]["page_type"]
   end
 
   # Only allow a list of trusted parameters through.

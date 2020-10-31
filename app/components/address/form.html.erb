@@ -19,6 +19,9 @@
           <%= f.input :search_address, label: "Dirección", placeholder: "Torres del Toreo", input_html: {"x-on:input": "addressHandleChange($event)", value: @address.address} %>
           <span name="address[address]_error" class="text-sm font-bold text-red-600"></span>
         </div>
+        <% if @page_type %>
+          <%= f.input :page_type, as: :hidden, input_html: {value: @page_type} %>
+        <% end %>
         <%= f.input :address, as: :hidden, label: "address" %>
         <%= f.input :lat, as: :hidden, label: "lat" %>
         <%= f.input :lng, as: :hidden, label: "lng" %>

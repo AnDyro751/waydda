@@ -1,1 +1,15 @@
-//document.querySelector("#address-data").innerHTML = "<%#= j render Address::Form.new(address: @new_address) %>"
+if (window.vanillaModal) {
+    var element = document.querySelector("#modal");
+    if (element) {
+        var a = 0;
+        window.addEventListener("popstate", function (e) {
+            a = a + 1;
+            if (a == 1) {
+                Turbolinks.visit(window.location.pathname, {action: 'replace'});
+            }
+        });
+        window.current_modal.open("#modal");
+        document.querySelector(".modal-content").innerHTML = "<%= j render Address::Form.new(address: @new_address) %>";
+        window.customLazyLoad.update();
+    }
+}

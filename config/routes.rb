@@ -45,7 +45,7 @@ Rails.application.routes.draw do
     resources :items, path: "departments", only: [:index, :show]
     patch "/cart/:cart_item_id/update_item", to: "carts#update_item", as: "update_cart_item"
     get "/cart", to: "carts#show", as: "my_cart"
-    # get "/cart/edit", to: "carts#show", as: "edit_my_cart"
+    get "/cart/edit", to: "carts#show", as: "edit_my_cart"
     post "/cart", to: "carts#create_charge", as: "create_charge"
     get "/:cart_id/success", to: "carts#success", as: "success_checkout"
     put "/cart/payment-method", to: "carts#payment_method", as: "update_payment_method"

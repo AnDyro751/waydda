@@ -65,6 +65,7 @@
           <% end %>
         </div>
       </div>
+
       <div class="w-full mt-10 <%= if @current_cart.delivery_kind === "pickup"
                                      ""
                                    else
@@ -72,6 +73,7 @@
                                    end %>" id="pickup-address">
         <%= render(Carts::Address::Pickup.new(place: @place, available_distance: @available_distance)) %>
       </div>
+
       <div class="w-full mt-10 <%= if @current_cart.delivery_kind === "pickup"
                                      "hidden"
                                    else

@@ -27,7 +27,12 @@ if (document.querySelector("#address_value")) {
     document.querySelector("#address_value").innerHTML = "<%= @address.address %>";
     document.querySelector("#address_value").title = "<%= @address.address %>";
 } else {
+    <% if @page_type %>
+    Turbolinks.visit("<%= @page_type %>")
+    <% else %>
+    window.persistScroll()
     Turbolinks.visit(location.pathname)
+    <% end %>
 }
 <% end %>
 window.deleteFlashs();

@@ -1,37 +1,44 @@
-
 <div class="w-full border border-black shadow-main rounded">
   <%= render Headers::Text.new(title: "Detalles de recolección", small: true, padding_class: "py-6 px-4", font: "small", with_margin: false, padding_class: "px-4 py-6", with_border: true) do %>
-    <%= link_to "Actualizar", my_profile_path, class: "#{helpers.main_color_button(color: "dark")}" %>
+    <% if current_page?(place_edit_my_cart_path(@place.slug)) %>
+      <%= link_to "Volver", place_my_cart_path(@place.slug), class: "#{helpers.main_color_button(color: "dark")}" %>
+    <% else %>
+      <%= link_to "Actualizar", place_edit_my_cart_path(@place.slug), class: "#{helpers.main_color_button(color: "dark")}" %>
+    <% end %>
   <% end %>
 
   <div id="address-data" class="px-4 my-8">
-    <div class="w-full flex">
-      <% unless @available_distance %>
-        <div class="mb-8 flex ">
-          <%= render Utils::LongDistance.new %>
-        </div>
-      <% end %>
-    </div>
-    <h3 class="font-normal text-gray-800 truncate flex items-center">
-      <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
-           viewBox="0 0 24 24"
-           class="fill-current text-black inline mr-4 h-4 w-4"
-      >
-        <path d="M18.257,3.685L14.969,5L9.664,3.232c-0.449-0.15-0.936-0.135-1.375,0.04L4.257,4.885C3.498,5.189,3,5.924,3,6.742v11.845 c0,1.415,1.429,2.382,2.743,1.857l3.289-1.315l5.305,1.768c0.449,0.15,0.936,0.135,1.375-0.04l4.031-1.613 C20.502,18.94,21,18.205,21,17.387V5.542C21,4.127,19.571,3.159,18.257,3.685z M15,17.605c0,0.681-0.666,1.163-1.313,0.95l-4-1.318 C9.277,17.102,9,16.719,9,16.287V6.524c0-0.681,0.666-1.163,1.313-0.95l4,1.318C14.723,7.027,15,7.41,15,7.842V17.605z"></path>
-      </svg>
-      <%= @place.address %> - <%= @place.external_number %>
-    </h3>
-    <h4 class="flex items-center mt-3">
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        x="0px"
-        y="0px"
-        viewBox="0 0 24 24"
-        class="fill-current text-black inline mr-4 h-4 w-4"
-      >
-        <path d="M12,2C6.477,2,2,6.477,2,12c0,5.523,4.477,10,10,10s10-4.477,10-10C22,6.477,17.523,2,12,2z M14.586,16l-3.293-3.293 C11.105,12.519,11,12.265,11,12V7c0-0.552,0.448-1,1-1h0c0.552,0,1,0.448,1,1v4.586l3,3c0.39,0.39,0.39,1.024,0,1.414l0,0 C15.61,16.39,14.976,16.39,14.586,16z"></path>
-      </svg>
-      <span class="font-normal text-gray-800 truncate">Disponible en: <%= @place.get_pickup_time %></span>
-    </h4>
+    <% if current_page?(place_edit_my_cart_path(@place.slug)) %>
+      <%= render Address::Form.new(address: helpers.current_or_guest_user.current_address || helpers.current_or_guest_user.addresses.new, page_type: "#{place_my_cart_path(@place.slug)}") %>
+    <% else %>
+      <div class="w-full flex">
+        <% unless @available_distance %>
+          <div class="mb-8 flex ">
+            <%= render Utils::LongDistance.new %>
+          </div>
+        <% end %>
+      </div>
+      <h3 class="font-normal text-gray-800 truncate flex items-center">
+        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+             viewBox="0 0 24 24"
+             class="fill-current text-black inline mr-4 h-4 w-4"
+        >
+          <path d="M18.257,3.685L14.969,5L9.664,3.232c-0.449-0.15-0.936-0.135-1.375,0.04L4.257,4.885C3.498,5.189,3,5.924,3,6.742v11.845 c0,1.415,1.429,2.382,2.743,1.857l3.289-1.315l5.305,1.768c0.449,0.15,0.936,0.135,1.375-0.04l4.031-1.613 C20.502,18.94,21,18.205,21,17.387V5.542C21,4.127,19.571,3.159,18.257,3.685z M15,17.605c0,0.681-0.666,1.163-1.313,0.95l-4-1.318 C9.277,17.102,9,16.719,9,16.287V6.524c0-0.681,0.666-1.163,1.313-0.95l4,1.318C14.723,7.027,15,7.41,15,7.842V17.605z"></path>
+        </svg>
+        <%= @place.address %> - <%= @place.external_number %>
+      </h3>
+      <h4 class="flex items-center mt-3">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          x="0px"
+          y="0px"
+          viewBox="0 0 24 24"
+          class="fill-current text-black inline mr-4 h-4 w-4"
+        >
+          <path d="M12,2C6.477,2,2,6.477,2,12c0,5.523,4.477,10,10,10s10-4.477,10-10C22,6.477,17.523,2,12,2z M14.586,16l-3.293-3.293 C11.105,12.519,11,12.265,11,12V7c0-0.552,0.448-1,1-1h0c0.552,0,1,0.448,1,1v4.586l3,3c0.39,0.39,0.39,1.024,0,1.414l0,0 C15.61,16.39,14.976,16.39,14.586,16z"></path>
+        </svg>
+        <span class="font-normal text-gray-800 truncate">Disponible en: <%= @place.get_pickup_time %></span>
+      </h4>
+    <% end %>
   </div>
 </div>
