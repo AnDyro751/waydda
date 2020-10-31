@@ -8,7 +8,7 @@ class CartsController < ApplicationController
   before_action :set_current_cart_item, only: [:update_item]
   before_action :set_cart_items, only: [:show]
   before_action :set_current_address, only: [:create_charge]
-  before_action :set_available_distance, only: [:show]
+  before_action :set_available_distance, only: [:show, :success]
   skip_before_action :verify_authenticity_token, only: [:update_item, :create_charge]
 
   def delivery_option

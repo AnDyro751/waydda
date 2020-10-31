@@ -1,9 +1,9 @@
-<div class="w-9/12 flex mx-auto flex-wrap">
+<div class="w-9/12 flex mx-auto flex-wrap mb-20">
   <h1 class="text-2xl py-8 font-medium w-full">Ticket No: <span class="font-bold"><%= @current_cart.uuid %></span></h1>
   <div class="w-full mt-4 flex">
     <div class="w-8/12 mr-8">
       <% if @current_cart.delivery_kind === "pickup" %>
-        <%= render Carts::Address::Pickup.new(place: @current_cart.place) %>
+        <%= render Carts::Address::Pickup.new(place: @current_cart.place, available_distance: @available_distance) %>
       <% else %>
         <%= render Carts::Address::Delivery.new(place: @current_cart.place, address: @current_cart.order.address, editable: false) %>
       <% end %>
@@ -32,7 +32,7 @@
             <h4 class="font-bold">Total:</h4>
           </div>
           <div class="w-4/12 flex justify-end">
-            <h5 class="font-medium"><%= number_to_currency(@current_cart.order.total_order par) %></h5>
+            <h5 class="font-medium"><%= number_to_currency(@current_cart.order.total_order) %></h5>
           </div>
         </div>
       </div>

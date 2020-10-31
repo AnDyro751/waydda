@@ -1,11 +1,5 @@
 <div class="w-full border border-black shadow-main rounded">
-  <%= render Headers::Text.new(title: "Detalles de recolección", small: true, padding_class: "py-6 px-4", font: "small", with_margin: false, padding_class: "px-4 py-6", with_border: true) do %>
-    <% if current_page?(place_edit_my_cart_path(@place.slug)) %>
-      <%= link_to "Volver", place_my_cart_path(@place.slug), class: "#{helpers.main_color_button(color: "dark")}" %>
-    <% else %>
-      <%= link_to "Actualizar", place_edit_my_cart_path(@place.slug), class: "#{helpers.main_color_button(color: "dark")}" %>
-    <% end %>
-  <% end %>
+  <%= render Headers::Text.new(title: "Detalles de recolección", small: true, padding_class: "py-6 px-4", font: "small", with_margin: false, padding_class: "px-4 py-6", with_border: true) %>
 
   <div id="address-data" class="px-4 my-8">
     <% if current_page?(place_edit_my_cart_path(@place.slug)) %>
