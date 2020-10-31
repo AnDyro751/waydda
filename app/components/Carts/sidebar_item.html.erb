@@ -34,7 +34,7 @@
     </div>
     <div class="w-6/12 flex justify-end">
       <span class="text-sm font-normal text-gray-700">
-              <%= helpers.number_to_currency(@cart_item.quantity * @cart_item.product.price) %>
+        <%= helpers.number_to_currency(@cart_item.quantity * @cart_item.get_aggregates_and_product_price(product: @cart_item.product)) %>
       </span>
     </div>
   </div>
