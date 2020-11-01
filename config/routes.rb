@@ -83,8 +83,9 @@ Rails.application.routes.draw do
       end
     end
     # Places
-    resources :sales
-    get "/my-sales", to: "sales#index", as: "my_sales"
+    resources :orders do
+      patch "/process", to: "orders#process_order", as: :process_item
+    end
     delete "/delete-place", to: "places#destroy", as: "destroy_my_place"
     get "/settings", to: "places#edit", as: "edit_my_place"
     get "/settings/general", to: "settings#general", as: "edit_general_my_place"

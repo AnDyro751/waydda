@@ -1,0 +1,10 @@
+<%= render Headers::Text.new(title: "Mis ventas", small: false) %>
+<%= render Sales::Filters.new %>
+<% if @sales.length <= 0 %>
+  <%= render EmptyRecords.new(title: "No hay ventas para mostrar") %>
+<% else %>
+  <%= render Sales::List.new(sales: @sales, place: @place) %>
+  <div class="w-full mx-auto my-12 flex justify-center ">
+    <%= will_paginate @sales, class: "apple_pagination" %>
+  </div>
+<% end %>

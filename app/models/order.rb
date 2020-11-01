@@ -10,6 +10,8 @@ class Order
   field :status, type: String, default: "pending" # Estado por defecto
   field :send_to, type: Hash
   field :total_order, type: Float, default: 0.0
+  field :payment_type, type: String, default: "cash"
+  field :uuid, type: String
   # Relations
   belongs_to :place
   belongs_to :cart
@@ -18,6 +20,7 @@ class Order
   embeds_one :address
   # embeds_one :cart
 
+  validates :payment_type, inclusion: {in: ["cash", "card"]}
   validates :total_order, numericality: {greater_than_or_equal_to: 1}
 
 
@@ -40,6 +43,18 @@ class Order
     end
   end
 
+
+  # @note Retorna true/false si la orden está procesada o pendiente
+  # @return [TrueClass, FalseClass]
+  def available_for_shipping?
+    return self.pending? || self.in_process?
+  end
+
+  # @note Retorna un true/false si el método de pago es en efectivo
+  # @return [TrueClass, FalseClass]
+  def is_cash?
+    return self.payment_type === "cash"
+  end
 
   # @param [Object] cart
   # @param [Object] place

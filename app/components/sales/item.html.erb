@@ -1,17 +1,20 @@
-<div class="w-full p-4 rounded transition duration-150 hover:shadow-lg <%= @sale.pending? ? "bg-blue-200 bg-opacity-50" : "#{helpers.border_color}" %>">
+<div
+  id="order_<%= @sale.id.to_s %>"
+  class="w-full p-4 rounded transition duration-150 hover:shadow-lg <%= @sale.pending? ? "bg-blue-200 bg-opacity-50" : "#{helpers.border_color}" %>">
   <div class="w-full mb-3">
   <span class="text-sm text-gray-700 font-normal">
-      <%= @sale.created_at.strftime('%d-%m-%Y a las %I:%M:%S %p')  %> / Hace <%= helpers.time_ago_in_words(@sale.created_at) %>
+      <%= @sale.created_at.strftime('%d-%m-%Y a las %I:%M:%S %p') %>
+    / Hace <%= helpers.time_ago_in_words(@sale.created_at) %>
   </span>
   </div>
   <div class="w-full flex mb-4 justify-between items-center">
     <div class="w-auto flex space-x-5">
-      <div class="w-auto <%= helpers.main_color_button(color: "dark", padding: "big") %>">
-        <span>Procesar</span>
-      </div>
-      <div class="w-auto <%= helpers.main_color_button(color: "gray", padding: "big") %>">
-        <span>Reembolsar</span>
-      </div>
+      <%= button_to "Procesar", dashboard_order_process_item_path(@sale), method: :patch, data: {disable_with: "Actualizando..."}, remote: true, class: "w-auto #{helpers.main_color_button(color: "dark", padding: "big")}" %>
+      <% unless @sale.is_cash? %>
+        <div class="w-auto <%= helpers.main_color_button(color: "gray", padding: "big") %>">
+          <span>Reembolsar</span>
+        </div>
+      <% end %>
     </div>
     <div class="w-auto <%= helpers.main_color_button(color: "danger") %>">
       <span>Cancelar orden</span>
@@ -37,8 +40,16 @@
     <!--      class="lazy h-20 w-20 rounded mb-3"-->
     <!--      src="<%#= helpers.get_image_url(15, 15, order_item.product.photo, "contain") %>"-->
     <!--      data-src="<%#= helpers.get_image_url(150, 150, order_item.product.photo, "contain") %>" alt="Product image, <%#= order_item.product.name %> photo">-->
-
-    <h5 class="font-normal mb-3">Total:</h5>
-    <h5 class="font-medium text-lg"><%= helpers.number_to_currency(@sale.total_order) %></h5>
   <% end %>
+
+  <div class="w-full flex items-center pt-4 border-t border-blue-400">
+    <div class="w-1/2 flex flex-wrap">
+      <h5 class="font-normal mb-3 w-full">Total:</h5>
+      <h5 class="font-medium text-lg w-full"><%= helpers.number_to_currency(@sale.total_order) %></h5>
+    </div>
+    <div class="w-1/2 flex justify-end text-right flex-wrap">
+      <h5 class="font-normal mb-3 w-full">Tipo de pago:</h5>
+      <h5 class="font-medium text-lg w-full"><%= @sale.is_cash? ? "Efectivo" : "Tarjeta de débito" %></h5>
+    </div>
+  </div>
 </div>

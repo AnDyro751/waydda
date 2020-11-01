@@ -1,17 +1,17 @@
 <div class="w-full flex space-x-4 mb-8">
-  <%= link_to dashboard_sales_path, class: "w-auto cursor-pointer #{helpers.main_color_button(color: params["filter"].present? ? "gray" : "primary")}" do %>
+  <%= link_to dashboard_orders_path, class: "w-auto cursor-pointer #{helpers.main_color_button(color: params["filter"].present? ? "gray" : "primary")}" do %>
     <span>Todas</span>
   <% end %>
-  <%= link_to dashboard_sales_path({filter: "pending"}), class: "w-auto cursor-pointer #{helpers.main_color_button(color: params["filter"] === "pending" ? "primary" : "")}" do %>
+  <%= link_to dashboard_orders_path({filter: "pending"}), class: "w-auto cursor-pointer #{helpers.main_color_button(color: params["filter"] === "pending" ? "primary" : "")}" do %>
     <span>Pendientes</span>
   <% end %>
-  <%= link_to dashboard_sales_path({filter: "process"}), class: "w-auto cursor-pointer #{helpers.main_color_button(color: params["filter"] == "process" ? "primary" : "")}" do %>
+  <%= link_to dashboard_orders_path({filter: "process"}), class: "w-auto cursor-pointer #{helpers.main_color_button(color: params["filter"] == "process" ? "primary" : "")}" do %>
     <span>En proceso</span>
   <% end %>
-  <%= link_to dashboard_sales_path({filter: "sent"}), class: "w-auto cursor-pointer #{helpers.main_color_button(color: params["filter"] == "sent" ? "primary" : "")}" do %>
+  <%= link_to dashboard_orders_path({filter: "sent"}), class: "w-auto cursor-pointer #{helpers.main_color_button(color: params["filter"] == "sent" ? "primary" : "")}" do %>
     <span>Enviados</span>
   <% end %>
-  <%= link_to dashboard_sales_path({filter: "cancelled"}), class: "w-auto cursor-pointer #{helpers.main_color_button(color: params["filter"] == "cancelled" ? "primary" : "")}" do %>
+  <%= link_to dashboard_orders_path({filter: "cancelled"}), class: "w-auto cursor-pointer #{helpers.main_color_button(color: params["filter"] == "cancelled" ? "primary" : "")}" do %>
     <span>Canceladas</span>
   <% end %>
 </div>

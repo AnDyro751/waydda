@@ -19,10 +19,22 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b89cb0fb-b680-4bb9-8ae0-f4b41721cfb9" name="Default Changelist" comment="feat(Dashboard): Agregamos un span para mostrar la hora de creación de las ordenes">
+    <list default="true" id="b89cb0fb-b680-4bb9-8ae0-f4b41721cfb9" name="Default Changelist" comment="feat(Dashboard): Se agregó un mensaje para mostrar cuando no hay records">
+      <change afterPath="$PROJECT_DIR$/app/assets/stylesheets/dashboard/orders.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/controllers/dashboard/orders_controller.rb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/helpers/dashboard/orders_helper.rb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/views/dashboard/orders/index.html.erb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/views/dashboard/orders/process_order.js.erb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test/controllers/dashboard/orders_controller_test.rb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/components/empty_records.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/components/empty_records.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/components/sales/filters.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/components/sales/filters.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/components/sales/item.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/components/sales/item.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/dashboard/sales_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/dashboard/sales_controller.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/cart.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/cart.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/order.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/order.rb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/views/dashboard/sales/index.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/dashboard/sales/index.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/utils/Headers/dashboard/_items.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/utils/Headers/dashboard/_items.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/routes.rb" beforeDir="false" afterPath="$PROJECT_DIR$/config/routes.rb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -65,7 +77,7 @@
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-    <option name="UPDATE_TYPE" value="MERGE" />
+    <option name="SIGN_OFF_COMMIT" value="true" />
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/app/components/dashboard/products/layout.html.erb" root0="SKIP_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" root2="FORCE_HIGHLIGHTING" />
@@ -815,14 +827,7 @@
       <workItem from="1604110070480" duration="368000" />
       <workItem from="1604114462530" duration="5732000" />
       <workItem from="1604155687116" duration="17340000" />
-      <workItem from="1604254690888" duration="1228000" />
-    </task>
-    <task id="LOCAL-00372" summary="feat(Dashboard): Pequeño estilo de los pasillos">
-      <created>1603169641292</created>
-      <option name="number" value="00372" />
-      <option name="presentableId" value="LOCAL-00372" />
-      <option name="project" value="LOCAL" />
-      <updated>1603169641293</updated>
+      <workItem from="1604254690888" duration="4497000" />
     </task>
     <task id="LOCAL-00373" summary="feat(Dashboard): Estamos eliminando categorías  reemplazando por departamentos">
       <created>1603170030800</created>
@@ -1160,7 +1165,14 @@
       <option name="project" value="LOCAL" />
       <updated>1604255813109</updated>
     </task>
-    <option name="localTasksCounter" value="421" />
+    <task id="LOCAL-00421" summary="feat(Dashboard): Se agregó un mensaje para mostrar cuando no hay records">
+      <created>1604255967726</created>
+      <option name="number" value="00421" />
+      <option name="presentableId" value="LOCAL-00421" />
+      <option name="project" value="LOCAL" />
+      <updated>1604255967726</updated>
+    </task>
+    <option name="localTasksCounter" value="422" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -1180,7 +1192,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="feat(Place): Mostramos un loader para abrir el carrito" />
     <MESSAGE value="feat(Place): Cambiamos el color de turbolinks" />
     <MESSAGE value="feat(Place): Cambiamos el gap por un space-x-5" />
     <MESSAGE value="feat(Place): Actualizamos el carrito y seteamos los nuevos elementos" />
@@ -1205,7 +1216,8 @@
     <MESSAGE value="feat(Cart): Agregamos botones y un pequeño diseño para la orden que aún no se ha procesado" />
     <MESSAGE value="feat(Cart): Agregamos otros filtros de busqueda y un catch para retornar cuando el filtro no es correcto" />
     <MESSAGE value="feat(Dashboard): Agregamos un span para mostrar la hora de creación de las ordenes" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat(Dashboard): Agregamos un span para mostrar la hora de creación de las ordenes" />
+    <MESSAGE value="feat(Dashboard): Se agregó un mensaje para mostrar cuando no hay records" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat(Dashboard): Se agregó un mensaje para mostrar cuando no hay records" />
   </component>
   <component name="WindowStateProjectService">
     <state x="392" y="0" key="#All_specs_in_spec:_waydda" timestamp="1598730457189">
@@ -1325,12 +1337,12 @@
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="544" y="96" key="VCS.ChangeListViewerDialog/0.0.1366.768@0.0.1366.768" timestamp="1598750646694" />
-    <state x="275" y="117" width="800" height="523" key="Vcs.Push.Dialog.v2" timestamp="1604194712458">
+    <state x="275" y="117" width="800" height="523" key="Vcs.Push.Dialog.v2" timestamp="1604255983670">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="1640" y="117" key="Vcs.Push.Dialog.v2/0.0.1366.768/1366.0.1360.768@1366.0.1360.768" timestamp="1598221582431" />
     <state x="1753" y="165" key="Vcs.Push.Dialog.v2/0.0.1366.768/1366.0.1920.1080@1366.0.1920.1080" timestamp="1599267641822" />
-    <state x="275" y="117" width="800" height="523" key="Vcs.Push.Dialog.v2/0.0.1366.768@0.0.1366.768" timestamp="1604194712458" />
+    <state x="275" y="117" width="800" height="523" key="Vcs.Push.Dialog.v2/0.0.1366.768@0.0.1366.768" timestamp="1604255983670" />
     <state x="496" y="169" key="chooseDestDirectoryDialog" timestamp="1598730651549">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
@@ -1349,13 +1361,13 @@
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="628" y="298" key="com.jetbrains.plugins.remotesdk.ui.RemoteMappingsConfiguration/0.0.1366.768@0.0.1366.768" timestamp="1598729856431" />
-    <state x="390" y="117" width="791" height="624" key="find.popup" timestamp="1604255847419">
+    <state x="390" y="117" width="791" height="624" key="find.popup" timestamp="1604260702701">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="1914" y="96" width="823" height="878" key="find.popup/0.0.1366.768/1366.-69.1920.1080@1366.-69.1920.1080" timestamp="1597716285449" />
     <state x="1754" y="117" width="583" height="624" key="find.popup/0.0.1366.768/1366.0.1360.768@1366.0.1360.768" timestamp="1598981376119" />
     <state x="1914" y="165" width="823" height="878" key="find.popup/0.0.1366.768/1366.0.1920.1080@1366.0.1920.1080" timestamp="1599260651210" />
-    <state x="390" y="117" width="791" height="624" key="find.popup/0.0.1366.768@0.0.1366.768" timestamp="1604255847419" />
+    <state x="390" y="117" width="791" height="624" key="find.popup/0.0.1366.768@0.0.1366.768" timestamp="1604260702701" />
     <state x="549" y="254" width="250" height="278" key="jetbrains.javascript.buildTools.run-task-popup" timestamp="1597946321130">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
@@ -1364,13 +1376,13 @@
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="339" y="174" width="672" height="677" key="run.anything.popup/0.0.1366.768@0.0.1366.768" timestamp="1600370541201" />
-    <state x="346" y="89" width="672" height="678" key="search.everywhere.popup" timestamp="1604255902228">
+    <state x="346" y="89" width="672" height="678" key="search.everywhere.popup" timestamp="1604260323765">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="1852" y="56" width="945" height="954" key="search.everywhere.popup/0.0.1366.768/1366.-69.1920.1080@1366.-69.1920.1080" timestamp="1597715976170" />
     <state x="1710" y="89" width="672" height="678" key="search.everywhere.popup/0.0.1366.768/1366.0.1360.768@1366.0.1360.768" timestamp="1598985878395" />
     <state x="1852" y="125" width="945" height="954" key="search.everywhere.popup/0.0.1366.768/1366.0.1920.1080@1366.0.1920.1080" timestamp="1599267313630" />
-    <state x="346" y="89" width="672" height="678" key="search.everywhere.popup/0.0.1366.768@0.0.1366.768" timestamp="1604255902228" />
+    <state x="346" y="89" width="672" height="678" key="search.everywhere.popup/0.0.1366.768@0.0.1366.768" timestamp="1604260323765" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/waydda@AggregateCategory_Save_reco___.rcov" NAME="AggregateCategory Save reco... Coverage Results" MODIFIED="1602439891498" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="waydda" />
