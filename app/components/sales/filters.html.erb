@@ -8,4 +8,10 @@
   <%= link_to dashboard_sales_path({filter: "process"}), class: "w-auto cursor-pointer #{helpers.main_color_button(color: params["filter"] == "process" ? "primary" : "")}" do %>
     <span>En proceso</span>
   <% end %>
+  <%= link_to dashboard_sales_path({filter: "sent"}), class: "w-auto cursor-pointer #{helpers.main_color_button(color: params["filter"] == "sent" ? "primary" : "")}" do %>
+    <span>Enviados</span>
+  <% end %>
+  <%= link_to dashboard_sales_path({filter: "cancelled"}), class: "w-auto cursor-pointer #{helpers.main_color_button(color: params["filter"] == "cancelled" ? "primary" : "")}" do %>
+    <span>Canceladas</span>
+  <% end %>
 </div>
