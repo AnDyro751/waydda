@@ -1,6 +1,6 @@
 <div
   id="order_<%= @sale.id.to_s %>"
-  class="w-full p-4 rounded transition duration-150 hover:shadow-lg <%= @sale.pending? ? "bg-blue-200 bg-opacity-50" : "#{helpers.border_color}" %>">
+  class="w-full p-4 rounded transition duration-150 hover:shadow-lg <%= @sale.pending? ? "bg-indigo-300 bg-opacity-25" : "#{helpers.border_color}" %>">
   <div class="w-full mb-3">
   <span class="text-sm text-gray-700 font-normal">
       <%= @sale.created_at.strftime('%d-%m-%Y a las %I:%M:%S %p') %>
@@ -9,7 +9,12 @@
   </div>
   <div class="w-full flex mb-4 justify-between items-center">
     <div class="w-auto flex space-x-5">
-      <%= button_to "Procesar", dashboard_order_process_item_path(@sale), method: :patch, data: {disable_with: "Actualizando..."}, remote: true, class: "w-auto #{helpers.main_color_button(color: "dark", padding: "big")}" %>
+      <% unless @sale.in_process? %>
+        <%= button_to "Procesar", dashboard_order_process_item_path(@sale), method: :patch, data: {disable_with: "Actualizando..."}, remote: true, class: "w-auto #{helpers.main_color_button(color: "dark", padding: "big")}" %>
+      <% end %>
+      <div class="w-auto <%= helpers.main_color_button(color: "gray", padding: "big") %>">
+        <span>Enviar</span>
+      </div>
       <% unless @sale.is_cash? %>
         <div class="w-auto <%= helpers.main_color_button(color: "gray", padding: "big") %>">
           <span>Reembolsar</span>

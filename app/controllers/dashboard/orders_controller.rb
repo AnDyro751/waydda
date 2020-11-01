@@ -33,6 +33,11 @@ class Dashboard::OrdersController < ApplicationController
     end
   end
 
+  def show
+    set_meta_tags title: "Venta - #{@order.uuid} | Panel de control",
+                  description: "Venta - #{@order.uuid} - Panel de control"
+  end
+
   def process_order
     respond_to do |format|
       if @order.pending?
@@ -41,10 +46,10 @@ class Dashboard::OrdersController < ApplicationController
           format.js
         rescue => e
           logger.warn "-----------ERROR #{e} #LN OrdersController"
-          format.html { redirect_to dashboard_sale_path(@order), notice: "No se ha podido procesar la orden" }
+          format.html { redirect_to dashboard_order_path(@order), notice: "No se ha podido procesar la orden" }
         end
       else
-        format.html { redirect_to dashboard_sale_path(@order), notice: "No se ha podido procesar la orden" }
+        format.html { redirect_to dashboard_order_path(@order), notice: "No se ha podido procesar la orden" }
       end
     end
   end
@@ -57,17 +62,18 @@ class Dashboard::OrdersController < ApplicationController
           format.js
         rescue => e
           logger.warn "-----------ERROR #{e} #LN OrdersController"
-          format.html { redirect_to dashboard_sale_path(@order), notice: "No se ha podido procesar la orden" }
+          format.html { redirect_to dashboard_order_path(@order), notice: "No se ha podido procesar la orden" }
         end
       else
-        format.html { redirect_to dashboard_sale_path(@order), notice: "No se ha podido procesar la orden" }
+        format.html { redirect_to dashboard_order_path(@order), notice: "No se ha podido procesar la orden" }
       end
     end
   end
 
+
   private
 
   def set_order
-    @order = @place.orders.find_by(id: params["order_id"]) || not_found
+    @order = @place.orders.find_by(id: params["order_id"] || params["id"]) || not_found
   end
 end
