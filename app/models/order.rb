@@ -47,7 +47,11 @@ class Order
   # @note Retorna true/false si la orden está procesada o pendiente
   # @return [TrueClass, FalseClass]
   def available_for_shipping?
-    return self.pending? || self.in_process?
+    if self.pending? || self.in_process?
+      return !self.is_cash?
+    else
+      return false
+    end
   end
 
   # @note Retorna un true/false si el método de pago es en efectivo

@@ -2,4 +2,8 @@ var element = document.querySelector("#order_<%= @order.id.to_s %>");
 if (element) {
     element.parentNode.removeChild(element);
 }
+<% if @order.is_cash? %>
+window.addToastify("primary", "Orden procesada y confirmada");
+<% else %>
 window.addToastify("primary", "Orden procesada");
+<% end %>

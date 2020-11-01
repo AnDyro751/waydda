@@ -58,7 +58,7 @@ class Dashboard::OrdersController < ApplicationController
     respond_to do |format|
       if @order.available_for_shipping?
         begin
-          @order.to_process!
+          @order.to_sent!
           format.js
         rescue => e
           logger.warn "-----------ERROR #{e} #LN OrdersController"

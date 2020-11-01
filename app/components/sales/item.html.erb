@@ -9,21 +9,31 @@
   </div>
   <div class="w-full flex mb-4 justify-between items-center">
     <div class="w-auto flex space-x-5">
-      <% unless @sale.in_process? %>
-        <%= button_to "Procesar", dashboard_order_process_item_path(@sale), method: :patch, data: {disable_with: "Actualizando..."}, remote: true, class: "w-auto #{helpers.main_color_button(color: "dark", padding: "big")}" %>
+      <% unless @sale.in_process? || @sale.sent? %>
+        <%= button_to @sale.is_cash? ? "Procesar y completar" : "Procesar", dashboard_order_process_item_path(@sale), method: :patch, data: {disable_with: "Actualizando..."}, remote: true, class: "w-auto #{helpers.main_color_button(color: "dark", padding: "big")}" %>
       <% end %>
-      <div class="w-auto <%= helpers.main_color_button(color: "gray", padding: "big") %>">
-        <span>Enviar</span>
-      </div>
+      <% unless @sale.sent? %>
+        <% unless @sale.is_cash? %>
+          <%= button_to "Enviar", dashboard_order_send_item_path(@sale), method: :patch, data: {disable_with: "Actualizando..."}, remote: true, class: "w-auto #{helpers.main_color_button(color: "gray", padding: "big")}" %>
+        <% end %>
+      <% end %>
       <% unless @sale.is_cash? %>
         <div class="w-auto <%= helpers.main_color_button(color: "gray", padding: "big") %>">
           <span>Reembolsar</span>
         </div>
       <% end %>
     </div>
-    <div class="w-auto <%= helpers.main_color_button(color: "danger") %>">
-      <span>Cancelar orden</span>
-    </div>
+    <% if @sale.is_cash? %>
+      <div class="w-auto <%= helpers.main_color_button(color: "danger") %>">
+        <span>Cancelar orden</span>
+      </div>
+    <% else %>
+      <% unless @sale.sent? %>
+        <div class="w-auto <%= helpers.main_color_button(color: "danger") %>">
+          <span>Cancelar orden</span>
+        </div>
+      <% end %>
+    <% end %>
   </div>
   <% @sale.order_items.each do |order_item| %>
     <h4 class="font-normal mb-3">

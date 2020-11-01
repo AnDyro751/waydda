@@ -85,6 +85,7 @@ Rails.application.routes.draw do
     # Places
     resources :orders do
       patch "/process", to: "orders#process_order", as: :process_item
+      patch "/send", to: "orders#send_order", as: :send_item
     end
     delete "/delete-place", to: "places#destroy", as: "destroy_my_place"
     get "/settings", to: "places#edit", as: "edit_my_place"
