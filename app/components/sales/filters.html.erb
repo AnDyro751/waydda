@@ -1,0 +1,11 @@
+<div class="w-full flex space-x-4 mb-8">
+  <%= link_to dashboard_sales_path, class: "w-auto cursor-pointer #{helpers.main_color_button(color: params["filter"].present? ? "gray" : "primary")}" do %>
+    <span>Todas</span>
+  <% end %>
+  <%= link_to dashboard_sales_path({filter: "pending"}), class: "w-auto cursor-pointer #{helpers.main_color_button(color: params["filter"] === "pending" ? "primary" : "")}" do %>
+    <span>Pendientes</span>
+  <% end %>
+  <%= link_to dashboard_sales_path({filter: "process"}), class: "w-auto cursor-pointer #{helpers.main_color_button(color: params["filter"] == "process" ? "primary" : "")}" do %>
+    <span>En proceso</span>
+  <% end %>
+</div>

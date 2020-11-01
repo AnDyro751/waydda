@@ -19,11 +19,16 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b89cb0fb-b680-4bb9-8ae0-f4b41721cfb9" name="Default Changelist" comment="feat(Cart): Iniciamos el modulo de &quot;mis ventas&quot;">
+    <list default="true" id="b89cb0fb-b680-4bb9-8ae0-f4b41721cfb9" name="Default Changelist" comment="feat(Cart): Agregamos un paginador para las ventas">
+      <change afterPath="$PROJECT_DIR$/app/components/sales/filters.html.erb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/components/sales/filters.rb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/components/sales/item.html.erb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/components/sales/item.rb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/components/sales/list.html.erb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/components/sales/list.rb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/controllers/dashboard/sales_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/dashboard/sales_controller.rb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/views/dashboard/sales/index.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/dashboard/sales/index.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/routes.rb" beforeDir="false" afterPath="$PROJECT_DIR$/config/routes.rb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -815,14 +820,7 @@
       <workItem from="1604083118354" duration="1527000" />
       <workItem from="1604110070480" duration="368000" />
       <workItem from="1604114462530" duration="5732000" />
-      <workItem from="1604155687116" duration="8782000" />
-    </task>
-    <task id="LOCAL-00368" summary="feat(Dashboard): Change dark button">
-      <created>1603148720270</created>
-      <option name="number" value="00368" />
-      <option name="presentableId" value="LOCAL-00368" />
-      <option name="project" value="LOCAL" />
-      <updated>1603148720270</updated>
+      <workItem from="1604155687116" duration="17117000" />
     </task>
     <task id="LOCAL-00369" summary="feat(Dashboard): Ajax cuando es necesario y html cuando es necesario :v">
       <created>1603149904883</created>
@@ -1160,7 +1158,14 @@
       <option name="project" value="LOCAL" />
       <updated>1604173853320</updated>
     </task>
-    <option name="localTasksCounter" value="417" />
+    <task id="LOCAL-00417" summary="feat(Cart): Agregamos un paginador para las ventas">
+      <created>1604175577509</created>
+      <option name="number" value="00417" />
+      <option name="presentableId" value="LOCAL-00417" />
+      <option name="project" value="LOCAL" />
+      <updated>1604175577509</updated>
+    </task>
+    <option name="localTasksCounter" value="418" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -1180,7 +1185,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="feat(Dashboard): Cambiamos departamentos por categorías cuando es restaurante" />
     <MESSAGE value="feat(Place): Corregimos un pequeño error en el header y el menu del place" />
     <MESSAGE value="feat(Place): Traemos el producto sin problemas en json mediante REST" />
     <MESSAGE value="feat(Place): Abrimos el producto mediante un link remote" />
@@ -1205,7 +1209,8 @@
     <MESSAGE value="feat(Cart): Quitamos el botón de editar el la dirección cuando usamos el pickup" />
     <MESSAGE value="feat(Cart): Delivery options" />
     <MESSAGE value="feat(Cart): Iniciamos el modulo de &quot;mis ventas&quot;" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat(Cart): Iniciamos el modulo de &quot;mis ventas&quot;" />
+    <MESSAGE value="feat(Cart): Agregamos un paginador para las ventas" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat(Cart): Agregamos un paginador para las ventas" />
   </component>
   <component name="WindowStateProjectService">
     <state x="392" y="0" key="#All_specs_in_spec:_waydda" timestamp="1598730457189">
@@ -1349,13 +1354,13 @@
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="628" y="298" key="com.jetbrains.plugins.remotesdk.ui.RemoteMappingsConfiguration/0.0.1366.768@0.0.1366.768" timestamp="1598729856431" />
-    <state x="390" y="117" width="791" height="624" key="find.popup" timestamp="1604175311632">
+    <state x="390" y="117" width="791" height="624" key="find.popup" timestamp="1604193728892">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="1914" y="96" width="823" height="878" key="find.popup/0.0.1366.768/1366.-69.1920.1080@1366.-69.1920.1080" timestamp="1597716285449" />
     <state x="1754" y="117" width="583" height="624" key="find.popup/0.0.1366.768/1366.0.1360.768@1366.0.1360.768" timestamp="1598981376119" />
     <state x="1914" y="165" width="823" height="878" key="find.popup/0.0.1366.768/1366.0.1920.1080@1366.0.1920.1080" timestamp="1599260651210" />
-    <state x="390" y="117" width="791" height="624" key="find.popup/0.0.1366.768@0.0.1366.768" timestamp="1604175311632" />
+    <state x="390" y="117" width="791" height="624" key="find.popup/0.0.1366.768@0.0.1366.768" timestamp="1604193728892" />
     <state x="549" y="254" width="250" height="278" key="jetbrains.javascript.buildTools.run-task-popup" timestamp="1597946321130">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
@@ -1364,13 +1369,13 @@
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="339" y="174" width="672" height="677" key="run.anything.popup/0.0.1366.768@0.0.1366.768" timestamp="1600370541201" />
-    <state x="346" y="89" width="672" height="678" key="search.everywhere.popup" timestamp="1604175487089">
+    <state x="346" y="89" width="672" height="678" key="search.everywhere.popup" timestamp="1604194344545">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="1852" y="56" width="945" height="954" key="search.everywhere.popup/0.0.1366.768/1366.-69.1920.1080@1366.-69.1920.1080" timestamp="1597715976170" />
     <state x="1710" y="89" width="672" height="678" key="search.everywhere.popup/0.0.1366.768/1366.0.1360.768@1366.0.1360.768" timestamp="1598985878395" />
     <state x="1852" y="125" width="945" height="954" key="search.everywhere.popup/0.0.1366.768/1366.0.1920.1080@1366.0.1920.1080" timestamp="1599267313630" />
-    <state x="346" y="89" width="672" height="678" key="search.everywhere.popup/0.0.1366.768@0.0.1366.768" timestamp="1604175487089" />
+    <state x="346" y="89" width="672" height="678" key="search.everywhere.popup/0.0.1366.768@0.0.1366.768" timestamp="1604194344545" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/waydda@AggregateCategory_Save_reco___.rcov" NAME="AggregateCategory Save reco... Coverage Results" MODIFIED="1602439891498" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="waydda" />

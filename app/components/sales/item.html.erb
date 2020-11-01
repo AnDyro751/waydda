@@ -1,0 +1,39 @@
+<div class="w-full p-4 rounded transition duration-150 hover:shadow-lg <%= @sale.pending? ? "bg-blue-200 bg-opacity-50" : "#{helpers.border_color}" %>">
+  <div class="w-full flex mb-4 justify-between items-center">
+    <div class="w-auto flex space-x-5">
+      <div class="w-auto <%= helpers.main_color_button(color: "dark", padding: "big") %>">
+        <span>Procesar</span>
+      </div>
+      <div class="w-auto <%= helpers.main_color_button(color: "gray", padding: "big") %>">
+        <span>Reembolsar</span>
+      </div>
+    </div>
+    <div class="w-auto <%= helpers.main_color_button(color: "danger") %>">
+      <span>Cancelar orden</span>
+    </div>
+  </div>
+  <% @sale.order_items.each do |order_item| %>
+    <h4 class="font-normal mb-3">
+      <%= helpers.pluralize(order_item.quantity, 'unidad', "unidades") %>
+    </h4>
+    <h3 class="text-2xl font-medium mb-3">
+      <%= order_item.product.name %>
+    </h3>
+
+    <h5 class="mb-3">
+      <%= order_item.aggregates %>
+    </h5>
+
+    <h4 class="font-normal mb-3">Entregar en:</h4>
+    <h4 class="font-medium text-lg mb-3">
+      <%= @sale.address.address %>
+    </h4>
+    <!--    <img-->
+    <!--      class="lazy h-20 w-20 rounded mb-3"-->
+    <!--      src="<%#= helpers.get_image_url(15, 15, order_item.product.photo, "contain") %>"-->
+    <!--      data-src="<%#= helpers.get_image_url(150, 150, order_item.product.photo, "contain") %>" alt="Product image, <%#= order_item.product.name %> photo">-->
+
+    <h5 class="font-normal mb-3">Total:</h5>
+    <h5 class="font-medium text-lg"><%= helpers.number_to_currency(@sale.total_order) %></h5>
+  <% end %>
+</div>
