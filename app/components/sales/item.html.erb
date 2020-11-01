@@ -1,4 +1,9 @@
 <div class="w-full p-4 rounded transition duration-150 hover:shadow-lg <%= @sale.pending? ? "bg-blue-200 bg-opacity-50" : "#{helpers.border_color}" %>">
+  <div class="w-full mb-3">
+  <span class="text-sm text-gray-700 font-normal">
+      <%= @sale.created_at.strftime('%d-%m-%Y a las %I:%M:%S %p')  %> / Hace <%= helpers.time_ago_in_words(@sale.created_at) %>
+  </span>
+  </div>
   <div class="w-full flex mb-4 justify-between items-center">
     <div class="w-auto flex space-x-5">
       <div class="w-auto <%= helpers.main_color_button(color: "dark", padding: "big") %>">
