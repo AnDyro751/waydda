@@ -27,35 +27,44 @@ class Order
   # AASM STATES
   aasm column: :status do
     state :pending, initial: true
+    state :received
     state :in_process
     state :cancelled
+    state :completed
     state :sent
 
+    event :to_receive do
+      transitions from: [:pending], to: :received
+    end
+
     event :to_process do
-      transitions from: [:pending], to: :in_process
+      transitions from: [:pending, :received], to: :in_process
     end
 
     event :to_cancel do
-      transitions from: [:pending, :in_process, :sent], to: :cancelled
+      transitions from: [:pending, :in_process, :sent, :received], to: :cancelled
     end
     event :to_sent do
-      transitions from: [:in_process, :pending], to: :sent
+      transitions from: [:in_process, :pending, :received], to: :sent
     end
+  end
+
+
+  def is_received?
+    return self.received? || self.in_process? || self.sent? || self.completed?
   end
 
 
   # @note Retorna true/false si la orden está procesada o pendiente
   # @return [TrueClass, FalseClass]
   def available_for_shipping?
-    if self.pending? || self.in_process?
-      return !self.is_cash?
-    else
-      return false
-    end
+    return self.pending? || self.in_process?
   end
 
+  # @note Retorna un fondo según el estado de la orden
+  # @return [String]
   def get_bg
-    if self.pending? || self.sent? || self.in_process?
+    if self.pending? || self.sent? || self.in_process? || self.received?
       return "bg-indigo-300 text-blue-900"
     else
       return "bg-red-700 text-white"

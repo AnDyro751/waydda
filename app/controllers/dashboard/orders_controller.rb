@@ -2,7 +2,7 @@ class Dashboard::OrdersController < ApplicationController
   layout "dashboard"
   before_action :authenticate_user!
   before_action :set_my_place
-  before_action :set_order, only: [:send_order, :process_order, :show, :edit, :update, :cancel_order, :destroy]
+  before_action :set_order, only: [:send_order, :process_order, :show, :edit, :update, :cancel_order, :receive_order, :destroy]
 
   def index
     set_meta_tags title: "Todas las ventas | Panel de control",
@@ -23,6 +23,9 @@ class Dashboard::OrdersController < ApplicationController
     elsif params[:filter] === "sent"
       add_breadcrumb "Pedidos enviados", dashboard_orders_path
       @sales = @place.orders.where(status: "sent").includes(:order_items).paginate(page: params[:page], per_page: 30)
+    elsif params[:filter] === "received"
+      add_breadcrumb "Pedidos recibidos no enviados", dashboard_orders_path
+      @sales = @place.orders.where(status: "received").includes(:order_items).paginate(page: params[:page], per_page: 30)
     else
       redirect_to dashboard_orders_path, notice: "No se ha encontrado el filtro de búsqueda"
     end
@@ -40,7 +43,7 @@ class Dashboard::OrdersController < ApplicationController
 
   def process_order
     respond_to do |format|
-      if @order.pending?
+      if @order.pending? || @order.received?
         begin
           @order.to_process!
           format.js
@@ -66,6 +69,22 @@ class Dashboard::OrdersController < ApplicationController
         end
       else
         format.html { redirect_to dashboard_order_path(@order), notice: "No se ha podido procesar la orden" }
+      end
+    end
+  end
+
+  def receive_order
+    respond_to do |format|
+      begin
+        if @order.pending?
+          @order.to_receive!
+          format.js
+        else
+          format.html { redirect_to dashboard_order_path(@order), notice: "Esta orden ya ha sido recibida" }
+        end
+      rescue => e
+        logger.warn "ERROR AL CANCELAR LN # 80 #{e}"
+        format.html { redirect_to dashboard_order_path(@order), notice: "Ha ocurrido un error al recibir la orden, #{e}" }
       end
     end
   end

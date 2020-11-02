@@ -41,6 +41,7 @@ en:
     cancelled: "Cancelada"
     in_process: "Procesando"
     sent: "Enviada"
+    received: "Recibida"
   cocoon:
     defaults:
       add: "Agregar"

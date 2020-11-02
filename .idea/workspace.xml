@@ -19,14 +19,13 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b89cb0fb-b680-4bb9-8ae0-f4b41721cfb9" name="Default Changelist" comment="feat(Dashboard): Agregamos un botón para enviar la orden">
-      <change afterPath="$PROJECT_DIR$/app/views/dashboard/orders/cancel_order.js.erb" afterDir="false" />
+    <list default="true" id="b89cb0fb-b680-4bb9-8ae0-f4b41721cfb9" name="Default Changelist" comment="feat(Dashboard): Cancelamos orden y mostramos un pequeño texto según el status del pedido">
+      <change afterPath="$PROJECT_DIR$/app/views/dashboard/orders/receive_order.js.erb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/components/sales/filters.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/components/sales/filters.html.erb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/components/sales/item.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/components/sales/item.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/components/sales/list.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/components/sales/list.html.erb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/controllers/dashboard/orders_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/dashboard/orders_controller.rb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/models/order.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/order.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/dashboard/orders/index.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/dashboard/orders/index.html.erb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/config/locales/en.yml" beforeDir="false" afterPath="$PROJECT_DIR$/config/locales/en.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/config/routes.rb" beforeDir="false" afterPath="$PROJECT_DIR$/config/routes.rb" afterDir="false" />
     </list>
@@ -824,14 +823,7 @@
       <workItem from="1604254690888" duration="4497000" />
       <workItem from="1604269973741" duration="2003000" />
       <workItem from="1604322948850" duration="638000" />
-      <workItem from="1604343501682" duration="2199000" />
-    </task>
-    <task id="LOCAL-00374" summary="feat(Dashboard): Iniciamos subdepartamentos">
-      <created>1603170400280</created>
-      <option name="number" value="00374" />
-      <option name="presentableId" value="LOCAL-00374" />
-      <option name="project" value="LOCAL" />
-      <updated>1603170400280</updated>
+      <workItem from="1604343501682" duration="4118000" />
     </task>
     <task id="LOCAL-00375" summary="feat(Dashboard): Change categorias to departamentos en el _items.html.erb de sidebar">
       <created>1603206409983</created>
@@ -1169,7 +1161,14 @@
       <option name="project" value="LOCAL" />
       <updated>1604271570010</updated>
     </task>
-    <option name="localTasksCounter" value="423" />
+    <task id="LOCAL-00423" summary="feat(Dashboard): Cancelamos orden y mostramos un pequeño texto según el status del pedido">
+      <created>1604345915370</created>
+      <option name="number" value="00423" />
+      <option name="presentableId" value="LOCAL-00423" />
+      <option name="project" value="LOCAL" />
+      <updated>1604345915371</updated>
+    </task>
+    <option name="localTasksCounter" value="424" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -1189,7 +1188,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="feat(Place): Cambiamos el gap por un space-x-5" />
     <MESSAGE value="feat(Place): Actualizamos el carrito y seteamos los nuevos elementos" />
     <MESSAGE value="feat(Place): Mostramos el total del carrito y los items del mismo" />
     <MESSAGE value="feat(Place): Botón para pagar" />
@@ -1214,7 +1212,8 @@
     <MESSAGE value="feat(Dashboard): Agregamos un span para mostrar la hora de creación de las ordenes" />
     <MESSAGE value="feat(Dashboard): Se agregó un mensaje para mostrar cuando no hay records" />
     <MESSAGE value="feat(Dashboard): Agregamos un botón para enviar la orden" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat(Dashboard): Agregamos un botón para enviar la orden" />
+    <MESSAGE value="feat(Dashboard): Cancelamos orden y mostramos un pequeño texto según el status del pedido" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat(Dashboard): Cancelamos orden y mostramos un pequeño texto según el status del pedido" />
   </component>
   <component name="WindowStateProjectService">
     <state x="392" y="0" key="#All_specs_in_spec:_waydda" timestamp="1598730457189">
@@ -1358,13 +1357,13 @@
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="628" y="298" key="com.jetbrains.plugins.remotesdk.ui.RemoteMappingsConfiguration/0.0.1366.768@0.0.1366.768" timestamp="1598729856431" />
-    <state x="390" y="117" width="791" height="624" key="find.popup" timestamp="1604345610848">
+    <state x="390" y="117" width="791" height="624" key="find.popup" timestamp="1604347339994">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="1914" y="96" width="823" height="878" key="find.popup/0.0.1366.768/1366.-69.1920.1080@1366.-69.1920.1080" timestamp="1597716285449" />
     <state x="1754" y="117" width="583" height="624" key="find.popup/0.0.1366.768/1366.0.1360.768@1366.0.1360.768" timestamp="1598981376119" />
     <state x="1914" y="165" width="823" height="878" key="find.popup/0.0.1366.768/1366.0.1920.1080@1366.0.1920.1080" timestamp="1599260651210" />
-    <state x="390" y="117" width="791" height="624" key="find.popup/0.0.1366.768@0.0.1366.768" timestamp="1604345610848" />
+    <state x="390" y="117" width="791" height="624" key="find.popup/0.0.1366.768@0.0.1366.768" timestamp="1604347339994" />
     <state x="549" y="254" width="250" height="278" key="jetbrains.javascript.buildTools.run-task-popup" timestamp="1597946321130">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
@@ -1373,13 +1372,13 @@
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="339" y="174" width="672" height="677" key="run.anything.popup/0.0.1366.768@0.0.1366.768" timestamp="1600370541201" />
-    <state x="346" y="89" width="672" height="678" key="search.everywhere.popup" timestamp="1604345698181">
+    <state x="346" y="89" width="672" height="678" key="search.everywhere.popup" timestamp="1604347640448">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="1852" y="56" width="945" height="954" key="search.everywhere.popup/0.0.1366.768/1366.-69.1920.1080@1366.-69.1920.1080" timestamp="1597715976170" />
     <state x="1710" y="89" width="672" height="678" key="search.everywhere.popup/0.0.1366.768/1366.0.1360.768@1366.0.1360.768" timestamp="1598985878395" />
     <state x="1852" y="125" width="945" height="954" key="search.everywhere.popup/0.0.1366.768/1366.0.1920.1080@1366.0.1920.1080" timestamp="1599267313630" />
-    <state x="346" y="89" width="672" height="678" key="search.everywhere.popup/0.0.1366.768@0.0.1366.768" timestamp="1604345698181" />
+    <state x="346" y="89" width="672" height="678" key="search.everywhere.popup/0.0.1366.768@0.0.1366.768" timestamp="1604347640448" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/waydda@AggregateCategory_Save_reco___.rcov" NAME="AggregateCategory Save reco... Coverage Results" MODIFIED="1602439891498" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="waydda" />

@@ -85,6 +85,7 @@ Rails.application.routes.draw do
     # Places
     resources :orders do
       patch "/process", to: "orders#process_order", as: :process_item
+      patch "/receive", to: "orders#receive_order", as: :receive_item
       patch "/send", to: "orders#send_order", as: :send_item
       patch "/cancel", to: "orders#cancel_order", as: :cancel_item
     end

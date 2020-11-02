@@ -2,6 +2,9 @@
   <%= link_to dashboard_orders_path, class: "w-auto cursor-pointer #{helpers.main_color_button(color: params["filter"].present? ? "gray" : "primary")}" do %>
     <span>Todas</span>
   <% end %>
+  <%= link_to dashboard_orders_path({filter: "received"}), class: "w-auto cursor-pointer #{helpers.main_color_button(color: params["filter"] === "received" ? "primary" : "")}" do %>
+    <span>Recibidas</span>
+  <% end %>
   <%= link_to dashboard_orders_path({filter: "pending"}), class: "w-auto cursor-pointer #{helpers.main_color_button(color: params["filter"] === "pending" ? "primary" : "")}" do %>
     <span>Pendientes</span>
   <% end %>
@@ -9,7 +12,7 @@
     <span>En proceso</span>
   <% end %>
   <%= link_to dashboard_orders_path({filter: "sent"}), class: "w-auto cursor-pointer #{helpers.main_color_button(color: params["filter"] == "sent" ? "primary" : "")}" do %>
-    <span>Enviados</span>
+    <span>Enviados y completadas</span>
   <% end %>
   <%= link_to dashboard_orders_path({filter: "cancelled"}), class: "w-auto cursor-pointer #{helpers.main_color_button(color: params["filter"] == "cancelled" ? "primary" : "")}" do %>
     <span>Canceladas</span>

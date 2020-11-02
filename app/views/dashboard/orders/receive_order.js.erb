@@ -1,0 +1,5 @@
+var element = document.querySelector("#order_<%= @order.id.to_s %>");
+if (element) {
+    element.parentNode.removeChild(element);
+}
+window.addToastify("primary", "Se ha recibido la orden. Notificación enviada al comprador.");

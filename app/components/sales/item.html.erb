@@ -2,7 +2,7 @@
   id="order_<%= @sale.id.to_s %>"
   class="w-full p-4 rounded transition duration-150 relative hover:shadow-lg <%= @sale.pending? ? "bg-indigo-300 bg-opacity-25" : "#{helpers.border_color}" %>">
   <div class="w-full <%= @sale.get_bg %> p-3 absolute flex items-center top-0 transform -translate-y-full left-0 right-0">
-    <span class="text-current font-normal" ><%= I18n.t("status.#{@sale.status}") %></span>
+    <span class="text-current font-normal"><%= I18n.t("status.#{@sale.status}") %></span>
   </div>
   <div class="w-full mb-3">
     <span class="text-sm text-gray-700 font-normal">
@@ -12,12 +12,17 @@
   </div>
   <div class="w-full flex mb-4 justify-between items-center">
     <div class="w-auto flex space-x-5">
+      <% unless @sale.is_received? %>
+        <%= button_to "Recibir", dashboard_order_receive_item_path(@sale), method: :patch, data: {disable_with: "Actualizando..."}, remote: true, class: "w-auto #{helpers.main_color_button(color: "dark", padding: "big")}" %>
+      <% end %>
       <% unless @sale.in_process? || @sale.sent? || @sale.cancelled? %>
-        <%= button_to @sale.is_cash? ? "Procesar y completar" : "Procesar", dashboard_order_process_item_path(@sale), method: :patch, data: {disable_with: "Actualizando..."}, remote: true, class: "w-auto #{helpers.main_color_button(color: "dark", padding: "big")}" %>
+        <%= button_to "Procesar", dashboard_order_process_item_path(@sale), method: :patch, data: {disable_with: "Actualizando..."}, remote: true, class: "w-auto #{helpers.main_color_button(color: "dark", padding: "big")}" %>
       <% end %>
       <% unless @sale.sent? %>
-        <% unless @sale.is_cash? %>
-          <%= button_to "Enviar", dashboard_order_send_item_path(@sale), method: :patch, data: {disable_with: "Actualizando..."}, remote: true, class: "w-auto #{helpers.main_color_button(color: "gray", padding: "big")}" %>
+        <% if @sale.is_cash? %>
+          <%= button_to "Completar", dashboard_order_send_item_path(@sale), method: :patch, data: {disable_with: "Actualizando..."}, remote: true, class: "w-auto #{helpers.main_color_button(color: "primary", padding: "big")}" %>
+        <% else %>
+          <%= button_to "Enviar", dashboard_order_send_item_path(@sale), method: :patch, data: {disable_with: "Actualizando..."}, remote: true, class: "w-auto #{helpers.main_color_button(color: "primary", padding: "big")}" %>
         <% end %>
       <% end %>
       <% unless @sale.is_cash? %>
