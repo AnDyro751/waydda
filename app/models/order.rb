@@ -11,6 +11,7 @@ class Order
   field :send_to, type: Hash
   field :total_order, type: Float, default: 0.0
   field :payment_type, type: String, default: "cash"
+  # field :shipment_type, type: String
   field :uuid, type: String
   # Relations
   belongs_to :place

@@ -214,9 +214,20 @@
                                 <td style="padding:18px 10px 18px 10px; line-height:22px; text-align:inherit;" height="100%" valign="top" bgcolor="" role="module-content">
                                   <div>
                                     <div style="font-family: inherit; text-align: inherit">
-                                      <strong>Recuerda recolectar tus productos en:</strong></div>
+                                      <% if @order.cart.delivery_kind === "pickup" %>
+                                        <strong>Recuerda recolectar tus productos en:</strong>
+                                      <% else %>
+                                        <strong>Tu pedido será enviado a:</strong>
+                                      <% end %>
+                                    </div>
                                     <div style="font-family: inherit; text-align: inherit"><br></div>
-                                    <div style="font-family: inherit; text-align: inherit">Dolores del rio 430</div>
+                                    <div style="font-family: inherit; text-align: inherit">
+                                      <% if @order.cart.delivery_kind === "pickup" %>
+                                        <%= @order.place.address %> <%= @order.place.external_number %>
+                                      <% else %>
+                                        <%= @order.cart.user.current_address.address %> <%= @order.cart.user.current_address.description %>
+                                      <% end %>
+                                    </div>
                                     <div></div>
                                   </div>
                                 </td>
