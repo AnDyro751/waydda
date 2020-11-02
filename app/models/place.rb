@@ -1,3 +1,5 @@
+#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
+# SENDGRID
 class Place
   include Mongoid::Document
   include Mongoid::Timestamps
