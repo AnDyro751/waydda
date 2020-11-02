@@ -38,6 +38,9 @@ en:
     pending: "Pendiente"
     active: "Activa"
     inactive: "Inactiva"
+    cancelled: "Cancelada"
+    in_process: "Procesando"
+    sent: "Enviada"
   cocoon:
     defaults:
       add: "Agregar"

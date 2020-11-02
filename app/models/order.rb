@@ -35,8 +35,8 @@ class Order
       transitions from: [:pending], to: :in_process
     end
 
-    event :cancel do
-      transitions from: [:pending], to: :cancelled
+    event :to_cancel do
+      transitions from: [:pending, :in_process, :sent], to: :cancelled
     end
     event :to_sent do
       transitions from: [:in_process, :pending], to: :sent
@@ -51,6 +51,14 @@ class Order
       return !self.is_cash?
     else
       return false
+    end
+  end
+
+  def get_bg
+    if self.pending? || self.sent? || self.in_process?
+      return "bg-indigo-300 text-blue-900"
+    else
+      return "bg-red-700 text-white"
     end
   end
 

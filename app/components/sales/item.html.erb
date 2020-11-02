@@ -1,15 +1,18 @@
 <div
   id="order_<%= @sale.id.to_s %>"
-  class="w-full p-4 rounded transition duration-150 hover:shadow-lg <%= @sale.pending? ? "bg-indigo-300 bg-opacity-25" : "#{helpers.border_color}" %>">
+  class="w-full p-4 rounded transition duration-150 relative hover:shadow-lg <%= @sale.pending? ? "bg-indigo-300 bg-opacity-25" : "#{helpers.border_color}" %>">
+  <div class="w-full <%= @sale.get_bg %> p-3 absolute flex items-center top-0 transform -translate-y-full left-0 right-0">
+    <span class="text-current font-normal" ><%= I18n.t("status.#{@sale.status}") %></span>
+  </div>
   <div class="w-full mb-3">
-  <span class="text-sm text-gray-700 font-normal">
+    <span class="text-sm text-gray-700 font-normal">
       <%= @sale.created_at.strftime('%d-%m-%Y a las %I:%M:%S %p') %>
-    / Hace <%= helpers.time_ago_in_words(@sale.created_at) %>
+      / Hace <%= helpers.time_ago_in_words(@sale.created_at) %>
   </span>
   </div>
   <div class="w-full flex mb-4 justify-between items-center">
     <div class="w-auto flex space-x-5">
-      <% unless @sale.in_process? || @sale.sent? %>
+      <% unless @sale.in_process? || @sale.sent? || @sale.cancelled? %>
         <%= button_to @sale.is_cash? ? "Procesar y completar" : "Procesar", dashboard_order_process_item_path(@sale), method: :patch, data: {disable_with: "Actualizando..."}, remote: true, class: "w-auto #{helpers.main_color_button(color: "dark", padding: "big")}" %>
       <% end %>
       <% unless @sale.sent? %>
@@ -23,16 +26,8 @@
         </div>
       <% end %>
     </div>
-    <% if @sale.is_cash? %>
-      <div class="w-auto <%= helpers.main_color_button(color: "danger") %>">
-        <span>Cancelar orden</span>
-      </div>
-    <% else %>
-      <% unless @sale.sent? %>
-        <div class="w-auto <%= helpers.main_color_button(color: "danger") %>">
-          <span>Cancelar orden</span>
-        </div>
-      <% end %>
+    <% unless @sale.cancelled? %>
+      <%= button_to "Cancelar orden", dashboard_order_cancel_item_path(@sale), method: :patch, data: {disable_with: "Actualizando...", confirm: "Esta orden se cancelará y se reembolsará el dinero al comprador. ¿Quieres continuar?"}, remote: true, class: "w-auto #{helpers.main_color_button(color: "danger")}" %>
     <% end %>
   </div>
   <% @sale.order_items.each do |order_item| %>
@@ -59,11 +54,11 @@
 
   <div class="w-full flex items-center pt-4 border-t border-blue-400">
     <div class="w-1/2 flex flex-wrap">
-      <h5 class="font-normal mb-3 w-full">Total:</h5>
+      <h5 class="font-normal mb-3 w-full text-gray-700 text-sm">Total:</h5>
       <h5 class="font-medium text-lg w-full"><%= helpers.number_to_currency(@sale.total_order) %></h5>
     </div>
     <div class="w-1/2 flex justify-end text-right flex-wrap">
-      <h5 class="font-normal mb-3 w-full">Tipo de pago:</h5>
+      <h5 class="font-normal mb-3 w-full text-gray-700 text-sm">Tipo de pago:</h5>
       <h5 class="font-medium text-lg w-full"><%= @sale.is_cash? ? "Efectivo" : "Tarjeta de débito" %></h5>
     </div>
   </div>

@@ -9,7 +9,7 @@ class Dashboard::OrdersController < ApplicationController
                   description: "Todas las ventas - Panel de control"
     add_breadcrumb "Mis ventas", dashboard_orders_path
     if params[:filter].nil?
-      @sales = @place.orders.includes(:order_items).paginate(page: params[:page], per_page: 30)
+      @sales = @place.orders.order_by(status: "desc").includes(:order_items).paginate(page: params[:page], per_page: 30)
       add_breadcrumb "Todas las ventas", dashboard_orders_path
     elsif params[:filter] === "process"
       @sales = @place.orders.where(status: "in_process").includes(:order_items).paginate(page: params[:page], per_page: 30)
@@ -66,6 +66,18 @@ class Dashboard::OrdersController < ApplicationController
         end
       else
         format.html { redirect_to dashboard_order_path(@order), notice: "No se ha podido procesar la orden" }
+      end
+    end
+  end
+
+  def cancel_order
+    respond_to do |format|
+      begin
+        @order.to_cancel!
+        format.js
+      rescue => e
+        logger.warn "ERROR AL CANCELAR LN # 79 #{e}"
+        format.html { redirect_to dashboard_order_path(@order), notice: "No se ha podido cancelar la orden, #{e}" }
       end
     end
   end
