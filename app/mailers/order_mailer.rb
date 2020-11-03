@@ -10,4 +10,10 @@ class OrderMailer < ApplicationMailer
          :subject => '¡Nueva orden!')
   end
 
+  def customer_order_received(order:)
+    @order = order
+    mail(:to => "angelmendezz751@gmail.com",
+         :subject => 'Tu compra en Waydda México')
+  end
+
 end

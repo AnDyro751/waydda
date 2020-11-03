@@ -35,17 +35,30 @@ class Order
     state :sent
 
     event :to_receive do
+      after do
+        OrderMailer.customer_order_received(order: self).deliver_now
+        # Mandar un email para decirle al usuario que el negocio ha recibido la orden
+      end
       transitions from: [:pending], to: :received
     end
 
     event :to_process do
+      after do
+        # Mandar un email para decirle al usuario que el negocio está procesando el pedido
+      end
       transitions from: [:pending, :received], to: :in_process
     end
 
     event :to_cancel do
+      after do
+        # Mandar un email para decirle al usuario que el negocio ha cancelado la orden
+      end
       transitions from: [:pending, :in_process, :sent, :received], to: :cancelled
     end
     event :to_sent do
+      after do
+        # Mandar un email para decirle al usuario que el negocio ha enviado la orden
+      end
       transitions from: [:in_process, :pending, :received], to: :sent
     end
   end
