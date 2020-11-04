@@ -19,10 +19,10 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b89cb0fb-b680-4bb9-8ae0-f4b41721cfb9" name="Default Changelist" comment="feat(Dashboard): Email de orden recibida 3:">
+    <list default="true" id="b89cb0fb-b680-4bb9-8ae0-f4b41721cfb9" name="Default Changelist" comment="feat(Dashboard): Agregamos un pequeño borde y agregamos el número de ticket">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/models/order.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/order.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/order_mailer/customer_order_received.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/order_mailer/customer_order_received.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/dashboard/orders/show.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/dashboard/orders/show.html.erb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -820,14 +820,7 @@
       <workItem from="1604322948850" duration="638000" />
       <workItem from="1604343501682" duration="7053000" />
       <workItem from="1604358172990" duration="2290000" />
-      <workItem from="1604435868938" duration="5111000" />
-    </task>
-    <task id="LOCAL-00379" summary="feat(Dashboard): Agregamos los productos a la categoría">
-      <created>1603215722020</created>
-      <option name="number" value="00379" />
-      <option name="presentableId" value="LOCAL-00379" />
-      <option name="project" value="LOCAL" />
-      <updated>1603215722020</updated>
+      <workItem from="1604435868938" duration="5537000" />
     </task>
     <task id="LOCAL-00380" summary="feat(Dashboard): Eliminamos el producto de la lista al agregarlo">
       <created>1603215784658</created>
@@ -1165,7 +1158,14 @@
       <option name="project" value="LOCAL" />
       <updated>1604439423457</updated>
     </task>
-    <option name="localTasksCounter" value="428" />
+    <task id="LOCAL-00428" summary="feat(Dashboard): Agregamos un pequeño borde y agregamos el número de ticket">
+      <created>1604452066743</created>
+      <option name="number" value="00428" />
+      <option name="presentableId" value="LOCAL-00428" />
+      <option name="project" value="LOCAL" />
+      <updated>1604452066744</updated>
+    </task>
+    <option name="localTasksCounter" value="429" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -1185,7 +1185,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="feat(Place): Removemos el caché y ya funciona sin problemas" />
     <MESSAGE value="feat(Place): Agregamos los breadcrumbs en la vista de show" />
     <MESSAGE value="feat(Place): Mostramos las variantes y las seleccionamos" />
     <MESSAGE value="PUSH" />
@@ -1210,7 +1209,8 @@
     <MESSAGE value="feat(Dashboard): Pequeña versión del email de la orden" />
     <MESSAGE value="feat(Dashboard): Email con datos de verdad, recolectar o envio" />
     <MESSAGE value="feat(Dashboard): Email de orden recibida 3:" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat(Dashboard): Email de orden recibida 3:" />
+    <MESSAGE value="feat(Dashboard): Agregamos un pequeño borde y agregamos el número de ticket" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat(Dashboard): Agregamos un pequeño borde y agregamos el número de ticket" />
   </component>
   <component name="WindowStateProjectService">
     <state x="392" y="0" key="#All_specs_in_spec:_waydda" timestamp="1598730457189">
@@ -1369,13 +1369,13 @@
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="339" y="174" width="672" height="677" key="run.anything.popup/0.0.1366.768@0.0.1366.768" timestamp="1600370541201" />
-    <state x="346" y="89" width="672" height="678" key="search.everywhere.popup" timestamp="1604451826946">
+    <state x="346" y="89" width="672" height="678" key="search.everywhere.popup" timestamp="1604452265059">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="1852" y="56" width="945" height="954" key="search.everywhere.popup/0.0.1366.768/1366.-69.1920.1080@1366.-69.1920.1080" timestamp="1597715976170" />
     <state x="1710" y="89" width="672" height="678" key="search.everywhere.popup/0.0.1366.768/1366.0.1360.768@1366.0.1360.768" timestamp="1598985878395" />
     <state x="1852" y="125" width="945" height="954" key="search.everywhere.popup/0.0.1366.768/1366.0.1920.1080@1366.0.1920.1080" timestamp="1599267313630" />
-    <state x="346" y="89" width="672" height="678" key="search.everywhere.popup/0.0.1366.768@0.0.1366.768" timestamp="1604451826946" />
+    <state x="346" y="89" width="672" height="678" key="search.everywhere.popup/0.0.1366.768@0.0.1366.768" timestamp="1604452265059" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/waydda@AggregateCategory_Save_reco___.rcov" NAME="AggregateCategory Save reco... Coverage Results" MODIFIED="1602439891498" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="waydda" />
