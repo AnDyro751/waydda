@@ -1,1 +1,3 @@
-<%= @order.create_qrcode.html_safe %>
+<img
+  class="h-40 w-40"
+  src="<%= get_image_url(400, 400, "orders/#{@order.id.to_s}/qrcode.png", "contain") %>" alt="">

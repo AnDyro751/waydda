@@ -16,4 +16,11 @@ class OrderMailer < ApplicationMailer
          :subject => 'Tu compra en Waydda México')
   end
 
+
+  def customer_order_process(order:)
+    @order = order
+    mail(:to => "angelmendezz751@gmail.com",
+         :subject => 'Tu compra en Waydda México está siendo procesada')
+  end
+
 end

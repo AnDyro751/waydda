@@ -1,9 +1,9 @@
 <div
   id="order_<%= @sale.id.to_s %>"
   class="w-full p-4 rounded transition duration-150 relative hover:shadow-lg <%= @sale.pending? ? "bg-indigo-300 bg-opacity-25" : "#{helpers.border_color}" %>">
-  <div class="w-full <%= @sale.get_bg %> p-3 absolute flex items-center top-0 transform -translate-y-full left-0 right-0">
+  <%= link_to dashboard_order_path(@sale), class: "w-full #{@sale.get_bg} p-3 absolute flex items-center top-0 transform -translate-y-full left-0 right-0" do %>
     <span class="text-current font-normal"><%= I18n.t("status.#{@sale.status}") %></span>
-  </div>
+  <% end %>
   <div class="w-full mb-3">
     <span class="text-sm text-gray-700 font-normal">
       <%= @sale.created_at.strftime('%d-%m-%Y a las %I:%M:%S %p') %>
@@ -36,18 +36,26 @@
     <% end %>
   </div>
   <% @sale.order_items.each do |order_item| %>
-    <h4 class="font-normal mb-3">
-      <%= helpers.pluralize(order_item.quantity, 'unidad', "unidades") %>
-    </h4>
-    <h3 class="text-2xl font-medium mb-3">
-      <%= order_item.product.name %>
-    </h3>
+    <%= link_to dashboard_order_path(@sale) do %>
+      <h4 class="font-normal mb-3">
+        <%= helpers.pluralize(order_item.quantity, 'unidad', "unidades") %>
+      </h4>
+    <% end %>
+    <%= link_to dashboard_order_path(@sale) do %>
+      <h3 class="text-2xl font-medium mb-3">
+        <%= order_item.product.name %>
+      </h3>
+    <% end %>
+    <%= link_to dashboard_order_path(@sale) do %>
+      <h5 class="mb-3">
+        <%= order_item.aggregates %>
+      </h5>
+    <% end %>
 
-    <h5 class="mb-3">
-      <%= order_item.aggregates %>
-    </h5>
+    <%= link_to dashboard_order_path(@sale) do %>
+      <h4 class="font-normal mb-3">Entregar en:</h4>
+    <% end %>
 
-    <h4 class="font-normal mb-3">Entregar en:</h4>
     <h4 class="font-medium text-lg mb-3">
       <%= @sale.address.address %>
     </h4>

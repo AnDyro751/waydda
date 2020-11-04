@@ -5,6 +5,7 @@ class Order
   include GlobalID::Identification
 
   after_create :create_order_callback
+  before_create :assign_qrcode
 
   # Fields
   field :status, type: String, default: "pending" # Estado por defecto
@@ -44,6 +45,7 @@ class Order
 
     event :to_process do
       after do
+        OrderMailer.customer_order_process(order: self).deliver_now
         # Mandar un email para decirle al usuario que el negocio está procesando el pedido
       end
       transitions from: [:pending, :received], to: :in_process
@@ -138,20 +140,35 @@ class Order
 
 
   def create_qrcode
-    qrcode = RQRCode::QRCode.new("http://github.com/")
+    qrcode = RQRCode::QRCode.new("https://waydda.com/dashboard/orders/#{self.id.to_s}")
 
-    # NOTE: showing with default options specified explicitly
-    svg = qrcode.as_svg(
-        offset: 0,
-        color: '000',
-        shape_rendering: 'crispEdges',
-        module_size: 6,
-        standalone: true
+    png = qrcode.as_png(
+        bit_depth: 1,
+        border_modules: 4,
+        color_mode: ChunkyPNG::COLOR_GRAYSCALE,
+        color: 'black',
+        file: "#{File.join Rails.root}/tmp/#{self.id.to_s}.png",
+        fill: 'white',
+        module_px_size: 6,
+        resize_exactly_to: false,
+        resize_gte_to: false,
+        size: 500
     )
-    return svg
+    return "#{File.join Rails.root}/tmp/#{self.id.to_s}.png"
   end
 
   private
+
+  def assign_qrcode
+    Aws.config.update({credentials: Aws::Credentials.new('AKIAYAOMZIQZPJCWNBJJ', 'zpssqm5AuysJoLswNmBwM3FXNjbArioB74it8Zjr')})
+    s3 = Aws::S3::Resource.new(region: 'us-east-1')
+    qrcode = self.create_qrcode
+    filename = "qrcode.png"
+    bucket_filename = "orders/#{self.id.to_s}/#{filename}"
+    obj = s3.bucket("waydda-qr").object(bucket_filename)
+    obj.upload_file(File.open qrcode)
+    File.delete(qrcode)
+  end
 
   def create_order_callback
     # TODO: Crear el job para agregar los items y luego mandar a action cable
