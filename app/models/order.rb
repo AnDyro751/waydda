@@ -21,7 +21,7 @@ class Order
   embeds_one :address
   # embeds_one :cart
 
-  validates :payment_type, inclusion: {in: ["cash", "card"]}
+  validates :payment_type, inclusion: {in: %w[cash card]}
   validates :total_order, numericality: {greater_than_or_equal_to: 1}
 
 
