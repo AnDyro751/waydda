@@ -13,6 +13,7 @@ class Order
   field :total_order, type: Float, default: 0.0
   field :payment_type, type: String, default: "cash"
   field :shipment_type, type: String, default: "pickup"
+  field :cancel_reason, type: String
   field :uuid, type: String
   # Relations
   belongs_to :place
@@ -24,7 +25,7 @@ class Order
 
   validates :payment_type, inclusion: {in: %w[cash card]}
   validates :total_order, numericality: {greater_than_or_equal_to: 1}
-
+  validates :cancel_reason, length: {in: 0..400}, allow_blank: true
 
   # AASM STATES
   aasm column: :status do
@@ -37,7 +38,7 @@ class Order
 
     event :to_receive do
       after do
-        OrderMailer.customer_order_received(order: self).deliver_now
+        OrderMailer.customer_order_received(order: self).deliver_later
         # Mandar un email para decirle al usuario que el negocio ha recibido la orden
       end
       transitions from: [:pending], to: :received
@@ -45,7 +46,7 @@ class Order
 
     event :to_process do
       after do
-        OrderMailer.customer_order_process(order: self).deliver_now
+        OrderMailer.customer_order_process(order: self).deliver_later
         # Mandar un email para decirle al usuario que el negocio está procesando el pedido
       end
       transitions from: [:pending, :received], to: :in_process
@@ -53,12 +54,14 @@ class Order
 
     event :to_cancel do
       after do
+        OrderMailer.customer_order_cancelled(order: self).deliver_later
         # Mandar un email para decirle al usuario que el negocio ha cancelado la orden
       end
       transitions from: [:pending, :in_process, :sent, :received], to: :cancelled
     end
     event :to_sent do
       after do
+        # Mandar un email para ver si el pedido se realizó par pickup o envío
         # Mandar un email para decirle al usuario que el negocio ha enviado la orden
       end
       transitions from: [:in_process, :pending, :received], to: :sent

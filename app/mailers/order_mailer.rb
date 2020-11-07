@@ -10,6 +10,7 @@ class OrderMailer < ApplicationMailer
          :subject => '¡Nueva orden!')
   end
 
+  # @param [Object] order
   def customer_order_received(order:)
     @order = order
     mail(:to => "angelmendezz751@gmail.com",
@@ -17,10 +18,18 @@ class OrderMailer < ApplicationMailer
   end
 
 
+  # @param [Object] order
   def customer_order_process(order:)
     @order = order
     mail(:to => "angelmendezz751@gmail.com",
          :subject => 'Tu compra en Waydda México está siendo procesada')
+  end
+
+  # @param [Object] order
+  def customer_order_cancelled(order:)
+    @order = order
+    mail(:to => "angelmendezz751@gmail.com",
+         :subject => 'Compra cancelada. Waydda México.')
   end
 
 end
