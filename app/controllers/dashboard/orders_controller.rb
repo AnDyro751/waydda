@@ -3,11 +3,11 @@ class Dashboard::OrdersController < ApplicationController
   before_action :authenticate_user!
   before_action :set_my_place
   before_action :set_order, only: [:send_order, :process_order, :show, :edit, :update, :cancel_order, :receive_order, :destroy]
+  add_breadcrumb "Mis ventas", :dashboard_orders_path
 
   def index
     set_meta_tags title: "Todas las ventas | Panel de control",
                   description: "Todas las ventas - Panel de control"
-    add_breadcrumb "Mis ventas", dashboard_orders_path
     if params[:filter].nil?
       @sales = @place.orders.order_by(status: "desc").includes(:order_items).paginate(page: params[:page], per_page: 30)
       add_breadcrumb "Todas las ventas", dashboard_orders_path
@@ -37,8 +37,12 @@ class Dashboard::OrdersController < ApplicationController
   end
 
   def show
-    set_meta_tags title: "Venta - #{@order.uuid} | Panel de control",
-                  description: "Venta - #{@order.uuid} - Panel de control"
+    set_meta_tags title: "Pedido ##{@order.uuid} | Panel de control",
+                  description: "Pedido ##{@order.uuid} - Panel de control"
+    add_breadcrumb "Pedido ##{@order.uuid}", dashboard_order_path(@order)
+    # TODO: Mostrar productos vendidos con su respectivo aggregate
+    # TODO: Mostrar el precio por producto
+    # TODO: Mostrar total del pedido
   end
 
   def process_order
