@@ -12,7 +12,7 @@ class Order
   field :send_to, type: Hash
   field :total_order, type: Float, default: 0.0
   field :payment_type, type: String, default: "cash"
-  # field :shipment_type, type: String
+  field :shipment_type, type: String, default: "pickup"
   field :uuid, type: String
   # Relations
   belongs_to :place
@@ -99,7 +99,7 @@ class Order
   # @param [Object] current_user
   # @return [TrueClass]
   def self.create_new_order(cart:, place:, address:, current_user:, total:)
-    new_order = place.orders.new(send_to: {name: "#{current_user.name} #{current_user.lastName}", email: current_user.email}, total_order: total, address: address, cart: cart)
+    new_order = place.orders.new(shipment_type: cart.delivery_kind, send_to: {name: "#{current_user.name} #{current_user.lastName}", email: current_user.email}, total_order: total, address: address, cart: cart)
     if new_order.save
       return true
     else
