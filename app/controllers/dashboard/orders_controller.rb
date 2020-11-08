@@ -9,23 +9,23 @@ class Dashboard::OrdersController < ApplicationController
     set_meta_tags title: "Todas las ventas | Panel de control",
                   description: "Todas las ventas - Panel de control"
     if params[:filter].nil?
-      @sales = @place.orders.order_by(status: "desc").includes(:order_items).paginate(page: params[:page], per_page: 30)
+      @sales = @place.orders.order_by(created_at: "desc").includes(:order_items).paginate(page: params[:page], per_page: 30)
       add_breadcrumb "Todas las ventas", dashboard_orders_path
     elsif params[:filter] === "process"
-      @sales = @place.orders.where(status: "in_process").includes(:order_items).paginate(page: params[:page], per_page: 30)
+      @sales = @place.orders.order_by(created_at: "desc").where(status: "in_process").includes(:order_items).paginate(page: params[:page], per_page: 30)
       add_breadcrumb "Pedidos en proceso", dashboard_orders_path
     elsif params[:filter] === "pending"
-      @sales = @place.orders.where(status: "pending").includes(:order_items).paginate(page: params[:page], per_page: 30)
+      @sales = @place.orders.order_by(created_at: "desc").where(status: "pending").includes(:order_items).paginate(page: params[:page], per_page: 30)
       add_breadcrumb "Pedidos pendientes", dashboard_orders_path
     elsif params[:filter] === "cancelled"
-      @sales = @place.orders.where(status: "cancelled").includes(:order_items).paginate(page: params[:page], per_page: 30)
+      @sales = @place.orders.order_by(created_at: "desc").where(status: "cancelled").includes(:order_items).paginate(page: params[:page], per_page: 30)
       add_breadcrumb "Pedidos cancelados", dashboard_orders_path
     elsif params[:filter] === "sent"
       add_breadcrumb "Pedidos enviados", dashboard_orders_path
-      @sales = @place.orders.where(status: "sent").includes(:order_items).paginate(page: params[:page], per_page: 30)
+      @sales = @place.orders.order_by(created_at: "desc").where(status: "sent").includes(:order_items).paginate(page: params[:page], per_page: 30)
     elsif params[:filter] === "received"
       add_breadcrumb "Pedidos recibidos no enviados", dashboard_orders_path
-      @sales = @place.orders.where(status: "received").includes(:order_items).paginate(page: params[:page], per_page: 30)
+      @sales = @place.orders.order_by(created_at: "desc").where(status: "received").includes(:order_items).paginate(page: params[:page], per_page: 30)
     else
       redirect_to dashboard_orders_path, notice: "No se ha encontrado el filtro de búsqueda"
     end
@@ -109,6 +109,6 @@ class Dashboard::OrdersController < ApplicationController
   private
 
   def set_order
-    @order = @place.orders.find_by(id: params["order_id"] || params["id"]) || not_found
+    @order = @place.orders.order_by(created_at: "desc").find_by(id: params["order_id"] || params["id"]) || not_found
   end
 end

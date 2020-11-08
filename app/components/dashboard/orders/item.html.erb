@@ -1,0 +1,34 @@
+<div class="w-full flex space-x-3 p-3 items-center">
+  <div class="w-3/12">
+    <p class="font-medium"><%= @order_item.product.name %></p>
+    <p class="text-xs text-gray-700 mt-1" ><%= helpers.number_to_currency(@order_item.product.price) %></p>
+  </div>
+  <div class="w-5/12">
+    <% @order_item.aggregates.each do |aggi| %>
+      <span class="font-medium block"><%= aggi["aggregate_category"]["name"] %>:</span>
+      <% aggi["subvariants"].each do |sb| %>
+        <span class="text-sm text-gray-700 block mt-1"><%= sb["name"] %> + (<%= number_to_currency(sb["price"]) %>)</span>
+      <% end %>
+    <% end %>
+  </div>
+  <div class="w-2/12">
+    <p><%= @order_item.quantity %></p>
+  </div>
+  <div class="w-2/12">
+    <span class="uppercase text-gray-700 text-sm"><%= number_to_currency(@order_item.get_total_price) %></span>
+  </div>
+</div>
+<!--<div class="w-full border p-4 <%#= helpers.border_color %>">-->
+<!--  <p class="text-2xl font-medium mb-2"><%#= @order_item.product.name %></p>-->
+<!--  <p><%#= @order_item.id %></p>-->
+<%# @order_item.aggregates.each do |aggi| %>
+<!--    <p>-->
+<%#= aggi["aggregate_category"]["name"] %>
+<!--    </p>-->
+<%# aggi["subvariants"].each do |sb| %>
+<!--      <p class="font-medium"><%#= sb["name"] %></p>-->
+<!--      <p class="font-medium">+<%#= number_to_currency(sb["price"]) %></p>-->
+<%# end %>
+<%# end %>
+<!--  <p class="font-medium"><%#= helpers.number_to_currency(@order_item.product.price) %></p>-->
+<!--</div>-->

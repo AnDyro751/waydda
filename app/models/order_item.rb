@@ -9,4 +9,15 @@ class OrderItem
   embeds_one :product
   belongs_to :order
 
+  def get_total_price
+    total = 0
+    self.aggregates.each do |aggi|
+      aggi["subvariants"].each do |sb|
+        total = total + sb["price"]
+      end
+    end
+    total = (self.product.price + total) * self.quantity
+    total
+  end
+
 end

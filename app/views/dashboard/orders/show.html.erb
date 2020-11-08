@@ -3,26 +3,66 @@
 <!--  src="<%#= get_image_url(400, 400, "orders/#{@order.id.to_s}/qrcode.png", "contain") %>" alt="">-->
 
 
-  <%= render Headers::Text.new(title: "Pedido ##{@order.uuid}", small: false, subtitle: "#{@order.shipment_type === "pickup" ? "Recolección en sucursal" : "Envío a domicilio"}") %>
-<div class="w-full space-y-4">
-  <% @order.order_items.each do |order_item| %>
-    <div class="w-full border p-4 <%= border_color %>" >
-      <p><%= order_item.quantity %></p>
-      <p><%= order_item.id %></p>
-      <%#= order_item.aggregates %>
-      <% order_item.aggregates.each do |aggi| %>
-        <p>
-          <%= aggi["aggregate_category"]["name"] %>
-        </p>
-        <% aggi["subvariants"].each do |sb| %>
-          <p class="font-medium"><%= sb["name"] %></p>
-          <p class="font-medium">+<%= number_to_currency(sb["price"]) %></p>
-        <% end %>
-    <% end %>
-      <p class="font-medium"><%= number_to_currency(order_item.product.price) %></p>
-      <p><%= order_item.product.name %></p>
+<%= render Headers::Text.new(title: "Pedido ##{@order.uuid}", with_margin: true, small: false, subtitle: "#{@order.shipment_type === "pickup" ? "Recolección en sucursal" : "Envío a domicilio"}") %>
+<% if @order.shipment_type === "pickup" %>
+  <div class="w-full <%= border_color %>">
+    <h3 class="text-xl font-medium p-3 bg-main-gray">Cliente</h3>
+    <div class="w-full flex p-3 border-b border-t">
+      <div class="w-3/12">
+        <span class="uppercase text-gray-700 text-xs">Nombre</span>
+      </div>
+      <div class="w-5/12">
+        <span class="uppercase text-gray-700 text-xs">Dirección</span>
+      </div>
+      <div class="w-2/12">
+        <span class="uppercase text-gray-700 text-xs">Teléfono</span>
+      </div>
+      <div class="w-2/12">
+        <span class="uppercase text-gray-700 text-xs">Correo</span>
+      </div>
     </div>
-  <% end %>
-  <h3 class="text-gray-700 font-normal mb-2 mt-3">Total:</h3>
-  <h4 class="text-3xl font-medium"><%= number_to_currency(@order.total_order) %></h4>
+    <div class="w-full flex p-3 inline items-center">
+      <div class="w-3/12">
+        <p class="font-medium"><%= @order.send_to["name"] %></p>
+      </div>
+      <div class="w-5/12">
+        <p class="font-normal text-gray-800"><%= @order.address.address %> <%= @order.address.description %> <%= @order.address.internal_number.present? ? "- #{@order.address.internal_number}" : "" %> </p>
+        <% if @order.address.description %>
+          <p class="text-sm text-gray-700 mt-1"><%= @order.address.instructions %></p>
+        <% end %>
+      </div>
+      <div class="w-2/12">
+        <p class="text-gray-800"><%= @order.send_to["phone"] %></p>
+      </div>
+      <div class="w-2/12">
+        <a target="_blank" class="text-blue-700 underline truncate" href="mailto:<%= @order.send_to["email"] || "ajsnajsq@gmail.com" %>"><%= @order.send_to["email"] || "jnsa" %></a>
+      </div>
+    </div>
+  </div>
+<% end %>
+<div class="w-full mb-20 mt-6 <%= border_color %>">
+  <h3 class="text-xl font-medium p-3 bg-main-gray">Productos vendidos</h3>
+  <div class="w-full flex p-3 border-b border-t">
+    <div class="w-3/12">
+      <span class="uppercase text-gray-700 text-xs">Nombre del producto</span>
+    </div>
+    <div class="w-5/12">
+      <span class="uppercase text-gray-700 text-xs">Variantes</span>
+    </div>
+    <div class="w-2/12">
+      <span class="uppercase text-gray-700 text-xs">Cantidad</span>
+    </div>
+    <div class="w-2/12">
+      <span class="uppercase text-gray-700 text-xs">Subtotal</span>
+    </div>
+  </div>
+  <div class="w-full divide-y divide-gray-300">
+    <% @order.order_items.each do |order_item| %>
+      <%= render Dashboard::Orders::Item.new(order_item: order_item) %>
+    <% end %>
+    <div class="w-full p-3">
+      <h3 class="text-gray-700 font-normal mb-2 mt-3 w-full text-right">Total:</h3>
+      <h4 class="text-3xl font-medium w-full text-right"><%= number_to_currency(@order.total_order) %></h4>
+    </div>
+  </div>
 </div>
