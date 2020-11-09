@@ -42,6 +42,9 @@ en:
     in_process: "Procesando"
     sent: "Enviada"
     received: "Recibida"
+  shipment_type:
+    pickup: "Recolección en sucursal"
+    delivery: "Envío a domicilio"
   cocoon:
     defaults:
       add: "Agregar"

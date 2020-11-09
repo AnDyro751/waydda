@@ -1,13 +1,22 @@
 <div class="w-full flex space-x-3 p-3 items-center">
   <div class="w-3/12">
+    <!--    <div class="mb-3">-->
+    <!--      <img-->
+    <!--        class="w-16 border-2 rounded hover:shadow transition duration-150 h-16"-->
+    <!--        src="<%#= helpers.get_image_url(80, 80, @order_item.product.photo, "contain") %>" alt="">-->
+    <!--    </div>-->
     <p class="font-medium"><%= @order_item.product.name %></p>
-    <p class="text-xs text-gray-700 mt-1" ><%= helpers.number_to_currency(@order_item.product.price) %></p>
+    <p class="text-xs text-gray-700 mt-1"><%= helpers.number_to_currency(@order_item.product.price) %></p>
+    <% if @order_item.product.sku.present? %>
+      <p class="text-xs text-gray-700 mt-1"><%= @order_item.product.sku %></p>
+    <% end %>
   </div>
   <div class="w-5/12">
     <% @order_item.aggregates.each do |aggi| %>
       <span class="font-medium block"><%= aggi["aggregate_category"]["name"] %>:</span>
       <% aggi["subvariants"].each do |sb| %>
-        <span class="text-sm text-gray-700 block mt-1"><%= sb["name"] %> + (<%= number_to_currency(sb["price"]) %>)</span>
+        <span class="text-sm text-gray-700 block mt-1"><%= sb["name"] %> + (<%= number_to_currency(sb["price"]) %>
+          )</span>
       <% end %>
     <% end %>
   </div>

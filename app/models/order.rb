@@ -83,8 +83,10 @@ class Order
   # @note Retorna un fondo según el estado de la orden
   # @return [String]
   def get_bg
-    if self.pending? || self.sent? || self.in_process? || self.received?
+    if self.pending? || self.in_process? || self.received?
       return "bg-indigo-300 text-blue-900"
+    elsif self.sent?
+      return "bg-green-300 text-green-900"
     else
       return "bg-red-700 text-white"
     end

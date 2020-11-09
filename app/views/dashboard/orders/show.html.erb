@@ -4,47 +4,46 @@
 
 
 <%= render Headers::Text.new(title: "Pedido ##{@order.uuid}", with_margin: true, small: false, subtitle: "#{@order.shipment_type === "pickup" ? "Recolección en sucursal" : "Envío a domicilio"}") %>
-<% if @order.shipment_type === "pickup" %>
-  <div class="w-full <%= border_color %>">
-    <h3 class="text-xl font-medium p-3 bg-main-gray">Cliente</h3>
-    <div class="w-full flex p-3 border-b border-t">
-      <div class="w-3/12">
-        <span class="uppercase text-gray-700 text-xs">Nombre</span>
-      </div>
-      <div class="w-5/12">
-        <span class="uppercase text-gray-700 text-xs">Dirección</span>
-      </div>
-      <div class="w-2/12">
-        <span class="uppercase text-gray-700 text-xs">Teléfono</span>
-      </div>
-      <div class="w-2/12">
-        <span class="uppercase text-gray-700 text-xs">Correo</span>
-      </div>
+<%= render Dashboard::Orders::Info.new(order: @order) %>
+<div class="w-full <%= border_color %>">
+  <h3 class="text-xl font-medium p-3 bg-main-gray">Cliente</h3>
+  <div class="w-full flex p-3 border-b border-t">
+    <div class="w-3/12">
+      <span class="uppercase text-gray-700 text-xs">Nombre</span>
     </div>
-    <div class="w-full flex p-3 inline items-center">
-      <div class="w-3/12">
-        <p class="font-medium"><%= @order.send_to["name"] %></p>
-      </div>
-      <div class="w-5/12">
-        <p class="font-normal text-gray-800"><%= @order.address.address %> <%= @order.address.description %> <%= @order.address.internal_number.present? ? "- #{@order.address.internal_number}" : "" %> </p>
-        <% if @order.address.description %>
-          <p class="text-sm text-gray-700 mt-1"><%= @order.address.instructions %></p>
-        <% end %>
-      </div>
-      <div class="w-2/12">
-        <p class="text-gray-800"><%= @order.send_to["phone"] %></p>
-      </div>
-      <div class="w-2/12">
-        <a target="_blank" class="text-blue-700 underline truncate" href="mailto:<%= @order.send_to["email"] || "ajsnajsq@gmail.com" %>"><%= @order.send_to["email"] || "jnsa" %></a>
-      </div>
+    <div class="w-5/12">
+      <span class="uppercase text-gray-700 text-xs">Dirección</span>
+    </div>
+    <div class="w-2/12">
+      <span class="uppercase text-gray-700 text-xs">Teléfono</span>
+    </div>
+    <div class="w-2/12">
+      <span class="uppercase text-gray-700 text-xs">Correo</span>
     </div>
   </div>
-<% end %>
+  <div class="w-full flex p-3 inline items-center">
+    <div class="w-3/12">
+      <p class="font-medium"><%= @order.send_to["name"] %></p>
+    </div>
+    <div class="w-5/12">
+      <p class="font-normal text-gray-800"><%= @order.address.address %> <%= @order.address.description %> <%= @order.address.internal_number.present? ? "- #{@order.address.internal_number}" : "" %> </p>
+      <% if @order.address.description %>
+        <p class="text-sm text-gray-700 mt-1"><%= @order.address.instructions %></p>
+      <% end %>
+    </div>
+    <div class="w-2/12">
+      <p class="text-gray-800"><%= @order.send_to["phone"] %></p>
+    </div>
+    <div class="w-2/12">
+      <a target="_blank" class="text-blue-700 underline truncate" href="mailto:<%= @order.send_to["email"] %>"><%= @order.send_to["email"] %></a>
+    </div>
+  </div>
+</div>
 <div class="w-full mb-20 mt-6 <%= border_color %>">
   <h3 class="text-xl font-medium p-3 bg-main-gray">Productos vendidos</h3>
   <div class="w-full flex p-3 border-b border-t">
     <div class="w-3/12">
-      <span class="uppercase text-gray-700 text-xs">Nombre del producto</span>
+      <span class="uppercase text-gray-700 text-xs">Producto</span>
     </div>
     <div class="w-5/12">
       <span class="uppercase text-gray-700 text-xs">Variantes</span>
