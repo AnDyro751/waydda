@@ -1,6 +1,6 @@
 class CartsController < ApplicationController
   layout "cart"
-  before_action :authenticate_user!, except: [:add_product]
+  # before_action :authenticate_user!, except: [:add_product]
   Stripe.api_key = 'sk_test_51H9CZeBOcPJ0nbHctTzfQZhFXBnn8j05e0xqJ5RSVz5Bum72LsvmQKIecJnsoHISEg0jUWtKjERYGeCAEWiIAujP00Fae9MiKm'
   before_action :set_place, only: [:create_charge, :success, :payment_method, :show, :add_product, :update_item]
   before_action :set_current_cart, only: [:create_charge, :add_product, :payment_method, :show, :update_item]
@@ -28,7 +28,7 @@ class CartsController < ApplicationController
 
   def show
     respond_to do |format|
-      @address = current_user.current_address || current_user.addresses.new
+      @address = current_or_guest_user.current_address || current_or_guest_user.addresses.new
       format.html { render :show }
       format.json { render "carts/show" }
       format.js
@@ -37,7 +37,7 @@ class CartsController < ApplicationController
 
 
   def success
-    @current_cart = current_user.carts.find_by(id: params["cart_id"]) || not_found
+    @current_cart = current_or_guest_user.carts.find_by(id: params["cart_id"]) || not_found
   end
 
 
@@ -48,7 +48,7 @@ class CartsController < ApplicationController
       if @current_cart.payment_type === "cash"
         begin
           puts "TOTAL DE LA ORDER#{@total}"
-          if @current_cart.create_new_cash_order(place: @place, address: @current_address, current_user: current_user, total: @total)
+          if @current_cart.create_new_cash_order(place: @place, address: @current_address, current_or_guest_user: current_or_guest_user, total: @total)
             format.html { redirect_to place_success_checkout_path(@place.slug, @current_cart), alert: "Tu compra se ha realizado" }
           else
             format.html { redirect_to place_my_cart_path(@place.slug), alert: "Ha ocurrido un error al procesar el pago" }
@@ -61,7 +61,7 @@ class CartsController < ApplicationController
         if @place.can_accept_payment_method?(payment_method: "card")
           begin
 
-            if @current_cart.create_new_card_order(place: @place, address: @current_address, current_user: current_user, total: @total, token_id: params["stripeToken"])
+            if @current_cart.create_new_card_order(place: @place, address: @current_address, current_or_guest_user: current_or_guest_user, total: @total, token_id: params["stripeToken"])
               format.html { redirect_to place_success_checkout_path(@place.slug, @current_cart), alert: "Tu pedido se ha realizado con exito" }
             else
               format.html { redirect_to place_my_cart_path(@place.slug), notice: "Ha ocurrido un error al procesar el cargo" }

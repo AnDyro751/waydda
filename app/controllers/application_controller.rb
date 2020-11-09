@@ -34,11 +34,12 @@ class ApplicationController < ActionController::Base
     @cached_guest_user ||= User.find(session[:guest_user_id] || "")
     puts "------------#{@cached_guest_user} 1"
     if @cached_guest_user.nil?
-      @cached_guest_user = create_guest_user
+      return @cached_guest_user = create_guest_user
       puts "------------#{@cached_guest_user} ---2"
     end
-
-  rescue Mongoid::Errors::DocumentNotFound # if session[:guest_user_id] invalid
+    return @cached_guest_user
+  rescue => e # if session[:guest_user_id] invalid
+    puts "---------------------- RESCUE #{e}"
     session[:guest_user_id] = nil
     guest_user if with_retry
   end
@@ -138,7 +139,6 @@ class ApplicationController < ActionController::Base
   def not_found
     raise ActionController::RoutingError.new('Not Found')
   end
-
 
 
   private

@@ -10,7 +10,7 @@
   <% end %>
 
   <div id="address-data" class="px-4 my-8">
-    <% if helpers.current_user.current_address %>
+    <% if helpers.current_or_guest_user.current_address %>
       <h3
         title="<%= helpers.current_user.current_address.address %>"
         class="font-normal text-gray-800 truncate">
