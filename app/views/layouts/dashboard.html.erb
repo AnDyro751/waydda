@@ -29,7 +29,7 @@
 <body class="bg-white">
 <%= render Dashboard::Header::Simple.new(place: @place, current_user: current_or_guest_user) %>
 <div class="w-full flex items-start">
-  <div class="w-1/5 mr-8">
+  <div class="w-1/5 mr-8 main-scroll">
     <% unless @place.nil? %>
       <%= render "utils/Headers/dashboard" %>
     <% end %>

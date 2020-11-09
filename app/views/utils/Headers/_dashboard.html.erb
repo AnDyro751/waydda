@@ -1,12 +1,13 @@
-<aside
-  data-turbolinks-permanent
-  class="bg-white flex items-start justify-start fixed left-0 w-1/5 h-screen flex-wrap z-40 mx-auto pb-6 pt-20 px-4 border-gray-300 border-r">
-  <div class="w-full flex flex-wrap items-center gap-4">
-    <div class="w-full truncate">
-      <% if @place %>
-        <% unless @place.new_record? %>
-          <h4 class="font-bold flex items-center">
-            <%= link_to place_path(@place.slug), target: "_blank" do %>
+<div class="relative w-full">
+  <aside
+    data-turbolinks-permanent
+    class="bg-white flex items-start justify-start fixed left-0 w-1/5 h-screen flex-wrap z-40 mx-auto pb-6 pt-20 border-gray-300 border-r overflow-x-auto main-scroll">
+    <div class="w-full flex flex-wrap items-center gap-4 mb-40 px-4">
+      <div class="w-full truncate">
+        <% if @place %>
+          <% unless @place.new_record? %>
+            <h4 class="font-bold flex items-center">
+              <%= link_to place_path(@place.slug), target: "_blank" do %>
                         <span class="flex inline items-center truncate">
       <%= @place.name.truncate(25) %>
                           <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
@@ -16,19 +17,21 @@
                           <path d="M 5 3 C 3.9069372 3 3 3.9069372 3 5 L 3 19 C 3 20.093063 3.9069372 21 5 21 L 19 21 C 20.093063 21 21 20.093063 21 19 L 21 12 L 19 12 L 19 19 L 5 19 L 5 5 L 12 5 L 12 3 L 5 3 z M 14 3 L 14 5 L 17.585938 5 L 8.2929688 14.292969 L 9.7070312 15.707031 L 19 6.4140625 L 19 10 L 21 10 L 21 3 L 14 3 z"></path>
                         </svg>
                         </span>
-            <% end %>
+              <% end %>
 
-          </h4>
+            </h4>
+          <% end %>
         <% end %>
-      <% end %>
+      </div>
+      <div class="w-full main-scroll">
+        <%= render "utils/Headers/dashboard/items" %>
+      </div>
     </div>
-    <div class="w-full">
-      <%= render "utils/Headers/dashboard/items" %>
-    </div>
-  </div>
+
+  </aside>
   <% unless @place.kind == "premium" %>
-    <div class="absolute bottom-0 left-0 right-0 w-full bg-white flex shadow-top px-4 py-6">
+    <div class="fixed bottom-0 left-0 z-50 bg-white flex shadow-top px-4 py-6 w-1/5">
       <%= link_to "Actualizar plan", dashboard_new_subscription_path("premium"), class: "text-center w-full #{main_color_button(color: "primary", size: "big", padding: "big")}" %>
     </div>
   <% end %>
-</aside>
+</div>
