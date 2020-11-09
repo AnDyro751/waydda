@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-
   root 'home#index'
   # TODO: Agregar seguridad a esto
   mount Split::Dashboard, at: 'split'
@@ -70,6 +69,7 @@ Rails.application.routes.draw do
       post "/add-product/:product_id", to: "items#add_product", as: :add_product
     end
     resources :subscriptions, only: [:new]
+    resources :customers, only: [:index, :show]
     # Products
     resources :products do
       post "/update_status", to: "products#update_status", as: :update_status
