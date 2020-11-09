@@ -3,6 +3,7 @@ class CartsController < ApplicationController
   # before_action :authenticate_user!, except: [:add_product]
   Stripe.api_key = 'sk_test_51H9CZeBOcPJ0nbHctTzfQZhFXBnn8j05e0xqJ5RSVz5Bum72LsvmQKIecJnsoHISEg0jUWtKjERYGeCAEWiIAujP00Fae9MiKm'
   before_action :set_place, only: [:create_charge, :success, :payment_method, :show, :add_product, :update_item]
+  before_action :login_or_continue_as_guest, only: [:show, :success]
   before_action :set_current_cart, only: [:create_charge, :add_product, :payment_method, :show, :update_item]
   before_action :set_product, only: [:add_product]
   before_action :set_current_cart_item, only: [:update_item]
@@ -38,6 +39,9 @@ class CartsController < ApplicationController
 
   def success
     @current_cart = current_or_guest_user.carts.find_by(id: params["cart_id"]) || not_found
+    if @current_cart.status != "status"
+      not_found
+    end
   end
 
 
@@ -176,6 +180,13 @@ class CartsController < ApplicationController
 
   def set_available_distance
     @available_distance = @place.available_distance?(current_or_guest_user.get_ll)
+  end
+
+  def login_or_continue_as_guest
+    unless session[:continue_as_guest]
+      session[:user_return_to] = place_my_cart_path(@place.slug)
+      redirect_to new_user_session_path
+    end
   end
 
   def set_current_cart_item

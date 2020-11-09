@@ -29,6 +29,30 @@ body, html {
   background-color: #fff;
 }
 
+.or {
+  position: relative;
+  width: 100%;
+  line-height: 50px;
+  text-align: center;
+}
+
+.or::before,
+.or::after {
+  position: absolute;
+  width: 40%;
+  height: 1px;
+  top: 24px;
+  background-color: #aaa;
+  content: '';
+}
+
+.or::before {
+  left: 0;
+}
+
+.or::after {
+  right: 0;
+}
 
 .sidebar-overlay {
   transition: all .5s;

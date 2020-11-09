@@ -65,6 +65,19 @@ class Users::SessionsController < Devise::SessionsController
     # super
   end
 
+
+  def continue_as_guest
+    session[:continue_as_guest] = true
+    old_session = session[:continue] || session[:user_return_to]
+    if old_session
+      session[:user_return_to] = nil
+      session[:continue] = nil
+      redirect_to old_session
+    else
+      redirect_to root_path
+    end
+  end
+
   # DELETE /resource/sign_out
   # def destroy
   #   super
@@ -76,4 +89,5 @@ class Users::SessionsController < Devise::SessionsController
   def configure_sign_in_params
     devise_parameter_sanitizer.permit(:sign_in, keys: [:phone])
   end
+
 end

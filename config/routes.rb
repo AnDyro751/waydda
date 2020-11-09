@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   devise_for :users, :controllers => {sessions: "users/sessions"}
   devise_scope :user do
     get 'acceder', to: 'users/sessions#new' #, as: :new_user_session
+    post "/guest", to: "users/sessions#continue_as_guest", as: "continue_as_guest"
   end
   get "/my-profile", to: "users#my_profile", as: "my_profile"
   get "/my-profile/edit", to: "users#edit", as: "edit_my_profile"

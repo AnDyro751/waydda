@@ -31,6 +31,9 @@
   </div>
   <div class="w-full">
     <%= yield %>
+    <% if params["console"] %>
+      <%= console %>
+    <% end %>
   </div>
 </div>
 </body>

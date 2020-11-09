@@ -72,8 +72,10 @@ class ApplicationController < ActionController::Base
     # current_or_guest_user
     MergeUserCartsJob.perform_later(guest_user, current_user)
     session[:guest_user_id] = nil
+    session[:continue_as_guest] = nil
     if session[:continue]
       navigation = session[:continue]
+
       session[:continue] = nil
       navigation
     else

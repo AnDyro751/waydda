@@ -1,4 +1,4 @@
-<div class="w-full justify-center min-h-screen flex items-center">
+<div class="w-full justify-center min-h-screen flex items-center flex-wrap">
   <div class="w-4/12 flex flex-wrap bg-white p-6 rounded shadow-xl">
     <%= link_to root_path, class: "w-full flex items-center" do %>
       <img
@@ -40,6 +40,13 @@
         %>
       </div>
       <%= f.submit "Iniciar sesión", data: {disable_with: "Cargando..."}, class: "#{main_color_button(color: "primary", padding: "big", size: "big")} w-full" %>
+      <div class="w-full mt-4 or select-none">
+        <span class="font-normal text-gray-700">O</span>
+      </div>
     <% end %>
+    <div class="w-full">
+      <%= button_to "Continua como invitado", continue_as_guest_path, remote: true, data: {disable_with: "Iniciando sesión"}, class: "#{main_color_button(color: "dark", padding: "big")} w-full" %>
+    </div>
   </div>
 </div>
+

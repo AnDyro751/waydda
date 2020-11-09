@@ -32,8 +32,15 @@
       <div class="static overflow-y-auto h-screen">
         <div id="sidebar-toggle-content-type" class="mb-32"></div>
         <% if @place %>
-          <%= link_to place_my_cart_path(@place.slug), class: "absolute bottom-0 left-0 right-0 bg-black p-4 text-center shadow-top" do %>
-            <span class="text-white text-center font-medium text-center">Ir a pagar</span>
+
+          <% if @as_guest %>
+            <%= link_to place_my_cart_path(@place.slug), class: "absolute bottom-0 left-0 right-0 bg-black p-4 text-center shadow-top" do %>
+              <span class="text-white text-center font-medium text-center">Ir a pagar</span>
+            <% end %>
+          <% else %>
+            <%= link_to new_user_session_path({continue: "#{place_my_cart_path(@place.slug)}"}), class: "absolute bottom-0 left-0 right-0 bg-black p-4 text-center shadow-top" do %>
+              <span class="text-white text-center font-medium text-center">Ir a pagar</span>
+            <% end %>
           <% end %>
         <% end %>
       </div>
