@@ -1,5 +1,10 @@
+<% if @in_show %>
+document.querySelector("#order-actions").innerHTML = "<%= j render Dashboard::Orders::Actions.new(order: @order) %>"
+document.querySelector("#order-info").innerHTML = "<%= j render Dashboard::Orders::Info.new(order: @order) %>"
+<% else %>
 var element = document.querySelector("#order_<%= @order.id.to_s %>");
 if (element) {
     element.parentNode.removeChild(element);
 }
+<% end %>
 window.addToastify("primary", "Se ha enviado una notificación al comprador");

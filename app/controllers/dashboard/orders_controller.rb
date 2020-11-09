@@ -3,6 +3,7 @@ class Dashboard::OrdersController < ApplicationController
   before_action :authenticate_user!
   before_action :set_my_place
   before_action :set_order, only: [:send_order, :process_order, :show, :edit, :update, :cancel_order, :receive_order, :destroy]
+  before_action :set_action_param, only: [:send_order, :process_order, :cancel_order, :receive_order]
   add_breadcrumb "Mis ventas", :dashboard_orders_path
 
   def index
@@ -104,6 +105,10 @@ class Dashboard::OrdersController < ApplicationController
 
 
   private
+
+  def set_action_param
+    @in_show = params["custom_action"].present?
+  end
 
   def set_order
     @order = @place.orders.order_by(created_at: "desc").find_by(id: params["order_id"] || params["id"]) || not_found

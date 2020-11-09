@@ -1,5 +1,5 @@
 <div class="w-full mb-3 <%= helpers.border_color %>">
-  <h3 class="text-xl font-medium p-3 bg-main-gray">Información</h3>
+  <h3 class="text-xl font-medium p-3 <%= @order.cancelled? ? "bg-red-700 text-white" : "bg-main-gray" %>"><%= @order.cancelled? ? "Orden cancelada" : "#{I18n.t("order.status.#{@order.status}")}" %></h3>
   <div class="w-full border-t border-b p-3 flex">
     <div class="w-3/12">
       <span class="uppercase text-gray-700 text-xs">Tipo de envío</span>

@@ -45,6 +45,14 @@ en:
   shipment_type:
     pickup: "Recolección en sucursal"
     delivery: "Envío a domicilio"
+  order:
+    status:
+      pending: "Orden pendiente"
+      active: "Orden activa"
+      cancelled: "Orden cancelada"
+      in_process: "Orden en proceso"
+      sent: "Orden envíada"
+      received: "Orden recibida"
   cocoon:
     defaults:
       add: "Agregar"
