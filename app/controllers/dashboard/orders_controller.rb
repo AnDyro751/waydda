@@ -40,9 +40,6 @@ class Dashboard::OrdersController < ApplicationController
     set_meta_tags title: "Pedido ##{@order.uuid} | Panel de control",
                   description: "Pedido ##{@order.uuid} - Panel de control"
     add_breadcrumb "Pedido ##{@order.uuid}", dashboard_order_path(@order)
-    # TODO: Mostrar productos vendidos con su respectivo aggregate
-    # TODO: Mostrar el precio por producto
-    # TODO: Mostrar total del pedido
   end
 
   def process_order
