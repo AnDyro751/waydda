@@ -18,6 +18,7 @@ class Order
   # Relations
   belongs_to :place
   belongs_to :cart
+  belongs_to :user
   # Embeds
   has_many :order_items
   embeds_one :address
@@ -104,7 +105,7 @@ class Order
   # @param [Object] current_user
   # @return [TrueClass]
   def self.create_new_order(cart:, place:, address:, current_user:, total:)
-    new_order = place.orders.new(uuid: cart.uuid, payment_type: "cash", shipment_type: cart.delivery_kind, send_to: {name: "#{current_user.name} #{current_user.lastName}", phone: current_user.phone, email: current_user.email}, total_order: total, address: address, cart: cart)
+    new_order = place.orders.new(user: current_user, uuid: cart.uuid, payment_type: "cash", shipment_type: cart.delivery_kind, send_to: {name: "#{current_user.name} #{current_user.lastName}", phone: current_user.phone, email: current_user.email}, total_order: total, address: address, cart: cart)
     if new_order.save
       return true
     else

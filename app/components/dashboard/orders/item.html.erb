@@ -1,14 +1,21 @@
-<div class="w-full flex space-x-3 p-3 items-center">
+<div class="w-full flex space-x-3 p-3 items-center hover:bg-blue-100">
   <div class="w-3/12">
     <!--    <div class="mb-3">-->
     <!--      <img-->
     <!--        class="w-16 border-2 rounded hover:shadow transition duration-150 h-16"-->
     <!--        src="<%#= helpers.get_image_url(80, 80, @order_item.product.photo, "contain") %>" alt="">-->
     <!--    </div>-->
-    <p class="font-medium"><%= @order_item.product.name %></p>
-    <p class="text-xs text-gray-700 mt-1"><%= helpers.number_to_currency(@order_item.product.price) %></p>
+    <%= link_to dashboard_product_path(@order_item.product), target: "_blank" do %>
+      <p class="font-medium"><%= @order_item.product.name %></p>
+    <% end %>
+    <%= link_to dashboard_product_path(@order_item.product), target: "_blank" do %>
+      <p class="text-xs text-gray-700 mt-1"><%= helpers.number_to_currency(@order_item.product.price) %></p>
+    <% end %>
+
     <% if @order_item.product.sku.present? %>
-      <p class="text-xs text-gray-700 mt-1"><%= @order_item.product.sku %></p>
+      <%= link_to dashboard_product_path(@order_item.product), target: "_blank" do %>
+        <p class="text-xs text-gray-700 mt-1"><%= @order_item.product.sku %></p>
+      <% end %>
     <% end %>
   </div>
   <div class="w-5/12">
