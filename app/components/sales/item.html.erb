@@ -58,9 +58,11 @@
       <%= link_to dashboard_order_path(@sale) do %>
         <h4 class="font-normal mb-3">Entregar en:</h4>
       <% end %>
-      <h4 class="font-medium text-lg mb-3">
-        <%= @sale.address.address %>
-      </h4>
+      <%= link_to dashboard_order_path(@sale) do %>
+        <h4 class="font-medium text-lg mb-3">
+          <%= @sale.address.address %>
+        </h4>
+      <% end %>
     <% else %>
       <%= link_to dashboard_order_path(@sale) do %>
         <h4 class="font-medium text-lg mb-3">Se recogerá el pedido en sucursal</h4>

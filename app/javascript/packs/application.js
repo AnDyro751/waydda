@@ -30,16 +30,18 @@ document.addEventListener("turbolinks:load", function () {
 
     window.vanillaModal = VanillaModal;
     var current_location = location.href;
-    window.current_modal = new window.vanillaModal({
-        onBeforeClose: function () {
-            console.log("befeore")
-            history.replaceState({}, "", current_location);
-        },
-        onClose: () => {
-            document.querySelector("#modal").innerHTML = "";
-            document.querySelector("#modal-content").innerHTML = "";
-        }
-    });
+    if (document.querySelector(".modal")) {
+        window.current_modal = new window.vanillaModal({
+            onBeforeClose: function () {
+                console.log("befeore")
+                history.replaceState({}, "", current_location);
+            },
+            onClose: () => {
+                document.querySelector("#modal").innerHTML = "";
+                document.querySelector("#modal-content").innerHTML = "";
+            }
+        });
+    }
 })
 
 // Uncomment to copy all static images under ../images to the output folder and reference
