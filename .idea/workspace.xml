@@ -19,10 +19,12 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b89cb0fb-b680-4bb9-8ae0-f4b41721cfb9" name="Default Changelist" comment="feat(Emails): Envio de email cuando se envía la orden">
+    <list default="true" id="b89cb0fb-b680-4bb9-8ae0-f4b41721cfb9" name="Default Changelist" comment="feat(Emails): Arreglamos un error del application.js para el modal en el sign in">
+      <change afterPath="$PROJECT_DIR$/app/components/dashboard/orders/show_map.html.erb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/components/dashboard/orders/show_map.rb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/javascript/packs/dashboard/orders/show.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/components/sales/item.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/components/sales/item.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/javascript/packs/application.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/javascript/packs/application.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/dashboard/orders/show.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/dashboard/orders/show.html.erb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -128,15 +130,15 @@
     <property name="ts.external.directory.path" value="D:\Program Files\RubyMine 2020.1.2\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/app/views/dashboard/subscriptions" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/app/javascript/packs/dashboard" />
       <recent name="$PROJECT_DIR$/app/components/dashboard/products" />
       <recent name="$PROJECT_DIR$/app/views/dashboard/utils" />
       <recent name="\\wsl$\Ubuntu-18.04\home\andyro\Code\RB\waydda\app\views\dashboard\settings" />
       <recent name="\\wsl$\Ubuntu-18.04\home\andyro\Code\RB\waydda\app\javascript\packs\css" />
-      <recent name="\\wsl$\Ubuntu-18.04\home\andyro\Code\RB\waydda\app\views\dashboard\dashboard" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/app/views/dashboard/subscriptions" />
     </key>
   </component>
   <component name="RunAnythingCache">
@@ -827,14 +829,7 @@
       <workItem from="1604863023684" duration="5541000" />
       <workItem from="1604895733102" duration="5198000" />
       <workItem from="1604950484129" duration="2902000" />
-      <workItem from="1605072127602" duration="1278000" />
-    </task>
-    <task id="LOCAL-00394" summary="feat(Place): Traemos el producto sin problemas en json mediante REST">
-      <created>1603388410734</created>
-      <option name="number" value="00394" />
-      <option name="presentableId" value="LOCAL-00394" />
-      <option name="project" value="LOCAL" />
-      <updated>1603388410734</updated>
+      <workItem from="1605072127602" duration="2310000" />
     </task>
     <task id="LOCAL-00395" summary="feat(Place): Abrimos el producto mediante un link remote">
       <created>1603399527872</created>
@@ -1172,7 +1167,14 @@
       <option name="project" value="LOCAL" />
       <updated>1605073233773</updated>
     </task>
-    <option name="localTasksCounter" value="443" />
+    <task id="LOCAL-00443" summary="feat(Emails): Arreglamos un error del application.js para el modal en el sign in">
+      <created>1605073508022</created>
+      <option name="number" value="00443" />
+      <option name="presentableId" value="LOCAL-00443" />
+      <option name="project" value="LOCAL" />
+      <updated>1605073508023</updated>
+    </task>
+    <option name="localTasksCounter" value="444" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -1192,7 +1194,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="feat(Cart): Agregamos botones y un pequeño diseño para la orden que aún no se ha procesado" />
     <MESSAGE value="feat(Cart): Agregamos otros filtros de busqueda y un catch para retornar cuando el filtro no es correcto" />
     <MESSAGE value="feat(Dashboard): Agregamos un span para mostrar la hora de creación de las ordenes" />
     <MESSAGE value="feat(Dashboard): Se agregó un mensaje para mostrar cuando no hay records" />
@@ -1217,7 +1218,8 @@
     <MESSAGE value="feat(Cart): Agregamos el current or guest user para poder acceder al carrito" />
     <MESSAGE value="feat(Cart): Redireccionamos al carrito cuando es necesario" />
     <MESSAGE value="feat(Emails): Envio de email cuando se envía la orden" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat(Emails): Envio de email cuando se envía la orden" />
+    <MESSAGE value="feat(Emails): Arreglamos un error del application.js para el modal en el sign in" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat(Emails): Arreglamos un error del application.js para el modal en el sign in" />
   </component>
   <component name="WindowStateProjectService">
     <state x="392" y="0" key="#All_specs_in_spec:_waydda" timestamp="1598730457189">
@@ -1361,13 +1363,13 @@
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="628" y="298" key="com.jetbrains.plugins.remotesdk.ui.RemoteMappingsConfiguration/0.0.1366.768@0.0.1366.768" timestamp="1598729856431" />
-    <state x="390" y="117" width="791" height="624" key="find.popup" timestamp="1605073411585">
+    <state x="390" y="117" width="791" height="624" key="find.popup" timestamp="1605074314344">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="1914" y="96" width="823" height="878" key="find.popup/0.0.1366.768/1366.-69.1920.1080@1366.-69.1920.1080" timestamp="1597716285449" />
     <state x="1754" y="117" width="583" height="624" key="find.popup/0.0.1366.768/1366.0.1360.768@1366.0.1360.768" timestamp="1598981376119" />
     <state x="1914" y="165" width="823" height="878" key="find.popup/0.0.1366.768/1366.0.1920.1080@1366.0.1920.1080" timestamp="1599260651210" />
-    <state x="390" y="117" width="791" height="624" key="find.popup/0.0.1366.768@0.0.1366.768" timestamp="1605073411585" />
+    <state x="390" y="117" width="791" height="624" key="find.popup/0.0.1366.768@0.0.1366.768" timestamp="1605074314344" />
     <state x="549" y="254" width="250" height="278" key="jetbrains.javascript.buildTools.run-task-popup" timestamp="1597946321130">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
@@ -1376,13 +1378,13 @@
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="339" y="174" width="672" height="677" key="run.anything.popup/0.0.1366.768@0.0.1366.768" timestamp="1600370541201" />
-    <state x="346" y="89" width="672" height="678" key="search.everywhere.popup" timestamp="1605073275351">
+    <state x="346" y="89" width="672" height="678" key="search.everywhere.popup" timestamp="1605073811329">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="1852" y="56" width="945" height="954" key="search.everywhere.popup/0.0.1366.768/1366.-69.1920.1080@1366.-69.1920.1080" timestamp="1597715976170" />
     <state x="1710" y="89" width="672" height="678" key="search.everywhere.popup/0.0.1366.768/1366.0.1360.768@1366.0.1360.768" timestamp="1598985878395" />
     <state x="1852" y="125" width="945" height="954" key="search.everywhere.popup/0.0.1366.768/1366.0.1920.1080@1366.0.1920.1080" timestamp="1599267313630" />
-    <state x="346" y="89" width="672" height="678" key="search.everywhere.popup/0.0.1366.768@0.0.1366.768" timestamp="1605073275351" />
+    <state x="346" y="89" width="672" height="678" key="search.everywhere.popup/0.0.1366.768@0.0.1366.768" timestamp="1605073811329" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/waydda@AggregateCategory_Save_reco___.rcov" NAME="AggregateCategory Save reco... Coverage Results" MODIFIED="1602439891498" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="waydda" />
