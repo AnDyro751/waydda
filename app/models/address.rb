@@ -12,13 +12,13 @@ class Address
   # before_validation :update_old_records
   after_destroy :verify_last_default
 
-  field :address, type: String
+  field :address, type: String, default: ""
   field :city, type: String
   field :country, type: String
   field :location, type: Point
   field :default, type: Boolean, default: false
   field :description, type: String, default: ""
-  field :internal_number, type: String
+  field :internal_number, type: String, default: ""
   field :current, type: Boolean, default: false
   field :lat, type: Float
   field :lng, type: Float

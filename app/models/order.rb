@@ -62,6 +62,9 @@ class Order
     end
     event :to_sent do
       after do
+        if self.shipment_type === "delivery"
+          OrderMailer.customer_order_send(order: self).deliver_later
+        end
         # Mandar un email para ver si el pedido se realizó par pickup o envío
         # Mandar un email para decirle al usuario que el negocio ha enviado la orden
       end

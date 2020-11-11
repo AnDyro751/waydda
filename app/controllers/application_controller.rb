@@ -21,7 +21,7 @@ class ApplicationController < ActionController::Base
       end
       current_user
     else
-      puts "-----------ELSE"
+      puts "-----------ELSE------------"
       guest_user
     end
   end

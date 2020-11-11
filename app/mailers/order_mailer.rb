@@ -32,4 +32,11 @@ class OrderMailer < ApplicationMailer
          :subject => 'Compra cancelada. Waydda México.')
   end
 
+  def customer_order_send(order:)
+    @order = order
+    mail(:to => "angelmendezz751@gmail.com",
+         :subject => "Tu pedido ha sido enviado"
+    )
+  end
+
 end
