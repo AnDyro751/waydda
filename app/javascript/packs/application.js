@@ -25,24 +25,7 @@ window.getScript = function (url) {
     httpRequest.send()
 };
 
-document.addEventListener("turbolinks:load", function () {
-    document.querySelector("body").classList.remove("overflow-hidden");
 
-    window.vanillaModal = VanillaModal;
-    var current_location = location.href;
-    if (document.querySelector(".modal")) {
-        window.current_modal = new window.vanillaModal({
-            onBeforeClose: function () {
-                console.log("befeore")
-                history.replaceState({}, "", current_location);
-            },
-            onClose: () => {
-                document.querySelector("#modal").innerHTML = "";
-                document.querySelector("#modal-content").innerHTML = "";
-            }
-        });
-    }
-})
 
 // Uncomment to copy all static images under ../images to the output folder and reference
 // them with the image_pack_tag helper in views (e.g <%= image_pack_tag 'rails.png' %>)
@@ -220,6 +203,22 @@ const turbolinksPersistScroll = () => {
 document.addEventListener('turbolinks:render', turbolinksPersistScroll)
 document.addEventListener("turbolinks:load", () => {
     console.log("LOAD")
+    document.querySelector("body").classList.remove("overflow-hidden");
+
+    window.vanillaModal = VanillaModal;
+    var current_location = location.href;
+    if (document.querySelector(".modal")) {
+        window.current_modal = new window.vanillaModal({
+            onBeforeClose: function () {
+                console.log("befeore")
+                history.replaceState({}, "", current_location);
+            },
+            onClose: () => {
+                document.querySelector("#modal").innerHTML = "";
+                document.querySelector("#modal-content").innerHTML = "";
+            }
+        });
+    }
     turbolinksPersistScroll();
     window.Toastify = Toastify;
 

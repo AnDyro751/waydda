@@ -1,9 +1,19 @@
-<h2 class="font-normal text-xl mt-5 mb-8"><%= @message %></h2>
+<div class="w-full p-3 <%= helpers.border_color %> mt-5 mb-16 bg-main-gray flex items-center" >
+  <div class="w-6/12" >
+    <h2 class="font-normal text-xl flex"><%= @message %></h2>
+  </div>
+  <div class="w-6/12 flex justify-end" >
+    <%= link_to "Ver todas las ventas", dashboard_orders_path({filter: "pending"}), class: "text-blue-700 font-normal" %>
+  </div>
+</div>
 <% if @orders.length <= 0 %>
   <%= render(EmptyRecords.new(title: "No tienes ningún envío pendiente 🥳")) %>
 <% else %>
-  <% @orders.each do |v| %>
-    <!--Code here-->
-  <% end %>
+  <div class="w-full flex">
+    <%= render Sales::List.new(sales: @orders, place: @place) %>
+  </div>
+  <div class="w-full mt-4">
+    <%= link_to "Ver todas las ventas", dashboard_orders_path({filter: "pending"}), class: "text-blue-700 font-normal" %>
+  </div>
 <% end %>
 

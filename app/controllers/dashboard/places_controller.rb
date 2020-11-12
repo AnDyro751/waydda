@@ -69,7 +69,7 @@ class Dashboard::PlacesController < ApplicationController
     set_meta_tags title: "#{@place.name} | Panel de control",
                   description: "#{@place.name} | Panel de control"
     @products = @place.products.where(:last_viewed.gte => (Date.today - 30)).paginate(page: params[:page], per_page: 20)
-    @orders = Order.where(place: @place, status: "pending")
+    @sales = @place.orders.order_by(created_at: "desc").where(status: "pending").includes(:order_items).limit(4)
   end
 
   # GET /dashboard/settings

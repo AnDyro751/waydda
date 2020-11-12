@@ -38,9 +38,7 @@
 </div>
 
 <div class="w-full">
-  <%#= render(TestComponent.new(title: "my title")) %>
-  <%#= render(EmptyRecords.new(title: "Envíos pendientes")) %>
-  <%= render(LastSales::LastSales.new(message: "Envíos pendientes", orders: @orders)) %>
+  <%= render(LastSales::LastSales.new(message: "Pedidos pendientes", orders: @sales, place: @place)) %>
 </div>
 
 <div class="w-full">
