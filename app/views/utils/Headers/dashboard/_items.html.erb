@@ -44,7 +44,7 @@
   <% end %>
 
 
-  <%= render Dashboard::Sidebar::Item.new(text: "Links de pago", to: dashboard_edit_my_place_path, active_controller: [""]) do %>
+  <%= render Dashboard::Sidebar::Item.new(text: "Links de pago", to: dashboard_payment_links_path, active_controller: ["dashboard/payment_links"]) do %>
     <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
          class="h-6 w-6 fill-current mr-4 inline opacity-75"
 

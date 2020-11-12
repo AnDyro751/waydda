@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
+
   root 'home#index'
   # TODO: Agregar seguridad a esto
-  mount Split::Dashboard, at: 'split'
+  # mount Split::Dashboard, at: 'split'
   # Business
   get "/business", to: "home#business", as: :home_business
   get "/pricing", to: "home#pricing", as: :price_business
@@ -63,6 +64,8 @@ Rails.application.routes.draw do
     get "/upgrade", to: "places#upgrade", as: :upgrade_plan
     get "/upgrade/:subscription_id", to: "subscriptions#new", as: :new_subscription
     post "/upgrade/:subscription_id", to: "subscriptions#create", as: :create_subscription
+    # Payment Links
+    resources :payment_links, only: [:index]
     # Items
     resources :items, path: "departments" do
       delete "/:product_id", to: "items#remove_product", as: :remove_product
