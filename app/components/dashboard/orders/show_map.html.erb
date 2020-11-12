@@ -1,5 +1,14 @@
-<div class="w-full mb-3 <%= helpers.border_color %>">
+<div class="w-full mt-3 <%= helpers.border_color %>">
   <h3 class="text-xl font-medium p-3 bg-main-gray">Mapa</h3>
-  <div class="h-56 w-56 bg-main-gray" id="map" data-map-lng="<%= @order.address.lng %>" data-map-lat="<%= @order.address.lat %>" ></div>
+  <div class="w-full flex space-x-4 px-4 py-8">
+    <div class="h-xxxl w-full bg-main-gray shadow-lg" id="map" data-map-lng="<%= @order.address.lng %>" data-map-lat="<%= @order.address.lat %>"></div>
+  </div>
+  <div class="w-full p-3">
+    <a
+      href="https://www.google.com/maps/search/?api=1&query=<%= @order.address.lat %>,<%= @order.address.lng %>" target="_blank"
+      class="w-full text-blue-700 font-normal text-sm">
+      Ver en el Google Maps
+    </a>
+  </div>
 </div>
 <%= javascript_pack_tag 'dashboard/orders/show', 'data-turbolinks-track': 'reload' %>

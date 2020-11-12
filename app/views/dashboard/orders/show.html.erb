@@ -11,9 +11,7 @@
   <%= render Dashboard::Orders::Info.new(order: @order) %>
 </div>
 
-<div class="w-full" id="order-map">
-  <%= render Dashboard::Orders::ShowMap.new(order: @order) %>
-</div>
+
 
 <div class="w-full <%= border_color %>">
   <h3 class="text-xl font-medium p-3 bg-main-gray">Cliente</h3>
@@ -48,6 +46,9 @@
       <a target="_blank" class="text-blue-700 underline truncate" href="mailto:<%= @order.send_to["email"] %>"><%= @order.send_to["email"] %></a>
     </div>
   </div>
+</div>
+<div class="w-full" id="order-map">
+  <%= render Dashboard::Orders::ShowMap.new(order: @order) %>
 </div>
 <div class="w-full mb-20 mt-6 <%= border_color %>">
   <h3 class="text-xl font-medium p-3 bg-main-gray">Productos vendidos</h3>
