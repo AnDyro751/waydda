@@ -5,6 +5,8 @@ mapboxgl.accessToken = 'pk.eyJ1Ijoid2F5ZGRhIiwiYSI6ImNrZzYwZWJiYzB6bjMycW5udmd1N
 if (document.querySelector("#map")) {
     var lat = parseFloat(document.querySelector("#map").dataset["mapLat"]);
     var lng = parseFloat(document.querySelector("#map").dataset["mapLng"]);
+    var lngPlace = parseFloat(document.querySelector("#map").dataset["placeLng"]);
+    var latPlace = parseFloat(document.querySelector("#map").dataset["placeLat"]);
     console.log(lat, lng)
     window.current_map = new mapboxgl.Map({
         container: document.querySelector("#map"),
@@ -14,5 +16,8 @@ if (document.querySelector("#map")) {
     });
     var currentMarker = new mapboxgl.Marker()
         .setLngLat([lng, lat])
+        .addTo(window.current_map).setDraggable(false);
+    var placeMarker = new mapboxgl.Marker()
+        .setLngLat([lngPlace, latPlace])
         .addTo(window.current_map).setDraggable(false);
 }

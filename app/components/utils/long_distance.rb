@@ -1,5 +1,7 @@
 class Utils::LongDistance < ViewComponent::Base
-  def initialize(size: false)
+  # @param [String] message
+  def initialize(size: false, message: "Tu dirección actual está demasiado lejos de este lugar")
     @size = size
+    @message = message
   end
 end

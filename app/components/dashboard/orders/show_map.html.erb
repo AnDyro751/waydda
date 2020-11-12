@@ -1,7 +1,12 @@
 <div class="w-full mt-3 <%= helpers.border_color %>">
   <h3 class="text-xl font-medium p-3 bg-main-gray">Mapa</h3>
+  <% unless @place.available_distance?([@order.address.lat, @order.address.lng]) %>
+    <div class="w-full px-3 mt-4 flex">
+      <%= render Utils::LongDistance.new(size: @size, message: "La dirección de envío de este pedido está demasiado lejos de tu sucursal") %>
+    </div>
+  <% end %>
   <div class="w-full flex space-x-4 px-4 py-8">
-    <div class="h-xxxl w-full bg-main-gray shadow-lg" id="map" data-map-lng="<%= @order.address.lng %>" data-map-lat="<%= @order.address.lat %>"></div>
+    <div class="h-xxxl w-full bg-main-gray shadow-lg" id="map" data-place-lng="<%= @place.lng %>" data-place-lat="<%= @place.lat %>" data-map-lng="<%= @order.address.lng %>" data-map-lat="<%= @order.address.lat %>"></div>
   </div>
   <div class="w-full p-3">
     <a
