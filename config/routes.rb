@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+
   root 'home#index'
   # TODO: Agregar seguridad a esto
   # mount Split::Dashboard, at: 'split'
@@ -66,6 +67,7 @@ Rails.application.routes.draw do
     # Payment Links
     resources :payment_links, only: [:index]
     resources :promotions, only: [:index]
+    resources :loyalties, only: [:index]
     # Items
     resources :items, path: "departments" do
       delete "/:product_id", to: "items#remove_product", as: :remove_product

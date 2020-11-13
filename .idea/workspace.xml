@@ -19,12 +19,12 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b89cb0fb-b680-4bb9-8ae0-f4b41721cfb9" name="Default Changelist" comment="feat(Dashboard): Pedidos pendientes en el index">
-      <change afterPath="$PROJECT_DIR$/app/assets/stylesheets/dashboard/promotions.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/controllers/dashboard/promotions_controller.rb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/helpers/dashboard/promotions_helper.rb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/views/dashboard/promotions/index.html.erb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test/controllers/dashboard/promotions_controller_test.rb" afterDir="false" />
+    <list default="true" id="b89cb0fb-b680-4bb9-8ae0-f4b41721cfb9" name="Default Changelist" comment="feat(Dashboard): Promotions init">
+      <change afterPath="$PROJECT_DIR$/app/assets/stylesheets/dashboard/loyalties.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/controllers/dashboard/loyalties_controller.rb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/helpers/dashboard/loyalties_helper.rb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/views/dashboard/loyalties/index.html.erb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test/controllers/dashboard/loyalties_controller_test.rb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/views/utils/Headers/dashboard/_items.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/utils/Headers/dashboard/_items.html.erb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/config/routes.rb" beforeDir="false" afterPath="$PROJECT_DIR$/config/routes.rb" afterDir="false" />
@@ -834,14 +834,7 @@
       <workItem from="1604950484129" duration="2902000" />
       <workItem from="1605072127602" duration="2332000" />
       <workItem from="1605210325585" duration="7348000" />
-      <workItem from="1605233913086" duration="1341000" />
-    </task>
-    <task id="LOCAL-00399" summary="feat(Place): Actualizamos el carrito y seteamos los nuevos elementos">
-      <created>1603409700910</created>
-      <option name="number" value="00399" />
-      <option name="presentableId" value="LOCAL-00399" />
-      <option name="project" value="LOCAL" />
-      <updated>1603409700910</updated>
+      <workItem from="1605233913086" duration="1465000" />
     </task>
     <task id="LOCAL-00400" summary="feat(Place): Mostramos el total del carrito y los items del mismo">
       <created>1603411439925</created>
@@ -1179,7 +1172,14 @@
       <option name="project" value="LOCAL" />
       <updated>1605220560253</updated>
     </task>
-    <option name="localTasksCounter" value="448" />
+    <task id="LOCAL-00448" summary="feat(Dashboard): Promotions init">
+      <created>1605242304373</created>
+      <option name="number" value="00448" />
+      <option name="presentableId" value="LOCAL-00448" />
+      <option name="project" value="LOCAL" />
+      <updated>1605242304374</updated>
+    </task>
+    <option name="localTasksCounter" value="449" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -1199,7 +1199,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="feat(Dashboard): Cancelamos orden y mostramos un pequeño texto según el status del pedido" />
     <MESSAGE value="feat(Dashboard): Completamos la orden y luego la finalizamos sin problemas 3:" />
     <MESSAGE value="feat(Dashboard): Pequeña versión del email de la orden" />
     <MESSAGE value="feat(Dashboard): Email con datos de verdad, recolectar o envio" />
@@ -1224,7 +1223,8 @@
     <MESSAGE value="feat(Emails): Mostramos el mapa en el show de la vista de order" />
     <MESSAGE value="feat(Dashboard): Mensaje de advertencia del envío" />
     <MESSAGE value="feat(Dashboard): Pedidos pendientes en el index" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat(Dashboard): Pedidos pendientes en el index" />
+    <MESSAGE value="feat(Dashboard): Promotions init" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat(Dashboard): Promotions init" />
   </component>
   <component name="WindowStateProjectService">
     <state x="392" y="0" key="#All_specs_in_spec:_waydda" timestamp="1598730457189">
@@ -1383,13 +1383,13 @@
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="339" y="174" width="672" height="677" key="run.anything.popup/0.0.1366.768@0.0.1366.768" timestamp="1600370541201" />
-    <state x="346" y="89" width="672" height="678" key="search.everywhere.popup" timestamp="1605242283489">
+    <state x="346" y="89" width="672" height="678" key="search.everywhere.popup" timestamp="1605242394222">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="1852" y="56" width="945" height="954" key="search.everywhere.popup/0.0.1366.768/1366.-69.1920.1080@1366.-69.1920.1080" timestamp="1597715976170" />
     <state x="1710" y="89" width="672" height="678" key="search.everywhere.popup/0.0.1366.768/1366.0.1360.768@1366.0.1360.768" timestamp="1598985878395" />
     <state x="1852" y="125" width="945" height="954" key="search.everywhere.popup/0.0.1366.768/1366.0.1920.1080@1366.0.1920.1080" timestamp="1599267313630" />
-    <state x="346" y="89" width="672" height="678" key="search.everywhere.popup/0.0.1366.768@0.0.1366.768" timestamp="1605242283489" />
+    <state x="346" y="89" width="672" height="678" key="search.everywhere.popup/0.0.1366.768@0.0.1366.768" timestamp="1605242394222" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/waydda@AggregateCategory_Save_reco___.rcov" NAME="AggregateCategory Save reco... Coverage Results" MODIFIED="1602439891498" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="waydda" />
