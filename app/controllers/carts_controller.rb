@@ -183,9 +183,11 @@ class CartsController < ApplicationController
   end
 
   def login_or_continue_as_guest
-    unless session[:continue_as_guest]
-      session[:user_return_to] = place_my_cart_path(@place.slug)
-      redirect_to new_user_session_path
+    unless user_signed_in?
+      unless session[:continue_as_guest]
+        session[:user_return_to] = place_my_cart_path(@place.slug)
+        redirect_to new_user_session_path
+      end
     end
   end
 
