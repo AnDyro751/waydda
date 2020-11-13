@@ -48,6 +48,7 @@ class Users::SessionsController < Devise::SessionsController
           end
           if params["user"]["verification_code"] === @last_verification_code.verification_code
             @last_verification_code.update(status: "used")
+            session[:continue_as_guest] = nil
             format.html { sign_in_and_redirect @user, notice: "Bienvenido de nuevo" }
 
           else
